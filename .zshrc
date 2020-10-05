@@ -23,7 +23,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 (cat ~/.config/sequences &)
 cat ~/.config/sequences
-source ~/.config/colors-tty.sh
+#source ~/.config/colors-tty.sh
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
