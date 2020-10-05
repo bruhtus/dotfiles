@@ -17,6 +17,19 @@ dotbare push origin master
 
 ### To restore all of your dotfiles into new system
 Install and config zsh, [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh), and [powerlevel10k](https://github.com/romkatv/powerlevel10k) first. And then do this command:
+
+#### Add dotbare to oh-my-zsh
+- Clone dotbare repository to oh-my-zsh plugins directory using the command below:
+```bash
+git clone https://github.com/kazhala/dotbare.git $HOME/.oh-my-zsh/custom/plugins/dotbare
+```
+- Activate the plugin in `~/.zshrc`, for example:
+```bash
+plugins=(git dotfiles) #There are 2 plugins, git plugin and dotbare plugin
+```
+- Restart the terminal (exit terminal and open it again).
+
+#### Initialize dotbare in new system
 ```bash
 dotbare finit -u <git-repo-url>
 ```
