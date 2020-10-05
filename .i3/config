@@ -62,7 +62,7 @@ bindsym $mod+Ctrl+Shift+c exec $myTerm -e vim '/home/bruhtus/.i3/config'
 bindsym $mod+w exec google-chrome-stable
 bindsym $mod+Ctrl+Shift+n exec google-chrome-stable --incognito
 bindsym $mod+Shift+z exec timeshift-launcher
-bindsym $mod+Shift+x exec virt-manager
+#bindsym $mod+Shift+x exec virt-manager
 bindsym $mod+Shift+q exec telegram-desktop
 bindsym $mod+Shift+n exec notion-app
 bindsym $mod+Shift+p exec pamac-manager
