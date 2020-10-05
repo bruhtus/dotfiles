@@ -1,0 +1,3 @@
+#rofi.theme: /usr/share/rofi/themes/Arc-Dark.rasi
+#rofi.theme: ~/.config/rofi/themes/color-scheme.rasi
+rofi.theme: ~/.config/rofi/themes/color-scheme-2.rasi
