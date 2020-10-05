@@ -21,9 +21,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 #cat ~/.cache/wal/sequences
 #source ~/.cache/wal/colors-tty.sh
 
-(cat ~/all_git_clone/i3_config/sequences &)
-cat ~/all_git_clone/i3_config/sequences
-source ~/all_git_clone/i3_config/colors-tty.sh
+(cat ~/.config/sequences &)
+cat ~/.config/sequences
+source ~/.config/colors-tty.sh
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
