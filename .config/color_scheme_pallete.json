@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/bruhtus/all_git_clone/i3_config/wallpaper.png",
+    "alpha": "100",
+    "special": {
+        "background": "#101010",
+        "foreground": "#f4eee4",
+        "cursor": "#f4eee4"
+    },
+    "colors": {
+        "color0": "#101010",
+        "color1": "#808081",
+        "color2": "#828385",
+        "color3": "#AEACA9",
+        "color4": "#CAC4B9",
+        "color5": "#D9D3C9",
+        "color6": "#E3DBD0",
+        "color7": "#f4eee4",
+        "color8": "#aaa69f",
+        "color9": "#808081",
+        "color10": "#828385",
+        "color11": "#AEACA9",
+        "color12": "#CAC4B9",
+        "color13": "#D9D3C9",
+        "color14": "#E3DBD0",
+        "color15": "#f4eee4"
+    }
+}
