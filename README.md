@@ -2,7 +2,7 @@
 
 This repo is to backup my linux configuration so that I don't need to configure every new installation (mainly using virtual machine).
 
-### Initialize dotbare to backup system
+### Initialize dotbare to backup configuration dotfiles
 ```bash
 dotbare finit
 ```
