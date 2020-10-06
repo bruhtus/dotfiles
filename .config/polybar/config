@@ -53,7 +53,7 @@ volume-max = #bf616a
 
 [bar/mainbar-i3]
 
-monitor = ${env:MONITOR:eDP1}
+monitor = ${env:MONITOR:eDP-1}
 monitor-strict = false
 override-redirect = false
 bottom = false
@@ -121,7 +121,7 @@ cursor-scroll =
 
 [bar/secondbar-i3]
 
-monitor = ${env:MONITOR:HDMI2}
+monitor = ${env:MONITOR:HDMI-2}
 monitor-strict = false
 override-redirect = false
 bottom = false
