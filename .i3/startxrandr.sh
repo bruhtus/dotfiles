@@ -1,3 +1,3 @@
 #!/bin/bash
 
-xrandr --output HDMI2 --auto --left-of eDP1
+xrandr --output HDMI-2 --auto --left-of eDP-1
