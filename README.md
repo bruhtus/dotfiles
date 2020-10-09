@@ -1,6 +1,6 @@
 # Dotfiles to Restore Configuration
 
-This repo is to backup my linux configuration so that I don't need to configure every new installation (mainly using virtual machine).
+This repo is to backup my linux configuration so that I don't need to configure every new installation (mainly using virtual machine). You can use the command below to backup and restore your dotfiles config.
 
 ### Initialize dotbare to backup configuration dotfiles
 ```bash
