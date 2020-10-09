@@ -63,6 +63,7 @@ bindsym $mod+w exec google-chrome-stable
 bindsym $mod+Ctrl+Shift+n exec google-chrome-stable --incognito
 bindsym $mod+Shift+z exec timeshift-launcher
 bindsym $mod+Shift+x exec virt-manager
+bindsym $mod+Shift+s exec emacs
 bindsym $mod+Shift+q exec telegram-desktop
 bindsym $mod+Shift+n exec notion-app
 bindsym $mod+Shift+p exec pamac-manager
@@ -77,7 +78,7 @@ bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart du
 #bindsym $mod+Shift+a --release exec --no-startup-id i3-scrot -w
 #bindsym $mod+Shift+s --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Shift+a --release exec --no-startup-id flameshot gui
-bindsym $mod+Shift+s --release exec --no-startup-id flameshot screen -r -c
+#bindsym $mod+Shift+s --release exec --no-startup-id flameshot screen -r -c
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # focus_follows_mouse no
