@@ -120,3 +120,5 @@ export PATH="$HOME/.emacs.d/bin:$PATH"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 #alias config='/usr/bin/git --git-dir=/home/bruhtus/.config/ --work-tree=/home/bruhtus'
 bindkey -v
+
+pfetch
