@@ -78,7 +78,7 @@ bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart du
 #bindsym $mod+Shift+a --release exec --no-startup-id i3-scrot -w
 #bindsym $mod+Shift+s --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Shift+a --release exec --no-startup-id flameshot gui
-#bindsym $mod+Shift+s --release exec --no-startup-id flameshot screen -r -c
+#bindsym $mod+Shift+a --release exec --no-startup-id flameshot screen -r -c
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # focus_follows_mouse no
