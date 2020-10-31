@@ -94,6 +94,11 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 export PATH="$HOME/.emacs.d/bin:$PATH"
 
+#install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -122,3 +127,19 @@ export PATH="$HOME/.emacs.d/bin:$PATH"
 bindkey -v
 
 pfetch
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/bruhtus/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/bruhtus/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/bruhtus/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/bruhtus/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
