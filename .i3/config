@@ -285,6 +285,8 @@ bindsym $mod+9 exec --no-startup-id blurlock
 # Autostart applications
 exec_always --no-startup-id $HOME/.i3/startxrandr.sh
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id xmodmap -e "clear lock" #disable capslock
+exec_always --no-startup-id xmodmap -e "keysym Caps_Lock = Escape" #set capslock as esc
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id wal -R
