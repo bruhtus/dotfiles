@@ -102,7 +102,7 @@ export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 #CUDA
 export PATH="/opt/cuda/bin:$PATH"
 export CPATH="/opt/cuda/include:$CPATH"
-export LD_LIBRARY_PATH="LD_LIBRARY_PATH:/opt/cuda/lib64:/opt/cuda/lib"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64:/opt/cuda/lib"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
