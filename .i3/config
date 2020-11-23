@@ -58,7 +58,7 @@ bindsym $mod+z exec terminal -e 'alsamixer'
 
 # Start Applications
 bindsym $mod+Ctrl+b exec $myTerm -e 'bmenu'
-bindsym $mod+Ctrl+Shift+c exec terminal -e vim '/home/bruhtus/.i3/config'
+bindsym $mod+Shift+c exec terminal -e vim '/home/bruhtus/.i3/config'
 bindsym $mod+w exec google-chrome-stable
 bindsym $mod+Ctrl+Shift+n exec google-chrome-stable --incognito
 bindsym $mod+Shift+n exec google-chrome-stable --new-window notion.so
@@ -232,7 +232,7 @@ for_window [class="Xfburn"] floating enable
 for_window [urgent=latest] focus
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+w restart
