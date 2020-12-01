@@ -36,7 +36,7 @@ dotbare finit -u <git-repo-url>
 
 For the difference between git init and git init --bare, you can check the [wiki](https://github.com/bruhtus/dotfiles/wiki/The-difference-between-git-init---bare-and-git-init)
 
-This information was gathered from:
+This informations were gathered from:
 - [Atlassian tutorial](https://www.atlassian.com/git/tutorials/dotfiles).
 - [DistroTube dotbare blog](https://www.distrotube.com/blog/interactive-dotfiles-management-with-dotbare/).
 - [Dotbare github repo](https://github.com/kazhala/dotbare).
