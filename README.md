@@ -34,7 +34,7 @@ plugins=(git dotfiles) #There are 2 plugins, git plugin and dotbare plugin
 dotbare finit -u <git-repo-url>
 ```
 
-For the difference between git init and git init --bare, you can check the [wiki](https://github.com/bruhtus/dotfiles/wiki/The-difference-between-git-init---bare-and-git-init)
+Check out the [wiki](https://github.com/bruhtus/dotfiles/wiki) for more stuff.
 
 This informations were gathered from:
 - [Atlassian tutorial](https://www.atlassian.com/git/tutorials/dotfiles).
