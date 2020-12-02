@@ -65,10 +65,11 @@ bindsym $mod+Ctrl+Shift+b exec google-chrome-stable --incognito https://github.c
 bindsym $mod+Shift+n exec google-chrome-stable --new-window notion.so
 bindsym $mod+Shift+t exec google-chrome-stable --new-window twitter.com
 bindsym $mod+Shift+i exec google-chrome-stable --new-window https://github.com/stars/bruhtus
-bindsym $mod+Shift+u exec google-chrome-stable --new-window https://github.com/trending/python?since=daily
+bindsym $mod+Shift+u exec google-chrome-stable --new-window https://github.com/trending/python?since=daily https://github.com/trending/python?since=weekly https://github.com/trending/python?since=monthly https://github.com/trending/jupyter-notebook?since=daily
 bindsym $mod+Shift+z exec timeshift-launcher
 bindsym $mod+Shift+x exec $myTerm -e htop
 bindsym $mod+Shift+s exec emacs
+bindsym $mod+Shift+y exec foliate
 bindsym $mod+Shift+q exec telegram-desktop
 bindsym $mod+Shift+p exec pamac-manager
 bindsym $mod+Shift+e exec pcmanfm
