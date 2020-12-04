@@ -59,6 +59,8 @@ bindsym $mod+z exec terminal -e 'alsamixer'
 # Start Applications
 bindsym $mod+Ctrl+b exec $myTerm -e 'bmenu'
 bindsym $mod+Shift+c exec terminal -e vim '/home/bruhtus/.i3/config'
+bindsym $mod+Shift+f exec $myTerm -e youtube-viewer
+bindsym $mod+Shift+d exec $myTerm -e googler
 bindsym $mod+w exec google-chrome-stable
 bindsym $mod+Ctrl+Shift+n exec google-chrome-stable --incognito
 bindsym $mod+Ctrl+Shift+b exec google-chrome-stable --incognito https://github.com/bruhtus?tab=repositories
@@ -68,6 +70,8 @@ bindsym $mod+Shift+i exec google-chrome-stable --new-window https://github.com/s
 bindsym $mod+Shift+u exec google-chrome-stable --new-window https://github.com/trending/python?since=daily https://github.com/trending/python?since=weekly https://github.com/trending/python?since=monthly https://github.com/trending/jupyter-notebook?since=daily
 bindsym $mod+Shift+z exec timeshift-launcher
 bindsym $mod+Shift+x exec $myTerm -e htop
+bindsym $mod+Ctrl+x exec $myTerm -e gtop
+bindsym $mod+Ctrl+c exec $myTerm -e ncdu
 bindsym $mod+Shift+s exec emacs
 bindsym $mod+Shift+y exec foliate
 bindsym $mod+Shift+q exec telegram-desktop
@@ -78,13 +82,13 @@ bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec $myTerm -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
-bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+#bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 #bindsym $mod+Ctrl+Shift+q exec --no-startup-id i3-scrot
 #bindsym $mod+Shift+a --release exec --no-startup-id i3-scrot -w
 #bindsym $mod+Shift+s --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Shift+a --release exec --no-startup-id flameshot gui
 #bindsym $mod+Shift+a --release exec --no-startup-id flameshot screen -r -c
-bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+#bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # focus_follows_mouse no
 
