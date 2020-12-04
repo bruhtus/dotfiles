@@ -11,7 +11,7 @@ let g:spacevim_plug_home = '~/.vim/plugged'
 " Enable the existing layers in space-vim.
 " Refer to https://github.com/liuchengxu/space-vim/blob/master/layers/LAYERS.md for all available layers.
 let g:spacevim_layers = [
-      \ 'fzf', 'better-defaults', 'which-key', 'html', 'python',
+      \ 'fzf', 'better-defaults', 'which-key', 'html',
       \ ]
 
 let g:livepreview_previewer = 'evince'
@@ -35,6 +35,7 @@ function! UserInit()
   Plug 'junegunn/seoul256.vim'
   Plug 'liuchengxu/vim-clap'
   Plug 'chrisbra/csv.vim'
+  Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 endfunction
 
@@ -51,5 +52,18 @@ function! UserConfig()
   " let g:airline_powerline_fonts = 1
   " set background=dark
   " colorscheme seoul256
+  let g:pymode_lint_checkers = ['pyflakes']
+  let g:pymode_trim_whitespaces = 0
+  let g:pymode_options = 0
+  let g:pymode_rope = 0
+
+  let g:pymode_indent = 1
+  let g:pymode_folding = 0
+  let g:pymode_options_colorcolumn = 1
+  let g:pymode_breakpoint_bind = '<leader>br'
+
+  if spacevim#load('syntax-checking')
+    let g:pymode_lint = 0
+  endif
 
 endfunction
