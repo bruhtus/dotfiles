@@ -1,6 +1,6 @@
 import os
 
-os.chdir('all_git')
+os.chdir(os.path.expanduser('~/all_git'))
 dir_list = [dirname for dirname in os.listdir(os.getcwd()) if os.path.isdir(dirname) == True]
 
 for dirname in dir_list:
