@@ -130,6 +130,7 @@ alias asd='python git-status-checker.py | less' #using less
 alias dba='dotbare add'
 alias dbc='dotbare commit -m'
 alias dbp='dotbare push'
+alias dbd='dotbare diff'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
