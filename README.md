@@ -42,4 +42,4 @@ Check out the [wiki](https://github.com/bruhtus/dotfiles/wiki) for more stuff.
 - [Dotbare github repo](https://github.com/kazhala/dotbare).
 - [Alacritty color schemes](https://github.com/alacritty/alacritty/wiki/Color-schemes).
 - [Alacritty preview color scheme](https://github.com/eendroroy/alacritty-theme).
-- [on-my-zsh cheatsheet](https://github.com/ohmyzsh/ohmyzsh/wiki/Cheatsheet).
+- [Oh-my-zsh cheatsheet](https://github.com/ohmyzsh/ohmyzsh/wiki/Cheatsheet).
