@@ -36,7 +36,10 @@ dotbare finit -u <git-repo-url>
 
 Check out the [wiki](https://github.com/bruhtus/dotfiles/wiki) for more stuff.
 
-This informations were gathered from:
+### References
 - [Atlassian tutorial](https://www.atlassian.com/git/tutorials/dotfiles).
 - [DistroTube dotbare blog](https://www.distrotube.com/blog/interactive-dotfiles-management-with-dotbare/).
 - [Dotbare github repo](https://github.com/kazhala/dotbare).
+- [Alacritty color schemes](https://github.com/alacritty/alacritty/wiki/Color-schemes).
+- [Alacritty preview color scheme](https://github.com/eendroroy/alacritty-theme).
+- [on-my-zsh cheatsheet](https://github.com/ohmyzsh/ohmyzsh/wiki/Cheatsheet).
