@@ -23,9 +23,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 #cat ~/.cache/wal/sequences
 #source ~/.cache/wal/colors-tty.sh
 
-(cat ~/.config/sequences &)
-cat ~/.config/sequences
-source ~/.config/colors-tty.sh
+#(cat ~/.config/sequences &)
+#cat ~/.config/sequences
+#source ~/.config/colors-tty.sh
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -126,11 +126,30 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64:/opt/cuda/lib"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #alias asd='vim -R <(python ~/git-status-checker.py)' #using vim
-alias asd='python git-status-checker.py | less' #using less
+alias qwe='python ~/git-status-checker.py | less' #using less
+alias asd='googler -n 5'
+alias zxc='youtube-viewer --resolution=480p' #poor internet
+
+#dotbare alias
 alias dba='dotbare add'
 alias dbc='dotbare commit -m'
 alias dbp='dotbare push'
 alias dbd='dotbare diff'
+
+#change ls to exa
+alias ls='exa -l --links -t=changed --git --group --color=always --group-directories-first --sort=ext'
+alias ll='exa -l --inode --header --blocks --links -t=changed --time-style=long-iso --git --group --color=always --group-directories-first --sort=ext'
+alias l.='exa -al -t=changed --git --group --color=always --group-directories-first | egrep "^\."'
+#alias lt='exa -l --tree --level=2 --links -t=changed --git --group --color=always --group-directories-first --sort=ext'
+
+#open exa tree in less
+function lt() {
+    exa -al --tree --level=2 --links -t=changed --git --group --color=always --group-directories-first --sort=ext $1 | less
+}
+
+#grep and less
+alias -g G='| grep'
+alias -g L='| less'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
