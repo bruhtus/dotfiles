@@ -159,12 +159,12 @@ scrolling:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
-# Colors (Tomorrow Night)
+# Colors (Wombat) except background
 colors:
   # Default colors
   primary:
-    background: '#030303'
-    foreground: '#f5f1ec'
+    background: '#101010'
+    foreground: '#e5e1d8'
 
     # Bright and dim foreground colors
     #
@@ -221,25 +221,25 @@ colors:
 
   # Normal colors
   normal:
-    black:   '#1d1f21'
-    red:     '#cc6666'
-    green:   '#b5bd68'
-    yellow:  '#f0c674'
-    blue:    '#81a2be'
-    magenta: '#b294bb'
-    cyan:    '#8abeb7'
-    white:   '#c5c8c6'
+    black:   '#000000'
+    red:     '#f7786d'
+    green:   '#bde97c'
+    yellow:  '#efdfac'
+    blue:    '#6ebaf8'
+    magenta: '#ef88ff'
+    cyan:    '#90fdf8'
+    white:   '#e5e1d8'
 
   # Bright colors
   bright:
-    black:   '#666666'
-    red:     '#d54e53'
-    green:   '#b9ca4a'
-    yellow:  '#e7c547'
-    blue:    '#7aa6da'
-    magenta: '#c397d8'
-    cyan:    '#70c0b1'
-    white:   '#eaeaea'
+    black:   '#b4b4b4'
+    red:     '#f99f92'
+    green:   '#e3f7a1'
+    yellow:  '#f2e9bf'
+    blue:    '#b3d2ff'
+    magenta: '#e5bdff'
+    cyan:    '#c2fefa'
+    white:   '#ffffff'
 
   # Dim colors
   #
