@@ -59,8 +59,8 @@ bindsym $mod+z exec terminal -e 'alsamixer'
 # Start Applications
 bindsym $mod+Ctrl+b exec $myTerm -e 'bmenu'
 bindsym $mod+Shift+c exec terminal -e vim '/home/bruhtus/.i3/config'
-bindsym $mod+Shift+f exec $myTerm -e youtube-viewer
-bindsym $mod+Shift+d exec $myTerm -e googler
+bindsym $mod+Shift+f exec $myTerm -e youtube-viewer --resolution=480p # i have no high speed internet connection :(
+bindsym $mod+Shift+s exec $myTerm -e googler -n 5
 bindsym $mod+w exec google-chrome-stable
 bindsym $mod+Ctrl+Shift+n exec google-chrome-stable --incognito
 bindsym $mod+Ctrl+Shift+b exec google-chrome-stable --incognito https://github.com/bruhtus?tab=repositories
@@ -72,7 +72,7 @@ bindsym $mod+Shift+z exec timeshift-launcher
 bindsym $mod+Shift+x exec $myTerm -e htop
 bindsym $mod+Ctrl+x exec $myTerm -e gtop
 bindsym $mod+Ctrl+c exec $myTerm -e ncdu
-bindsym $mod+Shift+s exec emacs
+bindsym $mod+Shift+d exec emacs
 bindsym $mod+Shift+y exec foliate
 bindsym $mod+Shift+q exec telegram-desktop
 bindsym $mod+Shift+p exec pamac-manager
