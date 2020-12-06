@@ -45,6 +45,7 @@ function! UserConfig()
   " Override the default settings.
   " Uncomment the following line to disable relative number.
   " set norelativenumber
+  set clipboard=unnamed "copy from one vim to another vim
 
   " Adding extras.
   " Uncomment the following line If you have installed the powerline fonts.
