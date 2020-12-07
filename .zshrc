@@ -152,10 +152,10 @@ os.system('dotbare status -s')" | less
 }
 
 alias asd='googler -n 5'
-alias zxc='youtube-viewer --resolution=480p' #poor internet
-alias zxcv='youtube-viewer --resolution=480p -n' #poor internet and no video (audio only)
+alias zxc='youtube-viewer -C --custom-layout --fixed-width --resolution=480p' #poor internet
+alias zxcv='youtube-viewer -C --custom-layout --fixed-width --resolution=480p -n' #poor internet and no video (audio only)
 alias reload='source ~/.zshrc'
-alias zshalias='cat .zshrc | grep ^alias | less'
+alias zshalias='grep "^alias" .zshrc | less'
 
 #dotbare alias
 alias dba='dotbare add'
@@ -199,6 +199,7 @@ alias yayss='yay -Ss'
 #alias config='/usr/bin/git --git-dir=/home/bruhtus/.config/ --work-tree=/home/bruhtus'
 bindkey -v
 
+#figlet -f slant bruhtus
 pfetch
 
 # >>> conda initialize >>>
