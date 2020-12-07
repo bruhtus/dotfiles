@@ -126,9 +126,36 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64:/opt/cuda/lib"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #alias asd='vim -R <(python ~/git-status-checker.py)' #using vim
-alias qwe='python ~/git-status-checker.py | less' #using less
+#alias qwe='python ~/git-status-checker.py | less' #using less
+function qwe(){ #directly into zshrc
+    python -c "
+import os
+
+os.chdir(os.path.expanduser('~/all_git'))
+dir_list = [dirname for dirname in os.listdir(os.getcwd()) if os.path.isdir(dirname) == True]
+
+for dirname in dir_list:
+    os.chdir(dirname)
+    os.system('pwd')
+    
+    if os.path.exists('.gitmodules') == True:
+        os.system('git status -s')
+        os.system('git submodule foreach git status -s')
+    else:
+        os.system('git status -s')
+
+    os.chdir('../')
+
+os.chdir('../')
+os.system('pwd')
+os.system('dotbare status -s')" | less
+}
+
 alias asd='googler -n 5'
 alias zxc='youtube-viewer --resolution=480p' #poor internet
+alias zxcv='youtube-viewer --resolution=480p -n' #poor internet and no video (audio only)
+alias reload='source ~/.zshrc'
+alias zshalias='cat .zshrc | grep ^alias | less'
 
 #dotbare alias
 alias dba='dotbare add'
@@ -143,13 +170,29 @@ alias l.='exa -al -t=changed --git --group --color=always --group-directories-fi
 #alias lt='exa -l --tree --level=2 --links -t=changed --git --group --color=always --group-directories-first --sort=ext'
 
 #open exa tree in less
-function lt() {
+function lt(){
     exa -al --tree --level=2 --links -t=changed --git --group --color=always --group-directories-first --sort=ext $1 | less
 }
 
 #grep and less
 alias -g G='| grep'
 alias -g L='| less'
+
+#conda alias
+alias cenv='conda env list'
+alias cac='conda activate'
+alias cde='conda deactivate'
+
+#python alias
+alias p='python'
+function pl(){python $1 | less}
+function pc(){python -c $1}
+
+#pacman alias
+alias pacsyu='sudo pacman -Syu'
+alias pacss='pacman -Ss'
+alias yaysua='sudo yay -Sua'
+alias yayss='yay -Ss'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
