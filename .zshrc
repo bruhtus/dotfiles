@@ -155,7 +155,7 @@ alias asd='googler -n 5'
 alias zxc='youtube-viewer -C --custom-layout --fixed-width --resolution=480p' #poor internet
 alias zxcv='youtube-viewer -C --custom-layout --fixed-width --resolution=480p -n' #poor internet and no video (audio only)
 alias reload='source ~/.zshrc'
-alias zshalias='grep "^alias" .zshrc | less'
+alias zshalias='grep "^alias" ~/.zshrc | less'
 
 #dotbare alias
 alias dba='dotbare add'
@@ -185,7 +185,7 @@ alias cde='conda deactivate'
 
 #python alias
 alias p='python'
-function pl(){python $1 | less}
+function pl(){python $@ | less}
 function pc(){python -c $1}
 
 #pacman alias
