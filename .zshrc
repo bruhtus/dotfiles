@@ -137,7 +137,7 @@ dir_list = [dirname for dirname in os.listdir(os.getcwd()) if os.path.isdir(dirn
 for dirname in dir_list:
     os.chdir(dirname)
     os.system('pwd')
-    
+
     if os.path.exists('.gitmodules') == True:
         os.system('git status -s')
         os.system('git submodule foreach git status -s')
@@ -151,17 +151,18 @@ os.system('pwd')
 os.system('dotbare status -s')" | less
 }
 
-alias asd='googler -n 5'
+alias asd='googler -n 4'
 alias zxc='youtube-viewer -C --custom-layout --fixed-width --resolution=480p' #poor internet
 alias zxcv='youtube-viewer -C --custom-layout --fixed-width --resolution=480p -n' #poor internet and no video (audio only)
 alias reload='source ~/.zshrc'
 alias zshalias='grep "^alias" ~/.zshrc | less'
+alias v='dirs -v'
 
 #dotbare alias
 alias dba='dotbare add'
 alias dbc='dotbare commit -m'
 alias dbp='dotbare push'
-alias dbd='dotbare diff'
+alias dbd='dotbare diff ~'
 
 #change ls to exa
 alias ls='exa -l --links -t=changed --git --group --color=always --group-directories-first --sort=ext'
@@ -174,9 +175,10 @@ function lt(){
     exa -al --tree --level=2 --links -t=changed --git --group --color=always --group-directories-first --sort=ext $1 | less
 }
 
-#grep and less
+#grep, less, and count
 alias -g G='| grep'
 alias -g L='| less'
+alias -g C='| wc -l'
 
 #conda alias
 alias cenv='conda env list'
@@ -190,8 +192,10 @@ function pc(){python -c $1}
 
 #pacman alias
 alias pacsyu='sudo pacman -Syu'
+alias pacs='sudo pacman -S'
 alias pacss='pacman -Ss'
 alias yaysua='sudo yay -Sua'
+alias yays='yay -S'
 alias yayss='yay -Ss'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
