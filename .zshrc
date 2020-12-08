@@ -153,7 +153,6 @@ os.system('dotbare status -s')" | less
 
 alias asd='googler -n 4'
 alias zxc='youtube-viewer -C --custom-layout --fixed-width --resolution=480p' #poor internet
-alias zxcv='youtube-viewer -C --custom-layout --fixed-width --resolution=480p -n' #poor internet and no video (audio only)
 alias reload='source ~/.zshrc'
 alias zshalias='grep "^alias" ~/.zshrc | less'
 alias v='dirs -v'
