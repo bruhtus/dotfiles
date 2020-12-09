@@ -59,8 +59,8 @@ bindsym $mod+z exec terminal -e 'alsamixer'
 # Start Applications
 bindsym $mod+Ctrl+b exec $myTerm -e 'bmenu'
 bindsym $mod+Shift+c exec terminal -e vim '/home/bruhtus/.i3/config'
-bindsym $mod+Shift+f exec $myTerm -e youtube-viewer --resolution=480p # i have no high speed internet connection :(
-bindsym $mod+Shift+s exec $myTerm -e googler -n 5
+bindsym $mod+Shift+f exec $myTerm -e youtube-viewer -C --custom-layout --fixed-width --resolution=480p # i have no high speed internet connection :(
+bindsym $mod+Shift+s exec $myTerm -e googler -n 4
 bindsym $mod+w exec google-chrome-stable
 bindsym $mod+Ctrl+Shift+n exec google-chrome-stable --incognito
 bindsym $mod+Ctrl+Shift+b exec google-chrome-stable --incognito https://github.com/bruhtus?tab=repositories
@@ -220,6 +220,7 @@ for_window [class="Lxappearance"] floating enable sticky enable border normal
 for_window [class="Manjaro-hello"] floating enable
 for_window [class="Manjaro Settings Manager"] floating enable border normal
 for_window [title="MuseScore: Play Panel"] floating enable
+for_window [class="mpv"] floating enable sticky enable
 for_window [class="Nitrogen"] floating enable sticky enable border normal
 for_window [class="Oblogout"] fullscreen enable
 for_window [class="octopi"] floating enable
@@ -307,7 +308,7 @@ exec --no-startup-id blueman-tray
 exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
-exec --no-startup-id $HOME/.config/conky/start_conky_color_scheme
+# exec --no-startup-id $HOME/.config/conky/start_conky_color_scheme
 # exec --no-startup-id start_conky_grey
 # exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
