@@ -191,7 +191,7 @@ function pc(){python -c $1}
 
 #pacman alias
 alias pacsyu='sudo pacman -Syu'
-alias pacs='sudo pacman -S'
+alias yalord='sudo pacman'
 alias pacss='pacman -Ss'
 alias yaysua='sudo yay -Sua'
 alias yays='yay -S'
