@@ -36,6 +36,7 @@ function! UserInit()
   Plug 'liuchengxu/vim-clap'
   Plug 'chrisbra/csv.vim'
   Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+  Plug 'junegunn/goyo.vim'
 
 endfunction
 
@@ -45,7 +46,18 @@ function! UserConfig()
   " Override the default settings.
   " Uncomment the following line to disable relative number.
   " set norelativenumber
-  set clipboard=unnamed "copy from one vim to another vim
+
+  let mapleader =" "
+
+  " set goyo by typing space + g
+  map <leader>g :Goyo \| set linebreak<CR>
+
+  " set vim-clap by typing space + t
+  map <leader>b :Clap files \| set linebreak<CR>
+
+  " set vim to copy to clipboard and paste from clipboard
+  vnoremap <C-y> "+y
+  map <C-p> "+P
 
   " Adding extras.
   " Uncomment the following line If you have installed the powerline fonts.
