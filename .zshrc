@@ -203,6 +203,10 @@ alias yaysua='sudo yay -Sua'
 alias yays='yay -S'
 alias yayss='yay -Ss'
 
+#cpu and memory alias
+alias cpu='ps axch -o cmd:15,%cpu --sort=-%cpu | head'
+alias mem='ps axch -o cmd:15,%mem --sort=-%mem | head'
+
 #vim keys to tab complete menu
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
