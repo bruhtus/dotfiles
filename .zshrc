@@ -217,6 +217,9 @@ bindkey -v
 #figlet -f slant bruhtus
 pfetch
 
+#make sure zsh-syntax-highlight installed
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+
 # Edit line in vim with ctrl-x:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^x' edit-command-line
