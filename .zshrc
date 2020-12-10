@@ -182,6 +182,9 @@ alias -g G='| grep'
 alias -g L='| less'
 alias -g C='| wc -l'
 
+#pipe error to a file
+alias -g E='2> error'
+
 #conda alias
 alias cenv='conda env list'
 alias cac='conda activate'
