@@ -127,6 +127,8 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64:/opt/cuda/lib"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #alias asd='vim -R <(python ~/git-status-checker.py)' #using vim
 #alias qwe='python ~/git-status-checker.py | less' #using less
+
+#display git status
 function qwe(){ #directly into zshrc
     python -c "
 import os
@@ -148,9 +150,10 @@ for dirname in dir_list:
 
 os.chdir('../')
 os.system('pwd')
-os.system('dotbare status -s')" | less
+os.system('dotbare status -s')" | less -F
 }
 
+#unfaedah alias
 alias asd='googler -n 4'
 alias zxc='youtube-viewer -C --custom-layout --fixed-width --resolution=480p' #poor internet
 alias reload='source ~/.zshrc'
@@ -171,7 +174,7 @@ alias l.='exa -al -t=changed --git --group --color=always --group-directories-fi
 
 #open exa tree in less
 function lt(){
-    exa -al --tree --level=2 --links -t=changed --git --group --color=always --group-directories-first --sort=ext $1 | less
+    exa -al --tree --level=2 --links -t=changed --git --group --color=always --group-directories-first --sort=ext $1 | less -F
 }
 
 #grep, less, and count
@@ -185,11 +188,11 @@ alias cac='conda activate'
 alias cde='conda deactivate'
 
 #python alias
-alias p='python'
+function p(){python $@ | less -F}
 function pl(){python $@ | less}
 function pc(){python -c $1}
 
-#pacman alias
+#pacman and yay alias
 alias pacsyu='sudo pacman -Syu'
 alias yalord='sudo pacman'
 alias pacss='pacman -Ss'
