@@ -159,6 +159,7 @@ alias zxc='youtube-viewer -C --custom-layout --fixed-width --resolution=480p' #p
 alias reload='source ~/.zshrc'
 alias zshalias='grep "^alias" ~/.zshrc | less'
 alias v='dirs -v'
+alias ka='killall'
 
 #dotbare alias
 alias dba='dotbare add'
@@ -224,7 +225,7 @@ pfetch
 #make sure zsh-syntax-highlight installed
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
-# Edit line in vim with ctrl-x:
+#Edit line in vim with ctrl-x:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^x' edit-command-line
 
