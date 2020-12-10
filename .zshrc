@@ -217,6 +217,10 @@ bindkey -v
 #figlet -f slant bruhtus
 pfetch
 
+# Edit line in vim with ctrl-x:
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^x' edit-command-line
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/bruhtus/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
