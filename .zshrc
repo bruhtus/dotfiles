@@ -161,6 +161,9 @@ alias zshalias='grep "^alias" ~/.zshrc | less'
 alias v='dirs -v'
 alias ka='killall'
 
+#never gonna give you up
+alias saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
+
 #dotbare alias
 alias dba='dotbare add'
 alias dbc='dotbare commit -m'
