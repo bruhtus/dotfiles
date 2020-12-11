@@ -72,7 +72,6 @@ bindsym $mod+Shift+z exec timeshift-launcher
 bindsym $mod+Shift+x exec $myTerm -e htop
 bindsym $mod+Ctrl+x exec $myTerm -e gtop
 bindsym $mod+Ctrl+c exec $myTerm -e ncdu
-bindsym $mod+Ctrl+Shift+d exec emacs
 bindsym $mod+Shift+y exec foliate
 bindsym $mod+Shift+q exec telegram-desktop
 bindsym $mod+Shift+p exec pamac-manager
