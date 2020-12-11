@@ -39,6 +39,7 @@ function! UserInit()
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/limelight.vim'
   Plug 'reedes/vim-pencil'
+  Plug 'francoiscabrol/ranger.vim'
 
 endfunction
 
@@ -64,6 +65,8 @@ function! UserConfig()
 
   " set vim-clap by typing space + t
   map <leader>b :Clap files \| set linebreak<CR>
+
+  map <leader>e :Ranger<cR>
 
   " set vim to copy to clipboard and paste from clipboard
   vnoremap <C-y> "+y
