@@ -166,7 +166,7 @@ alias saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc
 
 #find directory (cd to it) and files (open in vim)
 #alias f='fzf | tr -d "\n" | xsel -ib' #tr truncated from the \n char at the end of the line
-function cds(){cd "$(du ~ | awk '{print $2}' | fzf)"} #cd to any directories in home directory from any directories
+function ds(){cd "$(du ~ | awk '{print $2}' | fzf)"} #cd to any directories in home directory from any directories
 function cs(){find ~ -type f | fzf | xargs -o -r vim} #search and open file on home directory in vim directly, -o so that it doesn't break my terminal, -r for if doesn't have entry then it exit
 
 #du -s ~/*/ | awk '{print $2}' | fzf | tr -d '\n' | xsel -ib #search directories without subdirectories
