@@ -64,10 +64,11 @@ bindsym $mod+Shift+s exec $myTerm -e googler -n 4
 bindsym $mod+w exec google-chrome-stable
 bindsym $mod+Ctrl+Shift+n exec google-chrome-stable --incognito
 bindsym $mod+Ctrl+Shift+b exec google-chrome-stable --incognito https://github.com/bruhtus?tab=repositories
+bindsym $mod+Shift+u exec google-chrome-stable --incognito https://github.com/trending
 bindsym $mod+Shift+n exec google-chrome-stable --new-window notion.so
 bindsym $mod+Shift+t exec google-chrome-stable --new-window twitter.com
 bindsym $mod+Shift+i exec google-chrome-stable --new-window https://github.com/stars/bruhtus
-bindsym $mod+Shift+u exec google-chrome-stable --new-window https://github.com/trending/python?since=daily https://github.com/trending/python?since=weekly https://github.com/trending/python?since=monthly https://github.com/trending/jupyter-notebook?since=daily
+bindsym $mod+Shift+f exec $myTerm -e newsboat
 bindsym $mod+Shift+z exec timeshift-launcher
 bindsym $mod+Shift+x exec $myTerm -e htop
 bindsym $mod+Ctrl+x exec $myTerm -e gtop
