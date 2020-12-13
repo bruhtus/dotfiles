@@ -33,7 +33,6 @@ function! UserInit()
 
   " Add your own plugin via Plug command.
   Plug 'junegunn/seoul256.vim'
-  Plug 'liuchengxu/vim-clap'
   Plug 'chrisbra/csv.vim'
   Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
   Plug 'junegunn/goyo.vim'
@@ -62,9 +61,6 @@ function! UserConfig()
   " vim-pencil integration with goyo
   autocmd User GoyoEnter SoftPencil " Turn on
   autocmd User GoyoLeave TogglePencil " Turn off
-
-  " set vim-clap by typing space + t
-  map <leader>b :Clap files \| set linebreak<CR>
 
   map <leader>e :Ranger<cR>
 
