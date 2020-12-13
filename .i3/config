@@ -73,6 +73,7 @@ bindsym $mod+Shift+z exec timeshift-launcher
 bindsym $mod+Shift+x exec $myTerm -e htop
 bindsym $mod+Ctrl+x exec $myTerm -e gtop
 bindsym $mod+Ctrl+c exec $myTerm -e ncdu
+bindsym $mod+Ctrl+z exec rofi -show emoji -modi emoji
 bindsym $mod+Shift+y exec foliate
 bindsym $mod+Shift+q exec telegram-desktop
 bindsym $mod+Shift+p exec pamac-manager
@@ -294,6 +295,7 @@ bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
 exec_always --no-startup-id $HOME/.i3/startxrandr.sh
+exec_always --no-startup-id $HOME/.i3/speedvim.sh
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id xmodmap -e "clear lock" #disable capslock
 exec_always --no-startup-id xmodmap -e "keysym Caps_Lock = Escape" #set capslock as esc
