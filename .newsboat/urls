@@ -1,4 +1,5 @@
 $github-trending
+https://rsshub.app/github/trending/daily "~Github trending (daily): all" "github"
 https://rsshub.app/github/trending/daily/python "~Github trending (daily): python" "github"
 https://rsshub.app/github/trending/weekly/python "~Github trending (weekly): python" "github"
 https://rsshub.app/github/trending/monthly/python "~Github trending (monthly): python" "github"
