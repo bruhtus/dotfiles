@@ -60,7 +60,7 @@ bindsym $mod+z exec terminal -e 'alsamixer'
 bindsym $mod+Ctrl+b exec $myTerm -e 'bmenu'
 bindsym $mod+Shift+c exec $myTerm -e vim '/home/bruhtus/.i3/config'
 bindsym $mod+Shift+d [title="dropdown_youtube"] scratchpad show; [title="dropdown_youtube"] move position center
-bindsym $mod+Shift+s [title="dropdown_googler"] scratchpad show; [title="dropdown_googler"] move position center
+bindsym $mod+Shift+s exec $myTerm -e googler -n 4
 bindsym $mod+w exec google-chrome-stable
 bindsym $mod+Ctrl+Shift+n exec google-chrome-stable --incognito
 bindsym $mod+Ctrl+Shift+b exec google-chrome-stable --incognito https://github.com/bruhtus?tab=repositories
@@ -310,7 +310,6 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id xmodmap -e "clear lock" #disable capslock
 exec_always --no-startup-id xmodmap -e "keysym Caps_Lock = Escape" #set capslock as esc
 exec_always --no-startup-id $myTerm -t dropdown_youtube -e youtube-viewer -C --custom-layout --fixed-width --resolution=480p
-exec_always --no-startup-id $myTerm -t dropdown_googler -e googler -n 3
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 #exec --no-startup-id wal -R
