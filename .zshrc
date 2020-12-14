@@ -23,10 +23,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 #cat ~/.cache/wal/sequences
 #source ~/.cache/wal/colors-tty.sh
 
-#(cat ~/.config/sequences &)
-#cat ~/.config/sequences
-#source ~/.config/colors-tty.sh
-
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -167,6 +163,9 @@ alias saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc
 #alias f='fzf | tr -d "\n" | xsel -ib' #tr truncated from the \n char at the end of the line
 function sd(){cd "$(du ~ | awk '{print $2}' | fzf)"} #cd to any directories in home directory from any directories
 function cs(){find ~ -type f | fzf | xargs -o -r vim} #search and open file on home directory in vim directly, -o so that it doesn't break my terminal, -r for if doesn't have entry then it exit
+
+function dm(){udisksctl mount -b /dev/$1}
+function dum(){udisksctl unmount -b /dev/$1}
 
 #verbosity
 alias cp='cp -iv' #confirm before overwriting
