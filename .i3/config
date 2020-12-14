@@ -58,9 +58,9 @@ bindsym $mod+z exec terminal -e 'alsamixer'
 
 # Start Applications
 bindsym $mod+Ctrl+b exec $myTerm -e 'bmenu'
-bindsym $mod+Shift+c exec terminal -e vim '/home/bruhtus/.i3/config'
-bindsym $mod+Shift+d exec $myTerm -e youtube-viewer -C --custom-layout --fixed-width --resolution=480p # i have no high speed internet connection :(
-bindsym $mod+Shift+s exec $myTerm -e googler -n 4
+bindsym $mod+Shift+c exec $myTerm -e vim '/home/bruhtus/.i3/config'
+bindsym $mod+Shift+d [title="dropdown_youtube"] scratchpad show; [title="dropdown_youtube"] move position center
+bindsym $mod+Shift+s [title="dropdown_googler"] scratchpad show; [title="dropdown_googler"] move position center
 bindsym $mod+w exec google-chrome-stable
 bindsym $mod+Ctrl+Shift+n exec google-chrome-stable --incognito
 bindsym $mod+Ctrl+Shift+b exec google-chrome-stable --incognito https://github.com/bruhtus?tab=repositories
@@ -207,6 +207,16 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # assign [class="Pcmanfm"] $ws3
 # assign [class="Skype"] $ws5
 
+# Dropdown/Scratchpad Googler
+for_window [title="dropdown_googler"] move scratchpad
+for_window [title="dropdown_googler"] sticky enable
+for_window [title="dropdown_googler"] resize set 852 480
+
+# Dropdown/Scratchpad youtube-viewer
+for_window [title="dropdown_youtube"] move scratchpad
+for_window [title="dropdown_youtube"] sticky enable
+for_window [title="dropdown_youtube"] resize set 900 520
+
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="calamares"] floating enable border normal
@@ -299,9 +309,11 @@ exec_always --no-startup-id $HOME/.i3/speedvim.sh
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id xmodmap -e "clear lock" #disable capslock
 exec_always --no-startup-id xmodmap -e "keysym Caps_Lock = Escape" #set capslock as esc
+exec_always --no-startup-id $myTerm -t dropdown_youtube -e youtube-viewer -C --custom-layout --fixed-width --resolution=480p
+exec_always --no-startup-id $myTerm -t dropdown_googler -e googler -n 3
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
-exec --no-startup-id wal -R
+#exec --no-startup-id wal -R
 #exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
