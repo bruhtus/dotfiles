@@ -39,6 +39,7 @@ function! UserInit()
   Plug 'junegunn/limelight.vim'
   Plug 'reedes/vim-pencil'
   Plug 'francoiscabrol/ranger.vim'
+  " Plug 'dylanaraps/wal.vim'
 
 endfunction
 
@@ -48,6 +49,7 @@ function! UserConfig()
   " Override the default settings.
   " Uncomment the following line to disable relative number.
   " set norelativenumber
+  set path+=**
 
   let mapleader =" "
 
@@ -74,6 +76,7 @@ function! UserConfig()
   " let g:airline_powerline_fonts = 1
   " set background=dark
   " colorscheme seoul256
+  " colorscheme wal
   let g:pymode_lint_checkers = ['pyflakes']
   let g:pymode_trim_whitespaces = 0
   let g:pymode_options = 0
