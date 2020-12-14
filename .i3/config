@@ -207,11 +207,6 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # assign [class="Pcmanfm"] $ws3
 # assign [class="Skype"] $ws5
 
-# Dropdown/Scratchpad Googler
-for_window [title="dropdown_googler"] move scratchpad
-for_window [title="dropdown_googler"] sticky enable
-for_window [title="dropdown_googler"] resize set 852 480
-
 # Dropdown/Scratchpad youtube-viewer
 for_window [title="dropdown_youtube"] move scratchpad
 for_window [title="dropdown_youtube"] sticky enable
