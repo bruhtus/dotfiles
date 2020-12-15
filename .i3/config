@@ -60,7 +60,7 @@ bindsym $mod+z exec terminal -e 'alsamixer'
 bindsym $mod+Ctrl+b exec $myTerm -e 'bmenu'
 bindsym $mod+Shift+c exec $myTerm -e vim '/home/bruhtus/.i3/config'
 bindsym $mod+Shift+d [title="dropdown_youtube"] scratchpad show; [title="dropdown_youtube"] move position center
-bindsym $mod+Shift+s exec $myTerm -e googler -n 4
+bindsym $mod+Shift+s [title="dropdown_terminal"] scratchpad show; [title="dropdown_terminal"] move position center
 bindsym $mod+w exec google-chrome-stable
 bindsym $mod+Ctrl+Shift+n exec google-chrome-stable --incognito
 bindsym $mod+Ctrl+Shift+b exec google-chrome-stable --incognito https://github.com/bruhtus?tab=repositories
@@ -212,6 +212,11 @@ for_window [title="dropdown_youtube"] move scratchpad
 for_window [title="dropdown_youtube"] sticky enable
 for_window [title="dropdown_youtube"] resize set 900 520
 
+# Dropdown/Scratchpad dropdown terminal
+for_window [title="dropdown_terminal"] move scratchpad
+for_window [title="dropdown_terminal"] sticky enable
+for_window [title="dropdown_terminal"] resize set 900 520
+
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="calamares"] floating enable border normal
@@ -230,7 +235,6 @@ for_window [class="mpv"] floating enable sticky enable
 for_window [class="Nitrogen"] floating enable sticky enable border normal
 for_window [class="Oblogout"] fullscreen enable
 for_window [class="octopi"] floating enable
-for_window [title="About Pale Moon"] floating enable
 for_window [class="Pamac-manager"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="qt5ct"] floating enable sticky enable border normal
@@ -305,6 +309,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id xmodmap -e "clear lock" #disable capslock
 exec_always --no-startup-id xmodmap -e "keysym Caps_Lock = Escape" #set capslock as esc
 exec_always --no-startup-id $myTerm -t dropdown_youtube -e youtube-viewer -C --custom-layout --fixed-width --resolution=480p
+exec_always --no-startup-id $myTerm -t dropdown_terminal
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 #exec --no-startup-id wal -R
