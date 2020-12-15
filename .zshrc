@@ -155,6 +155,7 @@ alias zxc='youtube-viewer -C --custom-layout --fixed-width --resolution=480p' #p
 alias reload='source ~/.zshrc'
 alias zshalias='grep "^alias\|^function" ~/.zshrc | less'
 alias ka='killall'
+alias mp='markdown_previewer'
 
 #never gonna give you up
 alias saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
