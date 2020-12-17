@@ -72,6 +72,7 @@ bindsym $mod+Shift+f exec $myTerm -e newsboat
 bindsym $mod+Shift+z exec timeshift-launcher
 bindsym $mod+Shift+x exec $myTerm -e htop
 bindsym $mod+Ctrl+x exec $myTerm -e gtop
+bindsym $mod+Ctrl+Shift+z exec blueman-manager
 bindsym $mod+Ctrl+c exec $myTerm -e ncdu
 bindsym $mod+Ctrl+z exec rofi -show emoji -modi emoji
 bindsym $mod+Shift+y exec foliate
