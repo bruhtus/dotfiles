@@ -150,12 +150,15 @@ os.system('dotbare status -s')" | less
 }
 
 #unfaedah alias
-alias asd='googler -n 4'
+#alias asd='googler -n 4' #my parent's wifi IP got blocked
+alias asd='ddgr -n 4'
 alias zxc='youtube-viewer -C --custom-layout --fixed-width --resolution=480p' #poor internet
 alias reload='source ~/.zshrc'
 alias zshalias='grep "^alias\|^function" ~/.zshrc | less'
 alias ka='killall'
 alias mp='markdown_previewer'
+alias weather='curl wttr.in'
+alias translate='gawk -f <(curl -Ls git.io/translate) -- -shell'
 
 #never gonna give you up
 alias saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
@@ -202,11 +205,13 @@ alias -g E='2> error.nganu'
 alias cenv='conda env list'
 alias cac='conda activate'
 alias cde='conda deactivate'
+function cce(){conda create -n $1 python=$2}
 
 #python alias
 function p(){python $@ | less -F}
 function pl(){python $@ | less}
 function pc(){python -c $1}
+function pv(){vim -R <(python $@)}
 
 #pacman and yay alias
 alias pacsyu='sudo pacman -Syu'
