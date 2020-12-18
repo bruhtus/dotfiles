@@ -65,6 +65,7 @@ bindsym $mod+w exec google-chrome-stable
 bindsym $mod+Ctrl+Shift+n exec google-chrome-stable --incognito
 bindsym $mod+Ctrl+Shift+b exec google-chrome-stable --incognito https://github.com/bruhtus?tab=repositories
 bindsym $mod+Shift+u exec google-chrome-stable --incognito https://github.com/trending
+bindsym $mod+Shift+o exec google-chrome-stable --new-window https://github.com/settings/tokens
 bindsym $mod+Shift+n exec google-chrome-stable --new-window notion.so
 bindsym $mod+Shift+t exec google-chrome-stable --new-window twitter.com
 bindsym $mod+Shift+i exec google-chrome-stable --new-window https://github.com/stars/bruhtus
