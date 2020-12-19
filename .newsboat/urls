@@ -1,11 +1,11 @@
-$github-trending
+--github-trending--
 https://rsshub.app/github/trending/daily "~Github trending (daily): all" "github"
 https://rsshub.app/github/trending/daily/python "~Github trending (daily): python" "github"
 https://rsshub.app/github/trending/weekly/python "~Github trending (weekly): python" "github"
 https://rsshub.app/github/trending/monthly/python "~Github trending (monthly): python" "github"
 https://rsshub.app/github/trending/monthly/jupyter-notebook "~Github trending (monthly): jupyter notebook" "github"
 
-$youtube
+--youtube--
 https://www.youtube.com/feeds/videos.xml?channel_id=UCBJycsmduvYEL83R_U4JriQ "~MKBHD" "youtube"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw "~Linus Tech Tips" "youtube"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCeeFfhMcJa1kjtfZAGskOCA "~TechLinked" "youtube"
@@ -15,17 +15,17 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCVYamHliCI9rw1tHR1xbkfw "~D
 https://www.youtube.com/feeds/videos.xml?channel_id=UCSOpcUkE-is7u7c4AkLgqTw "~MrMobile" "youtube"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg "~DistroTube" "youtube"
 
-$lex-fridman-podcast
+--lex-fridman-podcast--
 https://lexfridman.com/feed/podcast/
 
-$kaggle
+--kaggle--
 https://rsshub.app/kaggle/competitions "~Competitions" "kaggle"
 
-$dev.to
+--dev.to--
 https://rsshub.app/dev.to/top/week "~Weekly" "dev"
 https://rsshub.app/dev.to/top/month "~Monthly" "dev"
 https://rsshub.app/dev.to/top/year "~Yearly" "dev"
 
-$personal
+--personal--
 https://rsshub.app/github/repos/bruhtus "~My public repo" "github"
 https://rsshub.app/github/starred_repos/bruhtus "~My starred repo" "github"
