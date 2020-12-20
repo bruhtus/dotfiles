@@ -111,13 +111,13 @@ bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym $mod+Ctrl+Shift+n exec google-chrome-stable --incognito
 bindsym $mod+Ctrl+Shift+b exec google-chrome-stable --incognito https://github.com/bruhtus?tab=repositories
 bindsym $mod+Ctrl+Shift+z exec blueman-manager
+#---End---#
 
 #bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 #bindsym $mod+Ctrl+Shift+q exec --no-startup-id i3-scrot
 #bindsym $mod+Shift+a --release exec --no-startup-id i3-scrot -w
 #bindsym $mod+Shift+s --release exec --no-startup-id i3-scrot -s
 #bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
-#---End---#
 # #---End---# #
 
 # #---Function Key Bindings---# #
