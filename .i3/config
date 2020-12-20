@@ -7,7 +7,7 @@ set $mod Mod1
 set $term alacritty
 set $inner_gaps 14
 set $outer_gaps -2
-# #---End--# #
+# #---End---# #
 
 # #---Default Config---# #
 default_border pixel 1
@@ -15,7 +15,7 @@ default_floating_border normal
 hide_edge_borders none
 font xft:URWGothic-Book 11
 floating_modifier $mod
-# #---End--# #
+# #---End---# #
 
 # #---i3 Gaps---# #
 gaps inner $inner_gaps
@@ -23,7 +23,7 @@ gaps outer $outer_gaps
 smart_gaps on
 smart_borders on
 workspace_auto_back_and_forth yes
-# #---End--# #
+# #---End---# #
 
 # #---Dropdown/Scratchpad Windows---# #
 for_window [title="dropdown_youtube"] move scratchpad
@@ -32,7 +32,7 @@ for_window [title="dropdown_youtube"] resize set 900 520
 for_window [title="dropdown_terminal"] move scratchpad
 for_window [title="dropdown_terminal"] sticky enable
 for_window [title="dropdown_terminal"] resize set 900 520
-# #---End--# #
+# #---End---# #
 
 # #---Basic Key Bindings---# #
 bindsym $mod+Shift+space floating toggle
@@ -47,7 +47,7 @@ bindsym $mod+Shift+plus  gaps inner current plus 5
 bindsym $mod+Shift+minus gaps inner current minus 5
 bindsym $mod+Ctrl+plus  gaps outer current plus 5
 bindsym $mod+Ctrl+minus gaps outer current minus 5
-# #---End--# #
+# #---End---# #
 
 # #---Letter Key Bindings---# #
 bindsym $mod+q kill
@@ -117,12 +117,13 @@ bindsym $mod+Ctrl+Shift+z exec blueman-manager
 #bindsym $mod+Shift+a --release exec --no-startup-id i3-scrot -w
 #bindsym $mod+Shift+s --release exec --no-startup-id i3-scrot -s
 #bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
-# #---End--# #
+#---End---#
+# #---End---# #
 
-# #---Function Key Bindings--# #
+# #---Function Key Bindings---# #
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec $term -e 'mocp'
-# #---End--# #
+# #---End---# #
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
@@ -243,13 +244,13 @@ exec_always --no-startup-id fix_xcursor
 # exec_always --no-startup-id sbxkb
 # exec --no-startup-id $HOME/.config/conky/start_conky_color_scheme
 # exec --no-startup-id xautolock -time 10 -locker blurlock
-#exec --no-startup-id wal -R
-#exec --no-startup-id manjaro-hello
+# exec --no-startup-id wal -R
+# exec --no-startup-id manjaro-hello
+
+# Theme colors
 
 set_from_resource $fg i3wm.color7 #d8d8d8
 set_from_resource $bg i3wm.color2 #222D31
-
-# Theme colors
 
   client.focused          $bg      $bg      $fg    $fg        $bg
   client.focused_inactive $bg      $bg      $fg    $fg        $bg
