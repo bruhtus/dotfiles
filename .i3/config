@@ -55,7 +55,8 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-bindsym $mod+s split toggle
+bindsym $mod+s split h
+bindsym $mod+x split v
 bindsym $mod+f fullscreen toggle
 bindsym $mod+b workspace back_and_forth
 
@@ -252,13 +253,14 @@ exec_always --no-startup-id fix_xcursor
 set_from_resource $fg i3wm.color7 #d8d8d8
 set_from_resource $bg i3wm.color2 #222D31
 
-  client.focused          $bg      $bg      $fg    $fg        $bg
-  client.focused_inactive $bg      $bg      $fg    $fg        $bg
-  client.unfocused        $bg      $bg      $fg    $fg        $bg
-  client.urgent           $bg      $bg      $fg    $fg        $bg
-  client.placeholder      $bg      $bg      $fg    $fg        $bg
+  # class                 border  backgr. text    indicator child_border
+  client.focused          $bg     #101010 #f4eee4 #22a0f4   $bg
+  client.focused_inactive #000000 #0c0c0c #ffffff #000000   #0c0c0c
+  client.unfocused        #000000 #0c0c0c #ffffff #000000   #0c0c0c
+  client.urgent           $bg     $bg     $fg     $fg       $bg
+  client.placeholder      $bg     $bg     $fg     $fg       $bg
 
-  client.background       $bg      $bg      $fg    $fg        $bg
+  client.background       $bg
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
