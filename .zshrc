@@ -160,6 +160,7 @@ alias mp='markdown_previewer'
 alias weather='curl wttr.in'
 alias translate='gawk -f <(curl -Ls git.io/translate) -- -shell'
 alias ipa='curl ifconfig.co'
+alias mm='morc_menu'
 
 #never gonna give you up
 alias saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
@@ -169,6 +170,7 @@ alias saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc
 function sd(){cd "$(du ~ | awk '{print $2}' | fzf)"} #cd to any directories in home directory from any directories
 function cs(){find ~ -type f | fzf | xargs -o -r vim} #search and open file on home directory in vim directly, -o so that it doesn't break my terminal, -r for if doesn't have entry then it exit
 
+#mounting and unmounting from CLI
 function dm(){udisksctl mount -b /dev/$1}
 function dum(){udisksctl unmount -b /dev/$1}
 
@@ -198,6 +200,9 @@ function lt(){
 alias -g G='| grep'
 alias -g L='| less'
 alias -g C='| wc -l'
+
+#like pastebin but on terminal directly (using vim readonly mode for easy copy-paste)
+function termbin(){vim -R <($@ | nc termbin.com 9999)}
 
 #pipe error to a file
 alias -g E='2> error.nganu'
@@ -238,7 +243,7 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -v
 
 #figlet -f slant bruhtus
-pfetch
+#pfetch
 
 #make sure zsh-syntax-highlight installed
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
