@@ -15,7 +15,6 @@ https://nitter.net/fastdotai/rss "twitter"
 https://nitter.net/SexWithEmily/rss "twitter"
 https://nitter.net/elonmusk/rss "twitter"
 https://nitter.net/BillGates/rss "twitter"
-https://nitter.net/avogado6/rss "twitter"
 https://nitter.net/lexfridman/rss "twitter"
 https://nitter.net/MKBHD/rss "twitter"
 https://nitter.net/Pornhub/rss "twitter"
@@ -31,7 +30,7 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCSOpcUkE-is7u7c4AkLgqTw "~M
 https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg "~DistroTube" "youtube"
 
 --lex-fridman-podcast--
-https://lexfridman.com/feed/podcast/
+https://lexfridman.com/feed/podcast/ "podcast"
 
 --kaggle--
 https://rsshub.app/kaggle/competitions "~Competitions" "kaggle"
