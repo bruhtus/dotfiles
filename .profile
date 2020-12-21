@@ -5,3 +5,4 @@ export EDITOR=vim
 # fix "xdg-open fork-bomb" export your preferred browser from here
 #export BROWSER=/usr/bin/google-chrome-stable
 export BROWSER=w3m
+export TERMINAL=alacritty
