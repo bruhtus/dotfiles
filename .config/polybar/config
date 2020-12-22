@@ -73,7 +73,7 @@ line-color = #000000
 border-size = 0
 border-color = #000000
 
-padding-left = 1
+padding-left = 0
 padding-right = 1
 
 module-margin-left = 1
@@ -81,7 +81,7 @@ module-margin-right = 2
 
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+font-2 = "Font Awesome:size=10;0"
 
 modules-left = i3 wirelessname wirelessspeedup wirelessspeeddown lanname lanspeedup lanspeeddown 
 modules-center = date time filesystem
@@ -141,7 +141,7 @@ line-color = #000000
 border-size = 0
 border-color = #000000
 
-padding-left = 1
+padding-left = 0
 padding-right = 3
 
 module-margin-left = 1
@@ -149,7 +149,7 @@ module-margin-right = 2
 
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+font-2 = "Font Awesome:size=10;0"
 
 modules-left = i3 wirelessname wirelessspeedup wirelessspeeddown lanname lanspeedup lanspeeddown 
 modules-center = date time filesystem
@@ -215,7 +215,7 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-} storage: %percentage_used%%
+label-mounted =  : %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground}
 label-indicator-padding = 2
@@ -290,17 +290,7 @@ fuzzy-match = false
 ;http://fontawesome.io/cheatsheet/
 ;       v     
 
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;
-ws-icon-8 = 9;
-ws-icon-9 = 10;
-ws-icon-default = " "
+ws-icon-default = " "
 
 ; Available tags:
 ;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
@@ -320,7 +310,7 @@ label-margin = 1
 ;   %output%
 ; Default: %icon%  %name%
 ; focused = Active workspace on focused monitor
-label-focused = %icon% %name%
+label-focused = %index%
 label-focused-background = ${colors.foreground}
 label-focused-foreground = ${colors.background}
 label-focused-underline = #f4eee4
@@ -332,17 +322,17 @@ label-focused-padding = 2
 ;   %index%
 ; Default: %icon%  %name%
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %icon% %name%
+label-unfocused = %index%
 label-unfocused-padding = 2
 label-unfocused-background = ${colors.background}
 label-unfocused-foreground = ${colors.foreground}
 label-unfocused-underline = #f4eee4
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %icon% %name%
+label-visible = %icon% %index%
 label-visible-background = ${self.label-focused-foreground}
 label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = 2
+label-visible-padding = 1
 
 ; Available tokens:
 ;   %name%
@@ -353,7 +343,7 @@ label-visible-padding = 2
 label-urgent = %icon% %name%
 label-urgent-background = ${self.label-focused-background}
 label-urgent-foreground = #db104e
-label-urgent-padding = 2
+label-urgent-padding = 1
 
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
@@ -395,7 +385,7 @@ label-margin = 1
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "Memory:"
+format-prefix = "Mem:"
 format-prefix-foreground = ${colors.foreground}
 label = %percentage_used%%
 label-indicator-padding = 2
@@ -405,14 +395,11 @@ label-margin = 1
 type = internal/network
 interface = wlp4s0
 label-connected = %essid%
-label-indicator-padding = 2
-label-margin = 1
 
 [module/lanname]
 type = internal/network
 interface = enp5s0
 label-connected = %essid%
-label-margin = 1
 
 [module/wirelessspeedup]
 type = internal/network
@@ -420,13 +407,10 @@ interface = wlp4s0
 
 label-connected = "%upspeed:7%"
 format-connected = <label-connected>
-format-connected-prefix = "Up: "
-format-connected-prefix-foreground = ${colors.foreground}
+format-connected-prefix = " "
+format-connected-prefix-foreground = #81a1c1
 format-connected-background = ${colors.background}
 format-connected-foreground = ${colors.foreground}
-format-connected-margin = 1
-label-indicator-padding = 2
-label-margin = 1
 
 [module/wirelessspeeddown]
 type = internal/network
@@ -434,13 +418,10 @@ interface = wlp4s0
 
 label-connected = "%downspeed:7%"
 format-connected = <label-connected>
-format-connected-prefix = "Down:"
-format-connected-prefix-foreground = ${colors.foreground}
+format-connected-prefix = " "
+format-connected-prefix-foreground = #6ebaf8
 format-connected-background = ${colors.background}
 format-connected-foreground = ${colors.foreground}
-format-connected-margin = 1
-label-indicator-padding = 2
-label-margin = 1
 
 [module/lanspeedup]
 type = internal/network
@@ -448,13 +429,10 @@ interface = enp5s0
 
 label-connected = "%upspeed:7%"
 format-connected = <label-connected>
-format-connected-prefix = "Up:"
+format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground}
 format-connected-background = ${colors.background}
 format-connected-foreground = ${colors.foreground}
-format-connected-margin = 1
-label-indicator-padding = 2
-label-margin = 1
 
 [module/lanspeeddown]
 type = internal/network
@@ -462,13 +440,10 @@ interface = enp5s0
 
 label-connected = "%downspeed:7%"
 format-connected = <label-connected>
-format-connected-prefix = "Up:"
-format-connected-prefix-foreground = ${colors.foreground}
+format-connected-prefix = " "
+format-connected-prefix-foreground = #81a1c1
 format-connected-background = ${colors.background}
 format-connected-foreground = ${colors.foreground}
-format-connected-margin = 1
-label-indicator-padding = 2
-label-margin = 1
 
 [module/date]
 type = internal/date
@@ -477,21 +452,18 @@ interval = 5
 date = %a, %d %b
 ;date-alt = " %Y-%m-%d"
 
-format-prefix = 
-format-prefix-foreground = ${colors.foreground}
-
 label = %date%
+format-foreground = ${colors.foreground}
 
 [module/time]
 type = internal/date
+interval = 5
 
 time = %H:%M
 ;time-alt = %H:%M
 
-format-prefix = 
-format-prefix-foreground = ${colors.foreground}
-
 label = %time%
+format-foreground = #bde97c
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -524,14 +496,12 @@ bar-volume-empty-foreground = ${colors.foreground}
 type = internal/alsa
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL
+label-volume = 
 label-volume-foreground = ${root.foreground}
 
-format-muted-prefix = " "
+format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground}
-label-muted = sound muted
-label-indicator-padding = 2
-label-margin = 1
+label-muted = muted
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
@@ -562,7 +532,7 @@ format-charging = <animation-charging> <label-charging>
 format-discharging = <animation-discharging> <label-discharging>
 ;format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
+format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground}
 ;format-full-underline = ${self.format-charging-underline}
 
@@ -571,15 +541,15 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-foreground = ${colors.foreground}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
 animation-charging-foreground = ${colors.foreground}
 animation-charging-framerate = 750
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
 animation-discharging-foreground = ${colors.foreground}
 animation-discharging-framerate = 750
 
