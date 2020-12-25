@@ -84,7 +84,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = "Font Awesome:size=10;0"
 
 modules-left = i3 wirelessname wirelessspeedup wirelessspeeddown lanname lanspeedup lanspeeddown xwindow
-modules-center = filesystem time date
+modules-center = date time filesystem
 modules-right = cpu memory xbacklight pulseaudio battery temperature
 
 separator = 
@@ -152,7 +152,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = "Font Awesome:size=10;0"
 
 modules-left = i3 wirelessname wirelessspeedup wirelessspeeddown lanname lanspeedup lanspeeddown xwindow
-modules-center = filesystem time date
+modules-center = date time filesystem
 modules-right = cpu memory xbacklight pulseaudio battery temperature
 
 separator = 
