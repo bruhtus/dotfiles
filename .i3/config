@@ -73,10 +73,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
-bindsym $mod+Ctrl+Shift+h resize shrink width 5 px or 5 ppt
-bindsym $mod+Ctrl+Shift+j resize grow height 5 px or 5 ppt
-bindsym $mod+Ctrl+Shift+k resize shrink height 5 px or 5 ppt
-bindsym $mod+Ctrl+Shift+l resize grow width 5 px or 5 ppt
+bindsym $mod+Ctrl+Shift+h exec --no-startup-id .i3/i3resize left
+bindsym $mod+Ctrl+Shift+j exec --no-startup-id .i3/i3resize down
+bindsym $mod+Ctrl+Shift+k exec --no-startup-id .i3/i3resize up
+bindsym $mod+Ctrl+Shift+l exec --no-startup-id .i3/i3resize right
 
 #---Application---#
 bindsym $mod+d exec $term
