@@ -111,6 +111,7 @@ bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 
 bindsym $mod+Ctrl+Shift+n exec google-chrome-stable --incognito
 bindsym $mod+Ctrl+Shift+b exec google-chrome-stable --incognito https://github.com/bruhtus?tab=repositories
+bindsym $mod+Ctrl+Shift+m exec google-chrome-stable --incognito https://monkeytype.com/
 bindsym $mod+Ctrl+Shift+z exec blueman-manager
 #---End---#
 
