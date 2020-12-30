@@ -32,21 +32,22 @@ for_window [title="dropdown_youtube"] resize set 900 520
 for_window [title="dropdown_terminal"] move scratchpad
 for_window [title="dropdown_terminal"] sticky enable
 for_window [title="dropdown_terminal"] resize set 900 520
+for_window [title="dropdown_htop"] move scratchpad
 # #---End---# #
 
 # #---Basic Key Bindings---# #
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
-bindsym $mod+plus move scratchpad
-bindsym $mod+minus scratchpad show
+bindsym $mod+Ctrl+plus move scratchpad
+bindsym $mod+Ctrl+minus scratchpad show
 bindsym $mod+slash workspace next
 bindsym $mod+period workspace prev
 
 bindsym $mod+Shift+0 gaps inner current set $inner_gaps; gaps outer current set $outer_gaps
 bindsym $mod+Shift+plus  gaps inner current plus 5
 bindsym $mod+Shift+minus gaps inner current minus 5
-bindsym $mod+Ctrl+plus  gaps outer current plus 5
-bindsym $mod+Ctrl+minus gaps outer current minus 5
+bindsym $mod+plus  gaps outer current plus 5
+bindsym $mod+minus gaps outer current minus 5
 # #---End---# #
 
 # #---Letter Key Bindings---# #
@@ -88,6 +89,7 @@ bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+Shift+c exec $term -e vim '/home/bruhtus/.i3/config'
 bindsym $mod+Shift+d [title="dropdown_youtube"] scratchpad show; [title="dropdown_youtube"] move position center
 bindsym $mod+Shift+s [title="dropdown_terminal"] scratchpad show; [title="dropdown_terminal"] move position center
+bindsym $mod+Shift+x [title="dropdown_htop"] scratchpad show; [title="dropdown_htop"] move position center
 bindsym $mod+Shift+u exec google-chrome-stable --incognito https://github.com/trending
 bindsym $mod+Shift+o exec google-chrome-stable --new-window https://github.com/settings/tokens
 bindsym $mod+Shift+n exec google-chrome-stable --new-window notion.so
@@ -95,7 +97,6 @@ bindsym $mod+Shift+t exec google-chrome-stable --new-window twitter.com
 bindsym $mod+Shift+i exec google-chrome-stable --new-window https://github.com/stars/bruhtus
 bindsym $mod+Shift+f exec $term -e newsboat
 bindsym $mod+Shift+z exec timeshift-launcher
-bindsym $mod+Shift+x exec $term -e htop
 bindsym $mod+Shift+y exec foliate
 bindsym $mod+Shift+q exec telegram-desktop
 bindsym $mod+Shift+p exec pamac-manager
@@ -103,7 +104,7 @@ bindsym $mod+Shift+e exec pcmanfm
 bindsym $mod+Shift+a --release exec --no-startup-id flameshot gui
 #bindsym $mod+Shift+a --release exec --no-startup-id flameshot screen -r -c
 
-bindsym $mod+Ctrl+x exec $term -e gtop
+bindsym $mod+Ctrl+x exec $term -e bpytop
 bindsym $mod+Ctrl+b exec $term -e 'bmenu'
 bindsym $mod+Ctrl+c exec $term -e ncdu
 bindsym $mod+Ctrl+z exec rofi -show emoji -modi emoji
@@ -233,6 +234,7 @@ exec_always --no-startup-id xmodmap -e "clear lock" #disable capslock
 exec_always --no-startup-id xmodmap -e "keysym Caps_Lock = Escape" #set capslock as esc
 exec_always --no-startup-id $term -t dropdown_youtube -e youtube-viewer -C --custom-layout --fixed-width --resolution=480p
 exec_always --no-startup-id $term -t dropdown_terminal
+exec_always --no-startup-id $term -t dropdown_htop -e htop
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id nm-applet
