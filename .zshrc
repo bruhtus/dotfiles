@@ -157,10 +157,11 @@ alias reload='source ~/.zshrc'
 alias zshalias='grep "^alias\|^function" ~/.zshrc | less'
 alias ka='killall'
 alias mp='markdown_previewer'
-alias weather='curl wttr.in'
+alias wttr='curl wttr.in\?%tpFQn1m'
 alias translate='gawk -f <(curl -Ls git.io/translate) -- -shell'
 alias ipa='curl ifconfig.co'
 alias mm='morc_menu'
+alias bt='bpytop'
 
 #never gonna give you up
 alias saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
