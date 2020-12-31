@@ -302,9 +302,9 @@ label-margin = 1
 ; Default: %icon%  %name%
 ; focused = Active workspace on focused monitor
 label-focused = %index%
-label-focused-background = ${colors.foreground}
-label-focused-foreground = ${colors.background}
-label-focused-underline = #f4eee4
+label-focused-background = ${colors.background}
+label-focused-foreground = ${colors.foreground}
+label-focused-underline = ${colors.foreground}
 label-focused-padding = 2
 
 ; Available tokens:
@@ -317,12 +317,12 @@ label-unfocused = %index%
 label-unfocused-padding = 2
 label-unfocused-background = ${colors.background}
 label-unfocused-foreground = ${colors.foreground}
-label-unfocused-underline = #f4eee4
+label-unfocused-underline =
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %icon% %index%
-label-visible-background = ${self.label-focused-foreground}
-label-visible-underline = ${self.label-focused-underline}
+label-visible-background = ${self.label-focused-background}
+label-visible-underline =
 label-visible-padding = 1
 
 ; Available tokens:
