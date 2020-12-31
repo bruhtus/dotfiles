@@ -1,0 +1,4 @@
+#!/bin/sh
+
+xwininfo -name dropdown_youtube || $TERMINAL -t dropdown_youtube -e youtube-viewer -C --custom-layout --fixed-width --resolution=480p
+

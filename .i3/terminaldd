@@ -1,0 +1,4 @@
+#!/bin/sh
+
+xwininfo -name dropdown_terminal || $TERMINAL -t dropdown_terminal
+
