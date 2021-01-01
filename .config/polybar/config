@@ -327,7 +327,8 @@ label-unfocused-underline =
 ; visible = Active workspace on unfocused monitor
 label-visible = %icon%
 label-visible-background = ${self.label-focused-background}
-label-visible-underline = #f1beb0
+label-visible-foreground = #f1beb0
+label-visible-underline =
 label-visible-padding = 1
 
 ; Available tokens:
@@ -348,21 +349,10 @@ format-margin = 1
 [module/xbacklight]
 type = internal/xbacklight
 
-format = <label> <bar>
-label = BL
+format = <label>
+label =  :%percentage%
 label-indicator-padding = 2
 label-margin = 1
-
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = ${colors.foreground}
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = ${colors.foreground}
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground}
 
 [module/backlight-acpi]
 inherit = module/xbacklight
