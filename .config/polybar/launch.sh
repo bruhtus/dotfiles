@@ -7,8 +7,11 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do
   sleep i; done
 
+tray_monitor=$(xrandr | grep primary | awk '{print $1}') #grep primary monitor from xrandr
+
 #launch bar
-polybar mainbar-i3 &
-polybar secondbar-i3 &
+for m in $(polybar --list-monitors | cut -d":" -f1); do
+  [ $m == $tray_monitor ] && MONITOR=$m polybar mainbar-i3 || MONITOR=$m polybar secondbar-i3 & #primary monitor launch mainbar-i3 and other monitor launch secondbar-i3
+done
 
 echo "Bars launched..."
