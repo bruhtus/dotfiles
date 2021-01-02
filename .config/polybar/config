@@ -310,8 +310,8 @@ label-margin = 1
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
 label-focused-background = ${colors.background}
-label-focused-foreground = ${colors.foreground}
-label-focused-underline = ${colors.foreground}
+label-focused-foreground = #b1f2df
+label-focused-underline =
 label-focused-padding = 2
 
 ; Available tokens:
