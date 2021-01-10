@@ -2,7 +2,7 @@
 
 > Note to myself: don't forget to make the script executable by doing `chmod +x <filename>`
 
-This repo is to backup my linux configuration so that I don't need to configure every new installation (mainly using virtual machine). You can use the command below to backup and restore your dotfiles config.
+This repo is to backup my linux configuration so that I don't need to configure every new installation. I use [dotbare](https://github.com/kazhala/dotbare) to manage my dotfiles. Below is the simplified version to setup dotbare.
 
 ### Initialize dotbare to backup configuration dotfiles
 ```bash
@@ -36,7 +36,7 @@ plugins=(git dotfiles) #There are 2 plugins, git plugin and dotbare plugin
 dotbare finit -u <git-repo-url>
 ```
 
-Check out the [wiki](https://github.com/bruhtus/dotfiles/wiki) for more stuff.
+Check out the [wiki](https://github.com/bruhtus/dotfiles/wiki) to check the difference between git init and git init --bare.
 
 ### References
 - [Atlassian tutorial](https://www.atlassian.com/git/tutorials/dotfiles).
