@@ -6,4 +6,4 @@ for d in $(ls -d */); do
   ls -a | grep -q .gitmodules && git submodule foreach git status -s ; cd ..
 done
 
-cd ~ && pwd ; dotbare status -s
+cd ~ && pwd && dotbare status -s
