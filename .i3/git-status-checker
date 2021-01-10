@@ -1,9 +1,7 @@
 #!/bin/sh
 
-cd ~/all_git
-for d in $(ls -d */); do
-  cd $d && pwd && git status -s &&
-  ls -a | grep -q .gitmodules && git submodule foreach git status -s ; cd ..
+for d in $(ls -d ~/all_git/*/); do
+  echo $d && git -C $d status -s && ls -a $d | grep -q .gitmodules && git -C $d submodule foreach git status -s
 done
 
-cd ~ && pwd && dotbare status -s
+echo ~ && dotbare status -s
