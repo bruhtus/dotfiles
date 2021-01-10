@@ -125,29 +125,8 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64:/opt/cuda/lib"
 #alias qwe='python ~/git-status-checker.py | less' #using less
 
 #display git status
-function qwe(){ #directly into zshrc
-    python -c "
-import os
-
-os.chdir(os.path.expanduser('~/all_git'))
-dir_list = [dirname for dirname in os.listdir(os.getcwd()) if os.path.isdir(dirname) == True]
-
-for dirname in dir_list:
-    os.chdir(dirname)
-    os.system('pwd')
-
-    if os.path.exists('.gitmodules') == True:
-        os.system('git status -s')
-        os.system('git submodule foreach git status -s')
-    else:
-        os.system('git status -s')
-
-    os.chdir('../')
-
-os.chdir('../')
-os.system('pwd')
-os.system('dotbare status -s')" | less
-}
+function qwe(){
+    ~/.i3/git-status-checker | less}
 
 #unfaedah alias
 alias asd='googler -n 4'
