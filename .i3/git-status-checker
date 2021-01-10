@@ -2,7 +2,7 @@
 
 cd ~/all_git
 for d in $(ls -d */); do
-  cd $d && pwd ; git status -s &&
+  cd $d && ls -a | grep -q .git && pwd && git status -s &&
   ls -a | grep -q .gitmodules && git submodule foreach git status -s ; cd ..
 done
 
