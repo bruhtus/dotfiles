@@ -163,7 +163,7 @@ alias rm='rm -v'
 alias dba='dotbare add'
 alias dbc='dotbare commit -m'
 alias dbp='dotbare push'
-alias dbd='dotbare diff ~'
+alias dbd='dotbare diff'
 
 #change ls to exa
 alias ls='exa -l --links -t=changed --git --group --color=always --group-directories-first --sort=ext'
