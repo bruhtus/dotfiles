@@ -37,16 +37,16 @@ for_window [title="dropdown_terminal"] resize set 900 520
 # #---Basic Key Bindings---# #
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
-bindsym $mod+Ctrl+plus move scratchpad
-bindsym $mod+Ctrl+minus scratchpad show
+bindsym $mod+plus move scratchpad
+bindsym $mod+minus scratchpad show
 bindsym $mod+slash workspace next
 bindsym $mod+period workspace prev
 
-bindsym $mod+Shift+0 gaps inner current set $inner_gaps; gaps outer current set $outer_gaps
-bindsym $mod+Shift+plus  gaps inner current plus 5
-bindsym $mod+Shift+minus gaps inner current minus 5
-bindsym $mod+plus  gaps outer current plus 5
-bindsym $mod+minus gaps outer current minus 5
+bindsym $mod+Ctrl+0 gaps inner current set $inner_gaps; gaps outer current set $outer_gaps
+bindsym $mod+Ctrl+plus  gaps inner current plus 5
+bindsym $mod+Ctrl+minus gaps inner current minus 5
+bindsym $mod+Shift+plus  gaps outer current plus 5
+bindsym $mod+Shift+minus gaps outer current minus 5
 # #---End---# #
 
 # #---Letter Key Bindings---# #
