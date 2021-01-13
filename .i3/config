@@ -94,7 +94,7 @@ bindsym $mod+Shift+n exec google-chrome-stable --new-window notion.so
 bindsym $mod+Shift+t exec google-chrome-stable --new-window twitter.com
 bindsym $mod+Shift+i exec google-chrome-stable --new-window https://github.com/stars/bruhtus
 bindsym $mod+Shift+x exec $term -e htop
-bindsym $mod+Shift+f exec $term -t newsboat -e newsboat
+bindsym $mod+Shift+f exec $term -e newsboat
 bindsym $mod+Shift+z exec timeshift-launcher
 bindsym $mod+Shift+y exec foliate
 bindsym $mod+Shift+q exec telegram-desktop
@@ -202,7 +202,6 @@ for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
-for_window [title="newsboat"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
