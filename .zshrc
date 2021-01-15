@@ -141,6 +141,7 @@ alias translate='gawk -f <(curl -Ls git.io/translate) -- -shell'
 alias ipa='curl ifconfig.co'
 alias mm='morc_menu'
 alias bt='bpytop'
+alias rs='rsync -ahP'
 
 #never gonna give you up
 alias saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
