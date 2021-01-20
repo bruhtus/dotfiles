@@ -151,6 +151,11 @@ alias saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc
 function sd(){cd "$(du ~ | awk '{print $2}' | fzf --height 20%)"} #cd to any directories in home directory from any directories
 function cs(){find ~ -type f | fzf --height 20% | xargs -o -r vim} #search and open file on home directory in vim directly, -o so that it doesn't break my terminal, -r for if doesn't have entry then it exit
 
+#convert groff to pdf with table of contents
+function pf(){pdfroff -mspdf -t $1 > $2}
+#convert groff to pdf, default command
+function gms(){groff -ms -t -T pdf $1 > $2}
+
 #mounting and unmounting from CLI
 function dm(){udisksctl mount -b /dev/$1}
 function dum(){udisksctl unmount -b /dev/$1}
