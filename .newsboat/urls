@@ -46,5 +46,6 @@ https://rsshub.app/dev.to/top/month "~Monthly" "dev"
 https://rsshub.app/dev.to/top/year "~Yearly" "dev"
 
 --personal--
+https://bruhtus.github.io/index.xml
 https://rsshub.app/github/repos/bruhtus "~My public repo" "github"
 https://rsshub.app/github/starred_repos/bruhtus "~My starred repo" "github"
