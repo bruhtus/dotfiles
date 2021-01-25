@@ -210,9 +210,10 @@ function pv(){vim -R <(python $@)}
 alias pacsyu='sudo pacman -Syu'
 alias yalord='sudo pacman'
 alias pacss='pacman -Ss'
-alias yaysua='sudo yay -Sua'
 alias yays='yay -S'
 alias yayss='yay -Ss'
+alias yaysua='yay -Sua'
+alias yayq='yay -Qua'
 
 #cpu and memory alias
 alias cpu='ps axch -o cmd:15,%cpu --sort=-%cpu | head'
