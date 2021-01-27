@@ -104,7 +104,6 @@ bindsym $mod+Shift+a --release exec --no-startup-id flameshot gui
 #bindsym $mod+Shift+a --release exec --no-startup-id flameshot screen -r -c
 
 bindsym $mod+Ctrl+x exec $term -e bpytop
-bindsym $mod+Ctrl+b exec $term -e 'bmenu'
 bindsym $mod+Ctrl+c exec $term -e ncdu
 bindsym $mod+Ctrl+z exec rofi -show emoji -modi emoji
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
