@@ -14,6 +14,7 @@ Plug 'xtal8/traces.vim'
 Plug 'osyo-manga/vim-anzu'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 set path+=**
@@ -61,7 +62,7 @@ colorscheme seoul256
 let g:seoul256_background = 233
 colo seoul256
 
-" better whitespace config
+" better-whitespace config
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 
