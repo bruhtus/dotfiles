@@ -6,6 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 bindkey -v
+setopt autocd
 
 #dotbare
 export DOTBARE_DIR="$HOME/.config"
@@ -18,6 +19,13 @@ zplug "lib/directories", from:oh-my-zsh
 zplug "lib/completion", from:oh-my-zsh
 zplug "kazhala/dotbare"
 zplug "romkatv/powerlevel10k", as:theme, depth:1
+#install plugins if there're plugins that haven't been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
 zplug load
 
 #history
