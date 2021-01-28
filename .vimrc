@@ -17,7 +17,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 call plug#end()
 
-set path+=**
 set laststatus=2
 set showcmd
 set ttimeoutlen=30
