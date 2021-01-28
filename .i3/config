@@ -226,8 +226,8 @@ mode "$mode_system" {
 bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
-exec_always --no-startup-id $HOME/.i3/startxrandr.sh
-exec_always --no-startup-id $HOME/.i3/speedvim.sh
+exec_always --no-startup-id $HOME/.i3/startxrandr
+exec_always --no-startup-id $HOME/.i3/speedvim
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id xmodmap -e "clear lock" #disable capslock
 exec_always --no-startup-id xmodmap -e "keysym Caps_Lock = Escape" #set capslock as esc
