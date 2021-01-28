@@ -58,6 +58,12 @@ map <C-p> "+p
 " set enter as :
 map <CR> :
 
+" set ZX as :w
+nnoremap ZX :w<CR>
+
+" set ZA as :on
+nnoremap ZA :on<CR>
+
 colorscheme seoul256
 let g:seoul256_background = 233
 colo seoul256
