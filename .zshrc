@@ -17,6 +17,7 @@ source $HOME/.zplug/init.zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "lib/directories", from:oh-my-zsh
 zplug "lib/completion", from:oh-my-zsh
+zplug "lib/grep", from:oh-my-zsh
 zplug "kazhala/dotbare"
 zplug "romkatv/powerlevel10k", as:theme, depth:1
 #install plugins if there're plugins that haven't been installed
@@ -69,6 +70,7 @@ alias mm='morc_menu'
 alias bt='bpytop'
 alias rs='rsync -ahP'
 alias cm='cd /run/media'
+alias v='vim'
 
 #never gonna give you up
 alias saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
