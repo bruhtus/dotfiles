@@ -8,6 +8,11 @@ fi
 bindkey -v
 setopt autocd
 
+#history
+HISTSIZE=10000000
+SAVEHIST=10000000
+HISTFILE=~/.cache/zsh/history
+
 #dotbare
 export DOTBARE_DIR="$HOME/.config"
 export DOTBARE_TREE="$HOME"
@@ -18,6 +23,7 @@ zplug "plugins/git", from:oh-my-zsh
 zplug "lib/directories", from:oh-my-zsh
 zplug "lib/completion", from:oh-my-zsh
 zplug "lib/grep", from:oh-my-zsh
+zplug "lib/history", from:oh-my-zsh
 zplug "kazhala/dotbare"
 zplug "romkatv/powerlevel10k", as:theme, depth:1
 #install plugins if there're plugins that haven't been installed
@@ -28,11 +34,6 @@ if ! zplug check --verbose; then
     fi
 fi
 zplug load
-
-#history
-HISTSIZE=10000000
-SAVEHIST=10000000
-HISTFILE=~/.cache/zsh/history
 
 #install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
@@ -49,7 +50,6 @@ autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
-_comp_options+=(globdots) #include hidden files
 
 #display git status
 function qwe(){
