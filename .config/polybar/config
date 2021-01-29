@@ -23,7 +23,6 @@ margin-bottom = 0
 [settings]
 throttle-output = 5
 throttle-output-for = 10
-throttle-input-for = 30
 screenchange-reload = true
 compositing-background = over
 compositing-foreground = over
@@ -33,11 +32,11 @@ pseudo-transparency = false
 
 format-foreground = #f4eee4
 format-background = #101010
-format-overline = 
-format-spacing = 
-format-padding = 
-format-margin = 
-format-offset = 
+format-overline =
+format-spacing =
+format-padding =
+format-margin =
+format-offset =
 
 [colors]
 background = #101010
@@ -87,7 +86,7 @@ modules-left = i3 wirelessname wirelessspeedup wirelessspeeddown lanname lanspee
 modules-center = date time filesystem
 modules-right = cpu memory xbacklight pulseaudio battery temperature
 
-separator = 
+separator =
 
 tray-position = right
 tray-detached = false
@@ -105,19 +104,19 @@ enable-ipc = true
 
 ;override-redirect = true
 
-click-left = 
-click-middle = 
-click-right = 
+click-left =
+click-middle =
+click-right =
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
-double-click-left = 
-double-click-middle = 
-double-click-right = 
+double-click-left =
+double-click-middle =
+double-click-right =
 
-cursor-click = 
-cursor-scroll = 
+cursor-click =
+cursor-scroll =
 
 [bar/secondbar-i3]
 
@@ -155,7 +154,7 @@ modules-left = i3 wirelessname wirelessspeedup wirelessspeeddown lanname lanspee
 modules-center = date time filesystem
 modules-right = cpu memory xbacklight pulseaudio battery temperature
 
-separator = 
+separator =
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -164,19 +163,19 @@ enable-ipc = true
 
 ;override-redirect = true
 
-click-left = 
-click-middle = 
-click-right = 
+click-left =
+click-middle =
+click-right =
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
-double-click-left = 
-double-click-middle = 
-double-click-right = 
+double-click-left =
+double-click-middle =
+double-click-right =
 
-cursor-click = 
-cursor-scroll = 
+cursor-click =
+cursor-scroll =
 
 
 [module/xwindow]
@@ -190,15 +189,15 @@ blacklist-0 = num lock
 
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
-;format-prefix-underline = 
+;format-prefix-underline =
 
 label-layout = %layout%
-;label-layout-underline = 
+;label-layout-underline =
 
 label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.background}
-;label-indicator-underline = 
+;label-indicator-underline =
 
 [module/filesystem]
 type = internal/fs
@@ -217,7 +216,7 @@ type = internal/bspwm
 
 label-focused = %index%
 label-focused-background = ${colors.background}
-;label-focused-underline= 
+;label-focused-underline=
 label-focused-padding = 2
 
 label-occupied = %index%
@@ -555,9 +554,9 @@ label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = #f99f92
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 =
+ramp-1 =
+ramp-2 =
 ramp-foreground = ${colors.foreground}
 
 [module/powermenu]
