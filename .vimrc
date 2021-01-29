@@ -35,6 +35,7 @@ set statusline=%{anzu#search_status()}
 "set shortmess-=S "default vim search result count
 
 let mapleader =" "
+let $FZF_DEFAULT_COMMAND = "find ~ -type f | egrep -v '*\.jpg|*\.jpeg|*\.png|*\.epub|*\.mobi|*\.pdf|*\.mp4|*\.svg|miniconda|gem|local'"
 
 " set goyo by typing space + g
 map <leader>g :Goyo \| set linebreak<CR>

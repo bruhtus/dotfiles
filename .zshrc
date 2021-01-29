@@ -52,15 +52,14 @@ zmodload zsh/complist
 compinit
 
 #display git status
-function qwe(){
-    ~/.i3/git-status-checker | less}
+function qwe(){~/.i3/git-status-checker | less}
 
 #unfaedah alias
 alias asd='googler -n 4'
 #alias asd='ddgr -n 4'
 alias zxc='youtube-viewer -C --custom-layout --fixed-width --resolution=480p' #poor internet
 alias reload='source ~/.zshrc'
-alias zshalias='grep "^alias\|^function" ~/.zshrc | less'
+alias zshalias='egrep "^alias|^function" ~/.zshrc | less'
 alias ka='killall'
 alias mp='markdown_previewer'
 alias wttr='curl wttr.in\?%tpFQn1m'
@@ -78,7 +77,7 @@ alias saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc
 #find directory (cd to it) and files (open in vim)
 #alias f='fzf | tr -d "\n" | xsel -ib' #tr truncated from the \n char at the end of the line
 function sd(){cd "$(du ~ | awk '{print $2}' | fzf --height 20%)"} #cd to any directories in home directory from any directories
-function cs(){find ~ -type f | fzf --height 20% | xargs -o -r vim} #search and open file on home directory in vim directly, -o so that it doesn't break my terminal, -r for if doesn't have entry then it exit
+function cs(){find ~ -type f | egrep -v '*\.jpg|*\.jpeg|*\.png|*\.epub|*\.mobi|*\.pdf|*\.mp4|*\.svg|miniconda|gem|local' | fzf --height 20% | xargs -o -r vim} #search and open file on home directory in vim directly, -o so that it doesn't break my terminal, -r for if doesn't have entry then it exit
 
 #convert groff to pdf with table of contents
 function pf(){pdfroff -mspdf -t $1 > $2}
