@@ -17,12 +17,12 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 call plug#end()
 
-set laststatus=2
 set showcmd
+set linebreak
+set laststatus=2
 set ttimeoutlen=30
 set number relativenumber
 
-set nowrap
 set nobackup
 set noshowmode
 set noswapfile
@@ -38,15 +38,11 @@ let mapleader =" "
 let $FZF_DEFAULT_COMMAND = "find ~ -type f | egrep -v '*\.jpg|*\.jpeg|*\.png|*\.epub|*\.mobi|*\.pdf|*\.mp4|*\.svg|miniconda3/|gems/|\.local/'"
 
 " set goyo by typing space + g
-map <leader>g :Goyo \| set linebreak<CR>
+map <leader>g :Goyo<CR>
 
-" limelight integration with goyo
-autocmd User GoyoEnter Limelight
-autocmd User GoyoLeave Limelight!
-
-" vim-pencil integration with goyo
-autocmd User GoyoEnter SoftPencil " Turn on
-autocmd User GoyoLeave TogglePencil " Turn off
+" limelight and vim-pencil integration with goyo
+autocmd User GoyoEnter Limelight | SoftPencil
+autocmd User GoyoLeave Limelight! | NoPencil
 
 " open fzf to search all files in home directory
 map <leader>e :Files ~<CR>
