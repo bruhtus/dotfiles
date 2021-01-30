@@ -29,7 +29,6 @@ set noswapfile
 
 set ignorecase
 set smartcase
-set hlsearch
 set incsearch
 set statusline=%{anzu#search_status()}
 "set shortmess-=S "default vim search result count
