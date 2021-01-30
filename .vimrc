@@ -78,6 +78,9 @@ let g:strip_whitespace_on_save=1
 " lightline config
 let g:lightline = {
       \ 'colorscheme': 'seoul256',
+      \ 'component': {
+      \   'lineinfo': '%3l/%L',
+      \ },
       \ }
 
 " anzu config
