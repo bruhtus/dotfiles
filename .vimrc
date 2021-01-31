@@ -71,7 +71,7 @@ nnoremap ZC :filetype detect<CR>
 " set ZS as :reg
 nnoremap ZS :reg<CR>
 
-" set ZD as :reg
+" set ZD as :marks
 nnoremap ZD :marks<CR>
 
 colorscheme seoul256
