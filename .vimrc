@@ -46,8 +46,8 @@ autocmd User GoyoLeave Limelight! | NoPencil
 " open fzf to search all files in home directory
 map <leader>e :Files ~<CR>
 
-" jump to mark j with space j
-nnoremap <leader>j `j
+" jump to any mark with space j
+nnoremap <leader>j `
 
 " set black hole to space d
 nnoremap <leader>d "_
