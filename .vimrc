@@ -65,8 +65,11 @@ nnoremap ZX :w<CR>
 " set ZA as :on
 nnoremap ZA :on<CR>
 
-" set ZS as :filetype detect
-nnoremap ZS :filetype detect<CR>
+" set ZD as :filetype detect
+nnoremap ZD :filetype detect<CR>
+
+" set ZS as :reg
+nnoremap ZS :reg<CR>
 
 colorscheme seoul256
 let g:seoul256_background = 233
