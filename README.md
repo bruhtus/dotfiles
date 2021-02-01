@@ -29,7 +29,7 @@ git clone https://github.com/kazhala/dotbare.git $HOME/.oh-my-zsh/custom/plugins
 ```bash
 plugins=(git dotfiles) #There are 2 plugins, git plugin and dotbare plugin
 ```
-- Restart the terminal (exit terminal and open it again).
+- Reload the shell config (`source .zshrc` or `. .zshrc`).
 
 #### Initialize dotbare in new system
 ```bash
