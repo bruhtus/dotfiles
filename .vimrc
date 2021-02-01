@@ -43,8 +43,12 @@ map <leader>g :Goyo<CR>
 autocmd User GoyoEnter Limelight | SoftPencil
 autocmd User GoyoLeave Limelight! | NoPencil
 
+" ranger config
+let g:ranger_map_keys = 0
+map <leader>e :Ranger<CR>
+
 " open fzf to search all files in home directory
-map <leader>e :Files ~<CR>
+map <leader>f :Files ~<CR>
 
 " jump to any mark with space j
 nnoremap <leader>j `
@@ -106,4 +110,4 @@ let g:pymode_rope = 0
 let g:pymode_indent = 1
 let g:pymode_folding = 0
 let g:pymode_options_colorcolumn = 1
-let g:pymode_breakpoint_bind = '<leader>br'
+let g:pymode_run_bind = '<leader>br'
