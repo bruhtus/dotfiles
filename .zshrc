@@ -71,6 +71,7 @@ alias bt='bpytop'
 alias rs='rsync -ahP'
 alias cm='cd /run/media'
 alias v='vim'
+alias rr='ranger'
 
 #never gonna give you up
 alias saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
