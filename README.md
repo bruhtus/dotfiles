@@ -20,7 +20,7 @@ dotbare push origin master
 ### To restore all of your dotfiles into new system
 Install and config zsh, [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh), and [powerlevel10k](https://github.com/romkatv/powerlevel10k) first. And then do this command:
 
-#### Add dotbare to oh-my-zsh
+#### Add dotbare with oh-my-zsh
 - Clone dotbare repository to oh-my-zsh plugins directory using the command below:
 ```bash
 git clone https://github.com/kazhala/dotbare.git $HOME/.oh-my-zsh/custom/plugins/dotbare
@@ -29,6 +29,18 @@ git clone https://github.com/kazhala/dotbare.git $HOME/.oh-my-zsh/custom/plugins
 ```bash
 plugins=(git dotfiles) #There are 2 plugins, git plugin and dotbare plugin
 ```
+- Reload the shell config (`source .zshrc` or `. .zshrc`).
+
+#### Add dotbare with zplug
+- After install zplug, add this to you .zshrc:
+```bash
+source ~/.zplug/init.zsh
+...
+zplug "kazhala/dotbare"
+...
+zplug load
+```
+and then run `zplug install`.
 - Reload the shell config (`source .zshrc` or `. .zshrc`).
 
 #### Initialize dotbare in new system
