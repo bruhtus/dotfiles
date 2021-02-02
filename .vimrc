@@ -51,6 +51,10 @@ map <leader>e :Ranger<CR>
 " open fzf to search all files in home directory
 map <leader>f :Files ~<CR>
 
+" space r to compile groff and space p to display the result
+map <leader>r :w! \| !pdfroff -mspdf -t % > %:r.pdf<CR><CR>
+map <leader>p :!zathura %:r.pdf&<CR><CR>
+
 " jump to any mark with space j
 nnoremap <leader>j `
 
