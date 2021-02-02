@@ -21,6 +21,7 @@ set showcmd
 set linebreak
 set laststatus=2
 set ttimeoutlen=30
+set splitbelow splitright
 set number relativenumber
 
 set nobackup
