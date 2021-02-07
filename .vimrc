@@ -15,6 +15,7 @@ Plug 'osyo-manga/vim-anzu'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'luochen1990/rainbow'
 call plug#end()
 
 set showcmd
@@ -36,6 +37,7 @@ set statusline=%{anzu#search_status()}
 
 let mapleader =" "
 let $FZF_DEFAULT_COMMAND = "find ~ -type f | egrep -v '*\.jpg|*\.jpeg|*\.png|*\.epub|*\.mobi|*\.pdf|*\.mp4|*\.svg|miniconda3/|gems/|\.local/'"
+let g:rainbow_active = 1
 
 " set goyo by typing space + g
 map <leader>g :Goyo<CR>
