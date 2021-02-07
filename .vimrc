@@ -85,7 +85,7 @@ nnoremap ZS :reg<CR>
 " set ZD as :marks
 nnoremap ZD :marks<CR>
 
-colorscheme seoul256
+" colorscheme config
 let g:seoul256_background = 233
 colo seoul256
 
