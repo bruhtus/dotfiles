@@ -63,8 +63,15 @@ map <leader>p :!zathura %:r.pdf&<CR><CR>
 " jump to any mark with space j
 nnoremap <leader>j `
 
-" set black hole to space d
-nnoremap <leader>d "_
+" set black hole register to c, C, s, S, x, X, D, and space d
+nnoremap c "_c
+nnoremap C "_C
+nnoremap s "_s
+nnoremap S "_S
+nnoremap x "_x
+nnoremap X "_X
+nnoremap D "_D
+nnoremap <leader>d "_d
 
 " set vim to copy to clipboard and paste from clipboard
 vnoremap <C-y> "+y
