@@ -37,7 +37,10 @@ set statusline=%{anzu#search_status()}
 
 let mapleader =" "
 let $FZF_DEFAULT_COMMAND = "find ~ -type f | egrep -v '*\.jpg|*\.jpeg|*\.png|*\.epub|*\.mobi|*\.pdf|*\.mp4|*\.svg|miniconda3/|gems/|\.local/'"
-let g:rainbow_active = 1
+
+" matching parenthesis rainbow config
+let g:rainbow_active = 0
+nnoremap <leader>s :RainbowToggle<CR>
 
 " set goyo by typing space + g
 map <leader>g :Goyo<CR>
