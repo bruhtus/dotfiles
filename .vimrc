@@ -16,6 +16,7 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'luochen1990/rainbow'
+Plug 'vimwiki/vimwiki'
 call plug#end()
 
 set showcmd
@@ -28,6 +29,7 @@ set number relativenumber
 set nobackup
 set noshowmode
 set noswapfile
+set nocompatible
 
 set ignorecase
 set smartcase
@@ -35,8 +37,12 @@ set incsearch
 set statusline=%{anzu#search_status()}
 "set shortmess-=S "default vim search result count
 
+filetype plugin on
+syntax on
+
 let mapleader =" "
 let $FZF_DEFAULT_COMMAND = "find ~ -type f | egrep -v '*\.jpg|*\.jpeg|*\.png|*\.epub|*\.mobi|*\.pdf|*\.mp4|*\.svg|miniconda3/|gems/|\.local/'"
+let g:vimwiki_list = [{'path': '~/Sync/wiki', 'syntax': 'markdown', 'ext': '.md'}]
 
 " matching parenthesis rainbow config
 let g:rainbow_active = 0
