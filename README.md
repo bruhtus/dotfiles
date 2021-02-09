@@ -1,4 +1,4 @@
-# Dotfiles to Restore Configuration
+# Personal Dotfiles
 
 > Note to myself: don't forget to make the script executable by doing `chmod +x <filename>` and install vim plug
 
