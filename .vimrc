@@ -42,6 +42,8 @@ syntax on
 let mapleader =" "
 let $FZF_DEFAULT_COMMAND = "find ~ -type f | egrep -v '*\.jpg|*\.jpeg|*\.png|*\.epub|*\.mobi|*\.pdf|*\.mp4|*\.svg|miniconda3/|gems/|\.local/'"
 let g:vimwiki_list = [{'path': '~/Sync/wiki', 'syntax': 'markdown', 'ext': '.md'}]
+" make vimwiki only set the filetype inside the vimwiki path
+let g:vimwiki_global_ext = 0
 
 " matching parenthesis rainbow config
 let g:rainbow_active = 0
