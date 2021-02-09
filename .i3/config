@@ -29,6 +29,10 @@ workspace_auto_back_and_forth yes
 for_window [title="dropdown_youtube"] move scratchpad
 for_window [title="dropdown_youtube"] sticky enable
 for_window [title="dropdown_youtube"] resize set 900 520
+for_window [title="dropdown_vimwiki"] move scratchpad
+for_window [title="dropdown_vimwiki"] sticky enable
+for_window [title="dropdown_vimwiki"] resize set 900 520
+for_window [title="dropdown_terminal"] move scratchpad
 for_window [title="dropdown_terminal"] move scratchpad
 for_window [title="dropdown_terminal"] sticky enable
 for_window [title="dropdown_terminal"] resize set 900 520
@@ -86,7 +90,7 @@ bindsym $mod+a exec --no-startup-id rofi -show run
 bindsym $mod+t exec --no-startup-id pkill picom
 
 bindsym $mod+Shift+c exec $term -e vim '/home/bruhtus/.i3/config'
-bindsym $mod+Shift+d [title="dropdown_youtube"] scratchpad show; [title="dropdown_youtube"] move position center
+bindsym $mod+Shift+d [title="dropdown_vimwiki"] scratchpad show; [title="dropdown_vimwiki"] move position center
 bindsym $mod+Shift+s [title="dropdown_terminal"] scratchpad show; [title="dropdown_terminal"] move position center
 bindsym $mod+Shift+u exec google-chrome-stable --incognito https://github.com/trending
 bindsym $mod+Shift+o exec google-chrome-stable --new-window https://github.com/settings/tokens
@@ -231,7 +235,7 @@ exec_always --no-startup-id $HOME/.i3/speedvim
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id xmodmap -e "clear lock" #disable capslock
 exec_always --no-startup-id xmodmap -e "keysym Caps_Lock = Escape" #set capslock as esc
-exec_always --no-startup-id $HOME/.i3/youtubedd
+exec_always --no-startup-id $HOME/.i3/vimwikidd
 exec_always --no-startup-id $HOME/.i3/terminaldd
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
