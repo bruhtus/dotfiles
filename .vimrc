@@ -29,7 +29,6 @@ set number relativenumber
 set nobackup
 set noshowmode
 set noswapfile
-set nocompatible
 
 set ignorecase
 set smartcase
