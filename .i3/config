@@ -90,7 +90,7 @@ bindsym $mod+a exec --no-startup-id rofi -show run
 bindsym $mod+t exec --no-startup-id pkill picom
 
 bindsym $mod+Shift+c exec $term -e vim '/home/bruhtus/.i3/config'
-bindsym $mod+Shift+d [title="dropdown_vimwiki"] scratchpad show; [title="dropdown_vimwiki"] move position center
+bindsym $mod+Shift+d [title="dropdown_youtube"] scratchpad show; [title="dropdown_youtube"] move position center
 bindsym $mod+Shift+s [title="dropdown_terminal"] scratchpad show; [title="dropdown_terminal"] move position center
 bindsym $mod+Shift+u exec google-chrome-stable --incognito https://github.com/trending
 bindsym $mod+Shift+o exec google-chrome-stable --new-window https://github.com/settings/tokens
@@ -108,7 +108,7 @@ bindsym $mod+Shift+a --release exec --no-startup-id flameshot gui
 #bindsym $mod+Shift+a --release exec --no-startup-id flameshot screen -r -c
 
 bindsym $mod+Ctrl+x exec $term -e bpytop
-bindsym $mod+Ctrl+c exec $term -e ncdu
+bindsym $mod+Ctrl+c [title="dropdown_vimwiki"] scratchpad show; [title="dropdown_vimwiki"] move position center
 bindsym $mod+Ctrl+z exec rofi -show emoji -modi emoji
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 
@@ -236,6 +236,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id xmodmap -e "clear lock" #disable capslock
 exec_always --no-startup-id xmodmap -e "keysym Caps_Lock = Escape" #set capslock as esc
 exec_always --no-startup-id $HOME/.i3/vimwikidd
+exec_always --no-startup-id $HOME/.i3/youtubedd
 exec_always --no-startup-id $HOME/.i3/terminaldd
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
