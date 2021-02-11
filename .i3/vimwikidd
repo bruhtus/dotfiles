@@ -1,4 +1,0 @@
-#!/bin/sh
-
-xwininfo -name dropdown_vimwiki || $TERMINAL -t dropdown_vimwiki -e vim -c 'VimwikiIndex'
-
