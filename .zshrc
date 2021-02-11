@@ -149,6 +149,13 @@ alias yayq='yay -Qua'
 alias cpu='ps axch -o cmd:15,%cpu --sort=-%cpu | head'
 alias mem='ps axch -o cmd:15,%mem --sort=-%mem | head'
 
+#taskwarrior alias
+alias t='task'
+alias ta='task add'
+alias tt='task context'
+alias tp='task projects'
+alias tg='task tags'
+
 #vim keys to tab complete menu
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
