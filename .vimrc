@@ -102,6 +102,7 @@ nnoremap ZS :reg<CR>
 " set ZD as :marks
 nnoremap ZD :marks<CR>
 
+" remap < and > in visual mode
 vnoremap < <gv
 vnoremap > >gv
 
