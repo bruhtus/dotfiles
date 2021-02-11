@@ -45,6 +45,7 @@ let $FZF_DEFAULT_COMMAND = "find ~ -type f | egrep -v '*\.jpg|*\.jpeg|*\.png|*\.
 let g:vimwiki_list = [{'path': '~/Sync/wiki', 'syntax': 'markdown', 'ext': '.md'}]
 " make vimwiki only set the filetype inside the vimwiki path
 let g:vimwiki_global_ext = 0
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
 " matching parenthesis rainbow config
 let g:rainbow_active = 0
