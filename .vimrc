@@ -7,6 +7,7 @@ Plug 'reedes/vim-pencil'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'dominikduda/vim_current_word'
 Plug 'kshenoy/vim-signature'
 Plug 'ntpeters/vim-better-whitespace'
@@ -62,6 +63,9 @@ map <leader>e :Ranger<CR>
 
 " open fzf to search all files in home directory
 map <leader>f :Files ~<CR>
+
+" open fzf to search all lines in current buffer
+map <leader>k :BLines<CR>
 
 " space r to compile groff and space p to display the result
 map <leader>r :w! \| !pdfroff -mspdf -t % > %:r.pdf<CR><CR>
