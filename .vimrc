@@ -77,6 +77,8 @@ map <leader>k :BLines<CR>
 map <leader>r :w! \| !pdfroff -mspdf -t % > %:r.pdf<CR><CR>
 map <leader>p :!zathura %:r.pdf&<CR><CR>
 
+map <leader>P :w! \| !setsid -f sent %<CR><CR>
+
 " jump to any mark with space j
 nnoremap <leader>j `
 
