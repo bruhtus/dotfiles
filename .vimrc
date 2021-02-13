@@ -27,6 +27,9 @@ set ttimeoutlen=30
 set splitbelow splitright
 set number relativenumber
 
+set tabstop=4
+set shiftwidth=4
+
 set nobackup
 set noshowmode
 set noswapfile
@@ -150,4 +153,7 @@ let g:pymode_rope = 0
 let g:pymode_indent = 1
 let g:pymode_folding = 0
 let g:pymode_options_colorcolumn = 1
-let g:pymode_run_bind = '<leader>br'
+let g:pymode_run = 0
+let g:pymode_breakpoint = 0
+let g:pymode_lint_ignore = ["E501", "W",]
+let g:pymode_lint_signs = 0
