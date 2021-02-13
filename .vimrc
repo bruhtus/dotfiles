@@ -18,6 +18,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'luochen1990/rainbow'
 Plug 'vimwiki/vimwiki'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 set showcmd
@@ -44,10 +45,14 @@ filetype plugin on
 syntax on
 
 let mapleader =" "
-let $FZF_DEFAULT_COMMAND = "find $1 -type f | egrep -v '*\.jpg|*\.jpeg|*\.png|*\.epub|*\.mobi|*\.pdf|*\.mp4|*\.svg|miniconda3/|gems/|\.local/|\.git/'"
+let $FZF_DEFAULT_COMMAND = "find $1 -type f | egrep -v '*\.jpg|*\.jpeg|*\.png|*\.epub|*\.mobi|*\.pdf|*\.mp4|*\.svg|miniconda3/|gems/|\.local/'"
 let g:vimwiki_list = [{'path': '~/Sync/wiki', 'syntax': 'markdown', 'ext': '.md'}]
 " make vimwiki only set the filetype inside the vimwiki path
 let g:vimwiki_global_ext = 0
+
+" easymotion config
+let g:EasyMotion_do_mapping = 0
+map  <Leader>k <Plug>(easymotion-bd-w)
 
 " matching parenthesis rainbow config
 let g:rainbow_active = 0
@@ -67,14 +72,11 @@ map <leader>e :Ranger<CR>
 " open fzf to search all files in home directory
 map <leader>f :Files ~<CR>
 
-" open fzf to search all files in current directory
-map <leader>i :Files<CR>
-
 " open fzf to search all files in loaded buffers
-map <leader>u :Buffers<CR>
+map <leader>i :Buffers<CR>
 
 " open fzf to search all lines in current buffer
-map <leader>k :BLines<CR>
+map <leader>u :BLines<CR>
 
 " space r to compile groff and space p to display the result
 map <leader>r :w! \| !pdfroff -mspdf -t % > %:r.pdf<CR><CR>
