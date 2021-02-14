@@ -84,7 +84,7 @@ font-2 = "Noto Sans CJK JP:size=10;0"
 
 modules-left = i3 wirelessname wirelessspeedup wirelessspeeddown lanname lanspeedup lanspeeddown xwindow
 modules-center = date time filesystem
-modules-right = cpu memory xbacklight pulseaudio battery temperature
+modules-right = cpu memory pulseaudio battery temperature
 
 separator =
 
@@ -152,7 +152,7 @@ font-2 = "Noto Sans CJK JP:size=10;0"
 
 modules-left = i3 wirelessname wirelessspeedup wirelessspeeddown lanname lanspeedup lanspeeddown xwindow
 modules-center = date time filesystem
-modules-right = cpu memory xbacklight pulseaudio battery temperature
+modules-right = cpu memory pulseaudio battery temperature
 
 separator =
 
