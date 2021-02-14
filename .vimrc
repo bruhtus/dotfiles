@@ -8,7 +8,6 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'dominikduda/vim_current_word'
 Plug 'kshenoy/vim-signature'
 Plug 'xtal8/traces.vim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
