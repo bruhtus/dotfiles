@@ -11,7 +11,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'dominikduda/vim_current_word'
 Plug 'kshenoy/vim-signature'
 Plug 'xtal8/traces.vim'
-Plug 'osyo-manga/vim-anzu'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -37,8 +36,7 @@ set noswapfile
 set ignorecase
 set smartcase
 set incsearch
-set statusline=%{anzu#search_status()}
-"set shortmess-=S "default vim search result count
+" set shortmess-=S "default vim search result count
 
 filetype plugin on
 syntax on
@@ -138,9 +136,6 @@ let g:lightline = {
       \   'lineinfo': '%3l/%L',
       \ },
       \ }
-
-" anzu config
-let g:anzu_enable_CursorMoved_AnzuUpdateSearchStatus=1
 
 " python-mode config
 let g:pymode_lint_checkers = ['pyflakes']
