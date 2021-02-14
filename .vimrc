@@ -10,7 +10,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'dominikduda/vim_current_word'
 Plug 'kshenoy/vim-signature'
-Plug 'ntpeters/vim-better-whitespace'
 Plug 'xtal8/traces.vim'
 Plug 'osyo-manga/vim-anzu'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
@@ -127,10 +126,6 @@ vnoremap > >gv
 let g:seoul256_background = 233
 colo seoul256
 
-" better-whitespace config
-let g:better_whitespace_enabled=1
-let g:strip_whitespace_on_save=1
-
 " lightline config
 let g:lightline = {
       \ 'colorscheme': 'seoul256',
@@ -159,3 +154,14 @@ let g:pymode_run = 0
 let g:pymode_breakpoint = 0
 let g:pymode_lint_ignore = ["E501", "W",]
 let g:pymode_lint_signs = 0
+
+function! TrimWhiteSpace()
+	let l:save = winsaveview()
+	keeppatterns %s/\s\+$//e
+	call winrestview(l:save)
+endfunction
+
+augroup no_trailing_whitespace
+	autocmd!
+	autocmd BufWritePre * :call TrimWhiteSpace()
+augroup END
