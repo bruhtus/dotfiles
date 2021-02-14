@@ -46,6 +46,9 @@ let g:vimwiki_list = [{'path': '~/Sync/wiki', 'syntax': 'markdown', 'ext': '.md'
 " make vimwiki only set the filetype inside the vimwiki path
 let g:vimwiki_global_ext = 0
 
+nnoremap ZW m`o<Esc>``
+nnoremap ZE m`O<Esc>``
+
 " easymotion config
 let g:EasyMotion_do_mapping = 0
 map  <Leader>k <Plug>(easymotion-bd-w)
