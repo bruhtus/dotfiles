@@ -74,10 +74,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
-bindsym $mod+Ctrl+Shift+h exec --no-startup-id .i3/i3resize left
-bindsym $mod+Ctrl+Shift+j exec --no-startup-id .i3/i3resize down
-bindsym $mod+Ctrl+Shift+k exec --no-startup-id .i3/i3resize up
-bindsym $mod+Ctrl+Shift+l exec --no-startup-id .i3/i3resize right
+bindsym $mod+Ctrl+Shift+h exec --no-startup-id .config/i3/i3resize left
+bindsym $mod+Ctrl+Shift+j exec --no-startup-id .config/i3/i3resize down
+bindsym $mod+Ctrl+Shift+k exec --no-startup-id .config/i3/i3resize up
+bindsym $mod+Ctrl+Shift+l exec --no-startup-id .config/i3/i3resize right
 
 #---Application---#
 bindsym $mod+d exec $term
@@ -86,7 +86,7 @@ bindsym $mod+e exec $term -e ranger
 bindsym $mod+a exec --no-startup-id rofi -show run
 bindsym $mod+t exec --no-startup-id pkill picom
 
-bindsym $mod+Shift+c exec $term -e vim '/home/bruhtus/.i3/config'
+bindsym $mod+Shift+c exec $term -e vim '/home/bruhtus/.config/i3/config'
 bindsym $mod+Shift+d [title="dropdown_youtube"] scratchpad show; [title="dropdown_youtube"] move position center
 bindsym $mod+Shift+s [title="dropdown_terminal"] scratchpad show; [title="dropdown_terminal"] move position center
 bindsym $mod+Shift+u exec google-chrome-stable --incognito https://github.com/trending
@@ -227,13 +227,13 @@ mode "$mode_system" {
 bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
-exec_always --no-startup-id $HOME/.i3/startxrandr
-exec_always --no-startup-id $HOME/.i3/speedvim
+exec_always --no-startup-id $HOME/.config/i3/startxrandr
+exec_always --no-startup-id $HOME/.config/i3/speedvim
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id xmodmap -e "clear lock" #disable capslock
 exec_always --no-startup-id xmodmap -e "keysym Caps_Lock = Escape" #set capslock as esc
-exec_always --no-startup-id $HOME/.i3/youtubedd
-exec_always --no-startup-id $HOME/.i3/terminaldd
+exec_always --no-startup-id $HOME/.config/i3/youtubedd
+exec_always --no-startup-id $HOME/.config/i3/terminaldd
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id nm-applet
