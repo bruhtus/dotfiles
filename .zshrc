@@ -53,7 +53,7 @@ zmodload zsh/complist
 compinit
 
 #display git status
-function qwe(){~/.i3/git-status-checker | less}
+function qwe(){~/.config/i3/git-status-checker | less}
 
 #unfaedah alias
 alias asd='googler -n 4'
@@ -69,7 +69,7 @@ alias ipa='curl ifconfig.co'
 alias mm='morc_menu'
 alias bt='bpytop'
 alias rs='rsync -ahP'
-alias cm='cd /run/media'
+alias cm='cd /mnt'
 alias v='vim'
 alias rr='ranger'
 alias wiki='vim -c "VimwikiIndex"'
