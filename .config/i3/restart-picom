@@ -1,4 +1,4 @@
 #!/bin/sh
 
-killall picom && picom -b
+killall picom ; picom -b
 
