@@ -61,8 +61,8 @@ nnoremap <leader>s :RainbowToggle<CR>
 map <leader>g :Goyo<CR>
 
 " limelight and vim-pencil integration with goyo
-autocmd User GoyoEnter Limelight | SoftPencil
-autocmd User GoyoLeave Limelight! | NoPencil
+autocmd User GoyoEnter Limelight | SoftPencil | set showmode
+autocmd User GoyoLeave Limelight! | NoPencil | set noshowmode
 
 " ranger config
 let g:ranger_map_keys = 0
