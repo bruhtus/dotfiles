@@ -27,7 +27,7 @@ git clone https://github.com/kazhala/dotbare.git $HOME/.oh-my-zsh/custom/plugins
 ```
 - Activate the plugin in `~/.zshrc`, for example:
 ```bash
-plugins=(git dotfiles) #There are 2 plugins, git plugin and dotbare plugin
+plugins=(git dotbare) #There are 2 plugins, git plugin and dotbare plugin
 ```
 - Reload the shell config (`source .zshrc` or `. .zshrc`).
 
