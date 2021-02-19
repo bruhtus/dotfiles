@@ -79,8 +79,10 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = "unifont:fontformat=truetype:size=8:antialias=false;0"
-font-1 = "Font Awesome:size=10;0"
-font-2 = "Noto Sans CJK JP:size=10;0"
+font-1 = "Noto Sans CJK JP:size=10;0"
+font-2 = "Font Awesome 5 Free:style=Regular:size=10;1"
+font-3 = "Font Awesome 5 Free:style=Solid:size=10;1"
+font-4 = "Font Awesome 5 Brands:size=10;1"
 
 modules-left = i3 wirelessname wirelessspeedup wirelessspeeddown lanname lanspeedup lanspeeddown xwindow
 modules-center = date time filesystem
@@ -147,8 +149,10 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = "unifont:fontformat=truetype:size=8:antialias=false;0"
-font-1 = "Font Awesome:size=10;0"
-font-2 = "Noto Sans CJK JP:size=10;0"
+font-1 = "Noto Sans CJK JP:size=10;0"
+font-2 = "Font Awesome 5 Free:style=Regular:size=10;1"
+font-3 = "Font Awesome 5 Free:style=Solid:size=10;1"
+font-4 = "Font Awesome 5 Brands:size=10;1"
 
 modules-left = i3 wirelessname wirelessspeedup wirelessspeeddown lanname lanspeedup lanspeeddown xwindow
 modules-center = date time filesystem
