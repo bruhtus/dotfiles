@@ -32,7 +32,7 @@ plugins=(git dotbare) #There are 2 plugins, git plugin and dotbare plugin
 - Reload the shell config (`source .zshrc` or `. .zshrc`).
 
 #### Add dotbare with zplug
-- After install zplug, add this to you .zshrc:
+- After install zplug, add this to your `.zshrc`:
 ```bash
 source ~/.zplug/init.zsh
 ...
