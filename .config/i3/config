@@ -99,7 +99,7 @@ bindsym $mod+Shift+f exec $term -e newsboat
 bindsym $mod+Shift+z exec timeshift-launcher
 bindsym $mod+Shift+y exec foliate
 bindsym $mod+Shift+q exec telegram-desktop
-bindsym $mod+Shift+p exec .config/i3/restart-nitrogen-picom
+bindsym $mod+Shift+p exec .config/i3/restart-picom
 bindsym $mod+Shift+e exec pcmanfm
 bindsym $mod+Shift+a --release exec --no-startup-id flameshot gui
 #bindsym $mod+Shift+a --release exec --no-startup-id flameshot screen -r -c
