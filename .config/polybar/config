@@ -84,7 +84,7 @@ font-2 = "Font Awesome 5 Free:style=Regular:size=10;1"
 font-3 = "Font Awesome 5 Free:style=Solid:size=10;1"
 font-4 = "Font Awesome 5 Brands:size=10;1"
 
-modules-left = i3 wirelessname wirelessspeedup wirelessspeeddown lanname lanspeedup lanspeeddown xwindow
+modules-left = i3 wirelessname wirelessspeedup wirelessspeeddown lanname lanspeedup lanspeeddown xwindow updates
 modules-center = date time filesystem
 modules-right = cpu memory pulseaudio battery temperature
 
@@ -154,7 +154,7 @@ font-2 = "Font Awesome 5 Free:style=Regular:size=10;1"
 font-3 = "Font Awesome 5 Free:style=Solid:size=10;1"
 font-4 = "Font Awesome 5 Brands:size=10;1"
 
-modules-left = i3 wirelessname wirelessspeedup wirelessspeeddown lanname lanspeedup lanspeeddown xwindow
+modules-left = i3 wirelessname wirelessspeedup wirelessspeeddown lanname lanspeedup lanspeeddown xwindow updates
 modules-center = date time filesystem
 modules-right = cpu memory pulseaudio battery temperature
 
@@ -543,6 +543,14 @@ animation-discharging-1 = 
 animation-discharging-2 = 
 animation-discharging-foreground = ${colors.foreground}
 animation-discharging-framerate = 750
+
+[module/updates]
+type = custom/script
+
+exec = "/bin/sh -c checkupdates 2> /dev/null | wc -l"
+interval = 169
+
+label = update(s): %output%
 
 [module/temperature]
 type = internal/temperature
