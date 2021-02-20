@@ -106,7 +106,7 @@ bindsym $mod+Shift+a --release exec --no-startup-id flameshot gui
 
 bindsym $mod+Ctrl+x exec $term -e bpytop
 bindsym $mod+Ctrl+w exec google-chrome-stable
-bindsym $mod+Ctrl+s exec google-chrome-stable --incognito http://127.0.0.1:8384/
+bindsym $mod+Ctrl+s exec qutebrowser --target private-window http://127.0.0.1:8384/
 bindsym $mod+Ctrl+n exec $term -e vim -c 'VimwikiIndex'
 bindsym $mod+Ctrl+z exec rofi -show emoji -modi emoji
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
@@ -236,10 +236,11 @@ exec_always --no-startup-id $HOME/.config/i3/youtubedd
 exec_always --no-startup-id $HOME/.config/i3/terminaldd
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xwallpaper --maximize all-repos/wallpaper/wallpaper.jpg
+exec --no-startup-id syncthing --no-browser
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
-exec --no-startup-id pamac-tray
 exec --no-startup-id blueman-tray
+# exec --no-startup-id pamac-tray
 # exec --no-startup-id clipit
 # exec_always --no-startup-id ff-theme-util
 # exec_always --no-startup-id fix_xcursor
