@@ -235,7 +235,7 @@ exec_always --no-startup-id xmodmap -e "keysym Caps_Lock = Escape" #set capslock
 exec_always --no-startup-id $HOME/.config/i3/youtubedd
 exec_always --no-startup-id $HOME/.config/i3/terminaldd
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id xwallpaper --maximize all-repos/wallpaper/wallpaper.jpg
+exec --no-startup-id xwallpaper --maximize all-repos/wallpaper/wallpaper.jpg; picom -b
 exec --no-startup-id syncthing --no-browser
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
