@@ -24,6 +24,7 @@ set laststatus=2
 set ttimeoutlen=30
 set splitbelow splitright
 set number relativenumber
+set wildmode=longest,list,full
 
 set tabstop=4
 set shiftwidth=4
@@ -45,9 +46,6 @@ let $FZF_DEFAULT_COMMAND = "find $1 -type f | egrep -v '*\.jpg|*\.jpeg|*\.png|*\
 let g:vimwiki_list = [{'path': '~/sync/wiki', 'syntax': 'markdown', 'ext': '.md'}]
 " make vimwiki only set the filetype inside the vimwiki path
 let g:vimwiki_global_ext = 0
-
-nnoremap ZW m`o<Esc>``
-nnoremap ZE m`O<Esc>``
 
 " easymotion config
 let g:EasyMotion_do_mapping = 0
@@ -117,6 +115,10 @@ nnoremap ZS :reg<CR>
 
 " set ZD as :marks
 nnoremap ZD :marks<CR>
+
+" set ZW to enter blank space below and ZE to enter blank space above
+nnoremap ZW m`o<Esc>``
+nnoremap ZE m`O<Esc>``
 
 " remap < and > in visual mode
 vnoremap < <gv
