@@ -1,0 +1,17 @@
+*.jpg
+*.jpeg
+*.png
+*.epub
+*.mobi
+*.pdf
+*.mp4
+*.svg
+
+miniconda3/
+gems/
+.vim/plugged/
+.vim/autoload/
+.config/google-chrome/
+.local/
+.cache/
+.git/
