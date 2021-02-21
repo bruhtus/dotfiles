@@ -73,6 +73,7 @@ alias cm='cd /run/media'
 alias v='vim'
 alias rr='ranger'
 alias wiki='vim -c "VimwikiIndex"'
+alias rate='curl rate.sx'
 
 #never gonna give you up
 alias saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
