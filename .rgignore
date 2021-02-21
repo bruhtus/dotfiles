@@ -11,6 +11,7 @@ miniconda3/
 gems/
 .vim/plugged/
 .vim/autoload/
+.zplug/
 .config/google-chrome/
 .local/
 .cache/
