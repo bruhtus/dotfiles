@@ -1,4 +1,0 @@
-#!/bin/sh
-
-(checkupdates 2> /dev/null ; yay -Qua) | wc -l
-
