@@ -7,6 +7,17 @@ fi
 
 bindkey -v
 setopt autocd
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushdminus
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt share_history
+unsetopt menu_complete
+setopt always_to_end
 
 #history
 HISTSIZE=10000000
@@ -19,9 +30,6 @@ HISTFILE=~/.cache/zsh/history
 #zplug
 source $HOME/.zplug/init.zsh
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-zplug "lib/directories", from:oh-my-zsh
-zplug "lib/completion", from:oh-my-zsh
-zplug "lib/history", from:oh-my-zsh
 zplug "kazhala/dotbare"
 zplug "romkatv/powerlevel10k", as:theme, depth:1
 zplug load
@@ -47,6 +55,18 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 #Edit line in vim with ctrl-x:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^x' edit-command-line
+
+# case insensitive (all), partial-word and substring completion
+if [[ "$CASE_SENSITIVE" = true ]]; then
+  zstyle ':completion:*' matcher-list 'r:|=*' 'l:|=* r:|=*'
+else
+  if [[ "$HYPHEN_INSENSITIVE" = true ]]; then
+    zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|=*' 'l:|=* r:|=*'
+  else
+    zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+  fi
+fi
+unset CASE_SENSITIVE HYPHEN_INSENSITIVE
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
