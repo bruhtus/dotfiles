@@ -31,7 +31,7 @@ zplug load
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-compinit
+compinit -d ${XDG_CONFIG_HOME:-$HOME/.config}/zsh/zcompdump-$ZSH_VERSION
 
 #vim keys to tab complete menu
 bindkey -M menuselect 'h' vi-backward-char
