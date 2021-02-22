@@ -10,7 +10,6 @@ alias asd='googler -n 4'
 #alias asd='ddgr -n 4'
 alias zxc='youtube-viewer -C --custom-layout --fixed-width --resolution=480p' #poor internet
 alias reload='. ~/.config/zsh/.zshrc'
-alias zshalias='egrep "^alias|^function" ~/.zshrc | less'
 alias ka='killall'
 alias mp='markdown_previewer'
 alias wttr='curl wttr.in\?%tpFQn1m'
@@ -24,6 +23,7 @@ alias v='vim'
 alias rr='ranger'
 alias wiki='vim -c "VimwikiIndex"'
 alias rate='curl rate.sx'
+alias lynx='lynx -vikeys'
 
 #never gonna give you up
 alias saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
