@@ -1,11 +1,15 @@
 #display git status
 function qwe(){~/.config/i3/git-status-checker | less}
 
+#color command when possible
+alias grep="grep --color=auto"
+alias diff="diff --color=auto"
+
 #unfaedah alias
 alias asd='googler -n 4'
 #alias asd='ddgr -n 4'
 alias zxc='youtube-viewer -C --custom-layout --fixed-width --resolution=480p' #poor internet
-alias reload='source ~/.zshrc'
+alias reload='. ~/.config/zsh/.zshrc'
 alias zshalias='egrep "^alias|^function" ~/.zshrc | less'
 alias ka='killall'
 alias mp='markdown_previewer'
