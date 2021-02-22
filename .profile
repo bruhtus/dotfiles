@@ -4,6 +4,17 @@ export EDITOR=vim
 #export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 # fix "xdg-open fork-bomb" export your preferred browser from here
 #export BROWSER=/usr/bin/google-chrome-stable
-export BROWSER=w3m
+export BROWSER=qutebrowser
 export TERMINAL=alacritty
 export LESSHISTFILE="-"
+
+#initialize XDG directory
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+
+#clean up home directory
+export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc"
+export TASKDATA="${XDG_DATA_HOME:-$HOME/.local/share}/task"
+export TASKRC="${XDG_CONFIG_HOME:-$HOME/.config}/task/taskrc"
+export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
