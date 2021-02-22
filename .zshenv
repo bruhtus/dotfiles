@@ -1,4 +1,6 @@
 export ZDOTDIR=$HOME/.config/zsh
+export BROWSER=w3m
+export EDITOR=vim
 
 #dotbare
 export DOTBARE_DIR="$HOME/.config"
