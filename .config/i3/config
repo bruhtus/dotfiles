@@ -240,6 +240,7 @@ exec --no-startup-id syncthing --no-browser
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id blueman-tray
+exec --no-startup-id aarchup -t 10 -a "yay -Qua" --loop-time 60
 # exec --no-startup-id pamac-tray
 # exec --no-startup-id clipit
 # exec_always --no-startup-id ff-theme-util
