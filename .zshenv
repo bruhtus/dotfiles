@@ -1,5 +1,5 @@
 export ZDOTDIR=$HOME/.config/zsh
-export BROWSER=w3m
+export BROWSER=lynx
 export EDITOR=vim
 
 #dotbare
