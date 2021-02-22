@@ -1,0 +1,104 @@
+#display git status
+function qwe(){~/.config/i3/git-status-checker | less}
+
+#unfaedah alias
+alias asd='googler -n 4'
+#alias asd='ddgr -n 4'
+alias zxc='youtube-viewer -C --custom-layout --fixed-width --resolution=480p' #poor internet
+alias reload='source ~/.zshrc'
+alias zshalias='egrep "^alias|^function" ~/.zshrc | less'
+alias ka='killall'
+alias mp='markdown_previewer'
+alias wttr='curl wttr.in\?%tpFQn1m'
+alias translate='gawk -f <(curl -Ls git.io/translate) -- -shell'
+alias ipa='curl ifconfig.co'
+alias mm='morc_menu'
+alias bt='bpytop'
+alias rs='rsync -ahP'
+alias cm='cd /run/media'
+alias v='vim'
+alias rr='ranger'
+alias wiki='vim -c "VimwikiIndex"'
+alias rate='curl rate.sx'
+
+#never gonna give you up
+alias saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
+
+#find directory (cd to it) and files (open in vim)
+#alias f='fzf | tr -d "\n" | xsel -ib' #tr truncated from the \n char at the end of the line
+function sd(){cd "$(fd -aHI -t d . ~ | fzf --height 20%)"} #cd to any directories in home directory from any directories
+function cs(){rg --hidden --files ~ | fzf --height 20% | xargs -o -r vim} #search and open file on home directory in vim directly, -o so that it doesn't break my terminal, -r for if doesn't have entry then it exit
+
+#convert groff to pdf with table of contents
+function pf(){pdfroff -mspdf -t $1 > $2}
+#convert groff to pdf, default command
+function gms(){groff -ms -t -T pdf $1 > $2}
+
+#mounting and unmounting from CLI
+function dm(){udisksctl mount -b /dev/$1}
+function dum(){udisksctl unmount -b /dev/$1}
+
+#verbosity
+alias cp='cp -iv' #confirm before overwriting
+alias mv='mv -iv' #confirm before overwriting
+alias rm='rm -v'
+
+#dotbare alias
+alias dba='dotbare add'
+alias dbc='dotbare commit -m'
+alias dbp='dotbare push'
+alias dbd='dotbare diff'
+
+#change ls to exa
+alias ls='exa -l --links -t=changed --git --group --color=always --group-directories-first --sort=ext'
+alias ll='exa -l --inode --header --blocks --links -t=changed --time-style=long-iso --git --group --color=always --group-directories-first --sort=ext'
+alias l.='exa -al -t=changed --git --group --color=always --group-directories-first | egrep "^\."'
+#alias lt='exa -l --tree --level=2 --links -t=changed --git --group --color=always --group-directories-first --sort=ext'
+
+#open exa tree in less
+function lt(){
+    exa -al --tree --level=2 --links -t=changed --git --group --color=always --group-directories-first --sort=ext $1 | less -F
+}
+
+#grep, less, and count
+alias -g G='| grep'
+alias -g L='| less'
+alias -g C='| wc -l'
+
+#like pastebin but on terminal directly (using vim readonly mode for easy copy-paste)
+function termbin(){vim -R <($@ | nc termbin.com 9999)}
+
+#pipe error to a file
+alias -g E='2> error.nganu'
+
+#conda alias
+alias cenv='conda env list'
+alias cac='conda activate'
+alias cde='conda deactivate'
+function cce(){conda create -n $1 python=$2}
+
+#python alias
+function p(){python $@ | less -F}
+function pl(){python $@ | less}
+function pc(){python -c $1}
+function pv(){vim -R <(python $@)}
+
+#pacman and yay alias
+alias pacsyu='sudo pacman -Syu'
+alias yalord='sudo pacman'
+alias pacss='pacman -Ss'
+alias yays='yay -S'
+alias yayss='yay -Ss'
+alias yaysua='yay -Sua'
+alias yayq='yay -Qua'
+
+#cpu and memory alias
+alias cpu='ps axch -o cmd:15,%cpu --sort=-%cpu | head'
+alias mem='ps axch -o cmd:15,%mem --sort=-%mem | head'
+
+#taskwarrior alias
+alias t='task'
+alias ta='task add'
+alias tt='task context'
+alias tp='task projects'
+alias tg='task tags'
