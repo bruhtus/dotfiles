@@ -106,3 +106,47 @@ alias ta='task add'
 alias tt='task context'
 alias tp='task projects'
 alias tg='task tags'
+
+#git alias
+function git_current_branch() {
+  local ref
+  ref=$(__git_prompt_git symbolic-ref --quiet HEAD 2> /dev/null)
+  local ret=$?
+  if [[ $ret != 0 ]]; then
+    [[ $ret == 128 ]] && return  # no git repo.
+    ref=$(__git_prompt_git rev-parse --short HEAD 2> /dev/null) || return
+  fi
+  echo ${ref#refs/heads/}
+}
+
+alias g='git'
+alias gd='git diff'
+alias gcl='git clone'
+alias gss='git status -s'
+alias gra='git remote add'
+alias gru='git remote update'
+
+alias gcm='git commit -m'
+alias gcam='git commit -am'
+alias gca='git commit --amend'
+
+alias gp='git push'
+alias gpd='git push --dry-run'
+alias ggp='git push origin "$(git_current_branch)"'
+
+alias gb='git branch'
+alias gcb='git checkout -b'
+
+alias gpl='git pull'
+alias ggl='git pull origin "$(git_current_branch)"'
+
+alias gl='git log --stat'
+alias glo='git log --oneline'
+alias glp='git log -p'
+
+alias gm='git merge'
+alias gmt='git mergetool --tool=vimdiff'
+alias gma='git merge --abort'
+
+alias gr='git reset'
+alias grh='git reset --hard'
