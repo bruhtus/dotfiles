@@ -6,8 +6,8 @@ alias grep="grep --color=auto"
 alias diff="diff --color=auto"
 
 #unfaedah alias
-alias asd='googler -n 4'
-#alias asd='ddgr -n 4'
+# alias asd='googler -n 4'
+alias asd='ddgr -n 4'
 alias zxc='youtube-viewer -C --custom-layout --fixed-width --resolution=480p' #poor internet
 alias reload='. ~/.config/zsh/.zshrc'
 alias ka='killall'
@@ -120,6 +120,7 @@ function git_current_branch() {
 }
 
 alias g='git'
+alias ga='git add'
 alias gd='git diff'
 alias gcl='git clone'
 alias gss='git status -s'
