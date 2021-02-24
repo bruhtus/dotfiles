@@ -74,10 +74,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
-bindsym $mod+Ctrl+Shift+h exec --no-startup-id .config/i3/i3resize left
-bindsym $mod+Ctrl+Shift+j exec --no-startup-id .config/i3/i3resize down
-bindsym $mod+Ctrl+Shift+k exec --no-startup-id .config/i3/i3resize up
-bindsym $mod+Ctrl+Shift+l exec --no-startup-id .config/i3/i3resize right
+bindsym $mod+Ctrl+Shift+h exec --no-startup-id i3resize left
+bindsym $mod+Ctrl+Shift+j exec --no-startup-id i3resize down
+bindsym $mod+Ctrl+Shift+k exec --no-startup-id i3resize up
+bindsym $mod+Ctrl+Shift+l exec --no-startup-id i3resize right
 
 #---Application---#
 bindsym $mod+d exec $term
@@ -99,7 +99,7 @@ bindsym $mod+Shift+f exec $term -e newsboat
 bindsym $mod+Shift+z exec timeshift-launcher
 bindsym $mod+Shift+y exec foliate
 bindsym $mod+Shift+q exec telegram-desktop
-bindsym $mod+Shift+p exec .config/i3/switch-picom
+bindsym $mod+Shift+p exec switch-picom
 bindsym $mod+Shift+e exec pcmanfm
 bindsym $mod+Shift+a --release exec --no-startup-id flameshot gui
 #bindsym $mod+Shift+a --release exec --no-startup-id flameshot screen -r -c
@@ -184,10 +184,8 @@ for_window [title="File Transfer*"] floating enable
 for_window [class="fpakman"] floating enable
 for_window [class="Galculator"] floating enable border pixel 1
 for_window [class="GParted"] floating enable border normal
-for_window [title="i3_help"] floating enable sticky enable border normal
 for_window [class="Lightdm-settings"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable border normal
-for_window [class="Manjaro-hello"] floating enable
 for_window [class="Manjaro Settings Manager"] floating enable border normal
 for_window [title="MuseScore: Play Panel"] floating enable
 for_window [class="mpv"] floating enable sticky enable
@@ -212,11 +210,11 @@ for_window [urgent=latest] focus
 bindsym $mod+0 mode "$mode_system"
 set $mode_system (e)xit, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
-    bindsym e exec --no-startup-id ~/.config/i3/i3exit logout, mode "default"
-    bindsym s exec --no-startup-id ~/.config/i3/i3exit suspend, mode "default"
-    bindsym h exec --no-startup-id ~/.config/i3/i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id ~/.config/i3/i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id ~/.config/i3/i3exit shutdown, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
 
     # exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"
@@ -224,23 +222,21 @@ mode "$mode_system" {
 }
 
 # Lock screen
-bindsym $mod+9 exec --no-startup-id ~/.config/i3/blurlock
+bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
-exec_always --no-startup-id $HOME/.config/i3/startxrandr
-exec_always --no-startup-id $HOME/.config/i3/speedvim
+exec_always --no-startup-id startxrandr
+exec_always --no-startup-id remaps
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id xmodmap -e "clear lock" #disable capslock
-exec_always --no-startup-id xmodmap -e "keysym Caps_Lock = Escape" #set capslock as esc
-exec_always --no-startup-id $HOME/.config/i3/youtubedd
-exec_always --no-startup-id $HOME/.config/i3/terminaldd
+exec_always --no-startup-id youtubedd
+exec_always --no-startup-id terminaldd
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xwallpaper --maximize all-repos/wallpaper/wallpaper.jpg; picom -b
 exec --no-startup-id syncthing --no-browser
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id blueman-tray
-exec --no-startup-id aarchup -t 10 -a "yay -Qua" --loop-time 60
+exec --no-startup-id aarchup -t 10 -a '/usr/bin/yay -Qua' --loop-time 60
 # exec --no-startup-id pamac-tray
 # exec --no-startup-id clipit
 # exec_always --no-startup-id ff-theme-util
