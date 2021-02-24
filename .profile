@@ -1,3 +1,4 @@
+export PATH="$PATH:$HOME/.local/bin"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export EDITOR=vim
 #export EDITOR=/usr/bin/vim
@@ -18,3 +19,4 @@ export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc"
 export TASKDATA="${XDG_DATA_HOME:-$HOME/.local/share}/task"
 export TASKRC="${XDG_CONFIG_HOME:-$HOME/.config}/task/taskrc"
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
+export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/bash/history"
