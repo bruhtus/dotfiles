@@ -1,3 +1,7 @@
 #!/bin/sh
 
+# increase key repeat speed
 xset r rate 200 60
+
+xmodmap -e "clear lock" #disable capslock
+xmodmap -e "keysym Caps_Lock = Escape" #set capslock as esc
