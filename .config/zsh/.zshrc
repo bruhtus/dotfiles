@@ -25,7 +25,7 @@ SAVEHIST=10000000
 HISTFILE=~/.cache/zsh/history
 
 #load aliases if exist
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasrc"
 
 #zplug
 source $HOME/.zplug/init.zsh
