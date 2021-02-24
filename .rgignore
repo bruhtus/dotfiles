@@ -13,6 +13,6 @@ gems/
 .vim/autoload/
 .zplug/
 .config/google-chrome/
-.local/
+.local/share/
 .cache/
 .git/
