@@ -6,8 +6,8 @@ Plug 'junegunn/limelight.vim'
 Plug 'reedes/vim-pencil'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'xtal8/traces.vim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
@@ -16,6 +16,7 @@ Plug 'tpope/vim-commentary'
 Plug 'luochen1990/rainbow'
 Plug 'vimwiki/vimwiki'
 Plug 'easymotion/vim-easymotion'
+Plug 'airblade/vim-rooter'
 call plug#end()
 
 set showcmd
@@ -42,7 +43,7 @@ filetype plugin on
 syntax on
 
 let mapleader =" "
-let $FZF_DEFAULT_COMMAND = "rg --hidden --files $1"
+let $FZF_DEFAULT_COMMAND = "rg --hidden --files"
 let g:vimwiki_list = [{'path': '~/sync/wiki', 'syntax': 'markdown', 'ext': '.md'}]
 " make vimwiki only set the filetype inside the vimwiki path
 let g:vimwiki_global_ext = 0
@@ -85,10 +86,14 @@ map <leader>i :Buffers<CR>
 " open fzf to search all lines in current buffer
 map <leader>u :BLines<CR>
 
+" open fzf to search all content in current working directory
+map <leader>o :Rg<CR>
+
 " space r to compile groff and space p to display the result
 map <leader>r :w! \| !pdfroff -mspdf -t % > %:r.pdf<CR><CR>
 map <leader>p :!zathura %:r.pdf&<CR><CR>
 
+" space P to activate sent presentation
 map <leader>P :w! \| !setsid -f sent %<CR><CR>
 
 " jump to any mark with space j
@@ -133,6 +138,11 @@ nnoremap ZE m`O<Esc>``
 " remap < and > in visual mode
 vnoremap < <gv
 vnoremap > >gv
+
+" vim rooter config
+let g:rooter_targets = '*'
+let g:rooter_patterns = ['.git']
+let g:rooter_silent_chdir = 1
 
 " colorscheme config
 let g:seoul256_background = 233
