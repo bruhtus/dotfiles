@@ -3,85 +3,85 @@ function qwe(){git-status-checker | less}
 
 #color command when possible
 alias \
-		grep="grep --color=auto" \
-		diff="diff --color=auto"
+	grep="grep --color=auto" \
+	diff="diff --color=auto"
 
 #unfaedah alias
 # alias asd='googler -n 4'
 alias \
-		asd='ddgr -n 4' \
-		zxc='youtube-viewer -C --custom-layout --fixed-width --resolution=480p' \
-		reload='. ~/.config/zsh/.zshrc' \
-		ka='killall' \
-		mp='markdown_previewer' \
-		wttr='curl wttr.in\?%tpFQn1m' \
-		translate='gawk -f <(curl -Ls git.io/translate) -- -shell' \
-		ipa='curl ifconfig.co' \
-		mm='morc_menu' \
-		bt='bpytop' \
-		rs='rsync -ahP' \
-		cm='cd /run/media' \
-		v='vim' \
-		rr='ranger' \
-		wiki='vim -c "VimwikiIndex"' \
-		rate='curl rate.sx' \
-		lynx='lynx -vikeys' \
-		saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
+	asd='ddgr -n 4' \
+	zxc='youtube-viewer -C --custom-layout --fixed-width --resolution=480p' \
+	reload='. ~/.config/zsh/.zshrc' \
+	ka='killall' \
+	mp='markdown_previewer' \
+	wttr='curl wttr.in\?%tpFQn1m' \
+	translate='gawk -f <(curl -Ls git.io/translate) -- -shell' \
+	ipa='curl ifconfig.co' \
+	mm='morc_menu' \
+	bt='bpytop' \
+	rs='rsync -ahP' \
+	cm='cd /run/media' \
+	v='vim' \
+	rr='ranger' \
+	wiki='vim -c "VimwikiIndex"' \
+	rate='curl rate.sx' \
+	lynx='lynx -vikeys' \
+	saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 
 #verbosity
 alias \
-		cp='cp -iv' \
-		mv='mv -iv' \
-		rm='rm -v'
+	cp='cp -iv' \
+	mv='mv -iv' \
+	rm='rm -v'
 
 #dotbare alias
 alias \
-		dba='dotbare add' \
-		dbc='dotbare commit -m' \
-		dbp='dotbare push' \
-		dbd='dotbare diff'
+	dba='dotbare add' \
+	dbc='dotbare commit -m' \
+	dbp='dotbare push' \
+	dbd='dotbare diff'
 
 #change ls to exa
 alias \
-		ls='exa -l --links -t=changed --git --group --color=always --group-directories-first --sort=ext' \
-		ll='exa -l --inode --header --blocks --links -t=changed --time-style=long-iso --git --group --color=always --group-directories-first --sort=ext' \
-		l.='exa -al -t=changed --git --group --color=always --group-directories-first | egrep "^\."'
+	ls='exa -l --links -t=changed --git --group --color=always --group-directories-first --sort=ext' \
+	ll='exa -l --inode --header --blocks --links -t=changed --time-style=long-iso --git --group --color=always --group-directories-first --sort=ext' \
+	l.='exa -al -t=changed --git --group --color=always --group-directories-first | egrep "^\."'
 
 #grep, less, count, and redirect error to file
 alias \
-		-g G='| grep' \
-		-g L='| less' \
-		-g C='| wc -l' \
-		-g E='2> error.nganu'
+	-g G='| grep' \
+	-g L='| less' \
+	-g C='| wc -l' \
+	-g E='2> error.nganu'
 
 #conda alias
 alias \
-		cenv='conda env list' \
-		cac='conda activate' \
-		cde='conda deactivate'
+	cenv='conda env list' \
+	cac='conda activate' \
+	cde='conda deactivate'
 
 #pacman and yay alias
 alias \
-		pacsyu='sudo pacman -Syu' \
-		yalord='sudo pacman' \
-		pacss='pacman -Ss' \
-		yays='yay -S' \
-		yayss='yay -Ss' \
-		yaysua='yay -Sua' \
-		yayq='yay -Qua'
+	pacsyu='sudo pacman -Syu' \
+	yalord='sudo pacman' \
+	pacss='pacman -Ss' \
+	yays='yay -S' \
+	yayss='yay -Ss' \
+	yaysua='yay -Sua' \
+	yayq='yay -Qua'
 
 #cpu and memory alias
 alias \
-		cpu='ps axch -o cmd:15,%cpu --sort=-%cpu | head' \
-		mem='ps axch -o cmd:15,%mem --sort=-%mem | head'
+	cpu='ps axch -o cmd:15,%cpu --sort=-%cpu | head' \
+	mem='ps axch -o cmd:15,%mem --sort=-%mem | head'
 
 #taskwarrior alias
 alias \
-		t='task' \
-		ta='task add' \
-		tt='task context' \
-		tp='task projects' \
-		tg='task tags'
+	t='task' \
+	ta='task add' \
+	tt='task context' \
+	tp='task projects' \
+	tg='task tags'
 
 #find directory (cd to it) and files (open in vim)
 function sd(){cd "$(fd -aHI -t d . ~ | fzf --height 20%)"} #cd to any directories in home directory from any directories
@@ -125,65 +125,65 @@ function git_current_branch() {
 }
 
 alias \
-		g='git' \
-		ga='git add' \
-		gd='git diff' \
-		gcl='git clone' \
-		gss='git status -s' \
-		gra='git remote add' \
-		gru='git remote update'
+	g='git' \
+	ga='git add' \
+	gd='git diff' \
+	gcl='git clone' \
+	gss='git status -s' \
+	gra='git remote add' \
+	gru='git remote update'
 
 alias \
-		gcm='git commit -m' \
-		gcam='git commit -am' \
-		gca='git commit --amend'
+	gcm='git commit -m' \
+	gcam='git commit -am' \
+	gca='git commit --amend'
 
 alias \
-		gp='git push' \
-		gpd='git push --dry-run' \
-		ggp='git push origin "$(git_current_branch)"'
+	gp='git push' \
+	gpd='git push --dry-run' \
+	ggp='git push origin "$(git_current_branch)"'
 
 alias \
-		gb='git branch' \
-		gcb='git checkout -b'
+	gb='git branch' \
+	gcb='git checkout -b'
 
 alias \
-		gpl='git pull' \
-		ggl='git pull origin "$(git_current_branch)"'
+	gpl='git pull' \
+	ggl='git pull origin "$(git_current_branch)"'
 
 alias \
-		gl='git log --stat' \
-		glo='git log --oneline' \
-		glp='git log -p'
+	gl='git log --stat' \
+	glo='git log --oneline' \
+	glp='git log -p'
 
 alias \
-		gm='git merge' \
-		gmt='git mergetool --tool=vimdiff' \
-		gma='git merge --abort'
+	gm='git merge' \
+	gmt='git mergetool --tool=vimdiff' \
+	gma='git merge --abort'
 
 alias \
-		gr='git reset' \
-		grh='git reset --hard'
+	gr='git reset' \
+	grh='git reset --hard'
 
 #directories alias
 alias \
-		-g ...='../..' \
-		-g ....='../../..' \
-		-g .....='../../../..' \
-		-g ......='../../../../..'
+	-g ...='../..' \
+	-g ....='../../..' \
+	-g .....='../../../..' \
+	-g ......='../../../../..'
 
 alias \
-		-- -='cd -' \
-		1='cd -' \
-		2='cd -2' \
-		3='cd -3' \
-		4='cd -4' \
-		5='cd -5' \
-		6='cd -6' \
-		7='cd -7' \
-		8='cd -8' \
-		9='cd -9'
+	-- -='cd -' \
+	1='cd -' \
+	2='cd -2' \
+	3='cd -3' \
+	4='cd -4' \
+	5='cd -5' \
+	6='cd -6' \
+	7='cd -7' \
+	8='cd -8' \
+	9='cd -9'
 
 alias \
-		md='mkdir -pv' \
-		d='dirs -v | head'
+	md='mkdir -pv' \
+	d='dirs -v | head'
