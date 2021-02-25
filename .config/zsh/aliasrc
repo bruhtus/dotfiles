@@ -9,7 +9,6 @@ alias \
 #unfaedah alias
 alias \
 	asd='ddgr -n 4' \
-	zxc='youtube-viewer -C --custom-layout --fixed-width --resolution=480p' \
 	reload='. ~/.config/zsh/.zshrc' \
 	ka='killall' \
 	mp='markdown_previewer' \
