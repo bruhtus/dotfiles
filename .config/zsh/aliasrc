@@ -33,10 +33,8 @@ alias saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc
 function sd(){cd "$(fd -aHI -t d . ~ | fzf --height 20%)"} #cd to any directories in home directory from any directories
 function cs(){rg --hidden --files ~ | fzf --height 20% | xargs -o -r vim} #search and open file on home directory in vim directly, -o so that it doesn't break my terminal, -r for if doesn't have entry then it exit
 
-#convert groff to pdf with table of contents
-function pf(){pdfroff -mspdf -t $1 > $2}
-#convert groff to pdf, default command
-function gms(){groff -ms -t -T pdf $1 > $2}
+#unpack tar archive
+function untar(){tar -xzf $1 --one-top-level}
 
 #mounting and unmounting from CLI
 function dm(){udisksctl mount -b /dev/$1}
