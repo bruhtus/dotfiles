@@ -1,7 +1,7 @@
 #!/bin/sh
 
 for d in $(ls -d ~/all-repos/*/); do
-  echo $d && git -C $d status -s
+  echo $d && git -c color.ui=always -C $d status -s
 done
 
-cd && pwd && dotbare status -s
+cd && pwd && dotbare -c color.ui=always status -s

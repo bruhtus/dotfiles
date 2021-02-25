@@ -1,5 +1,5 @@
 #display git status
-function qwe(){git-status-checker | less}
+function qwe(){git-status-checker | less -r}
 
 #color command when possible
 alias \
