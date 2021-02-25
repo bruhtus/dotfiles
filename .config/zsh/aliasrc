@@ -1,13 +1,12 @@
 #display git status
-function qwe(){git-status-checker | less -r}
+alias qwe='git-status-checker | less -r'
 
 #color command when possible
 alias \
-	grep="grep --color=auto" \
-	diff="diff --color=auto"
+	grep='grep --color=auto' \
+	diff='diff --color=auto'
 
 #unfaedah alias
-# alias asd='googler -n 4'
 alias \
 	asd='ddgr -n 4' \
 	zxc='youtube-viewer -C --custom-layout --fixed-width --resolution=480p' \
@@ -84,9 +83,8 @@ alias \
 	tg='task tags'
 
 #find directory (cd to it) and files (open in vim)
-function sd(){cd "$(fd -aHI -t d . ~ | fzf --height 20%)"} #cd to any directories in home directory from any directories
-function cs(){rg --hidden --files ~ | fzf --height 20% | xargs -o -r vim} #search and open file on home directory in vim directly, -o so that it doesn't break my terminal, -r for if doesn't have entry then it exit
-#alias f='fzf | tr -d "\n" | xsel -ib' #tr truncated from the \n char at the end of the line
+alias sd='cd "$(fd -aHI -t d . ~ | fzf --height 20%)"' #cd to any directories in home directory from any directories
+alias cs='rg --hidden --files ~ | fzf --height 20% | xargs -o -r vim' #search and open file on home directory in vim directly, -o so that it doesn't break my terminal, -r for if doesn't have entry then it exit
 
 #unpack tar archive
 function untar(){tar -xzf $1 --one-top-level}
@@ -112,7 +110,7 @@ function pl(){python $@ | less}
 function pc(){python -c $1}
 function pv(){vim -R <(python $@)}
 
-#git alias
+#check git current branch
 function git_current_branch() {
   local ref
   ref=$(__git_prompt_git symbolic-ref --quiet HEAD 2> /dev/null)
@@ -124,6 +122,7 @@ function git_current_branch() {
   echo ${ref#refs/heads/}
 }
 
+#git alias
 alias \
 	g='git' \
 	ga='git add' \
