@@ -1,0 +1,8 @@
+#!/bin/sh
+
+err=$(checkupdates 2>&1 1> /dev/null | wc -l)
+ofi=$(checkupdates 2> /dev/null | wc -l)
+aur=$(yay -Qua 2> /dev/null | wc -l)
+n=$(($ofi+$aur))
+
+[ $err != 0 ] && notify-send "No internet" "Try again" || [ $err == 0 ] && [ $n != 0 ] && notify-send "$ofi update(s) (main repo)" "$aur update(s) (aur)"
