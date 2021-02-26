@@ -1,0 +1,12 @@
+[Unit]
+Description=Runs updates-notifier.service every hour
+
+[Timer]
+# time to wait after booting
+OnBootSec=5min
+# time between running each consecutive time
+OnUnitActiveSec=1h
+Unit=updates-notifier.service
+
+[Install]
+WantedBy=timers.target

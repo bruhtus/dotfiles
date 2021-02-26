@@ -1,0 +1,6 @@
+[Unit]
+Description=Check and notify pacman and AUR updates
+
+[Service]
+Type=simple
+ExecStart=/home/bruhtus/.local/bin/updates-notifier
