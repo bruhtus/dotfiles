@@ -32,19 +32,3 @@ export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 export PATH="/opt/cuda/bin:$PATH"
 export CPATH="/opt/cuda/include:$CPATH"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64:/opt/cuda/lib"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/bruhtus/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/bruhtus/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/bruhtus/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/bruhtus/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
