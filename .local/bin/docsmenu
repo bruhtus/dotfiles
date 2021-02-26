@@ -1,0 +1,3 @@
+#!/bin/sh
+
+find ~ -type f | egrep '*\.pdf|*\.epub' | dmenu -i -l 10 | xargs -r -I {} setsid -f zathura "{}" 2> /dev/null
