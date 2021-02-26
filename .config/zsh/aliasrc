@@ -48,7 +48,7 @@ alias \
 #grep, less, count, and redirect error to file
 alias \
 	-g G='| grep' \
-	-g L='| less' \
+	-g L='| less -r' \
 	-g C='| wc -l' \
 	-g E='2> error.nganu'
 
@@ -83,7 +83,7 @@ alias \
 
 #find directory (cd to it) and files (open in vim)
 alias sd='cd "$(fd -aHI -t d . ~ | fzf --height 20%)"' #cd to any directories in home directory from any directories
-alias cs='rg --hidden --files ~ | fzf --height 20% | xargs -o -r vim' #search and open file on home directory in vim directly, -o so that it doesn't break my terminal, -r for if doesn't have entry then it exit
+alias cs='rg --hidden --files ~ | fzf --height 20% | xargs -o -r vim' #search and open file on home directory in vim directly
 
 #unpack tar archive
 function untar(){tar -xzf $1 --one-top-level}
