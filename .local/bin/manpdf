@@ -1,3 +1,0 @@
-#!/bin/sh
-
-man -Tpdf "$(man -k . | dmenu -l 10 | awk '{print $1}')" | zathura -
