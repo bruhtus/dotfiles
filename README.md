@@ -2,6 +2,8 @@
 
 > Note to myself: don't forget to make the script executable by doing `chmod +x <filename>` and install vim plug
 
+> To enable updates-notifier, use `systemctl --user enable updates-notifier.timer --now`
+
 This repo is to backup my linux configuration so that I don't need to configure every new installation. I use [dotbare](https://github.com/kazhala/dotbare) to manage my dotfiles. Below is the simplified version to setup dotbare.
 
 ### Initialize dotbare to backup configuration dotfiles
@@ -60,3 +62,4 @@ Check out the [wiki](https://github.com/bruhtus/dotfiles/wiki) to check the diff
 - [Yanking in w3m](https://unix.stackexchange.com/questions/12497/yanking-urls-in-w3m).
 - [Keycode/keysym for xorg or i3wm](http://xahlee.info/linux/linux_show_keycode_keysym.html).
 - [Zplug plugin manager](https://github.com/zplug/zplug).
+- [Notification arch-based updates](https://eang.it/notifications-of-pacman-updates/)
