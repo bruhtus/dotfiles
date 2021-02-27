@@ -14,5 +14,6 @@ gems/
 .zplug/
 .config/google-chrome/
 .local/share/
+.local/lib/
 .cache/
 .git/
