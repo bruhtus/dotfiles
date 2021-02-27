@@ -52,11 +52,12 @@ alias \
 	-g C='| wc -l' \
 	-g E='2> error.nganu'
 
-#conda alias
+#python venv alias
+#create/activate python env in the root git repo
 alias \
-	cenv='conda env list' \
-	cac='conda activate' \
-	cde='conda deactivate'
+	pce='python -m venv "$(git rev-parse --show-toplevel)"/.venv' \
+	pae='. "$(git rev-parse --show-toplevel)"/.venv/bin/activate' \
+	pde='deactivate'
 
 #pacman and yay alias
 alias \
