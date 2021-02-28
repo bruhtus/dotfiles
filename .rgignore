@@ -7,7 +7,6 @@
 *.mp4
 *.svg
 
-miniconda3/
 gems/
 .vim/plugged/
 .vim/autoload/
@@ -15,5 +14,6 @@ gems/
 .config/google-chrome/
 .local/share/
 .local/lib/
+.local/pipx/
 .cache/
 .git/
