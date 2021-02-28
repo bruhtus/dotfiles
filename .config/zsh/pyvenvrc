@@ -1,6 +1,7 @@
 #python virtual env alias
 alias \
 	pce='create-python-venv' \
+	pre='remove-python-venv' \
 	pde='deactivate' \
 	pve='ls ~/.cache/python-venv 2> /dev/null || echo "No python virtual env ever created"'
 
@@ -12,7 +13,7 @@ function pae(){
 	local venvdir=$HOME/.cache/python-venv
 
 	if [ "$1" != "" ]; then
-		. $venvdir/$1/bin/activate 2> /dev/null
+		. $venvdir/$1/bin/activate 2> /dev/null || echo "Python virtual environment not found, create new one"
 
 	else
 		. $venvdir/$projectdir/bin/activate 2> /dev/null || echo "Python virtual environment not found, create new one"
