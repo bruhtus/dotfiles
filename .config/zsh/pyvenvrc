@@ -1,0 +1,21 @@
+#python virtual env alias
+alias \
+	pce='create-python-venv' \
+	pde='deactivate' \
+	pve='ls ~/.cache/python-venv 2> /dev/null || echo "No python virtual env ever created"'
+
+#activate python virtual env
+function pae(){
+	local gitroot="$(git rev-parse --show-toplevel 2> /dev/null)"
+	local trim="${gitroot%"${gitroot##*[!/]}"}"
+	local projectdir="${trim##*/}"
+	local venvdir=$HOME/.cache/python-venv
+
+	if [ "$1" != "" ]; then
+		. $venvdir/$1/bin/activate 2> /dev/null
+
+	else
+		. $venvdir/$projectdir/bin/activate 2> /dev/null || echo "Python virtual environment not found, create new one"
+
+	fi
+}

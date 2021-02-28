@@ -1,0 +1,41 @@
+#git alias
+alias \
+	g='git' \
+	ga='git add' \
+	gd='git diff' \
+	gcl='git clone' \
+	gss='git status -s' \
+	gra='git remote add' \
+	gru='git remote update'
+
+alias \
+	gcm='git commit -m' \
+	gcam='git commit -am' \
+	gca='git commit --amend'
+
+alias \
+	gp='git push' \
+	gpd='git push --dry-run' \
+	ggp='git push origin "$(git_current_branch)"'
+
+alias \
+	gb='git branch' \
+	gcb='git checkout -b'
+
+alias \
+	gpl='git pull' \
+	ggl='git pull origin "$(git_current_branch)"'
+
+alias \
+	gl='git log --stat' \
+	glo='git log --oneline' \
+	glp='git log -p'
+
+alias \
+	gm='git merge' \
+	gmt='git mergetool --tool=vimdiff' \
+	gma='git merge --abort'
+
+alias \
+	gr='git reset' \
+	grh='git reset --hard'

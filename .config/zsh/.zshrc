@@ -26,6 +26,8 @@ HISTFILE=~/.cache/zsh/history
 
 #load aliases if exist
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasrc"
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/gitrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/gitrc"
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/pyvenvrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/pyvenvrc"
 
 #zplug
 source $HOME/.zplug/init.zsh
