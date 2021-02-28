@@ -1,0 +1,19 @@
+#!/bin/sh
+
+gitroot="$(git rev-parse --show-toplevel 2> /dev/null)"
+trim="${gitroot%"${gitroot##*[!/]}"}"
+projectdir="${trim##*/}"
+venvdir=$HOME/.cache/python-venv
+
+if [ "$1" != "" ]; then
+	rm -r $venvdir/$1 2> /dev/null || \
+	echo "No python virtual environment match, nothing deleted"
+
+elif [ "$projectdir" != "" ]; then
+	rm -r $venvdir/$projectdir 2> /dev/null || \
+	echo "No python virtual environment match, nothing deleted"
+
+else
+	echo "No python virtual environment match, nothing deleted"
+
+fi
