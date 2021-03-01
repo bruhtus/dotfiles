@@ -138,6 +138,23 @@ config.bind('X', 'undo')
 config.bind('yf', 'hint links yank')
 config.bind('zz', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
 
+# Bindings for insert mode
+config.bind("<Ctrl-h>", "fake-key <Backspace>", "insert")
+config.bind("<Ctrl-a>", "fake-key <Home>", "insert")
+config.bind("<Ctrl-e>", "fake-key <End>", "insert")
+config.bind("<Ctrl-b>", "fake-key <Left>", "insert")
+config.bind("<Mod1-b>", "fake-key <Ctrl-Left>", "insert")
+config.bind("<Ctrl-f>", "fake-key <Right>", "insert")
+config.bind("<Mod1-f>", "fake-key <Ctrl-Right>", "insert")
+config.bind("<Ctrl-p>", "fake-key <Up>", "insert")
+config.bind("<Ctrl-n>", "fake-key <Down>", "insert")
+config.bind("<Mod1-d>", "fake-key <Ctrl-Delete>", "insert")
+config.bind("<Ctrl-d>", "fake-key <Delete>", "insert")
+config.bind("<Ctrl-w>", "fake-key <Ctrl-Backspace>", "insert")
+config.bind("<Ctrl-u>", "fake-key <Shift-Home><Delete>", "insert")
+config.bind("<Ctrl-k>", "fake-key <Shift-End><Delete>", "insert")
+config.bind("<Ctrl-x><Ctrl-e>", "open-editor", "insert")
+
 c.fonts.default_family = []
 c.fonts.default_size = '11pt'
 c.fonts.hints = 'default_size default_family'
