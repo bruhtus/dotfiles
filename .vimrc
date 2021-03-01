@@ -109,6 +109,9 @@ nnoremap X "_X
 nnoremap D "_D
 nnoremap <leader>d "_d
 
+" remap Y to yank from pointer to the end of the line
+nnoremap Y y$
+
 " set vim to copy to clipboard and paste from clipboard
 vnoremap <C-y> "+y
 map <C-p> "+p
