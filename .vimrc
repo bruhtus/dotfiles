@@ -4,7 +4,6 @@ Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'reedes/vim-pencil'
-Plug 'francoiscabrol/ranger.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -73,10 +72,6 @@ endfunction
 
 autocmd User GoyoEnter call <SID>goyo_enter()
 autocmd User GoyoLeave call <SID>goyo_leave()
-
-" ranger config
-let g:ranger_map_keys = 0
-map <leader>e :Ranger<CR>
 
 " open fzf to search all files in home directory
 map <leader>f :Files ~<CR>
