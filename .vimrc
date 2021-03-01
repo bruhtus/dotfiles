@@ -17,6 +17,7 @@ Plug 'luochen1990/rainbow'
 Plug 'vimwiki/vimwiki'
 Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-rooter'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
 set showcmd
@@ -150,6 +151,11 @@ let g:rooter_silent_chdir = 1
 " colorscheme config
 let g:seoul256_background = 233
 colo seoul256
+
+" markdown-preview config
+let g:mkdp_refresh_slow = 1
+let g:mkdp_browser = 'qutebrowser'
+nnoremap <leader>h :MarkdownPreview<CR>
 
 " lightline config
 let g:lightline = {
