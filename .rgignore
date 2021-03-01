@@ -6,14 +6,21 @@
 *.pdf
 *.mp4
 *.svg
+*.csv
+*.min.*
+*.ico
+*.tdb
 
 gems/
-.vim/plugged/
-.vim/autoload/
+__pycache__/
+.git/
+.vim/
+.pki/
 .zplug/
-.config/google-chrome/
-.local/share/
+.cache/
+.icons/
 .local/lib/
 .local/pipx/
-.cache/
-.git/
+.local/share/
+.config/objects/
+.config/google-chrome/
