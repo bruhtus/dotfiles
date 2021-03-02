@@ -94,9 +94,6 @@ function lt(){
 #like pastebin but on terminal directly (using vim readonly mode for easy copy-paste)
 function termbin(){vim -R <($@ | nc termbin.com 9999)}
 
-#create conda env
-function cce(){conda create -n $1 python=$2}
-
 #python alias
 function p(){python $@ | less -F}
 function pl(){python $@ | less}
