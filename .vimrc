@@ -1,22 +1,23 @@
 call plug#begin()
-Plug 'junegunn/seoul256.vim'
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-Plug 'reedes/vim-pencil'
-Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'kshenoy/vim-signature'
-Plug 'xtal8/traces.vim'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'luochen1990/rainbow'
 Plug 'vimwiki/vimwiki'
-Plug 'easymotion/vim-easymotion'
+Plug 'xtal8/traces.vim'
+Plug 'tpope/vim-surround'
+Plug 'luochen1990/rainbow'
 Plug 'airblade/vim-rooter'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'tpope/vim-commentary'
+Plug 'junegunn/seoul256.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'kshenoy/vim-signature'
+Plug 'junegunn/vim-easy-align'
+Plug 'easymotion/vim-easymotion'
+Plug 'junegunn/goyo.vim'
+Plug 'reedes/vim-pencil'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf',                 { 'do':    { -> fzf#install() } }
+Plug 'mg979/vim-visual-multi',       {'branch': 'master'}
+Plug 'python-mode/python-mode',      { 'for':   'python', 'branch': 'develop' }
+Plug 'iamcco/markdown-preview.nvim', { 'do':    { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
 set showcmd
@@ -137,6 +138,12 @@ nnoremap ZE m`O<Esc>``
 " remap < and > in visual mode
 vnoremap < <gv
 vnoremap > >gv
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " vim rooter config
 let g:rooter_targets = '*'
