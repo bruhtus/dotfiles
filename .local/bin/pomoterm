@@ -1,0 +1,15 @@
+#!/bin/sh
+#you need to install termdown
+
+case "$1" in
+    'focus')
+            notify-send "Back to task"
+            termdown 3000 && notify-send "Take a break"
+            ;;
+    'break')
+            termdown 600 && notify-send "Back to task"
+            ;;
+    *)
+            echo "Usage: $0 { focus | break}"
+            ;;
+esac
