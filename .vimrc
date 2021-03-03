@@ -110,7 +110,7 @@ nnoremap Y y$
 
 " set vim to copy to clipboard and paste from clipboard
 vnoremap <C-y> "+y
-map <C-p> "+p
+nnoremap <C-p> "+p
 
 " set enter as :
 map <CR> :
