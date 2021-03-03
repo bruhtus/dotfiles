@@ -40,8 +40,8 @@ set smartcase
 set incsearch
 " set shortmess-=S "default vim search result count
 
-filetype plugin on
 syntax on
+filetype plugin on
 
 let mapleader            = " "
 let $FZF_DEFAULT_COMMAND = "rg --hidden --files"
@@ -56,11 +56,11 @@ map <CR> :
 let g:EasyMotion_do_mapping = 0
 map  <Leader>k <Plug>(easymotion-bd-w)
 
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign in visual mode (e.g. vipgl)
+xmap gl <Plug>(EasyAlign)
 
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. glip)
+nmap gl <Plug>(EasyAlign)
 
 " space h to preview markdown
 nmap <leader>h <Plug>MarkdownPreviewToggle
