@@ -43,9 +43,9 @@ set incsearch
 filetype plugin on
 syntax on
 
-let mapleader =" "
+let mapleader            = " "
 let $FZF_DEFAULT_COMMAND = "rg --hidden --files"
-let g:vimwiki_list = [{'path': '~/sync/wiki', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list       = [{'path': '~/sync/wiki', 'syntax': 'markdown', 'ext': '.md'}]
 " make vimwiki only set the filetype inside the vimwiki path
 let g:vimwiki_global_ext = 0
 
@@ -63,12 +63,12 @@ map <leader>g :Goyo<CR>
 " limelight and vim-pencil integration with goyo
 function! s:goyo_enter()
 	autocmd InsertEnter * norm zz
-	Limelight | SoftPencil | set showmode
+	Limelight  | SoftPencil | set showmode
 endfunction
 
 function! s:goyo_leave()
 	autocmd! InsertEnter *
-	Limelight! | NoPencil | set noshowmode
+	Limelight! | NoPencil   | set noshowmode
 endfunction
 
 autocmd User GoyoEnter call <SID>goyo_enter()
@@ -146,8 +146,8 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " vim rooter config
-let g:rooter_targets = '*'
-let g:rooter_patterns = ['.git']
+let g:rooter_targets      = '*'
+let g:rooter_patterns     = ['.git']
 let g:rooter_silent_chdir = 1
 
 " colorscheme config
@@ -156,7 +156,7 @@ colo seoul256
 
 " markdown-preview config
 let g:mkdp_refresh_slow = 1
-let g:mkdp_browser = 'qutebrowser'
+let g:mkdp_browser      = 'qutebrowser'
 nnoremap <leader>h :MarkdownPreview<CR>
 
 " lightline config
@@ -173,17 +173,17 @@ let g:lightline = {
       \ }
 
 " python-mode config
-let g:pymode_lint_checkers = ['pyflakes']
-let g:pymode_trim_whitespaces = 0
-let g:pymode_options = 0
-let g:pymode_rope = 0
-let g:pymode_indent = 1
-let g:pymode_folding = 0
+let g:pymode_lint_checkers       = ['pyflakes']
+let g:pymode_trim_whitespaces    = 0
+let g:pymode_options             = 0
+let g:pymode_rope                = 0
+let g:pymode_indent              = 1
+let g:pymode_folding             = 0
 let g:pymode_options_colorcolumn = 1
-let g:pymode_run = 0
-let g:pymode_breakpoint = 0
-let g:pymode_lint_ignore = ["E501", "W",]
-let g:pymode_lint_signs = 0
+let g:pymode_run                 = 0
+let g:pymode_breakpoint          = 0
+let g:pymode_lint_ignore         = ["E501", "W",]
+let g:pymode_lint_signs          = 0
 
 function! TrimWhiteSpace()
 	let l:save = winsaveview()
