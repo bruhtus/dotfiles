@@ -49,16 +49,28 @@ let g:vimwiki_list       = [{'path': '~/sync/wiki', 'syntax': 'markdown', 'ext':
 " make vimwiki only set the filetype inside the vimwiki path
 let g:vimwiki_global_ext = 0
 
+" set enter as :
+map <CR> :
+
 " easymotion config
 let g:EasyMotion_do_mapping = 0
 map  <Leader>k <Plug>(easymotion-bd-w)
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" space h to preview markdown
+nmap <leader>h <Plug>MarkdownPreviewToggle
 
 " matching parenthesis rainbow config
 let g:rainbow_active = 0
 nnoremap <leader>s :RainbowToggle<CR>
 
 " set goyo by typing space + g
-map <leader>g :Goyo<CR>
+nnoremap <leader>g :Goyo<CR>
 
 " limelight and vim-pencil integration with goyo
 function! s:goyo_enter()
@@ -75,23 +87,23 @@ autocmd User GoyoEnter call <SID>goyo_enter()
 autocmd User GoyoLeave call <SID>goyo_leave()
 
 " open fzf to search all files in home directory
-map <leader>f :Files ~<CR>
+nnoremap <leader>f :Files ~<CR>
 
 " open fzf to search all files in loaded buffers
-map <leader>i :Buffers<CR>
+nnoremap <leader>i :Buffers<CR>
 
 " open fzf to search all lines in current buffer
-map <leader>u :BLines<CR>
+nnoremap <leader>u :BLines<CR>
 
 " open fzf to search all content in current working directory
-map <leader>o :Rg<CR>
+nnoremap <leader>o :Rg<CR>
 
 " space r to compile groff and space p to display the result
-map <leader>r :w! \| !pdfroff -mspdf -t % > %:r.pdf<CR><CR>
-map <leader>p :!zathura %:r.pdf&<CR><CR>
+nnoremap <leader>r :w! \| !pdfroff -mspdf -t % > %:r.pdf<CR><CR>
+nnoremap <leader>p :!zathura %:r.pdf&<CR><CR>
 
 " space P to activate sent presentation
-map <leader>P :w! \| !setsid -f sent %<CR><CR>
+nnoremap <leader>P :w! \| !setsid -f sent %<CR><CR>
 
 " jump to any mark with space j
 nnoremap <leader>j `
@@ -112,9 +124,6 @@ nnoremap Y y$
 " set vim to copy to clipboard and paste from clipboard
 vnoremap <C-y> "+y
 nnoremap <C-p> "+p
-
-" set enter as :
-map <CR> :
 
 " set ZX as :w
 nnoremap ZX :w<CR>
@@ -139,12 +148,6 @@ nnoremap ZE m`O<Esc>``
 vnoremap < <gv
 vnoremap > >gv
 
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
 " vim rooter config
 let g:rooter_targets      = '*'
 let g:rooter_patterns     = ['.git']
@@ -157,7 +160,6 @@ colo seoul256
 " markdown-preview config
 let g:mkdp_refresh_slow = 1
 let g:mkdp_browser      = 'qutebrowser'
-nnoremap <leader>h :MarkdownPreview<CR>
 
 " lightline config
 let g:lightline = {
