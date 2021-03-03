@@ -3,11 +3,11 @@
 
 case "$1" in
     'focus')
-            notify-send "Back to task"
-            termdown 3000 && notify-send "Take a break"
+            notify-send "BACK TO TASK, BASTARD" "AAAAAAAAAAAAAAAAAAA"
+            termdown 3000 && notify-send -u critical "TAKE A BREAK GODDAMMIT"
             ;;
     'break')
-            termdown 600 && notify-send "Back to task"
+            termdown 600 && notify-send -u critical "BACK TO TASK, BASTARD" "AAAAAAAAAAAAAAAAAAA"
             ;;
     *)
             echo "Usage: $0 { focus | break}"
