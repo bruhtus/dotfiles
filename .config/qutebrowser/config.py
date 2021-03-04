@@ -159,5 +159,7 @@ c.fonts.default_family = []
 c.fonts.default_size = '11pt'
 c.fonts.hints = 'default_size default_family'
 
+c.completion.height = '20%'
+
 c.url.default_page = 'https://searx.bar/'
 c.url.searchengines = {'DEFAULT': 'https://searx.bar/search?q={}'}
