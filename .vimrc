@@ -5,6 +5,7 @@ Plug 'tpope/vim-surround'
 Plug 'luochen1990/rainbow'
 Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-commentary'
+Plug 'lambdalisue/fern.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'kshenoy/vim-signature'
@@ -123,6 +124,9 @@ nnoremap <leader>d "_d
 " remap Y to yank from pointer to the end of the line
 nnoremap Y y$
 
+" remap - to open fern on the side
+nnoremap - :Fern . -drawer -toggle<CR>
+
 " set vim to copy to clipboard and paste from clipboard
 vnoremap <C-y> "+y
 nnoremap <C-p> "+p
@@ -188,6 +192,16 @@ let g:pymode_run                 = 0
 let g:pymode_breakpoint          = 0
 let g:pymode_lint_ignore         = ["E501", "W",]
 let g:pymode_lint_signs          = 0
+
+function! s:init_fern() abort
+	nmap <buffer> X <Plug>(fern-action-open:split)
+	nmap <buffer> S <Plug>(fern-action-open:vsplit)
+endfunction
+
+augroup fern-custom
+  autocmd! *
+  autocmd FileType fern call s:init_fern()
+augroup END
 
 function! TrimWhiteSpace()
 	let l:save = winsaveview()
