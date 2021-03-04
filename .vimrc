@@ -23,7 +23,9 @@ call plug#end()
 set showcmd
 set linebreak
 set laststatus=2
+set updatetime=0
 set ttimeoutlen=30
+set matchpairs+=<:>
 set splitbelow splitright
 set number relativenumber
 set wildmode=longest,list,full
