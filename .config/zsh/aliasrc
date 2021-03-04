@@ -8,7 +8,7 @@ alias \
 
 #unfaedah alias
 alias \
-	asd='ddgr -n 4' \
+	asd='googler -n 4' \
 	reload='. ~/.config/zsh/.zshrc' \
 	ka='killall' \
 	mp='markdown_previewer' \
