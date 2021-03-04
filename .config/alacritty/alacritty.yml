@@ -595,8 +595,8 @@ key_bindings:
   #- { key: End,       mods: Shift,   mode: ~Alt, action: ScrollToBottom }
   - { key: K,    mods: Control,   action: ScrollLineUp,  }
   - { key: J,    mods: Control,   action: ScrollLineDown,  }
-  - { key: K,    mods: Control|Shift,   action: ScrollPageUp,  }
-  - { key: J,    mods: Control|Shift,   action: ScrollPageDown,  }
+  - { key: K,    mods: Control|Alt,   action: ScrollPageUp,  }
+  - { key: J,    mods: Control|Alt,   action: ScrollPageDown,  }
 
   # Vi Mode
   #- { key: Space,  mods: Shift|Control, mode: Vi, action: ScrollToBottom          }
