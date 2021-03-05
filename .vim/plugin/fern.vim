@@ -14,7 +14,8 @@ function! s:init_fern() abort
 	nmap <buffer> l <Plug>(fern-action-open-or-expand)
 	nmap <buffer> c <Plug>(fern-action-copy)
 	nmap <buffer> Y <Plug>(fern-action-yank:path)
-	nmap <buffer> ! <Plug>(fern-action-hidden:toggle)
+	nmap <buffer> i <Plug>(fern-action-hidden:toggle)
+	nmap <buffer> <C-h> <Plug>(fern-action-leave)
 endfunction
 
 augroup fern-custom
