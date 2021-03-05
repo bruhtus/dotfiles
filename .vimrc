@@ -113,10 +113,14 @@ nnoremap <leader>P :w! \| !setsid -f sent %<CR><CR>
 nnoremap <leader>j `
 
 " Split navigation
-nnoremap <C-H> <C-w>h
+nnoremap <C-h> <C-w><C-w>
 nnoremap <C-J> <C-w>j<C-w>_
 nnoremap <C-K> <C-w>k<C-w>_
-nnoremap <C-L> <C-w>l
+
+" remap ctrl-c to esc (or ctrl-[)
+" there's a different between ctrl-c default and esc, like when exit while
+" editing using visual block
+inoremap <C-c> <C-[>
 
 " set black hole register to c, C, s, S, x, X, D, and space d
 nnoremap c "_c
