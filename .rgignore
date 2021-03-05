@@ -14,7 +14,8 @@
 gems/
 __pycache__/
 .git/
-.vim/
+.vim/autoload
+.vim/plugged
 .pki/
 .zplug/
 .cache/
