@@ -1,5 +1,7 @@
 " default vim settings
 
+let mapleader            = " "
+
 set showcmd
 set linebreak
 set laststatus=2

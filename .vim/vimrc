@@ -21,10 +21,4 @@ Plug 'python-mode/python-mode',      { 'for':   'python', 'branch': 'develop' }
 Plug 'iamcco/markdown-preview.nvim', { 'do':    { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
-let mapleader            = " "
-
-" colorscheme config
-let g:seoul256_background = 233
-colo seoul256
-
 " reference: https://learnvimscriptthehardway.stevelosh.com/chapters/42.html
