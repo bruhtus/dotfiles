@@ -74,7 +74,7 @@ let g:rainbow_active = 0
 nnoremap <leader>s :RainbowToggle<CR>
 
 " set goyo by typing space + g
-nnoremap <leader>g :Goyo<CR>
+nnoremap <silent> <leader>g :Goyo<CR>
 
 " limelight and vim-pencil integration with goyo
 function! s:goyo_enter()
@@ -132,7 +132,7 @@ nnoremap <leader>d "_d
 nnoremap Y y$
 
 " remap - to open fern on the side
-nnoremap - :Fern . -drawer -toggle<CR>
+nnoremap <silent> - :Fern . -drawer -toggle<CR>
 
 " remap _ to set current height window to highest possible
 nnoremap _ <C-w>_
