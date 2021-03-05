@@ -1,6 +1,6 @@
 " default vim settings
 
-let mapleader            = " "
+let mapleader = " "
 
 set showcmd
 set linebreak
@@ -11,6 +11,7 @@ set winminheight=0
 set matchpairs+=<:>
 set splitbelow splitright
 set number relativenumber
+set viminfo+=n~/.vim/viminfo
 set wildmode=longest,list,full
 
 set tabstop=4
