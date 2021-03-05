@@ -26,6 +26,7 @@ set linebreak
 set laststatus=2
 set updatetime=0
 set ttimeoutlen=30
+set winminheight=0
 set matchpairs+=<:>
 set splitbelow splitright
 set number relativenumber
@@ -111,6 +112,12 @@ nnoremap <leader>P :w! \| !setsid -f sent %<CR><CR>
 " jump to any mark with space j
 nnoremap <leader>j `
 
+" Split navigation
+nnoremap <C-H> <C-w>h
+nnoremap <C-J> <C-w>j<C-w>_
+nnoremap <C-K> <C-w>k<C-w>_
+nnoremap <C-L> <C-w>l
+
 " set black hole register to c, C, s, S, x, X, D, and space d
 nnoremap c "_c
 nnoremap C "_C
@@ -126,6 +133,12 @@ nnoremap Y y$
 
 " remap - to open fern on the side
 nnoremap - :Fern . -drawer -toggle<CR>
+
+" remap _ to set current height window to highest possible
+nnoremap _ <C-w>_
+
+" remap _ to set current height window to highest possible
+nnoremap + <C-w>=
 
 " set vim to copy to clipboard and paste from clipboard
 vnoremap <C-y> "+y
