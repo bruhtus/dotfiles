@@ -176,6 +176,9 @@ let g:rooter_silent_chdir = 1
 let g:seoul256_background = 233
 colo seoul256
 
+" disable fern default mappings
+let g:fern#disable_default_mappings = 1
+
 " markdown-preview config
 let g:mkdp_refresh_slow = 1
 let g:mkdp_browser      = 'qutebrowser'
@@ -209,6 +212,11 @@ let g:pymode_lint_signs          = 0
 function! s:init_fern() abort
 	nmap <buffer> X <Plug>(fern-action-open:split)
 	nmap <buffer> S <Plug>(fern-action-open:vsplit)
+	nmap <buffer> h <Plug>(fern-action-collapse)
+	nmap <buffer> l <Plug>(fern-action-open-or-expand)
+	nmap <buffer> c <Plug>(fern-action-copy)
+	nmap <buffer> Y <Plug>(fern-action-yank:path)
+	nmap <buffer> ! <Plug>(fern-action-hidden:toggle)
 endfunction
 
 augroup fern-custom
