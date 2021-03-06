@@ -6,6 +6,7 @@ set showcmd
 set linebreak
 set laststatus=2
 set updatetime=0
+set wildignorecase
 set ttimeoutlen=30
 set winminheight=0
 set matchpairs+=<:>
