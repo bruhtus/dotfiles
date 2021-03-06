@@ -32,7 +32,7 @@ nnoremap Y y$
 " remap _ to set current height window to highest possible
 nnoremap _ <C-w>_
 
-" remap _ to set current height window to highest possible
+" remap + to set current height of each split window to the same height
 nnoremap + <C-w>=
 
 " set vim to copy to clipboard and paste from clipboard
