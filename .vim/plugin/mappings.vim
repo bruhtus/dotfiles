@@ -1,7 +1,7 @@
 " default mappings
 
 " set enter as :
-map <CR> :
+noremap <CR> :
 
 " jump to any mark with space j
 nnoremap <leader>j `
