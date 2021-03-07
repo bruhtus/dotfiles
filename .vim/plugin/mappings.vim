@@ -29,6 +29,9 @@ nnoremap <leader>d "_d
 " remap Y to yank from pointer to the end of the line
 nnoremap Y y$
 
+" remap U to yank the entire line and put below that line
+nnoremap U :t.<CR>
+
 " remap _ to set current height window to highest possible
 nnoremap _ <C-w>_
 
