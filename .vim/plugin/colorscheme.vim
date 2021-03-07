@@ -2,4 +2,4 @@
 
 let g:seoul256_background = 233
 
-colo seoul256
+silent! colo seoul256
