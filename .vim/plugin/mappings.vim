@@ -1,12 +1,12 @@
 " default mappings
 
-" set enter as :
-noremap <CR> :
+" set enter as : except in quickfix window
+nnoremap <expr> <CR> &buftype ==# 'quickfix' ? "\<CR>" : ':'
 
 " jump to any mark with space j
 nnoremap <leader>j `
 
-" Split navigation
+" split navigation
 nnoremap <C-n> <C-w><C-w>
 nnoremap <C-j> <C-w>j<C-w>_
 nnoremap <C-k> <C-w>k<C-w>_
