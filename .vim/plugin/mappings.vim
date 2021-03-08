@@ -7,9 +7,9 @@ noremap <CR> :
 nnoremap <leader>j `
 
 " Split navigation
-nnoremap <C-h> <C-w><C-w>
-nnoremap <C-J> <C-w>j<C-w>_
-nnoremap <C-K> <C-w>k<C-w>_
+nnoremap <C-n> <C-w><C-w>
+nnoremap <C-j> <C-w>j<C-w>_
+nnoremap <C-k> <C-w>k<C-w>_
 
 " remap ctrl-c to esc (or ctrl-[)
 " there's a different between ctrl-c default and esc, like when exit while
@@ -43,7 +43,7 @@ nnoremap <S-Tab> <C-^>
 
 " set vim to copy to clipboard and paste from clipboard
 vnoremap <C-y> "+y
-nnoremap <C-p> "+p
+nnoremap <C-p> "+gp
 
 " set ZX as :w
 nnoremap ZX :w<CR>
