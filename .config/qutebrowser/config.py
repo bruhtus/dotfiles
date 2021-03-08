@@ -136,7 +136,7 @@ config.bind('gK', 'tab-move +')
 config.bind('x', 'tab-close')
 config.bind('X', 'undo')
 config.bind('yf', 'hint links yank')
-config.bind('zz', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
+config.bind('zz', 'config-cycle statusbar.show never always;; config-cycle tabs.show never always')
 
 # Bindings for insert mode
 config.bind("<Ctrl-h>", "fake-key <Backspace>", "insert")
