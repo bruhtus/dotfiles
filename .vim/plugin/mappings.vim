@@ -11,6 +11,10 @@ nnoremap <C-n> <C-w><C-w>
 nnoremap <C-j> <C-w>j<C-w>_
 nnoremap <C-k> <C-w>k<C-w>_
 
+" buffer navigation
+nnoremap <C-h> :bp<CR>
+nnoremap <C-l> :bn<CR>
+
 " remap ctrl-c to esc (or ctrl-[)
 " there's a different between ctrl-c default and esc, like when exit while
 " editing using visual block
