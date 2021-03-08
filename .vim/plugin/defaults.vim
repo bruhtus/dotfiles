@@ -9,6 +9,7 @@ set updatetime=0
 set wildignorecase
 set ttimeoutlen=30
 set winminheight=0
+set signcolumn=yes
 set matchpairs+=<:>
 set splitbelow splitright
 set number relativenumber
