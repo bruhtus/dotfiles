@@ -8,4 +8,7 @@ iabbrev <buffer> iii import
 onoremap <buffer> aM /def<CR>
 onoremap <buffer> iM ?def<CR>
 
-autocmd BufWritePost * Make
+augroup Make
+	autocmd!
+	autocmd BufWritePost * Make
+augroup END
