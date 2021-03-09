@@ -13,3 +13,5 @@ nnoremap <leader>u :BLines<CR>
 
 " open fzf to search all content in current working directory
 nnoremap <leader>o :Rg<CR>
+
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
