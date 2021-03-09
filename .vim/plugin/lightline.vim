@@ -5,9 +5,22 @@ let g:lightline = {
       \ 'active': {
       \   'right': [ [ 'lineinfo' ],
       \              [ 'filetype' ],
-      \              [ 'percent', 'fileencoding' ] ]
+      \              [ 'fileencoding' ] ]
       \ },
       \ 'component': {
       \   'lineinfo': '%3l/%L',
       \ },
+      \ 'mode_map': {
+        \ 'n' : 'N',
+        \ 'i' : 'I',
+        \ 'R' : 'R',
+        \ 'v' : 'V',
+        \ 'V' : 'VL',
+        \ "\<C-v>": 'VB',
+        \ 'c' : 'C',
+        \ 's' : 'S',
+        \ 'S' : 'SL',
+        \ "\<C-s>": 'SB',
+        \ 't': 'T',
+        \ },
       \ }
