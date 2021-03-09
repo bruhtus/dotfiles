@@ -45,6 +45,10 @@ nnoremap + <C-w>=
 " use shift+tab to switch back and forth between two recent buffer
 nnoremap <S-Tab> <C-^>
 
+" make pointer in the middle of buffer while half page up/down
+nnoremap <C-u> <C-u>M
+nnoremap <C-d> <C-d>M
+
 " make pointer in the top/bottom of buffer while page up/down
 nnoremap <C-f> <C-f>H
 nnoremap <C-b> <C-b>L
