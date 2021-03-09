@@ -42,8 +42,12 @@ nnoremap _ <C-w>_
 " remap + to set current height of each split window to the same height
 nnoremap + <C-w>=
 
-" Use shift+tab to switch back and forth between two recent buffer
+" use shift+tab to switch back and forth between two recent buffer
 nnoremap <S-Tab> <C-^>
+
+" make pointer in the top/bottom of buffer while page up/down
+nnoremap <C-f> <C-f>H
+nnoremap <C-b> <C-b>L
 
 " set vim to copy to clipboard and paste from clipboard
 vnoremap <C-y> "+y
