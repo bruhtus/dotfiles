@@ -3,7 +3,7 @@
 " for example: pipx install yapf (for python formatter)
 
 " use neoformat on save
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * Neoformat
-augroup END
+" augroup fmt
+"   autocmd!
+"   autocmd BufWritePre * Neoformat
+" augroup END
