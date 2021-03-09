@@ -1,0 +1,4 @@
+#!/bin/sh
+
+#don't forget to install flake8 (either using pipx or something else)
+flake8 $@ | egrep -v 'F401|F841|E501|E402'
