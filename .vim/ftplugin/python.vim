@@ -10,5 +10,5 @@ onoremap <buffer> iM ?def<CR>
 
 augroup Make
 	autocmd!
-	autocmd BufWritePost * silent! make
+	autocmd BufWritePost * silent! make | redraw!
 augroup END
