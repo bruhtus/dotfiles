@@ -45,6 +45,10 @@ nnoremap + <C-w>=
 " map [o to move mark m to below current line
 nnoremap [o :'mm.<CR>
 
+" map ]l to cnext and [l to cprevious
+nnoremap <silent> ]l :cn<CR>
+nnoremap <silent> [l :cp<CR>
+
 " use shift+tab to switch back and forth between two recent buffer
 nnoremap <S-Tab> <C-^>
 
