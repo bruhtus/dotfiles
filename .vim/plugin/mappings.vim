@@ -36,6 +36,11 @@ nnoremap Y y$
 " remap U to yank the entire line and put below that line
 nnoremap U :t.<CR>
 
+" remap ex mode to access vimgrep in current buffer
+" you can still access ex mode using gQ
+" \v make every following character except a-zA-Z0-9 a special character
+nnoremap Q :lvimgrep /\v/j %<left><left><left><left>
+
 " remap _ to set current height window to highest possible
 nnoremap _ <C-w>_
 
