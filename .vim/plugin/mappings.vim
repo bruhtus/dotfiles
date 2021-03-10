@@ -42,6 +42,9 @@ nnoremap _ <C-w>_
 " remap + to set current height of each split window to the same height
 nnoremap + <C-w>=
 
+" map [o to move mark m to below current line
+nnoremap [o :'mm.<CR>
+
 " use shift+tab to switch back and forth between two recent buffer
 nnoremap <S-Tab> <C-^>
 
