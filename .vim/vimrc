@@ -1,9 +1,6 @@
 call plug#begin()
 Plug 'vimwiki/vimwiki'
-" Plug 'sbdchd/neoformat'
-" Plug 'xtal8/traces.vim'
 Plug 'tpope/vim-surround'
-" Plug 'tpope/vim-dispatch'
 Plug 'luochen1990/rainbow'
 Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-commentary'
@@ -18,9 +15,12 @@ Plug 'reedes/vim-pencil'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf',                 { 'do':    { -> fzf#install() } }
+Plug 'iamcco/markdown-preview.nvim', { 'do':    { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+" Plug 'sbdchd/neoformat'
+" Plug 'xtal8/traces.vim'
+" Plug 'tpope/vim-dispatch'
 " Plug 'mg979/vim-visual-multi',       {'branch': 'master'}
 " Plug 'python-mode/python-mode',      { 'for':   'python', 'branch': 'develop' }
-Plug 'iamcco/markdown-preview.nvim', { 'do':    { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
 " reference: https://learnvimscriptthehardway.stevelosh.com/chapters/42.html
