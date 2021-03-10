@@ -1,5 +1,5 @@
 setlocal colorcolumn=80
-setlocal makeprg=$HOME/.vim/ftplugin/flake8-grep\ %
+setlocal makeprg=flake8\ %\ \\\|\ egrep\ -v\ 'F401\\\|F841\\\|E501\\\|E402'
 hi ColorColumn ctermbg=grey ctermfg=none
 
 iabbrev <buffer> iii import
