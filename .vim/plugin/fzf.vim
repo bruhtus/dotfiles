@@ -1,6 +1,6 @@
 " fzf plugin config and mappings
 
-let $FZF_DEFAULT_COMMAND = "rg --hidden --files"
+let $FZF_DEFAULT_COMMAND = "rg --hidden --files --no-ignore-vcs"
 
 " open fzf to search all files in home directory
 nnoremap <leader>f :Files ~<CR>
