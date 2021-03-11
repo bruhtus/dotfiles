@@ -47,8 +47,8 @@ nnoremap _ <C-w>_
 " remap + to set current height of each split window to the same height
 nnoremap + <C-w>=
 
-" map [o to move mark m to below current line
-nnoremap [o :'mm.<CR>
+" map [; to move mark m to below current line
+nnoremap [; :'mm.<CR>
 
 " map ]l to cnext and [l to cprevious
 nnoremap <silent> ]l :cn<CR>
