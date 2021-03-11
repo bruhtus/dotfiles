@@ -2,6 +2,7 @@
 
 let mapleader = " "
 
+set hidden
 set showcmd
 set linebreak
 set laststatus=2
