@@ -8,7 +8,11 @@ let g:lightline = {
       \              [ 'fileencoding' ] ]
       \ },
       \ 'component': {
-      \   'lineinfo': '%3l/%L',
+      \   'lineinfo': '%3l/%L%<',
+      \ },
+      \ 'component_function': {
+      \   'fileencoding': 'LightlineFileencoding',
+      \   'filetype': 'LightlineFiletype',
       \ },
       \ 'mode_map': {
         \ 'n' : 'N',
@@ -24,3 +28,12 @@ let g:lightline = {
         \ 't': 'T',
         \ },
       \ }
+
+" trim fileencoding and filetype if window width less then 70
+function! LightlineFileencoding()
+	return winwidth(0) > 70 ? &fileencoding : ''
+endfunction
+
+function! LightlineFiletype()
+	return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
