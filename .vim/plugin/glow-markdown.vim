@@ -3,4 +3,4 @@
 let maplocalleader = '\'
 
 " \\ to preview markdown
-autocmd BufRead,BufNewFile *.md nnoremap <buffer> <localleader>\ :!glow -p %<CR>
+autocmd BufRead,BufNewFile *.md nnoremap <buffer> <localleader>\ :!glow -p %<CR><CR>
