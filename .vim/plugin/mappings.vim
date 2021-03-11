@@ -15,6 +15,10 @@ nnoremap <C-k> <C-w>k<C-w>_
 nnoremap <C-h> :bp<CR>
 nnoremap <C-l> :bn<CR>
 
+" remap ctrl-q to behave like default ctrl-l
+" ctrl-q default in normal mode behave like ctrl-v (visual block)
+nnoremap <C-q> <C-l>
+
 " remap ctrl-c to esc (or ctrl-[)
 " there's a different between ctrl-c default and esc, like when exit while
 " editing using visual block
