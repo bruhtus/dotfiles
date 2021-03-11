@@ -3,6 +3,10 @@
 " set enter as : except in quickfix window
 nnoremap <expr> <CR> &buftype ==# 'quickfix' ? "\<CR>" : ':'
 
+" remap backspace to grep the exact under the cursor word in all files
+" at current working directory
+nnoremap <BS> :execute "lvimgrep /\\<" . expand("<cword>") . "\\>/j **"<CR>
+
 " jump to any mark with space j
 nnoremap <leader>j `
 
