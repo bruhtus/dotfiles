@@ -15,12 +15,6 @@ Plug 'reedes/vim-pencil'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf',                 { 'do':    { -> fzf#install() } }
-" Plug 'sbdchd/neoformat'
-" Plug 'xtal8/traces.vim'
-" Plug 'tpope/vim-dispatch'
-" Plug 'mg979/vim-visual-multi',       {'branch': 'master'}
-" Plug 'python-mode/python-mode',      { 'for':   'python', 'branch': 'develop' }
-" Plug 'iamcco/markdown-preview.nvim', { 'do':    { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
 " reference: https://learnvimscriptthehardway.stevelosh.com/chapters/42.html
