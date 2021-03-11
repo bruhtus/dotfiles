@@ -6,6 +6,7 @@ iabbrev <buffer> ii import
 iabbrev <buffer> iia import as<C-left><left>
 iabbrev <buffer> ff from import<C-left><BS>
 iabbrev <buffer> dd def ():<C-left><BS>
+iabbrev <buffer> ffm if __name__ == '__main__':<CR>Fire(main)<Esc>
 
 augroup Make
 	autocmd!
