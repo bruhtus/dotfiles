@@ -5,8 +5,8 @@ let $FZF_DEFAULT_COMMAND = "rg --hidden --files --no-ignore-vcs"
 " open fzf to search all files in home directory
 nnoremap <leader>f :Files ~<CR>
 
-" open fzf to search all files in loaded buffers
-nnoremap <leader>i :Buffers<CR>
+" open fzf to search all files in current working directory
+nnoremap <leader>i :Files<CR>
 
 " open fzf to search all lines in current buffer
 nnoremap <leader>u :BLines<CR>
