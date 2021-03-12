@@ -1,11 +1,14 @@
 " lightline plugin config
+" install gitbranch plugin too
 
 let g:lightline = {
       \ 'colorscheme': 'seoul256',
       \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \              [ 'readonly', 'filename', 'modified' ] ],
       \   'right': [ [ 'lineinfo' ],
       \              [ 'filetype' ],
-      \              [ 'fileencoding' ] ]
+      \              [ 'gitbranch', 'fileencoding' ] ]
       \ },
       \ 'component': {
       \   'lineinfo': '%3l/%L%<',
@@ -13,6 +16,7 @@ let g:lightline = {
       \ 'component_function': {
       \   'fileencoding': 'LightlineFileencoding',
       \   'filetype': 'LightlineFiletype',
+      \   'gitbranch': 'LightlineGitbranch',
       \ },
       \ 'mode_map': {
         \ 'n' : 'N',
@@ -36,4 +40,8 @@ endfunction
 
 function! LightlineFiletype()
 	return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightlineGitbranch()
+	return winwidth(0) > 70 ? gitbranch#name() : ''
 endfunction
