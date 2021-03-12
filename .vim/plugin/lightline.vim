@@ -1,5 +1,5 @@
 " lightline plugin config
-" install gitbranch plugin too
+" install vim-fugitive plugin too
 
 let g:lightline = {
       \ 'colorscheme': 'seoul256',
@@ -43,5 +43,5 @@ function! LightlineFiletype()
 endfunction
 
 function! LightlineGitbranch()
-	return winwidth(0) > 70 ? gitbranch#name() : ''
+	return winwidth(0) > 70 ? fugitive#head() : ''
 endfunction
