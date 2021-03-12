@@ -55,9 +55,6 @@ nnoremap _ <C-w>_
 " remap + to set current height of each split window to the same height
 nnoremap + <C-w>=
 
-" map [; to move mark m to below current line
-nnoremap [; :'mm.<CR>
-
 " map ]l to cnext and [l to cprevious
 nnoremap <silent> ]l :cn<CR>
 nnoremap <silent> [l :cp<CR>
@@ -95,6 +92,9 @@ nnoremap ZD :marks<CR>
 " set ZW to enter blank space below and ZE to enter blank space above
 nnoremap ZW m`o<Esc>``
 nnoremap ZE m`O<Esc>``
+
+" map ZJ to move mark m to below current line
+nnoremap ZJ :'mm.<CR>
 
 " remap < and > in visual mode
 vnoremap < <gv
