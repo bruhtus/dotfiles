@@ -2,6 +2,11 @@
 
 let $FZF_DEFAULT_COMMAND = "rg --hidden --files --no-ignore-vcs"
 
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-s': 'vsplit' }
+
 " open fzf to search all files in home directory
 nnoremap <leader>f :Files ~<CR>
 
