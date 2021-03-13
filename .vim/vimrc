@@ -5,7 +5,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'luochen1990/rainbow'
 Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-commentary'
-Plug 'lambdalisue/fern.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'kshenoy/vim-signature'
@@ -15,7 +14,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'reedes/vim-pencil'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'do':    { -> fzf#install() } }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
 
 " reference: https://learnvimscriptthehardway.stevelosh.com/chapters/42.html
