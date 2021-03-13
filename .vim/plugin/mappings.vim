@@ -55,9 +55,9 @@ nnoremap _ <C-w>_
 " remap + to set current height of each split window to the same height
 nnoremap + <C-w>=
 
-" map ]l to cnext and [l to cprevious
-nnoremap <silent> ]l :cn<CR>
-nnoremap <silent> [l :cp<CR>
+" map ]; to cnext and [; to cprevious
+nnoremap <silent> ]; :cn<CR>
+nnoremap <silent> [; :cp<CR>
 
 " use shift+tab to switch back and forth between two recent buffer
 nnoremap <S-Tab> <C-^>
