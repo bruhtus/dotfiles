@@ -12,6 +12,7 @@ set ttimeoutlen=30
 set winminheight=0
 set signcolumn=yes
 set matchpairs+=<:>
+set termwinkey=<C-p>
 set splitbelow splitright
 set number relativenumber
 set viminfo+=n~/.vim/viminfo
