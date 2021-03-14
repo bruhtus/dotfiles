@@ -10,6 +10,12 @@ nnoremap <BS> :execute "lvimgrep /\\<" . expand("<cword>") . "\\>/j **"<CR>
 " jump to any mark with space j
 nnoremap <leader>j `
 
+" list all the buffer
+nnoremap <leader>b :ls<CR>
+
+" open buffer with number list
+nnoremap <leader>h :b
+
 " split navigation
 nnoremap <C-n> <C-w><C-w>
 nnoremap <C-j> <C-w>j<C-w>_
