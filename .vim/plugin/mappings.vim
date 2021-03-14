@@ -105,3 +105,8 @@ nnoremap ZJ :'mm.<CR>
 " remap < and > in visual mode
 vnoremap < <gv
 vnoremap > >gv
+
+" map ctrl-n to switch between split window in terminal
+" ctrl-p is a remap in terminal similar to ctrl-w in normal mode
+" (check defaults.vim)
+tnoremap <C-n> <C-p><C-w>
