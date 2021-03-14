@@ -43,5 +43,10 @@ function! LightlineFiletype()
 endfunction
 
 function! LightlineGitbranch()
-	return winwidth(0) > 70 ? fugitive#head() : ''
+	" doesn't give an error if vim-fugitive not installed
+	if exists('*FugitiveHead')
+		return winwidth(0) > 70 ? fugitive#head() : ''
+	else
+		return ''
+	endif
 endfunction
