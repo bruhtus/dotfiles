@@ -39,8 +39,6 @@ def _hastebin_redir(url: QUrl) -> bool:
 REDIRECT_MAP = {
 	"reddit.com": operator.methodcaller('setHost', 'teddit.net'),
 	"www.reddit.com": operator.methodcaller('setHost', 'teddit.net'),
-	"twitter.com": operator.methodcaller('setHost', 'nitter.eu'),
-	"www.twitter.com": operator.methodcaller('setHost', 'nitter.eu'),
 
 	# Pastebins
 	"paste.debian.net": _debian_redir,
