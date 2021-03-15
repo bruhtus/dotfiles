@@ -126,6 +126,9 @@ config.set('hints.uppercase', True)
 # Change start pages
 config.set('url.start_pages','/home/bruhtus/.config/qutebrowser/index.html')
 
+# Change download directory
+config.set('downloads.location.directory','/home/bruhtus/downloads/')
+
 # Bindings for normal mode
 config.bind('J', 'tab-prev')
 config.bind('K', 'tab-next')
