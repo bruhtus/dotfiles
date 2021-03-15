@@ -17,6 +17,7 @@ let g:lightline = {
       \   'fileencoding': 'LightlineFileencoding',
       \   'filetype': 'LightlineFiletype',
       \   'gitbranch': 'LightlineGitbranch',
+      \   'filename': 'LightlineFilename',
       \ },
       \ 'mode_map': {
         \ 'n' : 'N',
@@ -40,6 +41,20 @@ endfunction
 
 function! LightlineFiletype()
 	return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightlineFilename()
+	" see h expand() to for more info
+	" use 'blank' if 'no name' file
+	let l:fullpath = (expand('%:~:p') !=# '' ? expand('%:~:p') : '[Blank]')
+	let l:relativepath = (expand('%') !=# '' ? expand('%') : '[Blank]')
+	if winwidth(0) > 160
+		return l:fullpath
+	elseif winwidth(0) < 71
+		return expand('%:t')
+	else
+		return pathshorten(l:relativepath, 2)
+	endif
 endfunction
 
 function! LightlineGitbranch()
