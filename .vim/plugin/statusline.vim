@@ -69,7 +69,7 @@ function! ModeCurrent() abort
     let l:modecurrent = mode()
     " use get() -> fails safely, since ^V doesn't seem to register
     " 3rd arg is used when return of mode() == 0, which is case with ^V
-    " thus, ^V fails -> returns 0 -> replaced with 'V Block'
+    " thus, ^V fails -> returns 0 -> replaced with 'VB'
     let l:modelist = toupper(get(g:currentmode, l:modecurrent, 'VB'))
     let l:current_status_mode = l:modelist
     return l:current_status_mode
