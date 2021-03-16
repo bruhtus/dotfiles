@@ -11,7 +11,7 @@ endfunction
 
 function! s:goyo_leave()
 	autocmd! InsertEnter *
-	Limelight! | NoPencil   | set noshowmode | hi StatusLine ctermfg=233 guifg=#121212
+	Limelight! | NoPencil   | set noshowmode | hi StatusLine ctermfg=233 guifg=#121212 | hi StatusLineTerm ctermfg=233 guifg=#121212
 endfunction
 
 autocmd User GoyoEnter call <SID>goyo_enter()
