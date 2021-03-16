@@ -13,6 +13,7 @@ set statusline+=\ %{StatuslineFiletype()}
 set statusline+=\ %3l/%L%<
 
 hi StatusLine ctermfg=233 guifg=#121212
+hi StatusLineTerm ctermfg=233 guifg=#121212
 
 function! StatuslineFilename()
 	" see h expand() to for more info
