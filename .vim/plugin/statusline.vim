@@ -1,3 +1,5 @@
+" statusline config
+
 set statusline=
 set statusline+=\ %3{ModeCurrent()}
 set statusline+=\ %r
@@ -50,7 +52,18 @@ function! StatuslineFiletype()
 	return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
 endfunction
 
-let g:currentmode={ 'n' : 'N', 'v' : 'V', 'V' : 'VL', '^V' : 'VB', 's' : 'S', 'S': 'SL', '^S' : 'SB', 'i' : 'I', 'R' : 'R', 'c' : 'C', 't' : 'T'}
+let g:currentmode={
+			\ 'n' : 'N',
+			\ 'v' : 'V',
+			\ 'V' : 'VL',
+			\ '^V' : 'VB',
+			\ 's' : 'S',
+			\ 'S': 'SL',
+			\ '^S' : 'SB',
+			\ 'i' : 'I',
+			\ 'R' : 'R',
+			\ 'c' : 'C',
+			\ 't' : 'T'}
 
 function! ModeCurrent() abort
     let l:modecurrent = mode()
