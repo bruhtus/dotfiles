@@ -109,4 +109,8 @@ vnoremap > >gv
 " map ctrl-n to switch between split window in terminal
 " ctrl-p is a remap in terminal similar to ctrl-w in normal mode
 " (check defaults.vim)
-tnoremap <C-n> <C-p><C-w>
+if has('nvim')
+	tnoremap <C-n> <C-\><C-n>
+else
+	tnoremap <C-n> <C-p><C-n>
+endif
