@@ -2,6 +2,7 @@ export ZDOTDIR=$HOME/.config/zsh
 export BROWSER=lynx
 export EDITOR=nvim
 export FZF_DEFAULT_OPTS="--height 20%"
+export ZPLUG_HOME="$HOME/.config/zplug"
 
 #dotbare
 export DOTBARE_DIR="$HOME/.config"
