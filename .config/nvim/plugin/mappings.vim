@@ -106,11 +106,15 @@ nnoremap ZJ :'mm.<CR>
 vnoremap < <gv
 vnoremap > >gv
 
-" map ctrl-n to switch between split window in terminal
-" ctrl-p is a remap in terminal similar to ctrl-w in normal mode
-" (check defaults.vim)
+" mapping to interact with built-in terminal
 if has('nvim')
 	tnoremap <C-n> <C-\><C-n>
+	" set mark T in terminal buffer first and then call mark T
+	nnoremap <leader>m `T
+
 else
+	" ctrl-p is a remap in terminal similar to ctrl-w in normal mode
+	" (check defaults.vim)
 	tnoremap <C-n> <C-p><C-n>
+
 endif
