@@ -30,7 +30,7 @@ HISTFILE=~/.cache/zsh/history
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/pyvenvrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/pyvenvrc"
 
 #zplug
-source $HOME/.zplug/init.zsh
+source $HOME/.config/zplug/init.zsh
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug "kazhala/dotbare"
 zplug "romkatv/powerlevel10k", as:theme, depth:1
