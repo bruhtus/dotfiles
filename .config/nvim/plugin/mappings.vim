@@ -112,7 +112,7 @@ if has('nvim')
 	" set mark T in terminal buffer first and then call mark T
 	nnoremap <leader>m `T
 
-else
+elseif exists('&termwinkey')
 	" ctrl-p is a remap in terminal similar to ctrl-w in normal mode
 	" (check defaults.vim)
 	tnoremap <C-n> <C-p><C-n>

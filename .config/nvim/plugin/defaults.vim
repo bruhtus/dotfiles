@@ -28,14 +28,19 @@ set incsearch
 
 if has('nvim')
 	set guicursor=
-	set wildmode=longest:full,full
-	set noautoindent
 	set nohlsearch
 	set nosmarttab
+	set noautoindent
+	set wildmode=longest:full,full
+
 else
-	set wildmode=longest,list,full
-	set termwinkey=<C-p>
 	set viminfo+=n~/.vim/viminfo
+	set wildmode=longest,list,full
+
+	" check if there's termwinkey variable or not
+	if exists('&termwinkey')
+		set termwinkey=<C-p>
+	endif
 endif
 
 syntax on
