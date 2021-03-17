@@ -3,7 +3,6 @@
 let mapleader = " "
 
 set hidden
-set guicursor=
 set showcmd
 set linebreak
 set laststatus=2
@@ -28,6 +27,7 @@ set smartcase
 set incsearch
 
 if has('nvim')
+	set guicursor=
 	set wildmode=longest:full,full
 	set noautoindent
 	set nohlsearch
