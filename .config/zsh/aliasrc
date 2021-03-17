@@ -21,7 +21,7 @@ alias \
 	cm='cd /run/media' \
 	v='$EDITOR' \
 	rr='ranger' \
-	wiki='vim -c "VimwikiIndex"' \
+	wiki='$EDITOR -c "VimwikiIndex"' \
 	rate='curl rate.sx' \
 	lynx='lynx -vikeys' \
 	pmf='pomoterm focus' \
