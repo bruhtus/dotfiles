@@ -27,10 +27,7 @@ function! StatuslineFilename()
 	elseif winwidth(0) < 71
 		return expand('%:t')
 	else
-		if has('nvim')
-			return pathshorten(l:relativepath)
-		else
-			return pathshorten(l:relativepath, 2)
+		return pathshorten(l:relativepath)
 	endif
 endfunction
 
