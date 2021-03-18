@@ -108,6 +108,12 @@ nnoremap ZK :'mm.-1<CR>
 " map ZU to yank the entire line and put above that line
 nnoremap ZU :t.-1<CR>
 
+" map ZN to yank mark m and put below current line
+nnoremap ZN :'mt.<CR>
+
+" map ZH to yank mark m and put above current line
+nnoremap ZH :'mt.-1<CR>
+
 " remap < and > in visual mode
 vnoremap < <gv
 vnoremap > >gv
