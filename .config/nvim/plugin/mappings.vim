@@ -105,6 +105,9 @@ nnoremap ZJ :'mm.<CR>
 " map ZK to move mark m to above current line
 nnoremap ZK :'mm.-1<CR>
 
+" map ZU to yank the entire line and put above that line
+nnoremap ZU :t.-1<CR>
+
 " remap < and > in visual mode
 vnoremap < <gv
 vnoremap > >gv
