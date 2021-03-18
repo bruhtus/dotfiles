@@ -2,7 +2,7 @@
 
 > Note to myself: don't forget to make the script executable by doing `chmod +x <filename>` and install vim plug
 
-> To enable updates-notifier, use `systemctl --user enable updates-notifier.timer --now`
+> To enable updates-notifier, use `systemctl --user enable --now updates-notifier.timer`
 
 This repo is to backup my linux configuration so that I don't need to configure every new installation. I use [dotbare](https://github.com/kazhala/dotbare) to manage my dotfiles. Below is the simplified version to setup dotbare.
 
