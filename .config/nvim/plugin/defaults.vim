@@ -14,6 +14,7 @@ set signcolumn=yes
 set matchpairs+=<:>
 set splitbelow splitright
 set number relativenumber
+set wildignore=*/.git/*,*.pdf,*.jpg,*jpeg,*.png,*.epub,*.mobi
 
 set tabstop=4
 set shiftwidth=4
