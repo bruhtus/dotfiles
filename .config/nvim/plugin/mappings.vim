@@ -102,6 +102,9 @@ nnoremap ZE m`O<Esc>``
 " map ZJ to move mark m to below current line
 nnoremap ZJ :'mm.<CR>
 
+" map ZK to move mark m to above current line
+nnoremap ZK :'mm.-1<CR>
+
 " remap < and > in visual mode
 vnoremap < <gv
 vnoremap > >gv
