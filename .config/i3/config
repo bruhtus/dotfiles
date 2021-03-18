@@ -86,7 +86,7 @@ bindsym $mod+e exec $term -e ranger
 bindsym $mod+a exec --no-startup-id rofi -show run
 bindsym $mod+t exec --no-startup-id pkill picom
 
-bindsym $mod+Shift+c exec $term -e vim '/home/bruhtus/.config/i3/config'
+bindsym $mod+Shift+c exec $term -e $EDITOR '/home/bruhtus/.config/i3/config'
 bindsym $mod+Shift+d [title="dropdown_youtube"] scratchpad show; [title="dropdown_youtube"] move position center
 bindsym $mod+Shift+s [title="dropdown_terminal"] scratchpad show; [title="dropdown_terminal"] move position center
 bindsym $mod+Shift+u exec google-chrome-stable --new-window https://github.com/settings/tokens
