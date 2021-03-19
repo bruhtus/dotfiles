@@ -95,9 +95,22 @@ nnoremap ZS :reg<CR>
 " set ZD as :marks
 nnoremap ZD :marks<CR>
 
-" set ZW to enter blank space below and ZE to enter blank space above
-nnoremap ZW m`o<Esc>``
-nnoremap ZE m`O<Esc>``
+" map Z<Space> to enter blank space below and ZB to enter blank space above
+" stole this from vim-unimpaired plugin (sorry lord tpope)
+function! s:BlankUp(count) abort
+	norm m`
+	put!=repeat(nr2char(10), a:count)
+	norm ``
+endfunction
+
+function! s:BlankDown(count) abort
+	norm m`
+	put =repeat(nr2char(10), a:count)
+	norm ``
+endfunction
+
+nnoremap <silent> ZB :<C-U>call <SID>BlankUp(v:count1)<CR>
+nnoremap <silent> Z<Space> :<C-U>call <SID>BlankDown(v:count1)<CR>
 
 " map ZJ to move mark m to below current line
 nnoremap ZJ :'mm.<CR>
