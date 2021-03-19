@@ -12,6 +12,7 @@ set statusline+=\ |
 set statusline+=\ %{StatuslineFileencoding()}
 set statusline+=\ |
 set statusline+=\ %{StatuslineFiletype()}
+set statusline+=\ |
 set statusline+=\ %3l/%L%<
 
 hi StatusLine ctermfg=233 guifg=#121212
