@@ -1,22 +1,42 @@
 " statusline config
 
-set statusline=
-set statusline+=\ %3{ModeCurrent()}
-set statusline+=\ %r
-set statusline+=\ |
-set statusline+=\ %{StatuslineFilename()}
-set statusline+=\ %m
-set statusline+=%=
-set statusline+=\ %{StatuslineGit()}
-set statusline+=\ |
-set statusline+=\ %{StatuslineFileencoding()}
-set statusline+=\ |
-set statusline+=\ %{StatuslineFiletype()}
-set statusline+=\ |
-set statusline+=\ %3l/%L%<
+set statusline=%!StatuslineComponent()
 
-hi StatusLine ctermfg=233 guifg=#121212
-hi StatusLineTerm ctermfg=233 guifg=#121212
+" set statusline=
+" set statusline+=\ %3{ModeCurrent()}
+" set statusline+=\ %r
+" set statusline+=\ |
+" set statusline+=\ %{StatuslineFilename()}
+" set statusline+=\ %m
+" set statusline+=%=
+" set statusline+=\ %{StatuslineGit()}
+" set statusline+=\ |
+" set statusline+=\ %{StatuslineFileencoding()}
+" set statusline+=\ |
+" set statusline+=\ %{StatuslineFiletype()}
+" set statusline+=\ |
+" set statusline+=\ %3l/%L%<
+
+if exists('colors_name')
+	if colors_name == 'seoul256'
+		hi StatusLine ctermfg=233 guifg=#121212
+		hi StatusLineTerm ctermfg=233 guifg=#121212
+	endif
+endif
+
+function! StatuslineComponent() abort
+	let l:line=''
+	let l:line.='  %3{ModeCurrent()}'
+	let l:line.='  %{StatuslineGit()}'
+	let l:line.='%='
+	let l:line.='%r'
+	let l:line.=' %{StatuslineFilename()}'
+	let l:line.=' %m'
+	let l:line.='%='
+	let l:line.='%{StatuslineFiletype()}'
+	let l:line.='  %3l/%L%<'
+	return l:line
+endfunction
 
 function! StatuslineFilename()
 	" see h expand() to for more info
