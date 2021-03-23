@@ -21,13 +21,6 @@ else
 
 endif
 
-if exists('colors_name')
-	if colors_name == 'seoul256'
-		hi StatusLine ctermfg=233 guifg=#121212
-		hi StatusLineTerm ctermfg=233 guifg=#121212
-	endif
-endif
-
 function! StatuslineComponent() abort
 	let l:line=''
 	let l:line.='  %3{ModeCurrent()}'
