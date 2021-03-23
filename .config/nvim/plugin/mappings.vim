@@ -14,7 +14,7 @@ nnoremap <leader>j `
 nnoremap <leader>b :ls<CR>
 
 " open buffer with number list
-nnoremap <leader>h :ls<CR>:b
+nnoremap <leader>n :ls<CR>:b
 
 " split navigation
 nnoremap <C-n> <C-w><C-w>
