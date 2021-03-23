@@ -1,21 +1,25 @@
 " statusline config
 
-set statusline=%!StatuslineComponent()
+if has('nvim')
+	set statusline=%!StatuslineComponent()
 
-" set statusline=
-" set statusline+=\ %3{ModeCurrent()}
-" set statusline+=\ %r
-" set statusline+=\ |
-" set statusline+=\ %{StatuslineFilename()}
-" set statusline+=\ %m
-" set statusline+=%=
-" set statusline+=\ %{StatuslineGit()}
-" set statusline+=\ |
-" set statusline+=\ %{StatuslineFileencoding()}
-" set statusline+=\ |
-" set statusline+=\ %{StatuslineFiletype()}
-" set statusline+=\ |
-" set statusline+=\ %3l/%L%<
+else
+	set statusline=
+	set statusline+=\ %3{ModeCurrent()}
+	set statusline+=\ %r
+	set statusline+=\ |
+	set statusline+=\ %{StatuslineFilename()}
+	set statusline+=\ %m
+	set statusline+=%=
+	set statusline+=\ %{StatuslineGit()}
+	set statusline+=\ |
+	set statusline+=\ %{StatuslineFileencoding()}
+	set statusline+=\ |
+	set statusline+=\ %{StatuslineFiletype()}
+	set statusline+=\ |
+	set statusline+=\ %3l/%L%<
+
+endif
 
 if exists('colors_name')
 	if colors_name == 'seoul256'
