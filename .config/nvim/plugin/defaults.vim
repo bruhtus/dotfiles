@@ -22,6 +22,7 @@ set shiftwidth=4
 set nobackup
 set noshowmode
 set noswapfile
+set nostartofline
 
 set ignorecase
 set smartcase
