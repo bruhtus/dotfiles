@@ -69,12 +69,12 @@ nnoremap <silent> [; :cp<CR>
 nnoremap <S-Tab> <C-^>
 
 " make pointer in the middle of buffer while half page up/down
-nnoremap <C-u> <C-u>M
-nnoremap <C-d> <C-d>M
+nnoremap <C-u> <C-u>M^
+nnoremap <C-d> <C-d>M^
 
 " make pointer in the top/bottom of buffer while page up/down
-nnoremap <C-f> <C-f>H
-nnoremap <C-b> <C-b>L
+nnoremap <C-f> <C-f>H^
+nnoremap <C-b> <C-b>L^
 
 " set vim to copy to clipboard and paste from clipboard
 vnoremap <C-y> "+y
