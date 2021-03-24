@@ -1,5 +1,10 @@
 setlocal colorcolumn=80
-setlocal makeprg=flake8\ %\ \\\|\ egrep\ -v\ 'F401\\\|F841\\\|E501\\\|E402'
+
+" ensure flake8 is installed
+if executable('flake8')
+	setlocal makeprg=flake8\ %\ \\\|\ egrep\ -v\ 'F401\\\|F841\\\|E501\\\|E402'
+endif
+
 hi ColorColumn ctermbg=grey ctermfg=none
 
 iabbrev <buffer> ii import
