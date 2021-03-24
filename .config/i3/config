@@ -237,16 +237,9 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id blueman-tray
 # exec --no-startup-id aarchup -t 10 -a /usr/bin/yay -Qua --loop-time 60
-# exec --no-startup-id pamac-tray
-# exec --no-startup-id clipit
-# exec_always --no-startup-id ff-theme-util
-# exec_always --no-startup-id fix_xcursor
 # exec --no-startup-id blueman-applet
-# exec_always --no-startup-id sbxkb
 # exec --no-startup-id $HOME/.config/conky/start_conky_color_scheme
 # exec --no-startup-id xautolock -time 10 -locker blurlock
-# exec --no-startup-id wal -R
-# exec --no-startup-id manjaro-hello
 
 # Theme colors
 
