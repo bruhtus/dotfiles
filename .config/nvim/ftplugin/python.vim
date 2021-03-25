@@ -17,7 +17,8 @@ iabbrev <buffer> iia import as<C-left><left>
 iabbrev <buffer> ff from import<C-left><BS>
 iabbrev <buffer> dd def ():<C-left><BS>
 iabbrev <buffer> cc class ():<C-left><BS>
-iabbrev <buffer> ffm if __name__ == '__main__':<CR>Fire(main)<Esc>
+iabbrev <buffer> mm if __name__ == '__main__':<CR>
+iabbrev <buffer> f; if:<left>
 
 augroup Make
 	autocmd!
