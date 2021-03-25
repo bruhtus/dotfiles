@@ -12,6 +12,7 @@ set ttimeoutlen=30
 set winminheight=0
 set signcolumn=yes
 set matchpairs+=<:>
+set completeopt-=preview " ignore omni complete description
 set splitbelow splitright
 set number relativenumber
 set wildignore=*/.git/*,*.pdf,*.jpg,*jpeg,*.png,*.epub,*.mobi
