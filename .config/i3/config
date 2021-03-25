@@ -85,6 +85,7 @@ bindsym $mod+w exec qutebrowser
 bindsym $mod+e exec $term -e ranger
 bindsym $mod+a exec --no-startup-id rofi -show run
 bindsym $mod+t exec --no-startup-id pkill picom
+bindsym $mod+i exec google-chrome-stable --new-window https://github.com/stars/bruhtus
 
 bindsym $mod+Shift+c exec $term -e $EDITOR '/home/bruhtus/.config/i3/config'
 bindsym $mod+Shift+d [title="dropdown_youtube"] scratchpad show; [title="dropdown_youtube"] move position center
@@ -93,7 +94,6 @@ bindsym $mod+Shift+u exec google-chrome-stable --new-window https://github.com/s
 bindsym $mod+Shift+n exec docsmenu
 bindsym $mod+Shift+m exec dmsearch
 bindsym $mod+Shift+t exec google-chrome-stable --new-window twitter.com
-bindsym $mod+Shift+i exec google-chrome-stable --new-window https://github.com/stars/bruhtus
 bindsym $mod+Shift+x exec $term -e htop
 bindsym $mod+Shift+f exec $term -e newsboat
 bindsym $mod+Shift+z exec timeshift-launcher
