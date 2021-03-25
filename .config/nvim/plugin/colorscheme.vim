@@ -7,8 +7,8 @@ try
 
 	augroup CustomColor
 		autocmd!
-		autocmd ColorScheme * hi Pmenu ctermbg=235 ctermfg=187
-		autocmd ColorScheme * hi Pmenusel ctermbg=253 ctermfg=233
+		autocmd ColorScheme * hi Pmenu ctermbg=236 ctermfg=187
+		autocmd ColorScheme * hi Pmenusel ctermbg=250 ctermfg=233
 		autocmd ColorScheme * hi StatusLine ctermfg=233 guifg=#121212
 		autocmd ColorScheme * hi StatusLineTerm ctermfg=233 guifg=#121212
 		autocmd ColorScheme * hi EasyMotionTarget ctermbg=none ctermfg=lightgreen
