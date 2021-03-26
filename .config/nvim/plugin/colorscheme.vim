@@ -27,8 +27,8 @@ try
 		endif
 	endfunction
 
-	autocmd InsertEnter * call InsertStatuslineColor(v:insertmode)
-	autocmd InsertLeave * hi StatusLine ctermfg=233 ctermbg=187
+	autocmd! InsertEnter * call InsertStatuslineColor(v:insertmode)
+	autocmd! InsertLeave * hi StatusLine ctermfg=233 ctermbg=187
 
 catch /^Vim\%((\a\+)\)\=:E185/
 	echo 'Seoul256 colorscheme not found'
