@@ -5,19 +5,19 @@ if has('nvim')
 
 else
 	set statusline=
-	set statusline+=\ %3{ModeCurrent()}
-	set statusline+=\ %r
+	set statusline+=\ %0*%3{ModeCurrent()}
+	set statusline+=\ %1*%r
 	set statusline+=\ |
-	set statusline+=\ %{StatuslineFilename()}
-	set statusline+=\ %m
+	set statusline+=\ %1*%{StatuslineFilename()}
+	set statusline+=\ %1*%m
 	set statusline+=%=
-	set statusline+=\ %{StatuslineGit()}
+	set statusline+=\ %1*%{StatuslineGit()}
 	set statusline+=\ |
 	set statusline+=\ %{StatuslineFileencoding()}
 	set statusline+=\ |
-	set statusline+=\ %{StatuslineFiletype()}
+	set statusline+=\ %1*%{StatuslineFiletype()}
 	set statusline+=\ |
-	set statusline+=\ %3l/%L%<
+	set statusline+=\ %1*%3l/%L%<
 
 endif
 
