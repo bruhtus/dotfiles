@@ -5,12 +5,14 @@ nnoremap <silent> <leader>g :Goyo<CR>
 
 " limelight and vim-pencil integration with goyo
 function! s:goyo_enter()
-	autocmd InsertEnter * norm zz
+	autocmd! InsertEnter * norm zz
+	autocmd! InsertLeave *
 	silent! Limelight  | SoftPencil | set showmode
 endfunction
 
 function! s:goyo_leave()
-	autocmd! InsertEnter *
+	autocmd! InsertEnter * call InsertStatuslineColor(v:insertmode)
+	autocmd! InsertLeave * hi StatusLine ctermfg=233 ctermbg=187
 	silent! Limelight! | NoPencil   | set noshowmode
 endfunction
 

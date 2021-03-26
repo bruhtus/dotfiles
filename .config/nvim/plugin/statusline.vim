@@ -23,15 +23,15 @@ endif
 
 function! StatuslineComponent() abort
 	let l:line=''
-	let l:line.='  %3{ModeCurrent()}'
-	let l:line.='  %{StatuslineGit()}'
+	let l:line.='  %0*%3{ModeCurrent()}'
+	let l:line.='  %1*%{StatuslineGit()}'
 	let l:line.='%='
-	let l:line.='%r'
-	let l:line.=' %{StatuslineFilename()}'
-	let l:line.=' %m'
+	let l:line.='%1*%r'
+	let l:line.=' %1*%{StatuslineFilename()}'
+	let l:line.=' %1*%m'
 	let l:line.='%='
-	let l:line.='%{StatuslineFiletype()}'
-	let l:line.='  %3l/%L%<'
+	let l:line.='%1*%{StatuslineFiletype()}'
+	let l:line.='  %1*%3l/%L%<'
 	return l:line
 endfunction
 
