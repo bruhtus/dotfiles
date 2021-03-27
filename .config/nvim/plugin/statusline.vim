@@ -5,33 +5,33 @@ if has('nvim')
 
 else
 	set statusline=
-	set statusline+=\ %0*%3{ModeCurrent()}
-	set statusline+=\ %1*%r
+	set statusline+=\ %3{ModeCurrent()}
+	set statusline+=\ %r
 	set statusline+=\ |
-	set statusline+=\ %1*%{StatuslineFilename()}
-	set statusline+=\ %1*%m
+	set statusline+=\ %{StatuslineFilename()}
+	set statusline+=\ %m
 	set statusline+=%=
-	set statusline+=\ %1*%{StatuslineGit()}
+	set statusline+=\ %{StatuslineGit()}
 	set statusline+=\ |
 	set statusline+=\ %{StatuslineFileencoding()}
 	set statusline+=\ |
-	set statusline+=\ %1*%{StatuslineFiletype()}
+	set statusline+=\ %{StatuslineFiletype()}
 	set statusline+=\ |
-	set statusline+=\ %1*%3l/%L%<
+	set statusline+=\ %3l/%L%<
 
 endif
 
 function! StatuslineComponent() abort
 	let l:line=''
-	let l:line.='  %0*%3{ModeCurrent()}'
-	let l:line.='  %1*%{StatuslineGit()}'
+	let l:line.='  %3{ModeCurrent()}'
+	let l:line.='  %{StatuslineGit()}'
 	let l:line.='%='
-	let l:line.='%1*%r'
-	let l:line.=' %1*%{StatuslineFilename()}'
-	let l:line.=' %1*%m'
+	let l:line.='%r'
+	let l:line.=' %{StatuslineFilename()}'
+	let l:line.=' %m'
 	let l:line.='%='
-	let l:line.='%1*%{StatuslineFiletype()}'
-	let l:line.='  %1*%3l/%L%<'
+	let l:line.='%{StatuslineFiletype()}'
+	let l:line.='  %3l/%L%<'
 	return l:line
 endfunction
 

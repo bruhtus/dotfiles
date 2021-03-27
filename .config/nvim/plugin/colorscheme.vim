@@ -11,7 +11,6 @@ try
 		autocmd ColorScheme * hi Pmenusel ctermbg=250 ctermfg=233
 		autocmd ColorScheme * hi StatusLine ctermfg=233 guifg=#121212
 		autocmd ColorScheme * hi StatusLineTerm ctermfg=233 guifg=#121212
-		autocmd ColorScheme * hi User1 cterm=bold ctermfg=187 ctermbg=233
 		autocmd ColorScheme * hi EasyMotionTarget ctermbg=none ctermfg=lightgreen
 		autocmd ColorScheme * hi EasyMotionTarget2First ctermbg=none ctermfg=lightred
 		autocmd ColorScheme * hi EasyMotionTarget2Second ctermbg=none ctermfg=red
@@ -19,7 +18,7 @@ try
 
 	function! InsertStatuslineColor(mode)
 		if a:mode == 'i'
-			hi StatusLine ctermfg=233 ctermbg=153
+			hi StatusLine ctermfg=233 ctermbg=151
 		elseif a:mode == 'r'
 			hi StatusLine ctermfg=233 ctermbg=158
 		else
