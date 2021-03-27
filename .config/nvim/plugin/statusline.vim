@@ -1,9 +1,13 @@
 " statusline config
 
 if has('nvim')
-	set statusline=%!StatuslineComponent()
+	" do not change statusline of quickfix window
+	autocmd! VimEnter,WinEnter,BufWinEnter * if &buftype=='quickfix' | else | call RefreshStatusline('active')
+	autocmd! WinLeave * if &buftype=='quickfix' | else | call RefreshStatusline('inactive')
 
 else
+	" default setting because can't display filename in the middle statusline
+	" in vanilla vim
 	set statusline=
 	set statusline+=\ %3{ModeCurrent()}
 	set statusline+=\ %r
@@ -21,6 +25,14 @@ else
 
 endif
 
+function! RefreshStatusline(mode)
+	if a:mode == 'active'
+		setlocal statusline=%!StatuslineComponent()
+	else
+		setlocal statusline=%!StatuslineNcComponent()
+	endif
+endfunction
+
 function! StatuslineComponent() abort
 	let l:line=''
 	let l:line.='  %3{ModeCurrent()}'
@@ -32,6 +44,16 @@ function! StatuslineComponent() abort
 	let l:line.='%='
 	let l:line.='%{StatuslineFiletype()}'
 	let l:line.='  %3l/%L%<'
+	return l:line
+endfunction
+
+function! StatuslineNcComponent() abort
+	let l:line=''
+	let l:line.='%='
+	let l:line.='%r'
+	let l:line.=' %{StatuslineFilename()}'
+	let l:line.=' %m'
+	let l:line.='%='
 	return l:line
 endfunction
 
