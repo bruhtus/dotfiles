@@ -23,6 +23,9 @@ nnoremap <leader>b :ls<CR>
 " open buffer with number list
 nnoremap <leader>n :ls<CR>:b
 
+" use shift+tab to switch back and forth between two recent buffer
+nnoremap <S-Tab> <C-^>
+
 " split navigation
 nnoremap <C-n> <C-w><C-w>
 nnoremap <C-j> <C-w>j<C-w>_
@@ -40,6 +43,32 @@ nnoremap <C-q> <C-l>
 " there's a different between ctrl-c default and esc, like when exit while
 " editing using visual block
 inoremap <C-c> <C-[>
+
+" make pointer in the middle of buffer while half page up/down
+nnoremap <C-u> <C-u>M^
+nnoremap <C-d> <C-d>M^
+
+" make pointer in the top/bottom of buffer while page up/down
+nnoremap <C-f> <C-f>H^
+nnoremap <C-b> <C-b>L^
+
+" set vim to copy to clipboard and paste from clipboard
+vnoremap <C-y> "+y
+nnoremap <C-p> "+gp
+
+" remap _ to set current height window to highest possible
+nnoremap _ <C-w>_
+
+" remap + to set current height of each split window to the same height
+nnoremap + <C-w>=
+
+" map ]; to cnext and [; to cprevious
+nnoremap <silent> ]; :cn<CR>
+nnoremap <silent> [; :cp<CR>
+
+" do not exit visual selection when shift-indenting
+vnoremap < <gv
+vnoremap > >gv
 
 " set black hole register to c, C, s, S, x, X, D, and space d
 nnoremap c "_c
@@ -61,31 +90,6 @@ nnoremap U :t.<CR>
 " you can still access ex mode using gQ
 " \v make every following character except a-zA-Z0-9 a special character
 nnoremap Q :lvimgrep /\v/j %<left><left><left><left>
-
-" remap _ to set current height window to highest possible
-nnoremap _ <C-w>_
-
-" remap + to set current height of each split window to the same height
-nnoremap + <C-w>=
-
-" map ]; to cnext and [; to cprevious
-nnoremap <silent> ]; :cn<CR>
-nnoremap <silent> [; :cp<CR>
-
-" use shift+tab to switch back and forth between two recent buffer
-nnoremap <S-Tab> <C-^>
-
-" make pointer in the middle of buffer while half page up/down
-nnoremap <C-u> <C-u>M^
-nnoremap <C-d> <C-d>M^
-
-" make pointer in the top/bottom of buffer while page up/down
-nnoremap <C-f> <C-f>H^
-nnoremap <C-b> <C-b>L^
-
-" set vim to copy to clipboard and paste from clipboard
-vnoremap <C-y> "+y
-nnoremap <C-p> "+gp
 
 " set ZX as :w
 nnoremap ZX :w<CR>
@@ -133,10 +137,6 @@ nnoremap ZN :'mt.<CR>
 
 " map ZH to yank mark m and put above current line
 nnoremap ZH :'mt.-1<CR>
-
-" remap < and > in visual mode
-vnoremap < <gv
-vnoremap > >gv
 
 " mapping to interact with built-in terminal
 if has('nvim')
