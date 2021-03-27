@@ -5,7 +5,14 @@ noremap <expr> <CR> &buftype ==# 'quickfix' ? "\<CR>" : ':'
 
 " remap backspace to grep the exact under the cursor word in all files
 " at current working directory
-nnoremap <BS> :execute "lvimgrep /\\<" . expand("<cword>") . "\\>/j **"<CR>
+if executable('rg')
+	set grepprg=rg\ --smart-case\ --hidden\ --vimgrep\ -w
+	nnoremap <BS> :silent! lgrep! <cword> **<CR>
+
+else
+	nnoremap <BS> :execute "lvimgrep /\\<" . expand("<cword>") . "\\>/j **"<CR>
+
+endif
 
 " jump to any mark with space j
 nnoremap <leader>j `
