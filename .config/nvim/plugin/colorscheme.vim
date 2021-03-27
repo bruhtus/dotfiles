@@ -10,7 +10,7 @@ try
 		autocmd ColorScheme * hi Pmenu ctermbg=236 ctermfg=187
 		autocmd ColorScheme * hi Pmenusel ctermbg=250 ctermfg=233
 		autocmd ColorScheme * hi StatusLine ctermfg=233 guifg=#121212
-		autocmd ColorScheme * hi StatusLineTerm ctermfg=233 guifg=#121212
+		autocmd ColorScheme * hi StatusLineTerm ctermfg=233 ctermbg=151 guifg=#121212
 		autocmd ColorScheme * hi EasyMotionTarget ctermbg=none ctermfg=lightgreen
 		autocmd ColorScheme * hi EasyMotionTarget2First ctermbg=none ctermfg=lightred
 		autocmd ColorScheme * hi EasyMotionTarget2Second ctermbg=none ctermfg=red
@@ -26,8 +26,15 @@ try
 		endif
 	endfunction
 
+	" change statusline color when enter insert mode
 	autocmd! InsertEnter * call InsertStatuslineColor(v:insertmode)
 	autocmd! InsertLeave * hi StatusLine ctermfg=233 ctermbg=187
+
+	" change statusline color when enter terminal emulator in neovim
+	if has('nvim')
+		autocmd! TermEnter * setlocal winhighlight=StatusLine:StatusLineTerm
+		autocmd! TermLeave * setlocal winhighlight=StatusLine:StatusLine
+	endif
 
 catch /^Vim\%((\a\+)\)\=:E185/
 	echo 'Seoul256 colorscheme not found'
