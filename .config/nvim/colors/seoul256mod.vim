@@ -291,7 +291,7 @@ call s:hi('Folded', [101, 101], [s:dark_bg + 1, s:light_bg - 2])
 " set foldcolumn=1
 call s:hi('FoldColumn', [144, 94], [s:dark_bg + 1, s:light_bg - 2])
 
-call s:hi('MatchParen', ['', ''], [s:dark_bg + 10, s:light_bg - 3])
+call s:hi('MatchParen', ['', ''], [s:dark_bg + 7, s:light_bg - 3])
 
 " -- INSERT --
 call s:hi('ModeMsg', [173, 173], ['', ''])
