@@ -10,8 +10,6 @@ if executable('pynvim')
 	setlocal omnifunc=python3complete#Complete
 endif
 
-hi ColorColumn ctermbg=grey ctermfg=none
-
 iabbrev <buffer> ii import
 iabbrev <buffer> iia import as<C-left><left>
 iabbrev <buffer> ff from import<C-left><BS>

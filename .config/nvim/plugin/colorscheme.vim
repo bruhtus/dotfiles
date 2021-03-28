@@ -1,16 +1,10 @@
-" colorscheme config (require seoul256.vim plugin)
-
-let g:seoul256_background = 233
+" colorscheme config (require seoul256mod.vim colorscheme)
 
 try
-	colo seoul256
+	colo seoul256mod
 
 	augroup CustomColor
 		autocmd!
-		autocmd ColorScheme * hi Pmenu ctermbg=236 ctermfg=187
-		autocmd ColorScheme * hi Pmenusel ctermbg=250 ctermfg=233
-		autocmd ColorScheme * hi StatusLine ctermfg=233 guifg=#121212
-		autocmd ColorScheme * hi StatusLineTerm ctermfg=233 ctermbg=151 guifg=#121212
 		autocmd ColorScheme * hi EasyMotionTarget ctermbg=none ctermfg=lightgreen
 		autocmd ColorScheme * hi EasyMotionTarget2First ctermbg=none ctermfg=lightred
 		autocmd ColorScheme * hi EasyMotionTarget2Second ctermbg=none ctermfg=red
@@ -37,6 +31,6 @@ try
 	endif
 
 catch /^Vim\%((\a\+)\)\=:E185/
-	echo 'Seoul256 colorscheme not found'
+	echo 'Seoul256mod colorscheme not found'
 
 endtry
