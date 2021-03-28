@@ -3,13 +3,6 @@
 try
 	colo seoul256mod
 
-	augroup CustomColor
-		autocmd!
-		autocmd ColorScheme * hi EasyMotionTarget ctermbg=none ctermfg=lightgreen
-		autocmd ColorScheme * hi EasyMotionTarget2First ctermbg=none ctermfg=lightred
-		autocmd ColorScheme * hi EasyMotionTarget2Second ctermbg=none ctermfg=red
-	augroup END
-
 	function! InsertStatuslineColor(mode)
 		if a:mode == 'i'
 			hi StatusLine ctermfg=233 ctermbg=151

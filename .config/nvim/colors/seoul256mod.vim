@@ -383,6 +383,12 @@ call s:hi('Ignore',  [s:dark_bg + 3, s:light_bg - 3], [s:dark_bg, s:light_bg])
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""
 
+" vim-easymotion
+" -----------
+call s:hi('EasyMotionTarget', [157, 65], ['', s:light_bg - 2])
+call s:hi('EasyMotionTarget2First', [224, 68], ['', s:light_bg - 2])
+call s:hi('EasyMotionTarget2Second', [217, 161], ['', s:light_bg - 2])
+
 " vim-indent-guides
 " -----------------
 let g:indent_guides_auto_colors = 0
