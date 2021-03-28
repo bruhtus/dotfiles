@@ -58,7 +58,7 @@ function! StatuslineNcComponent() abort
 endfunction
 
 function! StatuslineFilename()
-	" see h expand() to for more info
+	" see :h expand() for more info
 	" use 'blank' if 'no name' file
 	let l:fullpath = (expand('%:~:p') !=# '' ? expand('%:~:p') : '[Blank]')
 	let l:relativepath = (expand('%') !=# '' ? expand('%') : '[Blank]')
