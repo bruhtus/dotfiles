@@ -47,3 +47,4 @@ https://rsshub.app/dev.to/top/year "~Yearly" "dev"
 https://bruhtus.github.io/index.xml
 https://rsshub.app/github/repos/bruhtus "~My public repo" "github"
 https://rsshub.app/github/starred_repos/bruhtus "~My starred repo" "github"
+https://github.com/junegunn/seoul256.vim/commits/master.atom "github"
