@@ -24,10 +24,11 @@ export LESS_TERMCAP_ue=$(tput sgr0)
 # End bold, blinking, standout, underline
 export LESS_TERMCAP_me=$(tput sgr0)
 
-#install Ruby Gems to ~/gems
-export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
-export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
+#install Ruby Gems to ~/.local/share/gem
+export GEM_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/gem"
+export PATH="${XDG_DATA_HOME:-$HOME/.local/share}/gem/bin:$PATH"
+export GEM_SPEC_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/gem"
+# make sure to remove gem: --user-install from /etc/gemrc
 
 #CUDA
 export PATH="/opt/cuda/bin:$PATH"
