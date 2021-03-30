@@ -6,9 +6,9 @@ if executable('flake8')
 endif
 
 " ensure that pynvim is installed
-if executable('pynvim')
-	setlocal omnifunc=python3complete#Complete
-endif
+" if executable('pynvim')
+" 	setlocal omnifunc=python3complete#Complete
+" endif
 
 iabbrev <buffer> ii import
 iabbrev <buffer> iia import as<C-left><left>
