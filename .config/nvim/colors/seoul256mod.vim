@@ -354,8 +354,8 @@ call s:hi('StatusLineTerm', [233, 95], [151, 187])
 call s:hi('StatusLineTermNC', [s:dark_bg + 2, s:light_bg - 2], [187, 238])
 hi StatusLineTerm cterm=bold,reverse gui=bold,reverse
 hi StatusLineTermNC cterm=bold,reverse gui=bold,reverse
-call s:hi('TabLineFill', [s:dark_bg + 2, s:light_bg - 2], ['', ''])
-call s:hi('TabLineSel', [187, 187], [23, 66])
+call s:hi('TabLineFill', [s:dark_bg, s:light_bg - 2], ['', ''])
+call s:hi('TabLineSel', [187, 187], [233, 66])
 call s:hi('TabLine', [s:dark_bg + 12, s:light_bg - 12], [s:dark_bg + 4, s:light_bg - 4])
 call s:hi('WildMenu', [95, 95], [184, 184])
 
