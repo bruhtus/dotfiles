@@ -18,11 +18,35 @@ endif
 " jump to any mark with space j
 nnoremap <leader>j `
 
-" list all the buffer
-nnoremap <leader>b :ls<CR>
+" list, change, or delete buffer
+function! ManageBuffer()
+	let l:choice = confirm("List/Change/Delete Buffer(s)?",
+				\	"&LList\n&JChange\n&KDelete")
 
-" open buffer with number list
-nnoremap <leader>n :ls<CR>:b
+	if l:choice == 1
+		echo 'List buffer(s)'
+		ls
+
+	elseif l:choice == 2
+		echo 'Change buffer'
+		ls
+		call inputsave()
+		let l:buffernumber = input('Enter buffer number: ')
+		call inputrestore()
+		call execute("b " . l:buffernumber)
+
+	elseif l:choice == 3
+		echo 'Delete buffer(s)'
+		ls
+		call inputsave()
+		let l:buffernumber = input('Enter buffer number or blank (delete current buffer): ')
+		call inputrestore()
+		call execute("bd " . l:buffernumber)
+
+	endif
+endfunction
+
+nnoremap <leader>n :call ManageBuffer()<CR>
 
 " use shift+tab to switch back and forth between two recent buffer
 nnoremap <S-Tab> <C-^>
