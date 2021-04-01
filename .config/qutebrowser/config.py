@@ -169,5 +169,9 @@ c.fonts.hints = 'default_size default_family'
 
 c.completion.height = '20%'
 
+c.colors.hints.bg = 'black'
+c.colors.hints.fg = 'white'
+c.colors.hints.match.fg = 'lightgreen'
+
 c.url.default_page = 'https://searx.bar/'
 c.url.searchengines = {'DEFAULT': 'https://searx.bar/search?q={}'}
