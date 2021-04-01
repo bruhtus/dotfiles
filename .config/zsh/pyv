@@ -1,0 +1,59 @@
+[ -z $PYV_DIR ] && export PYV_DIR=$HOME/.cache/pyv
+
+#python virtual env alias
+alias \
+	pde='deactivate' \
+	pve='ls -l $PYV_DIR 2> /dev/null || echo "No python virtual env ever created"'
+
+#create python virtual env
+function pce(){
+	local gitroot="$(git rev-parse --show-toplevel 2> /dev/null)"
+	local trim="${gitroot%"${gitroot##*[!/]}"}"
+	local projectdir="${trim##*/}"
+
+	if [ "$1" != "" ]; then
+		python -m venv $PYV_DIR/$1 2> /dev/null && echo "Created $1 python venv"
+
+	elif [ "$projectdir" != "" ]; then
+		python -m venv $PYV_DIR/$projectdir 2> /dev/null && echo "Created $projectdir python venv"
+
+	else
+		echo "Not git repo, please insert a name for virtual env (for example: pce nganu)"
+
+	fi
+}
+
+#remove python virtual env
+function pre(){
+	local gitroot="$(git rev-parse --show-toplevel 2> /dev/null)"
+	local trim="${gitroot%"${gitroot##*[!/]}"}"
+	local projectdir="${trim##*/}"
+
+	if [ "$1" != "" ]; then
+		rm -r $PYV_DIR/$1 2> /dev/null || \
+		echo "No python virtual environment match, nothing deleted"
+
+	elif [ "$projectdir" != "" ]; then
+		rm -r $PYV_DIR/$projectdir 2> /dev/null || \
+		echo "No python virtual environment match, nothing deleted"
+
+	else
+		echo "No python virtual environment match, nothing deleted"
+
+	fi
+}
+
+#activate python virtual env
+function pae(){
+	local gitroot="$(git rev-parse --show-toplevel 2> /dev/null)"
+	local trim="${gitroot%"${gitroot##*[!/]}"}"
+	local projectdir="${trim##*/}"
+
+	if [ "$1" != "" ]; then
+		. $PYV_DIR/$1/bin/activate 2> /dev/null || echo "Python virtual environment not found, create new one"
+
+	else
+		. $PYV_DIR/$projectdir/bin/activate 2> /dev/null || echo "Python virtual environment not found, create new one"
+
+	fi
+}
