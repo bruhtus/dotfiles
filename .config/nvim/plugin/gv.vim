@@ -11,4 +11,3 @@ function! ManageGitCommit()
 endfunction
 
 nnoremap <leader>b :call ManageGitCommit()<CR>
-vnoremap <leader>b :GV<CR>
