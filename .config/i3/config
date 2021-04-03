@@ -83,7 +83,6 @@ bindsym $mod+Ctrl+Shift+l exec --no-startup-id i3resize right
 bindsym $mod+d exec $term
 bindsym $mod+w exec qutebrowser
 bindsym $mod+e exec $term -e ranger
-bindsym $mod+a exec --no-startup-id rofi -show run
 bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+i exec google-chrome-stable --new-window https://github.com/stars/bruhtus
 
@@ -104,6 +103,7 @@ bindsym $mod+Shift+e exec pcmanfm
 bindsym $mod+Shift+a --release exec --no-startup-id flameshot gui
 #bindsym $mod+Shift+a --release exec --no-startup-id flameshot screen -r -c
 
+bindsym $mod+Ctrl+a exec --no-startup-id rofi -show run
 bindsym $mod+Ctrl+x exec $term -e bpytop
 bindsym $mod+Ctrl+w exec google-chrome-stable
 bindsym $mod+Ctrl+s exec qutebrowser --target private-window http://127.0.0.1:8384/
