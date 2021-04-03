@@ -3,3 +3,5 @@
 	name = bruhtus
 [credential]
 	helper = cache --timeout=86400
+[init]
+	defaultBranch = master
