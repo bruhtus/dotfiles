@@ -1,5 +1,4 @@
 call plug#begin(stdpath('data') . '/plugged')
-Plug 'vimwiki/vimwiki'
 Plug 'junegunn/gv.vim'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-surround'
