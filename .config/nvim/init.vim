@@ -2,7 +2,6 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'vimwiki/vimwiki'
 Plug 'junegunn/gv.vim'
 Plug 'ap/vim-css-color'
-Plug 'cohama/lexima.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'wellle/targets.vim'

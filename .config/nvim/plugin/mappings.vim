@@ -51,10 +51,6 @@ nnoremap <leader>n :call ManageBuffer()<CR>
 " use shift+tab to switch back and forth between two recent buffer
 nnoremap <S-Tab> <C-^>
 
-" map alt-a like ctrl-o + a (normal mode) in insert mode
-" i can use alt + <other-command> but not alt+a, weird
-inoremap <M-a> <C-o>a
-
 " split navigation
 nnoremap <C-n> <C-w><C-w>
 nnoremap <C-j> <C-w>j<C-w>_
