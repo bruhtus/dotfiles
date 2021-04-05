@@ -144,6 +144,7 @@ config.bind('u', 'scroll-page 0 -0.5')
 config.bind('x', 'tab-close')
 config.bind('X', 'undo')
 config.bind('yf', 'hint links yank')
+config.bind('cw', 'hint inputs')
 config.bind('zz', 'config-cycle statusbar.show never always;; config-cycle tabs.show never always')
 
 # Bindings for insert mode
