@@ -33,15 +33,19 @@ function! ManageBuffer()
 		call inputsave()
 		let l:buffernumber = input('Enter buffer number: ')
 		call inputrestore()
-		call execute("b " . l:buffernumber)
+		if !empty(l:buffernumber)
+			call execute("b " . l:buffernumber)
+		endif
 
 	elseif l:choice == 3
 		echo 'Delete buffer(s)'
 		ls
 		call inputsave()
-		let l:buffernumber = input('Enter buffer number or blank (delete current buffer): ')
+		let l:buffernumber = input('Enter buffer number: ')
 		call inputrestore()
-		call execute("bd " . l:buffernumber)
+		if !empty(l:buffernumber)
+			call execute("bd " . l:buffernumber)
+		endif
 
 	endif
 endfunction
