@@ -7,6 +7,8 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-s': 'vsplit' }
 
+let g:fzf_preview_window = ['up:50%']
+
 " open fzf to search all files in home directory
 nnoremap <leader>f :Files ~<CR>
 
@@ -19,4 +21,4 @@ nnoremap <leader>u :BLines<CR>
 " open fzf to search all content in current working directory
 nnoremap <leader>o :Rg<CR>
 
-command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:50%'), <bang>0)
