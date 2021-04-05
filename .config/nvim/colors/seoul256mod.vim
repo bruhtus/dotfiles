@@ -389,6 +389,13 @@ call s:hi('EasyMotionTarget', [157, 65], ['', s:light_bg - 2])
 call s:hi('EasyMotionTarget2First', [224, 68], ['', s:light_bg - 2])
 call s:hi('EasyMotionTarget2Second', [217, 161], ['', s:light_bg - 2])
 
+" hop.nvim
+" -----------
+call s:hi('HopNextKey', [157, 65], ['', s:light_bg - 2])
+call s:hi('HopNextKey1', [224, 68], ['', s:light_bg - 2])
+call s:hi('HopNextKey2', [217, 161], ['', s:light_bg - 2])
+call s:hi('HopUnmatched', [s:dark_bg + 10, 161], ['', s:light_bg - 2])
+
 " vim-indent-guides
 " -----------------
 let g:indent_guides_auto_colors = 0
