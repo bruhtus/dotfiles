@@ -23,5 +23,8 @@ __pycache__/
 .vim/plugged/
 .vim/autoload/
 .config/zplug/
+.config/libfm/
 .config/objects/
+.config/calibre/
+.config/libreoffice/
 .config/google-chrome/
