@@ -10,13 +10,17 @@ Plug 'tpope/vim-commentary'
 Plug 'tommcdo/vim-exchange'
 Plug 'kshenoy/vim-signature'
 Plug 'junegunn/vim-easy-align'
-Plug 'easymotion/vim-easymotion'
 Plug 'tweekmonster/startuptime.vim'
 Plug 'reedes/vim-pencil'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+if has('nvim-0.5')
+	Plug 'phaazon/hop.nvim'
+else
+	Plug 'easymotion/vim-easymotion'
+endif
 call plug#end()
 
 " reference: https://learnvimscriptthehardway.stevelosh.com/chapters/42.html
