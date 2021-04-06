@@ -140,46 +140,14 @@ endif
 let s:background  = &background
 let s:colors_name = get(g:, 'colors_name', '')
 
-silent! unlet s:style s:seoul256_background
-
-" 1. If g:seoul256_background is found
-if exists('g:seoul256_background')
-  let s:seoul256_background = g:seoul256_background
-  if s:seoul256_background >= 233 && s:seoul256_background <= 239
-    let s:style = 'dark'
-  elseif s:seoul256_background >= 252 && s:seoul256_background <= 256
-    let s:style = 'light'
-  else
-    unlet s:seoul256_background
-  endif
-endif
-
-if !exists('s:style')
-  " 2. If g:colors_name is NOT 'seoul256' -> dark version
-  if s:colors_name != 'seoul256mod'
-    let s:style = 'dark'
-  " 3. Follow &background setting
-  else
-    let s:style = &background
-  endif
-endif
-let s:style_idx = s:style == 'light'
+let s:style_idx = 0
 
 " Background colors
-if s:style == 'dark'
-  let s:dark_bg  = get(s:, 'seoul256_background', 233)
-  let s:light_bg = 253
-else
-  let s:dark_bg  = 233
-  let s:light_bg = get(s:, 'seoul256_background', 253)
-endif
+let s:dark_bg  = get(s:, 'seoul256_background', 233)
 let s:dark_bg_2 = s:dark_bg > 233 ? s:dark_bg - 2 : 16
-let s:light_bg_1 = min([s:light_bg + 1, 256])
-let s:light_bg_2 = min([s:light_bg + 2, 256])
 
 " Foreground colors
 let s:dark_fg = 252
-let s:light_fg = 239
 
 function! s:hi(item, fg, bg)
   let fg = a:fg[s:style_idx] > 255 ? 231 : a:fg[s:style_idx]
@@ -204,121 +172,121 @@ if exists("syntax_on")
   syntax reset
 endif
 
-call s:hi('Normal', [s:dark_fg, s:light_fg], [s:dark_bg, s:light_bg])
+call s:hi('Normal', [s:dark_fg], [s:dark_bg])
 
-call s:hi('LineNr', [101, 101], [s:dark_bg + 1, s:light_bg - 2])
-call s:hi('Visual', ['', ''], [23, 152])
-call s:hi('VisualNOS', ['', ''], [23, 152])
+call s:hi('LineNr',    [101], [s:dark_bg + 1])
+call s:hi('Visual',    [''],  [23])
+call s:hi('VisualNOS', [''],  [23])
 
-call s:hi('Comment', [65, 65], ['', ''])
-call s:hi('Number', [222, 95], ['', ''])
-call s:hi('Float', [222, 95], ['', ''])
-call s:hi('Boolean', [103, 168], ['', ''])
-call s:hi('String', [109, 30], ['', ''])
-call s:hi('Constant', [73, 23], ['', ''])
-call s:hi('Character', [174, 168], ['', ''])
-call s:hi('Delimiter', [137, 94], ['', ''])
-call s:hi('StringDelimiter', [137, 94], ['', ''])
-call s:hi('Statement', [108, 66], ['', ''])
+call s:hi('Comment',         [65],  [''])
+call s:hi('Number',          [222], [''])
+call s:hi('Float',           [222], [''])
+call s:hi('Boolean',         [103], [''])
+call s:hi('String',          [109], [''])
+call s:hi('Constant',        [73],  [''])
+call s:hi('Character',       [174], [''])
+call s:hi('Delimiter',       [137], [''])
+call s:hi('StringDelimiter', [137], [''])
+call s:hi('Statement',       [108], [''])
 " case, default, etc.
 " hi Label ctermfg=
 
 " if else end
-call s:hi('Conditional', [110, 31], ['', ''])
+call s:hi('Conditional', [110], [''])
 
 " while end
-call s:hi('Repeat', [68, 67], ['', ''])
-call s:hi('Todo', [161, 125], [s:dark_bg_2, s:light_bg_2])
-call s:hi('Function', [187, 58], ['', ''])
+call s:hi('Repeat',   [68],  [''])
+call s:hi('Todo',     [161], [s:dark_bg_2])
+call s:hi('Function', [187], [''])
 
 " Macros
-call s:hi('Define', [173, 131], ['', ''])
-call s:hi('Macro', [173, 131], ['', ''])
-call s:hi('Include', [173, 131], ['', ''])
+call s:hi('Define',    [173, 131], ['', ''])
+call s:hi('Macro',     [173, 131], ['', ''])
+call s:hi('Include',   [173, 131], ['', ''])
 call s:hi('PreCondit', [173, 131], ['', ''])
 
 
 " #!
-call s:hi('PreProc', [143, 58], ['', ''])
+call s:hi('PreProc', [143], [''])
 
 " @abc
-call s:hi('Identifier', [217, 96], ['', ''])
+call s:hi('Identifier', [217], [''])
 
 " AAA Abc
-call s:hi('Type', [179, 94], ['', ''])
+call s:hi('Type', [179], [''])
 
 " + - * / <<
-call s:hi('Operator', [186, 131], ['', ''])
+call s:hi('Operator', [186], [''])
 
 " super yield
-call s:hi('Keyword', [168, 168], ['', ''])
+call s:hi('Keyword', [168], [''])
 
 " raise
-call s:hi('Exception', [161, 161], ['', ''])
+call s:hi('Exception', [161], [''])
 "
 " hi StorageClass ctermfg=
-call s:hi('Structure', [116, 23], ['', ''])
+call s:hi('Structure', [116], [''])
 " hi Typedef ctermfg=
 
-call s:hi('Error', [s:dark_fg, s:light_bg_1], [52, 174])
-call s:hi('ErrorMsg', [s:dark_fg, s:light_bg_1], [52, 168])
-call s:hi('Underlined', [181, 168], ['', ''])
+call s:hi('Error',      [s:dark_fg], [52])
+call s:hi('ErrorMsg',   [s:dark_fg], [52])
+call s:hi('Underlined', [181],       [''])
 
 " set textwidth=80
 " set colorcolumn=+1
-call s:hi('ColorColumn', ['', ''], [s:dark_bg + 5, s:light_bg - 2])
+call s:hi('ColorColumn', [''], [s:dark_bg + 5])
 
 " GVIM only
 " hi Cursor ctermfg=
 " hi CursorIM ctermfg=
 
 " set cursorline cursorcolumn
-call s:hi('CursorLine', ['', ''], [s:dark_bg - 1, s:light_bg - 1])
-call s:hi('CursorLineNr', [108, 131], [s:dark_bg - 1, s:light_bg - 1])
-call s:hi('CursorColumn', ['', ''], [s:dark_bg - 1, s:light_bg - 1])
-call s:hi('NormalFloat', ['', ''], [s:dark_bg - 1, s:light_bg - 1])
+call s:hi('CursorLine',   [''],  [s:dark_bg - 1])
+call s:hi('CursorLineNr', [108], [s:dark_bg - 1])
+call s:hi('CursorColumn', [''],  [s:dark_bg - 1])
+call s:hi('NormalFloat',  [''],  [s:dark_bg - 1])
 
-call s:hi('Directory', [187, 95], ['', ''])
+call s:hi('Directory', [187], [''])
 
-call s:hi('DiffAdd',    ['NONE', 'NONE'], [22, 151])
-call s:hi('DiffDelete', ['NONE', 'NONE'], [95, 181])
-call s:hi('DiffChange', ['NONE', 'NONE'], [s:dark_bg + 3, 189])
-call s:hi('DiffText',   ['NONE', 'NONE'], [52, 224])
+call s:hi('DiffAdd',    ['NONE'], [22])
+call s:hi('DiffDelete', ['NONE'], [95])
+call s:hi('DiffChange', ['NONE'], [s:dark_bg + 3])
+call s:hi('DiffText',   ['NONE'], [52])
 
-call s:hi('VertSplit', [s:dark_bg_2, s:light_bg - 3], [s:dark_bg_2, s:light_bg - 3])
-call s:hi('Folded', [101, 101], [s:dark_bg + 1, s:light_bg - 2])
+call s:hi('VertSplit', [s:dark_bg_2], [s:dark_bg_2])
+call s:hi('Folded', [101], [s:dark_bg + 1])
 
 " set foldcolumn=1
-call s:hi('FoldColumn', [144, 94], [s:dark_bg + 1, s:light_bg - 2])
+call s:hi('FoldColumn', [144], [s:dark_bg + 1])
 
-call s:hi('MatchParen', ['', ''], [s:dark_bg + 7, s:light_bg - 3])
+call s:hi('MatchParen', [''], [s:dark_bg + 7])
 
 " -- INSERT --
-call s:hi('ModeMsg', [173, 173], ['', ''])
+call s:hi('ModeMsg', [173], [''])
 
 " let &showbreak = '> '
-call s:hi('NonText', [59, 145], ['', ''])
+call s:hi('NonText', [59], [''])
 
-call s:hi('MoreMsg', [173, 173], ['', ''])
+call s:hi('MoreMsg', [173], [''])
 
 " Popup menu
-call s:hi('Pmenu', [187, 238], [236, 224])
-call s:hi('PmenuSel', [233, s:dark_fg], [250, 89])
-call s:hi('PmenuSbar', ['', ''], [65, 65])
-call s:hi('PmenuThumb', ['', ''], [23, 23])
+call s:hi('Pmenu',      [187], [236])
+call s:hi('PmenuSel',   [233], [250])
+call s:hi('PmenuSbar',  [''],  [65])
+call s:hi('PmenuThumb', [''],  [23])
 
-call s:hi('Search', [s:dark_fg, 255], [24, 74])
-call s:hi('IncSearch', [230, 220], [s:dark_bg + 1, 238])
+call s:hi('Search',    [s:dark_fg], [24])
+call s:hi('IncSearch', [230],       [s:dark_bg + 1])
 
 " String delimiter, interpolation
-call s:hi('Special', [216, 173], ['', ''])
+call s:hi('Special', [216], [''])
 " hi SpecialChar ctermfg=
 " hi SpecialComment ctermfg=
 " hi Tag ctermfg=
 " hi Debug ctermfg=
 
 " :map, listchars
-call s:hi('SpecialKey', [59, 145], ['', ''])
+call s:hi('SpecialKey', [59], [''])
 
 if !s:gui
   " Red / Blue / Cyan / Magenta
@@ -348,36 +316,36 @@ else
 endif
 
 "
-call s:hi('StatusLine', [233, 95], [187, 187])
-call s:hi('StatusLineNC', [s:dark_bg + 2, s:light_bg - 2], [187, 238])
-call s:hi('StatusLineTerm', [233, 95], [151, 187])
-call s:hi('StatusLineTermNC', [s:dark_bg + 2, s:light_bg - 2], [187, 238])
+call s:hi('StatusLine',       [233],           [187])
+call s:hi('StatusLineNC',     [s:dark_bg + 2], [187])
+call s:hi('StatusLineTerm',   [233],           [151])
+call s:hi('StatusLineTermNC', [s:dark_bg + 2], [187])
 hi StatusLineTerm cterm=bold,reverse gui=bold,reverse
 hi StatusLineTermNC cterm=bold,reverse gui=bold,reverse
-call s:hi('TabLineFill', [s:dark_bg, s:light_bg - 2], ['', ''])
-call s:hi('TabLineSel', [187, 187], [233, 66])
-call s:hi('TabLine', [s:dark_bg + 12, s:light_bg - 12], [s:dark_bg + 4, s:light_bg - 4])
-call s:hi('WildMenu', [95, 95], [184, 184])
+call s:hi('TabLineFill', [s:dark_bg],      [''])
+call s:hi('TabLineSel',  [187],            [233])
+call s:hi('TabLine',     [s:dark_bg + 12], [s:dark_bg + 4])
+call s:hi('WildMenu',    [95],             [184])
 
 " :set all
-call s:hi('Title', [181, 88], ['', ''])
+call s:hi('Title', [181], [''])
 
 " TODO
-call s:hi('Question', [179, 88], ['', ''])
+call s:hi('Question', [179], [''])
 
 " Search hit bottom
-call s:hi('WarningMsg', [179, 88], ['', ''])
+call s:hi('WarningMsg', [179], [''])
 
 " Sign column
-call s:hi('SignColumn', [173, 173], [s:dark_bg, s:light_bg])
+call s:hi('SignColumn', [173], [s:dark_bg])
 
 " Diff
-call s:hi('diffAdded',   [108, 65], ['', ''])
-call s:hi('diffRemoved', [174, 131], ['', ''])
+call s:hi('diffAdded',   [108], [''])
+call s:hi('diffRemoved', [174], [''])
 hi link diffLine Constant
 
-call s:hi('Conceal', [s:dark_fg + 2, s:light_fg - 2], [s:dark_bg - 1, s:light_bg + 2])
-call s:hi('Ignore',  [s:dark_bg + 3, s:light_bg - 3], [s:dark_bg, s:light_bg])
+call s:hi('Conceal', [s:dark_fg + 2], [s:dark_bg - 1])
+call s:hi('Ignore',  [s:dark_bg + 3], [s:dark_bg])
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
@@ -385,73 +353,40 @@ call s:hi('Ignore',  [s:dark_bg + 3, s:light_bg - 3], [s:dark_bg, s:light_bg])
 
 " vim-easymotion
 " -----------
-call s:hi('EasyMotionTarget', [157, 65], ['', s:light_bg - 2])
-call s:hi('EasyMotionTarget2First', [224, 68], ['', s:light_bg - 2])
-call s:hi('EasyMotionTarget2Second', [217, 161], ['', s:light_bg - 2])
+" call s:hi('EasyMotionTarget',        [157], [''])
+" call s:hi('EasyMotionTarget2First',  [224], [''])
+" call s:hi('EasyMotionTarget2Second', [217], [''])
 
 " hop.nvim
 " -----------
-call s:hi('HopNextKey', [157, 65], ['', s:light_bg - 2])
-call s:hi('HopNextKey1', [224, 68], ['', s:light_bg - 2])
-call s:hi('HopNextKey2', [217, 161], ['', s:light_bg - 2])
-call s:hi('HopUnmatched', [s:dark_bg + 10, 161], ['', s:light_bg - 2])
-
-" vim-indent-guides
-" -----------------
-let g:indent_guides_auto_colors = 0
-call s:hi('IndentGuidesOdd', ['', ''], [s:dark_bg - 1, s:light_bg + 1])
-call s:hi('IndentGuidesEven', ['', ''], [s:dark_bg + 1, s:light_bg - 1])
-
-" vim-gitgutter
-" -------------
-call s:hi('GitGutterAdd', [108, 65], [s:dark_bg + 1, s:light_bg - 2])
-call s:hi('GitGutterChange', [68, 68], [s:dark_bg + 1, s:light_bg - 2])
-call s:hi('GitGutterDelete', [161, 161], [s:dark_bg + 1, s:light_bg - 2])
-call s:hi('GitGutterChangeDelete', [168, 168], [s:dark_bg + 1, s:light_bg - 2])
-
-" ale
-" ---
-call s:hi('ALEErrorSign', [161, 161], [s:dark_bg, s:light_bg])
-call s:hi('ALEWarningSign', [174, 131], [s:dark_bg, s:light_bg])
-
-" vim-signify
-" -----------
-call s:hi('SignifySignAdd', [108, 65], [s:dark_bg + 1, s:light_bg - 2])
-call s:hi('SignifySignChange', [68, 68], [s:dark_bg + 1, s:light_bg - 2])
-call s:hi('SignifySignDelete', [161, 161], [s:dark_bg + 1, s:light_bg - 2])
-
-" coc.nvim
-" --------
-call s:hi('CocFloating', [s:dark_fg, s:light_fg], [s:dark_bg_2, s:light_bg - 2])
+call s:hi('HopNextKey',   [157],            [''])
+call s:hi('HopNextKey1',  [224],            [''])
+call s:hi('HopNextKey2',  [217],            [''])
+call s:hi('HopUnmatched', [s:dark_bg + 10], [''])
 
 " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
 " ---------------------------------------------------^^^^^
-call s:hi('ExtraWhitespace', ['', ''], [s:dark_bg - 1, s:light_bg - 2])
+call s:hi('ExtraWhitespace', [''], [s:dark_bg - 1])
 
 " vim-ruby
 " --------
 " " rubySymbol
-let ruby_operators = 1
-call s:hi('rubyClass', [31, 31], ['', ''])
-" call s:hi('rubyInstanceVariable', [189, 189], ['', ''])
-call s:hi('rubyRegexp', [186, 101], ['', ''])
-call s:hi('rubyRegexpDelimiter', [168, 168], ['', ''])
-call s:hi('rubyArrayDelimiter', [67, 38], ['', ''])
-call s:hi('rubyBlockParameterList', [186, 94], ['', ''])
-call s:hi('rubyCurlyBlockDelimiter', [144, 101], ['', ''])
+" let ruby_operators = 1
+" call s:hi('rubyClass',               [31,  31],  ['', ''])
+" call s:hi('rubyInstanceVariable',    [189, 189], ['', ''])
+" call s:hi('rubyRegexp',              [186, 101], ['', ''])
+" call s:hi('rubyRegexpDelimiter',     [168, 168], ['', ''])
+" call s:hi('rubyArrayDelimiter',      [67,  38],  ['', ''])
+" call s:hi('rubyBlockParameterList',  [186, 94],  ['', ''])
+" call s:hi('rubyCurlyBlockDelimiter', [144, 101], ['', ''])
 
 " ARGV $stdout
-call s:hi('rubyPredefinedIdentifier', [230, 52], ['', ''])
+" call s:hi('rubyPredefinedIdentifier', [230, 52], ['', ''])
 " hi rubyRegexpSpecial
 
 hi CursorLine cterm=NONE
 hi CursorLineNr cterm=NONE
 
-let g:seoul256_current_fg = [s:dark_fg, s:light_fg][s:style_idx]
-let g:seoul256_current_bg = [s:dark_bg, s:light_bg][s:style_idx]
+let g:seoul256_current_fg = [s:dark_fg][s:style_idx]
+let g:seoul256_current_bg = [s:dark_bg][s:style_idx]
 let g:colors_name = 'seoul256mod'
-if s:colors_name != g:colors_name || s:background == s:style
-  let &background = s:style
-else
-  let &background = s:background
-endif
