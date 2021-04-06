@@ -200,10 +200,10 @@ call s:hi('Todo',     [161], [s:dark_bg_2])
 call s:hi('Function', [187], [''])
 
 " Macros
-call s:hi('Define',    [173, 131], ['', ''])
-call s:hi('Macro',     [173, 131], ['', ''])
-call s:hi('Include',   [173, 131], ['', ''])
-call s:hi('PreCondit', [173, 131], ['', ''])
+call s:hi('Define',    [173], [''])
+call s:hi('Macro',     [173], [''])
+call s:hi('Include',   [173], [''])
+call s:hi('PreCondit', [173], [''])
 
 
 " #!
