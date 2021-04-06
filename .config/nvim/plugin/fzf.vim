@@ -7,8 +7,6 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-s': 'vsplit' }
 
-let g:fzf_preview_window = ['up:50%']
-
 " open fzf to search all files in home directory
 nnoremap <leader>f :Files ~<CR>
 
@@ -21,4 +19,19 @@ nnoremap <leader>u :BLines<CR>
 " open fzf to search all content in current working directory
 nnoremap <leader>o :Rg<CR>
 
-command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:50%'), <bang>0)
+" exclude filenames when using Rg
+command! -bang -nargs=* Rg
+			\ call fzf#vim#grep(
+			\ "rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>),
+			\ 1,
+			\ fzf#vim#with_preview(
+			\ {'options': '--delimiter : --nth 4..'},
+			\ 'up:50%'), <bang>0)
+
+" preview at the top when winwidth less than 192
+" and at the right when winheight less than 40
+command! -bang -nargs=? -complete=dir Files
+			\ call fzf#vim#files(<q-args>,
+			\ winheight(0) < 40 ? fzf#vim#with_preview() :
+			\ winwidth(0) < 192 ? fzf#vim#with_preview('up:50%') :
+			\ fzf#vim#with_preview(), <bang>0)
