@@ -35,6 +35,7 @@ if has('nvim')
 	set nosmarttab
 	set noautoindent
 	set wildmode=longest:full,full
+	autocmd! BufEnter term://* setlocal nonumber norelativenumber signcolumn=no
 
 else
 	set viminfo+=n~/.vim/viminfo
