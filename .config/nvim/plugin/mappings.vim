@@ -122,8 +122,12 @@ nnoremap _ <C-w>_
 nnoremap + <C-w>=
 
 " map ]; to cnext and [; to cprevious
-nnoremap <silent> ]; :cn<CR>
-nnoremap <silent> [; :cp<CR>
+nnoremap <silent> ]; :cn<CR>zz
+nnoremap <silent> [; :cp<CR>zz
+
+" map ]<Space> to lnext and [<Space> to lprevious
+nnoremap <silent> ]<Space> :lnext<CR>zz
+nnoremap <silent> [<Space> :lprevious<CR>zz
 
 " do not exit visual selection when shift-indenting
 vnoremap < <gv
