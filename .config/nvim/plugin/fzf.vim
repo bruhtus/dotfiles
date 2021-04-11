@@ -1,11 +1,12 @@
 " fzf plugin config and mappings
 
 let $FZF_DEFAULT_COMMAND = "rg --hidden --files --no-ignore-vcs"
+let $FZF_DEFAULT_OPTS    = "--bind ctrl-f:preview-half-page-down,ctrl-b:preview-half-page-up"  " move preview half page-up/down using ctrl-b/f
 
 let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-s': 'vsplit' }
+			\ 'ctrl-t': 'tab split',
+			\ 'ctrl-x': 'split',
+			\ 'ctrl-s': 'vsplit' }
 
 " open fzf to search all files in home directory
 nnoremap <leader>f :Files ~<CR>
