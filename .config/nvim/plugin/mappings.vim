@@ -166,8 +166,8 @@ nnoremap ZC :filetype detect<CR>
 " set ZS as :reg
 nnoremap ZS :reg<CR>
 
-" set ZD as :marks
-nnoremap ZD :marks<CR>
+" set ZD to grep word under cursor in current buffer
+nnoremap ZD :execute "lvimgrep /\\<" . expand("<cword>") . "\\>/j %"<CR>
 
 " map Z<Space> to enter blank space below and ZB to enter blank space above
 " stole this from vim-unimpaired plugin (sorry lord tpope)
