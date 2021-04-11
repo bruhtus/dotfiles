@@ -28,7 +28,7 @@ curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/instal
 ```
 - After install zplug, add this to your `.zshrc`:
 ```sh
-source ~/.zplug/init.zsh
+source $HOME/.config/zplug/init.zsh  # the default is in $HOME/.zplug/init.zsh
 ...
 zplug "kazhala/dotbare"
 ...
