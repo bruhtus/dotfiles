@@ -10,7 +10,6 @@ set updatetime=0
 set wildignorecase
 set ttimeoutlen=30
 set winminheight=0
-set signcolumn=yes
 set matchpairs+=<:>
 set nrformats+=alpha " add aplhabet in increment/decrement
 set completeopt-=preview " ignore omni complete description
