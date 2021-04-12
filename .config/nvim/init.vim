@@ -9,7 +9,7 @@ Plug 'luochen1990/rainbow'
 Plug 'tpope/vim-commentary'
 Plug 'tommcdo/vim-exchange'
 Plug 'junegunn/vim-easy-align'
-Plug 'dstein64/vim-startuptime'
+Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf',           { 'do':  { -> fzf#install()  } }
 Plug 'reedes/vim-pencil',      { 'for': ['markdown', 'nroff'] }
@@ -22,6 +22,7 @@ else
 endif
 " Plug 'kshenoy/vim-signature'
 " Plug 'glepnir/dashboard-nvim'
+" Plug 'dstein64/vim-startuptime'
 " Plug 'tweekmonster/startuptime.vim'
 call plug#end()
 
