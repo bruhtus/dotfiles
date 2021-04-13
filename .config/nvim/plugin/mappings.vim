@@ -34,7 +34,8 @@ nnoremap <silent> dm :call DeleteMark()<CR>
 
 " jump to any mark with space j
 function! GoToMark()
-	marks
+	" only display mark [a-zA-Z], mark ', and mark .
+	marks '.abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 	echo('Mark: ')
 
 	" getchar() - prompts user for a single character and returns the chars
