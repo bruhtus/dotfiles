@@ -179,6 +179,14 @@ nnoremap X "_X
 nnoremap D "_D
 nnoremap <leader>d "_d
 
+" make search result appear in the middle
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
 " remap Y to yank from pointer to the end of the line
 nnoremap Y y$
 
