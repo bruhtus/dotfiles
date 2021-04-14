@@ -2,4 +2,4 @@
 
 let g:filebeagle_suppress_keymaps = 1
 
-nnoremap <leader>l :FileBeagle<CR>
+nnoremap <leader>l :FileBeagleBufferDir<CR>
