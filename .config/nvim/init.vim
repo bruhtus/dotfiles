@@ -50,7 +50,7 @@ if has('packages')
 	command! PackUpdate call PackInit() | call minpac#update()
 	command! PackClean  call PackInit() | call minpac#clean()
 	command! PackStatus packadd minpac  | call minpac#status()
-	command! PackList   packadd minpac  | echo minpac#getpackages("minpac", "start", "", 1)
+	command! PackList   packadd minpac  | echo minpac#getpackages('minpac', 'start', '', 1)
 else
 	echo 'Please install vim-plug instead'
 endif
