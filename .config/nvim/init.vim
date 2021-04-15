@@ -21,6 +21,7 @@ if has('nvim-0.5')
 else
 	Plug 'easymotion/vim-easymotion'
 endif
+" Plug 'preservim/tagbar'
 " Plug 'kshenoy/vim-signature'
 " Plug 'glepnir/dashboard-nvim'
 " Plug 'dstein64/vim-startuptime'
