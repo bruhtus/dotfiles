@@ -262,7 +262,7 @@ call s:hi('FoldColumn', [144], [s:dark_bg + 1])
 call s:hi('MatchParen', [''], [s:dark_bg + 7])
 
 " -- INSERT --
-call s:hi('ModeMsg', [173], [''])
+call s:hi('ModeMsg', [151], [''])
 
 " let &showbreak = '> '
 call s:hi('NonText', [59], [''])
