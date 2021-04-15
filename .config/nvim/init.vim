@@ -28,6 +28,7 @@ if has('packages')
 		call minpac#add('junegunn/fzf.vim')
 		call minpac#add('junegunn/fzf',           { 'do':   { -> fzf#install() } })
 
+		call minpac#add('k-takata/minpac',              { 'type': 'opt' })
 		call minpac#add('reedes/vim-pencil',            { 'type': 'opt' })
 		call minpac#add('junegunn/goyo.vim',            { 'type': 'opt' })
 		call minpac#add('junegunn/limelight.vim',       { 'type': 'opt' })
