@@ -11,7 +11,7 @@ set wildignorecase
 set ttimeoutlen=30
 set winminheight=0
 set matchpairs+=<:>
-set nrformats+=alpha " add aplhabet in increment/decrement
+" set nrformats+=alpha " add aplhabet in increment/decrement
 set completeopt-=preview " ignore omni complete description
 set splitbelow splitright
 set number relativenumber
