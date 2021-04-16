@@ -33,6 +33,7 @@ if has('packages')
 		call minpac#add('tommcdo/vim-exchange',         { 'type': 'opt' })
 		call minpac#add('junegunn/limelight.vim',       { 'type': 'opt' })
 		call minpac#add('dstein64/vim-startuptime',     { 'type': 'opt' })
+		call minpac#add('AndrewRadev/linediff.vim',     { 'type': 'opt' })
 		call minpac#add('tweekmonster/startuptime.vim', { 'type': 'opt' })
 
 		if has('nvim-0.5')
