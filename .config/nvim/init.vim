@@ -49,10 +49,13 @@ if has('packages')
 
 	command! FocusMode packadd vim-pencil | packadd goyo.vim | packadd limelight.vim
 
-	command! PackUpdate call PackInit() | call minpac#update()
-	command! PackClean  call PackInit() | call minpac#clean()
-	command! PackStatus packadd minpac  | call minpac#status()
-	command! PackList   packadd minpac  | echo minpac#getpackages('minpac', 'start', '', 1)
+	command! PackStatus  packadd minpac  | call minpac#status()
+	command! PackList    packadd minpac  | echo minpac#getpackages('minpac', '', '', 1)
+	command! PackStartup packadd minpac  | echo minpac#getpackages('minpac', 'start', '', 1)
+	command! PackClean   source $MYVIMRC | call PackInit() | call minpac#clean()
+	command! PackUpdate  source $MYVIMRC | call PackInit() | call minpac#update()
+	command! PackInstall source $MYVIMRC | call PackInit() | call minpac#update(keys(filter(copy(minpac#pluglist), {-> !isdirectory(v:val.dir . '/.git')})))
+
 else
 	echo 'Please install vim-plug instead'
 endif
