@@ -39,3 +39,39 @@ function! simp#buf()
 
 	endif
 endfunction
+
+function! simp#markdelete()
+	" getchar() - prompts user for a single character and returns the chars
+	" ascii representation
+	" nr2char() - converts ASCII `NUMBER TO CHAR'
+
+	let l:mark = nr2char(getchar())
+	" remove the `press any key prompt'
+	redraw
+
+	" build a string which uses the `normal' command plus the var holding the
+	" mark - then eval it.
+	execute "silent! delm " . l:mark
+endfunction
+
+function! simp#gotomark()
+	" only display mark [a-zA-Z], mark ', and mark .
+	marks '.abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+	echo('Mark: ')
+
+	" getchar() - prompts user for a single character and returns the chars
+	" ascii representation
+	" nr2char() - converts ASCII `NUMBER TO CHAR'
+
+	let l:mark = nr2char(getchar())
+	" remove the `press any key prompt'
+	redraw
+
+	" build a string which uses the `normal' command plus the var holding the
+	" mark - then eval it.
+	try
+		execute "normal! `" . l:mark
+		norm zz
+	catch
+	endtry
+endfunction
