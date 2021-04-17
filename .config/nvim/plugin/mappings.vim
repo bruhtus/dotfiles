@@ -124,8 +124,8 @@ function! s:BlankDown(count) abort
 	norm ``
 endfunction
 
-nnoremap <silent> ZB :<C-U>call <SID>BlankUp(v:count1)<CR>
-nnoremap <silent> Z<Space> :<C-U>call <SID>BlankDown(v:count1)<CR>
+nnoremap <silent> ZB :<C-u>call <SID>BlankUp(v:count1)<CR>
+nnoremap <silent> Z<Space> :<C-u>call <SID>BlankDown(v:count1)<CR>
 
 " map ZJ to move mark m to below current line
 nnoremap ZJ :'mm.<CR>
