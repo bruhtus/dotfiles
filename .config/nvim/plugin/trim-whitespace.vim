@@ -1,12 +1,7 @@
 " trim extra whitespace at the end of line
-
-function! TrimWhiteSpace()
-	let l:save = winsaveview()
-	keeppatterns %s/\s\+$//e
-	call winrestview(l:save)
-endfunction
+" check after/autoload/whitespace.vim
 
 augroup no_trailing_whitespace
 	autocmd!
-	autocmd BufWritePre * :call TrimWhiteSpace()
+	autocmd BufWritePre * :call whitespace#trim()
 augroup END
