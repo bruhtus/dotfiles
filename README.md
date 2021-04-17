@@ -1,6 +1,6 @@
 # Personal Dotfiles
 
-> Note to myself: don't forget to make the script executable by doing `chmod +x <filename>` and install vim plug
+> Note to myself: don't forget to make the script executable by doing `chmod +x <filename>`
 
 > To enable updates-notifier, use `systemctl --user enable --now updates-notifier.timer`
 
@@ -20,7 +20,7 @@ dotbare push origin master
 ```
 
 ### To restore all of your dotfiles into new system
-Install and config zsh, [zplug](https://github.com/zplug/zplug), and [powerlevel10k](https://github.com/romkatv/powerlevel10k) (optional) first. And then do the instruction below.
+Install zsh first, and then do the instruction below:
 
 - Install zplug with command below:
 ```sh
@@ -42,11 +42,8 @@ and then run `zplug install`.
 dotbare finit -u <git-repo-url>
 ```
 
-Check out the [wiki](https://github.com/bruhtus/dotfiles/wiki) to check the difference between git init and git init --bare.
-
 ### References
 - [Atlassian tutorial](https://www.atlassian.com/git/tutorials/dotfiles).
-- [DistroTube dotbare blog](https://www.distrotube.com/blog/interactive-dotfiles-management-with-dotbare/).
 - [Dotbare github repo](https://github.com/kazhala/dotbare).
 - [Alacritty color schemes](https://github.com/alacritty/alacritty/wiki/Color-schemes).
 - [Alacritty preview color scheme](https://github.com/eendroroy/alacritty-theme).
