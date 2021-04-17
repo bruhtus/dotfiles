@@ -1,4 +1,4 @@
 " open url in browser
-" check also after/autoload/enable.vim
+" check also after/autoload/url.vim
 
-noremap gx :call enable#url()<CR>
+noremap gx :call url#open()<CR>
