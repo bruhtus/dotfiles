@@ -87,8 +87,9 @@ nnoremap g# g#zz
 " remap Y to yank from pointer to the end of the line
 nnoremap Y y$
 
-" remap U to yank the entire line and put below that line
-nnoremap U :t.<CR>
+" remap U to yank the entire line and put below the given line (takes count)
+" default: current line
+nnoremap U :<C-u>execute 't +'. v:count<cr>
 
 " remap ex mode to access vimgrep in current buffer
 " you can still access ex mode using gQ
@@ -133,8 +134,9 @@ nnoremap ZJ :'mm.<CR>
 " map ZK to move mark m to above current line
 nnoremap ZK :'mm.-1<CR>
 
-" map ZU to yank the entire line and put above that line
-nnoremap ZU :t.-1<CR>
+" map ZU to yank the entire line and put above the given line (takes count)
+" default: current line
+nnoremap ZU :<C-u>execute 't -1-'. v:count<cr>
 
 " map ZN to yank mark m and put below current line
 nnoremap ZN :'mt.<CR>
