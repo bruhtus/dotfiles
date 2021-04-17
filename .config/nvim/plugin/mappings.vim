@@ -128,11 +128,13 @@ endfunction
 nnoremap <silent> ZB :<C-u>call <SID>BlankUp(v:count1)<CR>
 nnoremap <silent> Z<Space> :<C-u>call <SID>BlankDown(v:count1)<CR>
 
-" map ZJ to move mark m to below current line
-nnoremap ZJ :'mm.<CR>
+" map ZJ to move current line below the given line (takes count)
+" default: current line
+nnoremap ZJ :<C-u>execute 'move +'. v:count1<cr>
 
-" map ZK to move mark m to above current line
-nnoremap ZK :'mm.-1<CR>
+" map ZK to move current line above the given line (takes count)
+" default: corrent line
+nnoremap ZK :<C-u>execute 'move -1-'. v:count1<cr>
 
 " map ZU to yank the entire line and put above the given line (takes count)
 " default: current line
