@@ -75,3 +75,37 @@ function! simp#gotomark()
 	catch
 	endtry
 endfunction
+
+" horisontal or vertical split buffer
+function! simp#split()
+	let l:choice = confirm("Horisontal or Vertical Split Buffer?",
+				\	"&JHorisontal\n&KVertical")
+
+	if l:choice == 1
+		echo 'Horisontal split'
+		ls
+		call inputsave()
+		let l:buffernumber = input('Enter buffer number: ')
+		call inputrestore()
+		try
+			if !empty(l:buffernumber)
+				call execute("sb " . l:buffernumber)
+			endif
+		catch
+		endtry
+
+	elseif l:choice == 2
+		echo 'Vertical split'
+		ls
+		call inputsave()
+		let l:buffernumber = input('Enter buffer number: ')
+		call inputrestore()
+		try
+			if !empty(l:buffernumber)
+				call execute("vert sb " . l:buffernumber)
+			endif
+		catch
+		endtry
+
+	endif
+endfunction
