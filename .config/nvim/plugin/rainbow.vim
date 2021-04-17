@@ -1,5 +1,4 @@
 " matching parenthesis rainbow plugin config
+" check also after/autoload/enable.vim
 
-let g:rainbow_active = 0
-
-nnoremap <leader>s :RainbowToggle<CR>
+nnoremap <leader>s :call enable#rainbow()<CR>
