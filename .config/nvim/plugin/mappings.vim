@@ -146,6 +146,10 @@ nnoremap ZN :'mt.<CR>
 " map ZH to yank mark m and put above current line
 nnoremap ZH :'mt.-1<CR>
 
+" use ctrl-k/j to go up/down in command line history
+cnoremap <C-k> <up>
+cnoremap <C-j> <down>
+
 " mapping to interact with built-in terminal
 if has('nvim')
 	tnoremap <C-n> <C-\><C-n>
