@@ -1,11 +1,4 @@
-function! HandleURL()
-	let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;]*')
-	echo s:uri
-	if s:uri != ""
-		silent exec "!xdg-open '".s:uri."'"
-	else
-		echo "No URL found in line."
-	endif
-endfunction
+" open url in browser
+" check also after/autoload/enable.vim
 
-noremap gx :call HandleURL()<cr>
+noremap gx :call enable#url()<CR>

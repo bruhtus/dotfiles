@@ -35,3 +35,13 @@ function! enable#peek()
 	endif
 	norm ``
 endfunction
+
+function! enable#url()
+	let s:url = matchstr(getline("."), '[a-z]*:\/\/[^ >,;]*')
+	echo s:url
+	if s:url != ""
+		silent exec "!xdg-open '".s:url."'"
+	else
+		echo "No URL found in line."
+	endif
+endfunction
