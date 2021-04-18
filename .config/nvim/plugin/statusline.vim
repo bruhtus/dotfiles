@@ -2,14 +2,14 @@
 
 if has('nvim')
 	" do not change statusline of quickfix window
-	autocmd! VimEnter,WinEnter,BufWinEnter * if &buftype=='quickfix' | else | call RefreshStatusline('active')
-	autocmd! WinLeave * if &buftype=='quickfix' | else | call RefreshStatusline('inactive')
+	autocmd! VimEnter,WinEnter,BufWinEnter * if &buftype=='quickfix' | else | call StatuslineLoad('active')
+	autocmd! WinLeave * if &buftype=='quickfix' | else | call StatuslineLoad('inactive')
 
 else
 	" default setting because can't display filename in the middle statusline
 	" in vanilla vim
 	set statusline=
-	set statusline+=\ %3{ModeCurrent()}
+	set statusline+=\ %3{StatuslineMode()}
 	set statusline+=\ %r
 	set statusline+=\ |
 	set statusline+=\ %{StatuslineFilename()}
@@ -25,7 +25,7 @@ else
 
 endif
 
-function! RefreshStatusline(mode)
+function! StatuslineLoad(mode)
 	if a:mode == 'active'
 		setlocal statusline=%!StatuslineComponent()
 	else
@@ -35,7 +35,7 @@ endfunction
 
 function! StatuslineComponent() abort
 	let l:line=''
-	let l:line.='  %3{ModeCurrent()}'
+	let l:line.='  %3{StatuslineMode()}'
 	let l:line.='  %{StatuslineGit()}'
 	let l:line.='%='
 	let l:line.='%r'
@@ -71,16 +71,12 @@ function! StatuslineFilename()
 	endif
 endfunction
 
-function! GitBranch()
-  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-endfunction
-
 function! StatuslineGit()
 	" doesn't give an error if vim-fugitive not installed
 	if exists('*FugitiveHead')
 		return winwidth(0) > 70 ? fugitive#head() : ''
 	else
-		return winwidth(0) > 70 ? GitBranch() : ''
+		return winwidth(0) > 70 ? system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'") : ''
 	endif
 endfunction
 
@@ -92,25 +88,24 @@ function! StatuslineFiletype()
 	return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
 endfunction
 
-let g:currentmode={
-			\ 'n' : 'N',
-			\ 'v' : 'V',
-			\ 'V' : 'VL',
-			\ '^V' : 'VB',
-			\ 's' : 'S',
-			\ 'S': 'SL',
-			\ '^S' : 'SB',
-			\ 'i' : 'I',
-			\ 'R' : 'R',
-			\ 'c' : 'C',
-			\ 't' : 'T'}
-
-function! ModeCurrent() abort
-    let l:modecurrent = mode()
-    " use get() -> fails safely, since ^V doesn't seem to register
-    " 3rd arg is used when return of mode() == 0, which is case with ^V
-    " thus, ^V fails -> returns 0 -> replaced with 'VB'
-    let l:modelist = toupper(get(g:currentmode, l:modecurrent, 'VB'))
-    let l:current_status_mode = l:modelist
-    return l:current_status_mode
+function! StatuslineMode() abort
+	let l:currentmode={
+				\ 'n' : 'N',
+				\ 'v' : 'V',
+				\ 'V' : 'VL',
+				\ '^V' : 'VB',
+				\ 's' : 'S',
+				\ 'S': 'SL',
+				\ '^S' : 'SB',
+				\ 'i' : 'I',
+				\ 'R' : 'R',
+				\ 'c' : 'C',
+				\ 't' : 'T'}
+	let l:modecurrent = mode()
+	" use get() -> fails safely, since ^V doesn't seem to register
+	" 3rd arg is used when return of mode() == 0, which is case with ^V
+	" thus, ^V fails -> returns 0 -> replaced with 'VB'
+	let l:modelist = toupper(get(l:currentmode, l:modecurrent, 'VB'))
+	let l:current_status_mode = l:modelist
+	return l:current_status_mode
 endfunction
