@@ -1,4 +1,4 @@
-function! ilist_qf#open(selection, start_at_cursor)
+function! ilist_qf#load(selection, start_at_cursor)
 
     " there's a file associated with this buffer
     if len(expand('%')) > 0
