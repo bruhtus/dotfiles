@@ -35,6 +35,7 @@ if has('nvim')
 	set nohlsearch
 	set nosmarttab
 	set noautoindent
+	set inccommand=split
 	set wildmode=longest:full,full
 	autocmd! BufEnter term://* setlocal nonumber norelativenumber signcolumn=no
 
