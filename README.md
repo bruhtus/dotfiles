@@ -53,4 +53,4 @@ dotbare finit -u <git-repo-url>
 - [Yanking in w3m](https://unix.stackexchange.com/questions/12497/yanking-urls-in-w3m).
 - [Keycode/keysym for xorg or i3wm](http://xahlee.info/linux/linux_show_keycode_keysym.html).
 - [Zplug plugin manager](https://github.com/zplug/zplug).
-- [Notification arch-based updates](https://eang.it/notifications-of-pacman-updates/)
+- [Notification arch-based updates](https://eang.it/notifications-of-pacman-updates/).
