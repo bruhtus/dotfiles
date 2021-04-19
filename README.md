@@ -4,6 +4,8 @@
 
 > To enable updates-notifier, use `systemctl --user enable --now updates-notifier.timer`
 
+> Download only neovim config: [here](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/bruhtus/dotfiles/tree/master/.config/nvim)
+
 This repo is to backup my linux configuration so that I don't need to configure every new installation. I use [dotbare](https://github.com/kazhala/dotbare) to manage my dotfiles. Below is the simplified version to setup dotbare.
 
 ### Initialize dotbare to backup configuration dotfiles
