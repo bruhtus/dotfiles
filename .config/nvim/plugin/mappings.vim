@@ -19,13 +19,11 @@ endif
 nnoremap <S-Tab> <C-^>
 
 " split navigation
-nnoremap <C-n> <C-w><C-w>
-nnoremap <C-j> <C-w>j<C-w>_
-nnoremap <C-k> <C-w>k<C-w>_
-
-" buffer navigation
-nnoremap <C-h> :bp<CR>
-nnoremap <C-l> :bn<CR>
+" nnoremap <C-n> <C-w><C-w>
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 
 " remap ctrl-q to behave like default ctrl-l
 " ctrl-q default in normal mode behave like ctrl-v (visual block)
