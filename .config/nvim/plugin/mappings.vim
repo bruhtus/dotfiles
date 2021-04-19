@@ -87,7 +87,7 @@ nnoremap Y y$
 
 " remap U to yank the entire line and put below the given line (takes count)
 " default: current line
-nnoremap U :<C-u>execute 't +'. v:count<cr>
+nnoremap U :<C-u>execute 't +'. v:count<CR>==
 
 " remap ex mode to access vimgrep in current buffer
 " you can still access ex mode using gQ
@@ -128,15 +128,15 @@ nnoremap <silent> Z<Space> :<C-u>call <SID>BlankDown(v:count1)<CR>
 
 " map ZJ to move current line below the given line (takes count)
 " default: current line
-nnoremap ZJ :<C-u>execute 'move +'. v:count1<cr>
+nnoremap ZJ :<C-u>execute 'move +'. v:count1<CR>==
 
 " map ZK to move current line above the given line (takes count)
 " default: corrent line
-nnoremap ZK :<C-u>execute 'move -1-'. v:count1<cr>
+nnoremap ZK :<C-u>execute 'move -1-'. v:count1<CR>==
 
 " map ZU to yank the entire line and put above the given line (takes count)
 " default: current line
-nnoremap ZU :<C-u>execute 't -1-'. v:count<cr>
+nnoremap ZU :<C-u>execute 't -1-'. v:count<CR>==
 
 " map ZN to yank mark m and put below current line
 nnoremap ZN :'mt.<CR>
