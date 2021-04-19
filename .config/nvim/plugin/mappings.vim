@@ -103,11 +103,11 @@ nnoremap ZA :on<CR>
 " set ZC as :filetype detect
 nnoremap ZC :filetype detect<CR>
 
-" set ZS as :reg
-nnoremap ZS :reg<CR>
+" set ZS to grep word under cursor in current buffer
+nnoremap ZS :execute "lvimgrep /\\<" . expand("<cword>") . "\\>/j %"<CR>
 
-" set ZD to grep word under cursor in current buffer
-nnoremap ZD :execute "lvimgrep /\\<" . expand("<cword>") . "\\>/j %"<CR>
+" set ZD as :reg
+nnoremap ZD :reg<CR>
 
 " map Z<Space> to enter blank space below and ZB to enter blank space above
 " stole this from vim-unimpaired plugin (sorry lord tpope)
