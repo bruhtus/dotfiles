@@ -7,8 +7,9 @@ function! peek#load()
 	redraw
 	" do nothing if the line number doesn't exist
 	" don't be stupid
-	if l:linenumber <= line('$')
+	try
 		execute l:linenumber . "p"
-	endif
+	catch
+	endtry
 	norm ``
 endfunction
