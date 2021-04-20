@@ -1,6 +1,6 @@
 export PATH="$PATH:$HOME/.local/bin"
 export QT_QPA_PLATFORMTHEME="qt5ct"
-export EDITOR=nvim
+# export EDITOR=nvim
 #export EDITOR=/usr/bin/vim
 #export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 # fix "xdg-open fork-bomb" export your preferred browser from here
@@ -15,11 +15,13 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 
 #clean up home directory
-export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc"
-export TASKDATA="${XDG_DATA_HOME:-$HOME/.local/share}/task"
-export TASKRC="${XDG_CONFIG_HOME:-$HOME/.config}/task/taskrc"
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
+export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc"
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/npmrc"
+
+export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/bash/history"
+
 export VD_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/visidata"
 
 #task config and data
