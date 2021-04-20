@@ -21,4 +21,13 @@ export TASKRC="${XDG_CONFIG_HOME:-$HOME/.config}/task/taskrc"
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/bash/history"
 export VD_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/visidata"
-export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
+
+#task config and data
+export TASKRC="${XDG_CONFIG_HOME:-$HOME/.config}/task/taskrc"
+export TASKDATA="${XDG_DATA_HOME:-$HOME/.local/share}/task"
+
+#install Ruby Gems to ~/.local/share/gem
+export GEM_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/gem"
+export PATH="${XDG_DATA_HOME:-$HOME/.local/share}/gem/bin:$PATH"
+export GEM_SPEC_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/gem"
+# make sure to remove gem: --user-install from /etc/gemrc
