@@ -1,6 +1,11 @@
 function! enable#goyo()
 	if !exists(':Goyo')
-		echo 'Goyo plugin not loaded'
+		try
+			packadd vim-pencil | packadd goyo.vim | packadd limelight.vim
+			Goyo
+		catch
+			echo 'Goyo, limelight, and vim-pencil not installed'
+		endtry
 	else
 		Goyo
 	endif

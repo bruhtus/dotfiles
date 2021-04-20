@@ -5,8 +5,6 @@ if has('packages')
 		let $MYPACK = '$HOME/.vim/after/autoload/pack.vim'
 	endif
 
-	command! FocusMode packadd vim-pencil | packadd goyo.vim | packadd limelight.vim
-
 	command! EnableLinediff packadd linediff.vim | call enable#linediff()
 
 	command! PackList    packadd minpac | echo minpac#getpackages('minpac', '', '', 1)
