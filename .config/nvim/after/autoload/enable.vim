@@ -4,7 +4,7 @@ function! enable#goyo()
 			packadd vim-pencil | packadd goyo.vim | packadd limelight.vim
 			Goyo
 		catch
-			echo 'Goyo, limelight, and vim-pencil not installed'
+			echo 'Goyo, limelight, and vim-pencil plugin not installed'
 		endtry
 	else
 		Goyo
@@ -14,7 +14,12 @@ endfunction
 function! enable#rainbow()
 	let g:rainbow_active = 0
 	if !exists(':RainbowToggle')
-		echo 'Rainbow plugin not loaded'
+		try
+			packadd rainbow
+			RainbowToggle
+		catch
+			echo 'Rainbow plugin not installed'
+		endtry
 	else
 		RainbowToggle
 	endif
