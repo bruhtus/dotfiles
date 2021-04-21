@@ -35,3 +35,12 @@ function! enable#linediff()
 		echo 'Linediff plugin not installed'
 	endtry
 endfunction
+
+function! enable#fugitive()
+	try
+		packadd vim-fugitive
+		Git
+	catch
+		echo 'Fugitive plugin not installed'
+	endtry
+endfunction

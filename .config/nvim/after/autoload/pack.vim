@@ -13,7 +13,6 @@ function! pack#init() abort
 	call minpac#init()
 
 	call minpac#add('tpope/vim-surround')
-	call minpac#add('tpope/vim-fugitive')
 	call minpac#add('wellle/targets.vim')
 	call minpac#add('airblade/vim-rooter')
 	call minpac#add('tpope/vim-commentary')
@@ -28,6 +27,7 @@ function! pack#init() abort
 	call minpac#add('tpope/vim-eunuch',             { 'type': 'opt' })
 	call minpac#add('reedes/vim-pencil',            { 'type': 'opt' })
 	call minpac#add('junegunn/goyo.vim',            { 'type': 'opt' })
+	call minpac#add('tpope/vim-fugitive',           { 'type': 'opt' })
 	call minpac#add('luochen1990/rainbow',          { 'type': 'opt' })
 	call minpac#add('tommcdo/vim-exchange',         { 'type': 'opt' })
 	call minpac#add('junegunn/limelight.vim',       { 'type': 'opt' })
