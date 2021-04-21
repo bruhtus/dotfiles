@@ -16,8 +16,6 @@ function! pack#init() abort
 	call minpac#add('wellle/targets.vim')
 	call minpac#add('airblade/vim-rooter')
 	call minpac#add('tpope/vim-commentary')
-	call minpac#add('junegunn/vim-easy-align')
-	call minpac#add('jeetsukumaran/vim-filebeagle')
 	call minpac#add('junegunn/fzf.vim')
 	call minpac#add('junegunn/fzf', { 'do': { -> fzf#install() } })
 
@@ -31,9 +29,11 @@ function! pack#init() abort
 	call minpac#add('luochen1990/rainbow',          { 'type': 'opt' })
 	call minpac#add('tommcdo/vim-exchange',         { 'type': 'opt' })
 	call minpac#add('junegunn/limelight.vim',       { 'type': 'opt' })
+	call minpac#add('junegunn/vim-easy-align',      { 'type': 'opt' })
 	call minpac#add('dstein64/vim-startuptime',     { 'type': 'opt' })
 	call minpac#add('AndrewRadev/linediff.vim',     { 'type': 'opt' })
 	call minpac#add('tweekmonster/startuptime.vim', { 'type': 'opt' })
+	call minpac#add('jeetsukumaran/vim-filebeagle', { 'type': 'opt' })
 
 	if has('nvim-0.5')
 		call minpac#add('phaazon/hop.nvim')

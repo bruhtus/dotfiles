@@ -44,3 +44,13 @@ function! enable#fugitive()
 		echo 'Fugitive plugin not installed'
 	endtry
 endfunction
+
+function! enable#filebeagle()
+	try
+		packadd vim-filebeagle
+		let g:filebeagle_suppress_keymaps = 1
+		FileBeagleBufferDir
+	catch
+		echo 'Filebeagle plugin not installed'
+	endtry
+endfunction
