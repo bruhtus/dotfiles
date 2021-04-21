@@ -5,7 +5,7 @@ if has('packages')
 		let $MYPACK = '$HOME/.vim/after/autoload/pack.vim'
 	endif
 
-	command! EnableLinediff packadd linediff.vim | call enable#linediff()
+	command! EnableLinediff call enable#linediff()
 
 	command! PackList    packadd minpac | echo minpac#getpackages('minpac', '', '', 1)
 	command! PackStartup packadd minpac | echo minpac#getpackages('minpac', 'start', '', 1)
