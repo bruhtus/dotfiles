@@ -1,3 +1,3 @@
 " Vim-fugitive plugin config
 
-nnoremap <silent> - :G<CR>
+nnoremap <silent> - :call enable#fugitive()<CR>
