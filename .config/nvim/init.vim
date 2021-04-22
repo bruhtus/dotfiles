@@ -6,6 +6,7 @@ if has('packages')
 	endif
 
 	command! EnableLinediff call enable#linediff()
+	command! EnableEasyalign call enable#easyalign()
 
 	command! PackList    packadd minpac | echo minpac#getpackages('minpac', '', '', 1)
 	command! PackStartup packadd minpac | echo minpac#getpackages('minpac', 'start', '', 1)
