@@ -46,10 +46,10 @@ function! enable#fugitive()
 endfunction
 
 function! enable#filebeagle()
+	let g:filebeagle_suppress_keymaps = 1
 	if !exists(':FileBeagleBufferDir')
 		try
 			packadd vim-filebeagle
-			let g:filebeagle_suppress_keymaps = 1
 			FileBeagleBufferDir
 		catch
 			echo 'Filebeagle plugin not installed'
