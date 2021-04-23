@@ -28,7 +28,7 @@ Install zsh first, and then do the instruction below:
 ```sh
 curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 ```
-- After install zplug, add this to your `.zshrc`:
+- After zplug installed, add this to your `.zshrc`:
 ```sh
 source $HOME/.config/zplug/init.zsh  # the default is in $HOME/.zplug/init.zsh
 ...
