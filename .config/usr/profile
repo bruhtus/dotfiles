@@ -1,13 +1,8 @@
 export PATH="$PATH:$HOME/.local/bin"
-export QT_QPA_PLATFORMTHEME="qt5ct"
-# export EDITOR=nvim
-#export EDITOR=/usr/bin/vim
-#export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
-# fix "xdg-open fork-bomb" export your preferred browser from here
-#export BROWSER=/usr/bin/google-chrome-stable
-# export BROWSER=qutebrowser
-export TERMINAL=alacritty
+
 export LESSHISTFILE="-"
+export TERMINAL=alacritty
+export QT_QPA_PLATFORMTHEME="qt5ct"
 
 #initialize XDG directory
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -33,3 +28,14 @@ export GEM_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/gem"
 export PATH="${XDG_DATA_HOME:-$HOME/.local/share}/gem/bin:$PATH"
 export GEM_SPEC_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/gem"
 # make sure to remove gem: --user-install from /etc/gemrc
+
+#bundle
+export BUNDLE_USER_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/bundle"
+export BUNDLE_USER_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/bundle"
+export BUNDLE_USER_PLUGIN="${XDG_DATA_HOME:-$HOME/.local/share}/bundle"
+
+# export EDITOR=nvim
+# export EDITOR=/usr/bin/vim
+# fix "xdg-open fork-bomb" export your preferred browser from here
+# export BROWSER=/usr/bin/google-chrome-stable
+# export BROWSER=qutebrowser
