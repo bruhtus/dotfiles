@@ -11,7 +11,7 @@
 " License:      MIT
 "
 " Copyright (c) 2017 Junegunn Choi
-" Modified by Bruhtus
+" Modified by Robertus Diawan Chris
 "
 " MIT License
 "
@@ -175,8 +175,8 @@ endif
 call s:hi('Normal', [s:dark_fg], [s:dark_bg])
 
 call s:hi('LineNr',    [101], [s:dark_bg])
-call s:hi('Visual',    [''],  [23])
-call s:hi('VisualNOS', [''],  [23])
+call s:hi('Visual',    [''],  [239])
+call s:hi('VisualNOS', [''],  [239])
 
 call s:hi('Comment',         [65],  [''])
 call s:hi('Number',          [222], [''])
