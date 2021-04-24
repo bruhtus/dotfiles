@@ -45,7 +45,7 @@ alias \
 
 alias \
 	gm='git merge' \
-	gmt='git mergetool --tool=vimdiff' \
+	gmt='git mergetool --tool=nvimdiff' \
 	gma='git merge --abort'
 
 alias \
