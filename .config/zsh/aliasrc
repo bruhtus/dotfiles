@@ -79,9 +79,9 @@ alias \
 
 #find directory (cd to it) and files (open in vim)
 alias sd='cd "$(fd -aHI -t d . ~ | fzf --height 20%)"' #cd to any directories in home directory from any directories
-alias wd='cd "$(fd -aHI -t d . $(git rev-parse --show-toplevel 2>/dev/null) | fzf --height 20%)"' #cd to any directories in git root directory/current working directory
-alias cs='rg --hidden --files ~ | fzf --height 20% | xargs -o -r $EDITOR' #search and open file on home directory in $EDITOR directly
-alias sc='rg --hidden --files $(git rev-parse --show-toplevel 2>/dev/null) | fzf --height 20% | xargs -o -r $EDITOR' #search and open file on git root directory/current working directory in $EDITOR directly
+alias ds='cd "$(fd -aHI -t d . $(git rev-parse --show-toplevel 2>/dev/null) | fzf --height 20%)"' #cd to any directories in git root directory/current working directory
+alias sc='rg --hidden --files ~ | fzf --height 20% | xargs -o -r $EDITOR' #search and open file on home directory in $EDITOR directly
+alias cs='rg --hidden --files $(git rev-parse --show-toplevel 2>/dev/null) | fzf --height 20% | xargs -o -r $EDITOR' #search and open file on git root directory/current working directory in $EDITOR directly
 
 #unpack tar archive
 function untar(){tar -xzf $1 --one-top-level}
