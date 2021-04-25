@@ -9,7 +9,7 @@ alias \
 #unfaedah alias
 alias \
 	asd='googler -n 4' \
-	reload='. ~/.config/zsh/.zshrc' \
+	reload='. $ZDOTDIR/.zshrc' \
 	ka='killall' \
 	mp='markdown_previewer' \
 	wttr='curl wttr.in\?%tpFQn1m' \
