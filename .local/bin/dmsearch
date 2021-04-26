@@ -26,6 +26,7 @@ options[debianpkg]="https://packages.debian.org/search?suite=default&section=all
 options[duckduckgo]="https://duckduckgo.com/?q="
 options[github]="https://github.com/search?q="
 options[gitlab]="https://gitlab.com/search?search="
+options[libgen]="https://libgen.is/search.php?req="
 options[searx]="https://searx.bar/search?q="
 options[teddit]="https://www.teddit.net/search/?q="
 options[translate-to-english]="https://translate.google.com/?sl=auto&tl=en&text="
