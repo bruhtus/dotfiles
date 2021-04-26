@@ -12,9 +12,9 @@ function! enable#goyo()
 endfunction
 
 function! enable#rainbow()
-	let g:rainbow_active = 0
 	if !exists(':RainbowToggle')
 		try
+			let g:rainbow_active = 0
 			packadd rainbow
 			RainbowToggle
 		catch
@@ -41,14 +41,14 @@ function! enable#fugitive()
 		packadd vim-fugitive
 		Git
 	catch
-		echo 'Fugitive plugin not installed'
+		echo 'Fugitive plugin not installed or not git repo'
 	endtry
 endfunction
 
 function! enable#filebeagle()
-	let g:filebeagle_suppress_keymaps = 1
 	if !exists(':FileBeagleBufferDir')
 		try
+			let g:filebeagle_suppress_keymaps = 1
 			packadd vim-filebeagle
 			FileBeagleBufferDir
 		catch
