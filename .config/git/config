@@ -5,3 +5,5 @@
 	helper = cache --timeout=86400
 [init]
 	defaultBranch = master
+[color]
+	ui = auto
