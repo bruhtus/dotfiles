@@ -26,5 +26,6 @@ __pycache__/
 .config/libfm/
 .config/objects/
 .config/calibre/
+.config/nvim/pack/
 .config/libreoffice/
 .config/google-chrome/
