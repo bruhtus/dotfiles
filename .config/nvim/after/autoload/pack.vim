@@ -1,6 +1,7 @@
 function! pack#init() abort
 	try
 		packadd minpac
+		call minpac#init()
 	catch
 		if has('nvim')
 			exe '!git clone https://github.com/k-takata/minpac.git ' . stdpath('config') . '/pack/minpac/opt/minpac'
@@ -8,9 +9,8 @@ function! pack#init() abort
 			exe '!git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac'
 		endif
 		packadd minpac
+		call minpac#init()
 	endtry
-
-	call minpac#init()
 
 	call minpac#add('tpope/vim-surround')
 	call minpac#add('wellle/targets.vim')
