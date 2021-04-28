@@ -18,7 +18,7 @@ iabbrev <buffer> cc class ():<C-left><BS>
 iabbrev <buffer> mm if __name__ == '__main__':<CR>
 iabbrev <buffer> f; if:<left>
 
-augroup Make
+augroup MakePython
 	autocmd!
 	autocmd BufWritePost * silent! make | redraw!
 augroup END
