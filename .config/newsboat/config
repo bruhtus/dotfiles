@@ -31,7 +31,7 @@ color article white default bold
 
 browser linkhandler
 macro , open-in-browser
-macro a set browser "w3m" ; open-in-browser ; set browser linkhandler
+macro a set browser "qutebrowser" ; open-in-browser ; set browser linkhandler
 macro s set browser "lynx -vikeys" ; open-in-browser ; set browser linkhandler
 macro d set browser "google-chrome-stable --incognito" ; open-in-browser ; set browser linkhandler
 macro w set browser "youtube-viewer --resolution=480p" ; open-in-browser ; set browser linkhandler
