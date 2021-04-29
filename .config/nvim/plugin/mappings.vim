@@ -109,23 +109,6 @@ nnoremap ZS :execute "lvimgrep /\\<" . expand("<cword>") . "\\>/j %"<CR>
 " set ZD as :reg
 nnoremap ZD :reg<CR>
 
-" map Z<Space> to enter blank space below and ZB to enter blank space above
-" stole this from vim-unimpaired plugin (sorry lord tpope)
-function! s:BlankUp(count) abort
-	norm m`
-	put!=repeat(nr2char(10), a:count)
-	norm ``
-endfunction
-
-function! s:BlankDown(count) abort
-	norm m`
-	put =repeat(nr2char(10), a:count)
-	norm ``
-endfunction
-
-nnoremap <silent> ZB :<C-u>call <SID>BlankUp(v:count1)<CR>
-nnoremap <silent> Z<Space> :<C-u>call <SID>BlankDown(v:count1)<CR>
-
 " map ZJ to move current line below the given line (takes count)
 " default: current line
 nnoremap ZJ :<C-u>execute 'move +'. v:count1<CR>==
