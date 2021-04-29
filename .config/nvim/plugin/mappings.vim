@@ -143,10 +143,3 @@ elseif exists('&termwinkey')
 	tnoremap <C-n> <C-p><C-n>
 
 endif
-
-" make incsearch appear in the middle
-augroup VimIncsearch
-	autocmd!
-	autocmd CmdlineEnter /,\? :setlocal scrolloff=999 | cnoremap <CR> <CR>zz | redraw
-	autocmd CmdlineLeave /,\? :setlocal scrolloff=-1 | cunmap <CR>
-augroup END
