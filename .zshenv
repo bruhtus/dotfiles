@@ -14,6 +14,9 @@ export ZPLUG_HOME="$HOME/.config/zplug"
 export DOTBARE_TREE="$HOME"
 export DOTBARE_DIR="$HOME/.config"
 
+#no less history
+export LESSHISTFILE="-"
+
 #coloring less
 # Start blinking
 export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # green
