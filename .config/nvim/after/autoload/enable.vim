@@ -89,7 +89,7 @@ function! enable#fzf()
 			" exclude filenames when using Rg
 			command! -bang -nargs=* Rg
 						\ call fzf#vim#grep(
-						\ "rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>),
+						\ "rg --column --line-number --no-heading --color=always --smart-case " . shellescape(<q-args>),
 						\ 1,
 						\ fzf#vim#with_preview(
 						\ {'options': '--delimiter : --nth 4..'},
@@ -102,6 +102,20 @@ function! enable#fzf()
 						\ winheight(0) < 40 ? fzf#vim#with_preview('hidden', 'ctrl-/') :
 						\ winwidth(0) < 192 ? fzf#vim#with_preview('up:50%:hidden', 'ctrl-/') :
 						\ fzf#vim#with_preview('hidden', 'ctrl-/'), <bang>0)
+
+			" Custom BLines with preview (using ripgrep)
+			" reference: https://github.com/junegunn/fzf.vim/issues/374#issuecomment-724301156
+			command! -bang -nargs=* CustomBLines
+						\ call fzf#vim#grep(
+						\ 'rg --with-filename --column --line-number --no-heading --smart-case . ' . fnameescape(expand('%:p')),
+						\ 1,
+						\ winheight(0) < 40 ? fzf#vim#with_preview(
+						\ {'options': '--layout reverse-list --query ' . shellescape(<q-args>) . ' --with-nth=4.. --delimiter=":"'}, 'hidden', 'ctrl-/') :
+						\ winwidth(0) < 192 ? fzf#vim#with_preview(
+						\ {'options': '--layout reverse-list --query ' . shellescape(<q-args>) . ' --with-nth=4.. --delimiter=":"'}, 'up:50%:hidden', 'ctrl-/') :
+						\ fzf#vim#with_preview({'options': '--layout reverse-list --query ' . shellescape(<q-args>) . ' --with-nth=4.. --delimiter=":"'}, 'hidden', 'ctrl-/'))
+						" \   fzf#vim#with_preview({'options': '--layout reverse-list  --with-nth=-1.. --delimiter="/"'}, 'right:50%'))
+
 		catch
 			echo 'Fzf plugin not installed'
 		endtry
