@@ -91,9 +91,15 @@ function! enable#fzf()
 						\ call fzf#vim#grep(
 						\ "rg --column --line-number --no-heading --color=always --smart-case " . shellescape(<q-args>),
 						\ 1,
+						\ winheight(0) < 40 ? fzf#vim#with_preview(
+						\ {'options': '--delimiter : --nth 4..'},
+						\ 'hidden', 'ctrl-/') :
+						\ winwidth(0) < 192 ? fzf#vim#with_preview(
+						\ {'options': '--delimiter : --nth 4..'},
+						\ 'up:50%:hidden', 'ctrl-/') :
 						\ fzf#vim#with_preview(
 						\ {'options': '--delimiter : --nth 4..'},
-						\ 'up:50%:hidden', 'ctrl-/'), <bang>0)
+						\ 'hidden', 'ctrl-/'), <bang>0)
 
 			" preview at the top when winwidth less than 192
 			" and at the right when winheight less than 40
