@@ -79,7 +79,7 @@ function! enable#fzf()
 			packadd fzf | packadd fzf.vim
 
 			let $FZF_DEFAULT_COMMAND = "rg --hidden --files --no-ignore-vcs"
-			let $FZF_DEFAULT_OPTS    = "--bind ctrl-f:preview-half-page-down,ctrl-b:preview-half-page-up"  " move preview half page-up/down using ctrl-b/f
+			let $FZF_DEFAULT_OPTS    = "--bind ctrl-f:preview-half-page-down,ctrl-b:preview-half-page-up --preview-window=wrap"  " move preview half page-up/down using ctrl-b/f
 
 			let g:fzf_action = {
 						\ 'ctrl-t': 'tab split',
