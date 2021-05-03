@@ -84,7 +84,6 @@ bindsym $mod+d exec $term
 bindsym $mod+w exec qutebrowser
 bindsym $mod+e exec $term -e ranger
 bindsym $mod+a exec --no-startup-id rofi -show run
-bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+i exec google-chrome-stable --new-window https://github.com/stars/bruhtus
 
 bindsym $mod+Shift+c exec $term -e $EDITOR '/home/bruhtus/.config/i3/config'
