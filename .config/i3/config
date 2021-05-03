@@ -5,7 +5,7 @@
 #Mod1=<Alt>, Mod4=<Super>
 set $mod Mod1
 set $term alacritty
-set $inner_gaps 14
+set $inner_gaps 0
 set $outer_gaps -2
 # #---End---# #
 
