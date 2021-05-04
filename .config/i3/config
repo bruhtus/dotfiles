@@ -86,8 +86,8 @@ bindsym $mod+e exec $term -e ranger
 bindsym $mod+a exec --no-startup-id rofi -show run
 bindsym $mod+i exec google-chrome-stable --new-window https://github.com/stars/bruhtus
 
-bindsym $mod+Shift+c exec $term -e $EDITOR '/home/bruhtus/.config/i3/config'
-bindsym $mod+Shift+d [title="dropdown_youtube"] scratchpad show; [title="dropdown_youtube"] move position center
+bindsym $mod+Shift+d exec $term -e $EDITOR '/home/bruhtus/.config/i3/config'
+bindsym $mod+Shift+c [title="dropdown_youtube"] scratchpad show; [title="dropdown_youtube"] move position center
 bindsym $mod+Shift+x [title="dropdown_terminal"] scratchpad show; [title="dropdown_terminal"] move position center
 bindsym $mod+Shift+u exec google-chrome-stable --new-window https://github.com/settings/tokens
 bindsym $mod+Shift+n exec docsmenu
