@@ -98,8 +98,6 @@ bindsym $mod+Shift+z exec timeshift-launcher
 bindsym $mod+Shift+q exec telegram-desktop
 bindsym $mod+Shift+p exec switch-picom
 bindsym $mod+Shift+e exec pcmanfm
-bindsym $mod+Shift+a --release exec --no-startup-id flameshot gui
-#bindsym $mod+Shift+a --release exec --no-startup-id flameshot screen -r -c
 
 bindsym $mod+Ctrl+x exec $term -e bpytop
 bindsym $mod+Ctrl+w exec google-chrome-stable
@@ -107,6 +105,8 @@ bindsym $mod+Ctrl+s exec qutebrowser --target private-window http://127.0.0.1:83
 bindsym $mod+Ctrl+n exec $term -e vim -c 'VimwikiIndex'
 bindsym $mod+Ctrl+z exec rofi -show emoji -modi emoji
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
+bindsym $mod+Ctrl+a --release exec --no-startup-id flameshot gui
+#bindsym $mod+Ctrl+a --release exec --no-startup-id flameshot screen -r -c
 
 bindsym $mod+Ctrl+Shift+n exec google-chrome-stable --incognito
 bindsym $mod+Ctrl+Shift+b exec google-chrome-stable --incognito https://github.com/bruhtus?tab=repositories
