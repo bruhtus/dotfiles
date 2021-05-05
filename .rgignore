@@ -11,6 +11,11 @@
 *.mobi
 *.min.*
 
+*.doc
+*.docs
+*.ppt
+*.pptx
+
 gems/
 __pycache__/
 .git/
