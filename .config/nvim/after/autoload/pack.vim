@@ -16,6 +16,7 @@ function! pack#init() abort
 	call minpac#add('wellle/targets.vim')
 	call minpac#add('airblade/vim-rooter')
 	call minpac#add('tpope/vim-commentary')
+	call minpac#add('ronakg/quickr-preview.vim')
 
 	call minpac#add('k-takata/minpac',              { 'type': 'opt' })
 	call minpac#add('junegunn/gv.vim',              { 'type': 'opt' })
