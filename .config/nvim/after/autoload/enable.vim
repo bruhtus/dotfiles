@@ -28,8 +28,8 @@ endfunction
 function! enable#linediff()
 	try
 		packadd linediff.vim
-		let g:linediff_buffer_type = 'scratch'
-		let g:linediff_first_buffer_command  = 'enew'
+		let g:linediff_buffer_type            = 'scratch'
+		let g:linediff_first_buffer_command   = 'enew'
 		let g:linediff_further_buffer_command = 'new'
 	catch
 		echo 'Linediff plugin not installed'
@@ -79,7 +79,10 @@ function! enable#fzf()
 			packadd fzf | packadd fzf.vim
 
 			let $FZF_DEFAULT_COMMAND = "rg --hidden --files --no-ignore-vcs"
-			let $FZF_DEFAULT_OPTS    = "--bind ctrl-f:preview-half-page-down,ctrl-b:preview-half-page-up --preview-window=wrap"  " move preview half page-up/down using ctrl-b/f
+
+			" move preview half page-up/down using ctrl-b/f
+			" wrap preview content
+			let $FZF_DEFAULT_OPTS    = "--bind ctrl-f:preview-half-page-down,ctrl-b:preview-half-page-up --preview-window=wrap"
 
 			let g:fzf_action = {
 						\ 'ctrl-t': 'tab split',
