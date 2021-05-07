@@ -56,7 +56,7 @@ endfunction
 
 function! simp#gotomark()
 	" only display mark [a-zA-Z], mark ', and mark .
-	marks '.\"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+	marks '.\"0abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 	echo('Mark: ')
 
 	" getchar() - prompts user for a single character and returns the chars
