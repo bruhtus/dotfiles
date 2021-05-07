@@ -118,12 +118,6 @@ nnoremap ZK :<C-u>execute 'move -1-'. v:count1<CR>==
 " default: current line
 nnoremap ZU :<C-u>execute 't -1-'. v:count<CR>==
 
-" map ZN to yank mark m and put below current line
-nnoremap ZN :'mt.<CR>
-
-" map ZH to yank mark m and put above current line
-nnoremap ZH :'mt.-1<CR>
-
 " use ctrl-k/j to go up/down in command line history
 cnoremap <C-k> <up>
 cnoremap <C-j> <down>
