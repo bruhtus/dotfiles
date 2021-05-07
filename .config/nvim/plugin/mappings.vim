@@ -100,9 +100,6 @@ nnoremap ZX :w<CR>
 " set ZA as :on
 nnoremap ZA :on<CR>
 
-" set ZC as :filetype detect
-nnoremap ZC :filetype detect<CR>
-
 " set ZS to grep word under cursor in current buffer
 nnoremap ZS :execute "lvimgrep /\\<" . expand("<cword>") . "\\>/j %"<CR>
 
