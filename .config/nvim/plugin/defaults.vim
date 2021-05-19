@@ -9,6 +9,7 @@ set complete-=t " disable scanning tags
 set laststatus=2
 set updatetime=0
 set wildignorecase
+set timeoutlen=500
 set ttimeoutlen=30
 set winminheight=0
 set matchpairs+=<:>
