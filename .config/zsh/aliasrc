@@ -45,7 +45,6 @@ alias \
 alias \
 	ls='exa -l --links -t=changed --git --group --color=always --group-directories-first --sort=ext' \
 	ll='exa -l --inode --header --blocks --links -t=changed --time-style=long-iso --git --group --color=always --group-directories-first --sort=ext' \
-	l.='exa -al -t=changed --git --group --color=always --group-directories-first | egrep "^\."'
 
 #grep, less, count, and redirect error to file
 alias \
@@ -89,11 +88,6 @@ function untar(){tar -xzf $1 --one-top-level}
 #mounting and unmounting from CLI
 function dm(){udisksctl mount -b /dev/$1}
 function dum(){udisksctl unmount -b /dev/$1}
-
-#open exa tree in less
-function lt(){
-    exa -al --tree --level=2 --links -t=changed --git --group --color=always --group-directories-first --sort=ext $1 | less -F
-}
 
 #like pastebin but on terminal directly (using vim readonly mode for easy copy-paste)
 function termbin(){vim -R <($@ | nc termbin.com 9999)}
