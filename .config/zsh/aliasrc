@@ -95,7 +95,7 @@ function termbin(){vim -R <($@ | nc termbin.com 9999)}
 function p(){python $@ | less -F}
 function pl(){python $@ | less}
 function pc(){python -c $1}
-function pv(){vim -R <(python $@)}
+function pv(){$EDITOR -R <(python $@)}
 
 #directories alias
 alias \
