@@ -23,8 +23,6 @@ alias \
 	wiki='$EDITOR ~/sync/wiki/index.md' \
 	rate='curl rate.sx' \
 	lynx='lynx -vikeys' \
-	pmf='pomoterm focus' \
-	pmb='pomoterm break' \
 	saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 
 #verbosity
