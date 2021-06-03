@@ -14,8 +14,6 @@ alias \
 	wttr='curl wttr.in\?%tpFQn1m' \
 	translate='gawk -f <(curl -Ls git.io/translate) -- -shell' \
 	ipa='curl ifconfig.co' \
-	mm='morc_menu' \
-	bt='bpytop' \
 	rs='rsync -ahP' \
 	cm='cd /run/media' \
 	v='$EDITOR' \
