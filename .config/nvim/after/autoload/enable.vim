@@ -74,7 +74,7 @@ function! enable#easyalign()
 endfunction
 
 function! enable#fzf()
-	if !exists(':FZF')
+	if !exists(':Files')
 		try
 			packadd fzf | packadd fzf.vim
 
