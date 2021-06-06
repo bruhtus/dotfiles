@@ -35,7 +35,7 @@ alias \
 	gbd='git branch -d'
 
 alias \
-	gco='git checkout' \
+	gco='git checkout $(git branch -a | fzf)' \
 	gcb='git checkout -b'
 
 alias \
