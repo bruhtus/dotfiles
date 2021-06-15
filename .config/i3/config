@@ -82,7 +82,6 @@ bindsym $mod+Ctrl+Shift+l exec --no-startup-id i3resize right
 #---Application---#
 bindsym $mod+d exec $term
 bindsym $mod+w exec qutebrowser
-bindsym $mod+e exec $term -e ranger
 bindsym $mod+a exec --no-startup-id rofi -show run
 bindsym $mod+i exec google-chrome-stable --new-window https://github.com/stars/bruhtus
 
