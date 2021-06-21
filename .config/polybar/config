@@ -454,7 +454,7 @@ time = %H:%M
 ;time-alt = %H:%M
 
 label = %time%
-format-foreground = #bde97c
+format-foreground = #afffaf
 
 [module/pulseaudio]
 type = internal/pulseaudio
