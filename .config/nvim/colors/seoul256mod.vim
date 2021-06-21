@@ -387,6 +387,10 @@ call s:hi('ExtraWhitespace', [''], [s:dark_bg - 1])
 hi CursorLine cterm=NONE
 hi CursorLineNr cterm=NONE
 
+" change statusline color when enter insert mode
+autocmd! InsertEnter * call s:hi('StatusLine', [233], [151])
+autocmd! InsertLeave * call s:hi('StatusLine', [233], [187])
+
 let g:seoul256_current_fg = [s:dark_fg][s:style_idx]
 let g:seoul256_current_bg = [s:dark_bg][s:style_idx]
 let g:colors_name = 'seoul256mod'
