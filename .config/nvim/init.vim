@@ -1,9 +1,5 @@
 if has('packages')
-	if has('nvim')
-		let $MYPACK = stdpath('config') . '/after/autoload/pack.vim'
-	else
-		let $MYPACK = '$HOME/.vim/after/autoload/pack.vim'
-	endif
+	let $MYPACK = has('nvim') ? stdpath('config') . '/after/autoload/pack.vim' : '$HOME/.vim/after/autoload/pack.vim'
 
 	command! PackList    packadd minpac | echo minpac#getpackages('minpac', '', '', 1)
 	command! PackStartup packadd minpac | echo minpac#getpackages('minpac', 'start', '', 1)
