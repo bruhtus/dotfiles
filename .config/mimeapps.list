@@ -12,10 +12,14 @@
 # More info: https://wiki.archlinux.org/index.php/Xdg-utils
 
 [Default Applications]
-x-scheme-handler/tg=userapp-Telegram Desktop-IAIRY0.desktop
+
+# These .desktop entries can also be seen and changes in ~/.local/share/applications
+
 image/png=imv.desktop
 image/jpeg=imv.desktop
 application/pdf=org.pwmt.zathura.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-IAIRY0.desktop
 
 [Added Associations]
+
 x-scheme-handler/tg=userapp-Telegram Desktop-IAIRY0.desktop;
