@@ -15,6 +15,8 @@
 
 # These .desktop entries can also be seen and changes in ~/.local/share/applications
 
+text/plain=text.desktop
+text/x-shellscript=text.desktop
 image/gif=img.desktop
 image/png=img.desktop
 image/jpeg=img.desktop
