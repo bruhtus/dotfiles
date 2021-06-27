@@ -15,8 +15,9 @@
 
 # These .desktop entries can also be seen and changes in ~/.local/share/applications
 
-image/png=imv.desktop
-image/jpeg=imv.desktop
+image/gif=img.desktop
+image/png=img.desktop
+image/jpeg=img.desktop
 application/pdf=pdf.desktop
 x-scheme-handler/tg=userapp-Telegram Desktop-IAIRY0.desktop
 
