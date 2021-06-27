@@ -15,6 +15,7 @@
 
 # These .desktop entries can also be seen and changes in ~/.local/share/applications
 
+inode/directory=directory.desktop
 text/plain=text.desktop
 text/x-shellscript=text.desktop
 image/gif=img.desktop
