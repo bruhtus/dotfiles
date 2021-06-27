@@ -78,11 +78,11 @@ endfunction
 
 " horisontal or vertical split buffer
 function! simp#split()
-	let l:choice = confirm("Horisontal or Vertical Split Buffer?",
-				\	"&JHorisontal\n&KVertical")
+	let l:choice = confirm("Horizontal or Vertical Split Buffer?",
+				\	"&JHorizontal\n&KVertical")
 
 	if l:choice == 1
-		echo 'Horisontal split'
+		echo 'Horizontal split'
 		ls
 		call inputsave()
 		let l:buffernumber = input('Enter buffer number: ')
