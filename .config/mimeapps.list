@@ -1,0 +1,8 @@
+[Default Applications]
+x-scheme-handler/tg=userapp-Telegram Desktop-IAIRY0.desktop
+image/png=imv.desktop
+image/jpeg=imv.desktop
+application/pdf=org.pwmt.zathura.desktop
+
+[Added Associations]
+x-scheme-handler/tg=userapp-Telegram Desktop-IAIRY0.desktop;
