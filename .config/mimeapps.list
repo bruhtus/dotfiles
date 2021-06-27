@@ -17,7 +17,7 @@
 
 image/png=imv.desktop
 image/jpeg=imv.desktop
-application/pdf=org.pwmt.zathura.desktop
+application/pdf=pdf.desktop
 x-scheme-handler/tg=userapp-Telegram Desktop-IAIRY0.desktop
 
 [Added Associations]
