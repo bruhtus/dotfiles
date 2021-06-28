@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Browser
+Exec=/usr/bin/google-chrome-stable --incognito %u
