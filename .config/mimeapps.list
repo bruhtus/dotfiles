@@ -12,7 +12,6 @@
 # More info: https://wiki.archlinux.org/index.php/Xdg-utils
 
 [Default Applications]
-
 # These .desktop entries can also be seen and changes in ~/.local/share/applications
 
 inode/directory=directory.desktop
@@ -22,8 +21,11 @@ image/gif=img.desktop
 image/png=img.desktop
 image/jpeg=img.desktop
 application/pdf=pdf.desktop
+application/octet-stream=office.desktop
 x-scheme-handler/tg=userapp-Telegram Desktop-IAIRY0.desktop
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-startcenter.desktop
 
 [Added Associations]
 
 x-scheme-handler/tg=userapp-Telegram Desktop-IAIRY0.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-startcenter.desktop;
