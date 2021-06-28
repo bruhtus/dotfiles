@@ -35,6 +35,33 @@ export LESS_TERMCAP_ue=$(tput sgr0)
 # End bold, blinking, standout, underline
 export LESS_TERMCAP_me=$(tput sgr0)
 
+#change ls color
+#ls color list: https://askubuntu.com/a/466203
+#ls default colors meaning: https://askubuntu.com/a/884513
+# declare -A descriptions=(
+#     [bd]="block device"
+#     [ca]="file with capability"
+#     [cd]="character device"
+#     [di]="directory"
+#     [do]="door"
+#     [ex]="executable file"
+#     [fi]="regular file"
+#     [ln]="symbolic link"
+#     [mh]="multi-hardlink"
+#     [mi]="missing file"
+#     [no]="normal non-filename text"
+#     [or]="orphan symlink"
+#     [ow]="other-writable directory"
+#     [pi]="named pipe, AKA FIFO"
+#     [rs]="reset to no color"
+#     [sg]="set-group-ID"
+#     [so]="socket"
+#     [st]="sticky directory"
+#     [su]="set-user-ID"
+#     [tw]="sticky and other-writable directory"
+# )
+export LS_COLORS="ow=1;34;40"
+
 #CUDA
 # export PATH="/opt/cuda/bin:$PATH"
 # export CPATH="/opt/cuda/include:$CPATH"
