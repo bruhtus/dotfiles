@@ -12,6 +12,7 @@ function! pack#init() abort
 		call minpac#init()
 	endtry
 
+	call minpac#add('tpope/vim-sleuth')
 	call minpac#add('tpope/vim-surround')
 	call minpac#add('wellle/targets.vim')
 	call minpac#add('airblade/vim-rooter')
