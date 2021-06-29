@@ -38,8 +38,12 @@ endfunction
 
 function! enable#fugitive()
 	try
-		packadd vim-fugitive
-		Git
+		if &filetype !=# 'fugitive'
+			packadd vim-fugitive
+			Git
+		else
+			norm gq
+		endif
 	catch
 		echo 'Fugitive plugin not installed or not git repo'
 	endtry
