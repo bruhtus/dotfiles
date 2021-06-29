@@ -45,9 +45,7 @@ else
 	set wildmode=longest,list,full
 
 	" check if there's termwinkey variable or not
-	if exists('&termwinkey')
-		set termwinkey=<C-p>
-	endif
+	if exists('&termwinkey') | set termwinkey=<C-p> | endif
 endif
 
 syntax on
