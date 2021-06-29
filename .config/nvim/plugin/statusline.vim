@@ -2,8 +2,8 @@
 
 if has('nvim')
 	" do not change statusline of quickfix window
-	autocmd! VimEnter,WinEnter,BufWinEnter * if &buftype=='quickfix' | else | call StatuslineLoad('active')
-	autocmd! WinLeave * if &buftype=='quickfix' | else | call StatuslineLoad('inactive')
+	autocmd! VimEnter,WinEnter,BufWinEnter * if &buftype=='quickfix' | else | call StatuslineLoad('active') | endif
+	autocmd! WinLeave * if &buftype=='quickfix' | else | call StatuslineLoad('inactive') | endif
 
 else
 	" default setting because can't display filename in the middle statusline
