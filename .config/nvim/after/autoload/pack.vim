@@ -34,8 +34,8 @@ function! pack#init() abort
 	call minpac#add('AndrewRadev/linediff.vim',     { 'type': 'opt' })
 	call minpac#add('tweekmonster/startuptime.vim', { 'type': 'opt' })
 	call minpac#add('jeetsukumaran/vim-filebeagle', { 'type': 'opt' })
+	call minpac#add('junegunn/fzf',                 { 'type': 'opt' })
 	call minpac#add('junegunn/fzf.vim',             { 'type': 'opt' })
-	call minpac#add('junegunn/fzf',                 { 'type': 'opt', 'do': { -> fzf#install() } })
 
 	if has('nvim-0.5')
 		call minpac#add('phaazon/hop.nvim')
