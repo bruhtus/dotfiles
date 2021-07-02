@@ -17,6 +17,7 @@
 inode/directory=directory.desktop
 text/plain=text.desktop
 text/x-shellscript=text.desktop
+text/html=browser.desktop
 image/gif=img.desktop
 image/png=img.desktop
 image/jpeg=img.desktop
