@@ -24,7 +24,9 @@ setopt always_to_end
 #history
 HISTSIZE=10000000
 SAVEHIST=1000000
-HISTFILE=~/.cache/zsh/history
+# create .cache/zsh directory if it doesn't exists
+[ -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh" ] && HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history" || \
+  mkdir "${XDG_CACHE_HOME:-$HOME/.cache}/zsh" && HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 
 #load aliases if exist
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasrc"
