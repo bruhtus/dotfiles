@@ -74,6 +74,7 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 bindsym $mod+Ctrl+f fullscreen toggle
+bindsym $mod+Ctrl+b move container to workspace back_and_forth
 
 bindsym $mod+Ctrl+Shift+h exec --no-startup-id i3resize left
 bindsym $mod+Ctrl+Shift+j exec --no-startup-id i3resize down
