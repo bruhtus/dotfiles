@@ -46,7 +46,7 @@ and then run `zplug install`.
 dotbare finit -u <git-repo-url>
 ```
 
-### References
+## References
 - [Atlassian tutorial](https://www.atlassian.com/git/tutorials/dotfiles).
 - [Dotbare github repo](https://github.com/kazhala/dotbare).
 - [Alacritty color schemes](https://github.com/alacritty/alacritty/wiki/Color-schemes).
