@@ -1,14 +1,10 @@
 # Personal Dotfiles
 
-> Note to myself: don't forget to make the script executable by doing `chmod +x <filename>`
-
-> To enable updates-notifier, use `systemctl --user enable --now updates-notifier.timer`
-
-> Download only neovim config: [here](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/bruhtus/dotfiles/tree/master/.config/nvim)
-
 ![setup-screenshot](https://raw.githubusercontent.com/wiki/bruhtus/dotfiles/arch-linux-setup-july-2021.png)
 
 This repo is to backup my linux configuration so that I don't need to re-configure every new installation. I use [dotbare](https://github.com/kazhala/dotbare) to manage my dotfiles. Below is the simplified version to setup dotbare.
+
+> Download only neovim config: [here](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/bruhtus/dotfiles/tree/master/.config/nvim)
 
 ### Initialize dotbare to backup configuration dotfiles
 ```bash
@@ -24,6 +20,10 @@ dotbare push origin master
 ```
 
 ### To restore all of your dotfiles into new system
+> Note to myself: don't forget to make the script executable by doing `chmod +x <filename>`
+
+> To enable updates-notifier, use `systemctl --user enable --now updates-notifier.timer`
+
 Install zsh first, and then do the instruction below:
 
 - Install zplug with command below:
