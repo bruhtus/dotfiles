@@ -4,8 +4,6 @@
 
 This repo is to backup my linux configuration so that I don't need to re-configure every new installation. I use [dotbare](https://github.com/kazhala/dotbare) to manage my dotfiles. Below is the simplified version to setup dotbare.
 
-> Download only neovim config: [here](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/bruhtus/dotfiles/tree/master/.config/nvim)
-
 ## Initialize dotbare to backup configuration dotfiles
 ```bash
 dotbare finit
@@ -47,6 +45,7 @@ dotbare finit -u <git-repo-url>
 ```
 
 ## References
+- [Download only neovim config](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/bruhtus/dotfiles/tree/master/.config/nvim).
 - [Atlassian tutorial](https://www.atlassian.com/git/tutorials/dotfiles).
 - [Dotbare github repo](https://github.com/kazhala/dotbare).
 - [Alacritty color schemes](https://github.com/alacritty/alacritty/wiki/Color-schemes).
