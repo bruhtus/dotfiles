@@ -23,7 +23,6 @@ function! pack#init() abort
 	call minpac#add('junegunn/gv.vim',              { 'type': 'opt' })
 	call minpac#add('ap/vim-css-color',             { 'type': 'opt' })
 	call minpac#add('tpope/vim-eunuch',             { 'type': 'opt' })
-	call minpac#add('reedes/vim-pencil',            { 'type': 'opt' })
 	call minpac#add('junegunn/goyo.vim',            { 'type': 'opt' })
 	call minpac#add('tpope/vim-fugitive',           { 'type': 'opt' })
 	call minpac#add('luochen1990/rainbow',          { 'type': 'opt' })
