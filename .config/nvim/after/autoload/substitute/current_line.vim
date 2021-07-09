@@ -5,10 +5,13 @@
 " <pattern>
 " More info: `:h \zs`
 
-function! substitute#current_line#split_by_comma()
+" split current line based on comma inside parenthesis
+" reference: https://stackoverflow.com/a/33337692
+" :h sub-replace-special
+function! substitute#current_line#split_by_comma_parentheses()
 	try
 		norm m`
-		s/, /,\r/g
+		s/(.\{-})/\=substitute(submatch(0), ',', ',\r', 'g')
 		norm =ip
 		norm ``
 	catch
