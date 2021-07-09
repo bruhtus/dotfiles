@@ -14,6 +14,9 @@ function! substitute#current_line#split_by_comma_parentheses()
 		s/(.\{-})/\=substitute(submatch(0), ',', ',\r', 'g')
 		norm =ip
 		norm ``
+		s/(/(\r/g
+		norm =ip
+		norm ``
 	catch
 		echo "There's no comma in current line"
 	endtry
