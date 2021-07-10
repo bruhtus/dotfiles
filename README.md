@@ -67,7 +67,7 @@ File manager        | [Ranger (TUI)](https://github.com/ranger/ranger)
 Video player        | [Mpv](https://mpv.io/)
 System monitor      | [Htop](https://github.com/htop-dev/htop)
 |                   | [Bpytop](https://github.com/aristocratos/bpytop)
-|                   | [Conky (no longer using)](https://github.com/brndnmtthws/conky)
+|                   | [Conky](https://github.com/brndnmtthws/conky) (no longer using)
 
 </details>
 
