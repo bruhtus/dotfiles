@@ -44,6 +44,33 @@ and then run `zplug install`.
 dotbare finit -u <git-repo-url>
 ```
 
+<details>
+<summary><strong>Some details about my setup</strong></summary>
+
+Category            | Name
+---                 | ---
+Operating system    | [Arch linux](https://archlinux.org/)
+Window manager      | [i3](https://github.com/i3/i3)
+Text editor         | [Neovim](https://github.com/neovim/neovim)
+Terminal emulator   | [Alacritty](https://github.com/alacritty/alacritty)
+Shell               | [Zsh](https://zsh.sourceforge.io/Doc/Release/index.html)
+Shell prompt        | [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
+Package manager     | [Pacman](https://wiki.archlinux.org/title/pacman)
+|                   | [Yay (AUR helper)](https://github.com/Jguer/yay)
+Status bar          | [Polybar](https://github.com/polybar/polybar)
+Notification daemon | [Dunst](https://github.com/dunst-project/dunst)
+Launcher            | [Rofi](https://github.com/davatorium/rofi)
+|                   | [Dmenu](https://tools.suckless.org/dmenu/)
+Compositor          | [Picom](https://github.com/yshui/picom)
+File manager        | [Ranger (TUI)](https://github.com/ranger/ranger)
+|                   | [Pcmanfm (GUI)](https://github.com/lxde/pcmanfm)
+Video player        | [Mpv](https://mpv.io/)
+System monitor      | [Htop](https://github.com/htop-dev/htop)
+|                   | [Bpytop](https://github.com/aristocratos/bpytop)
+|                   | [Conky (no longer using)](https://github.com/brndnmtthws/conky)
+
+</details>
+
 ## References
 - [Download only neovim config](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/bruhtus/dotfiles/tree/master/.config/nvim).
 - [Atlassian tutorial](https://www.atlassian.com/git/tutorials/dotfiles).
