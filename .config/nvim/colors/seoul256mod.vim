@@ -144,7 +144,7 @@ let s:style_idx = 0
 
 " Background colors
 let s:dark_bg  = get(s:, 'seoul256_background', 233)
-let s:dark_bg_2 = s:dark_bg > 233 ? s:dark_bg - 2 : 16
+let s:dark_bg_2 = s:dark_bg > 233 ? s:dark_bg - 2 : 232
 
 " Foreground colors
 let s:dark_fg = 252
