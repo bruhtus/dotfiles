@@ -68,6 +68,7 @@ Video player        | [Mpv](https://mpv.io/)
 System monitor      | [Htop](https://github.com/htop-dev/htop)
 |                   | [Bpytop](https://github.com/aristocratos/bpytop)
 |                   | [Conky](https://github.com/brndnmtthws/conky) (no longer using)
+Python venv manager | [Pyv](https://github.com/bruhtus/pyv)
 
 </details>
 
