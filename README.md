@@ -73,7 +73,7 @@ Python venv manager | [Pyv](https://github.com/bruhtus/pyv)
 
 </details>
 
-## References
+## Resources
 - [Download only neovim config](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/bruhtus/dotfiles/tree/master/.config/nvim).
 - [Atlassian tutorial](https://www.atlassian.com/git/tutorials/dotfiles).
 - [Dotbare github repo](https://github.com/kazhala/dotbare).
