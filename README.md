@@ -69,7 +69,7 @@ Video player        | [Mpv](https://mpv.io/)
 System monitor      | [Htop](https://github.com/htop-dev/htop)
 |                   | [Bpytop](https://github.com/aristocratos/bpytop)
 |                   | [Conky](https://github.com/brndnmtthws/conky) (no longer using)
-To-do list          | [Taskwarrior](https://taskwarrior.org/)
+To-do list manager  | [Taskwarrior](https://taskwarrior.org/)
 Python venv manager | [Pyv](https://github.com/bruhtus/pyv)
 
 </details>
