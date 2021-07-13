@@ -76,7 +76,7 @@ function! StatuslineGit()
 	if exists('*FugitiveHead')
 		return winwidth(0) > 70 ? fugitive#head() : ''
 	else
-		return winwidth(0) > 70 ? system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'") : ''
+		return winwidth(0) > 70 ? system("git branch --show-current 2>/dev/null | tr -d '\n'") : ''
 	endif
 endfunction
 
