@@ -353,16 +353,16 @@ call s:hi('Ignore',  [s:dark_bg + 3], [s:dark_bg])
 
 " vim-easymotion
 " -----------
-" call s:hi('EasyMotionTarget',        [157], [''])
+" call s:hi('EasyMotionTarget',        [152], [''])
 " call s:hi('EasyMotionTarget2First',  [224], [''])
 " call s:hi('EasyMotionTarget2Second', [217], [''])
 
 " hop.nvim
 " -----------
-call s:hi('HopNextKey',   [157],            [''])
-call s:hi('HopNextKey1',  [224],            [''])
-call s:hi('HopNextKey2',  [217],            [''])
-call s:hi('HopUnmatched', [s:dark_bg + 10], [''])
+call s:hi('HopNextKey',   [152],           [''])
+call s:hi('HopNextKey1',  [224],           [''])
+call s:hi('HopNextKey2',  [217],           [''])
+call s:hi('HopUnmatched', [s:dark_bg + 8], [''])
 
 " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
 " ---------------------------------------------------^^^^^
