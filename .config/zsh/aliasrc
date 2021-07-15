@@ -2,7 +2,7 @@
 [ -f "$XINITRC" ] && alias sx='startx $XINITRC'
 
 #display git status
-alias qwe='git-status-checker | less -r'
+alias qwe='git-status-checker'
 
 #color command when possible
 alias \
