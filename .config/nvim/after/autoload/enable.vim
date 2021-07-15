@@ -63,20 +63,6 @@ function! enable#filebeagle()
 	endif
 endfunction
 
-function! enable#easyalign()
-	try
-		packadd vim-easy-align
-
-		" Start interactive EasyAlign in visual mode (e.g. vipgl)
-		xmap gl <Plug>(EasyAlign)
-
-		" Start interactive EasyAlign for a motion/text object (e.g. glip)
-		nmap gl <Plug>(EasyAlign)
-	catch
-		echo 'Easy-align plugin not installed'
-	endtry
-endfunction
-
 function! enable#fzf()
 	if !exists(':Files')
 		try
