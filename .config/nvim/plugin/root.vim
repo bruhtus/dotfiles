@@ -1,3 +1,3 @@
 " minimalist vim-rooter alternative
 
-nnoremap - :call root#toggle()<CR>
+nnoremap <silent> - :call root#toggle()<CR>
