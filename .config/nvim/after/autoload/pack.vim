@@ -35,6 +35,7 @@ function! pack#init() abort
 	call minpac#add('jeetsukumaran/vim-filebeagle', { 'type': 'opt' })
 	call minpac#add('junegunn/fzf',                 { 'type': 'opt' })
 	call minpac#add('junegunn/fzf.vim',             { 'type': 'opt' })
+	call minpac#add('iamcco/markdown-preview.nvim', { 'type': 'opt', 'do': 'packadd markdown-preview.nvim | call mkdp#util#install()' })
 
 	if has('nvim-0.5')
 		call minpac#add('phaazon/hop.nvim')

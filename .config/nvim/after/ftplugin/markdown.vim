@@ -1,12 +1,7 @@
-" preview markdown with `glow` (on AUR)
+" preview markdown with `markdown-preview.nvim`
 
 let maplocalleader = '\'
 
 " \\ to preview markdown
-if executable('glow')
-	if has('nvim')
-		nnoremap <buffer> <localleader>\ :term glow -p %<CR>
-	else
-		nnoremap <buffer> <localleader>\ :!glow -p %<CR><CR>
-	endif
-endif
+let g:mkdp_refresh_slow = 1
+nnoremap <buffer> <silent> <localleader>\ :packadd markdown-preview.nvim<CR>:call mkdp#util#toggle_preview()<CR>
