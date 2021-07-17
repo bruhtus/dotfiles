@@ -15,7 +15,6 @@ function! pack#init() abort
 	call minpac#add('tpope/vim-sleuth')
 	call minpac#add('tpope/vim-surround')
 	call minpac#add('wellle/targets.vim')
-	call minpac#add('airblade/vim-rooter')
 	call minpac#add('tpope/vim-commentary')
 	call minpac#add('ronakg/quickr-preview.vim')
 
@@ -43,6 +42,7 @@ function! pack#init() abort
 		call minpac#add('easymotion/vim-easymotion')
 	endif
 
+	" call minpac#add('airblade/vim-rooter')
 	" call minpac#add('preservim/tagbar')
 	" call minpac#add('kshenoy/vim-signature')
 	" call minpac#add('glepnir/dashboard-nvim')
