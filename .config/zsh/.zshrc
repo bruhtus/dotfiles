@@ -74,5 +74,12 @@ else
 fi
 unset CASE_SENSITIVE HYPHEN_INSENSITIVE
 
+function set_win_title(){
+  # echo -ne "\033]0; $(basename "$PWD") \007"
+  print -Pn "\e]0;%~\a"
+}
+
+precmd_functions+=(set_win_title)
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
