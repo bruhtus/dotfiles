@@ -20,7 +20,7 @@ function! root#toggle()
 
 		augroup RootWindow
 			autocmd!
-			autocmd WinLeave * if exists('g:root_enabled') | unlet g:root_enabled | endif
+			autocmd WinLeave,BufLeave * if exists('g:root_enabled') | unlet g:root_enabled | endif
 		augroup END
 	endif
 endfunction
