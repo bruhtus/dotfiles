@@ -1,49 +1,50 @@
 function! pack#init() abort
 	try
-		packadd minpac
-		call minpac#init()
+		packadd vim-packager
+		call packager#init({'window_cmd': 'topleft new'})
 	catch
 		if has('nvim')
-			exe '!git clone https://github.com/k-takata/minpac.git ' . stdpath('config') . '/pack/minpac/opt/minpac'
+			exe '!git clone https://github.com/kristijanhusak/vim-packager.git ' . stdpath('config') . '/pack/packager/opt/vim-packager'
 		else
-			exe '!git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac'
+			exe '!git clone https://github.com/kristijanhusak/vim-packager.git ~/.vim/pack/packager/opt/vim-packager'
 		endif
-		packadd minpac
-		call minpac#init()
+		packadd vim-packager
+		call packager#init({'window_cmd': 'topleft new'})
 	endtry
 
-	call minpac#add('tpope/vim-sleuth')
-	call minpac#add('tpope/vim-surround')
-	call minpac#add('wellle/targets.vim')
-	call minpac#add('tpope/vim-commentary')
-	call minpac#add('ronakg/quickr-preview.vim')
+	call packager#add('tpope/vim-sleuth')
+	call packager#add('tpope/vim-surround')
+	call packager#add('wellle/targets.vim')
+	call packager#add('tpope/vim-commentary')
+	call packager#add('ronakg/quickr-preview.vim')
 
-	call minpac#add('k-takata/minpac',              { 'type': 'opt' })
-	call minpac#add('junegunn/gv.vim',              { 'type': 'opt' })
-	call minpac#add('ap/vim-css-color',             { 'type': 'opt' })
-	call minpac#add('tpope/vim-eunuch',             { 'type': 'opt' })
-	call minpac#add('junegunn/goyo.vim',            { 'type': 'opt' })
-	call minpac#add('tpope/vim-fugitive',           { 'type': 'opt' })
-	call minpac#add('luochen1990/rainbow',          { 'type': 'opt' })
-	call minpac#add('tommcdo/vim-exchange',         { 'type': 'opt' })
-	call minpac#add('junegunn/limelight.vim',       { 'type': 'opt' })
-	call minpac#add('junegunn/vim-easy-align',      { 'type': 'opt' })
-	call minpac#add('dstein64/vim-startuptime',     { 'type': 'opt' })
-	call minpac#add('AndrewRadev/linediff.vim',     { 'type': 'opt' })
-	call minpac#add('tweekmonster/startuptime.vim', { 'type': 'opt' })
-	call minpac#add('jeetsukumaran/vim-filebeagle', { 'type': 'opt' })
-	call minpac#add('junegunn/fzf',                 { 'type': 'opt' })
-	call minpac#add('junegunn/fzf.vim',             { 'type': 'opt' })
-	call minpac#add('iamcco/markdown-preview.nvim', { 'type': 'opt', 'do': 'packadd markdown-preview.nvim | call mkdp#util#install()' })
+	call packager#add('junegunn/gv.vim',              { 'type': 'opt' })
+	call packager#add('ap/vim-css-color',             { 'type': 'opt' })
+	call packager#add('tpope/vim-eunuch',             { 'type': 'opt' })
+	call packager#add('junegunn/goyo.vim',            { 'type': 'opt' })
+	call packager#add('tpope/vim-fugitive',           { 'type': 'opt' })
+	call packager#add('luochen1990/rainbow',          { 'type': 'opt' })
+	call packager#add('tommcdo/vim-exchange',         { 'type': 'opt' })
+	call packager#add('andymass/vim-matchup',         { 'type': 'opt' })
+	call packager#add('junegunn/limelight.vim',       { 'type': 'opt' })
+	call packager#add('junegunn/vim-easy-align',      { 'type': 'opt' })
+	call packager#add('dstein64/vim-startuptime',     { 'type': 'opt' })
+	call packager#add('AndrewRadev/linediff.vim',     { 'type': 'opt' })
+	call packager#add('kristijanhusak/vim-packager',  { 'type': 'opt' })
+	call packager#add('tweekmonster/startuptime.vim', { 'type': 'opt' })
+	call packager#add('jeetsukumaran/vim-filebeagle', { 'type': 'opt' })
+	call packager#add('junegunn/fzf',                 { 'type': 'opt' })
+	call packager#add('junegunn/fzf.vim',             { 'type': 'opt' })
+	call packager#add('iamcco/markdown-preview.nvim', { 'type': 'opt', 'do': ':packadd markdown-preview.nvim | call mkdp#util#install()' })
 
 	if has('nvim-0.5')
-		call minpac#add('phaazon/hop.nvim')
+		call packager#add('phaazon/hop.nvim')
 	else
-		call minpac#add('easymotion/vim-easymotion')
+		call packager#add('easymotion/vim-easymotion')
 	endif
 
-	" call minpac#add('airblade/vim-rooter')
-	" call minpac#add('preservim/tagbar')
-	" call minpac#add('kshenoy/vim-signature')
-	" call minpac#add('glepnir/dashboard-nvim')
+	" call packager#add('airblade/vim-rooter')
+	" call packager#add('preservim/tagbar')
+	" call packager#add('kshenoy/vim-signature')
+	" call packager#add('glepnir/dashboard-nvim')
 endfunction
