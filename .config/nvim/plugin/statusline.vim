@@ -38,15 +38,15 @@ endfunction
 
 function! StatuslineComponent() abort
 	let l:line=''
-	let l:line.='  %3{StatuslineMode()}'
+	let l:line.='  %{StatuslineMode()}'
 	let l:line.='  %{StatuslineGit()}'
 	let l:line.='%='
 	let l:line.='%r'
-	let l:line.=' %{StatuslineFilename()}'
+	let l:line.=' %<%{StatuslineFilename()}'
 	let l:line.=' %m'
 	let l:line.='%='
 	let l:line.='%{StatuslineFiletype()}'
-	let l:line.='  %3l/%L%<'
+	let l:line.='  %3l/%L'
 	return l:line
 endfunction
 
