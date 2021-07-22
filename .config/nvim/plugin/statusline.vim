@@ -37,16 +37,27 @@ function! StatuslineLoad(mode)
 endfunction
 
 function! StatuslineComponent() abort
+	" reference: https://stackoverflow.com/a/65908148
 	let l:line=''
-	let l:line.='  %{StatuslineMode()}'
-	let l:line.='  %{StatuslineGit()}'
+
+	if mode() == 'n'
+		let l:line.='%#NormalModeColor#'
+	elseif mode() == v:insertmode
+		let l:line.='%#InsertModeColor#'
+	elseif mode() == 'v' || mode() == 'V' || mode() == "\<C-V>"
+		let l:line.='%#VisualModeColor#'
+	elseif mode() == 'c' || mode() == 't'
+		let l:line.='%#CommandModeColor#'
+	endif
+
+	let l:line.=' %#StatusLine# %{StatuslineGit()}'
 	let l:line.='%='
-	let l:line.='%r'
-	let l:line.=' %<%{StatuslineFilename()}'
-	let l:line.=' %m'
+	let l:line.='%#StatusLine#%r'
+	let l:line.=' %#StatusLine#%<%{StatuslineFilename()}'
+	let l:line.=' %#StatusLine#%m'
 	let l:line.='%='
-	let l:line.='%{StatuslineFiletype()}'
-	let l:line.='  %3l/%L'
+	let l:line.='%#StatusLine#%{StatuslineFiletype()}'
+	let l:line.='  %#StatusLine#%3l/%L'
 	return l:line
 endfunction
 
@@ -91,24 +102,24 @@ function! StatuslineFiletype()
 	return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
 endfunction
 
-function! StatuslineMode() abort
-	let l:currentmode={
-				\ 'n' : 'N',
-				\ 'v' : 'V',
-				\ 'V' : 'VL',
-				\ '^V' : 'VB',
-				\ 's' : 'S',
-				\ 'S': 'SL',
-				\ '^S' : 'SB',
-				\ 'i' : 'I',
-				\ 'R' : 'R',
-				\ 'c' : 'C',
-				\ 't' : 'T'}
-	let l:modecurrent = mode()
-	" use get() -> fails safely, since ^V doesn't seem to register
-	" 3rd arg is used when return of mode() == 0, which is case with ^V
-	" thus, ^V fails -> returns 0 -> replaced with 'VB'
-	let l:modelist = toupper(get(l:currentmode, l:modecurrent, 'VB'))
-	let l:current_status_mode = l:modelist
-	return l:current_status_mode
-endfunction
+" function! StatuslineMode() abort
+" 	let l:currentmode={
+" 				\ 'n':  'N',
+" 				\ 'v':  'V',
+" 				\ 'V':  'VL',
+" 				\ '^V': 'VB',
+" 				\ 's':  'S',
+" 				\ 'S':  'SL',
+" 				\ '^S': 'SB',
+" 				\ 'i':  'I',
+" 				\ 'R':  'R',
+" 				\ 'c':  'C',
+" 				\ 't':  'T'}
+" 	let l:modecurrent = mode()
+" 	" use get() -> fails safely, since ^V doesn't seem to register
+" 	" 3rd arg is used when return of mode() == 0, which is case with ^V
+" 	" thus, ^V fails -> returns 0 -> replaced with 'VB'
+" 	let l:modelist = toupper(get(l:currentmode, l:modecurrent, 'VB'))
+" 	let l:current_status_mode = l:modelist
+" 	return l:current_status_mode
+" endfunction

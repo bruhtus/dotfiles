@@ -347,6 +347,12 @@ hi link diffLine Constant
 call s:hi('Conceal', [s:dark_fg + 2], [s:dark_bg - 1])
 call s:hi('Ignore',  [s:dark_bg + 3], [s:dark_bg])
 
+" statusline mode color
+call s:hi('NormalModeColor',  [233], [187])
+call s:hi('InsertModeColor',  [233], [151])
+call s:hi('VisualModeColor',  [233], [152])
+call s:hi('CommandModeColor', [233], [217])
+
 """""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -388,8 +394,8 @@ hi CursorLine cterm=NONE
 hi CursorLineNr cterm=NONE
 
 " change statusline color when enter insert mode
-autocmd! InsertEnter * call s:hi('StatusLine', [233], [151])
-autocmd! InsertLeave * call s:hi('StatusLine', [233], [187])
+" autocmd! InsertEnter * call s:hi('StatusLine', [233], [151])
+" autocmd! InsertLeave * call s:hi('StatusLine', [233], [187])
 
 let g:seoul256_current_fg = [s:dark_fg][s:style_idx]
 let g:seoul256_current_bg = [s:dark_bg][s:style_idx]
