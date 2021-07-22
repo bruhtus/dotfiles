@@ -5,7 +5,6 @@ let mapleader = " "
 set hidden
 set showcmd
 set linebreak
-set autochdir
 set complete-=t " disable scanning tags
 set laststatus=2
 set updatetime=0

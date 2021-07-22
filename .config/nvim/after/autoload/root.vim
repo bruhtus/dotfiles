@@ -4,8 +4,9 @@
 " https://stackoverflow.com/a/38082196
 
 function! root#toggle()
-	if exists('g:root_enabled')
-		unlet g:root_enabled
+	if exists('b:root_enabled')
+		unlet b:root_enabled
+		unlet b:root_first_time
 		execute 'lcd %:p:h'
 		echo 'Root directory disabled'
 	else
@@ -14,21 +15,23 @@ function! root#toggle()
 
 		if v:shell_error
 			if isdirectory(l:nvim_root)
-				let g:root_enabled = 1
+				let b:root_enabled = 1
 				execute 'lcd ' . l:nvim_root
-				echo 'Changed directory to: ' . l:nvim_root
+				if !exists('b:root_first_time')
+					let b:root_first_time = 1
+					echo 'Changed directory to: ' . l:nvim_root
+				endif
 			else
 				echo 'Not in git repo or neovim directory'
 			endif
 		else
-			let g:root_enabled = 1
+			let b:root_enabled = 1
 			execute 'lcd ' . l:root
-			echo 'Changed directory to: ' . l:root
+			if !exists('b:root_first_time')
+				let b:root_first_time = 1
+				echo 'Changed directory to: ' . l:root
+			endif
 		endif
 
-		augroup RootWindow
-			autocmd!
-			autocmd WinLeave,BufLeave * if exists('g:root_enabled') | unlet g:root_enabled | endif
-		augroup END
 	endif
 endfunction
