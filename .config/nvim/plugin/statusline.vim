@@ -1,32 +1,10 @@
 " statusline config
-
-if has('nvim')
-	" do not change statusline of quickfix window
-	augroup StatuslineStartup
-		autocmd!
-		autocmd VimEnter,WinEnter,BufWinEnter * if &buftype=='quickfix' | else | call StatuslineLoad('active') | endif
-		autocmd WinLeave * if &buftype=='quickfix' | else | call StatuslineLoad('inactive') | endif
-	augroup END
-
-else
-	" default setting because can't display filename in the middle statusline
-	" in vanilla vim
-	set statusline=
-	set statusline+=\ %3{StatuslineMode()}
-	set statusline+=\ %r
-	set statusline+=\ |
-	set statusline+=\ %{StatuslineFilename()}
-	set statusline+=\ %m
-	set statusline+=%=
-	set statusline+=\ %{StatuslineGit()}
-	set statusline+=\ |
-	set statusline+=\ %{StatuslineFileencoding()}
-	set statusline+=\ |
-	set statusline+=\ %{StatuslineFiletype()}
-	set statusline+=\ |
-	set statusline+=\ %3l/%L%<
-
-endif
+" do not change statusline of quickfix window
+augroup StatuslineStartup
+	autocmd!
+	autocmd VimEnter,WinEnter,BufWinEnter * if &buftype ==# 'quickfix' | else | call StatuslineLoad('active') | endif
+	autocmd WinLeave * if &buftype ==# 'quickfix' | else | call StatuslineLoad('inactive') | endif
+augroup END
 
 function! StatuslineLoad(mode)
 	if a:mode == 'active'
@@ -50,24 +28,44 @@ function! StatuslineComponent() abort
 		let l:line.='%#CommandModeColor#'
 	endif
 
-	let l:line.=' %#StatusLine# %{StatuslineGit()}'
-	let l:line.='%='
-	let l:line.='%#StatusLine#%r'
-	let l:line.=' %#StatusLine#%<%{StatuslineFilename()}'
-	let l:line.=' %#StatusLine#%m'
-	let l:line.='%='
-	let l:line.='%#StatusLine#%{StatuslineFiletype()}'
-	let l:line.='  %#StatusLine#%3l/%L'
+	if has('nvim')
+		let l:line.=' %#StatusLine# %{StatuslineGit()}'
+		let l:line.='%='
+		let l:line.='%#StatusLine#%r'
+		let l:line.=' %#StatusLine#%<%{StatuslineFilename()}'
+		let l:line.=' %#StatusLine#%m'
+		let l:line.='%='
+		let l:line.='%#StatusLine#%{StatuslineFiletype()}'
+		let l:line.='  %#StatusLine#%3l/%L'
+	else
+		let l:line.=' %#StatusLine# %r'
+		let l:line.=' %#StatusLine#%<%{StatuslineFilename()}'
+		let l:line.=' %#StatusLine#%m'
+		let l:line.='%='
+		let l:line.='  %#StatusLine#%{StatuslineGit()}'
+		let l:line.='  %#StatusLine#%{StatuslineFiletype()}'
+		let l:line.='  %#StatusLine#%3l/%L'
+	endif
+
 	return l:line
 endfunction
 
 function! StatuslineNcComponent() abort
 	let l:line=''
-	let l:line.='%='
-	let l:line.='%r'
-	let l:line.=' %{StatuslineFilename()}'
-	let l:line.=' %m'
-	let l:line.='%='
+
+	if has('nvim')
+		let l:line.='%='
+		let l:line.='%r'
+		let l:line.=' %{StatuslineFilename()}'
+		let l:line.=' %m'
+		let l:line.='%='
+	else
+		let l:line.='%r'
+		let l:line.=' %{StatuslineFilename()}'
+		let l:line.=' %m'
+		let l:line.='%='
+	endif
+
 	return l:line
 endfunction
 
@@ -123,3 +121,20 @@ endfunction
 " 	let l:current_status_mode = l:modelist
 " 	return l:current_status_mode
 " endfunction
+
+" default setting because can't display filename in the middle statusline
+" in vanilla vim
+" set statusline=
+" set statusline+=\ %3{StatuslineMode()}
+" set statusline+=\ %r
+" set statusline+=\ |
+" set statusline+=\ %{StatuslineFilename()}
+" set statusline+=\ %m
+" set statusline+=%=
+" set statusline+=\ %{StatuslineGit()}
+" set statusline+=\ |
+" set statusline+=\ %{StatuslineFileencoding()}
+" set statusline+=\ |
+" set statusline+=\ %{StatuslineFiletype()}
+" set statusline+=\ |
+" set statusline+=\ %3l/%L%<
