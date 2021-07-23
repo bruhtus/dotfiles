@@ -92,13 +92,13 @@ function! StatuslineGit()
 	endif
 endfunction
 
-function! StatuslineFileencoding()
-	return winwidth(0) > 70 ? &fileencoding : ''
-endfunction
-
 function! StatuslineFiletype()
 	return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
 endfunction
+
+" function! StatuslineFileencoding()
+" 	return winwidth(0) > 70 ? &fileencoding : ''
+" endfunction
 
 " function! StatuslineMode() abort
 " 	let l:currentmode={
