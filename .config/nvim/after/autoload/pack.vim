@@ -16,7 +16,6 @@ function! pack#init() abort
 	call packager#add('tpope/vim-surround')
 	call packager#add('wellle/targets.vim')
 	call packager#add('tpope/vim-commentary')
-	call packager#add('ronakg/quickr-preview.vim')
 
 	call packager#add('junegunn/gv.vim',              { 'type': 'opt' })
 	call packager#add('ap/vim-css-color',             { 'type': 'opt' })
@@ -30,6 +29,7 @@ function! pack#init() abort
 	call packager#add('junegunn/vim-easy-align',      { 'type': 'opt' })
 	call packager#add('dstein64/vim-startuptime',     { 'type': 'opt' })
 	call packager#add('AndrewRadev/linediff.vim',     { 'type': 'opt' })
+	call packager#add('ronakg/quickr-preview.vim',    { 'type': 'opt' })
 	call packager#add('kristijanhusak/vim-packager',  { 'type': 'opt' })
 	call packager#add('tweekmonster/startuptime.vim', { 'type': 'opt' })
 	call packager#add('jeetsukumaran/vim-filebeagle', { 'type': 'opt' })
