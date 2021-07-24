@@ -16,6 +16,7 @@ function! pack#init() abort
 	call packager#add('tpope/vim-surround')
 	call packager#add('wellle/targets.vim')
 	call packager#add('tpope/vim-commentary')
+	call packager#add('andymass/vim-matchup')
 
 	call packager#add('junegunn/gv.vim',              { 'type': 'opt' })
 	call packager#add('ap/vim-css-color',             { 'type': 'opt' })
@@ -24,7 +25,6 @@ function! pack#init() abort
 	call packager#add('tpope/vim-fugitive',           { 'type': 'opt' })
 	call packager#add('luochen1990/rainbow',          { 'type': 'opt' })
 	call packager#add('tommcdo/vim-exchange',         { 'type': 'opt' })
-	call packager#add('andymass/vim-matchup',         { 'type': 'opt' })
 	call packager#add('junegunn/limelight.vim',       { 'type': 'opt' })
 	call packager#add('junegunn/vim-easy-align',      { 'type': 'opt' })
 	call packager#add('dstein64/vim-startuptime',     { 'type': 'opt' })
