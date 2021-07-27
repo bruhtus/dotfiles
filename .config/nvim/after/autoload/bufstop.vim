@@ -13,6 +13,11 @@ let g:bufstop_sorting = "MRU"
 let s:keystr = g:bufstop_keys
 let s:keys = split(s:keystr, '\zs')
 
+if has("syntax")
+  hi def link bufstopKey ModeMsg
+  hi def link bufstopName Type
+end
+
 " truncate long file names
 function! s:truncate(str, numfiles)
 	let threshhold = 20

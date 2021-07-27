@@ -3,11 +3,6 @@ let g:bufstop_name = "--Bufstop--"
 
 let s:frequency_map = {}
 
-if has("syntax")
-  hi def link bufstopKey String
-  hi def link bufstopName Type
-end
-
 " callback for map function
 function! s:bufstop_filt(val, bufnr)
   if (a:val == a:bufnr)
