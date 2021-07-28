@@ -1,3 +1,4 @@
+" source: https://github.com/mihaifm/bufstop
 let g:bufstop_history = []
 let g:bufstop_name = "--Bufstop--"
 

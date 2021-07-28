@@ -1,3 +1,4 @@
+" source: https://github.com/mihaifm/bufstop
 let s:lsoutput = ""
 let s:types = ["fullname", "path", "shortname"]
 let s:local_bufnr = -1
