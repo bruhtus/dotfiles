@@ -6,7 +6,7 @@ let s:fast_mode = 0
 let s:preview_mode = 0
 let s:speed_mounted = 0
 
-let g:bufstop_split = "botright"
+let g:bufstop_split = "leftabove"
 let g:bufstop_dismiss_key = "<Space>"
 let g:bufstop_keys = "aszxcfvqwer12345tyuiopbnm67890ABCEFGHIJKLMNOPQRSTUVZ"
 let g:bufstop_sorting = "MRU"
