@@ -57,9 +57,9 @@ endfunction
 
 augroup Bufstop
   autocmd!
-  autocmd BufEnter * :call s:bufstop_append(winbufnr(winnr()))
-  autocmd WinEnter * :call s:bufstop_append(winbufnr(winnr()))
-  autocmd BufWinEnter * :call s:bufstop_global_append(expand('<abuf>') + 0)
-  exe "autocmd BufWinEnter,WinEnter " . g:bufstop_name . " :call s:timeout_fiddle(1)"
-  exe "autocmd BufWinLeave,WinLeave " . g:bufstop_name . " :call s:timeout_fiddle(0)"
+  autocmd BufEnter * call s:bufstop_append(winbufnr(winnr()))
+  autocmd WinEnter * call s:bufstop_append(winbufnr(winnr()))
+  autocmd BufWinEnter * call s:bufstop_global_append(expand('<abuf>') + 0)
+  exe 'autocmd BufWinEnter,WinEnter ' . g:bufstop_name . ' call s:timeout_fiddle(1)'
+  exe 'autocmd BufWinLeave,WinLeave ' . g:bufstop_name . ' call s:timeout_fiddle(0)'
 augroup End
