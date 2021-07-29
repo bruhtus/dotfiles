@@ -1,0 +1,11 @@
+--type-add
+nonsense:*.{pdf,mp4,svg,csv,ico,tdb,jpg,jpeg,png,epub,mobi,min,xls,doc,ppt,docx,pptx}*
+
+--type-add
+font:*.{ttf,woff,eot}
+
+--type-add
+torrent:*.{torrent,resume,dat}
+
+--ignore-file
+/home/bruhtus/.config/ripgrep/rgignore

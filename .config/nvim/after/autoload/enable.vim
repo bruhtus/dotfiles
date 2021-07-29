@@ -68,7 +68,7 @@ function! enable#fzf()
 		try
 			packadd fzf | packadd fzf.vim
 
-			let $FZF_DEFAULT_COMMAND = "rg --hidden --files --no-ignore-vcs"
+			let $FZF_DEFAULT_COMMAND = "rg --hidden --files --no-ignore-vcs --type-not nonsense --type-not font --type-not torrent"
 
 			" move preview half page-up/down using ctrl-b/f
 			" wrap preview content

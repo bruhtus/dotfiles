@@ -12,6 +12,8 @@ export EDITOR=nvim
 export FZF_DEFAULT_OPTS="--height 20%"
 export ZPLUG_HOME="$HOME/.config/zplug"
 
+export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/ripgrep/ripgreprc"
+
 #dotbare
 export DOTBARE_TREE="$HOME"
 export DOTBARE_DIR="$HOME/.config"
