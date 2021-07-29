@@ -1,6 +1,6 @@
 " source: https://github.com/mihaifm/bufstop
 let s:lsoutput = ""
-let s:types = ["fullname", "path", "shortname"]
+let s:types = ["fullname", "path", "shortname", "indicators"]
 let s:local_bufnr = -1
 let s:fast_mode = 0
 let s:preview_mode = 0
@@ -10,6 +10,7 @@ let g:bufstop_split = "leftabove"
 let g:bufstop_dismiss_key = "<Space>"
 let g:bufstop_keys = "aszxcfvqwer12345tyuiopbnm67890ABCEFGHIJKLMNOPQRSTUVZ"
 let g:bufstop_sorting = "MRU"
+let g:bufstop_indicators = 1
 
 let s:keystr = g:bufstop_keys
 let s:keys = split(s:keystr, '\zs')
@@ -53,6 +54,10 @@ endfunction
 
 " select a buffer from the s:bufstop_main window
 function! s:bufstop_select_buffer(k)
+  if len(s:allbufs) == 0
+    return
+  endif
+
   let delkey = 0
 
   if (a:k == 'd')
@@ -158,6 +163,7 @@ function! s:get_buffer_info()
     let pathbits = split(bits[1], '\\\|\/', 1)
     let b.shortname = pathbits[len(pathbits)-1]
     let b.bufno = str2nr(bits[0])
+    let b.indicators = substitute(bits[0], '\s*\d\+', '', '')
 
     if (k < len(s:keys))
       let b.key = s:keys[k]
@@ -227,9 +233,16 @@ function! s:bufstop_main()
   for buf in bufdata
     let line = ''
     if buf.key ==# 'X'
-      let line = "  " . " " . "   "
+      let line = "  " . " "
     else
-      let line = "  " . buf.key . "   "
+      let line = "  " . buf.key
+    endif
+
+    if g:bufstop_indicators
+      let pad = s:allpads.indicators
+      let line .= buf.indicators . strpart(pad, len(buf.indicators))
+    else
+      let line .= " "
     endif
 
     let path = buf["path"]
