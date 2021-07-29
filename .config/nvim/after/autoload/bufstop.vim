@@ -84,21 +84,53 @@ function! s:bufstop_select_buffer(k)
 
   if bufexists(s:bufnr)
     if delkey
-      call remove(s:allbufs, line('.')-1)
-      exe "silent bd ".s:bufnr
-      setlocal modifiable
-      exe "d"
-      setlocal nomodifiable
+      call s:bufstop_delete_buffer(s:bufnr)
     else
       exe "wincmd p"
       exe "silent b" s:bufnr
       exe "wincmd p"
       if s:fast_mode
-        exe "q"
-        exe "wincmd p"
+	exe "q"
+	exe "wincmd p"
       endif
     endif
   endif
+endfunction
+
+" delete a buffer without altering the window layout
+function! s:bufstop_delete_buffer(bufnr)
+  for window in range(1, winnr("$"))
+    if winbufnr(window) != a:bufnr
+      continue
+    endif
+
+    let candidate = s:allbufs[0].bufno
+    if len(s:allbufs) > 1 && line('.') == 1
+      let candidate = s:allbufs[1].bufno
+    endif
+
+    exe window . "wincmd w"
+    exe "silent b" candidate
+
+    " our candidate may still be the buffer we're trying to delete
+    if bufnr("%") == a:bufnr
+      " load a dummy buffer in the window
+      exe "enew"
+      setlocal bufhidden=wipe
+      setlocal noswapfile
+      setlocal buftype=
+      setlocal nobuflisted
+    endif
+
+    exe "wincmd p"
+  endfor
+
+  call remove(s:allbufs, line('.')-1)
+  exe "silent bd ".s:bufnr
+  setlocal modifiable
+  exe "d"
+  setlocal nomodifiable
+  norm! 0
 endfunction
 
 " create mappings for the s:bufstop_main window
@@ -275,7 +307,7 @@ function! s:bufstop_main()
     exe 2
   endif
   setlocal nomodifiable
-  norm! 0
+  norm! 0gg
 
   call s:set_properties()
 
