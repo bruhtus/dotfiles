@@ -1,3 +1,3 @@
 " bufstop mapping
 
-nnoremap <leader>n :call bufstop#open()<CR>
+nnoremap <leader>n :call bufstop#preview()<CR>

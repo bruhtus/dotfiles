@@ -145,12 +145,12 @@ function! s:map_keys()
   endfor
 endfunction
 
-" function! s:map_preview_keys()
-"   nnoremap <buffer> <silent> j               j:call <SID>bufstop_select_buffer('cr')<cr>
-"   nnoremap <buffer> <silent> k               k:call <SID>bufstop_select_buffer('cr')<cr>
-"   nnoremap <buffer> <silent> <down>          j:call <SID>bufstop_select_buffer('cr')<cr>
-"   nnoremap <buffer> <silent> <up>            k:call <SID>bufstop_select_buffer('cr')<cr>
-" endfunction
+function! s:map_preview_keys()
+  nnoremap <buffer> <silent> j               j:call <SID>bufstop_select_buffer('cr')<cr>
+  nnoremap <buffer> <silent> k               k:call <SID>bufstop_select_buffer('cr')<cr>
+  nnoremap <buffer> <silent> <down>          j:call <SID>bufstop_select_buffer('cr')<cr>
+  nnoremap <buffer> <silent> <up>            k:call <SID>bufstop_select_buffer('cr')<cr>
+endfunction
 
 function! s:unmap_preview_keys()
   silent! nunmap <buffer> j
@@ -238,13 +238,13 @@ endfunction
 " endfunction
 
 " wrapper for s:bufstop_main(), preview mode
-" function! BufstopPreview()
-"   let s:fast_mode = 0
-"   let s:preview_mode = 1
-"   call s:bufstop_main()
+function! bufstop#preview()
+  let s:fast_mode = 0
+  let s:preview_mode = 1
+  call s:bufstop_main()
 
-"   call s:map_preview_keys()
-" endfunction
+  call s:map_preview_keys()
+endfunction
 
 " main plugin entry point
 function! s:bufstop_main()
