@@ -1,51 +1,3 @@
-" vim script variable reference: https://developer.ibm.com/technologies/linux/articles/l-vim-script-1/
-
-let s:packstart = [
-			\ ['tpope/vim-sleuth',     {}],
-			\ ['tpope/vim-surround',   {}],
-			\ ['wellle/targets.vim',   {}],
-			\ ['tpope/vim-commentary', {}],
-			\ ['andymass/vim-matchup', {}]
-			\ ]
-
-let s:packopt = [
-			\ ['junegunn/gv.vim',              { 'type': 'opt' }],
-			\ ['ap/vim-css-color',             { 'type': 'opt' }],
-			\ ['tpope/vim-eunuch',             { 'type': 'opt' }],
-			\ ['junegunn/goyo.vim',            { 'type': 'opt' }],
-			\ ['tpope/vim-fugitive',           { 'type': 'opt' }],
-			\ ['rhysd/committia.vim',          { 'type': 'opt' }],
-			\ ['luochen1990/rainbow',          { 'type': 'opt' }],
-			\ ['tommcdo/vim-exchange',         { 'type': 'opt' }],
-			\ ['junegunn/limelight.vim',       { 'type': 'opt' }],
-			\ ['junegunn/vim-easy-align',      { 'type': 'opt' }],
-			\ ['dstein64/vim-startuptime',     { 'type': 'opt' }],
-			\ ['AndrewRadev/linediff.vim',     { 'type': 'opt' }],
-			\ ['ronakg/quickr-preview.vim',    { 'type': 'opt' }],
-			\ ['kristijanhusak/vim-packager',  { 'type': 'opt' }],
-			\ ['tweekmonster/startuptime.vim', { 'type': 'opt' }],
-			\ ['jeetsukumaran/vim-filebeagle', { 'type': 'opt' }],
-			\ ['junegunn/fzf',                 { 'type': 'opt' }],
-			\ ['junegunn/fzf.vim',             { 'type': 'opt' }],
-			\ ['iamcco/markdown-preview.nvim', {
-				\ 'type': 'opt',
-				\ 'do':   ':call mkdp#util#install()' }]
-			\ ]
-
-if has('nvim-0.5')
-	call extend(s:packopt, [
-				\ ['phaazon/hop.nvim',          { 'type': 'opt' }],
-				\ ['neovim/nvim-lspconfig',     { 'type': 'opt' }],
-				\ ['kabouzeid/nvim-lspinstall', { 'type': 'opt' }]
-				\ ])
-else
-	call extend(s:packopt, [
-				\ ['easymotion/vim-easymotion', { 'type': 'opt' }]
-				\ ])
-endif
-
-let s:packlist = s:packstart + s:packopt
-
 function! pack#init() abort
 	try
 		packadd vim-packager
@@ -60,7 +12,43 @@ function! pack#init() abort
 		call packager#init({'window_cmd': 'topleft new'})
 	endtry
 
-	for [pack, option] in s:packlist
-		call packager#add(pack, option)
-	endfor
+	call packager#add('tpope/vim-sleuth')
+	call packager#add('tpope/vim-surround')
+	call packager#add('wellle/targets.vim')
+	call packager#add('tpope/vim-commentary')
+	call packager#add('andymass/vim-matchup')
+
+	call packager#add('junegunn/gv.vim',              { 'type': 'opt' })
+	call packager#add('ap/vim-css-color',             { 'type': 'opt' })
+	call packager#add('tpope/vim-eunuch',             { 'type': 'opt' })
+	call packager#add('junegunn/goyo.vim',            { 'type': 'opt' })
+	call packager#add('tpope/vim-fugitive',           { 'type': 'opt' })
+	call packager#add('rhysd/committia.vim',          { 'type': 'opt' })
+	call packager#add('luochen1990/rainbow',          { 'type': 'opt' })
+	call packager#add('tommcdo/vim-exchange',         { 'type': 'opt' })
+	call packager#add('junegunn/limelight.vim',       { 'type': 'opt' })
+	call packager#add('junegunn/vim-easy-align',      { 'type': 'opt' })
+	call packager#add('dstein64/vim-startuptime',     { 'type': 'opt' })
+	call packager#add('AndrewRadev/linediff.vim',     { 'type': 'opt' })
+	call packager#add('ronakg/quickr-preview.vim',    { 'type': 'opt' })
+	call packager#add('kristijanhusak/vim-packager',  { 'type': 'opt' })
+	call packager#add('tweekmonster/startuptime.vim', { 'type': 'opt' })
+	call packager#add('jeetsukumaran/vim-filebeagle', { 'type': 'opt' })
+	call packager#add('junegunn/fzf',                 { 'type': 'opt' })
+	call packager#add('junegunn/fzf.vim',             { 'type': 'opt' })
+	call packager#add('iamcco/markdown-preview.nvim', { 'type': 'opt', 'do': ':call mkdp#util#install()' })
+
+	if has('nvim-0.5')
+		call packager#add('phaazon/hop.nvim',          { 'type': 'opt' })
+		call packager#add('neovim/nvim-lspconfig',     { 'type': 'opt' })
+		call packager#add('kabouzeid/nvim-lspinstall', { 'type': 'opt' })
+	else
+		call packager#add('easymotion/vim-easymotion', { 'type': 'opt' })
+	endif
+
+	" call packager#add('mihaifm/bufstop')
+	" call packager#add('airblade/vim-rooter')
+	" call packager#add('preservim/tagbar')
+	" call packager#add('kshenoy/vim-signature')
+	" call packager#add('glepnir/dashboard-nvim')
 endfunction
