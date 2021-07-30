@@ -43,6 +43,7 @@ function! pack#init() abort
 		call packager#add('easymotion/vim-easymotion')
 	endif
 
+	" call packager#add('mihaifm/bufstop')
 	" call packager#add('airblade/vim-rooter')
 	" call packager#add('preservim/tagbar')
 	" call packager#add('kshenoy/vim-signature')
