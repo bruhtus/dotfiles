@@ -38,9 +38,9 @@ function! pack#init() abort
 	call packager#add('iamcco/markdown-preview.nvim', { 'type': 'opt', 'do': ':call mkdp#util#install()' })
 
 	if has('nvim-0.5')
-		call packager#add('phaazon/hop.nvim')
+		call packager#add('phaazon/hop.nvim',          { 'type': 'opt' })
 	else
-		call packager#add('easymotion/vim-easymotion')
+		call packager#add('easymotion/vim-easymotion', { 'type': 'opt' })
 	endif
 
 	" call packager#add('mihaifm/bufstop')
