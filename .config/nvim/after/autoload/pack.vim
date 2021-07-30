@@ -40,6 +40,8 @@ function! pack#init() abort
 
 	if has('nvim-0.5')
 		call packager#add('phaazon/hop.nvim',          { 'type': 'opt' })
+		call packager#add('neovim/nvim-lspconfig',     { 'type': 'opt' })
+		call packager#add('kabouzeid/nvim-lspinstall', { 'type': 'opt' })
 	else
 		call packager#add('easymotion/vim-easymotion', { 'type': 'opt' })
 	endif
