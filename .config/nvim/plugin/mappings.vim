@@ -118,6 +118,11 @@ nnoremap ZK :<C-u>execute 'move -1-'. v:count1<CR>==
 " default: current line
 nnoremap ZU :<C-u>execute 't -1-'. v:count<CR>==
 
+" map ZH to put blank character above, and ZN to put blank character below
+" can use count to add how many blank character to insert
+nnoremap <silent> ZH :<C-u>put!=repeat((nr2char(10)), v:count1)<Bar>']+1<CR>
+nnoremap <silent> ZN :<C-u>put =repeat((nr2char(10)), v:count1)<Bar>'[-1<CR>
+
 " use ctrl-k/j to go up/down in command line history
 cnoremap <C-k> <up>
 cnoremap <C-j> <down>
