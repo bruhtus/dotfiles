@@ -2,6 +2,6 @@
 " check after/autoload/whitespace.vim
 
 augroup no_trailing_whitespace
-	autocmd!
-	autocmd BufWritePre * :call whitespace#trim()
+  autocmd!
+  autocmd BufWritePre * :call whitespace#trim()
 augroup END

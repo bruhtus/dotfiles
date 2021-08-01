@@ -22,34 +22,34 @@ end
 
 " truncate long file names
 function! s:truncate(str, numfiles)
-	let threshhold = 20
-	let threshhold = &columns / a:numfiles
+  let threshhold = 20
+  let threshhold = &columns / a:numfiles
 
-	if strlen(a:str) + 3 >= threshhold
-		let retval = strpart(a:str, 0, threshhold - 3)
-		return retval
-	else
-		return a:str
-	end
+  if strlen(a:str) + 3 >= threshhold
+    let retval = strpart(a:str, 0, threshhold - 3)
+    return retval
+  else
+    return a:str
+  end
 endfunction
 
 " set properties for the s:bufstop_main window
 function! s:set_properties()
-	setlocal nonumber norelativenumber
-	setlocal foldcolumn=0
-	setlocal colorcolumn=
-	setlocal nofoldenable
-	setlocal nocursorline
-	setlocal nospell
-	setlocal nobuflisted
-	setlocal buftype=nofile
-	setlocal noswapfile
-	setlocal nowrap
+  setlocal nonumber norelativenumber
+  setlocal foldcolumn=0
+  setlocal colorcolumn=
+  setlocal nofoldenable
+  setlocal nocursorline
+  setlocal nospell
+  setlocal nobuflisted
+  setlocal buftype=nofile
+  setlocal noswapfile
+  setlocal nowrap
 
-	if has("syntax")
-		syn match bufstopKey /\v^\s\s(\d|\a|\s)/ contained
-		syn match bufstopName /\v^\s\s(\d|\a|\s)\s+.+\s\s/ contains=bufstopKey
-	endif
+  if has("syntax")
+    syn match bufstopKey /\v^\s\s(\d|\a|\s)/ contained
+    syn match bufstopName /\v^\s\s(\d|\a|\s)\s+.+\s\s/ contains=bufstopKey
+  endif
 endfunction
 
 " select a buffer from the s:bufstop_main window
@@ -90,8 +90,8 @@ function! s:bufstop_select_buffer(k)
       exe "silent b" s:bufnr
       exe "wincmd p"
       if s:fast_mode
-	exe "q"
-	exe "wincmd p"
+        exe "q"
+        exe "wincmd p"
       endif
     endif
   endif
@@ -160,11 +160,11 @@ function! s:unmap_preview_keys()
 endfunction
 
 function! s:bufstop_get_buffer_info()
-    redir => s:lsoutput
-    exe "silent ls"
-    redir END
+  redir => s:lsoutput
+  exe "silent ls"
+  redir END
 
-    return s:get_buffer_info()
+  return s:get_buffer_info()
 endfunction
 
 " parse buffer list and get relevant info

@@ -2,7 +2,7 @@ setlocal colorcolumn=80
 
 " ensure that flake8 is installed
 if executable('flake8')
-	setlocal makeprg=flake8\ %\ \\\|\ egrep\ -v\ 'F401\\\|F841\\\|E501\\\|E402'
+  setlocal makeprg=flake8\ %\ \\\|\ egrep\ -v\ 'F401\\\|F841\\\|E501\\\|E402'
 endif
 
 " ensure that pynvim is installed
@@ -19,6 +19,6 @@ iabbrev <buffer> mm if __name__ == '__main__':<CR>
 iabbrev <buffer> f; if:<left>
 
 augroup MakePython
-	autocmd!
-	autocmd BufWritePost * silent! make | redraw!
+  autocmd!
+  autocmd BufWritePost * silent! make | redraw
 augroup END

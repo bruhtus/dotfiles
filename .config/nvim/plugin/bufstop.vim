@@ -15,20 +15,20 @@ endfunction
 
 " add the buffer number to the navigation history for the window
 function! s:bufstop_append(bufnr)
-    if !exists('w:history_index')
-      let w:history_index = 0
-      let w:history = []
+  if !exists('w:history_index')
+    let w:history_index = 0
+    let w:history = []
     " ignore if the newly added buffer is the same as the previous active one
-    elseif w:history[w:history_index] == a:bufnr
-        return
-    else
-        let w:history_index += 1
-    endif
+  elseif w:history[w:history_index] == a:bufnr
+    return
+  else
+    let w:history_index += 1
+  endif
 
-    " replace the bufnr with -1 if it already exists
-    call map(w:history, 's:bufstop_filt(v:val, a:bufnr)')
+  " replace the bufnr with -1 if it already exists
+  call map(w:history, 's:bufstop_filt(v:val, a:bufnr)')
 
-    let w:history = insert(w:history, a:bufnr, w:history_index)
+  let w:history = insert(w:history, a:bufnr, w:history_index)
 endfunction
 
 " add the buffer number to the global navigation history

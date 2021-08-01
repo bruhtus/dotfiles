@@ -9,15 +9,15 @@
 " reference: https://stackoverflow.com/a/33337692
 " :h sub-replace-special
 function! substitute#current_line#split_by_comma_parentheses()
-	try
-		norm m`
-		s/(.\{-})/\=substitute(submatch(0), ',', ',\r', 'g')
-		norm ``
-		norm m`
-		s/(/(\r/g
-		norm =ip
-		norm ``
-	catch
-		echo "There's no comma inside parentheses or no parentheses"
-	endtry
+  try
+    norm m`
+    s/(.\{-})/\=substitute(submatch(0), ',', ',\r', 'g')
+    norm ``
+    norm m`
+    s/(/(\r/g
+    norm =ip
+    norm ``
+  catch
+    echo "There's no comma inside parentheses or no parentheses"
+  endtry
 endfunction

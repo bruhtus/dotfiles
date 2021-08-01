@@ -19,8 +19,12 @@ set splitbelow splitright
 set number relativenumber
 set wildignore=*/.git/*,*.pdf,*.jpg,*jpeg,*.png,*.epub,*.mobi
 
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set shiftround
+set smarttab
+set expandtab
 
 set nobackup
 set noshowmode
@@ -32,20 +36,20 @@ set smartcase
 set incsearch
 
 if has('nvim')
-	set guicursor=
-	set nohlsearch
-	set nosmarttab
-	set noautoindent
-	set inccommand=split
-	set wildmode=longest:full,full
-	autocmd! BufEnter term://* setlocal nonumber norelativenumber signcolumn=no
+  set guicursor=
+  set nohlsearch
+  set nosmarttab
+  set noautoindent
+  set inccommand=split
+  set wildmode=longest:full,full
+  autocmd! BufEnter term://* setlocal nonumber norelativenumber signcolumn=no
 
 else
-	set viminfo+=n~/.vim/viminfo
-	set wildmode=longest,list,full
+  set viminfo+=n~/.vim/viminfo
+  set wildmode=longest,list,full
 
-	" check if there's termwinkey variable or not
-	if exists('&termwinkey') | set termwinkey=<C-p> | endif
+  " check if there's termwinkey variable or not
+  if exists('&termwinkey') | set termwinkey=<C-p> | endif
 endif
 
 syntax on
