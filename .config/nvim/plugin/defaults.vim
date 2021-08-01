@@ -5,6 +5,7 @@ let mapleader = " "
 set hidden
 set showcmd
 set linebreak
+set lazyredraw
 set complete-=t " disable scanning tags
 set laststatus=2
 set updatetime=0
@@ -19,6 +20,7 @@ set splitbelow splitright
 set number relativenumber
 set wildignore=*/.git/*,*.pdf,*.jpg,*jpeg,*.png,*.epub,*.mobi
 
+set autoindent
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
