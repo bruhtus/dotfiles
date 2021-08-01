@@ -53,10 +53,21 @@ if has('nvim')
 else
   set viminfo+=n~/.vim/viminfo
   set wildmode=longest,list,full
+  set backspace=indent,eol,start
+  set complete-=i " disable scanning current and included files
+  set nrformats-=octal
+  set display+=lastline
+  set autoread
+  set sessionoptions-=options
+  set viewoptions-=options
+
+  if v:version > 703 || v:version == 703 && has('patch541')
+    set formatoptions+=j " delete comment character when joining commented lines
+  endif
 
   " check if there's termwinkey variable or not
   if exists('&termwinkey') | set termwinkey=<C-p> | endif
 endif
 
-syntax on
-filetype plugin indent on
+if has('syntax')  | syntax on                 | endif
+if has('autocmd') | filetype plugin indent on | endif
