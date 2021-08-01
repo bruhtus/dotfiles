@@ -1,7 +1,7 @@
 " list, change, or delete buffer
 function! simp#buf()
   let l:choice = confirm("List/Change/Delete Buffer(s)?",
-        \ "&LList\n&JChange\n&KDelete")
+        \ "&LList\n&JChange\n&KDelete\n&NCancel")
 
   if l:choice == 1
     echo 'List buffer(s)'
@@ -36,6 +36,9 @@ function! simp#buf()
       redraw
       echo "Buffer doesn't exist"
     endtry
+
+  elseif l:choice == 4
+    " do nothing
 
   endif
 endfunction
@@ -79,7 +82,7 @@ endfunction
 " horisontal or vertical split buffer
 function! simp#split()
   let l:choice = confirm("Horizontal or Vertical Split Buffer?",
-        \ "&JHorizontal\n&KVertical")
+        \ "&JHorizontal\n&KVertical\n&NCancel")
 
   if l:choice == 1
     echo 'Horizontal split'
@@ -106,6 +109,9 @@ function! simp#split()
       endif
     catch
     endtry
+
+  elseif l:choice == 3
+    " do nothing
 
   endif
 endfunction
