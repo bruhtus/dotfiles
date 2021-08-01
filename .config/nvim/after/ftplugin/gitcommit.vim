@@ -6,7 +6,8 @@ let maplocalleader = '\'
 nnoremap <buffer> <silent> <localleader>\ :try <Bar> packadd committia.vim <Bar> call committia#open('git') <Bar> catch <Bar> DiffGitCached <Bar> endtry<CR>
 
 augroup VimGit
-	autocmd!
-	autocmd FileType git nmap <buffer> <nowait> <Space> <C-d>
-				\| nmap <buffer> <nowait> u <C-u>
+  autocmd!
+  autocmd FileType git
+        \ nmap <buffer> <nowait> <Space> <C-d> |
+        \ nmap <buffer> <nowait> u <C-u>
 augroup END

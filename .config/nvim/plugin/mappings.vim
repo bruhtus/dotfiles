@@ -2,16 +2,16 @@
 
 " set enter as : except in quickfix window and command line window
 noremap <expr> <CR> &buftype ==# 'quickfix' ? "\<CR>zz" :
-			\ &buftype ==# 'nofile' ? "\<CR>" : ':'
+      \ &buftype ==# 'nofile' ? "\<CR>" : ':'
 
 " remap backspace to grep the exact under the cursor word in all files
 " at current working directory
 if executable('rg')
-	set grepprg=rg\ --smart-case\ --hidden\ --vimgrep\ -w
-	nnoremap <BS> :silent! lgrep! <cword> **<CR>
+  set grepprg=rg\ --smart-case\ --hidden\ --vimgrep\ -w
+  nnoremap <BS> :silent! lgrep! <cword> **<CR>
 
 else
-	nnoremap <BS> :execute "lvimgrep /\\<" . expand("<cword>") . "\\>/j **"<CR>
+  nnoremap <BS> :execute "lvimgrep /\\<" . expand("<cword>") . "\\>/j **"<CR>
 
 endif
 
@@ -129,13 +129,13 @@ cnoremap <C-j> <down>
 
 " mapping to interact with built-in terminal
 if has('nvim')
-	tnoremap <C-n> <C-\><C-n>
-	" set mark T in terminal buffer first and then call mark T
-	nnoremap <leader>m `T
+  tnoremap <C-n> <C-\><C-n>
+  " set mark T in terminal buffer first and then call mark T
+  nnoremap <leader>m `T
 
 elseif exists('&termwinkey')
-	" ctrl-p is a remap in terminal similar to ctrl-w in normal mode
-	" (check defaults.vim)
-	tnoremap <C-n> <C-p><C-n>
+  " ctrl-p is a remap in terminal similar to ctrl-w in normal mode
+  " (check defaults.vim)
+  tnoremap <C-n> <C-p><C-n>
 
 endif
