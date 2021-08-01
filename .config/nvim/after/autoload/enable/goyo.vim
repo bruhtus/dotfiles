@@ -1,9 +1,12 @@
 " limelight integration with goyo
 
 function! enable#goyo#enter()
-  autocmd! InsertEnter * norm zz
-  autocmd! InsertLeave *
-  silent! Limelight | set showmode
+  augroup GoyoEnter
+    autocmd!
+    autocmd InsertEnter * norm zz
+    autocmd InsertLeave *
+  augroup END
+  silent! Limelight | setlocal showmode
 endfunction
 
 function! enable#goyo#leave()
