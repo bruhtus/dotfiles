@@ -9,3 +9,11 @@ let g:markdown_minlines = 69
 " \\ to preview markdown
 let g:mkdp_refresh_slow = 1
 nnoremap <buffer> <silent> <localleader>\ :packadd markdown-preview.nvim<CR>:call mkdp#util#toggle_preview()<CR>
+
+" inspired by $VIMRUNTIME/ftplugin/vim.vim and $VIMRUNTIME/ftplugin/python.vim
+nnoremap <buffer> <silent> ]] m':<C-u>call search('\v^\S*(#)', 'W')<CR>zz
+nnoremap <buffer> <silent> [[ m':<C-u>call search('\v^\S*(#)', 'zbW')<CR>zz
+nnoremap <buffer> <silent> ][ m':<C-u>call search('\v%$\|\S.*\n+(#)', 'W')<CR>zz
+nnoremap <buffer> <silent> [] m':<C-u>call search('\v\S.*\n+(#)', 'bW')<CR>zz
+onoremap <buffer> <silent> ]] :<C-u>call search('\v^\S*(#)', 'W')<CR>
+onoremap <buffer> <silent> [[ :<C-u>call search('\v^\S*(#)', 'zbW')<CR>
