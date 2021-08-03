@@ -1,0 +1,28 @@
+#!/bin/sh
+
+function init(){
+  [ ! -d "$HOME/.vim" ] && mkdir -p "$HOME/.vim"
+  ln -sv ~/.config/nvim/init.vim ~/.vim/vimrc
+  for d in $(ls -d ~/.config/nvim/*/ | egrep -v 'lua|templates'); do
+    ln -sv $d ~/.vim
+  done
+}
+
+function clean(){
+  for d in $(ls -d ~/.vim/*/); do
+    # be careful not to recursively delete the symbolic link directory
+    # because it can recursively delete the actual item inside of that directory
+    rm -v $d 2>/dev/null
+  done
+  rm -v ~/.vim/vimrc
+  rm -vr ~/.vim
+}
+
+case "$1" in
+  init)
+    init
+    ;;
+  clean)
+    clean
+    ;;
+esac
