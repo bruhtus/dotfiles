@@ -61,6 +61,13 @@ else
   set sessionoptions-=options
   set viewoptions-=options
 
+  " to set CursorLineNr highlight in vanilla vim
+  " reference: https://vi.stackexchange.com/a/24914
+  if exists('+cursorlineopt')
+    set cursorline
+    set cursorlineopt=number
+  endif
+
   if v:version > 703 || v:version == 703 && has('patch541')
     set formatoptions+=j " delete comment character when joining commented lines
   endif
