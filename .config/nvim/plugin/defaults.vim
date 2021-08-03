@@ -47,7 +47,7 @@ if has('nvim')
 
   augroup TermBuffer
     autocmd!
-    autocmd BufEnter term://* setlocal nonumber norelativenumber signcolumn=no
+    autocmd TermOpen term://* setlocal nonumber norelativenumber signcolumn=no
   augroup END
 
 else
