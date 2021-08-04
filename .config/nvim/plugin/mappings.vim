@@ -139,3 +139,17 @@ elseif exists('&termwinkey')
   tnoremap <C-n> <C-p><C-n>
 
 endif
+
+" reference: https://vi.stackexchange.com/a/693
+" nnoremap <buffer> <silent> cd m':<C-u>call search('\%' . virtcol('.') . 'v\S', 'W')<CR>
+" nnoremap <buffer> <silent> dc m':<C-u>call search('\%' . virtcol('.') . 'v\S', 'bW')<CR>
+
+" add location to jumplist if moving more than 5 count
+" for example: it's gonna add the location to jumplist if we use `6j`
+" backtick mark apparently can add to the jumplist
+" nnoremap <expr> j (v:count > 5 ? 'm`' . v:count : '') . 'j'
+" nnoremap <expr> k (v:count > 5 ? 'm`' . v:count : '') . 'k'
+
+" experiment to make j remapped to `_` if the next line of the same column is
+" blank/whitespace character
+" nnoremap <expr> j match(getline('.'), '\S') + 1 ># col('.') ? '_' : 'j'
