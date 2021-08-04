@@ -2,9 +2,17 @@
 " do not change statusline of quickfix window
 augroup StatuslineStartup
   autocmd!
-  autocmd VimEnter,WinEnter,BufWinEnter * if &buftype ==# 'quickfix' | else | call StatuslineLoad('active') | endif
+  autocmd VimEnter,WinEnter,BufWinEnter *
+        \ if &buftype ==# 'quickfix'      |
+        \ else                            |
+        \   call StatuslineLoad('active') |
+        \ endif
 
-  autocmd WinLeave * if &buftype ==# 'quickfix' | else | call StatuslineLoad('inactive') | endif
+  autocmd WinLeave *
+        \ if &buftype ==# 'quickfix'        |
+        \ else                              |
+        \   call StatuslineLoad('inactive') |
+        \ endif
 augroup END
 
 function! StatuslineLoad(mode)
