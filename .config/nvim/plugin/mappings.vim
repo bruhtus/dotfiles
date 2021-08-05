@@ -126,6 +126,12 @@ nnoremap U :<C-u>execute 't +'. v:count<CR>==
 " \v make every following character except a-zA-Z0-9 a special character
 nnoremap Q :lvimgrep /\v/j %<left><left><left><left>
 
+" set space s to substitute command
+nnoremap <leader>s :s//g<left><left>
+
+" set space S to substitute N occurence using command line window
+nnoremap <leader>S q:is/\v(.{-}\zs){}/<Esc>F)i
+
 " set space m to open terminal emulator
 if exists(':ter')
   nnoremap <silent> <leader>m :ter<CR>
