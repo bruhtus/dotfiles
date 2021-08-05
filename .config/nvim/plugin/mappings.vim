@@ -59,9 +59,9 @@ nnoremap = m'=
 nnoremap <silent> ]; :cn<CR>zz
 nnoremap <silent> [; :cp<CR>zz
 
-" map ]<Space> to lnext and [<Space> to lprevious
-nnoremap <silent> ]<Space> :lnext<CR>zz
-nnoremap <silent> [<Space> :lprevious<CR>zz
+" map ]l to lnext and [l to lprevious
+nnoremap <silent> ]l :lnext<CR>zz
+nnoremap <silent> [l :lprevious<CR>zz
 
 " do not exit visual selection when shift-indenting
 vnoremap < <gv
