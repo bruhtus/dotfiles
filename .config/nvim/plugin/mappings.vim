@@ -52,6 +52,9 @@ nnoremap _ <C-w>_
 " remap + to set current height of each split window to the same height
 nnoremap + <C-w>=
 
+" add current line position to jumplist when using `=`
+nnoremap = m'=
+
 " map ]; to cnext and [; to cprevious
 nnoremap <silent> ]; :cn<CR>zz
 nnoremap <silent> [; :cp<CR>zz
