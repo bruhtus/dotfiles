@@ -176,7 +176,7 @@ cnoremap <C-j> <down>
 
 " mapping to interact with built-in terminal
 if has('nvim')
-  tnoremap <C-n> <C-\><C-n>
+  tnoremap <C-Space> <C-\><C-n>
 
 elseif exists('&termwinkey')
   " ctrl-p is a remap in terminal similar to ctrl-w in normal mode
