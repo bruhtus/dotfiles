@@ -9,3 +9,5 @@ let g:loaded_zipPlugin        = 1
 let g:loaded_2html_plugin     = 1
 let g:loaded_spellfile_plugin = 1
 let g:loaded_spec             = 1
+let g:loaded_matchit          = 1
+let g:loaded_matchparen       = 1
