@@ -91,6 +91,7 @@ nnoremap x "_x
 nnoremap X "_X
 nnoremap D "_D
 nnoremap <leader>d "_d
+vnoremap <leader>d "_d
 
 " make search result appear in the middle
 nnoremap n nzz
