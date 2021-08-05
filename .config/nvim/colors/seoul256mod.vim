@@ -370,6 +370,11 @@ call s:hi('HopNextKey1',  [224],           [''])
 call s:hi('HopNextKey2',  [217],           [''])
 call s:hi('HopUnmatched', [s:dark_bg + 8], [''])
 
+" vim-sneak
+" -----------
+" call s:hi('Sneak',      [152], [s:dark_bg])
+" call s:hi('SneakLabel', [152], [s:dark_bg])
+
 " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
 " ---------------------------------------------------^^^^^
 call s:hi('ExtraWhitespace', [''], [s:dark_bg - 1])
