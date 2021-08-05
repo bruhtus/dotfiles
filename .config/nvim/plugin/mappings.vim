@@ -63,6 +63,15 @@ nnoremap <silent> [; :cp<CR>zz
 nnoremap <silent> ]l :lnext<CR>zz
 nnoremap <silent> [l :lprevious<CR>zz
 
+" map ]<Space> to location list toggle and [<Space> to quickfix list toggle
+" reference: https://stackoverflow.com/a/63162084
+nnoremap <silent> ]<Space>
+      \ :if empty(filter(getwininfo(), 'v:val.loclist')) <Bar>
+      \   lopen <Bar>
+      \ else <Bar>
+      \   lclose <Bar>
+      \ endif<CR>
+
 " do not exit visual selection when shift-indenting
 vnoremap < <gv
 vnoremap > >gv
