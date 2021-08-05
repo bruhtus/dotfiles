@@ -114,6 +114,9 @@ nnoremap g# g#zz
 " remap Y to yank from pointer to the end of the line
 nnoremap Y y$
 
+" didn't move the cursor when using J command
+nnoremap J m`J``
+
 " remap U to yank the entire line and put below the given line (takes count)
 " default: current line
 nnoremap U :<C-u>execute 't +'. v:count<CR>==
