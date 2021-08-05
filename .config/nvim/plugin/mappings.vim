@@ -131,7 +131,8 @@ nnoremap J m`J``
 
 " remap U to yank the entire line and put below the given line (takes count)
 " default: current line
-nnoremap U :<C-u>execute 't +'. v:count<CR>==
+" add current line to jumplist if v:count more than zero
+nnoremap <expr> U (v:count ># 0 ? "m'" . v:count : '') . ":<C-u>execute 't +'. v:count<CR>=="
 
 " remap ex mode to access vimgrep in current buffer
 " you can still access ex mode using gQ
@@ -163,15 +164,18 @@ nnoremap ZD :reg<CR>
 
 " map ZJ to move current line below the given line (takes count)
 " default: current line
+" TODO: add above/below current line to jumplist if v:count1 more than one
 nnoremap ZJ :<C-u>execute 'move +'. v:count1<CR>==
 
 " map ZK to move current line above the given line (takes count)
 " default: corrent line
+" TODO: add above/below current line to jumplist if v:count1 more than one
 nnoremap ZK :<C-u>execute 'move -1-'. v:count1<CR>==
 
 " map ZU to yank the entire line and put above the given line (takes count)
 " default: current line
-nnoremap ZU :<C-u>execute 't -1-'. v:count<CR>==
+" add current line to jumplist if v:count more than zero
+nnoremap <expr> ZU (v:count ># 0 ? "m'" . v:count : '') . ":<C-u>execute 't -1-'. v:count<CR>=="
 
 " map ZH to put blank character above, and ZN to put blank character below
 " can use count to add how many blank character to insert
