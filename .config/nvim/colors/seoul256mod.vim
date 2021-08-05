@@ -398,6 +398,8 @@ call s:hi('ExtraWhitespace', [''], [s:dark_bg - 1])
 hi CursorLine cterm=NONE
 hi CursorLineNr cterm=NONE
 
+hi MatchWord cterm=underline gui=underline
+
 " change statusline color when enter insert mode
 " autocmd! InsertEnter * call s:hi('StatusLine', [233], [151])
 " autocmd! InsertLeave * call s:hi('StatusLine', [233], [187])
