@@ -3,8 +3,16 @@
 " automatically open location/quickfix window after running :make, :grep, etc
 augroup location_quickfix_list
   autocmd!
-  autocmd QuickFixCmdPre [^l]* packadd quickr-preview.vim
-  autocmd QuickFixCmdPre l*    packadd quickr-preview.vim
+  autocmd QuickFixCmdPre [^l]*
+        \ if !exists('g:quickr_preview_keymaps') |
+        \   let g:quickr_preview_keymaps = 0     |
+        \   packadd quickr-preview.vim           |
+        \ endif
+  autocmd QuickFixCmdPre l*
+        \ if !exists('g:quickr_preview_keymaps') |
+        \   let g:quickr_preview_keymaps = 0     |
+        \   packadd quickr-preview.vim           |
+        \ endif                                  |
   autocmd QuickFixCmdPost [^l]* cwindow
   autocmd QuickFixCmdPost l*    lwindow
 augroup END
