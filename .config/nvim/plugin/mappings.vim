@@ -18,6 +18,10 @@ endif
 " use shift+tab to switch back and forth between two recent buffer
 nnoremap <S-Tab> <C-^>
 
+" remap Alt-U (uppercase U) to exit insert mode and yank the entire line and
+" put below the given line
+inoremap <M-U> <C-[>:t .<CR>==
+
 " split navigation
 " nnoremap <C-n> <C-w><C-w>
 nnoremap <C-j> <C-w>j
