@@ -94,6 +94,11 @@ nnoremap U :<C-u>execute 't +'. v:count<CR>==
 " \v make every following character except a-zA-Z0-9 a special character
 nnoremap Q :lvimgrep /\v/j %<left><left><left><left>
 
+" set space m to open terminal emulator
+if exists(':ter')
+  nnoremap <silent> <leader>m :ter<CR>
+endif
+
 " set ZX as :w
 nnoremap ZX :w<CR>
 
@@ -130,8 +135,6 @@ cnoremap <C-j> <down>
 " mapping to interact with built-in terminal
 if has('nvim')
   tnoremap <C-n> <C-\><C-n>
-  " set mark T in terminal buffer first and then call mark T
-  nnoremap <leader>m `T
 
 elseif exists('&termwinkey')
   " ctrl-p is a remap in terminal similar to ctrl-w in normal mode
