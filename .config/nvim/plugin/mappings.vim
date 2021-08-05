@@ -111,6 +111,10 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
+" edit the current word and next word occurrence by pressing dot command
+nnoremap cn *``"_cgn
+nnoremap cN #``"_cgN
+
 " remap Y to yank from pointer to the end of the line
 nnoremap Y y$
 
@@ -129,7 +133,7 @@ nnoremap Q :lvimgrep /\v/j %<left><left><left><left>
 " set space s to substitute command
 nnoremap <leader>s :s//g<left><left>
 
-" set space S to substitute N occurence using command line window
+" set space S to substitute N occurrence using command line window
 nnoremap <leader>S q:is/\v(.{-}\zs){}/<Esc>F)i
 
 " set space m to open terminal emulator
