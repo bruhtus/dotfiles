@@ -1,8 +1,8 @@
 " limelight integration with goyo
 
 function! enable#goyo#enter()
-  autocmd! InsertEnter * norm zz
-  autocmd! InsertLeave *
+  autocmd! InsertEnter * setlocal noignorecase | norm zz
+  autocmd! InsertLeave * setlocal ignorecase
   silent! Limelight | setlocal showmode
 endfunction
 
