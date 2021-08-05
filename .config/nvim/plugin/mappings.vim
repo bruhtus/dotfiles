@@ -22,6 +22,10 @@ nnoremap <S-Tab> <C-^>
 " put below the given line
 inoremap <M-U> <C-[>:t .<CR>==
 
+" remap Alt-~ (tilda) to toggle uppercase in current character in insert mode
+" and then escape to normal mode
+inoremap <M-~> <C-o>~<C-[>
+
 " split navigation
 " nnoremap <C-n> <C-w><C-w>
 nnoremap <C-j> <C-w>j
