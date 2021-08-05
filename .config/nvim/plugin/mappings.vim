@@ -71,6 +71,12 @@ nnoremap <silent> ]<Space>
       \ else <Bar>
       \   lclose <Bar>
       \ endif<CR>
+nnoremap <silent> [<Space>
+      \ :if empty(filter(getwininfo(), 'v:val.quickfix')) <Bar>
+      \   copen <Bar>
+      \ else <Bar>
+      \   cclose <Bar>
+      \ endif<CR>
 
 " do not exit visual selection when shift-indenting
 vnoremap < <gv
