@@ -1,15 +1,17 @@
 " statusline config
-" do not change statusline of quickfix window
+" do not change statusline of quickfix and bufstop window
 augroup StatuslineStartup
   autocmd!
   autocmd VimEnter,WinEnter,BufWinEnter *
         \ if &buftype ==# 'quickfix'      |
+        \ elseif &buftype ==# 'nofile'    |
         \ else                            |
         \   call StatuslineLoad('active') |
         \ endif
 
   autocmd WinLeave *
         \ if &buftype ==# 'quickfix'        |
+        \ elseif &buftype ==# 'nofile'      |
         \ else                              |
         \   call StatuslineLoad('inactive') |
         \ endif
