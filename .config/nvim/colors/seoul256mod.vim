@@ -347,6 +347,9 @@ hi link diffLine Constant
 call s:hi('Conceal', [s:dark_fg + 2], [s:dark_bg - 1])
 call s:hi('Ignore',  [s:dark_bg + 3], [s:dark_bg])
 
+" Remove ~ when creating new file
+call s:hi('EndOfBuffer',  [s:dark_bg], [''])
+
 " statusline mode color
 call s:hi('NormalModeColor',  [233], [187])
 call s:hi('InsertModeColor',  [233], [151])
