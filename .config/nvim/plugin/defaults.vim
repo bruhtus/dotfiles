@@ -1,6 +1,6 @@
 " default (n)vim settings
 
-let mapleader = " "
+let mapleader = ' '
 
 set hidden
 set showcmd
@@ -36,6 +36,9 @@ set nostartofline
 set ignorecase
 set smartcase
 set incsearch
+
+" in case I don't want to use statusline
+if &ruler | set rulerformat=%-13.(%r%m%)\ %P | endif
 
 if has('nvim')
   set guicursor=
