@@ -2,7 +2,7 @@ function! pack#init() abort
   try
     packadd vim-packager
     call packager#init({'window_cmd': 'topleft new'})
-  catch
+  catch /^Vim\%((\a\+)\)\=:E117/
     if has('nvim')
       exe '!git clone https://github.com/kristijanhusak/vim-packager.git ' . stdpath('config') . '/pack/packager/opt/vim-packager'
     else
