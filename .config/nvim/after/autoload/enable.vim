@@ -3,7 +3,7 @@ function! enable#goyo()
     try
       packadd goyo.vim | packadd limelight.vim
       Goyo
-    catch
+    catch /^Vim\%((\a\+)\)\=:E492/
       echo 'Goyo and limelight plugin not installed'
     endtry
   else
@@ -17,7 +17,7 @@ function! enable#rainbow()
       let g:rainbow_active = 0
       packadd rainbow
       RainbowToggle
-    catch
+    catch /^Vim\%((\a\+)\)\=:E492/
       echo 'Rainbow plugin not installed'
     endtry
   else
@@ -33,8 +33,10 @@ function! enable#fugitive()
     else
       norm gq
     endif
-  catch
-    echo 'Fugitive plugin not installed or not git repo'
+  catch /^Vim\%((\a\+)\)\=:fugitive/
+    echo 'Not git repo'
+  catch  /^Vim\%((\a\+)\)\=:E492/
+    echo 'Fugitive plugin not installed'
   endtry
 endfunction
 
@@ -44,7 +46,7 @@ function! enable#filebeagle()
       let g:filebeagle_suppress_keymaps = 1
       packadd vim-filebeagle
       FileBeagleBufferDir
-    catch
+    catch /^Vim\%((\a\+)\)\=:E492/
       echo 'Filebeagle plugin not installed'
     endtry
   else
