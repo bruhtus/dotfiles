@@ -6,7 +6,8 @@ function! pack#init() abort
     if has('nvim')
       exe '!git clone https://github.com/kristijanhusak/vim-packager.git ' . stdpath('config') . '/pack/packager/opt/vim-packager'
     else
-      exe '!git clone https://github.com/kristijanhusak/vim-packager.git ~/.vim/pack/packager/opt/vim-packager'
+      silent! exe '!git clone https://github.com/kristijanhusak/vim-packager.git ~/.vim/pack/packager/opt/vim-packager'
+      redraw!
     endif
     packadd vim-packager
     call packager#init({'window_cmd': 'topleft new'})
