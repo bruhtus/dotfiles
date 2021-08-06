@@ -27,9 +27,12 @@ endfunction
 
 function! enable#fugitive()
   try
-    if &filetype !=# 'fugitive'
-      packadd vim-fugitive
+    if &filetype !=# 'fugitive' && empty(filter(range(1, winnr('$')), 'getwinvar(v:val, "&ft") ==# "fugitive"'))
+      if !exists('g:loaded_fugitive') | packadd vim-fugitive | endif
       Git
+    elseif &filetype !=# 'fugitive' && !empty(filter(range(1, winnr('$')), 'getwinvar(v:val, "&ft") ==# "fugitive"'))
+      " it seems fugitive status is always the last window which is convenient
+      exe "$windo norm gq"
     else
       norm gq
     endif
