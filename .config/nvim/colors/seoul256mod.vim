@@ -316,7 +316,7 @@ else
 endif
 
 "
-call s:hi('StatusLine',       [233],           [187])
+call s:hi('StatusLine',       [s:dark_bg],     [187])
 call s:hi('StatusLineNC',     [s:dark_bg + 2], [187])
 call s:hi('StatusLineTerm',   [233],           [151])
 call s:hi('StatusLineTermNC', [s:dark_bg + 2], [187])
