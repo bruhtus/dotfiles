@@ -5,8 +5,8 @@ try
 
   " https://vi.stackexchange.com/a/30989/34851
   " disable termguicolors in tty
-  if $TERM != 'linux'
-    if has('termguicolors') | set termguicolors | endif
+  if $TERM != 'linux' && has('termguicolors')
+    set termguicolors
   endif
 
   " change statusline color when enter terminal emulator in neovim
