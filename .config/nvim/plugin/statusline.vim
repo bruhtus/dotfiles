@@ -1,4 +1,11 @@
 " statusline config
+
+" why would you want to load this if you don't want to use statusline?
+if !&laststatus
+  if !&showmode | set showmode | endif
+  finish
+endif
+
 " do not change statusline of quickfix and bufstop window
 augroup StatuslineStartup
   autocmd!
