@@ -23,7 +23,7 @@ function! pack#init() abort
   call packager#add('tpope/vim-eunuch',             { 'type': 'opt' })
   call packager#add('junegunn/goyo.vim',            { 'type': 'opt' })
   call packager#add('tpope/vim-fugitive',           { 'type': 'opt' })
-  call packager#add('justinmk/vim-sneak',           { 'type': 'opt' })
+  call packager#add('bruhtus/vim-sneak',            { 'type': 'opt' })
   call packager#add('rhysd/committia.vim',          { 'type': 'opt' })
   call packager#add('luochen1990/rainbow',          { 'type': 'opt' })
   call packager#add('tommcdo/vim-exchange',         { 'type': 'opt' })
