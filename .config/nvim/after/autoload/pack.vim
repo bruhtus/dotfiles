@@ -24,6 +24,7 @@ function! pack#init() abort
   call packager#add('tpope/vim-eunuch',             { 'type': 'opt' })
   call packager#add('junegunn/goyo.vim',            { 'type': 'opt' })
   call packager#add('tpope/vim-fugitive',           { 'type': 'opt' })
+  call packager#add('justinmk/vim-sneak',           { 'type': 'opt' })
   call packager#add('rhysd/committia.vim',          { 'type': 'opt' })
   call packager#add('luochen1990/rainbow',          { 'type': 'opt' })
   call packager#add('tommcdo/vim-exchange',         { 'type': 'opt' })
@@ -40,11 +41,8 @@ function! pack#init() abort
   call packager#add('iamcco/markdown-preview.nvim', { 'type': 'opt', 'do': ':call mkdp#util#install()' })
 
   if has('nvim-0.5')
-    call packager#add('phaazon/hop.nvim',          { 'type': 'opt' })
     call packager#add('neovim/nvim-lspconfig',     { 'type': 'opt' })
     call packager#add('kabouzeid/nvim-lspinstall', { 'type': 'opt' })
-  else
-    call packager#add('easymotion/vim-easymotion', { 'type': 'opt' })
   endif
 
   " call packager#add('mihaifm/bufstop')
@@ -52,4 +50,6 @@ function! pack#init() abort
   " call packager#add('preservim/tagbar')
   " call packager#add('kshenoy/vim-signature')
   " call packager#add('glepnir/dashboard-nvim')
+  " call packager#add('phaazon/hop.nvim',          { 'type': 'opt' })
+  " call packager#add('easymotion/vim-easymotion', { 'type': 'opt' })
 endfunction
