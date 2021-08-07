@@ -2,4 +2,4 @@
 nnoremap <silent> dm :call simp#markdelete()<CR>
 
 " jump to any mark with space j
-nnoremap <leader>j :call simp#gotomark()<CR>
+nnoremap <leader><Space> :call simp#gotomark()<CR>
