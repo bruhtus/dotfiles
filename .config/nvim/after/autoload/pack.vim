@@ -13,7 +13,6 @@ function! pack#init() abort
     call packager#init({'window_cmd': 'topleft new'})
   endtry
 
-  call packager#add('tpope/vim-sleuth')
   call packager#add('tpope/vim-surround')
   call packager#add('wellle/targets.vim')
   call packager#add('tpope/vim-commentary')
@@ -45,6 +44,8 @@ function! pack#init() abort
     call packager#add('kabouzeid/nvim-lspinstall', { 'type': 'opt' })
   endif
 
+  " call packager#add('tpope/vim-sleuth') " inconsistent behavior on different
+  " file with the same filetype
   " call packager#add('mihaifm/bufstop')
   " call packager#add('airblade/vim-rooter')
   " call packager#add('preservim/tagbar')
