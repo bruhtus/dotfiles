@@ -5,9 +5,9 @@ let maplocalleader = '\'
 " there's also built-in DiffGitCached from tpope vim-git
 nnoremap <buffer> <silent> <localleader>\
       \ :try <Bar>
-      \   packadd committia.vim <Bar>
+      \   if !exists('g:loaded_committia') \| packadd committia.vim \| endif <Bar>
       \   call committia#open('git') <Bar>
-      \ catch <Bar>
+      \ catch /^Vim\%((\a\+)\)\=:E117/ <Bar>
       \   DiffGitCached <Bar>
       \ endtry<CR>
 

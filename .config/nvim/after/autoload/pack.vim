@@ -1,6 +1,6 @@
 function! pack#init() abort
   try
-    packadd vim-packager
+    if !exists('g:loaded_vim_packager') | packadd vim-packager | endif
     call packager#init({'window_cmd': 'topleft new'})
   catch /^Vim\%((\a\+)\)\=:E117/
     if has('nvim')
@@ -9,7 +9,7 @@ function! pack#init() abort
       silent! exe '!git clone https://github.com/kristijanhusak/vim-packager.git ~/.vim/pack/packager/opt/vim-packager'
       redraw!
     endif
-    packadd vim-packager
+    if !exists('g:loaded_vim_packager') | packadd vim-packager | endif
     call packager#init({'window_cmd': 'topleft new'})
   endtry
 

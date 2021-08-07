@@ -1,6 +1,6 @@
 if has('nvim-0.5')
-  nnoremap <silent> <leader>k m':<C-u>packadd hop.nvim \| HopWord<CR>
+  nnoremap <expr> <silent> <leader>k (!exists(':HopWord') ? "m':<C-u>packadd hop.nvim <Bar> " : "m':" ) . 'HopWord<CR>'
 else
   let g:EasyMotion_do_mapping = 0
-  nmap <silent> <leader>k m':<C-u>packadd vim-easymotion<CR><Plug>(easymotion-bd-w)
+  nmap <expr> <silent> <leader>k (!exists('g:EasyMotion_loaded') ? "m':<C-u>packadd vim-easymotion<CR>" : '' ) . '<Plug>(easymotion-bd-w)'
 endif

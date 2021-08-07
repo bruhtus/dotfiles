@@ -9,7 +9,10 @@ let g:markdown_minlines = 69
 " \\ to preview markdown
 let g:mkdp_refresh_slow = 1
 nnoremap <buffer> <silent> <localleader>\
-      \ :packadd markdown-preview.nvim <Bar>
+      \ :if !exists('g:loaded_markdown_preview') <Bar>
+      \    packadd markdown-preview.nvim <Bar>
+      \    let g:loaded_markdown_preview = 1 <Bar>
+      \  endif <Bar>
       \ call mkdp#util#toggle_preview()<CR>
 
 " inspired by $VIMRUNTIME/ftplugin/vim.vim and $VIMRUNTIME/ftplugin/python.vim
