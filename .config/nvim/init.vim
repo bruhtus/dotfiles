@@ -1,10 +1,12 @@
 if has('packages')
   let $MYPACK = has('nvim') ? stdpath('config') . '/after/autoload/pack.vim' : '$HOME/.vim/after/autoload/pack.vim'
 
-  command! -bar PacList             source $MYPACK | call pack#init() | call packager#status()
-  command! -bar PacClean            source $MYPACK | call pack#init() | call packager#clean()
-  command! -nargs=* -bar PacInstall source $MYPACK | call pack#init() | call packager#install(<args>)
-  command! -nargs=* -bar PacSync    source $MYPACK | call pack#init() | call packager#clean() | call packager#update(<args>)
+  command! PacList    packadd minpac | echo 'Total: ' . len(minpac#getpackages('minpac', '', '', 1)) . ' plugin(s)' | echo join(sort(minpac#getpackages('minpac', '', '', 1)), "\n")
+  command! PacQStart  packadd minpac | echo join(sort(minpac#getpackages('minpac', 'start', '', 1)), "\n")
+  command! PacClean   source $MYPACK | call pack#init() | call minpac#clean()
+  command! PacUpdate  source $MYPACK | call pack#init() | call minpac#update()
+  command! PacMove    source $MYPACK | call pack#init() | call pack#move()
+  command! PacInstall source $MYPACK | call pack#init() | call minpac#update(keys(filter(copy(minpac#pluglist), {-> !isdirectory(v:val.dir . '/.git')})))
 
 else
   echo 'Please install vim-plug instead'
