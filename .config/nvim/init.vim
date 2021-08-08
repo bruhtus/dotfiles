@@ -15,7 +15,7 @@ if has('packages')
   " Ref: https://dev.to/dlains/create-your-own-vim-commands-415b
   command! -nargs=1 PacQ
         \ packadd minpac                           |
-        \ exe "echo 'Total: '"
+        \ exe "echo 'Total:'"
         \ . "len(minpac#getpackages('minpac', '"
         \ . <f-args> . "', '', 1)) . ' plugin(s)'" |
         \ exe "echo join(sort(minpac#getpackages('minpac', '"
