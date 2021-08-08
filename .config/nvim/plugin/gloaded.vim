@@ -1,5 +1,5 @@
 " disable built-in plugins
-" reference: https://github.com/rbtnn/vim-gloaded/blob/master/plugin/gloaded.vim
+" Ref: https://github.com/rbtnn/vim-gloaded/blob/master/plugin/gloaded.vim
 
 let g:loaded_gzip             = 1
 let g:loaded_tar              = 1

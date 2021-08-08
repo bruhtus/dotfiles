@@ -6,7 +6,7 @@
 " More info: `:h \zs`
 
 " split current line based on comma inside parentheses
-" reference: https://stackoverflow.com/a/33337692
+" Ref: https://stackoverflow.com/a/33337692
 " :h sub-replace-special
 function! substitute#current_line#split_by_comma_parentheses()
   try

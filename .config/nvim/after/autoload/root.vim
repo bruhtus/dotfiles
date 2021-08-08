@@ -1,4 +1,4 @@
-" reference:
+" Ref:
 " https://github.com/junegunn/dotfiles/blob/057ee47465e43aafbd20f4c8155487ef147e29ea/vimrc#L655-L667
 " https://vim.fandom.com/wiki/Set_working_directory_to_the_current_file
 " https://stackoverflow.com/a/38082196

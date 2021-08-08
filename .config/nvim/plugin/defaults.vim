@@ -67,7 +67,7 @@ else
   set viewoptions-=options
 
   " to set CursorLineNr highlight in vanilla vim
-  " reference: https://vi.stackexchange.com/a/24914
+  " Ref: https://vi.stackexchange.com/a/24914
   if exists('+cursorlineopt')
     set cursorline
     set cursorlineopt=number

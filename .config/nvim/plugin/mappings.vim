@@ -72,7 +72,7 @@ nnoremap <silent> ]l :lnext<CR>zz
 nnoremap <silent> [l :lprevious<CR>zz
 
 " map ]<Space> to location list toggle and [<Space> to quickfix list toggle
-" reference: https://stackoverflow.com/a/63162084
+" Ref: https://stackoverflow.com/a/63162084
 nnoremap <silent> ]<Space>
       \ :if empty(filter(getwininfo(), 'v:val.loclist')) <Bar>
       \   lopen <Bar>
@@ -86,7 +86,7 @@ nnoremap <silent> [<Space>
       \   cclose <Bar>
       \ endif<CR>
 
-" reference: https://vim.fandom.com/wiki/Move_to_next/previous_line_with_same_indentation
+" Ref: https://vim.fandom.com/wiki/Move_to_next/previous_line_with_same_indentation
 nnoremap <silent> gb m':<C-u>call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%>' . line('.') . 'l\S', 'e')<CR>
 nnoremap <silent> gh m':<C-u>call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%<' . line('.') . 'l\S', 'be')<CR>
 
@@ -202,7 +202,7 @@ elseif exists('&termwinkey')
 
 endif
 
-" reference: https://vi.stackexchange.com/a/693
+" Ref: https://vi.stackexchange.com/a/693
 " nnoremap <buffer> <silent> cd m':<C-u>call search('\%' . virtcol('.') . 'v\S', 'W')<CR>
 " nnoremap <buffer> <silent> dc m':<C-u>call search('\%' . virtcol('.') . 'v\S', 'bW')<CR>
 

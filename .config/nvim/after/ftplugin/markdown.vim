@@ -2,7 +2,7 @@
 
 let maplocalleader = '\'
 
-" reference: https://github.com/tpope/vim-markdown
+" Ref: https://github.com/tpope/vim-markdown
 let g:markdown_fenced_languages = ['bash=sh', 'sh', 'html', 'python']
 let g:markdown_minlines = 69
 

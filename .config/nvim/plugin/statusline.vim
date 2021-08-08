@@ -33,7 +33,7 @@ function! StatuslineLoad(mode)
 endfunction
 
 function! StatuslineComponent() abort
-  " reference: https://stackoverflow.com/a/65908148
+  " Ref: https://stackoverflow.com/a/65908148
   let l:line=''
 
   if mode() == 'n'

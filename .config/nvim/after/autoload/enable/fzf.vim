@@ -37,7 +37,7 @@ function! enable#fzf#init()
           \ fzf#vim#with_preview('hidden', 'ctrl-/'), <bang>0)
 
     " Custom BLines with preview (using ripgrep)
-    " reference: https://github.com/junegunn/fzf.vim/issues/374#issuecomment-724301156
+    " Ref: https://github.com/junegunn/fzf.vim/issues/374#issuecomment-724301156
     command! -bang -nargs=* CustomBLines
           \ call fzf#vim#grep(
           \ 'rg --with-filename --column --line-number --no-heading --smart-case . ' . fnameescape(expand('%:p')),
