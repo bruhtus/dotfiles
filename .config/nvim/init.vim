@@ -2,7 +2,7 @@ if has('packages')
   let $MYPACK = has('nvim') ? stdpath('config') . '/after/autoload/pack.vim' : '$HOME/.vim/after/autoload/pack.vim'
 
   command! PacClean   source $MYPACK | call pack#init() | call minpac#clean()
-  command! PacUpdate  source $MYPACK | call pack#init() | call minpac#update()
+  command! PacSync    source $MYPACK | call pack#init() | call minpac#update()
   command! PacMove    source $MYPACK | call pack#init() | call pack#move()
 
   command! PacList
