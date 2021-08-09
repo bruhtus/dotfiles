@@ -1,4 +1,8 @@
 " source: https://github.com/mihaifm/bufstop
+if exists('g:loaded_bufstop_mod')
+  finish
+endif
+
 let g:bufstop_history = []
 let g:bufstop_name = "--Bufstop--"
 
