@@ -16,3 +16,13 @@ function! template#sh()
     echo "Shell script template doesn't exist"
   endif
 endfunction
+
+function! template#vim()
+  if filereadable(expand('~/.config/nvim/templates/vim'))
+    -1read $HOME/.config/nvim/templates/vim
+    norm L
+    filetype detect
+  else
+    echo "Vim template doesn't exist"
+  endif
+endfunction
