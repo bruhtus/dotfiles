@@ -137,7 +137,7 @@ if !exists('s:rgb_map')
     endif
 endif
 
-let s:background  = &background
+" let s:background  = &background
 let s:colors_name = get(g:, 'colors_name', '')
 
 let s:style_idx = 0
@@ -368,15 +368,15 @@ call s:hi('CommandModeColor', [233], [217])
 
 " hop.nvim
 " -----------
-call s:hi('HopNextKey',   [152],           [''])
-call s:hi('HopNextKey1',  [224],           [''])
-call s:hi('HopNextKey2',  [217],           [''])
-call s:hi('HopUnmatched', [s:dark_bg + 8], [''])
+" call s:hi('HopNextKey',   [152],           [''])
+" call s:hi('HopNextKey1',  [224],           [''])
+" call s:hi('HopNextKey2',  [217],           [''])
+" call s:hi('HopUnmatched', [s:dark_bg + 8], [''])
 
 " vim-sneak
 " -----------
-" call s:hi('Sneak',      [152], [s:dark_bg])
-" call s:hi('SneakLabel', [152], [s:dark_bg])
+call s:hi('Sneak',      [s:dark_bg], [230])
+call s:hi('SneakLabel', [s:dark_bg], [230])
 
 " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
 " ---------------------------------------------------^^^^^
