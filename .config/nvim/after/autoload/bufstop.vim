@@ -88,6 +88,9 @@ function! s:bufstop_select_buffer(k)
     else
       exe "wincmd p"
       exe "silent b" s:bufnr
+      if !exists('b:bufstop_winview')
+        let b:bufstop_winview = winsaveview()
+      endif
       exe "wincmd p"
       if s:fast_mode
         exe "q"
@@ -111,6 +114,9 @@ function! s:bufstop_delete_buffer(bufnr)
 
     exe window . "wincmd w"
     exe "silent b" candidate
+    if !exists('b:bufstop_winview')
+      let b:bufstop_winview = winsaveview()
+    endif
 
     " our candidate may still be the buffer we're trying to delete
     if bufnr("%") == a:bufnr
@@ -133,9 +139,18 @@ function! s:bufstop_delete_buffer(bufnr)
   norm! 0
 endfunction
 
+function! s:bufstop_restore_winview()
+  bd
+  wincmd p
+  if exists('b:bufstop_winview')
+    call winrestview(b:bufstop_winview)
+    unlet b:bufstop_winview
+  endif
+endfunction
+
 " create mappings for the s:bufstop_main window
 function! s:map_keys()
-  exe 'nnoremap <buffer> <silent> ' . g:bufstop_dismiss_key . ' :bd \| norm! zz<CR>'
+  exe 'nnoremap <buffer> <silent> ' . g:bufstop_dismiss_key . ' :call <SID>bufstop_restore_winview()<CR>'
   nnoremap <buffer> <silent> <cr>             :call <SID>bufstop_select_buffer('cr')<cr>
   nnoremap <buffer> <silent> <2-LeftMouse>    :call <SID>bufstop_select_buffer('cr')<cr>
   nnoremap <buffer> <silent> d                :call <SID>bufstop_select_buffer('d')<cr>
@@ -228,6 +243,7 @@ endfunction
 function! bufstop#open()
   let s:fast_mode = 0
   let s:preview_mode = 0
+  let b:bufstop_winview = winsaveview()
   call s:bufstop_main()
   call s:unmap_preview_keys()
 endfunction
@@ -236,6 +252,7 @@ endfunction
 " function! BufstopFast()
 "   let s:fast_mode = 1
 "   let s:preview_mode = 0
+"   let b:bufstop_winview = winsaveview()
 "   call s:bufstop_main()
 "   call s:unmap_preview_keys()
 " endfunction
@@ -244,6 +261,7 @@ endfunction
 function! bufstop#preview()
   let s:fast_mode = 0
   let s:preview_mode = 1
+  let b:bufstop_winview = winsaveview()
   call s:bufstop_main()
 
   call s:map_preview_keys()
