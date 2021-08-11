@@ -1,6 +1,8 @@
 " default (n)vim settings
 
-let mapleader = ' '
+if !exists('mapleader')
+  let mapleader = ' '
+endif
 
 set title
 set hidden
