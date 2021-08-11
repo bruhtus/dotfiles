@@ -8,7 +8,7 @@ let s:speed_mounted = 0
 
 let g:bufstop_split = "leftabove"
 let g:bufstop_dismiss_key = "<Space>"
-let g:bufstop_keys = "aszxcfvqwer12345tyuiopbnm67890ABCEFGHIJKLMNOPQRSTUVZ"
+let g:bufstop_keys = "aszxcfvqwer12345tyuiopbnm67890ABCEFGIJKNOPQRSTUVZ"
 let g:bufstop_sorting = "MRU"
 let g:bufstop_indicators = 1
 
@@ -148,6 +148,9 @@ endfunction
 function! s:map_preview_keys()
   nnoremap <buffer> <silent> j               j:call <SID>bufstop_select_buffer('cr')<cr>
   nnoremap <buffer> <silent> k               k:call <SID>bufstop_select_buffer('cr')<cr>
+  nnoremap <buffer> <silent> H               H:call <SID>bufstop_select_buffer('cr')<cr>
+  nnoremap <buffer> <silent> M               M:call <SID>bufstop_select_buffer('cr')<cr>
+  nnoremap <buffer> <silent> L               L:call <SID>bufstop_select_buffer('cr')<cr>
   nnoremap <buffer> <silent> <down>          j:call <SID>bufstop_select_buffer('cr')<cr>
   nnoremap <buffer> <silent> <up>            k:call <SID>bufstop_select_buffer('cr')<cr>
 endfunction
