@@ -38,12 +38,12 @@ func! sneak#init() abort
       \ ,'prompt'       : get(g:, 'sneak#prompt', '>')
       \ }
 
-  for k in ['f', 't'] "if user mapped f/t to Sneak, then disable f/t reset.
-    if maparg(k, 'n') =~# 'Sneak'
-      let g:sneak#opt[k.'_reset'] = 0
-    endif
-  endfor
-  lockvar g:sneak#opt
+  " for k in ['f', 't'] "if user mapped f/t to Sneak, then disable f/t reset.
+  "   if maparg(k, 'n') =~# 'Sneak'
+  "     let g:sneak#opt[k.'_reset'] = 0
+  "   endif
+  " endfor
+  " lockvar g:sneak#opt
 endf
 
 call sneak#init()
@@ -171,7 +171,10 @@ func! sneak#to(op, input, inputlen, count, register, repeatmotion, reverse, incl
   endif
 
   for i in range(1, max([1, skip])) "jump to the [count]th match
-    let matchpos = s.dosearch()
+    " let matchpos = s.dosearch()
+    " add extra search option
+    " Ref: `:h search()`
+    let matchpos = s.dosearch('n')
     if 0 == max(matchpos)
       break
     else

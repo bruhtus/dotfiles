@@ -16,7 +16,8 @@ func! sneak#search#new() abort
     let self._search_options = 'W' . (a:reverse ? 'b' : '')
     let self.search_options_no_s = self._search_options
     " save the jump on the initial invocation, _not_ repeats or consecutive invocations.
-    if !a:repeatmotion && !sneak#is_sneaking() | let self._search_options .= 's' | endif
+    " `s` flag cannot be combined with `n` flag in searchpos()
+    " if !a:repeatmotion && !sneak#is_sneaking() | let self._search_options .= 's' | endif
   endf
 
   func! s.initpattern() abort
