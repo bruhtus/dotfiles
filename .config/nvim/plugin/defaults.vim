@@ -2,6 +2,7 @@
 
 let mapleader = ' '
 
+set title
 set hidden
 set showcmd
 set linebreak
