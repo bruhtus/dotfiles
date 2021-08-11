@@ -24,7 +24,6 @@ function! pack#init() abort
   call minpac#add('tpope/vim-eunuch',             { 'type': 'opt' })
   call minpac#add('junegunn/goyo.vim',            { 'type': 'opt' })
   call minpac#add('tpope/vim-fugitive',           { 'type': 'opt' })
-  call minpac#add('bruhtus/vim-sneak',            { 'type': 'opt' })
   call minpac#add('rhysd/committia.vim',          { 'type': 'opt' })
   call minpac#add('luochen1990/rainbow',          { 'type': 'opt' })
   call minpac#add('tommcdo/vim-exchange',         { 'type': 'opt' })
@@ -53,6 +52,7 @@ function! pack#init() abort
   " call minpac#add('kshenoy/vim-signature')
   " call minpac#add('glepnir/dashboard-nvim')
   " call minpac#add('phaazon/hop.nvim',          { 'type': 'opt' })
+  " call minpac#add('justinmk/vim-sneak',        { 'type': 'opt' })
   " call minpac#add('easymotion/vim-easymotion', { 'type': 'opt' })
 endfunction
 
