@@ -43,7 +43,7 @@ func! sneak#init() abort
   "     let g:sneak#opt[k.'_reset'] = 0
   "   endif
   " endfor
-  " lockvar g:sneak#opt
+  lockvar g:sneak#opt
 endf
 
 call sneak#init()

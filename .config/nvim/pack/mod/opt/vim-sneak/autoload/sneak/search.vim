@@ -24,10 +24,12 @@ func! sneak#search#new() abort
     let self._searchpattern = (self.prefix).(self.match_pattern).'\zs'.(self.search)
   endf
 
+  " self._reverse to determine using first or last visible line in current
+  " window
   func! s.dosearch(...) abort " a:1 : extra search options
     return searchpos(self._searchpattern
           \, self._search_options.(a:0 ? a:1 : '')
-          \, 0
+          \, self._reverse ? line("w0") : line("w$")
           \)
   endf
 
