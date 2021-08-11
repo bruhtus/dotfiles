@@ -1,5 +1,3 @@
-let mapleader = ' '
-
 if has('packages')
   let $MYPACK = has('nvim') ? stdpath('config') . '/after/autoload/pack.vim' : '$HOME/.vim/after/autoload/pack.vim'
 

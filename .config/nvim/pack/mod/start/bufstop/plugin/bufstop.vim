@@ -66,3 +66,5 @@ augroup Bufstop
   exe 'autocmd BufWinEnter,WinEnter ' . g:bufstop_name . ' call s:timeout_fiddle(1)'
   exe 'autocmd BufWinLeave,WinLeave ' . g:bufstop_name . ' call s:timeout_fiddle(0)'
 augroup End
+
+nnoremap <silent> <leader>n :<C-u>call bufstop#preview()<CR>
