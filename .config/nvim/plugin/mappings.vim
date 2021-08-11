@@ -206,6 +206,13 @@ endif
 " nnoremap <buffer> <silent> cd m':<C-u>call search('\%' . virtcol('.') . 'v\S', 'W')<CR>
 " nnoremap <buffer> <silent> dc m':<C-u>call search('\%' . virtcol('.') . 'v\S', 'bW')<CR>
 
+" Ref: https://github.com/jeetsukumaran/vim-linearly/blob/master/plugin/linearly.vim
+" Usage: make `J` normal mode command take motion
+" function! s:_joinoperator(submode)
+"   '[,']join
+" endfunction
+" nnoremap J :set operatorfunc=<SID>_joinoperator<CR>g@
+
 " add location to jumplist if moving more than 5 count
 " for example: it's gonna add the location to jumplist if we use `6j`
 " backtick mark apparently can add to the jumplist
