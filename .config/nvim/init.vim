@@ -6,18 +6,18 @@ if has('packages')
   command! PacMove    source $MYPACK | call pack#init() | call pack#move()
 
   command! PacList
-        \ packadd minpac                                                |
+        \ if !exists('g:loaded_minpac') | packadd minpac | endif           |
         \ echo 'Total: '
-        \ . len(minpac#getpackages('minpac', '', '', 1)) . ' plugin(s)' |
+        \ . len(minpac#getpackages('minpac', '', '', 1)) . ' plugin(s)'    |
         \ echo join(sort(minpac#getpackages('minpac', '', '', 1)), "\n")
 
   " Usage: PacQ start or PacQ opt
   " Ref: https://dev.to/dlains/create-your-own-vim-commands-415b
   command! -nargs=1 PacQ
-        \ packadd minpac                           |
+        \ if !exists('g:loaded_minpac') | packadd minpac | endif |
         \ exe "echo 'Total:'"
         \ . "len(minpac#getpackages('minpac', '"
-        \ . <f-args> . "', '', 1)) . ' plugin(s)'" |
+        \ . <f-args> . "', '', 1)) . ' plugin(s)'"               |
         \ exe "echo join(sort(minpac#getpackages('minpac', '"
         \ . <f-args> . "', '', 1)), " . '"\n")'
 
