@@ -31,6 +31,7 @@ function! pack#init() abort
   call minpac#add('junegunn/vim-easy-align',      { 'type': 'opt' })
   call minpac#add('dstein64/vim-startuptime',     { 'type': 'opt' })
   call minpac#add('AndrewRadev/linediff.vim',     { 'type': 'opt' })
+  call minpac#add('tweekmonster/helpful.vim',     { 'type': 'opt' })
   call minpac#add('ronakg/quickr-preview.vim',    { 'type': 'opt' })
   call minpac#add('tweekmonster/startuptime.vim', { 'type': 'opt' })
   call minpac#add('jeetsukumaran/vim-filebeagle', { 'type': 'opt' })
