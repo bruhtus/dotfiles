@@ -162,15 +162,19 @@ nnoremap ZS :execute "lvimgrep /\\<" . expand("<cword>") . "\\>/j %"<CR>
 " set ZD as :reg
 nnoremap ZD :reg<CR>
 
-" map ZJ to move current line below the given line (takes count)
+" map ZJ to move current line below the given line (takes count) and add the
+" current line position to jumplist
 " default: current line
-" TODO: add above/below current line to jumplist if v:count1 more than one
-nnoremap ZJ :<C-u>execute 'move +'. v:count1<CR>==
+nnoremap <expr> ZJ
+      \ v:count1 ># 1 ? ":<C-u>execute '+1k` <Bar> move +'. v:count1<CR>==" :
+      \ ":<C-u>execute 'move +'. v:count1<CR>=="
 
-" map ZK to move current line above the given line (takes count)
+" map ZK to move current line above the given line (takes count) and add the
+" current line position to jumplist
 " default: corrent line
-" TODO: add above/below current line to jumplist if v:count1 more than one
-nnoremap ZK :<C-u>execute 'move -1-'. v:count1<CR>==
+nnoremap <expr> ZK
+      \ v:count1 ># 1 ? ":<C-u>execute '-1k` <Bar> move -1-'. v:count1<CR>==" :
+      \ ":<C-u>execute 'move -1-'. v:count1<CR>=="
 
 " map ZU to yank the entire line and put above the given line (takes count)
 " default: current line
