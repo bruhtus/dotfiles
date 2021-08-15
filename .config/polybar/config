@@ -85,7 +85,7 @@ font-3 = "Font Awesome 5 Free:style=Solid:size=10;1"
 font-4 = "Font Awesome 5 Brands:size=10;1"
 
 modules-left = i3 wirelessname wirelessspeedup wirelessspeeddown lanname lanspeedup lanspeeddown xwindow
-modules-center = date time filesystem
+modules-center = date time pomo filesystem
 modules-right = cpu memory pulseaudio battery temperature
 
 separator =
@@ -155,7 +155,7 @@ font-3 = "Font Awesome 5 Free:style=Solid:size=10;1"
 font-4 = "Font Awesome 5 Brands:size=10;1"
 
 modules-left = i3 wirelessname wirelessspeedup wirelessspeeddown lanname lanspeedup lanspeeddown xwindow
-modules-center = date time filesystem
+modules-center = date time pomo filesystem
 modules-right = cpu memory pulseaudio battery temperature
 
 separator =
@@ -607,5 +607,13 @@ menu-2-0 = power off
 menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+
+; and add a pomo module
+[module/pomo]
+type = custom/script
+interval = 1
+
+exec = "pomo clock 2>/dev/null"
+tail = true
 
 ; vim:ft=dosini
