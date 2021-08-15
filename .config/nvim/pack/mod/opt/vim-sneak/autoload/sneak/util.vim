@@ -54,10 +54,10 @@ endf
 "displays a message that will dissipate at the next opportunity.
 func! sneak#util#echo(msg) abort
   redraw | echo a:msg
-  augroup sneak_echo
-    autocmd!
-    autocmd CursorMoved,InsertEnter,WinLeave,BufLeave * redraw | echo '' | autocmd! sneak_echo
-  augroup END
+  " augroup sneak_echo
+  "   autocmd!
+  "   autocmd CursorMoved,InsertEnter,WinLeave,BufLeave * redraw | echo '' | autocmd! sneak_echo
+  " augroup END
 endf
 
 "returns the least possible 'wincol'
