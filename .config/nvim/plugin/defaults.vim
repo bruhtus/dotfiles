@@ -22,7 +22,7 @@ set number relativenumber
 set wildignore=*/.git/*,*.pdf,*.jpg,*jpeg,*.png,*.epub,*.mobi
 
 set autoindent
-set tabstop=2
+set tabstop=4
 set softtabstop=2
 set shiftwidth=2
 set shiftround
