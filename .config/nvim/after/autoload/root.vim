@@ -35,3 +35,12 @@ function! root#toggle()
 
   endif
 endfunction
+
+function! root#temp()
+  let l:root = systemlist('git rev-parse --show-toplevel')[0]
+  if v:shell_error
+    echo 'Not in git repo'
+  else
+    execute 'lcd ' . l:root
+  endif
+endfunction
