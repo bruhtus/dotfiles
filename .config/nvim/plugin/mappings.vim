@@ -142,9 +142,6 @@ nnoremap Q :lvimgrep /\v/j %<left><left><left><left>
 " set space s to substitute command
 nnoremap <leader>s :s//g<left><left>
 
-" set space S to substitute N occurrence using command line window
-nnoremap <leader>S q:is/\v(.{-}\zs){}/<Esc>F)i
-
 " set space m to open terminal emulator
 if exists(':ter')
   nnoremap <silent> <leader>m :ter<CR>
@@ -222,6 +219,10 @@ endif
 " backtick mark apparently can add to the jumplist
 " nnoremap <expr> j (v:count > 5 ? 'm`' . v:count : '') . 'j'
 " nnoremap <expr> k (v:count > 5 ? 'm`' . v:count : '') . 'k'
+
+" didn't quite find this mapping useful but can be good for reference
+" set space S to substitute N occurrence using command line window
+" nnoremap <leader>S q:is/\v(.{-}\zs){}/<Esc>F)i
 
 " experiment to make j remapped to `_` if the next line of the same column is
 " blank/whitespace character
