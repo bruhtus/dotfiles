@@ -322,10 +322,11 @@ call s:hi('StatusLineTerm',   [233],           [151])
 call s:hi('StatusLineTermNC', [s:dark_bg + 2], [187])
 hi StatusLineTerm cterm=bold,reverse gui=bold,reverse
 hi StatusLineTermNC cterm=bold,reverse gui=bold,reverse
+
 call s:hi('TabLineFill', [s:dark_bg],      [''])
 call s:hi('TabLineSel',  [187],            [233])
 call s:hi('TabLine',     [s:dark_bg + 12], [s:dark_bg + 4])
-call s:hi('WildMenu',    [95],             [184])
+call s:hi('WildMenu',    [s:dark_bg],      [187])
 
 " :set all
 call s:hi('Title', [181], [''])
