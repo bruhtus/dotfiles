@@ -18,6 +18,9 @@ function! pack#init() abort
   call minpac#add('tpope/vim-commentary')
   call minpac#add('andymass/vim-matchup')
 
+  call minpac#add('bruhtus/bufstop',   { 'branch': 'personal' })
+  call minpac#add('bruhtus/vim-sneak', { 'type': 'opt', 'branch': 'personal' })
+
   call minpac#add('k-takata/minpac',              { 'type': 'opt' })
   call minpac#add('junegunn/gv.vim',              { 'type': 'opt' })
   call minpac#add('ap/vim-css-color',             { 'type': 'opt' })
