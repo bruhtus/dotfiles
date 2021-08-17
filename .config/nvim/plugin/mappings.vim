@@ -196,10 +196,12 @@ cnoremap <C-x> <right>
 if has('nvim')
   tnoremap <C-Space> <C-\><C-n>
 
-elseif exists('&termwinkey')
-  " ctrl-p is a remap in terminal similar to ctrl-w in normal mode
-  " (check defaults.vim)
-  tnoremap <C-b> <C-p>W
+elseif has('patch-8.0.0877')
+  " Vim Patch: http://ftp.vim.org/pub/vim/patches/8.0/
+  " Use Plugin: tweekmonster/helpful.vim
+  " for whatever reason i can't use ctrl space in vim
+  " vim interprets <Nul> or <C-@> when you press ctrl-space
+  tnoremap <C-@> <C-\><C-n>
 
 endif
 
