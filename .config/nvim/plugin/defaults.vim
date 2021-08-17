@@ -66,6 +66,8 @@ else
   set autoread
   set sessionoptions-=options
   set viewoptions-=options
+  set shortmess-=S
+  set shortmess+=F
 
   " to set CursorLineNr highlight in vanilla vim
   " Ref: https://vi.stackexchange.com/a/24914
