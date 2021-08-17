@@ -1,7 +1,5 @@
 " default (n)vim settings
 
-let mapleader = ' '
-
 set title
 set hidden
 set showcmd
