@@ -227,3 +227,10 @@ endif
 " experiment to make j remapped to `_` if the next line of the same column is
 " blank/whitespace character
 " nnoremap <expr> j match(getline('.'), '\S') + 1 ># col('.') ? '_' : 'j'
+
+" to find out highlight group used in current curror possition
+" Ref: https://vim.fandom.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
+" pressing <F1> open help menu
+" nnoremap <F2> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+"       \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+"       \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
