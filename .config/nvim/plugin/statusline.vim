@@ -9,7 +9,7 @@ endif
 " do not change statusline of quickfix and bufstop window
 augroup StatuslineStartup
   autocmd!
-  autocmd VimEnter,WinEnter,BufWinEnter *
+  autocmd WinEnter,BufWinEnter *
         \ if &buftype ==# 'quickfix'      |
         \ elseif &buftype ==# 'nofile'    |
         \ else                            |
@@ -89,8 +89,9 @@ endfunction
 
 function! StatuslineFilename()
   " see :h expand() for more info
+  " see :h filename-modifiers for more info
   " use 'blank' if 'no name' file
-  let l:fullpath = (expand('%:~:p') !=# '' ? expand('%:~:p') : '[Blank]')
+  let l:fullpath = (expand('%:p:~') !=# '' ? expand('%:p:~') : '[Blank]')
   let l:relativepath = (expand('%') !=# '' ? expand('%') : '[Blank]')
   if winwidth(0) > 160
     return l:fullpath
