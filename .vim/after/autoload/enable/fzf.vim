@@ -2,6 +2,17 @@ function! enable#fzf#init()
   if !exists('g:loaded_fzf_vim')
     packadd fzf | packadd fzf.vim
 
+    if !has('nvim')
+      autocmd! FileType fzf
+            \ let b:laststatus = &laststatus  |
+            \ let b:ruler = &ruler            |
+            \ set laststatus=0 noruler
+            \| autocmd BufLeave <buffer>
+            \  let &laststatus = b:laststatus |
+            \  let &ruler = b:ruler           |
+            \  unlet b:laststatus b:ruler
+    endif
+
     let $FZF_DEFAULT_COMMAND = "rg --hidden --files --no-ignore-vcs --type-not nonsense --type-not font --type-not torrent"
 
     " move preview half page-up/down using ctrl-b/f
