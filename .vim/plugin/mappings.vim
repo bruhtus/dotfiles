@@ -53,6 +53,7 @@ nnoremap <C-b> <C-b>L^
 " set vim to copy to clipboard and paste from clipboard
 vnoremap <C-y> "+y
 nnoremap <C-p> "+gp
+nnoremap <silent> <leader>p :put +<CR>
 
 " remap _ to set current height window to highest possible
 nnoremap _ <C-w>_
