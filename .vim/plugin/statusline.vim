@@ -3,13 +3,13 @@
 function! Statusline() abort
 
   if mode() == 'n'
-    let l:mode ='%#NormalModeColor# '
+    let w:mode ='%#NormalModeColor# '
   elseif mode() == v:insertmode
-    let l:mode ='%#InsertModeColor# '
+    let w:mode ='%#InsertModeColor# '
   elseif mode() == 'v' || mode() == 'V' || mode() == "\<C-V>"
-    let l:mode ='%#VisualModeColor# '
+    let w:mode ='%#VisualModeColor# '
   elseif mode() == 'c' || mode() == 't'
-    let l:mode ='%#CommandModeColor# '
+    let w:mode ='%#CommandModeColor# '
   endif
 
   let l:filename = "%{winwidth(0) > 100 ? (expand('%:p:~') !=# '' ? expand('%:p:~') : '[Blank]') :
@@ -22,7 +22,7 @@ function! Statusline() abort
   let l:fugitive = "%{winwidth(0) > 70 ? (exists('g:loaded_fugitive') ? fugitive#statusline() : '') : ''}"
   let l:seperator = ' %= '
   let l:line = '%-12(%l/%L%)'
-  return l:mode.'%* '.l:readonly.l:filename.l:mod.l:seperator.l:line.' %<'.l:ft.l:fugitive
+  return w:mode.'%* '.l:readonly.l:filename.l:mod.l:seperator.l:line.' %<'.l:ft.l:fugitive
 endfunction
 
 set statusline=%!Statusline()
