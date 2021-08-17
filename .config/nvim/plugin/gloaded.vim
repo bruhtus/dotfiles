@@ -12,11 +12,17 @@ let g:loaded_spec             = 1
 let g:loaded_matchit          = 1
 let g:loaded_matchparen       = 1
 
-" disable provider in neovim
 if has('nvim')
+  " disable provider in neovim
   let g:loaded_python_provider  = 0
   let g:loaded_python3_provider = 0
   let g:loaded_ruby_provider    = 0
   let g:loaded_node_provider    = 0
   let g:loaded_perl_provider    = 0
+else
+  " disable default plugin in vim
+  let g:loaded_logipat          = 1
+  let g:loaded_rrhelper         = 1
+  let g:loaded_vimballPlugin    = 1
+  let g:loaded_getscriptPlugin  = 1
 endif
