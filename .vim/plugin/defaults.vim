@@ -55,23 +55,30 @@ if has('nvim')
   augroup END
 
 else
-  set viminfo+=n~/.vim/viminfo
-  set wildmode=longest,list,full
+  set viminfo+=n~/.cache/vim/viminfo
+  set belloff=all
   set backspace=indent,eol,start
   set complete-=i " disable scanning current and included files
   set nrformats-=octal
   set display+=lastline
   set autoread
-  set sessionoptions-=options
+  set sessionoptions-=options sessionoptions+=globals
   set viewoptions-=options
   set shortmess-=S
   set shortmess+=F
+  set nolangremap
+  set langnoremap
 
   " to set CursorLineNr highlight in vanilla vim
   " Ref: https://vi.stackexchange.com/a/24914
   if exists('+cursorlineopt')
     set cursorline
     set cursorlineopt=number
+  endif
+
+  if exists('+wildmenu')
+    set wildmode=longest:full,full
+    set wildmenu
   endif
 
   if v:version > 703 || v:version == 703 && has('patch541')
