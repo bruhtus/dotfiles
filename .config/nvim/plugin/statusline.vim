@@ -24,7 +24,6 @@ augroup StatuslineStartup
         \ endif
 augroup END
 
-" Ref: https://github.com/junegunn/dotfiles/blob/057ee47465e43aafbd20f4c8155487ef147e29ea/vimrc#L265-L275
 function! StatuslineLoad(mode)
   if a:mode ==# 'active'
     setlocal statusline=%!StatuslineComponent()
@@ -33,6 +32,7 @@ function! StatuslineLoad(mode)
   endif
 endfunction
 
+" Ref: https://github.com/junegunn/dotfiles/blob/057ee47465e43aafbd20f4c8155487ef147e29ea/vimrc#L265-L275
 function! StatuslineComponent() abort
 
   if mode() ==# 'n'
@@ -52,7 +52,8 @@ function! StatuslineComponent() abort
   let l:readonly = "%r"
   let l:mod = "%{&modified ? '  [+]' : !&modifiable ? '  [-]' : ''}"
   let l:ft = "%{winwidth(0) > 70 ? (len(&filetype) ? &filetype : 'no ft') : ''}"
-  let l:git = "%{StatuslineGit()}"
+  let g:gitbranchcmd = "git branch --show-current 2>/dev/null | tr -d '\n'"
+  let l:git = "%{exists('*FugitiveHead') ? (winwidth(0) > 70 ? fugitive#head() : '') : (winwidth(0) > 70 ? system(g:gitbranchcmd) : '')}"
   let l:sep = '%='
   let l:line = '  %3l/%L'
   return w:mode.'%* '.l:git.l:sep.l:readonly.l:filename.l:mod.l:sep.l:ft.l:line
@@ -67,13 +68,4 @@ function! StatuslineNcComponent() abort
   let l:mod = "%{&modified ? '  [+]' : !&modifiable ? '  [-]' : ''}"
   let l:sep = '%='
   return l:sep.l:readonly.l:filename.l:mod.l:sep
-endfunction
-
-function! StatuslineGit()
-  " doesn't give an error if vim-fugitive not installed
-  if exists('*FugitiveHead')
-    return winwidth(0) > 70 ? fugitive#head() : ''
-  else
-    return winwidth(0) > 70 ? system("git branch --show-current 2>/dev/null | tr -d '\n'") : ''
-  endif
 endfunction
