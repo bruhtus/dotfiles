@@ -43,10 +43,10 @@ function! pack#init() abort
   call minpac#add('iamcco/markdown-preview.nvim', { 'type': 'opt',
         \ 'do': 'packadd markdown-preview.nvim | call mkdp#util#install()' })
 
-  if has('nvim-0.5')
-    call minpac#add('neovim/nvim-lspconfig',     { 'type': 'opt' })
-    call minpac#add('kabouzeid/nvim-lspinstall', { 'type': 'opt' })
-  endif
+  " if has('nvim-0.5')
+  "   call minpac#add('neovim/nvim-lspconfig',     { 'type': 'opt' })
+  "   call minpac#add('kabouzeid/nvim-lspinstall', { 'type': 'opt' })
+  " endif
 
   " call minpac#add('tpope/vim-sleuth') " inconsistent behavior on different
   " file with the same filetype
