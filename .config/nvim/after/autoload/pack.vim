@@ -13,6 +13,7 @@ function! pack#init() abort
     call minpac#init()
   endtry
 
+  call minpac#add('tpope/vim-sleuth')
   call minpac#add('tpope/vim-surround')
   call minpac#add('wellle/targets.vim')
   call minpac#add('tpope/vim-commentary')
@@ -48,8 +49,6 @@ function! pack#init() abort
   "   call minpac#add('kabouzeid/nvim-lspinstall', { 'type': 'opt' })
   " endif
 
-  " call minpac#add('tpope/vim-sleuth') " inconsistent behavior on different
-  " file with the same filetype
   " call minpac#add('mihaifm/bufstop')
   " call minpac#add('airblade/vim-rooter')
   " call minpac#add('preservim/tagbar')
