@@ -53,7 +53,8 @@ function! StatuslineComponent() abort
   let l:mod = "%{&modified ? '  [+]' : !&modifiable ? '  [-]' : ''}"
   let l:ft = "%{winwidth(0) > 70 ? (len(&filetype) ? &filetype : 'no ft') : ''}"
   let g:gitbranchcmd = "git branch --show-current 2>/dev/null | tr -d '\n'"
-  let l:git = "%{exists('*FugitiveHead') ? (winwidth(0) > 70 ? fugitive#head() : '') : (winwidth(0) > 70 ? system(g:gitbranchcmd) : '')}"
+  let l:git = "%{exists('*FugitiveHead') ? (winwidth(0) > 70 ? fugitive#head() : '') :
+        \ (winwidth(0) > 70 ? system(g:gitbranchcmd) : '')}"
   let l:sep = '%='
   let l:line = '  %3l/%L'
   return w:mode.'%* '.l:git.l:sep.l:readonly.l:filename.l:mod.l:sep.l:ft.l:line
