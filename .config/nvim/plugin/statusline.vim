@@ -24,8 +24,9 @@ augroup StatuslineStartup
         \ endif
 augroup END
 
+" Ref: https://github.com/junegunn/dotfiles/blob/057ee47465e43aafbd20f4c8155487ef147e29ea/vimrc#L265-L275
 function! StatuslineLoad(mode)
-  if a:mode == 'active'
+  if a:mode ==# 'active'
     setlocal statusline=%!StatuslineComponent()
   else
     setlocal statusline=%!StatuslineNcComponent()
@@ -33,73 +34,39 @@ function! StatuslineLoad(mode)
 endfunction
 
 function! StatuslineComponent() abort
-  " Ref: https://stackoverflow.com/a/65908148
-  let l:line=''
 
-  if mode() == 'n'
-    let l:line.='%#NormalModeColor#'
-  elseif mode() == v:insertmode
-    let l:line.='%#InsertModeColor#'
-  elseif mode() == 'v' || mode() == 'V' || mode() == "\<C-V>"
-    let l:line.='%#VisualModeColor#'
-  elseif mode() == 'c' || mode() == 't'
-    let l:line.='%#CommandModeColor#'
+  if mode() ==# 'n'
+    let w:mode ='%#NormalModeColor# '
+  elseif mode() ==# v:insertmode
+    let w:mode ='%#InsertModeColor# '
+  elseif mode() ==# 'v' || mode() ==# 'V' || mode() ==# "\<C-V>"
+    let w:mode ='%#VisualModeColor# '
+  elseif mode() ==# 'c' || mode() ==# 't'
+    let w:mode ='%#CommandModeColor# '
   endif
 
-  if has('nvim')
-    let l:line.=' %#StatusLine# %{StatuslineGit()}'
-    let l:line.='%='
-    let l:line.='%#StatusLine#%r'
-    let l:line.=' %#StatusLine#%<%{StatuslineFilename()}'
-    let l:line.=' %#StatusLine#%m'
-    let l:line.='%='
-    let l:line.='%#StatusLine#%{StatuslineFiletype()}'
-    let l:line.='  %#StatusLine#%3l/%L'
-  else
-    let l:line.=' %#StatusLine# %r'
-    let l:line.=' %#StatusLine#%<%{StatuslineFilename()}'
-    let l:line.=' %#StatusLine#%m'
-    let l:line.='%='
-    let l:line.='  %#StatusLine#%{StatuslineGit()}'
-    let l:line.='  %#StatusLine#%{StatuslineFiletype()}'
-    let l:line.='  %#StatusLine#%3l/%L'
-  endif
-
-  return l:line
+  let l:filename = " %{expand('%:p:~') ==# '' ? '[Blank]' :
+        \ winwidth(0) > 160 ? expand('%:p:~') :
+        \ winwidth(0) < 71 ? expand('%:t') :
+        \ pathshorten(expand('%'))}"
+  let l:readonly = "%r"
+  let l:mod = "%{&modified ? '  [+]' : !&modifiable ? '  [-]' : ''}"
+  let l:ft = "%{winwidth(0) > 70 ? (len(&filetype) ? &filetype : 'no ft') : ''}"
+  let l:git = "%{StatuslineGit()}"
+  let l:sep = '%='
+  let l:line = '  %3l/%L'
+  return w:mode.'%* '.l:git.l:sep.l:readonly.l:filename.l:mod.l:sep.l:ft.l:line
 endfunction
 
 function! StatuslineNcComponent() abort
-  let l:line=''
-
-  if has('nvim')
-    let l:line.='%='
-    let l:line.='%r'
-    let l:line.=' %{StatuslineFilename()}'
-    let l:line.=' %m'
-    let l:line.='%='
-  else
-    let l:line.='%r'
-    let l:line.=' %{StatuslineFilename()}'
-    let l:line.=' %m'
-    let l:line.='%='
-  endif
-
-  return l:line
-endfunction
-
-function! StatuslineFilename()
-  " see :h expand() for more info
-  " see :h filename-modifiers for more info
-  " use 'blank' if 'no name' file
-  let l:fullpath = (expand('%:p:~') !=# '' ? expand('%:p:~') : '[Blank]')
-  let l:relativepath = (expand('%') !=# '' ? expand('%') : '[Blank]')
-  if winwidth(0) > 160
-    return l:fullpath
-  elseif winwidth(0) < 71
-    return expand('%:t')
-  else
-    return pathshorten(l:relativepath)
-  endif
+  let l:filename = " %{expand('%:p:~') ==# '' ? '[Blank]' :
+        \ winwidth(0) > 160 ? expand('%:p:~') :
+        \ winwidth(0) < 71 ? expand('%:t') :
+        \ pathshorten(expand('%'))}"
+  let l:readonly = "%r"
+  let l:mod = "%{&modified ? '  [+]' : !&modifiable ? '  [-]' : ''}"
+  let l:sep = '%='
+  return l:sep.l:readonly.l:filename.l:mod.l:sep
 endfunction
 
 function! StatuslineGit()
@@ -111,9 +78,79 @@ function! StatuslineGit()
   endif
 endfunction
 
-function! StatuslineFiletype()
-  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
-endfunction
+" function! StatuslineComponent() abort
+"   " Ref: https://stackoverflow.com/a/65908148
+"   let l:line=''
+
+"   if mode() == 'n'
+"     let l:line.='%#NormalModeColor#'
+"   elseif mode() == v:insertmode
+"     let l:line.='%#InsertModeColor#'
+"   elseif mode() == 'v' || mode() == 'V' || mode() == "\<C-V>"
+"     let l:line.='%#VisualModeColor#'
+"   elseif mode() == 'c' || mode() == 't'
+"     let l:line.='%#CommandModeColor#'
+"   endif
+
+"   if has('nvim')
+"     let l:line.=' %#StatusLine# %{StatuslineGit()}'
+"     let l:line.='%='
+"     let l:line.='%#StatusLine#%r'
+"     let l:line.=' %#StatusLine#%<%{StatuslineFilename()}'
+"     let l:line.=' %#StatusLine#%m'
+"     let l:line.='%='
+"     let l:line.='%#StatusLine#%{StatuslineFiletype()}'
+"     let l:line.='  %#StatusLine#%3l/%L'
+"   else
+"     let l:line.=' %#StatusLine# %r'
+"     let l:line.=' %#StatusLine#%<%{StatuslineFilename()}'
+"     let l:line.=' %#StatusLine#%m'
+"     let l:line.='%='
+"     let l:line.='  %#StatusLine#%{StatuslineGit()}'
+"     let l:line.='  %#StatusLine#%{StatuslineFiletype()}'
+"     let l:line.='  %#StatusLine#%3l/%L'
+"   endif
+
+"   return l:line
+" endfunction
+
+" function! StatuslineNcComponent() abort
+"   let l:line=''
+
+"   if has('nvim')
+"     let l:line.='%='
+"     let l:line.='%r'
+"     let l:line.=' %{StatuslineFilename()}'
+"     let l:line.=' %m'
+"     let l:line.='%='
+"   else
+"     let l:line.='%r'
+"     let l:line.=' %{StatuslineFilename()}'
+"     let l:line.=' %m'
+"     let l:line.='%='
+"   endif
+
+"   return l:line
+" endfunction
+
+" function! StatuslineFilename()
+"   " see :h expand() for more info
+"   " see :h filename-modifiers for more info
+"   " use 'blank' if 'no name' file
+"   let l:fullpath = (expand('%:p:~') !=# '' ? expand('%:p:~') : '[Blank]')
+"   let l:relativepath = (expand('%') !=# '' ? expand('%') : '[Blank]')
+"   if winwidth(0) > 160
+"     return l:fullpath
+"   elseif winwidth(0) < 71
+"     return expand('%:t')
+"   else
+"     return pathshorten(l:relativepath)
+"   endif
+" endfunction
+
+" function! StatuslineFiletype()
+"   return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+" endfunction
 
 " function! StatuslineFileencoding()
 " 	return winwidth(0) > 70 ? &fileencoding : ''
