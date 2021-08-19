@@ -10,17 +10,17 @@ endif
 augroup StatuslineStartup
   autocmd!
   autocmd WinEnter,BufWinEnter *
-        \ if &buftype ==# 'quickfix'      |
-        \ elseif &buftype ==# 'nofile'    |
-        \ else                            |
-        \   call StatuslineLoad('active') |
+        \ if &buftype ==# 'quickfix'             |
+        \ elseif expand('%:t') ==# '--Bufstop--' |
+        \ else                                   |
+        \   call StatuslineLoad('active')        |
         \ endif
 
   autocmd WinLeave *
-        \ if &buftype ==# 'quickfix'        |
-        \ elseif &buftype ==# 'nofile'      |
-        \ else                              |
-        \   call StatuslineLoad('inactive') |
+        \ if &buftype ==# 'quickfix'             |
+        \ elseif expand('%:t') ==# '--Bufstop--' |
+        \ else                                   |
+        \   call StatuslineLoad('inactive')      |
         \ endif
 augroup END
 
