@@ -1,4 +1,8 @@
 " statusline config
+" Ref: vim-lightline plugin
+" make vim intro appear when vim start without filename
+let s:save_cpo = &cpo
+set cpo&vim
 
 " why would you want to load this if you don't want to use statusline?
 if !&laststatus
@@ -70,3 +74,6 @@ function! StatuslineNcComponent() abort
   let l:sep = '%='
   return l:sep.l:readonly.l:filename.l:mod.l:sep
 endfunction
+
+let &cpo = s:save_cpo
+unlet s:save_cpo
