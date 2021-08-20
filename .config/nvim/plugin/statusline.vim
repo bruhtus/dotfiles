@@ -1,14 +1,15 @@
 " statusline config
-" Ref: vim-lightline plugin
-" make vim intro appear when vim start without filename
-let s:save_cpo = &cpo
-set cpo&vim
 
 " why would you want to load this if you don't want to use statusline?
 if !&laststatus
   if !&showmode | set showmode | endif
   finish
 endif
+
+" Ref: vim-lightline plugin
+" make vim intro appear when vim start without filename
+let s:save_cpo = &cpo
+set cpo&vim
 
 " do not change statusline of quickfix and bufstop window
 augroup StatuslineStartup
@@ -60,14 +61,15 @@ function! StatuslineComponent() abort
   let l:readonly = "%r"
   let l:mod = "%{&modified ? '  [+]' : !&modifiable ? '  [-]' : ''}"
   let l:ft = "%{winwidth(0) > 70 ? (len(&filetype) ? &filetype : 'no ft') : ''}"
-  " there's a glinch when using git branch cmd in statusline vim
+  " there's a glitch when using git branch cmd in statusline vim
   " let g:gitbranchcmd = "git branch --show-current 2>/dev/null | tr -d '\n'"
   " let l:git = "%{exists('*FugitiveHead') ? (winwidth(0) > 70 ? fugitive#head() : '') :
   "       \ (winwidth(0) > 70 ? system(g:gitbranchcmd) : '')}"
   let l:git = '%{GitBranchName()}'
   let l:sep = '%='
   let l:line = '  %3l/%L'
-  return w:mode.'%* '.l:git.l:sep.l:readonly.l:filename.l:mod.l:sep.l:ft.l:line
+  let l:tab = "%{&expandtab ? ' sw='.&shiftwidth.' ' : ' ts='.&tabstop.' '}"
+  return w:mode.'%*'.l:tab.l:git.l:sep.l:readonly.l:filename.l:mod.l:sep.l:ft.l:line
 endfunction
 
 function! StatuslineNcComponent() abort

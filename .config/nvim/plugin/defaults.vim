@@ -25,7 +25,14 @@ set softtabstop=2
 set shiftwidth=2
 set shiftround
 set smarttab
-set expandtab
+
+" automatically set expandtab depending on whether there's a tab character or
+" not
+" Ref: https://github.com/itchyny/dotfiles/blob/a7d5f94d794554c7a4eee68b3248c862b67abb14/.vimrc#L89
+augroup defaults_expandtab
+  autocmd!
+  autocmd FileType * execute 'setlocal ' . (search('^\t', 'n') ? 'no' : '') . 'expandtab'
+augroup END
 
 set nobackup
 set noshowmode
