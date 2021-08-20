@@ -43,7 +43,7 @@ set nostartofline
 set ignorecase
 set smartcase
 set incsearch
-set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+set list listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 
 " in case I don't want to use statusline
 if &ruler | set rulerformat=%-13.(%r%m%)\ %P | endif
