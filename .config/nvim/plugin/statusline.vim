@@ -14,11 +14,15 @@ endif
 augroup StatuslineStartup
   autocmd!
   autocmd WinEnter,BufWinEnter *
-        \ if &buftype ==# 'quickfix'             |
-        \ elseif expand('%:t') ==# '--Bufstop--' |
-        \ else                                   |
-        \   call StatuslineLoad('active')        |
+        \ if &buftype ==# 'quickfix'                 |
+        \ elseif expand('%:t') ==# '--Bufstop--'     |
+        \ else                                       |
+        \   call s:gitbranch_detect(expand('%:p:h')) |
+        \   call StatuslineLoad('active')            |
         \ endif
+
+  autocmd BufNewFile,BufReadPost *
+        \ call s:gitbranch_detect(expand('<amatch>:p:h'))
 
   autocmd WinLeave *
         \ if &buftype ==# 'quickfix'             |
@@ -56,9 +60,11 @@ function! StatuslineComponent() abort
   let l:readonly = "%r"
   let l:mod = "%{&modified ? '  [+]' : !&modifiable ? '  [-]' : ''}"
   let l:ft = "%{winwidth(0) > 70 ? (len(&filetype) ? &filetype : 'no ft') : ''}"
-  let g:gitbranchcmd = "git branch --show-current 2>/dev/null | tr -d '\n'"
-  let l:git = "%{exists('*FugitiveHead') ? (winwidth(0) > 70 ? fugitive#head() : '') :
-        \ (winwidth(0) > 70 ? system(g:gitbranchcmd) : '')}"
+  " there's a glinch when using git branch cmd in statusline vim
+  " let g:gitbranchcmd = "git branch --show-current 2>/dev/null | tr -d '\n'"
+  " let l:git = "%{exists('*FugitiveHead') ? (winwidth(0) > 70 ? fugitive#head() : '') :
+  "       \ (winwidth(0) > 70 ? system(g:gitbranchcmd) : '')}"
+  let l:git = '%{GitBranchName()}'
   let l:sep = '%='
   let l:line = '  %3l/%L'
   return w:mode.'%* '.l:git.l:sep.l:readonly.l:filename.l:mod.l:sep.l:ft.l:line
@@ -73,6 +79,54 @@ function! StatuslineNcComponent() abort
   let l:mod = "%{&modified ? '  [+]' : !&modifiable ? '  [-]' : ''}"
   let l:sep = '%='
   return l:sep.l:readonly.l:filename.l:mod.l:sep
+endfunction
+
+" Ref: https://github.com/itchyny/vim-gitbranch/blob/master/autoload/gitbranch.vim
+function! GitBranchName() abort
+  if get(b:, 'gitbranch_pwd', '') !=# expand('%:p:h') || !has_key(b:, 'gitbranch_path')
+    call s:gitbranch_detect(expand('%:p:h'))
+  endif
+  if has_key(b:, 'gitbranch_path') && filereadable(b:gitbranch_path)
+    let branch = get(readfile(b:gitbranch_path), 0, '')
+    if branch =~# '^ref: '
+      return substitute(branch, '^ref: \%(refs/\%(heads/\|remotes/\|tags/\)\=\)\=', '', '')
+    elseif branch =~# '^\x\{20\}'
+      return branch[:6]
+    endif
+  endif
+  return ''
+endfunction
+
+function! s:gitbranch_dir(path) abort
+  let path = a:path
+  let prev = ''
+  while path !=# prev
+    let dir = path . '/.git'
+    let type = getftype(dir)
+    if type ==# 'dir' && isdirectory(dir.'/objects') && isdirectory(dir.'/refs') && getfsize(dir.'/HEAD') > 10
+      return dir
+    elseif type ==# 'file'
+      let reldir = get(readfile(dir), 0, '')
+      if reldir =~# '^gitdir: '
+        return simplify(path . '/' . reldir[8:])
+      endif
+    endif
+    let prev = path
+    let path = fnamemodify(path, ':h')
+  endwhile
+  return ''
+endfunction
+
+function! s:gitbranch_detect(path) abort
+  unlet! b:gitbranch_path
+  let b:gitbranch_pwd = expand('%:p:h')
+  let dir = s:gitbranch_dir(a:path)
+  if dir !=# ''
+    let path = dir . '/HEAD'
+    if filereadable(path)
+      let b:gitbranch_path = path
+    endif
+  endif
 endfunction
 
 let &cpo = s:save_cpo
