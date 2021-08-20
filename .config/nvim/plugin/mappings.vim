@@ -181,6 +181,8 @@ nnoremap <expr> <silent> ZU (v:count ># 0 ? "m'" . v:count : '') . ":<C-u>execut
 
 " map ZH to put blank character above, and ZN to put blank character below
 " can use count to add how many blank character to insert
+" it respect `startofline` option, so turn that off if you don't want to the
+" cursor to move
 nnoremap <silent> ZH :<C-u>put!=repeat((nr2char(10)), v:count1)<Bar>']+1<CR>
 nnoremap <silent> ZN :<C-u>put =repeat((nr2char(10)), v:count1)<Bar>'[-1<CR>
 
