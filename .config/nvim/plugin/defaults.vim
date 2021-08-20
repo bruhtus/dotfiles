@@ -19,9 +19,10 @@ set splitbelow splitright
 set number relativenumber
 set wildignore=*/.git/*,*.pdf,*.jpg,*jpeg,*.png,*.epub,*.mobi
 
+" Ref: https://vi.stackexchange.com/a/28017/34851
 set autoindent
-set tabstop=4
-set softtabstop=2
+" set tabstop=4
+set softtabstop=-69
 set shiftwidth=2
 set shiftround
 set smarttab
