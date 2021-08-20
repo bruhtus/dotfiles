@@ -64,9 +64,9 @@ nnoremap + <C-w>=
 " add current line position to jumplist when using `=`
 nnoremap = m'=
 
-" map ]; to cnext and [; to cprevious
-nnoremap <silent> ]; :cn<CR>zz
-nnoremap <silent> [; :cp<CR>zz
+" map ]k to cnext and [k to cprevious
+nnoremap <silent> ]k :cn<CR>zz
+nnoremap <silent> [k :cp<CR>zz
 
 " map ]l to lnext and [l to lprevious
 nnoremap <silent> ]l :lnext<CR>zz

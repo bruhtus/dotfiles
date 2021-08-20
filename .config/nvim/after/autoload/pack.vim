@@ -39,6 +39,7 @@ function! pack#init() abort
   call minpac#add('ronakg/quickr-preview.vim',    { 'type': 'opt' })
   call minpac#add('tweekmonster/startuptime.vim', { 'type': 'opt' })
   call minpac#add('jeetsukumaran/vim-filebeagle', { 'type': 'opt' })
+  call minpac#add('jeetsukumaran/vim-indentwise', { 'type': 'opt' })
   call minpac#add('junegunn/fzf',                 { 'type': 'opt' })
   call minpac#add('junegunn/fzf.vim',             { 'type': 'opt' })
   call minpac#add('iamcco/markdown-preview.nvim', { 'type': 'opt',
