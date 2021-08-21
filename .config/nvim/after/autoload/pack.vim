@@ -17,6 +17,7 @@ function! pack#init() abort
   call minpac#add('wellle/targets.vim')
   call minpac#add('tpope/vim-commentary')
   call minpac#add('andymass/vim-matchup')
+  call minpac#add('jeetsukumaran/vim-indentwise')
 
   call minpac#add('bruhtus/bufstop',   { 'branch': 'personal' })
   call minpac#add('bruhtus/vim-sneak', { 'type': 'opt', 'branch': 'personal' })
@@ -38,7 +39,6 @@ function! pack#init() abort
   call minpac#add('ronakg/quickr-preview.vim',    { 'type': 'opt' })
   call minpac#add('tweekmonster/startuptime.vim', { 'type': 'opt' })
   call minpac#add('jeetsukumaran/vim-filebeagle', { 'type': 'opt' })
-  call minpac#add('jeetsukumaran/vim-indentwise', { 'type': 'opt' })
   call minpac#add('junegunn/fzf',                 { 'type': 'opt' })
   call minpac#add('junegunn/fzf.vim',             { 'type': 'opt' })
   call minpac#add('iamcco/markdown-preview.nvim', { 'type': 'opt',
