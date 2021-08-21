@@ -59,8 +59,9 @@ endfunction
 
 function! simp#gotomark()
   " only display mark [a-zA-Z], mark ', and mark .
-  marks '.\"0abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
-  echo('Mark: ')
+  let l:markslist = '\"' . "'.0abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  exe 'marks ' . l:markslist
+  echo 'Mark: '
 
   " getchar() - prompts user for a single character and returns the chars
   " ascii representation
@@ -73,8 +74,7 @@ function! simp#gotomark()
   " build a string which uses the `normal' command plus the var holding the
   " mark - then eval it.
   try
-    execute "normal! `" . l:mark
-    norm zz
+    execute 'normal! `' . l:mark . 'zz'
   catch
   endtry
 endfunction
