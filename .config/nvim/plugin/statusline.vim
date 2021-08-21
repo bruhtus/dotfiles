@@ -58,7 +58,7 @@ function! StatuslineComponent() abort
         \ winwidth(0) > 160 ? expand('%:p:~') :
         \ winwidth(0) < 71 ? expand('%:t') :
         \ pathshorten(expand('%'))}"
-  let l:readonly = "%r"
+  let l:readonly = '%r'
   let l:mod = "%{&modified ? '  [+]' : !&modifiable ? '  [-]' : ''}"
   let l:ft = "%{winwidth(0) > 70 ? (len(&filetype) ? &filetype : 'no ft') : ''}"
   " there's a glitch when using git branch cmd in statusline vim
@@ -69,7 +69,11 @@ function! StatuslineComponent() abort
   let l:sep = '%='
   let l:line = '  %3l/%L'
   let l:tab = "%{&expandtab ? ' sw='.&shiftwidth.' ' : ' ts='.&tabstop.' '}"
-  return w:mode.'%*'.l:tab.l:git.l:sep.l:readonly.l:filename.l:mod.l:sep.l:ft.l:line
+  if has('nvim')
+    return w:mode.'%*'.l:tab.l:git.l:sep.l:readonly.l:filename.l:mod.l:sep.l:ft.l:line
+  else
+    return w:mode.'%*'.l:tab.l:readonly.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
+  endif
 endfunction
 
 function! StatuslineNcComponent() abort
@@ -77,10 +81,14 @@ function! StatuslineNcComponent() abort
         \ winwidth(0) > 160 ? expand('%:p:~') :
         \ winwidth(0) < 71 ? expand('%:t') :
         \ pathshorten(expand('%'))}"
-  let l:readonly = "%r"
+  let l:readonly = '%r'
   let l:mod = "%{&modified ? '  [+]' : !&modifiable ? '  [-]' : ''}"
   let l:sep = '%='
-  return l:sep.l:readonly.l:filename.l:mod.l:sep
+  if has('nvim')
+    return l:sep.l:readonly.l:filename.l:mod.l:sep
+  else
+    return l:readonly.l:filename.l:mod.l:sep
+  endif
 endfunction
 
 " Ref: https://github.com/itchyny/vim-gitbranch/blob/master/autoload/gitbranch.vim
