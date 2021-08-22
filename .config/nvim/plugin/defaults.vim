@@ -17,6 +17,7 @@ set matchpairs+=<:>
 set completeopt-=preview " ignore omni complete description
 set splitbelow splitright
 set number relativenumber
+set wildmode=longest:full,full
 set wildignore=*/.git/*,*.pdf,*.jpg,*jpeg,*.png,*.epub,*.mobi
 
 " Ref: https://vi.stackexchange.com/a/28017/34851
@@ -54,7 +55,6 @@ if has('nvim')
   set nosmarttab
   set noautoindent
   set inccommand=split
-  set wildmode=longest:full,full
 
   augroup TermBuffer
     autocmd!
@@ -86,7 +86,6 @@ else
   endif
 
   if exists('+wildmenu')
-    set wildmode=longest:full,full
     set wildmenu
   endif
 
