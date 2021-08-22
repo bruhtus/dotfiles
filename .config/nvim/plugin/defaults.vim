@@ -33,7 +33,7 @@ set smarttab
 " Ref: https://github.com/itchyny/dotfiles/blob/a7d5f94d794554c7a4eee68b3248c862b67abb14/.vimrc#L89
 augroup defaults_expandtab
   autocmd!
-  autocmd FileType * execute 'setlocal ' . (search('^\t', 'n') ? 'no' : '') . 'expandtab'
+  autocmd BufWinEnter * execute 'setlocal ' . (search('^\t', 'n') ? 'no' : '') . 'expandtab'
 augroup END
 
 set nobackup
