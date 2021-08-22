@@ -8,6 +8,7 @@ noremap <expr> <CR> &buftype ==# 'quickfix' ? "\<CR>zz" :
 " at current working directory
 if executable('rg')
   set grepprg=rg\ --smart-case\ --hidden\ --vimgrep\ -w
+  set grepformat=%f:%l:%c:%m,%f
   nnoremap <silent> <BS> :silent! lgrep! <cword> **<CR>
 
 else
