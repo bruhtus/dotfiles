@@ -12,12 +12,18 @@ nnoremap <silent> <leader>u
       \   call enable#fzf('BLines') <Bar>
       \ elseif &modified <Bar>
       \   call enable#fzf('BLines') <Bar>
-      \ else <Bar>
+      \ elseif executable('rg') <Bar>
       \   call enable#fzf('CustomBLines') <Bar>
+      \ else <Bar>
+      \   call enable#fzf('BLines') <Bar>
       \ endif<CR>
 
 " open fzf to search all content in current working directory
-nnoremap <silent> <leader>o :call enable#fzf('Rg')<CR>
+if executable('rg')
+  nnoremap <silent> <leader>o :call enable#fzf('Rg')<CR>
+else
+  echo 'Ripgrep is not installed'
+endif
 
 " open fzf to search all lines in all opened buffer
 " wish there's a preview for `Lines` command (still can't figure out how it
