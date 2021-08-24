@@ -3,5 +3,9 @@
 
 augroup no_trailing_whitespace
   autocmd!
-  autocmd BufWritePre * :call whitespace#trim()
+  autocmd BufWritePre *
+        \ let b:save = winsaveview() |
+        \ keeppatterns %s/\s\+$//e   |
+        \ call winrestview(b:save)   |
+        \ unlet b:save
 augroup END
