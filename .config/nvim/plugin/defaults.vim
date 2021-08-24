@@ -22,18 +22,20 @@ set wildignore=*/.git/*,*.pdf,*.jpg,*jpeg,*.png,*.epub,*.mobi
 
 " Ref: https://vi.stackexchange.com/a/28017/34851
 set autoindent
-" set tabstop=4
 set softtabstop=-69
 set shiftwidth=2
 set shiftround
-set smarttab
 
-" automatically set expandtab depending on whether there's a tab character or
-" not
+" automatically setlocal expandtab, smarttab, tabstop, and shiftwidth depending on
+" whether there's a tab character or not
 " Ref: https://github.com/itchyny/dotfiles/blob/a7d5f94d794554c7a4eee68b3248c862b67abb14/.vimrc#L89
-augroup defaults_expandtab
+augroup defaults_tab
   autocmd!
-  autocmd BufWinEnter * execute 'setlocal ' . (search('^\t', 'n') ? 'no' : '') . 'expandtab'
+  autocmd BufWinEnter *
+        \ execute 'setlocal '
+        \ . (search('^\t', 'n') && !search('^  ', 'n') ? 'noexpandtab nosmarttab tabstop=4 shiftwidth=4' :
+        \ search('^\t', 'n') && search('^  ', 'n') ? 'noexpandtab smarttab' :
+        \ 'expandtab smarttab')
 augroup END
 
 set nobackup
