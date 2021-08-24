@@ -31,7 +31,7 @@ set shiftround
 " Ref: https://github.com/itchyny/dotfiles/blob/a7d5f94d794554c7a4eee68b3248c862b67abb14/.vimrc#L89
 augroup defaults_tab
   autocmd!
-  autocmd BufWinEnter *
+  autocmd BufEnter *
         \ execute 'setlocal '
         \ . (search('^\t', 'n') && !search('^  ', 'n') ? 'noexpandtab nosmarttab tabstop=4 shiftwidth=4' :
         \ search('^\t', 'n') && search('^  ', 'n') ? 'noexpandtab smarttab' :
