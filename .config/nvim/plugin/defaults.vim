@@ -33,7 +33,7 @@ augroup defaults_tab
   autocmd!
   autocmd BufEnter *
         \ execute 'setlocal '
-        \ . (search('^\t', 'n') && !search('^  ', 'n') ? 'noexpandtab nosmarttab tabstop=4 shiftwidth=4' :
+        \ . (search('^\t', 'n') && !search('^  ', 'n') ? 'noexpandtab nosmarttab tabstop=2' :
         \ search('^\t', 'n') && search('^  ', 'n') ? 'noexpandtab smarttab' :
         \ 'expandtab smarttab')
 augroup END
