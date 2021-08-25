@@ -29,6 +29,7 @@ set shiftround
 " automatically setlocal expandtab, smarttab, tabstop, and shiftwidth depending on
 " whether there's a tab character or not
 " Ref: https://github.com/itchyny/dotfiles/blob/a7d5f94d794554c7a4eee68b3248c862b67abb14/.vimrc#L89
+" Ref: https://github.com/luochen1990/indent-detector.vim/blob/master/plugin/indent_detector.vim
 augroup defaults_tab
   autocmd!
   autocmd BufEnter *
