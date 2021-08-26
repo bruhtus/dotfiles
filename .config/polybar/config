@@ -84,8 +84,8 @@ font-2 = "Font Awesome 5 Free:style=Regular:size=10;1"
 font-3 = "Font Awesome 5 Free:style=Solid:size=10;1"
 font-4 = "Font Awesome 5 Brands:size=10;1"
 
-modules-left = i3 wirelessname wirelessspeedup wirelessspeeddown lanname lanspeedup lanspeeddown xwindow
-modules-center = date time pomo filesystem
+modules-left = i3 wirelessname wirelessspeedup wirelessspeeddown lanname lanspeedup lanspeeddown
+modules-center = date time xwindow pomo filesystem
 modules-right = cpu memory pulseaudio battery temperature
 
 separator =
@@ -154,8 +154,8 @@ font-2 = "Font Awesome 5 Free:style=Regular:size=10;1"
 font-3 = "Font Awesome 5 Free:style=Solid:size=10;1"
 font-4 = "Font Awesome 5 Brands:size=10;1"
 
-modules-left = i3 wirelessname wirelessspeedup wirelessspeeddown lanname lanspeedup lanspeeddown xwindow
-modules-center = date time pomo filesystem
+modules-left = i3 wirelessname wirelessspeedup wirelessspeeddown lanname lanspeedup lanspeeddown
+modules-center = date time xwindow pomo filesystem
 modules-right = cpu memory pulseaudio battery temperature
 
 separator =

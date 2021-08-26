@@ -101,7 +101,7 @@ function pomo_clock(){
         sec=$(( left - 60*min ))
         printf "%2s%02d:%02d\n" $prefix $min $sec
     else
-        printf "  --:--\n"
+        printf " --:--\n"
     fi
 }
 
