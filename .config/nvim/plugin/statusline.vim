@@ -112,6 +112,7 @@ endfunction
 function! s:gitbranch_dir(path) abort
   let path = a:path
   let prev = ''
+  let git_modules = path =~# '/\.git/modules/'
   while path !=# prev
     let dir = path . '/.git'
     let type = getftype(dir)
@@ -122,6 +123,8 @@ function! s:gitbranch_dir(path) abort
       if reldir =~# '^gitdir: '
         return simplify(path . '/' . reldir[8:])
       endif
+    elseif git_modules && isdirectory(path.'/objects') && isdirectory(path.'/refs') && getfsize(path.'/HEAD') > 10
+      return path
     endif
     let prev = path
     let path = fnamemodify(path, ':h')
