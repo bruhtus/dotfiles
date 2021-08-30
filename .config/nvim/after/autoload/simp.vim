@@ -74,7 +74,8 @@ function! simp#gotomark()
   " build a string which uses the `normal' command plus the var holding the
   " mark - then eval it.
   try
-    execute 'normal! `' . l:mark . 'zz'
+    execute 'normal! `' . l:mark
+    norm! zz
   catch
   endtry
 endfunction
