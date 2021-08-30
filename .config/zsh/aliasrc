@@ -118,3 +118,5 @@ alias \
 alias \
 	md='mkdir -pv' \
 	d='dirs -v | head'
+
+# vim:ft=sh

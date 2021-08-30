@@ -57,3 +57,5 @@ function pae(){
 
 	fi
 }
+
+# vim:ft=sh
