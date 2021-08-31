@@ -16,7 +16,6 @@ function! pack#init() abort
   call minpac#add('tpope/vim-surround')
   call minpac#add('wellle/targets.vim')
   call minpac#add('tpope/vim-commentary')
-  call minpac#add('andymass/vim-matchup')
   call minpac#add('jeetsukumaran/vim-indentwise')
 
   call minpac#add('bruhtus/bufstop',   { 'branch': 'personal' })
@@ -52,6 +51,7 @@ function! pack#init() abort
   " call minpac#add('tpope/vim-sleuth')
   " call minpac#add('mihaifm/bufstop')
   " call minpac#add('airblade/vim-rooter')
+  " call minpac#add('andymass/vim-matchup')
   " call minpac#add('preservim/tagbar')
   " call minpac#add('kshenoy/vim-signature')
   " call minpac#add('glepnir/dashboard-nvim')
