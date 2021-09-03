@@ -13,7 +13,7 @@ augroup MakePython
   autocmd BufWritePost *.py
         \ compiler flake8 |
         \ silent! make    |
-        \ redraw
+        \ redraw!
 augroup END
 
 " ensure that pynvim is installed
