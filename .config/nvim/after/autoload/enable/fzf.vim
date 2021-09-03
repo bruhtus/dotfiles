@@ -26,6 +26,7 @@ function! enable#fzf#init()
       let $FZF_DEFAULT_COMMAND = "rg --hidden --files --no-ignore-vcs --type-not nonsense --type-not font --type-not torrent"
 
       " exclude filenames when using Rg
+      " Ref: https://github.com/junegunn/fzf.vim/issues/714#issuecomment-428802659
       command! -bang -nargs=* Rg
             \ call fzf#vim#grep(
             \ "rg --column --line-number --no-heading --color=always --smart-case " . shellescape(<q-args>),
