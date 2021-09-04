@@ -110,7 +110,7 @@ bindsym $mod+Ctrl+z exec rofi -show emoji -modi emoji
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym $mod+Ctrl+a --release exec --no-startup-id flameshot gui
 #bindsym $mod+Ctrl+a --release exec --no-startup-id flameshot screen -r -c
-bindsym $mod+Ctrl+a exec --no-startup-id rofi -show run -theme $HOME/.config/rofi/themes/seoul256-run.rasi
+bindsym $mod+Ctrl+a exec --no-startup-id rofi -show run
 
 bindsym $mod+Ctrl+Shift+n exec google-chrome-stable --incognito
 bindsym $mod+Ctrl+Shift+b exec google-chrome-stable --incognito https://github.com/bruhtus?tab=repositories
