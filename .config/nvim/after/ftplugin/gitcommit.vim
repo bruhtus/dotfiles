@@ -1,4 +1,4 @@
-setlocal noignorecase spell complete+=kspell
+setlocal spell complete+=kspell
 
 let maplocalleader = '\'
 
@@ -11,7 +11,7 @@ nnoremap <buffer> <silent> <localleader>\
       \   DiffGitCached <Bar>
       \ endtry<CR>
 
-augroup VimGit
+augroup gitcommit
   autocmd!
   autocmd FileType git
         \  nmap <buffer> <nowait> <Space> <C-d>
