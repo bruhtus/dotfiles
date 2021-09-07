@@ -62,5 +62,5 @@ command! -bar -complete=file Mksession
 augroup session
   autocmd!
   autocmd VimEnter * nested call s:open_session()
-  autocmd VimLeavePre * nested call s:save_session()
+  autocmd VimLeavePre * call s:save_session()
 augroup END
