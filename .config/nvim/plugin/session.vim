@@ -1,37 +1,6 @@
 " simple session management
 " Ref: https://github.com/tpope/vim-obsession/blob/master/plugin/obsession.vim
 
-function! s:open_session()
-  let l:root = systemlist('git rev-parse --show-toplevel')[0]
-
-  if v:shell_error
-    if !argc()
-          \ && empty(v:this_session)
-          \ && filereadable('Session.vim')
-          \ && !&modified
-      let g:recording_session = 1
-      source Session.vim
-      echom 'Not git repo and recording session'
-    endif
-  else
-    if !argc()
-          \ && empty(v:this_session)
-          \ && filereadable(l:root . '/Session.vim')
-          \ && !&modified
-      let g:recording_session = 1
-      exe 'source ' . l:root . '/Session.vim'
-      echom 'Recording session'
-      " delete alternate buffer if the file didn't exist
-      " because of different CWD, vim think that we want to open
-      " the same file as alternate buffer in CWD which most of the time didn't
-      " exists
-      if bufexists(0) && !filereadable(bufnr('$'))
-        bw #
-      endif
-    endif
-  endif
-endfunction
-
 function! s:save_session()
   let l:root = systemlist('git rev-parse --show-toplevel')[0]
 
@@ -83,6 +52,12 @@ command! -bar -complete=file Mksession
 
 augroup session
   autocmd!
-  autocmd VimEnter * nested call s:open_session()
-  autocmd VimLeavePre * call s:save_session()
+  autocmd VimEnter * nested
+        \ if !argc() && empty(v:this_session) && filereadable('Session.vim') && !&modified |
+        \   let g:recording_session = 1 |
+        \   source Session.vim |
+        \   echom 'Recording session' |
+        \   if bufexists(0) && !filereadable(bufname('#')) | bw # | endif |
+        \ endif
+
 augroup END
