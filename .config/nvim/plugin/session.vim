@@ -5,12 +5,22 @@ function! s:open_session()
   let l:root = systemlist('git rev-parse --show-toplevel')[0]
 
   if v:shell_error
-    if !argc() && empty(v:this_session) && filereadable('Session.vim') && !&modified
+    if !argc()
+          \ && empty(v:this_session)
+          \ && filereadable('Session.vim')
+          \ && !&modified
+      let g:recording_session = 1
       source Session.vim
+      echom 'Not git repo and recording session'
     endif
   else
-    if !argc() && empty(v:this_session) && filereadable(l:root . '/Session.vim') && !&modified
+    if !argc()
+          \ && empty(v:this_session)
+          \ && filereadable(l:root . '/Session.vim')
+          \ && !&modified
+      let g:recording_session = 1
       exe 'source ' . l:root . '/Session.vim'
+      echom 'Recording session'
       " delete alternate buffer if the file didn't exist
       " because of different CWD, vim think that we want to open
       " the same file as alternate buffer in CWD which most of the time didn't
@@ -26,20 +36,32 @@ function! s:save_session()
   let l:root = systemlist('git rev-parse --show-toplevel')[0]
 
   if v:shell_error
-    if !exists('b:init_mksession') && filereadable('Session.vim') && !&modified
+    if exists('g:recording_session')
+          \ && !exists('b:init_mksession')
+          \ && filereadable('Session.vim')
+          \ && !&modified
       mks! Session.vim
-    elseif exists('b:init_mksession') && !filereadable('Session.vim') && !&modified
+    elseif exists('b:init_mksession')
+          \ && !filereadable('Session.vim')
+          \ && !&modified
       mks Session.vim
-      echo 'Session saved'
+      let g:recording_session = 1
+      echom 'Not git repo and recording session'
     else
       echo 'Session exist'
     endif
   else
-    if !exists('b:init_mksession') && filereadable(l:root . '/Session.vim') && !&modified
+    if exists('g:recording_session')
+          \ && !exists('b:init_mksession')
+          \ && filereadable(l:root . '/Session.vim')
+          \ && !&modified
       exe 'mks! ' . l:root . '/Session.vim'
-    elseif exists('b:init_mksession') && !filereadable(l:root . '/Session.vim') && !&modified
+    elseif exists('b:init_mksession')
+          \ && !filereadable(l:root . '/Session.vim')
+          \ && !&modified
       exe 'mks ' . l:root . '/Session.vim'
-      echo 'Session saved'
+      let g:recording_session = 1
+      echom 'Recording session'
     else
       echo 'Session exist'
     endif
