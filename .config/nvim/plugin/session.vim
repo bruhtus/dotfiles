@@ -59,6 +59,5 @@ augroup session
         \   echom 'Recording session' |
         \   if bufexists(0) && !filereadable(bufname('#')) | bw # | endif |
         \ endif
-
-  autocmd BufEnter,VimLeavePre * call s:save_session()
+  autocmd VimLeavePre * call s:save_session()
 augroup END
