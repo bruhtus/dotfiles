@@ -60,4 +60,5 @@ augroup session
         \   if bufexists(0) && !filereadable(bufname('#')) | bw # | endif |
         \ endif
 
+  autocmd BufEnter,VimLeavePre * call s:save_session()
 augroup END
