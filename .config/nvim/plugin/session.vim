@@ -8,11 +8,8 @@ function! s:save_session()
     if exists('g:recording_session')
           \ && !exists('b:init_mksession')
           \ && filereadable('Session.vim')
-          \ && !&modified
       mks! Session.vim
-    elseif exists('b:init_mksession')
-          \ && !filereadable('Session.vim')
-          \ && !&modified
+    elseif exists('b:init_mksession') && !filereadable('Session.vim')
       mks Session.vim
       let g:recording_session = 1
       echom 'Not git repo and recording session'
@@ -23,11 +20,8 @@ function! s:save_session()
     if exists('g:recording_session')
           \ && !exists('b:init_mksession')
           \ && filereadable(l:root . '/Session.vim')
-          \ && !&modified
       exe 'mks! ' . l:root . '/Session.vim'
-    elseif exists('b:init_mksession')
-          \ && !filereadable(l:root . '/Session.vim')
-          \ && !&modified
+    elseif exists('b:init_mksession') && !filereadable(l:root . '/Session.vim')
       exe 'mks ' . l:root . '/Session.vim'
       let g:recording_session = 1
       echom 'Recording session'
