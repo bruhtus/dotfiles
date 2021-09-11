@@ -57,6 +57,7 @@ if has('nvim')
   set nohlsearch
   set nosmarttab
   set noautoindent
+  set sessionoptions+=globals
   set inccommand=split
 
   augroup TermBuffer
@@ -74,7 +75,7 @@ else
   set nrformats-=octal
   set display+=lastline
   set autoread
-  set sessionoptions-=options sessionoptions+=globals
+  set sessionoptions-=options
   set viewoptions-=options
   set shortmess-=S
   set shortmess+=F
