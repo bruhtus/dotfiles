@@ -3,9 +3,9 @@ let mapleader = ' '
 if has('packages')
   let $MYPACK = has('nvim') ? stdpath('config') . '/after/autoload/pack.vim' : '$HOME/.vim/after/autoload/pack.vim'
 
-  command! PacClean   source $MYPACK | call pack#init() | call minpac#clean()
-  command! PacSync    source $MYPACK | call pack#init() | call minpac#update()
-  command! PacMove    source $MYPACK | call pack#init() | call pack#move()
+  command! PacClean source $MYPACK | call pack#init() | call minpac#clean()
+  command! PacSync  source $MYPACK | call pack#init() | call minpac#update()
+  command! PacMove  source $MYPACK | call pack#init() | call pack#move()
 
   command! PacList
         \ if !exists('g:loaded_minpac') | packadd minpac | endif           |
@@ -31,7 +31,7 @@ if has('packages')
         \ )
 
 else
-  echo 'Please install vim-plug instead'
+  echom 'Please install vim-plug instead'
 endif
 
 " Ref: https://learnvimscriptthehardway.stevelosh.com/chapters/42.html
