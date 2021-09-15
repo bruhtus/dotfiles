@@ -48,6 +48,8 @@ set ignorecase
 set smartcase
 set incsearch
 set list listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+" to make vim session use absolute path, remove curdir option
+set sessionoptions-=options sessionoptions-=curdir sessionoptions+=globals
 
 " in case I don't want to use statusline
 if &ruler | set rulerformat=%-13.(%r%m%)\ %P | endif
@@ -57,8 +59,7 @@ if has('nvim')
   set nohlsearch
   set nosmarttab
   set noautoindent
-  set sessionoptions+=globals
-  set inccommand=split
+  set inccommand=nosplit
 
   augroup TermBuffer
     autocmd!
@@ -75,7 +76,6 @@ else
   set nrformats-=octal
   set display+=lastline
   set autoread
-  set sessionoptions-=options
   set viewoptions-=options
   set shortmess-=S
   set shortmess+=F
