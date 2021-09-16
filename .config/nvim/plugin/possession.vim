@@ -1,60 +1,83 @@
-" simple session management
-" Ref: https://github.com/tpope/vim-obsession/blob/master/plugin/obsession.vim
+" decoupled vim session management
+" Ref: https://github.com/mhinz/vim-startify/blob/81e36c352a8deea54df5ec1e2f4348685569bed2/autoload/startify.vim#L27
+let g:possession_dir = get(g:, 'possession_dir',
+      \ has('nvim-0.3.1') ?
+      \ stdpath('data') . '/session' :
+      \ has('nvim') ?
+      \ '~/.local/share/nvim/session' :
+      \ '~/.vim/session'
+      \ )
 
-function! s:save_session()
-  let l:root = systemlist('git rev-parse --show-toplevel')[0]
+let g:possession_git_root = !get(g:, 'possession_no_git_root') ?
+      \ fnamemodify(
+      \   trim(system('git rev-parse --show-toplevel 2>/dev/null')), ':p:s?\/$??'
+      \ ) :
+      \ getcwd()
 
-  if v:shell_error
-    if exists('g:recording_session')
-          \ && !exists('b:init_mksession')
-          \ && filereadable('Session.vim')
-      mks! Session.vim
-    elseif exists('b:init_mksession') && !filereadable('Session.vim')
-      mks Session.vim
-      let g:recording_session = 1
-      echom 'Not in git repo and recording session'
+let g:possession_git_branch = !get(g:, 'possession_no_git_branch') ?
+      \ trim(system("git branch --show-current 2>/dev/null")) :
+      \ ''
+
+let g:possession_file_pattern = g:possession_dir . '/' . substitute(
+      \ fnamemodify(g:possession_git_root, ':~:.'), '[\~\.\/]', '%', 'g'
+      \ ) . (g:possession_git_branch !=# '' ? '%' . g:possession_git_branch : '')
+
+" Ref: minpac/autoload/minpac/impl.vim
+" TODO: need to simplify this
+let replace_first_percentage = map(globpath(g:possession_dir, '%%*', 0, 1),
+      \ {-> substitute(v:val, '^.*[/\\]%', '\~', '')})
+let g:possession_list = map(
+      \ map(replace_first_percentage,
+      \   {-> substitute(v:val, '^\~%%', '\~%.', '')}),
+      \ {-> substitute(v:val, '%', '\/', 'g')}
+      \ )
+
+command! -bang Possess
+      \ call possession#init(<bang>0) |
+      \ let replace_first_percentage = map(globpath(g:possession_dir, '%%*', 0, 1),
+      \   {-> substitute(v:val, '^.*[/\\]%', '\~', '')}) |
+      \ let g:possession_list = map(
+      \   map(replace_first_percentage,
+      \     {-> substitute(v:val, '^\~%%', '\~%.', '')}),
+      \   {-> substitute(v:val, '%', '\/', 'g')}
+      \   )
+
+command! PList echo join(g:possession_list, "\n")
+command! PMove
+      \ call possession#move() |
+      \ let replace_first_percentage = map(globpath(g:possession_dir, '%%*', 0, 1),
+      \   {-> substitute(v:val, '^.*[/\\]%', '\~', '')}) |
+      \ let g:possession_list = map(
+      \   map(replace_first_percentage,
+      \     {-> substitute(v:val, '^\~%%', '\~%.', '')}),
+      \   {-> substitute(v:val, '%', '\/', 'g')}
+      \   )
+
+function! s:possession_load()
+  let file = filereadable(g:possession_git_root . '/Session.vim') ?
+        \ g:possession_git_root . '/Session.vim' :
+        \ filereadable(g:possession_file_pattern) ?
+        \ g:possession_file_pattern : ''
+  if empty(v:this_session) && file !=# '' && !&modified
+    exe 'source ' . fnameescape(file)
+    redraw
+    let g:current_possession = v:this_session
+    if bufexists(0) && !filereadable(bufname('#'))
+      bw #
     endif
-  else
-    if exists('g:recording_session')
-          \ && !exists('b:init_mksession')
-          \ && filereadable(l:root . '/Session.vim')
-      exe 'mks! ' . l:root . '/Session.vim'
-    elseif exists('b:init_mksession') && !filereadable(l:root . '/Session.vim')
-      exe 'mks ' . l:root . '/Session.vim'
-      let g:recording_session = 1
-      echom 'Recording session'
-    endif
+    echom 'Tracking session in ' . fnamemodify(g:current_possession, ':~:.')
+  elseif !empty(v:this_session)
+    echo 'There is another session going on'
+  elseif &modified
+    echo 'Please save the current buffer first'
   endif
 endfunction
 
-" TODO: feature to add arguments for the command
-" TODO: make confirm interface to override existing vim session or using CWD or
-" do nothing
-command! -bar -bang -complete=file -nargs=? Mksession
-      \ if <bang>0 && !empty(v:this_session) && exists('g:recording_session') |
-      \   call delete(v:this_session)                                         |
-      \   unlet g:recording_session                                           |
-      \   echom 'Session deleted'                                             |
-      \ elseif <bang>0
-      \ && (empty(v:this_session) || !exists('g:recording_session'))          |
-      \   echo 'No session found'                                             |
-      \ elseif !exists('g:recording_session')                                 |
-      \   let b:init_mksession = 1                                            |
-      \   call s:save_session()                                               |
-      \   unlet b:init_mksession                                              |
-      \ endif
-
-augroup session
+augroup possession
   autocmd!
   autocmd VimEnter * nested
-        \ if !argc()
-        \ && empty(v:this_session)
-        \ && filereadable('Session.vim')
-        \ && !&modified |
-        \   let g:recording_session = 1 |
-        \   source Session.vim          |
-        \   echom 'Recording session'   |
-        \   if bufexists(0) && !filereadable(bufname('#')) | bw # | endif |
+        \ if !argc()                 |
+        \   call s:possession_load() |
         \ endif
-  autocmd VimLeavePre * call s:save_session()
+  autocmd VimLeavePre * call possession#persist()
 augroup END
