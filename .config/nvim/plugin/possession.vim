@@ -54,12 +54,14 @@ command! PMove
       \   )
 
 function! s:possession_load()
-  let file = filereadable(g:possession_git_root . '/Session.vim') ?
+  let file = filereadable(expand(g:possession_git_root . '/Session.vim')) ?
         \ g:possession_git_root . '/Session.vim' :
-        \ filereadable(g:possession_file_pattern) ?
+        \ filereadable(expand(g:possession_file_pattern)) ?
         \ g:possession_file_pattern : ''
   if empty(v:this_session) && file !=# '' && !&modified
     exe 'source ' . fnameescape(file)
+    " remove the echo of file name at startup, vim change the shortmess option
+    " when using session temporary
     redraw
     let g:current_possession = v:this_session
     if bufexists(0) && !filereadable(bufname('#'))
