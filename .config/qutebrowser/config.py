@@ -132,13 +132,22 @@ config.set('url.start_pages','/home/bruhtus/.config/qutebrowser/index.html')
 # Change download directory
 config.set('downloads.location.directory','/home/bruhtus/downloads/')
 
+# Change tabs position and tabs padding
+config.set('tabs.position', 'left')
+# config.set('tabs.width', '8%')
+c.tabs.padding = {'top': 0, 'bottom': 0, 'left': 0, 'right': 0}
+
+# Do not display tab and statusbar at startup
+# config.set('statusbar.show', 'never')
+config.set('tabs.show', 'never')
+
 # Bindings for normal mode
-config.bind('J', 'tab-prev')
-config.bind('K', 'tab-next')
+config.bind('J', 'tab-next')
+config.bind('K', 'tab-prev')
 config.bind('M', 'hint links spawn mpv {hint-url}')
 config.bind('Q', 'close')
-config.bind('gj', 'tab-move -')
-config.bind('gk', 'tab-move +')
+config.bind('zj', 'tab-move +')
+config.bind('zk', 'tab-move -')
 config.bind('d', 'scroll-page 0 0.5')
 config.bind('u', 'scroll-page 0 -0.5')
 config.bind('x', 'tab-close')
