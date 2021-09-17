@@ -77,8 +77,7 @@ else
   set display+=lastline
   set autoread
   set viewoptions-=options
-  set shortmess-=S
-  set shortmess+=F
+  set shortmess-=S shortmess+=F
   set nolangremap
   set langnoremap
 
