@@ -8,6 +8,7 @@ let g:possession_dir = get(g:, 'possession_dir',
       \ '~/.vim/session'
       \ )
 
+" Note: remove the last slice in directory path
 let g:possession_git_root = !get(g:, 'possession_no_git_root') ?
       \ fnamemodify(
       \   trim(system('git rev-parse --show-toplevel 2>/dev/null')), ':p:s?\/$??'
@@ -18,12 +19,14 @@ let g:possession_git_branch = !get(g:, 'possession_no_git_branch') ?
       \ trim(system("git branch --show-current 2>/dev/null")) :
       \ ''
 
+" Note: change `~`, `.`, and `/` in directory to `%`
 let g:possession_file_pattern = g:possession_dir . '/' . substitute(
       \ fnamemodify(g:possession_git_root, ':~:.'), '[\~\.\/]', '%', 'g'
       \ ) . (g:possession_git_branch !=# '' ? '%' . g:possession_git_branch : '')
 
 " Ref: minpac/autoload/minpac/impl.vim
 " TODO: need to simplify this
+" Note: change back the `%` to its respective symbol
 let replace_first_percentage = map(globpath(g:possession_dir, '%%*', 0, 1),
       \ {-> substitute(v:val, '^.*[/\\]%', '\~', '')})
 let g:possession_list = map(
@@ -73,6 +76,25 @@ function! s:possession_load()
   elseif &modified
     echo 'Please save the current buffer first'
   endif
+endfunction
+
+function! possession#persist() abort
+  if exists('g:SessionLoad')
+    return ''
+  endif
+
+  if exists('g:current_possession')
+    try
+      exe 'mksession! ' . fnameescape(g:current_possession)
+    catch
+      unlet g:current_possession
+      let &l:readonly = &l:readonly
+      return 'echoerr ' . string(v:exception)
+    finally
+      let &l:readonly = &l:readonly
+    endtry
+  endif
+  return ''
 endfunction
 
 augroup possession
