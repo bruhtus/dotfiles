@@ -32,13 +32,13 @@ function! enable#fzf#init()
             \ "rg --column --line-number --no-heading --color=always --smart-case " . shellescape(<q-args>),
             \ 1,
             \ winheight(0) < 40 ? fzf#vim#with_preview(
-            \ {'options': '--delimiter : --nth 4..'},
+            \ {'options': '--with-nth=1,4.. --delimiter : --nth 4..'},
             \ 'hidden', 'ctrl-/') :
             \ winwidth(0) < 192 ? fzf#vim#with_preview(
-            \ {'options': '--delimiter : --nth 4..'},
+            \ {'options': '--with-nth=1,4.. --delimiter : --nth 4..'},
             \ 'up:50%:hidden', 'ctrl-/') :
             \ fzf#vim#with_preview(
-            \ {'options': '--delimiter : --nth 4..'},
+            \ {'options': '--with-nth=1,4.. --delimiter : --nth 4..'},
             \ 'hidden', 'ctrl-/'), <bang>0)
 
       " Custom BLines with preview (using ripgrep)
