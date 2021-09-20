@@ -25,6 +25,7 @@ inoremap <silent> <M-U> <C-[>:t .<CR>==
 
 " remap Alt-~ (tilda) to toggle uppercase in current character in insert mode
 " and then escape to normal mode
+if !has('nvim') | execute "set <M-~>=\e~" | endif
 inoremap <silent> <M-~> <C-o>~<C-[>
 
 " split navigation
