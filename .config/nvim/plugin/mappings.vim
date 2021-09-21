@@ -9,7 +9,14 @@ noremap <expr> <CR> &buftype ==# 'quickfix' ? "\<CR>zz" :
 if executable('rg')
   set grepprg=rg\ --smart-case\ --hidden\ --vimgrep\ -w
   set grepformat=%f:%l:%c:%m,%f
-  nnoremap <silent> <BS> :silent! lgrep! <cword> **<CR>
+  if has('nvim')
+    nnoremap <silent> <BS> :silent! lgrep! <cword> **<CR>
+  else
+    " Ref: https://gist.github.com/romainl/56f0c28ef953ffc157f36cc495947ab3
+    " :grep in vanilla vim not as smooth as neovim, it spit out the output
+    " into terminal and need to redraw every time using it.
+    nnoremap <silent> <BS> :execute "lgetexpr system('" . &grepprg . ' ' . expand("<cword>") . "')"<CR>
+  endif
 
 else
   nnoremap <silent> <BS> :execute "lvimgrep /\\<" . expand("<cword>") . "\\>/j **"<CR>
