@@ -12,7 +12,7 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 " do not change statusline of quickfix and bufstop window
-augroup StatuslineStartup
+augroup statusline_startup
   autocmd!
   autocmd WinEnter,BufWinEnter *
         \ if &buftype ==# 'quickfix'                 |
@@ -44,14 +44,24 @@ endfunction
 " Ref: https://github.com/junegunn/dotfiles/blob/057ee47465e43aafbd20f4c8155487ef147e29ea/vimrc#L265-L275
 function! StatuslineComponent() abort
 
-  if mode() ==# 'n'
-    let w:mode ='%#NormalModeColor# '
-  elseif mode() ==# v:insertmode
-    let w:mode ='%#InsertModeColor# '
-  elseif mode() ==# 'v' || mode() ==# 'V' || mode() ==# "\<C-V>"
-    let w:mode ='%#VisualModeColor# '
-  elseif mode() ==# 'c' || mode() ==# 't'
-    let w:mode ='%#CommandModeColor# '
+  if hlexists('NormalModeColor')
+        \ && hlexists('InsertModeColor')
+        \ && hlexists('VisualModeColor')
+        \ && hlexists('CommandModeColor')
+    if &showmode | set noshowmode | endif
+    if mode() ==# 'n'
+      let w:mode ='%#NormalModeColor# '
+    elseif mode() ==# v:insertmode
+      let w:mode ='%#InsertModeColor# '
+    elseif mode() ==# 'v' || mode() ==# 'V' || mode() ==# "\<C-V>"
+      let w:mode ='%#VisualModeColor# '
+    elseif mode() ==# 'c' || mode() ==# 't'
+      let w:mode ='%#CommandModeColor# '
+    endif
+
+  else
+    if !&showmode | set showmode | endif
+    let w:mode=''
   endif
 
   let l:filename = " %{expand('%:p:~') ==# '' ? '[Blank]' :
