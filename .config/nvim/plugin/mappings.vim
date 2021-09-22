@@ -26,6 +26,19 @@ endif
 " use shift+tab to switch back and forth between two recent buffer
 nnoremap <S-Tab> <C-^>
 
+" remap Alt-a to append while in insert mode
+" Ref: https://vi.stackexchange.com/a/2363/34851
+if !has('nvim') | execute "set <M-a>=\ea" | endif
+inoremap <silent> <M-a> <C-o>a
+
+" remap Alt-w to go next word
+if !has('nvim') | execute "set <M-w>=\ew" | endif
+if exists(':stopinsert') == 2
+  inoremap <silent> <M-w> <C-o>w<C-o>:stopinsert<CR>
+else
+  inoremap <silent> <M-w> <C-o>w<C-[>l
+endif
+
 " remap Alt-U (uppercase U) to exit insert mode and yank the entire line and
 " put below the given line
 inoremap <silent> <M-U> <C-[>:t .<CR>==
