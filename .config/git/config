@@ -7,3 +7,5 @@
 	defaultBranch = master
 [color]
 	ui = auto
+[interactive]
+	singlekey = true
