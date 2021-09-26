@@ -91,6 +91,7 @@ bindsym $mod+Ctrl+Shift+space exec --no-startup-id pomo pause
 #---Application---#
 bindsym $mod+d exec $term
 # bindsym $mod+i exec google-chrome-stable --new-window https://github.com/stars/bruhtus
+bindsym $mod+v exec rofi -show emoji -modi emoji
 
 # bindsym $mod+Shift+c exec $term -e $EDITOR '/home/bruhtus/.config/i3/config'
 bindsym $mod+Shift+d [title="dropdown_youtube"] scratchpad show; [title="dropdown_youtube"] move position center
@@ -107,7 +108,6 @@ bindsym $mod+Ctrl+d exec pcmanfm
 bindsym $mod+Ctrl+x exec $term -e bpytop
 bindsym $mod+Ctrl+w exec google-chrome-stable
 bindsym $mod+Ctrl+s exec qutebrowser --target private-window http://127.0.0.1:8384/
-bindsym $mod+Ctrl+z exec rofi -show emoji -modi emoji
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym $mod+Ctrl+a --release exec --no-startup-id flameshot gui
 #bindsym $mod+Ctrl+a --release exec --no-startup-id flameshot screen -r -c
