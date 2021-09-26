@@ -91,7 +91,6 @@ bindsym $mod+Ctrl+Shift+space exec --no-startup-id pomo pause
 #---Application---#
 bindsym $mod+d exec $term
 bindsym $mod+w exec qutebrowser
-bindsym $mod+a exec --no-startup-id rofi -show run
 # bindsym $mod+i exec google-chrome-stable --new-window https://github.com/stars/bruhtus
 
 # bindsym $mod+Shift+c exec $term -e $EDITOR '/home/bruhtus/.config/i3/config'
