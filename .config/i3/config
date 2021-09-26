@@ -108,11 +108,12 @@ bindsym $mod+Ctrl+z exec timeshift-launcher
 bindsym $mod+Ctrl+w exec google-chrome-stable
 bindsym $mod+Ctrl+s exec qutebrowser --target private-window http://127.0.0.1:8384/
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
-bindsym $mod+Ctrl+a --release exec --no-startup-id flameshot gui
-#bindsym $mod+Ctrl+a --release exec --no-startup-id flameshot screen -r -c
 bindsym $mod+Ctrl+q exec telegram-desktop
 bindsym $mod+Ctrl+x [title="dropdown_youtube"] scratchpad show; [title="dropdown_youtube"] move position center
 bindsym $mod+Ctrl+a exec --no-startup-id rofi -show run
+bindsym $mod+Ctrl+s --release exec --no-startup-id flameshot gui
+# bindsym $mod+Ctrl+s --release exec --no-startup-id flameshot screen -r -c
+# bindsym $mod+Ctrl+s --release exec --no-startup-id flameshot screen -r -p $HOME/pictures/
 
 bindsym $mod+Ctrl+Shift+n exec google-chrome-stable --incognito
 bindsym $mod+Ctrl+Shift+b exec google-chrome-stable --incognito https://github.com/bruhtus?tab=repositories
