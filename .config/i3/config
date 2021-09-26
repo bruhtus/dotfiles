@@ -96,7 +96,6 @@ bindsym $mod+v exec rofi -show emoji -modi emoji
 # bindsym $mod+Shift+c exec $term -e $EDITOR '/home/bruhtus/.config/i3/config'
 bindsym $mod+Shift+x [title="dropdown_terminal"] scratchpad show; [title="dropdown_terminal"] move position center
 bindsym $mod+Shift+y exec google-chrome-stable --new-window https://github.com/settings/tokens
-bindsym $mod+Shift+n exec docsmenu
 bindsym $mod+Shift+m exec dmsearch
 bindsym $mod+Shift+t exec google-chrome-stable --new-window twitter.com
 bindsym $mod+Shift+z exec timeshift-launcher
@@ -104,6 +103,7 @@ bindsym $mod+Shift+q exec qutebrowser
 bindsym $mod+Shift+p exec switch-picom
 
 bindsym $mod+Ctrl+d exec pcmanfm
+bindsym $mod+Ctrl+n exec docsmenu
 bindsym $mod+Ctrl+c exec $term -e bpytop
 bindsym $mod+Ctrl+w exec google-chrome-stable
 bindsym $mod+Ctrl+s exec qutebrowser --target private-window http://127.0.0.1:8384/
