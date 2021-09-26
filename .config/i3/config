@@ -6,7 +6,7 @@
 set $mod Mod1
 set $term alacritty
 set $inner_gaps 0
-set $outer_gaps -2
+set $outer_gaps 0
 # #---End---# #
 
 # #---Default Config---# #
