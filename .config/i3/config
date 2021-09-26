@@ -90,7 +90,6 @@ bindsym $mod+Ctrl+Shift+space exec --no-startup-id pomo pause
 
 #---Application---#
 bindsym $mod+d exec $term
-bindsym $mod+w exec qutebrowser
 # bindsym $mod+i exec google-chrome-stable --new-window https://github.com/stars/bruhtus
 
 # bindsym $mod+Shift+c exec $term -e $EDITOR '/home/bruhtus/.config/i3/config'
@@ -101,7 +100,7 @@ bindsym $mod+Shift+n exec docsmenu
 bindsym $mod+Shift+m exec dmsearch
 bindsym $mod+Shift+t exec google-chrome-stable --new-window twitter.com
 bindsym $mod+Shift+z exec timeshift-launcher
-bindsym $mod+Shift+q exec telegram-desktop
+bindsym $mod+Shift+q exec qutebrowser
 bindsym $mod+Shift+p exec switch-picom
 
 bindsym $mod+Ctrl+d exec pcmanfm
@@ -113,6 +112,7 @@ bindsym $mod+Ctrl+z exec rofi -show emoji -modi emoji
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym $mod+Ctrl+a --release exec --no-startup-id flameshot gui
 #bindsym $mod+Ctrl+a --release exec --no-startup-id flameshot screen -r -c
+bindsym $mod+Ctrl+q exec telegram-desktop
 bindsym $mod+Ctrl+a exec --no-startup-id rofi -show run
 
 bindsym $mod+Ctrl+Shift+n exec google-chrome-stable --incognito
