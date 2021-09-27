@@ -129,14 +129,16 @@ vnoremap > >gv
 
 " set black hole register to c, C, s, S, x, X, D, and space d
 nnoremap c "_c
+xnoremap c "_c
 nnoremap C "_C
 nnoremap s "_s
 nnoremap S "_S
 nnoremap x "_x
+xnoremap x "_x
 nnoremap X "_X
 nnoremap D "_D
 nnoremap <leader>d "_d
-vnoremap <leader>d "_d
+xnoremap <leader>d "_d
 
 " make search result appear in the middle
 nnoremap n nzz
