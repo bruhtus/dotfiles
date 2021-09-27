@@ -57,7 +57,6 @@ if &ruler | set rulerformat=%-13.(%r%m%)\ %P | endif
 if has('nvim')
   set guicursor=
   set nohlsearch
-  set nosmarttab
   set noautoindent
   set inccommand=nosplit
 
