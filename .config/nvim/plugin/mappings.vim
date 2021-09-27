@@ -41,7 +41,7 @@ endif
 
 " remap Alt-U (uppercase U) to exit insert mode and yank the entire line and
 " put below the given line
-inoremap <silent> <M-U> <C-[>:t .<CR>==
+inoremap <silent> <M-U> <C-[>:t .<CR>
 
 " remap Alt-~ (tilda) to toggle uppercase in current character in insert mode
 " and then escape to normal mode
@@ -155,7 +155,7 @@ nnoremap J m`J``
 " remap U to yank the entire line and put below the given line (takes count)
 " default: current line
 " add current line to jumplist if v:count more than zero
-nnoremap <expr> <silent> U (v:count ># 0 ? "m'" . v:count : '') . ":<C-u>execute 't +'. v:count<CR>=="
+nnoremap <expr> <silent> U (v:count > 0 ? "m'" . v:count : '') . ":<C-u>execute 't +'. v:count<CR>"
 
 " remap ex mode to access vimgrep in current buffer
 " you can still access ex mode using gQ
@@ -186,20 +186,20 @@ nnoremap <silent> ZD :reg<CR>
 " current line position to jumplist
 " default: current line
 nnoremap <expr> <silent> ZJ
-      \ v:count1 ># 1 ? ":<C-u>execute '+1k` <Bar> move +'. v:count1<CR>==" :
-      \ ":<C-u>execute 'move +'. v:count1<CR>=="
+      \ v:count1 > 1 ? ":<C-u>execute '+1k` <Bar> move +'. v:count1<CR>" :
+      \ ":<C-u>execute 'move +'. v:count1<CR>"
 
 " map ZK to move current line above the given line (takes count) and add the
 " current line position to jumplist
 " default: corrent line
 nnoremap <expr> <silent> ZK
-      \ v:count1 ># 1 ? ":<C-u>execute '-1k` <Bar> move -1-'. v:count1<CR>==" :
-      \ ":<C-u>execute 'move -1-'. v:count1<CR>=="
+      \ v:count1 > 1 ? ":<C-u>execute '-1k` <Bar> move -1-'. v:count1<CR>" :
+      \ ":<C-u>execute 'move -1-'. v:count1<CR>"
 
 " map ZU to yank the entire line and put above the given line (takes count)
 " default: current line
 " add current line to jumplist if v:count more than zero
-nnoremap <expr> <silent> ZU (v:count ># 0 ? "m'" . v:count : '') . ":<C-u>execute 't -1-'. v:count<CR>=="
+nnoremap <expr> <silent> ZU (v:count > 0 ? "m'" . v:count : '') . ":<C-u>execute 't -1-'. v:count<CR>"
 
 " map ZH to put blank character above, and ZN to put blank character below
 " can use count to add how many blank character to insert
