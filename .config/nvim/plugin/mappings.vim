@@ -148,9 +148,11 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
-" edit the current word and next word occurrence by pressing dot command
-nnoremap cn *``"_cgn
-nnoremap cN #``"_cgN
+" set cn to substitute current word in a file (use confim as safety guard)
+nnoremap cn :%s/<C-r><C-w>//gc<left><left><left>
+
+" set cN to substitute current word in a file (use confim as safety guard)
+nnoremap cN :%s/<C-r><C-a>//gc<left><left><left>
 
 " remap Y to yank from pointer to the end of the line
 nnoremap Y y$
@@ -256,6 +258,10 @@ endif
 " didn't quite find this mapping useful but can be good for reference
 " set space S to substitute N occurrence using command line window
 " nnoremap <leader>S q:is/\v(.{-}\zs){}/<Esc>F)i
+
+" edit the current word and next word occurrence by pressing dot command
+" nnoremap cn *``"_cgn
+" nnoremap cN #``"_cgN
 
 " experiment to make j remapped to `_` if the next line of the same column is
 " blank/whitespace character
