@@ -78,8 +78,8 @@ function! StatuslineComponent() abort
   let l:git = '%{GitBranchName()}'
   let l:sep = '%='
   let l:line = '  %3l/%L'
-  let l:tab = "%{&expandtab && &smarttab ? ' sw='.&shiftwidth.' ' :
-        \ !&expandtab && !&smarttab ? ' ts='.&tabstop.' ' :
+  let l:tab = "%{&expandtab ? ' sw='.&shiftwidth.' ' :
+        \ &tabstop == &shiftwidth ? ' ts='.&tabstop.' ' :
         \ ' sw='.&shiftwidth.',ts='.&tabstop.' '}"
   if has('nvim')
     return w:mode.'%*'.l:tab.l:git.l:sep.l:readonly.l:filename.l:mod.l:sep.l:ft.l:line
