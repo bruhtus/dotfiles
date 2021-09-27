@@ -238,7 +238,7 @@ exec_always --no-startup-id polybar-launch
 # exec_always --no-startup-id youtubedd
 exec_always --no-startup-id terminaldd
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id xwallpaper --maximize all-repos/wallpaper/wallpaper.jpg; picom -b
+# exec --no-startup-id xwallpaper --maximize all-repos/wallpaper/wallpaper.jpg; picom -b
 exec --no-startup-id killall pomo; pomo notify &
 exec --no-startup-id syncthing --no-browser
 exec --no-startup-id nm-applet
