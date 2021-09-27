@@ -19,7 +19,7 @@ if executable('rg')
   endif
 
 else
-  nnoremap <silent> <BS> :execute "lvimgrep /\\<" . expand("<cword>") . "\\>/j **"<CR>
+  nnoremap <silent> <BS> :execute 'lvimgrep /\v<' . expand('<cword>') . '>/j **'<CR>
 
 endif
 
@@ -177,7 +177,7 @@ nnoremap ZX :w<CR>
 nnoremap <silent> ZA :on<CR>
 
 " set ZS to grep word under cursor in current buffer
-nnoremap <silent> ZS :execute "lvimgrep /\\<" . expand("<cword>") . "\\>/j %"<CR>
+nnoremap <silent> ZS :execute 'lvimgrep /\v<' . expand('<cword>') . '>/j %'<CR>
 
 " set ZD as :reg
 nnoremap <silent> ZD :reg<CR>
