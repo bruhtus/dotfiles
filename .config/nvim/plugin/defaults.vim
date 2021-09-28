@@ -32,7 +32,7 @@ set shiftround
 " Ref: https://github.com/luochen1990/indent-detector.vim/blob/master/plugin/indent_detector.vim
 augroup defaults_indent
   autocmd!
-  autocmd FileType *
+  autocmd BufNewFile,BufRead,FileType *
         \ execute 'setlocal '
         \ . (search('^\t', 'n') && !search('^  ', 'n') ? 'noexpandtab nosmarttab tabstop=2' :
         \ search('^\t', 'n') && search('^  ', 'n') ? 'noexpandtab smarttab' :
