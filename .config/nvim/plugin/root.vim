@@ -6,7 +6,7 @@ if &autochdir
   set noautochdir
 endif
 
-augroup RootBuffer
+augroup root_buffer
   autocmd!
   autocmd BufEnter *
         \ if !exists('b:root_enabled') |
