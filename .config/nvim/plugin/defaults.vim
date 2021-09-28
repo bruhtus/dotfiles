@@ -21,11 +21,7 @@ set wildmode=longest:full,full
 set wildignore=*/.git/*,*.pdf,*.jpg,*jpeg,*.png,*.epub,*.mobi
 
 " Ref: https://vi.stackexchange.com/a/28017/34851
-set autoindent
-set softtabstop=-69
-set shiftwidth=2
-set shiftround
-set smarttab
+set autoindent shiftround smarttab shiftwidth=2 softtabstop=-69
 
 " automatically setlocal expandtab and tabstop depending on
 " whether there's a tab character or not
@@ -41,14 +37,8 @@ augroup defaults_indent
         \ '&l:et = 1'
 augroup END
 
-set nobackup
-set noshowmode
-set noswapfile
-set nostartofline
-
-set ignorecase
-set smartcase
-set incsearch
+set nobackup noshowmode noswapfile nostartofline
+set ignorecase smartcase incsearch
 set list listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 " to make vim session use absolute path, remove curdir option
 set sessionoptions-=options sessionoptions-=curdir sessionoptions+=globals
@@ -79,26 +69,20 @@ else
   set autoread
   set viewoptions-=options
   set shortmess-=S shortmess+=F
-  set nolangremap
-  set langnoremap
+  set nolangremap langnoremap
 
   " to set CursorLineNr highlight in vanilla vim
   " Ref: https://vi.stackexchange.com/a/24914
-  if exists('+cursorlineopt')
-    set cursorline
-    set cursorlineopt=number
-  endif
+  if exists('+cursorlineopt') | set cursorline cursorlineopt=number | endif
 
-  if exists('+wildmenu')
-    set wildmenu
-  endif
+  if exists('+wildmenu') | set wildmenu | endif
+
+  " check if there's termwinkey variable or not
+  if exists('+termwinkey') | set termwinkey=<C-p> | endif
 
   if v:version > 703 || v:version == 703 && has('patch541')
     set formatoptions+=j " delete comment character when joining commented lines
   endif
-
-  " check if there's termwinkey variable or not
-  if exists('&termwinkey') | set termwinkey=<C-p> | endif
 endif
 
 if has('syntax')  | syntax on                 | endif
