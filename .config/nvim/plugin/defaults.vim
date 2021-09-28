@@ -61,12 +61,12 @@ if has('nvim')
   set noautoindent
   set inccommand=nosplit
 
-  augroup TermBuffer
-    autocmd!
-    autocmd TermOpen term://*
-          \ setlocal nonumber norelativenumber signcolumn=no |
-          \ startinsert
-  augroup END
+  " augroup term_buffer
+  "   autocmd!
+  "   autocmd TermOpen term://*
+  "         \ setlocal nonumber norelativenumber signcolumn=no |
+  "         \ startinsert
+  " augroup END
 
 else
   set viminfo+=n~/.cache/vim/viminfo
