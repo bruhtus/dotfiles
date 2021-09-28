@@ -35,9 +35,9 @@ augroup defaults_indent
   autocmd!
   autocmd BufNewFile,BufRead,FileType *
         \ execute 'setlocal '
-        \ . (search('^\t', 'n') && !search('^  ', 'n') ? 'noexpandtab tabstop=2' :
-        \ search('^\t', 'n') && search('^  ', 'n') ? 'noexpandtab' :
-        \ 'expandtab')
+        \ . (search('^\t', 'n') && !search('^  ', 'n') ? 'tabstop=2 no' :
+        \ search('^\t', 'n') && search('^  ', 'n') ? 'no' :
+        \ '') . 'expandtab'
 augroup END
 
 set nobackup
