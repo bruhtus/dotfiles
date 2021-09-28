@@ -25,6 +25,7 @@ set autoindent
 set softtabstop=-69
 set shiftwidth=2
 set shiftround
+set smarttab
 
 " automatically setlocal expandtab, smarttab, tabstop, and shiftwidth depending on
 " whether there's a tab character or not
@@ -34,9 +35,9 @@ augroup defaults_indent
   autocmd!
   autocmd BufNewFile,BufRead,FileType *
         \ execute 'setlocal '
-        \ . (search('^\t', 'n') && !search('^  ', 'n') ? 'noexpandtab nosmarttab tabstop=2' :
-        \ search('^\t', 'n') && search('^  ', 'n') ? 'noexpandtab smarttab' :
-        \ 'expandtab smarttab')
+        \ . (search('^\t', 'n') && !search('^  ', 'n') ? 'noexpandtab tabstop=2' :
+        \ search('^\t', 'n') && search('^  ', 'n') ? 'noexpandtab' :
+        \ 'expandtab')
 augroup END
 
 set nobackup
