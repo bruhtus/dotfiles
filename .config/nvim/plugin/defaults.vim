@@ -28,7 +28,7 @@ set autoindent shiftround smarttab shiftwidth=2 softtabstop=-69
 " Ref: https://github.com/itchyny/dotfiles/blob/a7d5f94d794554c7a4eee68b3248c862b67abb14/.vimrc#L89
 " Ref: https://github.com/luochen1990/indent-detector.vim/blob/master/plugin/indent_detector.vim
 " Ref: `:h :let-option`, `:h :let-unpack`
-augroup defaults_indent
+augroup indent_detection
   autocmd!
   autocmd BufNewFile,BufRead,FileType *
         \ execute 'let '
