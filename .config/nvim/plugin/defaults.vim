@@ -60,7 +60,10 @@ if has('nvim')
   " augroup END
 
 else
-  set viminfo+=n~/.cache/vim/viminfo
+  if !isdirectory(expand('~/.local/share/vim'))
+    call mkdir(expand('~/.local/share/vim'))
+  endif
+  set viminfo+=n~/.local/share/vim/viminfo
   set belloff=all
   set backspace=indent,eol,start
   set complete-=i " disable scanning current and included files
