@@ -197,12 +197,32 @@ nnoremap <expr> <silent> ZJ
       \ v:count1 > 1 ? ":<C-u>execute '+1k` <Bar> move +'. v:count1<CR>" :
       \ ":<C-u>execute 'move +'. v:count1<CR>"
 
+" map ZJ to move current line below the given line (takes count) and add the
+" current line position to jumplist (visual mode)
+" default: above or below current selected line
+xnoremap <silent> ZJ
+      \ :<C-u>if v:count1 > 1 <Bar>
+      \   execute "+1k' <Bar> '<,'>move '>+". v:count1 <Bar>
+      \ else <Bar>
+      \   execute "'<,'>move '>+". v:count1 <Bar>
+      \ endif<CR>gv
+
 " map ZK to move current line above the given line (takes count) and add the
 " current line position to jumplist
 " default: corrent line
 nnoremap <expr> <silent> ZK
       \ v:count1 > 1 ? ":<C-u>execute '-1k` <Bar> move -1-'. v:count1<CR>" :
       \ ":<C-u>execute 'move -1-'. v:count1<CR>"
+
+" map ZK to move current line above the given line (takes count) and add the
+" current line position to jumplist (visual mode)
+" default: above or below current selected line
+xnoremap <silent> ZK
+      \ :<C-u>if v:count1 > 1 <Bar>
+      \   execute "-1k' <Bar> '<,'>move '<-1-". v:count1 <Bar>
+      \ else <Bar>
+      \   execute "'<,'>move '<-1-". v:count1 <Bar>
+      \ endif<CR>gv
 
 " map ZU to yank the entire line and put above the given line (takes count)
 " default: current line
