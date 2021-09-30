@@ -229,6 +229,17 @@ xnoremap <silent> ZK
 " add current line to jumplist if v:count more than zero
 nnoremap <expr> <silent> ZU (v:count > 0 ? "m'" . v:count : '') . ":<C-u>execute 't -1-'. v:count<CR>"
 
+function! s:copy_visual(direction) abort
+  if a:direction ==# 'above'
+    execute "'<,'>t '<-1-" . v:count
+  elseif a:direction ==# 'below'
+    execute "'<,'>t '>+" . v:count
+  endif
+endfunction
+
+xnoremap <expr> <silent> zj (v:count > 0 ? "m'" . v:count : '') . ":<C-u>call <SID>copy_visual('below')<CR>"
+xnoremap <expr> <silent> zk (v:count > 0 ? "m'" . v:count : '') . ":<C-u>call <SID>copy_visual('above')<CR>"
+
 " map ZH to put blank character above, and ZN to put blank character below
 " can use count to add how many blank character to insert
 " it respect `startofline` option, so turn that off if you don't want the
