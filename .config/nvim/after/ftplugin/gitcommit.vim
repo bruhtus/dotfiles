@@ -11,9 +11,9 @@ nnoremap <buffer> <silent> <localleader>\
       \   DiffGitCached <Bar>
       \ endtry<CR>
 
-augroup gitcommit
-  autocmd!
-  autocmd FileType git
-        \  nmap <buffer> <nowait> <Space> <C-d>
-        \| nmap <buffer> <nowait> u <C-u>
-augroup END
+" augroup gitcommit
+"   autocmd!
+"   autocmd FileType git
+"         \  nmap <buffer> <nowait> <Space> <C-d>
+"         \| nmap <buffer> <nowait> u <C-u>
+" augroup END
