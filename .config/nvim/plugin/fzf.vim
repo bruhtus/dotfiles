@@ -7,16 +7,17 @@ nnoremap <silent> <leader>f :call enable#fzf('Files ~')<CR>
 nnoremap <silent> <leader>i :call enable#fzf('Files')<CR>
 
 " open fzf to search all lines in current buffer
-nnoremap <silent> <leader>u
-      \ :if &ft ==# 'filebeagle' \|\| &ft ==# 'GV' \|\| &ft ==# 'git' <Bar>
-      \   call enable#fzf('BLines') <Bar>
-      \ elseif &modified <Bar>
-      \   call enable#fzf('BLines') <Bar>
-      \ elseif executable('rg') <Bar>
-      \   call enable#fzf('CustomBLines') <Bar>
-      \ else <Bar>
-      \   call enable#fzf('BLines') <Bar>
-      \ endif<CR>
+" nnoremap <silent> <leader>u
+"       \ :if &ft ==# 'filebeagle' \|\| &ft ==# 'GV' \|\| &ft ==# 'git' <Bar>
+"       \   call enable#fzf('BLines') <Bar>
+"       \ elseif &modified <Bar>
+"       \   call enable#fzf('BLines') <Bar>
+"       \ elseif executable('rg') <Bar>
+"       \   call enable#fzf('CustomBLines') <Bar>
+"       \ else <Bar>
+"       \   call enable#fzf('BLines') <Bar>
+"       \ endif<CR>
+nnoremap <silent> <leader>u :call enable#fzf('BLines')<CR>
 
 " open fzf to search all content in current working directory
 if executable('rg')
