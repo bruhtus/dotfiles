@@ -50,7 +50,7 @@ if has('nvim')
   set guicursor=
   set nohlsearch
   set noautoindent
-  set inccommand=nosplit
+  " set inccommand=nosplit
 
   " augroup term_buffer
   "   autocmd!

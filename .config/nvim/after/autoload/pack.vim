@@ -15,6 +15,7 @@ function! pack#init() abort
 
   call minpac#add('tpope/vim-surround')
   call minpac#add('wellle/targets.vim')
+  call minpac#add('markonm/traces.vim')
   call minpac#add('tpope/vim-commentary')
   call minpac#add('jeetsukumaran/vim-indentwise')
 
