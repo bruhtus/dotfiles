@@ -254,6 +254,14 @@ nnoremap <silent> ZN :<C-u>put =repeat((nr2char(10)), v:count1)<Bar>'[-1<CR>
 cnoremap <C-k> <up>
 cnoremap <C-j> <down>
 
+" no double `/` when tapping `/` while using wildmenu
+" Ref: https://github.com/Gavinok/dotvim/blob/190356011fa2da232481cf5e4068a404f5827914/vimrc#L291-L295
+if has('nvim-0.5')
+  cnoremap <expr> / wildmenumode() ? "\<C-y>" : "/"
+else
+  cnoremap <expr> / wildmenumode() ? "\<C-e>" : "/"
+endif
+
 " use ctrl-s to move left and ctrl-x to move right in command line mode
 " check `:h cmdline` to make sure you didn't remap the useful one
 cnoremap <C-s> <left>
