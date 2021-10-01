@@ -187,8 +187,8 @@ nnoremap <silent> ZA :on<CR>
 " set ZS to grep word under cursor in current buffer
 nnoremap <silent> ZS :execute 'lvimgrep /\v<' . expand('<cword>') . '>/j %'<CR>
 
-" set ZD as :reg
-nnoremap <silent> ZD :reg<CR>
+" set ZD to grep WORD under cursor in current buffer
+nnoremap <silent> ZD :execute 'lvimgrep /' . expand('<cWORD>') . '/j %'<CR>
 
 " map ZJ to move current line below the given line (takes count) and add the
 " current line position to jumplist
