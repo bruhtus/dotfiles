@@ -2,14 +2,14 @@ function! enable#fzf#init()
   if !exists('g:loaded_fzf_vim')
     packadd fzf | packadd fzf.vim
 
-    " disable ruler when open fzf window in vim
+    " disable ruler and termguicolors when open fzf window in vim
     if !has('nvim')
       autocmd! FileType fzf
-            \ let b:ruler = &ruler            |
-            \ set noruler
-            \| autocmd BufLeave <buffer>
-            \  let &ruler = b:ruler           |
-            \  unlet b:ruler
+            \ let [b:ruler, b:termguicolors] = [&ruler, &termguicolors]  |
+            \ set noruler notermguicolors                                |
+            \  autocmd BufLeave <buffer>
+            \  let [&ruler, &termguicolors] = [b:ruler, b:termguicolors] |
+            \  unlet b:ruler b:termguicolors
     endif
 
     " move preview half page-up/down using ctrl-b/f
