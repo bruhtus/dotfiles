@@ -9,20 +9,22 @@ function! root#toggle()
     unlet b:root_first_time
     execute 'lcd %:p:h'
     echo 'Root directory disabled'
+
   else
     let l:root = systemlist('git rev-parse --show-toplevel')[0]
-    let l:nvim_root = finddir('nvim', escape(expand('%:p:h'), ' ') . ';')
+    let l:vim_root = has('nvim') ? finddir('nvim', escape(expand('%:p:h'), ' ') . ';') :
+          \ finddir('.vim', escape(expand('%:p:h'), ' ') . ';')
 
     if v:shell_error
-      if isdirectory(l:nvim_root)
+      if isdirectory(l:vim_root)
         let b:root_enabled = 1
-        execute 'lcd ' . l:nvim_root
+        execute 'lcd ' . l:vim_root
         if !exists('b:root_first_time')
           let b:root_first_time = 1
-          echo 'Changed directory to: ' . l:nvim_root
+          echo 'Changed directory to: ' . l:vim_root
         endif
       else
-        echo 'Not in git repo or neovim directory'
+        echo 'Not in git repo or (n)vim directory'
       endif
     else
       let b:root_enabled = 1
