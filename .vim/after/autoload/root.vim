@@ -13,10 +13,10 @@ function! root#toggle()
   else
     let l:root = systemlist('git rev-parse --show-toplevel')[0]
     let l:vim_root = has('nvim') ? finddir('nvim', escape(expand('%:p:h'), ' ') . ';') :
-          \ finddir('.vim', escape(expand('%:p:h'), ' ') . ';')
+          \ fnamemodify(findfile('vimrc', escape(expand('%:p:h'), ' ') . ';'), ':h')
 
     if v:shell_error
-      if isdirectory(l:vim_root)
+      if isdirectory(l:vim_root) && l:vim_root !=# '.'
         let b:root_enabled = 1
         execute 'lcd ' . l:vim_root
         if !exists('b:root_first_time')
