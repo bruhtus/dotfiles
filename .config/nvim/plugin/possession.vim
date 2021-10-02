@@ -1,11 +1,12 @@
 " decoupled vim session management
 " Ref: https://github.com/mhinz/vim-startify/blob/81e36c352a8deea54df5ec1e2f4348685569bed2/autoload/startify.vim#L27
+
 let g:possession_dir = get(g:, 'possession_dir',
       \ has('nvim-0.3.1') ?
       \ stdpath('data') . '/session' :
       \ has('nvim') ?
       \ '~/.local/share/nvim/session' :
-      \ '~/.vim/session'
+      \ '~/.local/share/vim/session'
       \ )
 
 " Note: remove the last slice in directory path
