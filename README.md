@@ -51,7 +51,8 @@ Category             | Name
 ---                  | ---
 Operating system     | [Arch linux](https://archlinux.org/)
 Window manager       | [i3](https://github.com/i3/i3)
-Text editor          | [Neovim](https://github.com/neovim/neovim)
+Text editor          | [Vim](https://github.com/vim/vim)
+|                    | [Neovim](https://github.com/neovim/neovim) (no longer using)
 Terminal emulator    | [Alacritty](https://github.com/alacritty/alacritty)
 Terminal multiplexer | [Tmux](https://github.com/tmux/tmux)
 Shell                | [Zsh](https://zsh.sourceforge.io/Doc/Release/index.html) (interactive)

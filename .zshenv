@@ -8,7 +8,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/usr/xinitrc"
 
 export BROWSER=lynx
-export EDITOR=nvim
+export EDITOR=vim
 export FZF_DEFAULT_OPTS="--height 20%"
 export ZPLUG_HOME="$HOME/.config/zplug"
 
