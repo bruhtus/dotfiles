@@ -173,6 +173,11 @@ nnoremap Q :lvimgrep /\v/j %<left><left><left><left>
 " set space s to substitute command
 nnoremap <leader>s :s//g<left><left>
 
+" set space a to remove the entire line that match pattern
+" similar to `:g/pattern/d_`
+" Ref: https://vi.stackexchange.com/a/26153
+nnoremap <leader>a :%s/.*.*\n//c<left><left><left><left><left><left><left>
+
 " set space m to open terminal emulator
 if exists(':ter')
   nnoremap <silent> <leader>m :ter<CR>
