@@ -38,16 +38,13 @@ endfunction
 
 function! enable#filebeagle()
   if !exists(':FileBeagleBufferDir')
-    try
-      let g:filebeagle_suppress_keymaps = 1
-      packadd vim-filebeagle
-      FileBeagleBufferDir
-    catch /^Vim\%((\a\+)\)\=:E492/
-      echo 'Filebeagle plugin not installed'
-    endtry
-  else
-    FileBeagleBufferDir
+    let g:filebeagle_suppress_keymaps = 1 | packadd vim-filebeagle
   endif
+  try
+    FileBeagleBufferDir
+  catch /^Vim\%((\a\+)\)\=:E492/
+    echo 'Filebeagle plugin not installed'
+  endtry
 endfunction
 
 function! enable#fzf(cmd)
