@@ -1,39 +1,45 @@
 function! enable#gv#normal()
   if !exists(':GV')
-    try
-      packadd vim-fugitive | packadd gv.vim
+    if !exists('g:loaded_fugitive') | packadd vim-fugitive | endif
+    packadd gv.vim
+  endif
 
-      let l:choice = confirm("Current file git commit(s) or All git commit(s)?",
-            \	"&JCurrent\n&KAll")
-      if l:choice == 1
-        GV!
-      elseif l:choice == 2
-        GV
-      endif
-    catch
-      echo 'Fugitive and gv plugin not installed'
-    endtry
-  else
-    let l:choice = confirm("Current file git commit(s) or All git commit(s)?",
-          \	"&JCurrent\n&KAll")
-    if l:choice == 1
+  let l:choice = confirm("Current file git commit(s) or All git commit(s)?",
+        \	"&JCurrent\n&KAll")
+  if l:choice == 1
+    try
       GV!
-    elseif l:choice == 2
+    catch /^Vim\%((\a\+)\)\=:E492/
+      echo 'Gv plugin not installed'
+    endtry
+  elseif l:choice == 2
+    try
       GV
-    endif
+    catch /^Vim\%((\a\+)\)\=:E492/
+      echo 'Gv plugin not installed'
+    endtry
   endif
 endfunction
 
 function! enable#gv#visual()
   if !exists(':GV')
-    try
-      packadd vim-fugitive | packadd gv.vim
-      '<,'>GV
-    catch
-      echo 'Fugitive and gv plugin not installed'
-    endtry
+    if !exists('g:loaded_fugitive') | packadd vim-fugitive | endif
+    packadd gv.vim
+  endif
 
-  else
-    '<,'>GV
+  let l:choice = confirm("Current file git commit(s) or All git commit(s)?",
+        \	"&JCurrent\n&KAll")
+  if l:choice == 1
+    try
+      '<,'>GV
+    catch /^Vim\%((\a\+)\)\=:E492/
+      echo 'Gv plugin not installed'
+    endtry
+  elseif l:choice == 2
+    try
+      '<,'>GV
+    catch /^Vim\%((\a\+)\)\=:E492/
+      echo 'Gv plugin not installed'
+    endtry
   endif
 endfunction
