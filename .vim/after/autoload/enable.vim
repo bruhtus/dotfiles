@@ -51,11 +51,13 @@ function! enable#fzf(cmd)
   if !exists('g:loaded_fzf_vim')
     try
       call enable#fzf#init()
-      exe a:cmd
     catch /^Vim\%((\a\+)\)\=:E117/
-      echo 'Fzf plugin not installed or enable#fzf#init() function not found'
+      echo 'enable#fzf#init() function not found'
     endtry
-  else
-    exe a:cmd
   endif
+  try
+    exe a:cmd
+  catch
+    echo 'Fzf plugin not installed'
+  endtry
 endfunction
