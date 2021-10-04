@@ -9,16 +9,13 @@ endfunction
 
 function! enable#rainbow()
   if !exists(':RainbowToggle')
-    try
-      let g:rainbow_active = 0
-      packadd rainbow
-      RainbowToggle
-    catch /^Vim\%((\a\+)\)\=:E492/
-      echo 'Rainbow plugin not installed'
-    endtry
-  else
-    RainbowToggle
+    let g:rainbow_active = 0 | packadd rainbow
   endif
+  try
+    RainbowToggle
+  catch /^Vim\%((\a\+)\)\=:E492/
+    echo 'Rainbow plugin not installed'
+  endtry
 endfunction
 
 function! enable#fugitive()
