@@ -3,11 +3,17 @@
 function! enable#goyo#enter()
   augroup goyo_insert_mode
     autocmd!
-    autocmd InsertEnter * setlocal noignorecase | norm zz
+    autocmd InsertEnter * setlocal noignorecase | norm! zz
     autocmd InsertLeave * setlocal ignorecase
   augroup END
   let b:modeshow = &showmode
-  silent! Limelight | setlocal showmode spell complete+=kspell
+  setlocal showmode spell complete+=kspell
+  try
+    if !exists(':Limelight') | packadd limelight.vim | endif
+    Limelight
+  catch /^Vim\%((\a\+)\)\=:E492/
+    echo 'Limelight plugin not installed'
+  endtry
 endfunction
 
 function! enable#goyo#leave()
@@ -15,5 +21,9 @@ function! enable#goyo#leave()
   augroup! goyo_insert_mode
   let &showmode = b:modeshow
   unlet b:modeshow
-  silent! Limelight! | setlocal nospell complete-=kspell
+  setlocal nospell complete-=kspell
+  try
+    Limelight!
+  catch /^Vim\%((\a\+)\)\=:E492/
+  endtry
 endfunction

@@ -1,14 +1,10 @@
 function! enable#goyo()
-  if !exists(':Goyo')
-    try
-      packadd goyo.vim | packadd limelight.vim
-      Goyo
-    catch /^Vim\%((\a\+)\)\=:E492/
-      echo 'Goyo and limelight plugin not installed'
-    endtry
-  else
+  if !exists(':Goyo') | packadd goyo.vim | endif
+  try
     Goyo
-  endif
+  catch /^Vim\%((\a\+)\)\=:E492/
+    echo 'Goyo plugin not installed'
+  endtry
 endfunction
 
 function! enable#rainbow()
