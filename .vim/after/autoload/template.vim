@@ -1,8 +1,16 @@
 " there's also `cpoptions` to not set the read file as alternate file when
 " using `:read`
+
+let g:template_path =
+      \ has('nvim-0.3.1') ?
+      \ stdpath('config') . '/templates' :
+      \ has('nvim') ?
+      \ '~/.config/nvim/templates' :
+      \ '~/.vim/templates'
+
 function! template#python()
-  if filereadable(expand('~/.config/nvim/templates/python'))
-    -1read $HOME/.config/nvim/templates/python
+  if filereadable(expand(g:template_path . '/python'))
+    exe '-1read ' . g:template_path . '/python'
     bw#
     bp
     bn
@@ -13,8 +21,8 @@ function! template#python()
 endfunction
 
 function! template#sh()
-  if filereadable(expand('~/.config/nvim/templates/sh'))
-    -1read $HOME/.config/nvim/templates/sh
+  if filereadable(expand(g:template_path . '/sh'))
+    exe '-1read ' . g:template_path . '/sh'
     bw#
     bp
     bn
@@ -26,8 +34,8 @@ function! template#sh()
 endfunction
 
 function! template#vim()
-  if filereadable(expand('~/.config/nvim/templates/vim'))
-    -1read $HOME/.config/nvim/templates/vim
+  if filereadable(expand(g:template_path . '/vim'))
+    exe '-1read ' . g:template_path . '/vim'
     bw#
     bp
     bn
