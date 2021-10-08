@@ -50,8 +50,9 @@ inoremap <silent> <M-~> <C-o>~<C-[>
 
 " split navigation
 " nnoremap <C-n> <C-w><C-w>
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
+" Ref: https://vi.stackexchange.com/a/2706
+nnoremap <expr> <C-j> &diff ? ']c' : '<C-w>j'
+nnoremap <expr> <C-k> &diff ? '[c' : '<C-w>k'
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
