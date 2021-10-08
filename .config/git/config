@@ -3,8 +3,11 @@
 	name = bruhtus
 [credential]
 	helper = cache --timeout=86400
+[credential "https://github.com/bruhtus"]
+	username = bruhtus
+	; helper = store
 [init]
-	defaultBranch = master
+	defaultbranch = master
 [color]
 	ui = auto
 [interactive]
