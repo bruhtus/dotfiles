@@ -12,3 +12,9 @@
 	ui = auto
 [interactive]
 	singlekey = true
+[rebase]
+	autosquash = true
+[merge]
+	tool = vimdiff2
+[mergetool]
+	keepbackup = false
