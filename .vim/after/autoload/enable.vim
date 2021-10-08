@@ -25,9 +25,11 @@ function! enable#fugitive()
       Git
     elseif &filetype !=# 'fugitive' && !empty(filter(range(1, winnr('$')), 'getwinvar(v:val, "&ft") ==# "fugitive"'))
       " it seems fugitive status is always the last window which is convenient
-      exe "$windo norm gq"
+      $windo norm gq
+      wincmd p
     else
       norm gq
+      wincmd p
     endif
   catch /^Vim\%((\a\+)\)\=:fugitive/
     echo 'Not git repo'
