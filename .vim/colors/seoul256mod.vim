@@ -408,6 +408,47 @@ hi CursorLineNr cterm=NONE
 " autocmd! InsertEnter * call s:hi('StatusLine', [233], [151])
 " autocmd! InsertLeave * call s:hi('StatusLine', [233], [187])
 
+" set built-in terminal emulator colors when `termguicolors` on
+if has('nvim')
+  let g:terminal_color_0 = '#121212'
+  let g:terminal_color_1 = '#e09b99'
+  let g:terminal_color_2 = '#bcddbd'
+  let g:terminal_color_3 = '#d7d7af'
+  let g:terminal_color_4 = '#bce0ff'
+  let g:terminal_color_5 = '#ffc0de'
+  let g:terminal_color_6 = '#6fbcbd'
+  let g:terminal_color_7 = '#d9d9d9'
+  let g:terminal_color_8 = '#121212'
+  let g:terminal_color_9 = '#e09b99'
+  let g:terminal_color_10 = '#bcddbd'
+  let g:terminal_color_11 = '#d7d7af'
+  let g:terminal_color_12 = '#bce0ff'
+  let g:terminal_color_13 = '#ffc0de'
+  let g:terminal_color_14 = '#6fbcbd'
+  let g:terminal_color_15 = '#d9d9d9'
+
+elseif has('terminal')
+  let g:terminal_ansi_colors = [
+        \ '#121212',
+        \ '#e09b99',
+        \ '#bcddbd',
+        \ '#d7d7af',
+        \ '#bce0ff',
+        \ '#ffc0de',
+        \ '#6fbcbd',
+        \ '#d9d9d9',
+        \ '#121212',
+        \ '#e09b99',
+        \ '#bcddbd',
+        \ '#d7d7af',
+        \ '#bce0ff',
+        \ '#ffc0de',
+        \ '#6fbcbd',
+        \ '#d9d9d9'
+        \ ]
+
+endif
+
 let g:seoul256_current_fg = [s:dark_fg][s:style_idx]
 let g:seoul256_current_bg = [s:dark_bg][s:style_idx]
 let g:colors_name = 'seoul256mod'
