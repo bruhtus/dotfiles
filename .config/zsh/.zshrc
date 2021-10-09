@@ -43,7 +43,10 @@ compinit -d ${XDG_CONFIG_HOME:-$HOME/.config}/zsh/zcompdump-$ZSH_VERSION
 # add zsh plugin
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" && \
   mzadd kazhala/dotbare && \
+  mzadd zsh-users/zsh-syntax-highlighting && \
+  mzadd zsh-users/zsh-history-substring-search && \
   mzadd romkatv/powerlevel10k
+  # mzadd zdharma/fast-syntax-highlighting && \
 
 #vim keys to tab complete menu
 bindkey -M menuselect 'h' vi-backward-char
@@ -51,11 +54,14 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 
+# zsh-history-substring-search keybindings
+bindkey '^K' history-substring-search-up
+bindkey '^J' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
 #figlet -f slant bruhtus
 #pfetch
-
-#make sure zsh-syntax-highlight installed
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
 #Edit line in vim with ctrl-x:
 autoload edit-command-line; zle -N edit-command-line
@@ -78,6 +84,7 @@ function set_win_title(){
   print -Pn "\e]0;%~\a"
 }
 
+# check `man zshmisc`
 precmd_functions+=(set_win_title)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
