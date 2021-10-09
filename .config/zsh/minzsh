@@ -1,0 +1,41 @@
+# simple zsh plugin manager
+# rm -rf doesn't give an error if directory doesn't exist
+
+[ -z $MINZSH_DIR ] && export MINZSH_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/plugins"
+
+function mzls(){
+  /bin/ls -l $MINZSH_DIR | awk '{print $9}' 2> /dev/null || echo "No zsh plugin ever downloaded"
+}
+
+function mzrm(){
+  /bin/rm -rf "$MINZSH_DIR/$1"
+}
+
+function mzadd(){
+  # reference: https://unix.stackexchange.com/a/325492/479142
+  local plugin_name="${1##*/}"
+
+  if [ -d "$MINZSH_DIR/$plugin_name" ]; then
+    # source plugins
+    {
+      [ -f "$MINZSH_DIR/$plugin_name/$plugin_name.plugin.zsh" ] && source "$MINZSH_DIR/$plugin_name/$plugin_name.plugin.zsh"
+    } || {
+      [ -f "$MINZSH_DIR/$plugin_name/$plugin_name.zsh" ] && source "$MINZSH_DIR/$plugin_name/$plugin_name.zsh"
+    } || {
+      [ -f "$MINZSH_DIR/$plugin_name/$plugin_name.zsh-theme" ] && source "$MINZSH_DIR/$plugin_name/$plugin_name.zsh-theme"
+    }
+
+  # git clone plugin from github
+  else
+    git clone "https://github.com/$1.git" "$MINZSH_DIR/$plugin_name" && mzadd "$1" || echo "Failed to git clone https://github.com/$1.git"
+
+  fi
+}
+
+function mzupdate(){
+  for d in $(/bin/ls -d $MINZSH_DIR/*); do
+    paste <(echo "${d##*/} ") <(git -C "$d" pull)
+  done
+}
+
+# vim:ft=sh

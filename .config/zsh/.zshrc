@@ -33,18 +33,16 @@ SAVEHIST=1000000
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/gitrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/gitrc"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/pyv" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/pyv"
 
-#zplug
-source $HOME/.config/zplug/init.zsh
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-zplug "kazhala/dotbare"
-zplug "romkatv/powerlevel10k", as:theme, depth:1
-zplug load
-
 #basic auto-tab complete
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit -d ${XDG_CONFIG_HOME:-$HOME/.config}/zsh/zcompdump-$ZSH_VERSION
+
+# add zsh plugin
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" && \
+  mzadd kazhala/dotbare && \
+  mzadd romkatv/powerlevel10k
 
 #vim keys to tab complete menu
 bindkey -M menuselect 'h' vi-backward-char
