@@ -43,7 +43,13 @@ function! simp#buf()
   endif
 endfunction
 
-function! simp#markdelete()
+let g:markslist = '\"' . "'.0abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+function! simp#delmark()
+  " only display mark [a-zA-Z], mark ', and mark .
+  exe 'marks ' . g:markslist
+  echo 'Mark: '
+
   " getchar() - prompts user for a single character and returns the chars
   " ascii representation
   " nr2char() - converts ASCII `NUMBER TO CHAR'
@@ -54,13 +60,33 @@ function! simp#markdelete()
 
   " build a string which uses the `normal' command plus the var holding the
   " mark - then eval it.
-  execute "silent! delm " . l:mark
+  execute 'silent! delm ' . l:mark
+endfunction
+
+function! simp#addmark()
+  " only display mark [a-zA-Z], mark ', and mark .
+  exe 'marks ' . g:markslist
+  echo 'Mark: '
+
+  " getchar() - prompts user for a single character and returns the chars
+  " ascii representation
+  " nr2char() - converts ASCII `NUMBER TO CHAR'
+
+  let l:mark = nr2char(getchar())
+  " remove the `press any key prompt'
+  redraw
+
+  " build a string which uses the `normal' command plus the var holding the
+  " mark - then eval it.
+  try
+    execute 'normal! m' . l:mark
+  catch
+  endtry
 endfunction
 
 function! simp#gotomark()
   " only display mark [a-zA-Z], mark ', and mark .
-  let l:markslist = '\"' . "'.0abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  exe 'marks ' . l:markslist
+  exe 'marks ' . g:markslist
   echo 'Mark: '
 
   " getchar() - prompts user for a single character and returns the chars
