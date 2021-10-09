@@ -8,8 +8,9 @@ fi
 bindkey -v
 setopt autocd
 setopt auto_pushd
+# setopt pushd_minus
+setopt pushd_silent
 setopt pushd_ignore_dups
-setopt pushdminus
 setopt extended_history
 setopt hist_expire_dups_first
 setopt hist_find_no_dups
