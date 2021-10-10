@@ -8,12 +8,14 @@ iabbrev <buffer> cc class ():<C-left><BS>
 iabbrev <buffer> mm if __name__ == '__main__':<CR>
 iabbrev <buffer> f; if:<left>
 
-augroup MakePython
+augroup make_python
   autocmd!
   autocmd BufWritePost *.py
-        \ compiler flake8 |
-        \ silent! make    |
-        \ redraw!
+        \ if expand('%:~:p') !=# '~/.config/qutebrowser/config.py' |
+        \   compiler flake8 |
+        \   silent! make    |
+        \   redraw!         |
+        \ endif
 augroup END
 
 " ensure that pynvim is installed
