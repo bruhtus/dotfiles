@@ -203,8 +203,8 @@ nnoremap <silent> ZC :reg<CR>
 " current line position to jumplist
 " default: current line
 nnoremap <expr> <silent> ZJ
-      \ v:count1 > 1 ? ":<C-u>execute '+1k` <Bar> move +'. v:count1<CR>" :
-      \ ":<C-u>execute 'move +'. v:count1<CR>"
+      \ (v:count1 > 1 ? "m'" . v:count1 : '')
+      \ . ":<C-u>execute 'lockmarks move +' . v:count1<CR>"
 
 " map ZJ to move current line below the given line (takes count) and add the
 " current line position to jumplist (visual mode)
@@ -220,8 +220,8 @@ xnoremap <silent> ZJ
 " current line position to jumplist
 " default: corrent line
 nnoremap <expr> <silent> ZK
-      \ v:count1 > 1 ? ":<C-u>execute '-1k` <Bar> move -1-'. v:count1<CR>" :
-      \ ":<C-u>execute 'move -1-'. v:count1<CR>"
+      \ (v:count1 > 1 ? "m'" . v:count1 : '')
+      \ . ":<C-u>execute 'lockmarks move -1-' . v:count1<CR>"
 
 " map ZK to move current line above the given line (takes count) and add the
 " current line position to jumplist (visual mode)
