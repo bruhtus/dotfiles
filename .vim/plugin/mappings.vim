@@ -164,7 +164,8 @@ nnoremap J m`J``
 " remap U to yank the entire line and put below the given line (takes count)
 " default: current line
 " add current line to jumplist if v:count more than zero
-nnoremap <expr> <silent> U (v:count > 0 ? "m'" . v:count : '') . ":<C-u>execute 't +'. v:count<CR>"
+nnoremap <expr> <silent> U
+      \ (v:count > 0 ? "m'" . v:count : '') . ":<C-u>execute 't +' . v:count<CR>"
 
 " remap ex mode to access vimgrep in current buffer
 " you can still access ex mode using gQ
@@ -236,7 +237,8 @@ xnoremap <silent> ZK
 " map ZU to yank the entire line and put above the given line (takes count)
 " default: current line
 " add current line to jumplist if v:count more than zero
-nnoremap <expr> <silent> ZU (v:count > 0 ? "m'" . v:count : '') . ":<C-u>execute 't -1-'. v:count<CR>"
+nnoremap <expr> <silent> ZU
+      \ (v:count > 0 ? "m'" . v:count : '') . ":<C-u>execute 't -1-' . v:count<CR>"
 
 function! s:copy_visual(direction) abort
   if a:direction ==# 'above'
