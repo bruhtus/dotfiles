@@ -234,16 +234,19 @@ xnoremap <expr> <silent> ZK
 nnoremap <expr> <silent> ZU
       \ (v:count > 0 ? "m'" . v:count : '') . ":<C-u>execute 't -1-' . v:count<CR>"
 
-function! s:copy_visual(direction) abort
-  if a:direction ==# 'above'
-    execute "'<,'>t '<-1-" . v:count
-  elseif a:direction ==# 'below'
-    execute "'<,'>t '>+" . v:count
-  endif
-endfunction
+" map zj to yank the entire visual selection and put below the given line
+" (takes count)
+" default: current line
+xnoremap <expr> <silent> zj
+      \ (v:count > 0 ? "m'" . v:count : '')
+      \ . ':<C-u>execute "' . "'<,'>t '>+" . '" . v:count<CR>'
 
-xnoremap <expr> <silent> zj (v:count > 0 ? "m'" . v:count : '') . ":<C-u>call <SID>copy_visual('below')<CR>"
-xnoremap <expr> <silent> zk (v:count > 0 ? "m'" . v:count : '') . ":<C-u>call <SID>copy_visual('above')<CR>"
+" map zk to yank the entire visual selection and put above the given line
+" (takes count)
+" default: current line
+xnoremap <expr> <silent> zk
+      \ (v:count > 0 ? "m'" . v:count : '')
+      \ . ':<C-u>execute "' . "'<,'>t '<-1-" . '" . v:count<CR>'
 
 " map ZH to put blank character above, and ZN to put blank character below
 " can use count to add how many blank character to insert
