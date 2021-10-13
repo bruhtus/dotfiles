@@ -14,8 +14,8 @@ export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/bash/history"
 export VD_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/visidata"
 
 #task config and data
-export TASKRC="${XDG_CONFIG_HOME:-$HOME/.config}/task/taskrc"
-export TASKDATA="${XDG_DATA_HOME:-$HOME/.local/share}/task"
+#export TASKRC="${XDG_CONFIG_HOME:-$HOME/.config}/task/taskrc"
+#export TASKDATA="${XDG_DATA_HOME:-$HOME/.local/share}/task"
 
 #install Ruby Gems to ~/.local/share/gem
 export GEM_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/gem"

@@ -11,10 +11,11 @@
 # Use the command 'task show' to see all defaults and overrides
 
 # Files
-data.location=~/.task
+data.location=$XDG_DATA_HOME/task/
+hooks.location=$XDG_CONFIG_HOME/task/hooks/
 
 # Remove override message at the top (in header)
-verbose=blank,footnote,label,new-id,affected,edit,special,project,sync,unwait,recur
+# verbose=blank,footnote,label,new-id,affected,edit,special,project,sync,unwait,recur
 
 # Color theme (uncomment one to use)
 #include /usr/share/doc/task/rc/light-16.theme
@@ -32,5 +33,11 @@ verbose=blank,footnote,label,new-id,affected,edit,special,project,sync,unwait,re
 #include /usr/share/doc/task/rc/solarized-light-256.theme
 #include /usr/share/doc/task/rc/no-color.theme
 
-context.arch=project:arch-linux
-context.handson-ml=project:handson-ml
+context=golang
+context.golang.read=+golang
+context.golang.write=+golang
+news.version=2.6.0
+context.personal.read=project:personal
+context.personal.write=project:personal
+context.vimconf.read=+vimconf
+context.vimconf.write=+vimconf
