@@ -7,6 +7,7 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc"
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/npmrc"
+export PARALLEL_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/parallel"
 
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/bash/history"
