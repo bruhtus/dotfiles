@@ -18,6 +18,9 @@ export VD_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/visidata"
 #export TASKRC="${XDG_CONFIG_HOME:-$HOME/.config}/task/taskrc"
 #export TASKDATA="${XDG_DATA_HOME:-$HOME/.local/share}/task"
 
+#npm global
+export PATH="${XDG_DATA_HOME:-$HOME/.local/share}/npm/bin:$PATH"
+
 #install Ruby Gems to ~/.local/share/gem
 export GEM_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/gem"
 export PATH="${XDG_DATA_HOME:-$HOME/.local/share}/gem/bin:$PATH"
