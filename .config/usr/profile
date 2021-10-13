@@ -35,6 +35,9 @@ export BUNDLE_USER_PLUGIN="${XDG_DATA_HOME:-$HOME/.local/share}/bundle"
 #rust cargo
 export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
 
+#zoom
+export SSB_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zoom"
+
 # export EDITOR=nvim
 # export EDITOR=/usr/bin/vim
 # fix "xdg-open fork-bomb" export your preferred browser from here
