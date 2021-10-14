@@ -463,7 +463,7 @@ format-volume = <label-volume> <bar-volume>
 label-volume = 
 label-volume-foreground = ${root.foreground}
 
-label-muted =  muted
+label-muted =  x
 label-muted-foreground = ${colors.foreground}
 
 bar-volume-width = 10
@@ -476,11 +476,11 @@ bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
 bar-volume-indicator = |
-bar-volume-indicator-font = 2
+bar-volume-indicator-font = 7
 bar-volume-fill = ─
-bar-volume-fill-font = 2
+bar-volume-fill-font = 6
 bar-volume-empty = ─
-bar-volume-empty-font = 2
+bar-volume-empty-font = 6
 bar-volume-empty-foreground = ${colors.foreground}
 
 [module/alsa]
