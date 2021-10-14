@@ -25,10 +25,10 @@ gg = goto 1
 <Shift+G> = goto -1
 
 # Panning
-<Shift+J> = pan 0 -50
-<Shift+K> = pan 0 50
-<Shift+H> = pan 50 0
-<Shift+L> = pan -50 0
+<Ctrl+j> = pan 0 -50
+<Ctrl+k> = pan 0 50
+<Ctrl+h> = pan 50 0
+<Ctrl+l> = pan -50 0
 
 # Zooming
 k = zoom 1
