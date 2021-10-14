@@ -13,7 +13,7 @@ augroup make_python
   autocmd BufWritePost *.py
         \ if expand('%:~:p') !=# '~/.config/qutebrowser/config.py' |
         \   compiler flake8 |
-        \   silent! make    |
+        \   silent! make!   |
         \   redraw!         |
         \ endif
 augroup END
