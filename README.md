@@ -58,7 +58,7 @@ Python venv manager  | [Pyv](https://github.com/bruhtus/pyv)
 </details>
 
 ## Resources
-- [Download only neovim config](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/bruhtus/dotfiles/tree/master/.config/nvim).
+- [Download only vim config](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/bruhtus/dotfiles/tree/master/.vim).
 - [Atlassian tutorial](https://www.atlassian.com/git/tutorials/dotfiles).
 - [Dotbare github repo](https://github.com/kazhala/dotbare).
 - [Alacritty color schemes](https://github.com/alacritty/alacritty/wiki/Color-schemes).
