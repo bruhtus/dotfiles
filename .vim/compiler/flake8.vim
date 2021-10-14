@@ -13,13 +13,13 @@ let current_compiler = 'flake8'
 " 8.2
 " 'older Vim always used :setlocal' That's what the pylint.vim in
 " $VIMRUNTIME/compiler/pylint.vim said.
-" if exists(":CompilerSet") != 2
-" 	command -nargs=* CompilerSet setlocal <args>
-" endif
+if exists(":CompilerSet") != 2
+  command -nargs=* CompilerSet setlocal <args>
+endif
 
 " ensure that flake8 is installed
 if executable('flake8')
-  setlocal makeprg=flake8\ %\ \\\|\ egrep\ -v\ 'F401\\\|F841\\\|E501\\\|E402'
+  CompilerSet makeprg=flake8\ %\ \\\|\ egrep\ -v\ 'F401\\\|F841\\\|E501\\\|E402'
 endif
 
 " reference if I want to use the default error format
