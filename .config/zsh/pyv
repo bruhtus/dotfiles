@@ -13,13 +13,21 @@ function pce(){
 	local projectdir="${gitroot##*/}"
 
 	if [ "$1" != "" ]; then
-		python -m venv $PYV_DIR/$1 2> /dev/null && echo "Created $1 python venv"
+		{
+			[ -d "$PYV_DIR/$1" ] && echo "$1 python virtual environment already exist"
+		} || {
+			python -m venv "$PYV_DIR/$1" 2> /dev/null && echo "Created $1 python virtual environment"
+		}
 
 	elif [ "$projectdir" != "" ]; then
-		python -m venv $PYV_DIR/$projectdir 2> /dev/null && echo "Created $projectdir python venv"
+		{
+			[ -d "$PYV_DIR/$projectdir" ] && echo "$projectdir python virtual environment already exist"
+		} || {
+			python -m venv "$PYV_DIR/$projectdir" 2> /dev/null && echo "Created $projectdir python virtual environment"
+		}
 
 	else
-		echo "Not git repo, please insert a name for virtual env (for example: pce nganu)"
+		echo "Not git repo, please insert a name for virtual env (for example: pce something-big)"
 
 	fi
 }
