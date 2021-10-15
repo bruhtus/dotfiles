@@ -1,9 +1,11 @@
 [ -z $PYV_DIR ] && export PYV_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/pyv"
 
 #python virtual env alias
-alias \
-	pde='deactivate' \
-	pve='ls -l $PYV_DIR 2> /dev/null || echo "No python virtual env ever created"'
+alias pde='deactivate'
+
+function pve(){
+	\ls -l $PYV_DIR | awk '{print $9}' 2> /dev/null || echo 'No python virtual env ever created'
+}
 
 #create python virtual env
 function pce(){
