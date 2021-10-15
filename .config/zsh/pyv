@@ -38,11 +38,11 @@ function pre(){
 	local projectdir="${gitroot##*/}"
 
 	if [ "$1" != "" ]; then
-		rm -r $PYV_DIR/$1 2> /dev/null || \
+		\rm -r "$PYV_DIR/$1" 2> /dev/null && echo "$1 python virtual environment deleted" || \
 		echo "No python virtual environment match, nothing deleted"
 
 	elif [ "$projectdir" != "" ]; then
-		rm -r $PYV_DIR/$projectdir 2> /dev/null || \
+		\rm -r "$PYV_DIR/$projectdir" 2> /dev/null && echo "$projectdir python virutal environment deleted" || \
 		echo "No python virtual environment match, nothing deleted"
 
 	else
