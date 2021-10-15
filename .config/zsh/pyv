@@ -57,10 +57,12 @@ function pae(){
 	local projectdir="${gitroot##*/}"
 
 	if [ "$1" != "" ]; then
-		. $PYV_DIR/$1/bin/activate 2> /dev/null || echo "Python virtual environment not found, create new one"
+		. "$PYV_DIR/$1/bin/activate" 2> /dev/null && echo "$1 python virtual environment activated" || \
+			echo "Python virtual environment not found, create new one"
 
 	else
-		. $PYV_DIR/$projectdir/bin/activate 2> /dev/null || echo "Python virtual environment not found, create new one"
+		. "$PYV_DIR/$projectdir/bin/activate" 2> /dev/null && echo "$projectdir python virtual environment activated" || \
+			echo "Python virtual environment not found, create new one"
 
 	fi
 }
