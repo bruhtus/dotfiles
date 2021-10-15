@@ -1,4 +1,4 @@
-[ -z $PYV_DIR ] && export PYV_DIR=$HOME/.cache/pyv
+[ -z $PYV_DIR ] && export PYV_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/pyv"
 
 #python virtual env alias
 alias \
