@@ -10,8 +10,7 @@ function pve(){
 #create python virtual env
 function pce(){
 	local gitroot="$(git rev-parse --show-toplevel 2> /dev/null)"
-	local trim="${gitroot%"${gitroot##*[!/]}"}"
-	local projectdir="${trim##*/}"
+	local projectdir="${gitroot##*/}"
 
 	if [ "$1" != "" ]; then
 		python -m venv $PYV_DIR/$1 2> /dev/null && echo "Created $1 python venv"
@@ -28,8 +27,7 @@ function pce(){
 #remove python virtual env
 function pre(){
 	local gitroot="$(git rev-parse --show-toplevel 2> /dev/null)"
-	local trim="${gitroot%"${gitroot##*[!/]}"}"
-	local projectdir="${trim##*/}"
+	local projectdir="${gitroot##*/}"
 
 	if [ "$1" != "" ]; then
 		rm -r $PYV_DIR/$1 2> /dev/null || \
@@ -48,8 +46,7 @@ function pre(){
 #activate python virtual env
 function pae(){
 	local gitroot="$(git rev-parse --show-toplevel 2> /dev/null)"
-	local trim="${gitroot%"${gitroot##*[!/]}"}"
-	local projectdir="${trim##*/}"
+	local projectdir="${gitroot##*/}"
 
 	if [ "$1" != "" ]; then
 		. $PYV_DIR/$1/bin/activate 2> /dev/null || echo "Python virtual environment not found, create new one"
