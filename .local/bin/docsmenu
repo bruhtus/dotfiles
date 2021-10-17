@@ -1,3 +1,17 @@
 #!/bin/sh
 
-find ~ -path ~/.cache -prune -false -o -type f \( -iname '*.pdf' -o -iname '*.epub' \) -printf '"%p"\n' | dmenu -i -l 10 -p 'open pdf' | xargs -r -I {} setsid -f zathura "{}" 2>/dev/null
+# reference: https://www.ducea.com/2007/11/22/xargs-unmatched-single-quote/
+# find ~ -path ~/.cache -prune -false -o -type f \( -iname '*.pdf' -o -iname '*.epub' \) -printf '"%p"\n' | dmenu -i -l 10 -p 'open document' | xargs -r -I {} setsid -f zathura "{}" 2>/dev/null
+
+# reference: https://unix.stackexchange.com/a/385502
+# just in case ripgrep is not installed
+{
+  rg --files --type-add 'pdf:*.epub' --type pdf ~ |
+    dmenu -i -l 10 -p 'open document' |
+    tr '\n' '\0' |
+    xargs -0  -r -I {} setsid -f zathura "{}" 2>/dev/null
+} || {
+  find ~ -path ~/.cache -prune -false -o -type f \( -iname '*.pdf' -o -iname '*.epub' \) -printf '"%p"\n' |
+  dmenu -i -l 10 -p 'open document' |
+  xargs -r -I {} setsid -f zathura "{}" 2>/dev/null
+}
