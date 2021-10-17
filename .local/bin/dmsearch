@@ -48,5 +48,12 @@ while [ -z "$query" ]; do
 done
 
 # Display search results in web browser
-[ "$engine" == "youtube" ] && $CBROWSER "$url""$query" || \
-	$QBROWSER "$url""$query"
+{
+    [ "$engine" == "youtube" ] && $CBROWSER --incognito "$url""$query"
+} || {
+    [ "$engine" == "translate-to-english" ] && $CBROWSER --incognito "$url""$query"
+} || {
+    [ "$engine" == "translate-to-bahasa" ] && $CBROWSER --incognito "$url""$query"
+} || {
+    $QBROWSER "$url""$query"
+}
