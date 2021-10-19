@@ -1,5 +1,5 @@
-#startx alias
-[ -f "$XINITRC" ] && alias sx='startx $XINITRC'
+#startx and sx alias
+[ -f "$XINITRC" ] && alias startx='startx $XINITRC' && alias sx='sx sh $XINITRC'
 
 #display git status
 alias qwe='git-status-checker'
