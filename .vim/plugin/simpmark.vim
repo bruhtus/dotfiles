@@ -5,4 +5,4 @@ nnoremap <silent> dm :call simp#delmark()<CR>
 nnoremap <silent> m :call simp#addmark()<CR>
 
 " jump to any mark with space j
-nnoremap <leader><Space> :call simp#gotomark()<CR>
+nnoremap <silent> <leader><Space> :call simp#gotomark()<CR>
