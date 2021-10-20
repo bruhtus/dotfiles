@@ -35,7 +35,11 @@ alias \
 #dotbare alias
 alias \
 	dba='dotbare add' \
-	dbc='dotbare commit -m' \
+	dbc='dotbare commit' \
+	dbl='dotbare log' \
+	dblp='dotbare log -p' \
+	dblo='dotbare log --oneline' \
+	dbmv='dotbare mv' \
 	dbp='dotbare push' \
 	dbd='dotbare diff'
 
