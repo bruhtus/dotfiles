@@ -13,7 +13,6 @@ alias \
 alias \
 	asd='googler -n 4' \
 	reload='. $ZDOTDIR/.zshrc' \
-	ka='killall' \
 	wttr='curl wttr.in\?%tpFQn1m' \
 	translate='gawk -f <(curl -Ls git.io/translate) -- -shell' \
 	ipa='curl ifconfig.co' \
