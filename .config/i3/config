@@ -123,6 +123,9 @@ bindsym $mod+Ctrl+Shift+m exec google-chrome-stable --incognito https://monkeyty
 bindsym $mod+Ctrl+Shift+s exec google-chrome-stable --incognito http://127.0.0.1:8384/
 bindsym $mod+Ctrl+Shift+z exec blueman-manager
 bindsym $mod+Ctrl+Shift+x exec google-chrome-stable --new-window https://colab.research.google.com/drive/1BBgjbUt-nY83RBgHZ_6_Y_3Ox5BZj2rk?usp=sharing
+
+bindsym $mod+Ctrl+space exec dunstctl close-all
+bindsym Ctrl+Shift+space exec dunstctl history-pop
 #---End---#
 
 #bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
