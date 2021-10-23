@@ -155,6 +155,12 @@ nnoremap cu :%s/\v<<C-r><C-w>>//gc<left><left><left>
 " set cU to substitute current WORD in all lines (use confim as safety guard)
 nnoremap cU :%s/\v<<C-r><C-a>>//gc<left><left><left>
 
+" set cd to substitute current word in current line (use confim as safety guard)
+nnoremap cd :s/<C-r><C-w>//gc<left><left><left>
+
+" set cD to substitute current WORD in current line (use confim as safety guard)
+nnoremap cD :s/<C-r><C-a>//gc<left><left><left>
+
 " remap Y to yank from pointer to the end of the line
 nnoremap Y y$
 
