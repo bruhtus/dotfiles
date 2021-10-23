@@ -149,11 +149,11 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
-" set cn to substitute current word in a file (use confim as safety guard)
-nnoremap cn :%s/\v<<C-r><C-w>>//gc<left><left><left>
+" set cu to substitute current word in all lines (use confim as safety guard)
+nnoremap cu :%s/\v<<C-r><C-w>>//gc<left><left><left>
 
-" set cN to substitute current word in a file (use confim as safety guard)
-nnoremap cN :%s/\v<<C-r><C-a>>//gc<left><left><left>
+" set cU to substitute current WORD in all lines (use confim as safety guard)
+nnoremap cU :%s/\v<<C-r><C-a>>//gc<left><left><left>
 
 " remap Y to yank from pointer to the end of the line
 nnoremap Y y$
