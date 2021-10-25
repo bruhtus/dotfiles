@@ -162,11 +162,11 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
-# Colors (Wombat) except background
+# Colors Wombat (mostly)
 colors:
   # Default colors
   primary:
-    background: '#101010'
+    background: '#121212'
     foreground: '#e5e1d8'
 
     # Bright and dim foreground colors
@@ -224,12 +224,12 @@ colors:
 
   # Normal colors
   normal:
-    black:   '#000000'
+    black:   '#121212'
     red:     '#f7786d'
-    green:   '#bde97c'
+    green:   '#87d787'
     yellow:  '#efdfac'
     blue:    '#6ebaf8'
-    magenta: '#ef88ff'
+    magenta: '#9b1d72'
     cyan:    '#90fdf8'
     white:   '#e5e1d8'
 
@@ -237,7 +237,7 @@ colors:
   bright:
     black:   '#b4b4b4'
     red:     '#f99f92'
-    green:   '#e3f7a1'
+    green:   '#bcddbd'
     yellow:  '#f2e9bf'
     blue:    '#b3d2ff'
     magenta: '#e5bdff'
