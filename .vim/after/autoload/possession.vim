@@ -56,40 +56,40 @@ function! possession#list() abort
 endfunction
 
 function! possession#move() abort
-  let l:renamed = g:possession_git_root . '/Session.vim'
+  let renamed = g:possession_git_root . '/Session.vim'
 
-  if !filereadable(expand(l:renamed)) && filereadable(expand(g:possession_file_pattern))
-    call rename(expand(g:possession_file_pattern), expand(l:renamed))
-    let g:current_possession = l:renamed
+  if !filereadable(expand(renamed)) && filereadable(expand(g:possession_file_pattern))
+    call rename(expand(g:possession_file_pattern), expand(renamed))
+    let g:current_possession = renamed
     echom 'Tracking session in ' . fnamemodify(g:current_possession, ':~:.')
 
-  elseif filereadable(expand(l:renamed)) && !filereadable(expand(g:possession_file_pattern))
-    call rename(expand(l:renamed), expand(g:possession_file_pattern))
+  elseif filereadable(expand(renamed)) && !filereadable(expand(g:possession_file_pattern))
+    call rename(expand(renamed), expand(g:possession_file_pattern))
     let g:current_possession = g:possession_file_pattern
     echom 'Tracking session in ' . fnamemodify(g:current_possession, ':~:.')
 
-  elseif filereadable(expand(l:renamed)) && filereadable(expand(g:possession_file_pattern))
-    let l:choice = confirm('Session file exist, replace it?',
+  elseif filereadable(expand(renamed)) && filereadable(expand(g:possession_file_pattern))
+    let choice = confirm('Session file exist, replace it?',
           \ "&Yes\n&No", 2)
-    if l:choice == 1
+    if choice == 1
       redraw
-      let l:decide = confirm('Move from current working directory or possession directory?',
+      let decide = confirm('Move from current working directory or possession directory?',
             \ "&Current working directory\n&Possession directory\n&Quit", 3)
-      if l:decide == 1
+      if decide == 1
         redraw
-        call rename(expand(l:renamed), expand(g:possession_file_pattern))
+        call rename(expand(renamed), expand(g:possession_file_pattern))
         let g:current_possession = g:possession_file_pattern
         echom 'Tracking session in ' . fnamemodify(g:current_possession, ':~:.')
-      elseif l:decide == 2
+      elseif decide == 2
         redraw
-        call rename(expand(g:possession_file_pattern), expand(l:renamed))
-        let g:current_possession = l:renamed
+        call rename(expand(g:possession_file_pattern), expand(renamed))
+        let g:current_possession = renamed
         echom 'Tracking session in ' . fnamemodify(g:current_possession, ':~:.')
-      elseif l:decide == 3
+      elseif decide == 3
         redraw
         echo 'Canceled, no session file moved'
       endif
-    elseif l:choice == 2
+    elseif choice == 2
       redraw
       echo 'No session file moved'
     endif
