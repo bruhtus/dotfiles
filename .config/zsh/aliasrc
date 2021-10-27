@@ -42,10 +42,9 @@ alias \
 	dbp='dotbare push' \
 	dbd='dotbare diff'
 
-#change ls to exa
+#ls alias
 alias \
-	ls='exa -l --links -t=changed --git --group --color=always --group-directories-first --sort=ext' \
-	ll='exa -l --inode --header --blocks --links -t=changed --time-style=long-iso --git --group --color=always --group-directories-first --sort=ext' \
+	ls='ls -lhX --color=auto --group-directories-first'
 
 #grep, less, count, and redirect error to file
 alias \
