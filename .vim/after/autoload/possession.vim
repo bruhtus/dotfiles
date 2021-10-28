@@ -10,7 +10,7 @@ function! possession#init(bang) abort
     if a:bang && filereadable(session)
       echom 'Deleting session in ' . fnamemodify(session, ':~:.')
       call delete(session)
-      if exists('g:current_possession') | unlet g:current_possession | endif
+      unlet! g:current_possession
       return ''
     elseif a:bang && !filereadable(session)
       echo 'Session for this path not found, nothing deleted'
