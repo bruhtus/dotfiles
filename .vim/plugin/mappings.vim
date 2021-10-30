@@ -74,7 +74,7 @@ nnoremap <C-f> <C-f>H^
 nnoremap <C-b> <C-b>L^
 
 " set vim to copy to clipboard and paste from clipboard
-vnoremap <C-y> "+y
+xnoremap <leader>y "+y
 nnoremap <C-p> "+gp
 nnoremap <silent> <leader>p :put +<CR>
 
