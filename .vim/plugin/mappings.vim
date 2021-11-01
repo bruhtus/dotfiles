@@ -164,9 +164,6 @@ nnoremap cD :s/<C-r><C-a>//gc<left><left><left>
 " remap Y to yank from pointer to the end of the line
 nnoremap Y y$
 
-" didn't move the cursor when using J command
-nnoremap J m`J``
-
 " remap U to yank the entire line and put below the given line (takes count)
 " default: current line
 " add current line to jumplist if v:count more than zero
