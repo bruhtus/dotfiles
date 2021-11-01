@@ -76,11 +76,17 @@ alias \
 	tp='task projects' \
 	tg='task tags'
 
-#find directory (cd to it) and files (open in vim)
-alias sd='cd "$(fd -aHI -E .git -t d . ~ | fzf --height 20%)"' #cd to any directories in home directory from any directories
-alias ds='cd "$(fd -aHI -t d . $(git rev-parse --show-toplevel 2>/dev/null) | fzf --height 20%)"' #cd to any directories in git root directory/current working directory
-alias sc='rg --hidden --files --type-not nonsense --type-not font --type-not torrent ~ | fzf --height 20% | xargs -o -r $EDITOR' #search and open file on home directory in $EDITOR directly
-alias cs='rg --hidden --files --type-not nonsense --type-not font --type-not torrent $(git rev-parse --show-toplevel 2>/dev/null) | fzf --height 20% | xargs -o -r $EDITOR' #search and open file on git root directory/current working directory in $EDITOR directly
+#cd to any directories in home directory from any directories
+alias sd='cd "$(fd -aHI -E .git -E node_modules -E .cache/npm/_cacache -t d . ~ | fzf --height 20%)"'
+
+#cd to any directories in git root directory/current working directory
+alias ds='cd "$(fd -aHI -t d . $(git rev-parse --show-toplevel 2>/dev/null) | fzf --height 20%)"'
+
+#search and open file on home directory in $EDITOR directly
+alias sc='rg --hidden --files --type-not nonsense --type-not font --type-not torrent ~ | fzf --height 20% --preview="head -$LINES {}" --preview-window=wrap,hidden --bind "ctrl-/:toggle-preview,ctrl-n:preview-down,ctrl-p:preview-up" | xargs -o -r $EDITOR'
+
+#search and open file on git root directory/current working directory in $EDITOR directly
+alias cs='rg --hidden --files --type-not nonsense --type-not font --type-not torrent $(git rev-parse --show-toplevel 2>/dev/null) | fzf --height 20% --preview="head -$LINES {}" --preview-window=wrap,hidden --bind "ctrl-/:toggle-preview,ctrl-n:preview-down,ctrl-p:preview-up" | xargs -o -r $EDITOR'
 
 #unpack tar archive
 function untar(){tar -xzf $1 --one-top-level}
