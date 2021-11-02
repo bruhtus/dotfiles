@@ -8,8 +8,8 @@ endif
 
 " Ref: vim-lightline plugin
 " make vim intro appear when vim start without filename
-let s:save_cpo = &cpo
-set cpo&vim
+" let s:save_cpo = &cpo
+" set cpo&vim
 
 " do not change statusline of quickfix and bufstop window
 augroup statusline_startup
@@ -155,5 +155,5 @@ function! s:gitbranch_detect(path) abort
   endif
 endfunction
 
-let &cpo = s:save_cpo
-unlet s:save_cpo
+" let &cpo = s:save_cpo
+" unlet s:save_cpo
