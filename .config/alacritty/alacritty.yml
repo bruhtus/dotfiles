@@ -162,12 +162,12 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
-# Colors Wombat (mostly)
+# Colors Seoul256
 colors:
   # Default colors
   primary:
     background: '#121212'
-    foreground: '#e5e1d8'
+    foreground: '#d0d0d0'
 
     # Bright and dim foreground colors
     #
@@ -225,24 +225,24 @@ colors:
   # Normal colors
   normal:
     black:   '#121212'
-    red:     '#f7786d'
-    green:   '#87d787'
-    yellow:  '#efdfac'
-    blue:    '#6ebaf8'
-    magenta: '#d787ff'
-    cyan:    '#90fdf8'
-    white:   '#e5e1d8'
+    red:     '#d78787'
+    green:   '#afd7af'
+    yellow:  '#d7d7af'
+    blue:    '#afd7ff'
+    magenta: '#ffafaf'
+    cyan:    '#87d7d7'
+    white:   '#d0d0d0'
 
   # Bright colors
   bright:
-    black:   '#b4b4b4'
-    red:     '#f99f92'
+    black:   '#171717'
+    red:     '#e09b99'
     green:   '#bcddbd'
-    yellow:  '#f2e9bf'
-    blue:    '#b3d2ff'
-    magenta: '#e5bdff'
-    cyan:    '#c2fefa'
-    white:   '#ffffff'
+    yellow:  '#dfdebd'
+    blue:    '#bce0ff'
+    magenta: '#ffbfbd'
+    cyan:    '#87dddf'
+    white:   '#d9d9d9'
 
   # Dim colors
   #
