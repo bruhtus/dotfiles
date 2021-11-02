@@ -20,6 +20,13 @@ endif
 " ensure that flake8 is installed
 if executable('flake8')
   CompilerSet makeprg=flake8\ %\ \\\|\ egrep\ -v\ 'F401\\\|F841\\\|E501\\\|E402'
+  " Ref: https://stackoverflow.com/a/7757750 (the first comment)
+  " Ref: https://stackoverflow.com/a/36959245
+  " Ref: :h efm-ignore
+  " Known Issue: this put the first quicklist window with all the error and then
+  " put the second quickfix window after the filtering. that makes a glitch
+  " when using redraw. using egrep is better in this case.
+  " CompilerSet errorformat^=%-G%.%#%\\%%(F401%\\\|F841%\\\|E501%\\\|E402%\\)%.%#
 endif
 
 " reference if I want to use the default error format
