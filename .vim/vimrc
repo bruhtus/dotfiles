@@ -1,7 +1,12 @@
 let mapleader = ' '
 
 if has('packages')
-  let $MYPACK = has('nvim') ? stdpath('config') . '/after/autoload/pack.vim' : '$HOME/.vim/after/autoload/pack.vim'
+  let $MYPACK =
+        \ has('nvim-0.3.1') ?
+        \ stdpath('config') . '/after/autoload/pack.vim' :
+        \ has('nvim') ?
+        \ expand('~/.config/nvim/after/autoload/pack.vim') :
+        \ expand('~/.vim/after/autoload/pack.vim')
 
   command! PacClean source $MYPACK | call pack#init() | call minpac#clean()
   command! PacSync  source $MYPACK | call pack#init() | call minpac#update()
