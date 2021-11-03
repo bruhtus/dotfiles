@@ -14,7 +14,7 @@ function! template#python()
     bw#
     bp
     bn
-    norm! GkJx4kF(
+    norm! GkJ4kF(
   else
     echo "Python template doesn't exist"
   endif
