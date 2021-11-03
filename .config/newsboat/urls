@@ -9,7 +9,9 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA "~B
 https://lexfridman.com/feed/podcast/ "podcast"
 
 ---github-commits---
+https://github.com/koirand/pulp/commits/master.atom "github"
 https://github.com/junegunn/seoul256.vim/commits/master.atom "github"
 https://github.com/justinmk/vim-sneak/commits/master.atom "github"
 https://github.com/itchyny/vim-gitbranch/commits/master.atom "github"
+https://github.com/vim/vim/commits/master.atom "github"
 https://github.com/neovim/neovim/commits/master.atom "github"
