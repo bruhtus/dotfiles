@@ -72,9 +72,10 @@ alias \
 alias \
 	t='task' \
 	ta='task add' \
+	tg='task tags' \
 	tt='task context' \
 	tp='task projects' \
-	tg='task tags'
+	tl='task all | less -r'
 
 #cd to any directories in home directory from any directories
 alias sd='cd "$(fd -aHI -E .git -E node_modules -E .cache/npm/_cacache -t d . ~ | fzf --height 20%)"'
