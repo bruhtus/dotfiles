@@ -92,12 +92,15 @@ alias cs='rg --hidden --files --type-not nonsense --type-not font --type-not tor
 #unpack tar archive
 function untar(){tar -xzf $1 --one-top-level}
 
+#list content of tar archive
+function tarls(){tar --list -f $1 | less -F}
+
 #mounting and unmounting from CLI
 function dm(){udisksctl mount -b /dev/$1}
 function dum(){udisksctl unmount -b /dev/$1}
 
 #like pastebin but on terminal directly (using vim readonly mode for easy copy-paste)
-function termbin(){vim -R <($@ | nc termbin.com 9999)}
+function termbin(){$EDITOR -R <($@ | nc termbin.com 9999)}
 
 #python alias
 function p(){python $@ | less -F}
