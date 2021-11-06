@@ -1,6 +1,9 @@
 #startx and sx alias
 [ -f "$XINITRC" ] && alias startx='startx $XINITRC' && alias sx='sx sh $XINITRC'
 
+#alias for tmux if in tty
+[ -z $DISPLAY ] && alias tmux='tmux -2'
+
 #display git status
 alias qwe='git-status-checker'
 
