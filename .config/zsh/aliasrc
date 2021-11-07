@@ -111,6 +111,9 @@ function pyl(){python $@ | less}
 function pyc(){python -c $1}
 function pyv(){$EDITOR -R <(python $@)}
 
+#kill process
+function kj(){ps -eHo pid,comm,cmd | fzf --layout=reverse-list | awk '{print $1}' | xargs -or kill}
+
 #directories alias
 alias \
 	-g ...='../..' \
