@@ -1,0 +1,59 @@
+# extend default format
+format = """
+[┌──>](bold green) $custom$all
+[│](bold green) $directory$git_branch$git_status
+[└─](bold green)$character"""
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+# Wait 10 milliseconds for starship to check files under the current directory.
+scan_timeout = 10
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[cmd_duration]
+# Show command duration over 10,000 milliseconds (=10 sec)
+min_time = 10_000
+
+[line_break]
+disabled = true
+
+[directory]
+truncation_length = 6
+truncate_to_repo = false
+truncation_symbol = "../"
+
+[character]
+success_symbol = "[>](bold green)"
+error_symbol = "[x](bold red)"
+vicmd_symbol = "[<](bold green)"
+
+[git_status]
+format = "([$all_status$ahead_behind]($style) )"
+conflicted = "=${count} "
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕⇡${ahead_count} ⇣${behind_count} "
+untracked = "?${count} "
+stashed = "$${count} "
+modified = "!${count} "
+staged = "+${count} "
+renamed = "»${count} "
+deleted = "✘${count} "
+
+[git_branch]
+format = "[$branch]($style) "
+
+[custom.taskwarrior]
+command = "task status:pending count"
+when = "true"
+format = "task [$output]($style) "
+
+# [python]
+# format = '[$symbol$version (\($virtualenv\) )]($style)'
+
+# [nodejs]
+# format = '[$symbol$version ]($style)'
