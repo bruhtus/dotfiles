@@ -25,6 +25,7 @@ dotbare push origin master
 Install zsh first, and then do the instruction below:
 
 ```sh
+sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 wget https://raw.githubusercontent.com/bruhtus/dotfiles/master/.config/zsh/minzsh
 . minzsh
 mzadd kazhala/dotbare
@@ -42,7 +43,7 @@ Text editor          | [Vim](https://github.com/vim/vim)<br> [Neovim](https://gi
 Terminal emulator    | [Alacritty](https://github.com/alacritty/alacritty)
 Terminal multiplexer | [Tmux](https://github.com/tmux/tmux)
 Shell                | [Zsh](https://zsh.sourceforge.io/Doc/Release/index.html) (interactive)<br> [Bash](https://www.gnu.org/software/bash/)
-Shell prompt         | [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
+Shell prompt         | [Starship](https://starship.rs/)<br> [Powerlevel10k](https://github.com/romkatv/powerlevel10k) (no longer using)
 Shell plugin manager | [Minzsh](https://github.com/bruhtus/dotfiles/blob/master/.config/zsh/minzsh)<br> [Zplug](https://github.com/zplug/zplug) (no longer using)
 Package manager      | [Pacman](https://wiki.archlinux.org/title/pacman)<br> [Yay (AUR helper)](https://github.com/Jguer/yay)
 Status bar           | [Polybar](https://github.com/polybar/polybar)
