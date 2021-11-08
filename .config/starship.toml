@@ -47,7 +47,13 @@ deleted = "✘${count} "
 [git_branch]
 format = "[$branch]($style) "
 
-[custom.taskwarrior]
+[custom.taskwarrior-context]
+command = "task _get rc.context"
+# ref: https://stackoverflow.com/a/12137501
+when = "[ $(task _get rc.context) ]"
+format = "[$output]($style) "
+
+[custom.taskwarrior-task]
 command = "task status:pending count"
 when = "true"
 format = "task [$output]($style) "
