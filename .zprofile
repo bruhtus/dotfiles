@@ -90,6 +90,9 @@ export LESSHISTFILE="-"
 # lynx
 export LYNX_LSS="${XDG_CONFIG_HOME:-$HOME/.config}/lynx/lynx.lss"
 
+# yarn
+export YARNRC="${XDG_CONFIG_HOME:-$HOME/.config}/yarn/config"
+
 # coloring less
 # Start blinking
 export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # green
