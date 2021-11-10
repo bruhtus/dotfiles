@@ -24,6 +24,8 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/npm/bin"
 ## ruby gems
 export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/gem/bin"
+## volta
+export PATH="$PATH:${XDG_CONFIG_HOME:-$HOME/.config}/volta/bin"
 
 # non xdg-open web browser
 export BROWSER=lynx
@@ -89,6 +91,9 @@ export LESSHISTFILE="-"
 
 # lynx
 export LYNX_LSS="${XDG_CONFIG_HOME:-$HOME/.config}/lynx/lynx.lss"
+
+# volta
+export VOLTA_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/volta"
 
 # yarn
 export YARNRC="${XDG_CONFIG_HOME:-$HOME/.config}/yarn/config"
