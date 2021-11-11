@@ -1,15 +1,3 @@
-#check git current branch
-function git_current_branch() {
-  local ref
-  ref=$(__git_prompt_git symbolic-ref --quiet HEAD 2> /dev/null)
-  local ret=$?
-  if [[ $ret != 0 ]]; then
-    [[ $ret == 128 ]] && return  # no git repo.
-    ref=$(__git_prompt_git rev-parse --short HEAD 2> /dev/null) || return
-  fi
-  echo ${ref#refs/heads/}
-}
-
 #git alias
 alias \
 	g='git' \
@@ -28,7 +16,7 @@ alias \
 alias \
 	gp='git push' \
 	gpd='git push --dry-run' \
-	ggp='git push origin "$(git_current_branch)"'
+	ggp='git push origin "$(git branch --show-current)"'
 
 alias \
 	gb='git branch' \
@@ -40,7 +28,7 @@ alias \
 
 alias \
 	gpl='git pull' \
-	ggl='git pull origin "$(git_current_branch)"'
+	ggl='git pull origin "$(git branch --show-current)"'
 
 alias \
 	gl='git log --stat' \
