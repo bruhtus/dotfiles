@@ -2,11 +2,11 @@
 " using `:read`
 
 let g:template_path =
+      \ isdirectory(expand('~/.vim/templates')) ?
+      \ '~/.vim/templates' :
       \ has('nvim-0.3.1') ?
       \ stdpath('config') . '/templates' :
-      \ has('nvim') ?
-      \ '~/.config/nvim/templates' :
-      \ '~/.vim/templates'
+      \ '~/.config/nvim/templates'
 
 function! template#python()
   if filereadable(expand(g:template_path . '/python'))
