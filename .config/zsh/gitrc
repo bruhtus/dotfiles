@@ -9,7 +9,7 @@ alias \
 	gru='git remote update'
 
 alias \
-	gcm='git commit -m' \
+	gc='git commit' \
 	gcam='git commit -am' \
 	gca='git commit --amend'
 
