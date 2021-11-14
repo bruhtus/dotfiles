@@ -32,7 +32,7 @@ alias \
 
 alias \
 	gl='git log --stat' \
-	glo='git log --oneline' \
+	glo='git log --graph --oneline' \
 	glp='git log -p'
 
 alias \
