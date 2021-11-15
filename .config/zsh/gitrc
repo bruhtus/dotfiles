@@ -3,10 +3,12 @@ alias \
 	g='git' \
 	ga='git add' \
 	gd='git diff' \
+	gmv='git mv' \
 	gcl='git clone' \
 	gss='git status -s' \
 	gra='git remote add' \
-	gru='git remote update'
+	gru='git remote update' \
+	gref='git reflog'
 
 alias \
 	gc='git commit' \
