@@ -1,7 +1,7 @@
 " fzf plugin mappings
 
 " open fzf to search all files in home directory
-nnoremap <silent> <leader>f :call enable#fzf('Files ~')<CR>
+" nnoremap <silent> <leader>f :call enable#fzf('Files ~')<CR>
 
 " open fzf to search all files in current working directory
 nnoremap <silent> <leader>i :call enable#fzf('Files')<CR>
@@ -30,4 +30,7 @@ nnoremap <expr> <silent> <leader>o
 nnoremap <silent> <leader>h :call enable#fzf('Lines')<CR>
 
 " change current working directory with fzf (still WIP)
-" nnoremap <silent> <leader>y :call enable#fzf#init() \| call fzf#run(fzf#wrap({'source': 'fd -aHI -E .git -t d', 'sink': 'lcd'}))<CR>
+nnoremap <expr> <silent> <leader>f
+      \ executable('fd') ? ':call enable#fzf#init() \| '
+      \ . "call fzf#run(fzf#wrap({'source': 'fd -aHI -d 2 -E .git -t d . ~', 'sink': 'lcd'}))<CR>" :
+      \ ":echo 'fd is not installed'<CR>"
