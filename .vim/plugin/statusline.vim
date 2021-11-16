@@ -53,7 +53,12 @@ function! StatuslineComponent() abort
       let w:mode ='%#NormalModeColor# '
     elseif mode() ==# v:insertmode
       let w:mode ='%#InsertModeColor# '
-    elseif mode() ==# 'v' || mode() ==# 'V' || mode() ==# "\<C-V>"
+    elseif mode() ==# 'v'
+          \ || mode() ==# 'V'
+          \ || mode() ==# "\<C-V>"
+          \ || mode() ==# 's'
+          \ || mode() ==# 'S'
+          \ || mode() ==# "\<C-S>"
       let w:mode ='%#VisualModeColor# '
     elseif mode() ==# 'c' || mode() ==# 't'
       let w:mode ='%#CommandModeColor# '
