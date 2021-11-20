@@ -1,7 +1,7 @@
 " list, change, or delete buffer
 function! simp#buf()
   let l:choice = confirm("List/Change/Delete Buffer(s)?",
-        \ "&LList\n&JChange\n&KDelete\n&NCancel")
+        \ "&LList\n&JChange\n&KDelete\n&NCancel", 4)
 
   if l:choice == 1
     echo 'List buffer(s)'
@@ -109,7 +109,7 @@ endfunction
 " horisontal or vertical split buffer
 function! simp#split()
   let l:choice = confirm("Horizontal or Vertical Split Buffer?",
-        \ "&JHorizontal\n&KVertical\n&NCancel")
+        \ "&JHorizontal\n&KVertical\n&NCancel", 3)
 
   if l:choice == 1
     echo 'Horizontal split'
