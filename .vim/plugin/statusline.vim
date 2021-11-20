@@ -51,7 +51,11 @@ function! StatuslineComponent() abort
     if &showmode | set noshowmode | endif
     if mode() ==# 'n'
       let w:mode ='%#NormalModeColor# '
-    elseif mode() ==# v:insertmode
+    " Note: v:insertmode only display the last mode that trigger `InsertEnter` and
+    " `InsertChange`. maybe kind of similar to visualmode()? more info: `:h v:insertmode`
+    elseif mode() ==# 'i'
+          \ || mode() ==# 'R'
+          \ || mode() ==# 'Rv'
       let w:mode ='%#InsertModeColor# '
     elseif mode() ==# 'v'
           \ || mode() ==# 'V'
