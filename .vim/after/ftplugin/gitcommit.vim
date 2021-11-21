@@ -2,18 +2,41 @@ setlocal spell complete+=kspell
 
 let maplocalleader = '\'
 
-" there's also built-in DiffGitCached from tpope vim-git
-nnoremap <buffer> <silent> <localleader>\
-      \ :try <Bar>
-      \   if !exists('g:loaded_committia') \| packadd committia.vim \| endif <Bar>
-      \   call committia#open('git') <Bar>
-      \ catch /^Vim\%((\a\+)\)\=:E117/ <Bar>
-      \   DiffGitCached <Bar>
-      \ endtry<CR>
+" Ref: https://github.com/tpope/vim-git/blob/master/ftplugin/gitcommit.vim
+function! s:gitdiffcommit() abort
+  let name = tempname()
+  " Note: go back to git root directory
+  lcd ..
+  if !empty(system('git diff --cached --no-color --no-ext-diff'))
+    " Note: use the git diff in git root directory instead of .git directory
+    call system('git diff --cached --no-color --no-ext-diff > ' . shellescape(name))
+    exe 'sp ' . fnameescape(name)
+    nnoremap <buffer> <silent> <nowait> q :<C-u>bw<CR>
+    setlocal bufhidden=wipe buftype=nofile nobuflisted noswapfile nomodifiable filetype=git
+    wincmd p
+  else
+    echo 'No output from git diff --cached'
+  endif
+endfunction
 
-" augroup gitcommit
-"   autocmd!
-"   autocmd FileType git
-"         \  nmap <buffer> <nowait> <Space> <C-d>
-"         \| nmap <buffer> <nowait> u <C-u>
-" augroup END
+nnoremap <expr> <buffer> <silent> <localleader>\
+      \ &filetype ==# 'gitcommit' && empty(filter(range(1, winnr('$')), 'getwinvar(v:val, "&ft") ==# "git"')) ?
+      \ ':<C-u>call <SID>gitdiffcommit()<CR>' :
+      \ ':<C-u>$bw<CR>'
+
+augroup gitcommit
+  autocmd!
+  " autocmd FileType git
+  "       \  nmap <buffer> <nowait> <Space> <C-d>
+  "       \| nmap <buffer> <nowait> u <C-u>
+  autocmd WinEnter * if winnr('$') == 1 && &filetype == 'git' | q | endif
+augroup END
+
+" there's also built-in DiffGitCached from tpope vim-git
+" nnoremap <buffer> <silent> <localleader>\
+"       \ :try <Bar>
+"       \   if !exists('g:loaded_committia') \| packadd committia.vim \| endif <Bar>
+"       \   call committia#open('git') <Bar>
+"       \ catch /^Vim\%((\a\+)\)\=:E117/ <Bar>
+"       \   DiffGitCached <Bar>
+"       \ endtry<CR>
