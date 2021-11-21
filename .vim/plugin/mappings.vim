@@ -125,8 +125,8 @@ inoremap . .<C-g>u
 " inoremap <C-u> <C-g>u<C-u>
 
 " do not exit visual selection when shift-indenting
-vnoremap < <gv
-vnoremap > >gv
+xnoremap < <gv
+xnoremap > >gv
 
 " set black hole register to c, C, s, S, x, X, D, and space d
 nnoremap c "_c
