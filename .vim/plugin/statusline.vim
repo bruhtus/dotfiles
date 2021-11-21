@@ -2,7 +2,7 @@
 
 " why would you want to load this if you don't want to use statusline?
 if !&laststatus
-  if !&showmode | set showmode | endif
+  if !&showmode | set showmode! | endif
   finish
 endif
 
@@ -69,7 +69,7 @@ function! StatuslineComponent() abort
     endif
 
   else
-    if !&showmode | set showmode | endif
+    if !&showmode | set showmode! | endif
     let w:mode=''
   endif
 
