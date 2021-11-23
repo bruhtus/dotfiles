@@ -10,9 +10,15 @@ function! s:gitdiffcommit() abort
   if !empty(system('git diff --cached --no-color --no-ext-diff'))
     " Note: use the git diff in git root directory instead of .git directory
     call system('git diff --cached --no-color --no-ext-diff > ' . shellescape(name))
-    exe 'sp ' . fnameescape(name)
+    let previewheight = &previewheight
+    " Note: half the current window height (only when initialization, not
+    " dynamic)
+    let &previewheight = winheight(0) / 2
+    exe 'pedit ' . fnameescape(name)
+    wincmd P
     nnoremap <buffer> <silent> <nowait> q :<C-u>bw<CR>
     setlocal bufhidden=wipe buftype=nofile nobuflisted noswapfile nomodifiable filetype=git
+    let &previewheight = previewheight
     wincmd p
   else
     echo 'No output from git diff --cached'
