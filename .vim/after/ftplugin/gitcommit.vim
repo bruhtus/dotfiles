@@ -19,6 +19,8 @@ function! s:gitdiffcommit() abort
     nnoremap <buffer> <silent> <nowait> q :<C-u>bw<CR>
     setlocal bufhidden=wipe buftype=nofile nobuflisted noswapfile nomodifiable filetype=git
     let &previewheight = previewheight
+    " Note: move preview window to the right if window width more than 160
+    if winwidth(0) > 160 | wincmd H | endif
     wincmd p
   else
     echo 'No output from git diff --cached'
