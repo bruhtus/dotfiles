@@ -43,10 +43,7 @@ endfunction
 
 " Ref: https://github.com/junegunn/dotfiles/blob/057ee47465e43aafbd20f4c8155487ef147e29ea/vimrc#L265-L275
 function! StatuslineComponent() abort
-  if hlexists('NormalModeColor')
-        \ && hlexists('InsertModeColor')
-        \ && hlexists('VisualModeColor')
-        \ && hlexists('CommandModeColor')
+  if g:colors_name ==# 'seoul256mod'
         \ && &laststatus == 2
         \ && !&showmode
     if mode() ==# 'n'
