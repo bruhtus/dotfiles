@@ -7,12 +7,12 @@ function! possession#init(bang) abort
   let session = get(g:, 'current_possession', v:this_session)
 
   try
-    if a:bang && filereadable(session)
+    if a:bang && filereadable(expand(session))
       echom 'Deleting session in ' . fnamemodify(session, ':~:.')
-      call delete(session)
+      call delete(expand(session))
       unlet! g:current_possession
       return ''
-    elseif a:bang && !filereadable(session)
+    elseif a:bang && !filereadable(expand(session))
       echo 'Session for this path not found, nothing deleted'
       return ''
     elseif exists('g:current_possession')
