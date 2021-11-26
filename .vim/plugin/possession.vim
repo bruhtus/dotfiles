@@ -44,7 +44,7 @@ function! s:possession_load() abort
         \ g:possession_file_pattern : ''
   if empty(v:this_session) && file !=# '' && !&modified
     exe 'source ' . fnameescape(file)
-    " remove the echo of file name at startup, vim change the shortmess option
+    " Note: remove the echo of file name at startup, vim change the shortmess option
     " when using session temporary
     redraw
     let g:current_possession = v:this_session
@@ -60,6 +60,8 @@ function! s:possession_load() abort
 endfunction
 
 function! possession#persist() abort
+  " Note: more info :h SessionLoad-variable
+  " Note: can also be used to not save the session
   if exists('g:SessionLoad')
     return ''
   endif
