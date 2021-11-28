@@ -121,12 +121,6 @@ nnoremap <silent> [<Space>
 nnoremap <silent> gb m':<C-u>call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%>' . line('.') . 'l\S', 'e')<CR>
 nnoremap <silent> gh m':<C-u>call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%<' . line('.') . 'l\S', 'be')<CR>
 
-" break undo sequence when using `,`, `.`, `ctrl-w`, and `ctrl-u`
-inoremap , <C-g>u,
-inoremap . .<C-g>u
-" inoremap <C-w> <C-g>u<C-w>
-" inoremap <C-u> <C-g>u<C-u>
-
 " do not exit visual selection when shift-indenting
 xnoremap < <gv
 xnoremap > >gv

@@ -15,6 +15,12 @@ nnoremap <buffer> <silent> <localleader>\
       \  endif <Bar>
       \ call mkdp#util#toggle_preview()<CR>
 
+" break undo sequence when using `,`, `.`, `ctrl-w`, and `ctrl-u`
+inoremap , <C-g>u,
+inoremap . .<C-g>u
+" inoremap <C-w> <C-g>u<C-w>
+" inoremap <C-u> <C-g>u<C-u>
+
 " inspired by $VIMRUNTIME/ftplugin/vim.vim and $VIMRUNTIME/ftplugin/python.vim
 nnoremap <buffer> <silent> ]] m':<C-u>call search('\v^\S*(#)', 'W')<CR>zz
 nnoremap <buffer> <silent> [[ m':<C-u>call search('\v^\S*(#)', 'zbW')<CR>zz
