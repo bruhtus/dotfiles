@@ -188,8 +188,8 @@ if exists(':ter')
   nnoremap <silent> <leader>m :ter<CR>
 endif
 
-" set ZX as :w
-nnoremap ZX :w<CR>
+" set ZX as :update
+nnoremap <silent> ZX :up<CR>
 
 " set ZA as :on
 nnoremap <silent> ZA :on<CR>
