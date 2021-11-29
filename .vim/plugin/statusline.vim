@@ -87,9 +87,9 @@ function! StatuslineComponent() abort
   let l:tab = "%{&expandtab ? ' sw='.&shiftwidth.' ' :
         \ &tabstop == &shiftwidth ? ' ts='.&tabstop.' ' :
         \ ' sw='.&shiftwidth.',ts='.&tabstop.' '}"
-  let l:ses = "%{exists('g:current_possession') ? '[S]  ' : ''}"
+  let l:ses = "%{exists('g:current_possession') ? '[S]' : ''}"
   if has('nvim')
-    return w:mode.'%*'.l:tab.l:git.l:sep.l:readonly.l:filename.l:mod.l:sep.l:ses.l:ft.l:line
+    return w:mode.'%*'.l:tab.l:git.l:sep.l:readonly.l:filename.l:mod.l:sep.l:ses.'  '.l:ft.l:line
   else
     return w:mode.'%*'.l:tab.l:readonly.l:ses.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
   endif
