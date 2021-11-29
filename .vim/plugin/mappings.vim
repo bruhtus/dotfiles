@@ -125,7 +125,7 @@ nnoremap <silent> gB m':<C-u>call search('^'. matchstr(getline('.'), '\(^\s*\)')
 xnoremap < <gv
 xnoremap > >gv
 
-" set black hole register to c, C, s, S, x, X, D, and space d
+" set black hole register to c, C, s, S, x, X, d, and D
 nnoremap c "_c
 xnoremap c "_c
 nnoremap C "_C
@@ -134,9 +134,13 @@ nnoremap S "_S
 nnoremap x "_x
 xnoremap x "_x
 nnoremap X "_X
+nnoremap d "_d
+xnoremap d "_d
 nnoremap D "_D
-nnoremap <leader>d "_d
-xnoremap <leader>d "_d
+
+" set space d to default d command
+nnoremap <leader>d d
+xnoremap <leader>d d
 
 " make search result appear in the middle
 nnoremap n nzz
