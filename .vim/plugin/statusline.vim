@@ -88,10 +88,12 @@ function! StatuslineComponent() abort
         \ &tabstop == &shiftwidth ? ' ts='.&tabstop.' ' :
         \ ' sw='.&shiftwidth.',ts='.&tabstop.' '}"
   let l:ses = "%{exists('g:current_possession') ? '[S]' : ''}"
+  " useful for resolving git merge conflict or using diff more than 2 windows
+  let l:diff = "%{&diff && winnr('$') > 2 ? ' [' . bufnr() . '] ' : '' }"
   if has('nvim')
-    return w:mode.'%*'.l:tab.l:git.l:sep.l:readonly.l:filename.l:mod.l:sep.l:ses.'  '.l:ft.l:line
+    return w:mode.'%*'.l:tab.l:git.l:sep.l:diff.l:readonly.l:filename.l:mod.l:sep.l:ses.'  '.l:ft.l:line
   else
-    return w:mode.'%*'.l:tab.l:readonly.l:ses.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
+    return w:mode.'%*'.l:diff.l:tab.l:readonly.l:ses.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
   endif
 endfunction
 
@@ -103,10 +105,11 @@ function! StatuslineNcComponent() abort
   let l:readonly = '%r'
   let l:mod = "%{&modified ? '  [+]' : !&modifiable ? '  [-]' : ''}"
   let l:sep = '%='
+  let l:diff = "%{&diff && winnr('$') > 2 ? ' [' . bufnr() . '] ' : '' }"
   if has('nvim')
-    return l:sep.l:readonly.l:filename.l:mod.l:sep
+    return l:sep.l:diff.l:readonly.l:filename.l:mod.l:sep
   else
-    return l:readonly.l:filename.l:mod.l:sep
+    return l:diff.l:readonly.l:filename.l:mod.l:sep
   endif
 endfunction
 
