@@ -114,6 +114,7 @@ function! StatuslineNcComponent() abort
 endfunction
 
 " Ref: https://github.com/itchyny/vim-gitbranch/blob/master/autoload/gitbranch.vim
+" Check: https://github.com/itchyny/vim-gitbranch/pull/9
 function! GitBranchName() abort
   if get(b:, 'gitbranch_pwd', '') !=# expand('%:p:h') || !has_key(b:, 'gitbranch_path')
     call s:gitbranch_detect(expand('%:p:h'))
@@ -141,7 +142,7 @@ function! s:gitbranch_dir(path) abort
     elseif type ==# 'file'
       let reldir = get(readfile(dir), 0, '')
       if reldir =~# '^gitdir: '
-        return simplify(path . '/' . reldir[8:])
+        return simplify(reldir[8:])
       endif
     elseif git_modules && isdirectory(path.'/objects') && isdirectory(path.'/refs') && getfsize(path.'/HEAD') > 10
       return path
