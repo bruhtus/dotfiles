@@ -75,7 +75,7 @@ function! StatuslineComponent() abort
     let w:mode=''
   endif
 
-  let l:filename = " %{expand('%:p:~') ==# '' ? '[Blank]' :
+  let l:filename = " %<%{expand('%:p:~') ==# '' ? '[Blank]' :
         \ winwidth(0) > 160 ? expand('%:p:~') :
         \ winwidth(0) < 71 ? expand('%:t') :
         \ pathshorten(expand('%'))}"
