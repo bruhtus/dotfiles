@@ -31,6 +31,15 @@ augroup statusline_startup
         \ else                                   |
         \   call StatuslineLoad('inactive')      |
         \ endif
+
+  " maybe should have used ModeChanged event instead?
+  " not sure if i should add more autocommand
+  " autocmd CmdlineLeave :
+  "       \ if &laststatus != 2 && !&showmode |
+  "       \ set showmode |
+  "       \ else |
+  "       \ set noshowmode |
+  "       \ endif
 augroup END
 
 function! StatuslineLoad(mode)
