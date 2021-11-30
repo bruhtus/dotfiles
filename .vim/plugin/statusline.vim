@@ -59,18 +59,14 @@ function! StatuslineComponent() abort
       let w:mode ='%#NormalModeColor# '
     " Note: v:insertmode only display the last mode that trigger `InsertEnter` and
     " `InsertChange`. maybe kind of similar to visualmode()? more info: `:h v:insertmode`
-    elseif mode() ==# 'i'
-          \ || mode() ==# 'R'
-          \ || mode() ==# 'Rv'
+    " Ref: https://gist.github.com/autrimpo/f40e4eda233977dd3a619c6083d9bebd
+    elseif mode() =~# '\v(i|R|Rv)'
       let w:mode ='%#InsertModeColor# '
-    elseif mode() ==# 'v'
-          \ || mode() ==# 'V'
+    elseif mode() =~# '\v(v|V|s|S)'
           \ || mode() ==# "\<C-V>"
-          \ || mode() ==# 's'
-          \ || mode() ==# 'S'
           \ || mode() ==# "\<C-S>"
       let w:mode ='%#VisualModeColor# '
-    elseif mode() ==# 'c' || mode() ==# 't'
+    elseif mode() =~# '\v(c|t)'
       let w:mode ='%#CommandModeColor# '
     endif
 
