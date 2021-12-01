@@ -12,43 +12,61 @@ endif
 " set cpo&vim
 
 " do not change statusline of quickfix and bufstop window
-augroup statusline_startup
-  autocmd!
-  autocmd WinEnter,BufWinEnter *
-        \ if &buftype ==# 'quickfix'                 |
-        \ elseif expand('%:t') ==# '--Bufstop--'     |
-        \ else                                       |
-        \   call s:gitbranch_detect(expand('%:p:h')) |
-        \   call StatuslineLoad('active')            |
-        \ endif
+" augroup statusline_startup
+"   autocmd!
+"   autocmd WinEnter,BufWinEnter *
+"         \ if &buftype ==# 'quickfix'                 |
+"         \ elseif expand('%:t') ==# '--Bufstop--'     |
+"         \ else                                       |
+"         \   call s:gitbranch_detect(expand('%:p:h')) |
+"         \   call StatuslineLoad('active')            |
+"         \ endif
 
-  autocmd BufNewFile,BufReadPost *
-        \ call s:gitbranch_detect(expand('<amatch>:p:h'))
+"   autocmd BufNewFile,BufReadPost *
+"         \ call s:gitbranch_detect(expand('<amatch>:p:h'))
 
-  autocmd WinLeave *
-        \ if &buftype ==# 'quickfix'             |
-        \ elseif expand('%:t') ==# '--Bufstop--' |
-        \ else                                   |
-        \   call StatuslineLoad('inactive')      |
-        \ endif
+"   autocmd WinLeave *
+"         \ if &buftype ==# 'quickfix'             |
+"         \ elseif expand('%:t') ==# '--Bufstop--' |
+"         \ else                                   |
+"         \   call StatuslineLoad('inactive')      |
+"         \ endif
 
-  " maybe should have used ModeChanged event instead?
-  " not sure if i should add more autocommand
-  " autocmd CmdlineLeave :
-  "       \ if &laststatus != 2 && !&showmode |
-  "       \ set showmode |
-  "       \ else |
-  "       \ set noshowmode |
-  "       \ endif
-augroup END
+"   maybe should have used ModeChanged event instead?
+"   not sure if i should add more autocommand
+"   autocmd CmdlineLeave :
+"         \ if &laststatus != 2 && !&showmode |
+"         \ set showmode |
+"         \ else |
+"         \ set noshowmode |
+"         \ endif
+" augroup END
 
-function! StatuslineLoad(mode)
-  if a:mode ==# 'active'
-    setlocal statusline=%!StatuslineComponent()
+" function! StatuslineLoad(mode)
+"   if a:mode ==# 'active'
+"     setlocal statusline=%!StatuslineComponent()
+"   else
+"     setlocal statusline=%!StatuslineNcComponent()
+"   endif
+" endfunction
+
+function! StatuslineLoad(winid)
+  if a:winid == win_getid()
+    return StatuslineComponent()
   else
-    setlocal statusline=%!StatuslineNcComponent()
+    return StatuslineNcComponent()
   endif
 endfunction
+
+" Ref:
+" https://teddit.net/r/vim/comments/nyrv7c/how_to_use_different_statuslines_for_active_and/
+" Ref:
+" https://github.com/lacygoill/vim-statusline/blob/b9f9e84d840ed74ded8144adf50bb05b08c2408a/plugin/statusline.vim#L433-L447
+" WARNING: this method only works on vim 8.1.1372 or above
+" Note: this method solve the problem when enter vim using split window like
+" when use `git mergetool` command, the inactive statusline is not updated
+" when using autocmd
+set statusline=%!StatuslineLoad(g:statusline_winid)
 
 " Ref: https://github.com/junegunn/dotfiles/blob/057ee47465e43aafbd20f4c8155487ef147e29ea/vimrc#L265-L275
 function! StatuslineComponent() abort
