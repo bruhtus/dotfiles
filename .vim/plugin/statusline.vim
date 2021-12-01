@@ -88,7 +88,8 @@ function! StatuslineComponent() abort
   "       \ (winwidth(0) > 70 ? system(g:gitbranchcmd) : '')}"
   let l:git = "  %{winwidth(0) > 70 ? GitBranchName() : ''}"
   let l:sep = '%='
-  let l:line = '  %3l/%L'
+  " current line/total lines:cursor column
+  let l:line = '  %-14.(%l/%L:%c%)'
   let l:tab = "%{&expandtab ? ' sw='.&shiftwidth.' ' :
         \ &tabstop == &shiftwidth ? ' ts='.&tabstop.' ' :
         \ ' sw='.&shiftwidth.',ts='.&tabstop.' '}"
