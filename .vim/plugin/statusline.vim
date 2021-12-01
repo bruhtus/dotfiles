@@ -86,7 +86,7 @@ function! StatuslineComponent() abort
   " let g:gitbranchcmd = "git branch --show-current 2>/dev/null | tr -d '\n'"
   " let l:git = "%{exists('*FugitiveHead') ? (winwidth(0) > 70 ? fugitive#head() : '') :
   "       \ (winwidth(0) > 70 ? system(g:gitbranchcmd) : '')}"
-  let l:git = "%{winwidth(0) > 70 ? GitBranchName() : ''}"
+  let l:git = "  %{winwidth(0) > 70 ? GitBranchName() : ''}"
   let l:sep = '%='
   let l:line = '  %3l/%L'
   let l:tab = "%{&expandtab ? ' sw='.&shiftwidth.' ' :
