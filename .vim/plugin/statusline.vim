@@ -127,9 +127,9 @@ function! GitBranchName() abort
   if has_key(b:, 'gitbranch_path') && filereadable(b:gitbranch_path)
     let branch = get(readfile(b:gitbranch_path), 0, '')
     if branch =~# '^ref: '
-      return substitute(branch, '^ref: \%(refs/\%(heads/\|remotes/\|tags/\)\=\)\=', '', '')
+      return '[' . substitute(branch, '^ref: \%(refs/\%(heads/\|remotes/\|tags/\)\=\)\=', '', '') . ']'
     elseif branch =~# '^\x\{20\}'
-      return branch[:6]
+      return '[' . branch[:6] . ']'
     endif
   endif
   return ''
