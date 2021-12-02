@@ -37,6 +37,7 @@ augroup gitcommit
   " autocmd FileType git
   "       \  nmap <buffer> <nowait> <Space> <C-d>
   "       \| nmap <buffer> <nowait> u <C-u>
+  " autocmd VimEnter COMMIT_EDITMSG call <SID>gitdiffcommit()
   autocmd WinEnter * if winnr('$') == 1 && &filetype == 'git' | q | endif
 augroup END
 
