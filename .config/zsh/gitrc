@@ -35,14 +35,15 @@ alias \
 # ref: https://github.com/wfxr/forgit/blob/b727321f2bd3d79c1dae805441261c45888cbb41/forgit.plugin.zsh#L17-L34
 # known issue: exit using ctrl-c didn't exit with exit status 0, still not sure why. other than that works fine.
 # it's better to clear the terminal screen before using this, so that less didn't go to the bottom of the screen.
+# ref: https://stackoverflow.com/a/1441062
 function gl() {
 	git rev-parse --is-inside-work-tree >/dev/null || return 1
 	local files=$(sed -nE 's/.* -- (.*)/\1/p' <<< "$*")
 	local cmd="echo {} | grep -Eo '[a-f0-9]+' | head -1 | xargs -I% git show --color=always % -- $files"
 
 	# return 0 solve the known issue above, still need to observe this.
-	git log --oneline --color=always --format='%C(auto)%h%d %s %C(black)%C(bold)%cr%Creset' | \
-		fzf --ansi +m --height=100% --tiebreak=index --reverse --bind "enter:execute($cmd | less -r --incsearch)" --preview="$cmd" || \
+	git log --oneline --color=always --date=short --format='%C(auto)%h %ad%d%x09%s' | \
+		fzf --ansi +m --height=80% --tiebreak=index --reverse --bind "enter:execute($cmd | less -r --incsearch)" --preview="$cmd" || \
 		return 0
 }
 
