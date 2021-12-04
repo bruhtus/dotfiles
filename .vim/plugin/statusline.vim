@@ -11,6 +11,24 @@ endif
 " let s:save_cpo = &cpo
 " set cpo&vim
 
+function! statusline#update(winid) abort
+  if a:winid == win_getid()
+    return statusline#active()
+  else
+    return statusline#inactive()
+  endif
+endfunction
+
+" Ref:
+" https://teddit.net/r/vim/comments/nyrv7c/how_to_use_different_statuslines_for_active_and/
+" Ref:
+" https://github.com/lacygoill/vim-statusline/blob/b9f9e84d840ed74ded8144adf50bb05b08c2408a/plugin/statusline.vim#L433-L447
+" WARNING: this method only works on vim 8.1.1372 or above
+" Note: this method solve the problem when enter vim using split window like
+" when use `git mergetool` command, the inactive statusline is not updated
+" when using autocmd
+set statusline=%!statusline#update(g:statusline_winid)
+
 " do not change statusline of quickfix and bufstop window
 " augroup statusline_startup
 "   autocmd!
@@ -44,32 +62,14 @@ endif
 
 " function! StatuslineLoad(mode)
 "   if a:mode ==# 'active'
-"     setlocal statusline=%!StatuslineComponent()
+"     setlocal statusline=%!statusline#active()
 "   else
-"     setlocal statusline=%!StatuslineNcComponent()
+"     setlocal statusline=%!statusline#inactive()
 "   endif
 " endfunction
 
-function! StatuslineLoad(winid)
-  if a:winid == win_getid()
-    return StatuslineComponent()
-  else
-    return StatuslineNcComponent()
-  endif
-endfunction
-
-" Ref:
-" https://teddit.net/r/vim/comments/nyrv7c/how_to_use_different_statuslines_for_active_and/
-" Ref:
-" https://github.com/lacygoill/vim-statusline/blob/b9f9e84d840ed74ded8144adf50bb05b08c2408a/plugin/statusline.vim#L433-L447
-" WARNING: this method only works on vim 8.1.1372 or above
-" Note: this method solve the problem when enter vim using split window like
-" when use `git mergetool` command, the inactive statusline is not updated
-" when using autocmd
-set statusline=%!StatuslineLoad(g:statusline_winid)
-
 " Ref: https://github.com/junegunn/dotfiles/blob/057ee47465e43aafbd20f4c8155487ef147e29ea/vimrc#L265-L275
-function! StatuslineComponent() abort
+function! statusline#active() abort
   if g:colors_name ==# 'seoul256mod'
         \ && &laststatus == 2
         \ && !&showmode
@@ -104,7 +104,7 @@ function! StatuslineComponent() abort
   " let g:gitbranchcmd = "git branch --show-current 2>/dev/null | tr -d '\n'"
   " let l:git = "%{exists('*FugitiveHead') ? (winwidth(0) > 70 ? fugitive#head() : '') :
   "       \ (winwidth(0) > 70 ? system(g:gitbranchcmd) : '')}"
-  let l:git = "  %{winwidth(0) > 70 ? GitBranchName() : ''}"
+  let l:git = "  %{winwidth(0) > 70 ? statusline#gitbranch() : ''}"
   let l:sep = '%='
   " current line/total lines:cursor column
   let l:line = '  %-14.(%l/%L:%c%)'
@@ -121,7 +121,7 @@ function! StatuslineComponent() abort
   " endif
 endfunction
 
-function! StatuslineNcComponent() abort
+function! statusline#inactive() abort
   let l:filename = " %{expand('%:p:~') ==# '' ? '[Blank]' :
         \ winwidth(0) > 160 ? expand('%:p:~') :
         \ winwidth(0) < 71 ? expand('%:t') :
@@ -139,7 +139,7 @@ endfunction
 
 " Ref: https://github.com/itchyny/vim-gitbranch/blob/master/autoload/gitbranch.vim
 " Check: https://github.com/itchyny/vim-gitbranch/pull/9
-function! GitBranchName() abort
+function! statusline#gitbranch() abort
   if get(b:, 'gitbranch_pwd', '') !=# expand('%:p:h') || !has_key(b:, 'gitbranch_path')
     call s:gitbranch_detect(expand('%:p:h'))
   endif
