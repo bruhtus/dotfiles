@@ -1,6 +1,8 @@
 " default (n)vim settings
 
 set title
+set titlestring=%t " check `:h 'statusline'` for the flags
+
 set hidden
 set showcmd
 set linebreak
