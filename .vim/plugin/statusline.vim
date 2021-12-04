@@ -29,26 +29,10 @@ endfunction
 " when using autocmd
 set statusline=%!statusline#update(g:statusline_winid)
 
-" do not change statusline of quickfix and bufstop window
 " augroup statusline_startup
 "   autocmd!
-"   autocmd WinEnter,BufWinEnter *
-"         \ if &buftype ==# 'quickfix'                 |
-"         \ elseif expand('%:t') ==# '--Bufstop--'     |
-"         \ else                                       |
-"         \   call s:gitbranch_detect(expand('%:p:h')) |
-"         \   call StatuslineLoad('active')            |
-"         \ endif
-
-"   autocmd BufNewFile,BufReadPost *
-"         \ call s:gitbranch_detect(expand('<amatch>:p:h'))
-
-"   autocmd WinLeave *
-"         \ if &buftype ==# 'quickfix'             |
-"         \ elseif expand('%:t') ==# '--Bufstop--' |
-"         \ else                                   |
-"         \   call StatuslineLoad('inactive')      |
-"         \ endif
+"   autocmd WinEnter,BufEnter,SessionLoadPost,FileChangedShellPost *
+"         \   call statusline#update()
 
 "   maybe should have used ModeChanged event instead?
 "   not sure if i should add more autocommand
@@ -60,12 +44,15 @@ set statusline=%!statusline#update(g:statusline_winid)
 "         \ endif
 " augroup END
 
-" function! StatuslineLoad(mode)
-"   if a:mode ==# 'active'
-"     setlocal statusline=%!statusline#active()
-"   else
-"     setlocal statusline=%!statusline#inactive()
-"   endif
+" function! statusline#update() abort
+"   let winnr = winnr()
+"   let current_win =
+"         \ winnr('$') == 1 && winnr > 0 ?
+"         \ [statusline#active()] :
+"         \ [statusline#active(), statusline#inactive()]
+"   for num in range(1, winnr('$'))
+"     call setwinvar(num, '&statusline', current_win[num != winnr])
+"   endfor
 " endfunction
 
 " Ref: https://github.com/junegunn/dotfiles/blob/057ee47465e43aafbd20f4c8155487ef147e29ea/vimrc#L265-L275
