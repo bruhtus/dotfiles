@@ -55,31 +55,34 @@ set statusline=%!statusline#update(g:statusline_winid)
 "   endfor
 " endfunction
 
-" Ref: https://github.com/junegunn/dotfiles/blob/057ee47465e43aafbd20f4c8155487ef147e29ea/vimrc#L265-L275
-function! statusline#active() abort
+function! statusline#mode() abort
   if g:colors_name ==# 'seoul256mod'
         \ && &laststatus == 2
         \ && !&showmode
     if mode() ==# 'n'
-      let w:mode ='%#NormalModeColor# '
+      return '%#NormalModeColor# '
     " Note: v:insertmode only display the last mode that trigger `InsertEnter` and
     " `InsertChange`. maybe kind of similar to visualmode()? more info: `:h v:insertmode`
     " Ref: https://gist.github.com/autrimpo/f40e4eda233977dd3a619c6083d9bebd
     elseif mode() =~# '\v(i|R|Rv)'
-      let w:mode ='%#InsertModeColor# '
+      return '%#InsertModeColor# '
     elseif mode() =~# '\v(v|V|s|S)'
           \ || mode() ==# "\<C-V>"
           \ || mode() ==# "\<C-S>"
-      let w:mode ='%#VisualModeColor# '
+      return '%#VisualModeColor# '
     elseif mode() =~# '\v(c|t)'
-      let w:mode ='%#CommandModeColor# '
+      return '%#CommandModeColor# '
     endif
 
   else
     if !&showmode | set showmode! | endif
-    let w:mode=''
+    return ''
   endif
+endfunction
 
+" Ref: https://github.com/junegunn/dotfiles/blob/057ee47465e43aafbd20f4c8155487ef147e29ea/vimrc#L265-L275
+function! statusline#active() abort
+  let w:mode = "%{%statusline#mode()%}"
   let l:filename = " %<%{expand('%:p:~') ==# '' ? '[Blank]' :
         \ winwidth(0) > 160 ? expand('%:p:~') :
         \ winwidth(0) < 71 ? expand('%:t') :
