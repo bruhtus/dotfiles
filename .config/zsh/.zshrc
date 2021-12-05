@@ -27,9 +27,13 @@ SAVEHIST=1000000
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/gitrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/gitrc"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/pyv" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/pyv"
 
+# case insensitive completion
+# ref: https://superuser.com/a/1092328
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
 #basic auto-tab complete
-autoload -U compinit
 zstyle ':completion:*' menu select
+autoload -U compinit
 zmodload zsh/complist
 compinit -d ${XDG_CONFIG_HOME:-$HOME/.config}/zsh/zcompdump-$ZSH_VERSION
 
@@ -58,18 +62,6 @@ bindkey -M vicmd 'j' history-substring-search-down
 #Edit line in vim with ctrl-x:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^x' edit-command-line
-
-# case insensitive (all), partial-word and substring completion
-if [[ "$CASE_SENSITIVE" = true ]]; then
-  zstyle ':completion:*' matcher-list 'r:|=*' 'l:|=* r:|=*'
-else
-  if [[ "$HYPHEN_INSENSITIVE" = true ]]; then
-    zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|=*' 'l:|=* r:|=*'
-  else
-    zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
-  fi
-fi
-unset CASE_SENSITIVE HYPHEN_INSENSITIVE
 
 function set_win_title(){
   # echo -ne "\033]0; $(basename "$PWD") \007"
