@@ -59,9 +59,9 @@ bindkey -M vicmd 'j' history-substring-search-down
 #figlet -f slant bruhtus
 #pfetch
 
-#Edit line in vim with ctrl-x:
+#Edit line in vim with ctrl-f:
 autoload edit-command-line; zle -N edit-command-line
-bindkey '^x' edit-command-line
+bindkey '^f' edit-command-line
 
 function set_win_title(){
   # echo -ne "\033]0; $(basename "$PWD") \007"
