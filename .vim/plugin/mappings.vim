@@ -142,6 +142,9 @@ nnoremap D "_D
 nnoremap <leader>d d
 xnoremap <leader>d d
 
+" set space D to default D normal mode command
+nnoremap <leader>D D
+
 " make search result appear in the middle
 nnoremap n nzz
 nnoremap N Nzz
