@@ -2,7 +2,7 @@
 	email = hibruhtus@gmail.com
 	name = bruhtus
 [credential]
-	helper = cache --timeout=86400
+	; helper = cache --timeout=86400
 [credential "https://github.com/bruhtus"]
 	username = bruhtus
 	; helper = store
