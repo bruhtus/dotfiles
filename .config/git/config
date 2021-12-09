@@ -20,3 +20,5 @@
 	keepbackup = false
 [pull]
 	rebase = true
+[commit]
+	verbose = true
