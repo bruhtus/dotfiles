@@ -82,7 +82,7 @@ endfunction
 
 " Ref: https://github.com/junegunn/dotfiles/blob/057ee47465e43aafbd20f4c8155487ef147e29ea/vimrc#L265-L275
 function! statusline#active() abort
-  let w:mode = "%{%statusline#mode()%}"
+  let l:mode = "%{%statusline#mode()%}"
   let l:filename = " %<%{expand('%:p:~') ==# '' ? '[Blank]' :
         \ winwidth(0) > 160 ? expand('%:p:~') :
         \ winwidth(0) < 71 ? expand('%:t') :
@@ -107,7 +107,7 @@ function! statusline#active() abort
   " if has('nvim')
   "   return w:mode.'%*'.l:tab.l:git.l:sep.l:diff.l:readonly.l:filename.l:mod.l:sep.l:ses.'  '.l:ft.l:line
   " else
-    return w:mode.'%*'.l:diff.l:tab.l:readonly.l:ses.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
+    return l:mode.'%*'.l:diff.l:tab.l:readonly.l:ses.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
   " endif
 endfunction
 
