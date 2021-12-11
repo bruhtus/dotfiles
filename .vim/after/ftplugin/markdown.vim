@@ -23,9 +23,12 @@ inoremap . .<C-g>u
 " Note: for whatever reason, if the highlight for code fenced is on, the code
 " block is not recognized as `markdownCode` syntax which is weird. turn that
 " off so that we can use this mapping.
-nnoremap <buffer> <silent> ]] m':<C-u>call search('\v^\S*(#)', 'W', '', '', "synIDattr(synID(line('.'), 1, 1), 'name') ==# 'markdownCode'")<CR>zz
-nnoremap <buffer> <silent> [[ m':<C-u>call search('\v^\S*(#)', 'zbW', '', '', "synIDattr(synID(line('.'), 1, 1), 'name') ==# 'markdownCode'")<CR>zz
-nnoremap <buffer> <silent> ][ m':<C-u>call search('\v%$\|\S.*\n+(#)', 'W', '', '', "synIDattr(synID(line('.'), 1, 1), 'name') ==# 'markdownCode'")<CR>zz
-nnoremap <buffer> <silent> [] m':<C-u>call search('\v\S.*\n+(#)', 'bW', '', '', "synIDattr(synID(line('.'), 1, 1), 'name') ==# 'markdownCode'")<CR>zz
-onoremap <buffer> <silent> ]] :<C-u>call search('\v^\S*(#)', 'W', '', '', "synIDattr(synID(line('.'), 1, 1), 'name') ==# 'markdownCode'")<CR>
-onoremap <buffer> <silent> [[ :<C-u>call search('\v^\S*(#)', 'zbW', '', '', "synIDattr(synID(line('.'), 1, 1), 'name') ==# 'markdownCode'")<CR>
+" Note: if fanced languange activated, it will use the syntax of the specific
+" filetype, like comment on `sh` filetype wouldbe `shComment`.
+" TODO: figure out the regex for search().
+nnoremap <buffer> <silent> ]] m':<C-u>call search('\v^\S*(#)', 'W', '', '', "synIDattr(synID(line('.'), 1, 1), 'name') =~# 'shComment'")<CR>zz
+nnoremap <buffer> <silent> [[ m':<C-u>call search('\v^\S*(#)', 'zbW', '', '', "synIDattr(synID(line('.'), 1, 1), 'name') =~# 'shComment'")<CR>zz
+nnoremap <buffer> <silent> ][ m':<C-u>call search('\v%$\|\S.*\n+(#)', 'W', '', '', "synIDattr(synID(line('.'), 1, 1), 'name') =~# 'shComment'")<CR>zz
+nnoremap <buffer> <silent> [] m':<C-u>call search('\v\S.*\n+(#)', 'bW', '', '', "synIDattr(synID(line('.'), 1, 1), 'name') =~# 'shComment'")<CR>zz
+onoremap <buffer> <silent> ]] :<C-u>call search('\v^\S*(#)', 'W', '', '', "synIDattr(synID(line('.'), 1, 1), 'name') =~# 'shComment'")<CR>
+onoremap <buffer> <silent> [[ :<C-u>call search('\v^\S*(#)', 'zbW', '', '', "synIDattr(synID(line('.'), 1, 1), 'name') =~# 'shComment'")<CR>
