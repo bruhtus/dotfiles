@@ -18,3 +18,8 @@ packadd traces.vim
 packadd vim-commentary
 packadd vim-indentwise
 packadd bufstop
+
+if !has('nvim')
+  packadd vim-lsp
+  packadd vim-lsp-settings
+endif
