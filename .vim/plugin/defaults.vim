@@ -7,6 +7,7 @@ set hidden
 set showcmd
 set linebreak
 set lazyredraw
+set backspace=2
 set complete-=t " disable scanning tags
 set laststatus=2
 set updatetime=0
@@ -68,7 +69,6 @@ else
   endif
   set viminfo+=n~/.local/share/vim/viminfo
   set belloff=all
-  set backspace=indent,eol,start
   set complete-=i " disable scanning current and included files
   set nrformats-=octal
   set display+=lastline
