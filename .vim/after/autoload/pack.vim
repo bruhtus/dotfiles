@@ -13,17 +13,17 @@ function! pack#init() abort
     call minpac#init()
   endtry
 
-  call minpac#add('tpope/vim-surround')
-  call minpac#add('wellle/targets.vim')
-  call minpac#add('markonm/traces.vim')
-  call minpac#add('tpope/vim-commentary')
-  call minpac#add('jeetsukumaran/vim-indentwise')
+  call minpac#add('tpope/vim-surround',           { 'type': 'opt' })
+  call minpac#add('wellle/targets.vim',           { 'type': 'opt' })
+  call minpac#add('markonm/traces.vim',           { 'type': 'opt' })
+  call minpac#add('tpope/vim-commentary',         { 'type': 'opt' })
+  call minpac#add('jeetsukumaran/vim-indentwise', { 'type': 'opt' })
 
-  call minpac#add('bruhtus/bufstop',   { 'branch': 'personal' })
+  call minpac#add('bruhtus/bufstop',   { 'type': 'opt', 'branch': 'personal' })
   call minpac#add('bruhtus/vim-sneak', { 'type': 'opt', 'branch': 'personal' })
 
   call minpac#add('k-takata/minpac',              { 'type': 'opt' })
-  call minpac#add('junegunn/gv.vim',              { 'type': 'opt' })
+  call minpac#add('bruhtus/gv.vim',               { 'type': 'opt' })
   call minpac#add('ap/vim-css-color',             { 'type': 'opt' })
   call minpac#add('tpope/vim-eunuch',             { 'type': 'opt' })
   call minpac#add('junegunn/goyo.vim',            { 'type': 'opt' })
@@ -56,6 +56,7 @@ function! pack#init() abort
   " call minpac#add('preservim/tagbar')
   " call minpac#add('kshenoy/vim-signature')
   " call minpac#add('glepnir/dashboard-nvim')
+  " call minpac#add('junegunn/gv.vim',           { 'type': 'opt' })
   " call minpac#add('phaazon/hop.nvim',          { 'type': 'opt' })
   " call minpac#add('justinmk/vim-sneak',        { 'type': 'opt' })
   " call minpac#add('easymotion/vim-easymotion', { 'type': 'opt' })

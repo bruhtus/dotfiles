@@ -10,7 +10,7 @@ if has('packages')
 
   command! PacClean source $MYPACK | call pack#init() | call minpac#clean()
   command! PacSync  source $MYPACK | call pack#init() | call minpac#update()
-  command! PacMove  source $MYPACK | call pack#init() | call pack#move()
+  " command! PacMove  source $MYPACK | call pack#init() | call pack#move()
 
   command! PacList
         \ if !exists('g:loaded_minpac') | packadd minpac | endif           |
@@ -20,13 +20,13 @@ if has('packages')
 
   " Usage: PacQ start or PacQ opt
   " Ref: https://dev.to/dlains/create-your-own-vim-commands-415b
-  command! -nargs=1 PacQ
-        \ if !exists('g:loaded_minpac') | packadd minpac | endif |
-        \ exe "echo 'Total:'"
-        \ . "len(minpac#getpackages('minpac', '"
-        \ . <f-args> . "', '', 1)) . ' plugin(s)'"               |
-        \ exe "echo join(sort(minpac#getpackages('minpac', '"
-        \ . <f-args> . "', '', 1)), " . '"\n")'
+  " command! -nargs=1 PacQ
+  "       \ if !exists('g:loaded_minpac') | packadd minpac | endif |
+  "       \ exe "echo 'Total:'"
+  "       \ . "len(minpac#getpackages('minpac', '"
+  "       \ . <f-args> . "', '', 1)) . ' plugin(s)'"               |
+  "       \ exe "echo join(sort(minpac#getpackages('minpac', '"
+  "       \ . <f-args> . "', '', 1)), " . '"\n")'
 
   command! PacInstall
         \ source $MYPACK   |
