@@ -52,11 +52,11 @@ function! pack#init() abort
   "   call minpac#add('kabouzeid/nvim-lspinstall', { 'type': 'opt' })
   " endif
 
-  " call minpac#add('tpope/vim-sleuth')
   " call minpac#add('mihaifm/bufstop')
+  " call minpac#add('tpope/vim-sleuth')
+  " call minpac#add('preservim/tagbar')
   " call minpac#add('airblade/vim-rooter')
   " call minpac#add('andymass/vim-matchup')
-  " call minpac#add('preservim/tagbar')
   " call minpac#add('kshenoy/vim-signature')
   " call minpac#add('glepnir/dashboard-nvim')
   " call minpac#add('junegunn/gv.vim',           { 'type': 'opt' })
