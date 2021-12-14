@@ -76,8 +76,12 @@ nnoremap <C-d> <C-d>M^
 nnoremap <C-f> <C-f>H^
 nnoremap <C-b> <C-b>L^
 
-" set vim to copy to clipboard and paste from clipboard
-xnoremap <leader>y "+y
+" set vim to copy to clipboard
+" remove new line character in clipboard register
+" Ref: https://stackoverflow.com/q/20735923
+xnoremap <silent> <leader>y "+y:let @+=substitute(@+, '\n$', '', 'g')<CR>
+
+" set vim to paste from clipboard
 nnoremap <C-p> "+gp
 nnoremap <silent> <leader>p :put +<CR>
 
