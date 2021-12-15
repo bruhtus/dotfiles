@@ -106,10 +106,12 @@ function! statusline#active() abort
   let l:diff = "%{&diff && winnr('$') > 2 ? ' [' . bufnr() . '] ' : '' }"
   " check if there's alternate buffer or not
   let l:alt = "%{bufnr('#') == '-1' ? '' : '[#]'}"
+  " Ref: https://superuser.com/a/345593
+  let l:totalbuf = "%{'[' . len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) . ']'}"
   " if has('nvim')
   "   return w:mode.'%*'.l:tab.l:git.l:sep.l:diff.l:readonly.l:filename.l:mod.l:sep.l:ses.'  '.l:ft.l:line
   " else
-    return l:mode.'%*'.l:diff.l:tab.l:alt.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
+    return l:mode.'%*'.l:diff.l:tab.l:totalbuf.l:alt.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
   " endif
 endfunction
 
