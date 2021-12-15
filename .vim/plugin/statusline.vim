@@ -107,7 +107,7 @@ function! statusline#active() abort
   " if has('nvim')
   "   return w:mode.'%*'.l:tab.l:git.l:sep.l:diff.l:readonly.l:filename.l:mod.l:sep.l:ses.'  '.l:ft.l:line
   " else
-    return l:mode.'%*'.l:diff.l:tab.l:readonly.l:ses.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
+    return l:mode.'%*'.l:diff.l:tab.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
   " endif
 endfunction
 
