@@ -32,7 +32,7 @@ set statusline=%!statusline#update(g:statusline_winid)
 " augroup statusline_startup
 "   autocmd!
 "   autocmd WinEnter,BufEnter,SessionLoadPost,FileChangedShellPost *
-"         \   call statusline#update()
+"         \ call statusline#update()
 
 "   maybe should have used ModeChanged event instead?
 "   not sure if i should add more autocommand
@@ -96,8 +96,8 @@ function! statusline#active() abort
   "       \ (winwidth(0) > 70 ? system(g:gitbranchcmd) : '')}"
   let l:git = "  %{winwidth(0) > 70 ? statusline#gitbranch() : ''}"
   let l:sep = '%='
-  " current line/total lines:cursor column
-  let l:line = '  %-14.(%l/%L:%c%)'
+  " current line/total lines:cursor column percentage in file
+  let l:line = '  %-16.(%l/%L:%c%)%P'
   let l:tab = "%{&expandtab ? ' sw='.&shiftwidth.' ' :
         \ &tabstop == &shiftwidth ? ' ts='.&tabstop.' ' :
         \ ' sw='.&shiftwidth.',ts='.&tabstop.' '}"
