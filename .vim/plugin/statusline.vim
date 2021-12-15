@@ -104,10 +104,12 @@ function! statusline#active() abort
   let l:ses = "%{exists('g:current_possession') ? '[S]' : ''}"
   " useful for resolving git merge conflict or using diff more than 2 windows
   let l:diff = "%{&diff && winnr('$') > 2 ? ' [' . bufnr() . '] ' : '' }"
+  " check if there's alternate buffer or not
+  let l:alt = "%{bufnr('#') == '-1' ? '' : '[#]'}"
   " if has('nvim')
   "   return w:mode.'%*'.l:tab.l:git.l:sep.l:diff.l:readonly.l:filename.l:mod.l:sep.l:ses.'  '.l:ft.l:line
   " else
-    return l:mode.'%*'.l:diff.l:tab.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
+    return l:mode.'%*'.l:diff.l:tab.l:alt.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
   " endif
 endfunction
 
