@@ -21,6 +21,15 @@ function! enable#fzf#init()
           \ 'ctrl-x': 'split',
           \ 'ctrl-s': 'vsplit' }
 
+    " Ref: https://github.com/junegunn/fzf.vim/issues/942
+    " More Info: `:h fzf-examples`
+    let g:fzf_layout = {
+          \ 'window': {
+          \   'width': 1,
+          \   'height': 0.5,
+          \   'yoffset': 0,
+          \   'border': 'bottom' }}
+
     " safety measure if ripgrep not installed
     if executable('rg')
       let $FZF_DEFAULT_COMMAND = "rg --hidden --files --no-ignore-vcs --type-not nonsense --type-not font --type-not torrent"
