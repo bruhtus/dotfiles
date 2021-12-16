@@ -15,11 +15,17 @@
 packadd vim-surround
 packadd targets.vim
 packadd traces.vim
-packadd vim-commentary
-packadd vim-indentwise
-packadd bufstop
 
+if &ft !=# 'gitcommit'
+  packadd vim-commentary
+  packadd vim-indentwise
+  packadd bufstop
+endif
+
+" only load the lsp in specific filetype.
+" TODO: find a way to simplify the filetype list.
 if !has('nvim')
+      \ && &ft =~# '\v(typescript|typescriptreact|javascript|javascriptreact|python)'
   packadd vim-lsp
   packadd vim-lsp-settings
 endif
