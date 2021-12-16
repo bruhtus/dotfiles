@@ -1,6 +1,6 @@
 setlocal spell complete+=kspell
 
-let maplocalleader = '\'
+" let maplocalleader = '\'
 
 " Ref: https://github.com/tpope/vim-git/blob/master/ftplugin/gitcommit.vim
 " function! s:gitdiffcommit() abort
