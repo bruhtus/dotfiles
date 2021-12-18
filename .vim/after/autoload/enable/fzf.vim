@@ -12,9 +12,10 @@ function! enable#fzf#init()
             \  unlet b:ruler
     endif
 
-    " move preview half page-up/down using ctrl-b/f
+    " move preview half page-up/down using ctrl-p/n
+    " ctrl-b/f useful to move the cursor to the left/right
     " wrap preview content
-    let $FZF_DEFAULT_OPTS    = "--bind ctrl-f:preview-half-page-down,ctrl-b:preview-half-page-up --preview-window=wrap"
+    let $FZF_DEFAULT_OPTS = "--bind ctrl-n:preview-half-page-down,ctrl-p:preview-half-page-up --preview-window=wrap"
 
     let g:fzf_action = {
           \ 'ctrl-t': 'tab split',
