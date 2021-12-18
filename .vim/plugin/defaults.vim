@@ -41,7 +41,7 @@ augroup indent_detection
         \ '&l:et = 1'
 augroup END
 
-set nobackup noshowmode noswapfile nostartofline
+set nobackup showmode noswapfile nostartofline
 set ignorecase smartcase incsearch
 set list listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 " to make vim session use absolute path, remove curdir option

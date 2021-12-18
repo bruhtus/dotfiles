@@ -55,34 +55,34 @@ set statusline=%!statusline#update(g:statusline_winid)
 "   endfor
 " endfunction
 
-function! statusline#mode() abort
-  if g:colors_name ==# 'seoul256mod'
-        \ && &laststatus == 2
-        \ && !&showmode
-    if mode() ==# 'n'
-      return '%#NormalModeColor# '
-    " Note: v:insertmode only display the last mode that trigger `InsertEnter` and
-    " `InsertChange`. maybe kind of similar to visualmode()? more info: `:h v:insertmode`
-    " Ref: https://gist.github.com/autrimpo/f40e4eda233977dd3a619c6083d9bebd
-    elseif mode() =~# '\v(i|R|Rv)'
-      return '%#InsertModeColor# '
-    elseif mode() =~# '\v(v|V|s|S)'
-          \ || mode() ==# "\<C-V>"
-          \ || mode() ==# "\<C-S>"
-      return '%#VisualModeColor# '
-    elseif mode() =~# '\v(c|t)'
-      return '%#CommandModeColor# '
-    endif
+" function! statusline#mode() abort
+"   if g:colors_name ==# 'seoul256mod'
+"         \ && &laststatus == 2
+"         \ && !&showmode
+"     if mode() ==# 'n'
+"       return '%#NormalModeColor# '
+"     " Note: v:insertmode only display the last mode that trigger `InsertEnter` and
+"     " `InsertChange`. maybe kind of similar to visualmode()? more info: `:h v:insertmode`
+"     " Ref: https://gist.github.com/autrimpo/f40e4eda233977dd3a619c6083d9bebd
+"     elseif mode() =~# '\v(i|R|Rv)'
+"       return '%#InsertModeColor# '
+"     elseif mode() =~# '\v(v|V|s|S)'
+"           \ || mode() ==# "\<C-V>"
+"           \ || mode() ==# "\<C-S>"
+"       return '%#VisualModeColor# '
+"     elseif mode() =~# '\v(c|t)'
+"       return '%#CommandModeColor# '
+"     endif
 
-  else
-    if !&showmode | set showmode! | endif
-    return ''
-  endif
-endfunction
+"   else
+"     if !&showmode | set showmode! | endif
+"     return ''
+"   endif
+" endfunction
 
 " Ref: https://github.com/junegunn/dotfiles/blob/057ee47465e43aafbd20f4c8155487ef147e29ea/vimrc#L265-L275
 function! statusline#active() abort
-  let l:mode = "%{%statusline#mode()%}"
+  " let l:mode = "%{%statusline#mode()%}"
   let l:filename = " %<%{expand('%:p:~') ==# '' ? '[Blank]' :
         \ winwidth(0) > 160 ? expand('%:p:~') :
         \ winwidth(0) < 71 ? expand('%:t') :
@@ -111,7 +111,8 @@ function! statusline#active() abort
   " if has('nvim')
   "   return w:mode.'%*'.l:tab.l:git.l:sep.l:diff.l:readonly.l:filename.l:mod.l:sep.l:ses.'  '.l:ft.l:line
   " else
-    return l:mode.'%*'.l:diff.l:tab.l:totalbuf.l:alt.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
+    " return l:mode.'%*'.l:diff.l:tab.l:totalbuf.l:alt.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
+    return l:diff.l:tab.l:totalbuf.l:alt.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
   " endif
 endfunction
 
