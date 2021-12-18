@@ -22,10 +22,12 @@ if &ft !=# 'gitcommit'
   packadd bufstop
 endif
 
-" only load the lsp in specific filetype.
-" TODO: find a way to simplify the filetype list.
-if !has('nvim')
-      \ && &ft =~# '\v(typescript|typescriptreact|javascript|javascriptreact|python)'
+" the flaw when only load in specific filetype is that, let's say we open
+" markdown filetype first, the lsp won't be loaded. and then we open
+" typescript filetype, we can't really use the lsp because there's a
+" limitation on how the vim-lsp-settings (for whatever reason, we can't use
+" vim-lsp-settings when not entering vim, with v:vim_did_enter variable).
+if !has('nvim') && &ft !~# '\v(gitcommit|vim)'
   packadd vim-lsp
   packadd vim-lsp-settings
 endif
