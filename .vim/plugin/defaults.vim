@@ -1,28 +1,58 @@
 " default (n)vim settings
 
-set title
-set titlestring=%t " check `:h 'statusline'` for the flags
+set title titlestring=%t " check `:h 'statusline'` for the flags
 
 set hidden
-set showcmd
+set autoread
 set linebreak
 set lazyredraw
+set belloff=all
 set backspace=2
-set complete-=t " disable scanning tags
 set laststatus=2
-set updatetime=0
 set history=10000
-set wildignorecase
-set timeoutlen=500
-set ttimeoutlen=30
+set complete-=t,i " disable scanning tags and included files
 set winminheight=0
 set matchpairs+=<:>
-" set nrformats+=alpha " add aplhabet in increment/decrement
-set completeopt-=preview " ignore omni complete description
+set nrformats-=octal
+set display+=lastline
+set virtualedit=block
+set viewoptions-=options
 set splitbelow splitright
 set number relativenumber
+set nolangremap langnoremap
+set shortmess-=S shortmess+=F
+
+set completeopt-=preview " ignore omni complete description
+set completeopt+=noinsert completeopt+=noselect completeopt+=menuone
+
+set showmode showcmd
+set ignorecase smartcase incsearch
+set nobackup noswapfile nostartofline
+set updatetime=0 timeoutlen=500 ttimeoutlen=30
+set list listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+
+" to make vim session use absolute path, remove curdir option
+set sessionoptions-=options sessionoptions-=curdir sessionoptions+=globals
+
+" to set CursorLineNr highlight
+" Ref: https://vi.stackexchange.com/a/24914
+" Note: the `cursorlineopt` is (finally) appear in nvim 0.6
+if exists('+cursorlineopt') | set cursorline cursorlineopt=number | endif
+
+if exists('+wildmenu') | set wildmenu | endif
+set wildignorecase
 set wildmode=longest:full,full
 set wildignore=*/.git/*,*.pdf,*.jpg,*jpeg,*.png,*.epub,*.mobi
+
+" check if there's termwinkey variable or not
+if exists('+termwinkey') | set termwinkey=<C-p> | endif
+
+if v:version > 703 || v:version == 703 && has('patch541')
+  set formatoptions+=j " delete comment character when joining commented lines
+endif
+
+" in case I don't want to use statusline
+if &ruler | set rulerformat=%-13.(%r%m%)\ %P | endif
 
 " Ref: https://vi.stackexchange.com/a/28017/34851
 set autoindent shiftround smarttab shiftwidth=2 softtabstop=-69
@@ -41,14 +71,8 @@ augroup indent_detection
         \ '&l:et = 1'
 augroup END
 
-set nobackup showmode noswapfile nostartofline
-set ignorecase smartcase incsearch
-set list listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-" to make vim session use absolute path, remove curdir option
-set sessionoptions-=options sessionoptions-=curdir sessionoptions+=globals
-
-" in case I don't want to use statusline
-if &ruler | set rulerformat=%-13.(%r%m%)\ %P | endif
+" set infercase
+" set nrformats+=alpha " add aplhabet in increment/decrement
 
 if has('nvim')
   set guicursor=
@@ -68,27 +92,6 @@ else
     call mkdir(expand('~/.local/share/vim'))
   endif
   set viminfo+=n~/.local/share/vim/viminfo
-  set belloff=all
-  set complete-=i " disable scanning current and included files
-  set nrformats-=octal
-  set display+=lastline
-  set autoread
-  set viewoptions-=options
-  set shortmess-=S shortmess+=F
-  set nolangremap langnoremap
-
-  " to set CursorLineNr highlight in vanilla vim
-  " Ref: https://vi.stackexchange.com/a/24914
-  if exists('+cursorlineopt') | set cursorline cursorlineopt=number | endif
-
-  if exists('+wildmenu') | set wildmenu | endif
-
-  " check if there's termwinkey variable or not
-  if exists('+termwinkey') | set termwinkey=<C-p> | endif
-
-  if v:version > 703 || v:version == 703 && has('patch541')
-    set formatoptions+=j " delete comment character when joining commented lines
-  endif
 endif
 
 if has('syntax')  | syntax on                 | endif
