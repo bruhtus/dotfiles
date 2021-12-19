@@ -98,7 +98,7 @@ function! statusline#active() abort
   let l:sep = '%='
   " current line/total lines:cursor column percentage in file
   let l:line = '  %-16.(%l/%L:%c%)%P'
-  let l:tab = "%{&expandtab ? ' sw='.&shiftwidth.' ' :
+  let l:indent = "%{&expandtab ? ' sw='.&shiftwidth.' ' :
         \ &tabstop == &shiftwidth ? ' ts='.&tabstop.' ' :
         \ ' sw='.&shiftwidth.',ts='.&tabstop.' '}"
   let l:ses = "%{exists('g:current_possession') ? '[S]' : ''}"
@@ -109,10 +109,10 @@ function! statusline#active() abort
   " Ref: https://superuser.com/a/345593
   let l:totalbuf = "%{'[' . len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) . ']'}"
   " if has('nvim')
-  "   return w:mode.'%*'.l:tab.l:git.l:sep.l:diff.l:readonly.l:filename.l:mod.l:sep.l:ses.'  '.l:ft.l:line
+  "   return w:mode.'%*'.l:indent.l:git.l:sep.l:diff.l:readonly.l:filename.l:mod.l:sep.l:ses.'  '.l:ft.l:line
   " else
-    " return l:mode.'%*'.l:diff.l:tab.l:totalbuf.l:alt.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
-    return l:diff.l:tab.l:totalbuf.l:alt.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
+    " return l:mode.'%*'.l:diff.l:indent.l:totalbuf.l:alt.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
+    return l:diff.l:indent.l:totalbuf.l:alt.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
   " endif
 endfunction
 
