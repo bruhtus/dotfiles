@@ -6,49 +6,56 @@ if !&laststatus
   finish
 endif
 
-function! statusline#update(winid) abort
-  if a:winid == win_getid()
-    return statusline#active()
-  else
-    return statusline#inactive()
-  endif
-endfunction
+if has('patch-8.1.1372')
+  function! statusline#update(winid) abort
+    if a:winid == win_getid()
+      return statusline#active()
+    else
+      return statusline#inactive()
+    endif
+  endfunction
 
-" Ref:
-" https://teddit.net/r/vim/comments/nyrv7c/how_to_use_different_statuslines_for_active_and/
-" Ref:
-" https://github.com/lacygoill/vim-statusline/blob/b9f9e84d840ed74ded8144adf50bb05b08c2408a/plugin/statusline.vim#L433-L447
-" WARNING: this method only works on vim 8.1.1372 or above
-" Note: this method solve the problem when enter vim using split window like
-" when use `git mergetool` command, the inactive statusline is not updated
-" when using autocmd
-set statusline=%!statusline#update(g:statusline_winid)
+  " Ref:
+  " https://teddit.net/r/vim/comments/nyrv7c/how_to_use_different_statuslines_for_active_and/
+  " Ref:
+  " https://github.com/lacygoill/vim-statusline/blob/b9f9e84d840ed74ded8144adf50bb05b08c2408a/plugin/statusline.vim#L433-L447
+  " WARNING: this method only works on vim 8.1.1372 or above
+  " Patch:
+  " https://github.com/vim/vim/commit/1c6fd1e100fd0457375642ec50d483bcc0f61bb2
+  " Note: this method solve the problem when enter vim using split window like
+  " when use `git mergetool` command, the inactive statusline is not updated
+  " when using autocmd
+  set statusline=%!statusline#update(g:statusline_winid)
 
-" augroup statusline_startup
-"   autocmd!
-"   autocmd WinEnter,BufEnter,SessionLoadPost,FileChangedShellPost *
-"         \ call statusline#update()
+else
+  " Ref:
+  " https://github.com/itchyny/lightline.vim/blob/a29b8331e1bb36b09bafa30c3aa77e89cdd832b2/autoload/lightline.vim#L21-L25
+  function! statusline#update() abort
+    let winnr = winnr()
+    let current_win =
+          \ winnr('$') == 1 && winnr > 0 ?
+          \ [statusline#active()] :
+          \ [statusline#active(), statusline#inactive()]
+    for num in range(1, winnr('$'))
+      call setwinvar(num, '&statusline', current_win[num != winnr])
+    endfor
+  endfunction
 
-"   maybe should have used ModeChanged event instead?
-"   not sure if i should add more autocommand
-"   autocmd CmdlineLeave :
-"         \ if &laststatus != 2 && !&showmode |
-"         \ set showmode |
-"         \ else |
-"         \ set noshowmode |
-"         \ endif
-" augroup END
+  augroup statusline_startup
+    autocmd!
+    autocmd WinEnter,BufEnter,SessionLoadPost,FileChangedShellPost *
+          \ call statusline#update()
 
-" function! statusline#update() abort
-"   let winnr = winnr()
-"   let current_win =
-"         \ winnr('$') == 1 && winnr > 0 ?
-"         \ [statusline#active()] :
-"         \ [statusline#active(), statusline#inactive()]
-"   for num in range(1, winnr('$'))
-"     call setwinvar(num, '&statusline', current_win[num != winnr])
-"   endfor
-" endfunction
+    "   maybe should have used ModeChanged event instead?
+    "   not sure if i should add more autocommand
+    "   autocmd CmdlineLeave :
+    "         \ if &laststatus != 2 && !&showmode |
+    "         \ set showmode |
+    "         \ else |
+    "         \ set noshowmode |
+    "         \ endif
+  augroup END
+endif
 
 " function! statusline#mode() abort
 "   if g:colors_name ==# 'seoul256mod'
