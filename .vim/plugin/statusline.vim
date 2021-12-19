@@ -6,11 +6,6 @@ if !&laststatus
   finish
 endif
 
-" Ref: vim-lightline plugin
-" make vim intro appear when vim start without filename
-" let s:save_cpo = &cpo
-" set cpo&vim
-
 function! statusline#update(winid) abort
   if a:winid == win_getid()
     return statusline#active()
@@ -183,6 +178,3 @@ function! s:gitbranch_detect(path) abort
     endif
   endif
 endfunction
-
-" let &cpo = s:save_cpo
-" unlet s:save_cpo
