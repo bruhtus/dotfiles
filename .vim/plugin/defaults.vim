@@ -61,13 +61,25 @@ set autoindent shiftround smarttab shiftwidth=2 softtabstop=-69
 " whether there's a tab character or not
 " Ref: https://github.com/itchyny/dotfiles/blob/a7d5f94d794554c7a4eee68b3248c862b67abb14/.vimrc#L89
 " Ref: https://github.com/luochen1990/indent-detector.vim/blob/master/plugin/indent_detector.vim
+" Ref: https://stackoverflow.com/a/35968022
+" Ref: http://vimregex.com/#anchors
 " Ref: `:h :let-option`, `:h :let-unpack`
+" Note: this autocmd doesn't acknowledge people that use one space as
+" indentation.
+" Note: the result is the line number, not the total.
+" let result = searchcount(#{pattern: '\t\+ \+', maxcount: -69})
 augroup indent_detection
   autocmd!
   autocmd BufNewFile,BufRead,FileType *
+        \ let b:indent_spaces = search('^  \+', 'wn') |
+        \ let b:indent_tabs = search('^\t', 'wn') |
+        \ let b:tab_with_space = search('\t\+ \+', 'wn') |
+        \ let b:space_with_tab = search(' \+\t\+', 'wn') |
         \ execute 'let '
-        \ search('^\t', 'n') && !search('^  ', 'n') ? '[&l:ts, &l:et] = [&sw, 0]' :
-        \ search('^\t', 'n') && search('^  ', 'n') ? '&l:et = 0' :
+        \ b:indent_tabs && !b:indent_spaces && !b:tab_with_space && !b:space_with_tab ?
+        \ '[&l:ts, &l:et] = [&sw, 0]' :
+        \ (b:indent_tabs && b:indent_spaces) || b:tab_with_space || b:space_with_tab ?
+        \ '&l:et = 0' :
         \ '&l:et = 1'
 augroup END
 
