@@ -51,18 +51,19 @@ function! pack#init() abort
   "   call minpac#add('kabouzeid/nvim-lspinstall', { 'type': 'opt' })
   " endif
 
-  " call minpac#add('mihaifm/bufstop')
-  " call minpac#add('tpope/vim-sleuth')
-  " call minpac#add('preservim/tagbar')
-  " call minpac#add('airblade/vim-rooter')
-  " call minpac#add('andymass/vim-matchup')
-  " call minpac#add('kshenoy/vim-signature')
-  " call minpac#add('glepnir/dashboard-nvim')
-  " call minpac#add('junegunn/gv.vim',           { 'type': 'opt' })
-  " call minpac#add('phaazon/hop.nvim',          { 'type': 'opt' })
-  " call minpac#add('justinmk/vim-sneak',        { 'type': 'opt' })
-  " call minpac#add('rhysd/committia.vim',       { 'type': 'opt' })
-  " call minpac#add('easymotion/vim-easymotion', { 'type': 'opt' })
+  " call minpac#add('mihaifm/bufstop',              { 'type': 'opt' })
+  " call minpac#add('junegunn/gv.vim',              { 'type': 'opt' })
+  " call minpac#add('tpope/vim-sleuth',             { 'type': 'opt' })
+  " call minpac#add('phaazon/hop.nvim',             { 'type': 'opt' })
+  " call minpac#add('preservim/tagbar',             { 'type': 'opt' })
+  " call minpac#add('justinmk/vim-sneak',           { 'type': 'opt' })
+  " call minpac#add('rhysd/committia.vim',          { 'type': 'opt' })
+  " call minpac#add('airblade/vim-rooter',          { 'type': 'opt' })
+  " call minpac#add('andymass/vim-matchup',         { 'type': 'opt' })
+  " call minpac#add('kshenoy/vim-signature',        { 'type': 'opt' })
+  " call minpac#add('glepnir/dashboard-nvim',       { 'type': 'opt' })
+  " call minpac#add('easymotion/vim-easymotion',    { 'type': 'opt' })
+  " call minpac#add('Konfekt/vim-sentence-chopper', { 'type': 'opt' })
 endfunction
 
 " Ref: minpac/autoload/minpac/impl.vim
