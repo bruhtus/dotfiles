@@ -7,19 +7,19 @@
 " to move the plugin directory to `opt` directory (this is the reason why i
 " made `PacMove` command).
 
-" the downside of this approach is that i can't use `PacQ` command to check
-" how many plugin that got loaded.
-
-" for some reason i can't use `for` loop, still not sure how that works.
-
-packadd vim-surround
-packadd targets.vim
-packadd traces.vim
+let g:packlist = [
+      \ 'vim-surround',
+      \ 'targets.vim',
+      \ 'traces.vim',
+      \ ]
 
 if &ft !=# 'gitcommit'
-  packadd vim-commentary
-  packadd vim-indentwise
-  packadd bufstop
+  call extend(g:packlist,
+        \ [
+          \ 'vim-commentary',
+          \ 'vim-indentwise',
+          \ 'bufstop',
+          \ ])
 endif
 
 " the flaw when only load in specific filetype is that, let's say we open
@@ -28,6 +28,13 @@ endif
 " limitation on how the vim-lsp-settings (for whatever reason, we can't use
 " vim-lsp-settings when not entering vim, with v:vim_did_enter variable).
 if !has('nvim') && &ft !~# '\v(gitcommit|vim)'
-  packadd vim-lsp
-  packadd vim-lsp-settings
+  call extend(g:packlist,
+        \ [
+          \ 'vim-lsp',
+          \ 'vim-lsp-settings',
+          \ ])
 endif
+
+for s:pack in g:packlist
+  exe 'packadd ' . s:pack
+endfor
