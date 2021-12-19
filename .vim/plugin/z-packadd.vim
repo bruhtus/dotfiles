@@ -35,11 +35,14 @@ if !has('nvim') && &ft !~# '\v(gitcommit|vim)'
           \ ])
 endif
 
-for s:pack in g:packlist
-  exe 'packadd ' . s:pack
-endfor
+try
+  for s:pack in g:packlist
+    exe 'packadd ' . s:pack
+  endfor
 
-command! PacQ
-      \ exe "echo 'Total:'"
-      \ . len(g:packlist) . "'plugin(s)'" |
-      \ echo join(sort(g:packlist), "\n")
+  command! PacQ
+        \ exe "echo 'Total:'"
+        \ . len(g:packlist) . "'plugin(s)'" |
+        \ echo join(sort(g:packlist), "\n")
+catch
+endtry
