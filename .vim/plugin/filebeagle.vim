@@ -1,3 +1,3 @@
 " vim-filebeagle config
 
-nnoremap <leader>l :call enable#filebeagle()<CR>
+nnoremap <silent> <leader>l :call enable#filebeagle()<CR>
