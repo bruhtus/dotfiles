@@ -183,6 +183,9 @@ nnoremap <expr> <silent> U
 " \v make every following character except a-zA-Z0-9 a special character
 nnoremap Q :lvimgrep /\v/j %<left><left><left><left>
 
+" print current working directory
+nnoremap <leader>; :<C-u>pwd<CR>
+
 " set space s to substitute command
 nnoremap <leader>s :s//g<left><left>
 
