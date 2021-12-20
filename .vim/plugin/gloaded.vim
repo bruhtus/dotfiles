@@ -23,6 +23,7 @@ else
   " disable default plugin in vim
   let g:loaded_logipat          = 1
   let g:loaded_rrhelper         = 1
+  let g:loaded_vimball          = 1
   let g:loaded_vimballPlugin    = 1
   let g:loaded_getscriptPlugin  = 1
 endif
