@@ -84,6 +84,7 @@ xnoremap <silent> <leader>y "+y:let @+=substitute(@+, '\n$', '', 'g')<CR>
 " set vim to paste from clipboard
 nnoremap <C-p> "+gp
 nnoremap <silent> <leader>p :put +<CR>
+nnoremap <silent> <leader>P :put! +<CR>
 
 " remap _ to set current height window to highest possible
 nnoremap _ <C-w>_
