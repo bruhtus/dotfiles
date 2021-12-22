@@ -71,10 +71,10 @@ set autoindent shiftround smarttab shiftwidth=2 softtabstop=-69
 augroup indent_detection
   autocmd!
   autocmd BufNewFile,BufRead,FileType *
-        \ let b:indent_spaces = search('^  \+', 'wn') |
-        \ let b:indent_tabs = search('^\t', 'wn') |
-        \ let b:tab_with_space = search('\t\+ \+', 'wn') |
-        \ let b:space_with_tab = search(' \+\t\+', 'wn') |
+        \ let b:indent_spaces = search('^  \+', 'nW') |
+        \ let b:indent_tabs = search('^\t', 'nW') |
+        \ let b:tab_with_space = search('\t\+ \+', 'nW') |
+        \ let b:space_with_tab = search(' \+\t\+', 'nW') |
         \ execute 'let '
         \ b:indent_tabs && !b:indent_spaces && !b:tab_with_space && !b:space_with_tab ?
         \ '[&l:ts, &l:et] = [&sw, 0]' :
