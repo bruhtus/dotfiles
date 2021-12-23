@@ -5,7 +5,6 @@ set title titlestring=%t " check `:h 'statusline'` for the flags
 set hidden
 set autoread
 set linebreak
-set lazyredraw
 set belloff=all
 set backspace=2
 set laststatus=2
@@ -16,6 +15,7 @@ set matchpairs+=<:>
 set nrformats-=octal
 set display+=lastline
 set virtualedit=block
+set ttyfast lazyredraw
 set viewoptions-=options
 set splitbelow splitright
 set number relativenumber
