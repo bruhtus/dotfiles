@@ -7,11 +7,11 @@
 # just in case ripgrep is not installed
 {
   rg --files --type-add 'pdf:*.epub' --type pdf ~ |
-    dmenu -i -l 10 -p 'open document' |
+    rofi -dmenu -i -l 10 -p 'open document' |
     tr '\n' '\0' |
     xargs -0  -r -I {} setsid -f zathura "{}" 2>/dev/null
 } || {
   find ~ -path ~/.cache -prune -false -o -type f \( -iname '*.pdf' -o -iname '*.epub' \) -printf '"%p"\n' |
-  dmenu -i -l 10 -p 'open document' |
+  rofi -dmenu -i -l 10 -p 'open document' |
   xargs -r -I {} setsid -f zathura "{}" 2>/dev/null
 }
