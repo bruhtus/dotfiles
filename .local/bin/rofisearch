@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# Script name:     dmsearch
+# Script name:     rofisearch
 # Description:     Search various search engines (inspired by surfraw).
-# Dependencies:    dmenu and a web browser
+# Dependencies:    rofi and a web browser
 # Original Script: https://www.gitlab.com/dwt1/dmscripts
 # Contributors:    Derek Taylor
 #                  Ali Furkan Yıldız
@@ -38,13 +38,13 @@ options[youtube]="https://www.youtube.com/results?search_query="
 
 # Picking a search engine.
 while [ -z "$engine" ]; do
-    engine=$(printf '%s\n' "${!options[@]}" | sort | dmenu -i -l 20 -p 'Choose search engine:') "$@" || exit
+    engine=$(printf '%s\n' "${!options[@]}" | sort | rofi -dmenu -i -l 10 -p 'Choose search engine') "$@" || exit
     url=$(echo "${options["${engine}"]}") || exit
 done
 
 # Searching the chosen engine.
 while [ -z "$query" ]; do
-    query=$(echo "$engine" | dmenu -p 'Enter search query:') "$@" || exit
+    query=$(echo "$engine" | rofi -dmenu -l 1 -p 'Enter search query') "$@" || exit
 done
 
 # Display search results in web browser
