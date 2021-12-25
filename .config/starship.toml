@@ -16,6 +16,7 @@ disabled = true
 
 [cmd_duration]
 # Show command duration over 10,000 milliseconds (=10 sec)
+format = '\[[took $duration]($style)\]'
 min_time = 10_000
 
 [line_break]
@@ -57,6 +58,174 @@ format = "[$output]($style) "
 command = "task status:pending count"
 when = "true"
 format = "task [$output]($style) "
+
+# preset bracket and plain text
+# can't have duplicate module, be careful
+[aws]
+symbol = "aws "
+format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
+
+[cmake]
+symbol = "cmake "
+format = '\[[$symbol($version)]($style)\]'
+
+[cobol]
+symbol = "cobol "
+format = '\[[$symbol($version)]($style)\]'
+
+[conda]
+symbol = "conda "
+format = '\[[$symbol$environment]($style)\]'
+
+[crystal]
+symbol = "crystal "
+format = '\[[$symbol($version)]($style)\]'
+
+[dart]
+symbol = "dart "
+format = '\[[$symbol($version)]($style)\]'
+
+[deno]
+symbol = "deno "
+format = '\[[$symbol($version)]($style)\]'
+
+[docker_context]
+symbol = "docker "
+format = '\[[$symbol$context]($style)\]'
+
+[dotnet]
+symbol = ".NET "
+format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
+
+[elixir]
+symbol = "elixir "
+format = '\[[$symbol($version \(OTP $otp_version\))]($style)\]'
+
+[elm]
+symbol = "elm "
+format = '\[[$symbol($version)]($style)\]'
+
+[erlang]
+symbol = "erlang "
+format = '\[[$symbol($version)]($style)\]'
+
+[gcloud]
+symbol = "gcloud "
+format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
+
+[golang]
+symbol = "go "
+format = '\[[$symbol($version)]($style)\]'
+
+[helm]
+symbol = "helm "
+format = '\[[$symbol($version)]($style)\]'
+
+[hg_branch]
+symbol = "hg "
+format = '\[[$symbol$branch]($style)\]'
+
+[java]
+symbol = "java "
+format = '\[[$symbol($version)]($style)\]'
+
+[julia]
+symbol = "julia "
+format = '\[[$symbol($version)]($style)\]'
+
+[kotlin]
+symbol = "kotlin "
+format = '\[[$symbol($version)]($style)\]'
+
+[kubernetes]
+symbol = "kubernetes "
+format = '\[[$symbol$context( \($namespace\))]($style)\]'
+
+[lua]
+symbol = "lua "
+format = '\[[$symbol($version)]($style)\]'
+
+[memory_usage]
+symbol = "memory "
+format = '\[$symbol[$ram( | $swap)]($style)\]'
+
+[nim]
+symbol = "nim "
+format = '\[[$symbol($version)]($style)\]'
+
+[nix_shell]
+symbol = "nix "
+format = '\[[$symbol$state( \($name\))]($style)\]'
+
+[nodejs]
+symbol = "nodejs "
+format = '\[[$symbol($version)]($style)\]'
+
+[ocaml]
+symbol = "ocaml "
+format = '\[[$symbol($version)(\($switch_indicator$switch_name\))]($style)\]'
+
+[openstack]
+symbol = "openstack "
+format = '\[[$symbol$cloud(\($project\))]($style)\]'
+
+[perl]
+symbol = "perl "
+format = '\[[$symbol($version)]($style)\]'
+
+[php]
+symbol = "php "
+format = '\[[$symbol($version)]($style)\]'
+
+[purescript]
+symbol = "purescript "
+format = '\[[$symbol($version)]($style)\]'
+
+[python]
+symbol = "python "
+format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+
+[red]
+symbol = "red "
+format = '\[[$symbol($version)]($style)\]'
+
+[ruby]
+symbol = "ruby "
+format = '\[[$symbol($version)]($style)\]'
+
+[rust]
+symbol = "rust "
+format = '\[[$symbol($version)]($style)\]'
+
+[scala]
+symbol = "scala "
+format = '\[[$symbol($version)]($style)\]'
+
+[swift]
+symbol = "swift "
+format = '\[[$symbol($version)]($style)\]'
+
+[terraform]
+symbol = "terraform "
+format = '\[[$symbol$workspace]($style)\]'
+
+[time]
+format = '\[[$time]($style)\]'
+
+[username]
+format = '\[[$user]($style)\]'
+
+[vagrant]
+symbol = "vagrant "
+format = '\[[$symbol($version)]($style)\]'
+
+[vlang]
+symbol = "vlang "
+format = '\[[$symbol($version)]($style)\]'
+
+[zig]
+symbol = "zig "
+format = '\[[$symbol($version)]($style)\]'
 
 # [python]
 # format = '[$symbol$version (\($virtualenv\) )]($style)'
