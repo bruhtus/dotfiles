@@ -95,7 +95,7 @@ format = '\[[$symbol$context]($style)\]'
 
 [dotnet]
 symbol = '.NET '
-format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
+format = '\[[$symbol($version)( $tfm)]($style)\]'
 
 [elixir]
 symbol = 'elixir '
