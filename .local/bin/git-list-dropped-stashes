@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Ref: https://github.com/joeytwiddle/jsh/blob/master/code/shellscript/git/git-list-dropped-stashes.sh
+
+# Whoops did you just pop a stash and then lose the changes with an accidental reset?  Don't panic, that stash is probably still in history.
+
+list_of_commits="$(git fsck --no-reflog | awk '/dangling commit/ {print $3}')"
+
+# Optional but useful: sort the commits into reverse date order
+sorted_list="$(git show --pretty="%at %H" --no-patch ${list_of_commits} | sort -n -k 1 -r | awk '{print $2}')"
+
+git show --stat -p ${sorted_list}
