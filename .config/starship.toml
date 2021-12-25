@@ -1,8 +1,8 @@
 # extend default format
-format = """
+format = '''
 [┌──>](bold green) $custom$all
 [│](bold green) $directory$git_branch$git_status
-[└─](bold green)$character"""
+[└─](bold green)$character'''
 
 # Inserts a blank line between shell prompts
 add_newline = true
@@ -28,9 +28,9 @@ truncate_to_repo = false
 truncation_symbol = "../"
 
 [character]
-success_symbol = "[>](bold green)"
-error_symbol = "[x](bold red)"
-vicmd_symbol = "[<](bold green)"
+success_symbol = '[>](bold green)'
+error_symbol = '[x](bold red)'
+vicmd_symbol = '[<](bold green)'
 
 [git_status]
 format = '([$all_status$ahead_behind]($style) )'
@@ -46,167 +46,167 @@ renamed = 'r${count} '
 deleted = 'x${count} '
 
 [git_branch]
-format = "[$branch]($style) "
+format = '[$branch]($style) '
 
 [custom.taskwarrior-context]
-command = "task _get rc.context"
+command = 'task _get rc.context'
 # ref: https://stackoverflow.com/a/12137501
-when = "[ $(task _get rc.context) ]"
-format = "[$output]($style) "
+when = '[ $(task _get rc.context) ]'
+format = '[$output]($style) '
 
 [custom.taskwarrior-task]
-command = "task status:pending count"
-when = "true"
-format = "task [$output]($style) "
+command = 'task status:pending count'
+when = 'true'
+format = 'task [$output]($style) '
 
 # preset bracket and plain text
 # can't have duplicate module, be careful
 [aws]
-symbol = "aws "
+symbol = 'aws '
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
 
 [cmake]
-symbol = "cmake "
+symbol = 'cmake '
 format = '\[[$symbol($version)]($style)\]'
 
 [cobol]
-symbol = "cobol "
+symbol = 'cobol '
 format = '\[[$symbol($version)]($style)\]'
 
 [conda]
-symbol = "conda "
+symbol = 'conda '
 format = '\[[$symbol$environment]($style)\]'
 
 [crystal]
-symbol = "crystal "
+symbol = 'crystal '
 format = '\[[$symbol($version)]($style)\]'
 
 [dart]
-symbol = "dart "
+symbol = 'dart '
 format = '\[[$symbol($version)]($style)\]'
 
 [deno]
-symbol = "deno "
+symbol = 'deno '
 format = '\[[$symbol($version)]($style)\]'
 
 [docker_context]
-symbol = "docker "
+symbol = 'docker '
 format = '\[[$symbol$context]($style)\]'
 
 [dotnet]
-symbol = ".NET "
+symbol = '.NET '
 format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
 
 [elixir]
-symbol = "elixir "
+symbol = 'elixir '
 format = '\[[$symbol($version \(OTP $otp_version\))]($style)\]'
 
 [elm]
-symbol = "elm "
+symbol = 'elm '
 format = '\[[$symbol($version)]($style)\]'
 
 [erlang]
-symbol = "erlang "
+symbol = 'erlang '
 format = '\[[$symbol($version)]($style)\]'
 
 [gcloud]
-symbol = "gcloud "
+symbol = 'gcloud '
 format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
 
 [golang]
-symbol = "go "
+symbol = 'go '
 format = '\[[$symbol($version)]($style)\]'
 
 [helm]
-symbol = "helm "
+symbol = 'helm '
 format = '\[[$symbol($version)]($style)\]'
 
 [hg_branch]
-symbol = "hg "
+symbol = 'hg '
 format = '\[[$symbol$branch]($style)\]'
 
 [java]
-symbol = "java "
+symbol = 'java '
 format = '\[[$symbol($version)]($style)\]'
 
 [julia]
-symbol = "julia "
+symbol = 'julia '
 format = '\[[$symbol($version)]($style)\]'
 
 [kotlin]
-symbol = "kotlin "
+symbol = 'kotlin '
 format = '\[[$symbol($version)]($style)\]'
 
 [kubernetes]
-symbol = "kubernetes "
+symbol = 'kubernetes '
 format = '\[[$symbol$context( \($namespace\))]($style)\]'
 
 [lua]
-symbol = "lua "
+symbol = 'lua '
 format = '\[[$symbol($version)]($style)\]'
 
 [memory_usage]
-symbol = "memory "
+symbol = 'memory '
 format = '\[$symbol[$ram( | $swap)]($style)\]'
 
 [nim]
-symbol = "nim "
+symbol = 'nim '
 format = '\[[$symbol($version)]($style)\]'
 
 [nix_shell]
-symbol = "nix "
+symbol = 'nix '
 format = '\[[$symbol$state( \($name\))]($style)\]'
 
 [nodejs]
-symbol = "nodejs "
+symbol = 'nodejs '
 format = '\[[$symbol($version)]($style)\]'
 
 [ocaml]
-symbol = "ocaml "
+symbol = 'ocaml '
 format = '\[[$symbol($version)(\($switch_indicator$switch_name\))]($style)\]'
 
 [openstack]
-symbol = "openstack "
+symbol = 'openstack '
 format = '\[[$symbol$cloud(\($project\))]($style)\]'
 
 [perl]
-symbol = "perl "
+symbol = 'perl '
 format = '\[[$symbol($version)]($style)\]'
 
 [php]
-symbol = "php "
+symbol = 'php '
 format = '\[[$symbol($version)]($style)\]'
 
 [purescript]
-symbol = "purescript "
+symbol = 'purescript '
 format = '\[[$symbol($version)]($style)\]'
 
 [python]
-symbol = "python "
+symbol = 'python '
 format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
 
 [red]
-symbol = "red "
+symbol = 'red '
 format = '\[[$symbol($version)]($style)\]'
 
 [ruby]
-symbol = "ruby "
+symbol = 'ruby '
 format = '\[[$symbol($version)]($style)\]'
 
 [rust]
-symbol = "rust "
+symbol = 'rust '
 format = '\[[$symbol($version)]($style)\]'
 
 [scala]
-symbol = "scala "
+symbol = 'scala '
 format = '\[[$symbol($version)]($style)\]'
 
 [swift]
-symbol = "swift "
+symbol = 'swift '
 format = '\[[$symbol($version)]($style)\]'
 
 [terraform]
-symbol = "terraform "
+symbol = 'terraform '
 format = '\[[$symbol$workspace]($style)\]'
 
 [time]
@@ -216,15 +216,15 @@ format = '\[[$time]($style)\]'
 format = '\[[$user]($style)\]'
 
 [vagrant]
-symbol = "vagrant "
+symbol = 'vagrant '
 format = '\[[$symbol($version)]($style)\]'
 
 [vlang]
-symbol = "vlang "
+symbol = 'vlang '
 format = '\[[$symbol($version)]($style)\]'
 
 [zig]
-symbol = "zig "
+symbol = 'zig '
 format = '\[[$symbol($version)]($style)\]'
 
 # [python]
