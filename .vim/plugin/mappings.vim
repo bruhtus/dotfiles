@@ -187,6 +187,9 @@ nnoremap Q :lvimgrep /\v/j %<left><left><left><left>
 " print current working directory
 nnoremap <leader>; :<C-u>pwd<CR>
 
+" toggle `relativenumber` option (useful when pairing)
+nnoremap <silent> <leader>r :<C-u>setl relativenumber!<CR>
+
 " set space s to substitute command
 nnoremap <leader>s :s//g<left><left>
 
