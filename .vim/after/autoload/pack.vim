@@ -27,6 +27,7 @@ function! pack#init() abort
 
   call minpac#add('k-takata/minpac',              { 'type': 'opt' })
   call minpac#add('bruhtus/gv.vim',               { 'type': 'opt' })
+  call minpac#add('mbbill/undotree',              { 'type': 'opt' })
   call minpac#add('ap/vim-css-color',             { 'type': 'opt' })
   call minpac#add('tpope/vim-eunuch',             { 'type': 'opt' })
   call minpac#add('junegunn/goyo.vim',            { 'type': 'opt' })
