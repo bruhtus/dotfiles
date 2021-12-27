@@ -99,6 +99,10 @@ nnoremap = m'=
 nnoremap / m'/
 nnoremap ? m'?
 
+" map [q and ]q to go to previous/next saved state
+nnoremap <silent> [q :ea1f<CR>
+nnoremap <silent> ]q :lat1f<CR>
+
 " map ]k to cnext and [k to cprevious
 nnoremap <silent> ]k :cn<CR>zz
 nnoremap <silent> [k :cp<CR>zz
