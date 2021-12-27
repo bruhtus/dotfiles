@@ -52,7 +52,8 @@ if v:version > 703 || v:version == 703 && has('patch541')
 endif
 
 " in case I don't want to use statusline
-if &ruler | set rulerformat=%-13.(%r%m%)\ %P | endif
+" if &ruler | set rulerformat=%-13.(%r%m%)\ %P | endif
+if &ruler | set rulerformat=%-13.(%l/%<%L:%c%)\ %P | endif
 
 " Ref: https://vi.stackexchange.com/a/28017/34851
 set autoindent shiftround smarttab shiftwidth=2 softtabstop=-69
