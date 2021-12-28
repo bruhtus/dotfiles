@@ -26,7 +26,6 @@ function! template#sh()
     bw#
     bp
     bn
-    norm! L
     filetype detect
   else
     echo "Shell script template doesn't exist"
