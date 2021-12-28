@@ -18,9 +18,9 @@ set virtualedit=block
 set ttyfast lazyredraw
 set viewoptions-=options
 set splitbelow splitright
-set number relativenumber
 set nolangremap langnoremap
 set shortmess-=S shortmess+=F
+set number relativenumber numberwidth=5
 
 set completeopt-=preview " ignore omni complete description
 set completeopt+=noinsert completeopt+=noselect completeopt+=menuone
