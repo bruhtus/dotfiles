@@ -2,7 +2,10 @@
 
 ![setup-screenshot](https://raw.githubusercontent.com/wiki/bruhtus/dotfiles/arch-linux-setup-dec-2021.png)
 
-This repo is to backup my linux configuration so that I don't need to re-configure every new installation. I use [dotbare](https://github.com/kazhala/dotbare) to manage my dotfiles. Below is the simplified version to setup dotbare.
+This repo is to backup my linux configuration so that I don't need to
+re-configure every new installation.
+I use [dotbare](https://github.com/kazhala/dotbare) to manage my dotfiles.
+Below is the simplified version to setup dotbare.
 
 ## Initialize dotbare to backup dotfiles
 ```sh
@@ -18,9 +21,11 @@ dotbare push origin master
 ```
 
 ## Restore dotfiles in new system
-> Note to myself: don't forget to make the script executable by doing `chmod +x <filename>`
+> Note to myself: don't forget to make the script executable by doing
+> `chmod +x <filename>`
 
-> To enable updates-notifier, use `systemctl --user enable --now updates-notifier.timer`
+> To enable updates-notifier, use
+> `systemctl --user enable --now updates-notifier.timer`
 
 Install zsh first, and then do the instruction below:
 
