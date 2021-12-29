@@ -288,6 +288,15 @@ call s:hi('Special', [216], [''])
 " :map, listchars
 call s:hi('SpecialKey', [59], [''])
 
+" blank line
+" Ref: https://stackoverflow.com/a/706083
+if exists('$DISPLAY')
+  call s:hi('BlankLine', [''], [238])
+else
+  call s:hi('BlankLine', [''], [244])
+endif
+match BlankLine /^$/
+
 if !s:gui
   " Red / Blue / Cyan / Magenta
   if s:style_idx == 0
@@ -379,7 +388,7 @@ call s:hi('CommandModeColor', [233], [217])
 call s:hi('Sneak',      [s:dark_bg], [230])
 call s:hi('SneakLabel', [s:dark_bg], [230])
 
-" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+" Ref: http://vim.wikia.com/wiki/Highlight_unwanted_spaces
 " ---------------------------------------------------^^^^^
 call s:hi('ExtraWhitespace', [''], [s:dark_bg - 1])
 
