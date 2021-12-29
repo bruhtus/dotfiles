@@ -17,6 +17,13 @@ inoremap <buffer> . .<C-g>u
 " inoremap <C-w> <C-g>u<C-w>
 " inoremap <C-u> <C-g>u<C-u>
 
+" Ref: http://www.vimregex.com/#address
+" Ref: https://twitter.com/VImTipsDaily/status/1475761064977567754
+" yank the content inside markdown code block to clipboard register.
+" the downside of this approach is that, we need to place the cursor inside of
+" markdown code block.
+nnoremap <buffer> yu :?```?+,/```/-y+<CR>
+
 " inspired by $VIMRUNTIME/ftplugin/vim.vim and $VIMRUNTIME/ftplugin/python.vim
 " Ref:
 " https://github.com/tpope/vim-markdown/blob/ed76403b2e0622bc137df4576275a9fd3720b875/ftplugin/markdown.vim#L30-L32
