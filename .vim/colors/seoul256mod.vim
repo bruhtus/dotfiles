@@ -175,8 +175,14 @@ endif
 call s:hi('Normal', [s:dark_fg], [s:dark_bg])
 
 call s:hi('LineNr',    [101], [s:dark_bg])
-call s:hi('Visual',    [''],  [239])
-call s:hi('VisualNOS', [''],  [239])
+
+if exists('$DISPLAY')
+  call s:hi('Visual',    [''],  [23])
+  call s:hi('VisualNOS', [''],  [23])
+else
+  call s:hi('Visual',    [''],  [44])
+  call s:hi('VisualNOS', [''],  [44])
+endif
 
 call s:hi('Comment',         [65],  [''])
 call s:hi('Number',          [222], [''])
