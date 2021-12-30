@@ -240,7 +240,15 @@ call s:hi('Underlined', [181],       [''])
 
 " set textwidth=80
 " set colorcolumn=+1
-call s:hi('ColorColumn', [''], [s:dark_bg + 5])
+if exists('$DISPLAY')
+  call s:hi('ColorColumn', [''], [238])
+else
+  call s:hi('ColorColumn', [''], [244])
+endif
+
+" highlight blank line
+" Ref: https://stackoverflow.com/a/706083
+match ColorColumn /^$/
 
 " GVIM only
 " hi Cursor ctermfg=
@@ -294,14 +302,6 @@ call s:hi('Special', [216], [''])
 " :map, listchars
 call s:hi('SpecialKey', [59], [''])
 
-" blank line
-" Ref: https://stackoverflow.com/a/706083
-if exists('$DISPLAY')
-  call s:hi('BlankLine', [''], [238])
-else
-  call s:hi('BlankLine', [''], [244])
-endif
-match BlankLine /^$/
 
 if !s:gui
   " Red / Blue / Cyan / Magenta
