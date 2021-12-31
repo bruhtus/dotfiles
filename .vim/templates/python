@@ -1,7 +1,7 @@
 from fire import Fire
 
 
-def main():
+def main(`CURSOR`):
 
 
 if __name__ == '__main__':

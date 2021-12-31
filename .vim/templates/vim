@@ -1,14 +1,14 @@
-" File:
+" File: `CURSOR`
 " Maintainer: Robertus Diawan Chris <https://github.com/bruhtus>
 " License:
 " Copyright (c) Robertus Diawan Chris. Distributed under the same terms as Vim itself.
 " See :h license
 "
-" Description:
+" Description: `CURSOR`
 "
 
-if exists('g:loaded_')
+if exists('g:loaded_`CURSOR`')
   finish
 endif
 
-let g:loaded_ = 1
+let g:loaded_`CURSOR` = 1

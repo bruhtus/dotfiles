@@ -14,7 +14,10 @@ function! template#python()
     bw#
     bp
     bn
-    norm! GkJ4kF(
+    $d_
+    call search('`CURSOR`', 'ebW')
+    " Ref: https://stackoverflow.com/q/26223100
+    let @/ = '`CURSOR`'
   else
     echo "Python template doesn't exist"
   endif
@@ -38,7 +41,8 @@ function! template#vim()
     bw#
     bp
     bn
-    norm! Lkf_
+    call search('`CURSOR`', 'eW')
+    let @/ = '`CURSOR`'
   else
     echo "Vim template doesn't exist"
   endif
