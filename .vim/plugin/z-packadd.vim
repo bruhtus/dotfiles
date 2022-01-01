@@ -7,14 +7,14 @@
 " to move the plugin directory to `opt` directory (this is the reason why i
 " made `PacMove` command).
 
-let g:packlist = [
+let s:packlist = [
       \ 'vim-surround',
       \ 'targets.vim',
       \ 'traces.vim',
       \ ]
 
 if &ft !=# 'gitcommit'
-  call extend(g:packlist,
+  call extend(s:packlist,
         \ [
           \ 'vim-commentary',
           \ 'vim-indentwise',
@@ -28,7 +28,7 @@ endif
 " limitation on how the vim-lsp-settings (for whatever reason, we can't use
 " vim-lsp-settings when not entering vim, with v:vim_did_enter variable).
 if !has('nvim') && &ft !~# '\v(gitcommit|vim|zsh|sh|diff)'
-  call extend(g:packlist,
+  call extend(s:packlist,
         \ [
           \ 'vim-lsp',
           \ 'vim-lsp-settings',
@@ -36,13 +36,13 @@ if !has('nvim') && &ft !~# '\v(gitcommit|vim|zsh|sh|diff)'
 endif
 
 try
-  for s:pack in g:packlist
+  for s:pack in s:packlist
     exe 'packadd ' . s:pack
   endfor
 
   command! PacQ
         \ exe "echo 'Total:'"
-        \ . len(g:packlist) . "'plugin(s)'" |
-        \ echo join(sort(g:packlist), "\n")
+        \ . len(s:packlist) . "'plugin(s)'" |
+        \ echo join(sort(s:packlist), "\n")
 catch
 endtry
