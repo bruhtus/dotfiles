@@ -7,6 +7,9 @@
 #alias for yarn
 # [ -f $YARNRC ] && alias yarn='yarn --use-yarnrc $YARNRC'
 
+#alias for visudo (use vim instead of vi)
+alias visudo='sudo EDITOR=vim visudo'
+
 #display git status
 alias qwe='git-status-checker'
 
