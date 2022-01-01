@@ -5,7 +5,7 @@
 [ -z $DISPLAY ] && alias tmux='tmux -2'
 
 #alias for yarn
-[ -f $YARNRC ] && alias yarn='yarn --use-yarnrc $YARNRC'
+# [ -f $YARNRC ] && alias yarn='yarn --use-yarnrc $YARNRC'
 
 #display git status
 alias qwe='git-status-checker'

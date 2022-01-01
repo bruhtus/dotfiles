@@ -96,7 +96,7 @@ export LYNX_LSS="${XDG_CONFIG_HOME:-$HOME/.config}/lynx/lynx.lss"
 export VOLTA_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/volta"
 
 # yarn
-export YARNRC="${XDG_CONFIG_HOME:-$HOME/.config}/yarn/config"
+# export YARNRC="${XDG_CONFIG_HOME:-$HOME/.config}/yarn/config"
 
 # coloring less
 # Start blinking
