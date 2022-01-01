@@ -84,7 +84,9 @@ alias \
 	tl='task all | less -r'
 
 #cd to any directories in home directory from any directories
-alias sd='cd "$(fd -aHI -E .git -E node_modules -E .cache/npm/_cacache -t d . ~ | fzf --height 20%)"'
+#(up to 2 directory from home directory)
+#it's kind of overwhelm to search the entire home directory
+alias sd='cd "$(fd -aHI -d 2 -E .git -E node_modules -E .cache/npm/_cacache -t d . ~ | fzf --height 20%)"'
 
 #cd to any directories in git root directory/current working directory
 alias ds='cd "$(fd -aHI -t d . $(git rev-parse --show-toplevel 2>/dev/null) | fzf --height 20%)"'
