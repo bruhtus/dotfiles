@@ -69,6 +69,10 @@ alias \
 	yaysua='yay -Sua' \
 	yayq='yay -Qua'
 
+#tmux alias
+alias tma='tmux a'
+alias tms='tmux new -s'
+
 #screenkey alias
 alias \
 	screenkey='screenkey -s large --scr 1 -p bottom -g 800x300+500+710 -t 1.5 --start-disabled'
