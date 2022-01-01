@@ -55,6 +55,12 @@ alias \
 alias \
 	ls='ls -lhX --color=auto --group-directories-first'
 
+#nmcli alias
+alias \
+	nmls='nmcli d wifi list --rescan yes' \
+	nmdc='nmcli c down' \
+	nmco='nmcli d wifi connect'
+
 #grep, less, count, and redirect error to file
 alias \
 	-g G='| grep' \
