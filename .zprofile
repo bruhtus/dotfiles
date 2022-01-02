@@ -61,6 +61,9 @@ export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/npmrc"
 # parallel
 export PARALLEL_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/parallel"
 
+# node repl history
+export NODE_REPL_HISTORY="${XDG_DATA_HOME:-$HOME/.local/share}/node_repl_history"
+
 # go
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 
