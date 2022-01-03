@@ -2,29 +2,36 @@
 " https://github.com/junegunn/dotfiles/blob/057ee47465e43aafbd20f4c8155487ef147e29ea/vimrc#L655-L667
 " https://vim.fandom.com/wiki/Set_working_directory_to_the_current_file
 " https://stackoverflow.com/a/38082196
+" https://github.com/airblade/vim-rooter#how-to-identify-a-root-directory
 
 function! s:search_root(pattern)
   for l:root in a:pattern
+    " Note: use `=` to indicate that the pattern is the root name, not the
+    " component inside of the root directory.
+    " Example:
+    " let's say we have `~/projects/.git` and we give the pattern '.git', that
+    " will change the current working directory to `~/projects` and not
+    " `~/projects/.git`. but, if we give the pattern '=.git', that will change
+    " the current working directory to `~/projects/.git`.
+    let l:pattern =
+          \ l:root[0] ==# '=' ?
+          \ l:root[1:] :
+          \ l:root
+
     " Note: prioritize git worktree and git submodules.
-    if !empty(findfile(l:root, escape(expand('%:p:h'), ' ') . ';'))
+    if !empty(findfile(l:pattern, escape(expand('%:p:h'), ' ') . ';'))
       let l:path =
             \ fnamemodify(
-            \   findfile(l:root, escape(expand('%:p:h'), ' ') . ';'),
+            \   findfile(l:pattern, escape(expand('%:p:h'), ' ') . ';'),
             \ ':h')
       return l:path
-    elseif !empty(finddir(l:root, escape(expand('%:p:h'), ' ') . ';'))
-      " Note: special treatment for dot directory because we want to change
-      " directory into the pattern directory, not the directory above the
-      " pattern directory, unless it's a dot directory like `.git`.
-      " Flaw: can't change into the dot directory itself, like `.vim`.
-      " Fix: use '/' to change into dot directory itself, the pattern should
-      " be something like '.vim/'.
+    elseif !empty(finddir(l:pattern, escape(expand('%:p:h'), ' ') . ';'))
       let l:path =
-            \ l:root[0] ==# '.' && l:root[-1:] !=# '/' ?
+            \ l:root[0] !=# '=' ?
             \ fnamemodify(
-            \   finddir(l:root, escape(expand('%:p:h'), ' ') . ';'),
+            \   finddir(l:pattern, escape(expand('%:p:h'), ' ') . ';'),
             \ ':h') :
-            \ finddir(l:root, escape(expand('%:p:h'), ' ') . ';')
+            \ finddir(l:pattern, escape(expand('%:p:h'), ' ') . ';')
       return l:path
     endif
   endfor
@@ -38,13 +45,13 @@ function! root#toggle()
     echo 'Root directory disabled'
 
   else
-    let g:root_pattern = ['.git', 'nvim', 'vimrc']
+    let g:root_pattern = ['.git', '=nvim', 'vimrc']
     let l:root_path = s:search_root(g:root_pattern)
 
     let g:root_extra_pattern = get(g:, 'root_extra_pattern', '')
 
     " Note: add extra pattern on the go.
-    " Usage: let g:root_extra_pattern = 'nvim'
+    " Usage: let g:root_extra_pattern = '=nvim'
     " TODO: find a better interface.
     if !empty(g:root_extra_pattern)
       call insert(g:root_pattern,
