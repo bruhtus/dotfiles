@@ -13,6 +13,11 @@ function! s:search_root(pattern)
     " will change the current working directory to `~/projects` and not
     " `~/projects/.git`. but, if we give the pattern '=.git', that will change
     " the current working directory to `~/projects/.git`.
+    " TODO:
+    " make skip the n-occurrence pattern with ^ symbol.
+    " '^0.git' is similar to '.git' which means do not skip any occurrence.
+    " '^1.git' means ignore the first occurrence of '.git'.
+    " '^2.git' means ignore the first and second occurrence of '.git'.
     let l:pattern =
           \ l:root[0] ==# '=' ?
           \ l:root[1:] :
