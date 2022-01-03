@@ -120,11 +120,12 @@ function! statusline#active() abort
   let l:alt = "%{bufnr('#') == '-1' ? '' : '[#]'}"
   " Ref: https://superuser.com/a/345593
   let l:totalbuf = "%{'[' . len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) . ']'}"
+  let l:root = "%{winwidth(0) > 160 && exists('b:root_enabled') ? '[/]' : ''}"
   " if has('nvim')
   "   return w:mode.'%*'.l:indent.l:git.l:sep.l:diff.l:readonly.l:filename.l:mod.l:sep.l:ses.'  '.l:ft.l:line
   " else
     " return l:mode.'%*'.l:diff.l:indent.l:totalbuf.l:alt.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
-    return l:diff.l:indent.l:totalbuf.l:alt.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.l:tab.'  '.l:ft.l:line
+    return l:diff.l:indent.l:totalbuf.l:alt.l:ses.l:readonly.l:root.l:filename.l:mod.l:sep.l:git.l:tab.'  '.l:ft.l:line
   " endif
 endfunction
 
