@@ -7,6 +7,7 @@ function! enable#goyo#enter()
     autocmd InsertLeave * setlocal ignorecase
   augroup END
   let b:modeshow = &showmode
+  let b:spell = &spell
   setlocal showmode spell complete+=kspell
   try
     if !exists(':Limelight') | packadd limelight.vim | endif
@@ -20,8 +21,9 @@ function! enable#goyo#leave()
   autocmd! goyo_insert_mode
   augroup! goyo_insert_mode
   let &showmode = b:modeshow
-  unlet b:modeshow
-  setlocal nospell complete-=kspell
+  let &spell = b:spell
+  unlet b:modeshow b:spell
+  setlocal complete-=kspell
   try
     Limelight!
   catch /^Vim\%((\a\+)\)\=:E492/
