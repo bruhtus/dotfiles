@@ -17,8 +17,10 @@ function! s:search_root(pattern)
       " directory into the pattern directory, not the directory above the
       " pattern directory, unless it's a dot directory like `.git`.
       " Flaw: can't change into the dot directory itself, like `.vim`.
+      " Fix: use '/' to change into dot directory itself, the pattern should
+      " be something like '.vim/'.
       let l:path =
-            \ l:root[0] ==# '.' ?
+            \ l:root[0] ==# '.' && l:root[-1:] !=# '/' ?
             \ fnamemodify(
             \   finddir(l:root, escape(expand('%:p:h'), ' ') . ';'),
             \ ':h') :
