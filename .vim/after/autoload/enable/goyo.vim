@@ -3,7 +3,8 @@
 function! enable#goyo#enter()
   augroup goyo_insert_mode
     autocmd!
-    autocmd InsertEnter * setlocal noignorecase | norm! zz
+    " autocmd InsertEnter * setlocal noignorecase | norm! zz
+    autocmd InsertEnter * setlocal noignorecase
     autocmd InsertLeave * setlocal ignorecase
   augroup END
   let b:modeshow = &showmode
