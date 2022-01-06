@@ -7,6 +7,8 @@ function! enable#goyo#enter()
     autocmd InsertEnter * setlocal noignorecase
     autocmd InsertLeave * setlocal ignorecase
   augroup END
+  " highlight character in screen column 80 or more with error highlight
+  2match Error /.\%>80v/
   let b:modeshow = &showmode
   let b:spell = &spell
   setlocal showmode spell complete+=kspell
