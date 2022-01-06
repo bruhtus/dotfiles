@@ -22,11 +22,11 @@ function! pack#init() abort
   call minpac#add('mattn/vim-lsp-settings',       { 'type': 'opt' })
   call minpac#add('prabirshrestha/vim-lsp',       { 'type': 'opt' })
 
+  call minpac#add('bruhtus/gv.vim',    { 'type': 'opt', 'branch': 'personal' })
   call minpac#add('bruhtus/bufstop',   { 'type': 'opt', 'branch': 'personal' })
   call minpac#add('bruhtus/vim-sneak', { 'type': 'opt', 'branch': 'personal' })
 
   call minpac#add('k-takata/minpac',              { 'type': 'opt' })
-  call minpac#add('bruhtus/gv.vim',               { 'type': 'opt' })
   call minpac#add('mbbill/undotree',              { 'type': 'opt' })
   call minpac#add('ap/vim-css-color',             { 'type': 'opt' })
   call minpac#add('tpope/vim-eunuch',             { 'type': 'opt' })
