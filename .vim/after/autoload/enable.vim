@@ -51,7 +51,10 @@ endfunction
 
 function! enable#undotree()
   try
-    if !exists('g:loaded_undotree') | packadd undotree | endif
+    if !exists('g:loaded_undotree')
+      packadd undotree
+      let g:undotree_WindowLayout = 2
+    endif
     UndotreeToggle
   catch  /^Vim\%((\a\+)\)\=:E492/
     echo 'Undotree plugin is not installed'
