@@ -26,6 +26,9 @@ function! pack#init() abort
   call minpac#add('bruhtus/bufstop',   { 'type': 'opt', 'branch': 'personal' })
   call minpac#add('bruhtus/vim-sneak', { 'type': 'opt', 'branch': 'personal' })
 
+  call minpac#add('junegunn/fzf',                 { 'type': 'opt' })
+  call minpac#add('junegunn/fzf.vim',             { 'type': 'opt' })
+
   call minpac#add('k-takata/minpac',              { 'type': 'opt' })
   call minpac#add('mbbill/undotree',              { 'type': 'opt' })
   call minpac#add('ap/vim-css-color',             { 'type': 'opt' })
@@ -41,8 +44,6 @@ function! pack#init() abort
   call minpac#add('ronakg/quickr-preview.vim',    { 'type': 'opt' })
   call minpac#add('tweekmonster/startuptime.vim', { 'type': 'opt' })
   call minpac#add('jeetsukumaran/vim-filebeagle', { 'type': 'opt' })
-  call minpac#add('junegunn/fzf',                 { 'type': 'opt' })
-  call minpac#add('junegunn/fzf.vim',             { 'type': 'opt' })
   call minpac#add('iamcco/markdown-preview.nvim', { 'type': 'opt',
         \ 'do': 'packadd markdown-preview.nvim | call mkdp#util#install()' })
 
