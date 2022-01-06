@@ -8,10 +8,14 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA "~B
 ---arch-linux---
 https://archlinux.org/feeds/news/
 
+# ref: https://github.com/DIYbiosphere/sphere/issues/146#issuecomment-286245216
 ---github-commits---
 https://github.com/koirand/pulp/commits/master.atom "github"
 https://github.com/junegunn/seoul256.vim/commits/master.atom "github"
 https://github.com/justinmk/vim-sneak/commits/master.atom "github"
 https://github.com/itchyny/vim-gitbranch/commits/master.atom "github"
+https://github.com/peitalin/vim-jsx-typescript/commits/master/after/indent/typescriptreact.vim.atom "github"
+https://github.com/plasticboy/vim-markdown/commits/master/indent/markdown.vim.atom "github"
+https://github.com/Vimjas/vim-python-pep8-indent/commits/master/indent/python.vim.atom "github"
 https://github.com/vim/vim/commits/master.atom "github"
 https://github.com/neovim/neovim/commits/master.atom "github"
