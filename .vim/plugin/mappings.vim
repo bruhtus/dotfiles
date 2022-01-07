@@ -176,8 +176,8 @@ nnoremap cD :s/<C-r><C-a>//gc<left><left><left>
 
 " delete below or above current line but exclude the current line
 " TODO: make operator pending mapping for K and J
-nnoremap <silent> dK :<C-u>exe "k' <Bar> -" . v:count1 . ',-1d_'<CR>``
-nnoremap <silent> dJ :<C-u>exe "k' <Bar> +1,+" . v:count1 . 'd_'<CR>``
+nnoremap <silent> dK :<C-u>exe "k' <Bar> -" . v:count1 . ',-1d_'<CR>g``
+nnoremap <silent> dJ :<C-u>exe "k' <Bar> +1,+" . v:count1 . 'd_'<CR>g``
 
 " remap Y to yank from pointer to the end of the line
 nnoremap Y y$
