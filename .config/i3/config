@@ -63,7 +63,7 @@ bindsym $mod+z layout tabbed
 bindsym $mod+b workspace back_and_forth
 
 bindsym $mod+Shift+r reload
-bindsym $mod+Shift+w restart
+bindsym $mod+Ctrl+r restart
 
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
