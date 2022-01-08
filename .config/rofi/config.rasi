@@ -3,9 +3,10 @@ configuration {
 	font: "DejaVu Sans Mono Medium 10";
 	show-icons: false;
 	drun-display-format: "{icon} {name}";
-	theme: "~/.config/rofi/themes/seoul256.rasi";
 	display-window: "  ";
 	display-run: "> ";
 	display-drun: "  ";
 	cycle: false;
 }
+
+@theme "~/.config/rofi/themes/seoul256.rasi"
