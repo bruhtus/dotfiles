@@ -206,5 +206,5 @@ c.colors.hints.bg = 'black'
 c.colors.hints.fg = 'white'
 c.colors.hints.match.fg = 'lightgreen'
 
-c.url.default_page = 'https://searx.bar/'
-c.url.searchengines = {'DEFAULT': 'https://searx.bar/search?q={}'}
+c.url.default_page = 'https://searx.be/'
+c.url.searchengines = {'DEFAULT': 'https://searx.be/search?q={}'}
