@@ -20,6 +20,12 @@
 *.config/nvim/pack/
 *.config/libreoffice/
 *.config/google-chrome/
+*.config/syncthing/
+*.config/obs-studio/
+*.config/hooks/
+*node_modules
+*librewolf
+*.expo/
 
 /home/*/gems/*
 /home/*/.gnome/*
@@ -40,3 +46,6 @@
 /home/*/.config/nvim/pack/*
 /home/*/.config/libreoffice/*
 /home/*/.config/google-chrome/*
+/home/*/.config/syncthing/*
+/home/*/.config/obs-studio/*
+/home/*/.expo/*
