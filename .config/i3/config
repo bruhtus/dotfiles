@@ -96,11 +96,11 @@ bindsym $mod+Ctrl+Shift+space exec --no-startup-id pomo pause
 bindsym $mod+d exec $term
 # bindsym $mod+i exec google-chrome-stable --new-window https://github.com/stars/bruhtus
 bindsym $mod+v exec rofi -show emoji -modi emoji
+bindsym $mod+m exec rofisearch
 
 # bindsym $mod+Shift+c exec $term -e $EDITOR '/home/bruhtus/.config/i3/config'
 bindsym $mod+Shift+x [title="dropdown_terminal"] scratchpad show; [title="dropdown_terminal"] move position center
 bindsym $mod+Shift+y exec google-chrome-stable --new-window https://github.com/settings/tokens
-bindsym $mod+Shift+m exec rofisearch
 bindsym $mod+Shift+t exec google-chrome-stable --new-window twitter.com
 bindsym $mod+Shift+q exec qutebrowser
 bindsym $mod+Shift+p exec switch-picom
