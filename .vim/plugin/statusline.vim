@@ -100,15 +100,27 @@ function! statusline#active() abort
   let l:sep = '%='
   " current line/total lines:cursor column percentage in file
   let l:line = '  %-16.(%l/%L:%c%)%P'
-  let l:indent = "%{&expandtab ? ' sw='.&shiftwidth.' ' :
+  let l:indent = "%{
+        \ (exists('b:editorconfig_file') && !empty(b:editorconfig_file))
+        \   && &expandtab ?
+        \ ' ec:sw='.&shiftwidth.' ' :
+        \ (exists('b:editorconfig_file') && !empty(b:editorconfig_file))
+        \   && !&expandtab ?
+        \ ' ec:ts='.&tabstop.' ' :
+        \ &expandtab ? ' sw='.&shiftwidth.' ' :
         \ &tabstop == &shiftwidth ? ' ts='.&tabstop.' ' :
         \ ' sw='.&shiftwidth.',ts='.&tabstop.' '}"
   " indicator if there's some anomaly with the indentation
   " the result is the line number, not the total
   " Flaw: if the `expandtab` set by modeline after there's a tab character in
   " a file, this component won't be triggered
-  let l:tab = "%{winwidth(0) > 80 ? ((!&et && &ts != &sw) &&
-        \ ((exists('b:indent_tabs') && !b:indent_tabs)
+  let l:tab = "%{winwidth(0) > 80 ? (
+        \ (
+        \   !&et
+        \   && &ts != &sw
+        \   && !exists('b:editorconfig_file')
+        \ )
+        \ && ((exists('b:indent_tabs') && !b:indent_tabs)
         \ || (exists('b:tab_with_space') && !b:tab_with_space)
         \ || (exists('b:space_with_tab') && !b:space_with_tab)) ?
         \ '[t:'.b:indent_tabs.',tws:'.b:tab_with_space.',swt:'.b:space_with_tab.']' : ''

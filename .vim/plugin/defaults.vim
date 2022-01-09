@@ -58,6 +58,53 @@ if &ruler | set rulerformat=%-13.(%l/%<%L:%c%)\ %P | endif
 " Ref: https://vi.stackexchange.com/a/28017/34851
 set autoindent shiftround smarttab shiftwidth=2 softtabstop=-69
 
+" Ref:
+" https://github.com/tpope/vim-sleuth/commit/bb6a50779c7787e3b6d46e80d4659481ae0bac4f
+" Discussion: https://github.com/vim/vim/issues/2286
+" Note: seems like findfile() can be expensive on remote server? we'll seee
+" how that goes.
+" Bram Opinion About Editorconfig:
+" https://github.com/vim/vim/issues/2286#issuecomment-484619734
+function! s:editorconfig_indent(file)
+  let l:path = fnamemodify(a:file, ':p')
+  let l:lines = readfile(l:path)
+
+  for line in l:lines
+    if line !~# '\v(^indent_style*|^indent_size*|^tab_width*)'
+      continue
+    elseif line =~# '^indent_style*'
+      let b:editorconfig_indent_style = split(line)[2]
+    elseif line =~# '^indent_size*'
+      let b:editorconfig_indent_size = split(line)[2]
+    elseif line =~# '^tab_width*'
+      let b:editorconfig_tab_width = split(line)[2]
+    endif
+  endfor
+
+  " Note: is there a case that someone set indent_size and tab_width but not
+  " indent_style?
+  if exists('b:editorconfig_indent_style')
+    if b:editorconfig_indent_style == 'tab'
+      if exists('b:editorconfig_tab_width')
+        let [&l:ts, &l:et] = [b:editorconfig_tab_width, 0]
+      elseif exists('b:editorconfig_indent_size')
+        let [&l:ts, &l:et] = [b:editorconfig_indent_size, 0]
+      endif
+    elseif b:editorconfig_indent_style == 'space'
+      if exists('b:editorconfig_indent_size')
+        " Ref: :h type()
+        if b:editorconfig_indent_size == 'tab'
+          if exists('b:editorconfig_tab_width')
+            let [&l:sw, &l:et] = [b:editorconfig_tab_width, 1]
+          endif
+        else
+          let [&l:sw, &l:et] = [b:editorconfig_indent_size, 1]
+        endif
+      endif
+    endif
+  endif
+endfunction
+
 " automatically setlocal expandtab and tabstop depending on
 " whether there's a tab character or not
 " Ref: https://github.com/itchyny/dotfiles/blob/a7d5f94d794554c7a4eee68b3248c862b67abb14/.vimrc#L89
@@ -71,17 +118,28 @@ set autoindent shiftround smarttab shiftwidth=2 softtabstop=-69
 " let result = searchcount(#{pattern: '\t\+ \+', maxcount: -69})
 augroup indent_detection
   autocmd!
+  " Note: because using BufRead instead of BufEnter, the setting is only set
+  " once, when reading a file into the buffer. why didn't use BufEnter then?
+  " so that we didn't overwrite modeline. modeline was set before BufEnter.
   autocmd BufNewFile,BufRead,FileType *
+        \ let b:editorconfig_file =
+        \   &ft !=# 'gitcommit' ?
+        \   findfile('.editorconfig', escape(expand('%:p:h'), ' ') . ';') :
+        \   '' |
         \ let b:indent_spaces = search('^  \+', 'nW') |
         \ let b:indent_tabs = search('^\t', 'nW') |
         \ let b:tab_with_space = search('\t\+ \+', 'nW') |
         \ let b:space_with_tab = search(' \+\t\+', 'nW') |
-        \ execute 'let '
-        \ b:indent_tabs && !b:indent_spaces && !b:tab_with_space && !b:space_with_tab ?
-        \ '[&l:ts, &l:et] = [&sw, 0]' :
-        \ (b:indent_tabs && b:indent_spaces) || b:tab_with_space || b:space_with_tab ?
-        \ '&l:et = 0' :
-        \ '&l:et = 1'
+        \ if !empty(b:editorconfig_file) |
+        \   call s:editorconfig_indent(b:editorconfig_file) |
+        \ else |
+        \   execute 'let '
+        \   b:indent_tabs && !b:indent_spaces && !b:tab_with_space && !b:space_with_tab ?
+        \   '[&l:ts, &l:et] = [&sw, 0]' :
+        \   (b:indent_tabs && b:indent_spaces) || b:tab_with_space || b:space_with_tab ?
+        \   '&l:et = 0' :
+        \   '&l:et = 1' |
+        \ endif
 augroup END
 
 " set infercase
