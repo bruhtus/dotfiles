@@ -7,6 +7,7 @@
 " https://github.com/vim/vim/issues/2286#issuecomment-484619734
 " Opinion About Remote Files:
 " https://github.com/vim/vim/issues/2286#issuecomment-487651664
+" TODO: support local section settings.
 function! editorconfig#indent(file)
   let l:path = fnamemodify(a:file, ':p')
   let l:lines = readfile(l:path)
