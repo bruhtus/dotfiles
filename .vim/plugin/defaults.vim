@@ -76,7 +76,7 @@ augroup indent_detection
   " so that we didn't overwrite modeline. modeline was set before BufEnter.
   autocmd BufNewFile,BufRead,FileType *
         \ let b:editorconfig_file =
-        \   &ft !=# 'gitcommit' ?
+        \   &ft !~# 'git*' ?
         \   findfile('.editorconfig', escape(expand('%:p:h'), ' ') . ';') :
         \   '' |
         \ let b:indent_spaces = search('^  \+', 'nW') |
