@@ -18,11 +18,10 @@ function! editorconfig#indent(file) abort
   let b:editorconfig_indent_size = []
   let b:editorconfig_tab_width = []
 
-  " Output: [['[*]', '2'], ['[markdown]', '4']]
+  " Output: [['[*]', '2'], ['[*.md]', '4']]
   for line in l:lines
     if line !~? '\v(^\[*.*\]|^indent_style*|^indent_size*|^tab_width*)'
       continue
-    " Note: for editorconfig section.
     elseif line =~? '^\[*.*\]'
       call extend(b:editorconfig_section, [line])
     elseif line =~? '^indent_style*'
@@ -57,8 +56,9 @@ function! editorconfig#indent(file) abort
                   \ substitute(l:indent_style[0], '\v(\[|\])', '', 'g')
 
             " Output:
-            " autocmd indent_detection BufNewFile,BufRead *.md call
-            " s:indent_init('[*.md]', 'space')
+            " autocmd indent_detection BufNewFile,BufRead *.md
+            " if !empty(b:editorconfig_file) |
+            " call s:indent_init('[*.md]', 'space') | endif
             " Note: still only works for glob pattern.
             " TODO: figure out a way to make this work with other editorconfig
             " wildcard patterns.
@@ -67,9 +67,9 @@ function! editorconfig#indent(file) abort
                   \ && !exists('#indent_detection#BufRead#' . l:section_indent)
               execute 'autocmd indent_detection BufNewFile,BufRead '
                     \ . l:section_indent
-                    \ . ' call s:indent_init('
+                    \ . ' if !empty(b:editorconfig_file) | call s:indent_init('
                     \ . "'" . l:indent_style[0] . "'" . ', '
-                    \ . "'" . l:indent_style[1] . "'" . ')'
+                    \ . "'" . l:indent_style[1] . "'" . ') | endif'
             endif
 
           endif
