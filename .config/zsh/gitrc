@@ -6,8 +6,6 @@ alias \
 	gmv='git mv' \
 	gcl='git clone' \
 	gss='git status -s' \
-	gra='git remote add' \
-	gru='git remote update' \
 	gref='git reflog'
 
 alias \
@@ -59,5 +57,9 @@ alias \
 alias \
 	gr='git reset' \
 	grh='git reset --hard'
+
+alias \
+	gra='git remote add' \
+	gru='git remote update' \
 
 # vim:ft=sh
