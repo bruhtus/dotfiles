@@ -65,8 +65,7 @@ alias \
 	gma='git merge --abort'
 
 alias \
-	gr='git reset' \
-	grh='git reset --hard'
+	gres='git reset'
 
 alias \
 	gra='git remote add' \
