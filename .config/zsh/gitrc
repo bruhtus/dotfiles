@@ -1,11 +1,12 @@
 #git alias
+# ref: https://stackoverflow.com/a/12538667
 alias \
 	g='git' \
 	ga='git add' \
 	gd='git diff' \
 	gmv='git mv' \
 	gcl='git clone' \
-	gss='git status -s' \
+	gss='git status -sb' \
 	gref='git reflog'
 
 alias \
