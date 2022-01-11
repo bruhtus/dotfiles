@@ -65,6 +65,10 @@ alias \
 	gma='git merge --abort'
 
 alias \
+	grm='git rm' \
+	grmc='git rm --cached'
+
+alias \
 	gres='git reset'
 
 alias \
