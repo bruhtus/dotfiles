@@ -22,8 +22,9 @@ alias \
 	gb='git branch' \
 	gbd='git branch -d'
 
+# ref: https://unix.stackexchange.com/questions/141285/using-xargs-with-git
 alias \
-	gco='git checkout $(git branch -a | fzf)' \
+	gco='git branch -a | fzf | xargs -r git checkout' \
 	gcb='git checkout -b'
 
 alias \
