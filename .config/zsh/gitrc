@@ -72,6 +72,9 @@ alias \
 	gres='git reset'
 
 alias \
+	greb='git rebase'
+
+alias \
 	gra='git remote add' \
 	gru='git remote update' \
 
