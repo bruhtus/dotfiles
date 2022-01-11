@@ -12,7 +12,6 @@ alias \
 
 alias \
 	gc='git commit' \
-	gcam='git commit -am' \
 	gca='git commit --amend'
 
 alias \
