@@ -75,6 +75,9 @@ alias \
 	greb='git rebase'
 
 alias \
+	gf='git fetch'
+
+alias \
 	gra='git remote add' \
 	gru='git remote update' \
 
