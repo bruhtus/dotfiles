@@ -42,7 +42,15 @@ function gl() {
 
 	# return 0 solve the known issue above, still need to observe this.
 	git log --oneline --color=always --date=short --format='%C(auto)%h %ad%d%x09%s' | \
-		fzf --ansi +m --height=80% --tiebreak=index --reverse --bind "enter:execute($cmd | less -r --incsearch)" --preview="$cmd" || \
+		fzf \
+		--ansi \
+		+m \
+		--height=80% \
+		--tiebreak=index \
+		--reverse \
+		--bind "enter:execute($cmd | less -r --incsearch)" \
+		--bind "ctrl-y:execute-silent(echo {} |grep -Eo '[a-f0-9]+' | head -1 | tr -d '[:space:]' | xsel --clipboard --input)" \
+		--preview="$cmd" || \
 		return 0
 }
 
