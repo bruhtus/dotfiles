@@ -81,6 +81,10 @@ alias \
 	gwa='git worktree add' \
 	gwl='git worktree list'
 
+function gwr() {
+	git worktree list | fzf | awk '{print $1}' | xargs -r git worktree remove
+}
+
 alias \
 	gra='git remote add' \
 	gru='git remote update' \
