@@ -80,5 +80,7 @@ alias \
 alias \
 	gra='git remote add' \
 	gru='git remote update' \
+	grs='git remote set-url' \
+	grv='git remote -v'
 
 # vim:ft=sh
