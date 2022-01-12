@@ -78,7 +78,8 @@ alias \
 	gf='git fetch'
 
 alias \
-	gwa='git worktree add'
+	gwa='git worktree add' \
+	gwl='git worktree list'
 
 alias \
 	gra='git remote add' \
