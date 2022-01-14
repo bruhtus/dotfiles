@@ -6,7 +6,7 @@ let g:quickr_preview_options       = 'number norelativenumber nofoldenable scrol
 
 nmap <buffer> <nowait> d <C-d>
 nmap <buffer> <nowait> u <C-u>
-nmap <buffer> <silent> <nowait> m <CR>
+nmap <buffer> <silent> <nowait> m <CR>zz<C-w>p
 nmap <buffer> <nowait> <Space> <Plug>(quickr_preview)
 " for whatever reason the preview window won't close if qf window already
 " closed in vanilla vim
