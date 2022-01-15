@@ -1,4 +1,4 @@
-setlocal colorcolumn=80
+" setlocal colorcolumn=80
 
 " iabbrev <buffer> ii import
 " iabbrev <buffer> iia import as<C-left><left>
