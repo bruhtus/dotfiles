@@ -89,6 +89,9 @@ export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
 # zoom
 export SSB_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zoom"
 
+# gpodder
+export GPODDER_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/gpodder"
+
 # no less history
 export LESSHISTFILE="-"
 
