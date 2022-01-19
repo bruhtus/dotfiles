@@ -42,6 +42,14 @@ else
   inoremap <silent> <M-w> <C-o>w<C-[>l
 endif
 
+" remap Alt-W to go next word
+if !has('nvim') | execute "set <M-W>=\eW" | endif
+if exists(':stopinsert') == 2
+  inoremap <silent> <M-W> <C-o>W<C-o>:stopinsert<CR>
+else
+  inoremap <silent> <M-W> <C-o>W<C-[>l
+endif
+
 " remap Alt-U (uppercase U) to exit insert mode and yank the entire line and
 " put below the given line
 inoremap <silent> <M-U> <C-[>:t .<CR>
