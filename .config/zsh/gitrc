@@ -78,8 +78,15 @@ alias \
 	gf='git fetch'
 
 alias \
-	gwa='git worktree add' \
 	gwl='git worktree list'
+
+function gwa() {
+	local git_root=$(git rev-parse --show-toplevel)
+	git branch -a | \
+		fzf | \
+		awk '{print $1}' | \
+		xargs -r git worktree add $git_root/.worktree/$1
+}
 
 function gwr() {
 	git worktree list | fzf | awk '{print $1}' | xargs -r git worktree remove
