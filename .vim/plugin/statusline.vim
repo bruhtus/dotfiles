@@ -85,7 +85,7 @@ endif
 " Ref: https://github.com/junegunn/dotfiles/blob/057ee47465e43aafbd20f4c8155487ef147e29ea/vimrc#L265-L275
 function! statusline#active() abort
   " let l:mode = "%{%statusline#mode()%}"
-  let l:filename = " %<%{expand('%:p:~') ==# '' ? '[Blank]' :
+  let l:filename = " %{expand('%:p:~') ==# '' ? '[Blank]' :
         \ winwidth(0) > 160 ? expand('%:p:~') :
         \ winwidth(0) < 71 ? expand('%:t') :
         \ pathshorten(expand('%'))}"
@@ -96,7 +96,7 @@ function! statusline#active() abort
   " let g:gitbranchcmd = "git branch --show-current 2>/dev/null | tr -d '\n'"
   " let l:git = "%{exists('*FugitiveHead') ? (winwidth(0) > 70 ? fugitive#head() : '') :
   "       \ (winwidth(0) > 70 ? system(g:gitbranchcmd) : '')}"
-  let l:git = "  %{winwidth(0) > 70 ? statusline#gitbranch() : ''}"
+  let l:git = "  %<%{winwidth(0) > 70 ? statusline#gitbranch() : ''}"
   let l:sep = '%='
   " current line/total lines:cursor column percentage in file
   let l:line = '  %-16.(%l/%L:%c%)%P'
