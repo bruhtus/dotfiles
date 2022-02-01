@@ -5,8 +5,9 @@ let g:lsp_settings_enable_suggestions = 0
 
 " nnoremap <leader>w :call lsp#enable() <Bar> LspStatus<CR>
 
-  augroup lsp_enabled
-    autocmd!
-    autocmd User lsp_buffer_enabled call vimlsp#init()
-  augroup END
-endif
+augroup lsp_enabled
+  autocmd!
+  autocmd User lsp_buffer_enabled call vimlsp#init()
+  autocmd BufEnter LspHoverPreview
+        \ nnoremap <silent> <nowait> <buffer>  q :<C-u>bw<CR>
+augroup END
