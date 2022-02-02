@@ -27,7 +27,7 @@ endif
 " typescript filetype, we can't really use the lsp because there's a
 " limitation on how the vim-lsp-settings (for whatever reason, we can't use
 " vim-lsp-settings when not entering vim, with v:vim_did_enter variable).
-if !has('nvim') && &ft !~# '\v(gitcommit|vim|zsh|sh|diff)'
+if &ft !~# '\v(gitcommit|vim|zsh|sh|diff)'
   call extend(s:packlist,
         \ [
           \ 'vim-lsp',
