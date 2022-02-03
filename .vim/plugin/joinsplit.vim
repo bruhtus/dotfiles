@@ -8,5 +8,5 @@ nnoremap <silent> J :<C-u>set operatorfunc=joinsplit#join_lines<CR>g@
 " the default gs normal mode command put vim in sleep state (can't
 " interact with vim at certain time), the count decided how long the sleep
 " state last. more info: :h gs
-nnoremap <silent> gs :<C-u>call joinsplit#split_line_on_pattern("'[", "']")<CR>
-xnoremap <silent> gs :<C-u>call joinsplit#split_line_on_pattern("'<", "'>")<CR>
+" nnoremap <silent> gs :<C-u>call joinsplit#split_line_on_pattern("'[", "']")<CR>
+" xnoremap <silent> gs :<C-u>call joinsplit#split_line_on_pattern("'<", "'>")<CR>
