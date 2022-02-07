@@ -47,6 +47,7 @@ deleted = 'x${count} '
 
 [git_branch]
 format = '[$branch]($style) '
+# truncation_length = 20
 
 [custom.taskwarrior-context]
 command = 'task _get rc.context'
