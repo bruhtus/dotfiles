@@ -57,7 +57,7 @@ Launcher             | [Rofi](https://github.com/davatorium/rofi)<br> [Dmenu](ht
 Compositor           | [Picom](https://github.com/yshui/picom)
 File manager         | [Ranger (TUI)](https://github.com/ranger/ranger)<br> [Pcmanfm (GUI)](https://github.com/lxde/pcmanfm)
 Video player         | [Mpv](https://mpv.io/)
-System monitor       | [Htop](https://github.com/htop-dev/htop)<br> [Bpytop](https://github.com/aristocratos/bpytop)<br> [Gtop](https://github.com/aksakalli/gtop) (no longer using)<br> [Conky](https://github.com/brndnmtthws/conky) (no longer using)
+System monitor       | [Htop](https://github.com/htop-dev/htop)<br> [Btop](https://github.com/aristocratos/btop)<br> [Bpytop](https://github.com/aristocratos/bpytop) (no longer using)<br> [Gtop](https://github.com/aksakalli/gtop) (no longer using)<br> [Conky](https://github.com/brndnmtthws/conky) (no longer using)
 To-do list manager   | [Taskwarrior](https://taskwarrior.org/)
 Python venv manager  | [Pyv](https://github.com/bruhtus/pyv)
 
