@@ -98,4 +98,6 @@ alias \
 	grs='git remote set-url' \
 	grv='git remote -v'
 
+alias gzot='git pull origin main'
+
 # vim:ft=sh
