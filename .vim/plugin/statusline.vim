@@ -96,7 +96,10 @@ function! statusline#active() abort
   " let g:gitbranchcmd = "git branch --show-current 2>/dev/null | tr -d '\n'"
   " let l:git = "%{exists('*FugitiveHead') ? (winwidth(0) > 70 ? fugitive#head() : '') :
   "       \ (winwidth(0) > 70 ? system(g:gitbranchcmd) : '')}"
-  let l:git = "  %<%{winwidth(0) > 70 ? statusline#gitbranch() : ''}"
+  " Note: truncate from the right.
+  " Ref: https://stackoverflow.com/a/20899652
+  " let l:git = "  %([%{winwidth(0) > 70 ? strpart(statusline#gitbranch(), 0, 20) : ''}]%)"
+  let l:git = "  %<%([%{winwidth(0) > 70 ? statusline#gitbranch() : ''}]%)"
   let l:sep = '%='
   " current line/total lines:cursor column percentage in file
   let l:line = '  %-16.(%l/%L:%c%)%P'
@@ -166,9 +169,9 @@ function! statusline#gitbranch() abort
   if has_key(b:, 'gitbranch_path') && filereadable(b:gitbranch_path)
     let branch = get(readfile(b:gitbranch_path), 0, '')
     if branch =~# '^ref: '
-      return '[' . substitute(branch, '^ref: \%(refs/\%(heads/\|remotes/\|tags/\)\=\)\=', '', '') . ']'
+      return substitute(branch, '^ref: \%(refs/\%(heads/\|remotes/\|tags/\)\=\)\=', '', '')
     elseif branch =~# '^\x\{20\}'
-      return '[' . branch[:6] . ']'
+      return branch[:6]
     endif
   endif
   return ''
