@@ -1,6 +1,9 @@
 " decoupled vim session management
 " Ref: https://github.com/mhinz/vim-startify/blob/81e36c352a8deea54df5ec1e2f4348685569bed2/autoload/startify.vim#L27
 
+let g:possession_window_name = get(g:, 'possession_window_name',
+      \ 'possession')
+
 let g:possession_dir = get(g:, 'possession_dir',
       \ has('nvim-0.3.1') ?
       \ stdpath('data') . '/session' :
@@ -28,15 +31,14 @@ let g:possession_file_pattern = g:possession_dir . '/' . substitute(
 
 command! -bang Possess
       \ call possession#init(<bang>0) |
-      \ call possession#list()
+      \ call possession#refresh_list()
 
 command! PList
-      \ call possession#list() |
-      \ echo join(g:possession_list, "\n")
+      \ call possession#show_list()
 
 command! PMove
       \ call possession#move() |
-      \ call possession#list()
+      \ call possession#refresh_list()
 
 function! s:possession_load() abort
   let file = filereadable(expand(g:possession_git_root . '/Session.vim')) ?
