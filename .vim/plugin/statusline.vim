@@ -146,9 +146,8 @@ endfunction
 
 function! statusline#inactive() abort
   let l:filename = " %{expand('%:p:~') ==# '' ? '[Blank]' :
-        \ winwidth(0) > 160 ? expand('%:p:~') :
         \ winwidth(0) < 71 ? expand('%:t') :
-        \ pathshorten(expand('%'))}"
+        \ expand('%:p:~')}"
   let l:readonly = '%r'
   let l:mod = "%{&modified ? '  [+]' : !&modifiable ? '  [-]' : ''}"
   let l:sep = '%='
