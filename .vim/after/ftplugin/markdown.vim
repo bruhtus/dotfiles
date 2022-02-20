@@ -22,7 +22,7 @@ inoremap <buffer> . .<C-g>u
 " yank the content inside markdown code block to clipboard register.
 " the downside of this approach is that, we need to place the cursor inside of
 " markdown code block.
-nnoremap <buffer> yu :?```?+,/```/-y+<CR>
+nnoremap <buffer> <silent> yu :?```?+,/```/-y+<CR>
 
 " inspired by $VIMRUNTIME/ftplugin/vim.vim and $VIMRUNTIME/ftplugin/python.vim
 " Ref:
