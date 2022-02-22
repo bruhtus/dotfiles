@@ -34,7 +34,7 @@ sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 wget https://raw.githubusercontent.com/bruhtus/dotfiles/master/.config/zsh/minzsh
 . minzsh
 mzadd kazhala/dotbare
-dotbare finit -u https://github.com/bruhtus/dotfiles.git
+dotbare finit -u git@github.com:bruhtus/dotfiles.git
 ```
 
 <details>
