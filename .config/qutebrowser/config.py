@@ -145,6 +145,9 @@ c.tabs.padding = {'top': 0, 'bottom': 0, 'left': 0, 'right': 0}
 # config.set('statusbar.show', 'never')
 config.set('tabs.show', 'never')
 
+# Show scrolling bar
+# config.set('scrolling.bar', 'always')
+
 # Bindings for normal mode
 config.bind('J', 'tab-next')
 config.bind('K', 'tab-prev')
