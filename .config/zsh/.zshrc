@@ -66,7 +66,18 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 #Edit line in vim with ctrl-f:
 autoload edit-command-line; zle -N edit-command-line
-bindkey '^f' edit-command-line
+bindkey '^X^X' edit-command-line
+
+#Rsi vi bindkey
+#Ref:
+#https://stackoverflow.com/a/23134765
+#man zshzle
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
+bindkey '^B' backward-char
+bindkey '^F' forward-char
+bindkey '^X^F' vi-find-next-char
+bindkey '^X^B' vi-find-prev-char
 
 function set_win_title(){
   # echo -ne "\033]0; $(basename "$PWD") \007"
