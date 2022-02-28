@@ -58,7 +58,7 @@ format = '[$output]($style) '
 [custom.taskwarrior-task]
 command = 'task status:pending count'
 when = 'true'
-format = '[$output]($style) task '
+format = '[$output]($style) [task]($style) '
 
 # preset bracket and plain text
 # can't have duplicate module, be careful
