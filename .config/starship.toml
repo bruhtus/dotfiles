@@ -1,8 +1,8 @@
 # extend default format
 format = '''
-[┌──>](bold green) $custom$all
-[│](bold green) $directory$git_branch$git_status
-[└─](bold green)$character'''
+(bold green)$custom$git_branch$git_status
+(bold green)$directory$all
+(bold green)$character'''
 
 # Inserts a blank line between shell prompts
 add_newline = true
@@ -58,7 +58,7 @@ format = '[$output]($style) '
 [custom.taskwarrior-task]
 command = 'task status:pending count'
 when = 'true'
-format = 'task [$output]($style) '
+format = '[$output]($style) task '
 
 # preset bracket and plain text
 # can't have duplicate module, be careful
