@@ -12,7 +12,9 @@ function mzrm(){
 }
 
 function mzadd(){
-  # reference: https://unix.stackexchange.com/a/325492/479142
+  # reference:
+  # https://unix.stackexchange.com/a/325492/479142
+  # https://stackoverflow.com/a/66462684
   local plugin_name="${1##*/}"
 
   if [ -d "$MINZSH_DIR/$plugin_name" ]; then
