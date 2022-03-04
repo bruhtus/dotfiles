@@ -302,10 +302,10 @@ else
   cnoremap <expr> / wildmenumode() ? "\<C-e>" : "/"
 endif
 
-" use ctrl-s to move left and ctrl-x to move right in command line mode
+" use ctrl-x to move left and ctrl-s to move right in command line mode
 " check `:h cmdline` to make sure you didn't remap the useful one
-cnoremap <C-s> <left>
-cnoremap <C-x> <right>
+cnoremap <C-x> <left>
+cnoremap <C-s> <right>
 
 " mapping to interact with built-in terminal
 if has('nvim')
