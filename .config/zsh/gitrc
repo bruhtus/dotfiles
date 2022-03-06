@@ -97,6 +97,7 @@ alias \
 	grv='git remote -v'
 
 alias gst='git stash'
+alias gstu='git stash -u'
 
 alias gzot='git pull origin main'
 
