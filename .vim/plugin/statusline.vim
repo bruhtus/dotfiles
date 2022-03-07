@@ -152,10 +152,11 @@ function! statusline#inactive() abort
   let l:mod = "%{&modified ? '  [+]' : !&modifiable ? '  [-]' : ''}"
   let l:sep = '%='
   let l:diff = "%{&diff && winnr('$') > 2 ? ' [' . bufnr() . '] ' : '' }"
+  let l:root = "%{exists('b:root_enabled') ? '[/]' : ''}"
   if has('nvim')
     return l:sep.l:diff.l:readonly.l:filename.l:mod.l:sep
   else
-    return l:diff.l:readonly.l:filename.l:mod.l:sep
+    return l:diff.l:readonly.l:root.l:filename.l:mod.l:sep
   endif
 endfunction
 
