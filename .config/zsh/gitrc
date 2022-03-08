@@ -99,6 +99,8 @@ alias \
 alias gst='git stash'
 alias gstu='git stash -u'
 
+alias gcd='cd "$(git rev-parse --show-toplevel)"'
+
 alias gzot='git pull origin main'
 
 # vim:ft=sh
