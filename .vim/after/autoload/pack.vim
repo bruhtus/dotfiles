@@ -19,8 +19,9 @@ function! pack#init() abort
   call minpac#add('tpope/vim-commentary',         { 'type': 'opt' })
   call minpac#add('jeetsukumaran/vim-indentwise', { 'type': 'opt' })
 
-  call minpac#add('mattn/vim-lsp-settings',       { 'type': 'opt' })
-  call minpac#add('prabirshrestha/vim-lsp',       { 'type': 'opt' })
+  call minpac#add('sbdchd/neoformat',       { 'type': 'opt' })
+  call minpac#add('mattn/vim-lsp-settings', { 'type': 'opt' })
+  call minpac#add('prabirshrestha/vim-lsp', { 'type': 'opt' })
 
   call minpac#add('bruhtus/gv.vim',    { 'type': 'opt', 'branch': 'personal' })
   call minpac#add('bruhtus/bufstop',   { 'type': 'opt', 'branch': 'personal' })

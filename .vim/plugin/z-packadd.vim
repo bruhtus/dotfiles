@@ -32,6 +32,7 @@ if &ft !~# '\v(gitcommit|vim|zsh|sh|diff)'
         \ [
           \ 'vim-lsp',
           \ 'vim-lsp-settings',
+          \ 'neoformat',
           \ ])
 endif
 
