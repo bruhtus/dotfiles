@@ -248,7 +248,11 @@ endif
 
 " highlight blank line
 " Ref: https://stackoverflow.com/a/706083
-match ColorColumn /^$/
+" Ref: https://stackoverflow.com/a/27897508
+augroup highlight_blank_lines
+  autocmd!
+  autocmd VimEnter,WinEnter * match ColorColumn /^$/
+augroup END
 
 " GVIM only
 " hi Cursor ctermfg=
