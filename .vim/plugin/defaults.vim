@@ -87,7 +87,7 @@ function! s:detect_indent()
   let b:tab_with_space = search('\t\+ \+', 'nW')
   let b:space_with_tab = search(' \+\t\+', 'nW')
   if !empty(b:editorconfig_file)
-    call editorconfig#indent(b:editorconfig_file)
+    call editorconfig#init(b:editorconfig_file)
   else
     execute 'let '
           \ b:indent_tabs && !b:indent_spaces && !b:tab_with_space && !b:space_with_tab ?
