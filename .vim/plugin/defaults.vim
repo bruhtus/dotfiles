@@ -67,34 +67,43 @@ set autoindent shiftround smarttab shiftwidth=2 softtabstop=-69
 " Ref: https://stackoverflow.com/a/35968022
 " Ref: http://vimregex.com/#anchors
 " Ref: `:h :let-option`, `:h :let-unpack`
-" Note: this autocmd doesn't acknowledge people that use one space as
+" let result = searchcount(#{pattern: '\t\+ \+', maxcount: -69})
+" Note: this function doesn't acknowledge people that use one space as
 " indentation.
 " Note: the result is the line number, not the total.
-" let result = searchcount(#{pattern: '\t\+ \+', maxcount: -69})
+function! s:detect_indent()
+  if &ft =~# 'git*'
+    let b:editorconfig_file = ''
+  endif
+
+  if expand('%:p') =~# '\v(fugitive|scp)://.*'
+    let b:editorconfig_file = ''
+  endif
+
+  let b:editorconfig_file =
+        \ get(b:, 'editorconfig_file', findfile('.editorconfig', escape(expand('%:p:h'), ' ') . ';'))
+  let b:indent_spaces = search('^  \+', 'nW')
+  let b:indent_tabs = search('^\t', 'nW')
+  let b:tab_with_space = search('\t\+ \+', 'nW')
+  let b:space_with_tab = search(' \+\t\+', 'nW')
+  if !empty(b:editorconfig_file)
+    call editorconfig#indent(b:editorconfig_file)
+  else
+    execute 'let '
+          \ b:indent_tabs && !b:indent_spaces && !b:tab_with_space && !b:space_with_tab ?
+          \ '[&l:ts, &l:et] = [&sw, 0]' :
+          \ (b:indent_tabs && b:indent_spaces) || b:tab_with_space || b:space_with_tab ?
+          \ '&l:et = 0' :
+          \ '&l:et = 1'
+  endif
+endfunction
+
 augroup indent_detection
   autocmd!
   " Note: because using BufRead instead of BufEnter, the setting is only set
   " once, when reading a file into the buffer. why didn't use BufEnter then?
   " so that we didn't overwrite modeline. modeline was set before BufEnter.
-  autocmd BufNewFile,BufRead,FileType *
-        \ let b:editorconfig_file =
-        \   &ft !~# 'git*' ?
-        \   findfile('.editorconfig', escape(expand('%:p:h'), ' ') . ';') :
-        \   '' |
-        \ let b:indent_spaces = search('^  \+', 'nW') |
-        \ let b:indent_tabs = search('^\t', 'nW') |
-        \ let b:tab_with_space = search('\t\+ \+', 'nW') |
-        \ let b:space_with_tab = search(' \+\t\+', 'nW') |
-        \ if !empty(b:editorconfig_file) |
-        \   call editorconfig#indent(b:editorconfig_file) |
-        \ else |
-        \   execute 'let '
-        \   b:indent_tabs && !b:indent_spaces && !b:tab_with_space && !b:space_with_tab ?
-        \   '[&l:ts, &l:et] = [&sw, 0]' :
-        \   (b:indent_tabs && b:indent_spaces) || b:tab_with_space || b:space_with_tab ?
-        \   '&l:et = 0' :
-        \   '&l:et = 1' |
-        \ endif
+  autocmd BufNewFile,BufRead,FileType * call s:detect_indent()
 augroup END
 
 " set infercase
