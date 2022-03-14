@@ -97,6 +97,7 @@ font:
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
     family: DejaVu Sans Mono
+    # family: Fira Code
     # family: Cascadia Code
     # family: Hack
 
