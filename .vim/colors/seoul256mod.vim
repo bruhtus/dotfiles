@@ -367,7 +367,7 @@ hi link diffLine Constant
 call s:hi('Conceal', [s:dark_fg + 2], [s:dark_bg - 1])
 call s:hi('Ignore',  [s:dark_bg + 3], [s:dark_bg])
 
-" Remove ~ when creating new file
+" ~ symbol at the end of buffer
 call s:hi('EndOfBuffer',  [s:dark_bg], [''])
 
 " statusline mode color
