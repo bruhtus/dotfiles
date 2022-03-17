@@ -35,10 +35,9 @@ function! s:fnmatch_translate(pat) abort
   return substitute(a:pat, '\\.\|/\*\*/\*\=\|\*\*\=\|\[[!^]\=\]\=[^]/]*\]\|{\%(\\.\|[^{}]\|{[^\{}]*}\)*}\|[?.\~^$[]', '\=s:fnmatch_replace(submatch(0))', 'g')
 endfunction
 
-function! s:read_editorconfig(file) abort
-  let l:absolute_path = fnamemodify(a:file, ':p')
-  let l:lines = readfile(l:absolute_path)
-  let l:prefix = '\m\C^' . escape(fnamemodify(l:absolute_path, ':h'), '][^$.*\~')
+function! s:read_editorconfig(absolute_path) abort
+  let l:lines = readfile(a:absolute_path)
+  let l:prefix = '\m\C^' . escape(fnamemodify(a:absolute_path, ':h'), '][^$.*\~')
   let l:preamble = {}
   let l:pairs = l:preamble
   let l:sections = []
@@ -47,7 +46,7 @@ function! s:read_editorconfig(file) abort
     let l:line = substitute(line, '^[[:space:]]*\|[[:space:]]*\%([^[:space:]]\@<![;#].*\)\=$', '', 'g')
     let l:match = matchlist(line, '^\%(\[\(\%(\\.\|[^\;#]\)*\)\]\|\([^[:space:]]\@=[^;#=:]*[^;#=:[:space:]]\)[[:space:]]*[=:][[:space:]]*\(.*\)\)$')
     if len(get(l:match, 2, ''))
-      let pairs[tolower(l:match[2])] = [l:match[3], l:absolute_path]
+      let pairs[tolower(l:match[2])] = [l:match[3], a:absolute_path]
     elseif len(get(l:match, 1, '')) && len(get(l:match, 1, '')) <= 4096
       if l:match[1] =~# '^/'
         let l:pattern = l:match[1]
@@ -64,14 +63,13 @@ function! s:read_editorconfig(file) abort
   return [l:preamble, l:sections]
 endfunction
 
-function! s:config(file) abort
-  if empty(a:file)
+function! s:config(absolute_path) abort
+  if empty(a:absolute_path)
     return [{}, '']
   endif
 
   let l:sections = []
-  let l:editorconfig_path = fnamemodify(a:file, ':p')
-  let l:read_config = s:read_editorconfig(l:editorconfig_path)
+  let l:read_config = s:read_editorconfig(a:absolute_path)
 
   call extend(l:sections, l:read_config[1], 'keep')
   if get(l:read_config[0], 'root', [''])[0] ==? 'true'
@@ -88,8 +86,8 @@ function! s:config(file) abort
   return [l:config, l:root]
 endfunction
 
-function! editorconfig#init(file) abort
-  let l:config = s:config(a:file)
+function! editorconfig#init(absolute_path) abort
+  let l:config = s:config(a:absolute_path)
   let l:pairs = map(copy(l:config[0]), 'v:val[0]')
   let l:root = map(copy(l:config[1]), 'v:val[0]')
 
