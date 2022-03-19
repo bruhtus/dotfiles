@@ -24,18 +24,15 @@ function! s:search_root(pattern)
           \ l:root
 
     " Note: prioritize git worktree and git submodules.
-    if !empty(findfile(l:pattern, escape(expand('%:p:h'), ' ') . ';'))
-      let l:path =
-            \ fnamemodify(
-            \   findfile(l:pattern, escape(expand('%:p:h'), ' ') . ';'),
-            \ ':h')
+    let l:file_pattern = findfile(l:pattern, escape(expand('%:p:h'), ' ') . ';')
+    let l:dir_pattern = finddir(l:pattern, escape(expand('%:p:h'), ' ') . ';')
+    if !empty(l:file_pattern)
+      let l:path = fnamemodify(l:file_pattern, ':h')
       return l:path
-    elseif !empty(finddir(l:pattern, escape(expand('%:p:h'), ' ') . ';'))
+    elseif !empty(l:dir_pattern)
       let l:path =
             \ l:root[0] !=# '=' ?
-            \ fnamemodify(
-            \   finddir(l:pattern, escape(expand('%:p:h'), ' ') . ';'),
-            \ ':h') :
+            \ fnamemodify(l:dir_pattern, ':h') :
             \ finddir(l:pattern, escape(expand('%:p:h'), ' ') . ';')
       return l:path
     endif
