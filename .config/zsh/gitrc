@@ -99,6 +99,7 @@ alias \
 alias gst='git stash'
 alias gstu='git stash -u'
 alias gstp='git stash pop'
+alias gstl='git stash list'
 
 alias gcd='cd "$(git rev-parse --show-toplevel)"'
 
