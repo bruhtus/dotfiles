@@ -75,7 +75,8 @@ alias \
 	greb='git rebase'
 
 alias \
-	gf='git fetch'
+	gf='git fetch' \
+	gfp='git fetch --prune'
 
 alias \
 	gwl='git worktree list'
