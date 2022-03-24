@@ -153,7 +153,7 @@ function pyv(){
 
 #kill process
 function kj(){
-	ps -eHo pid,comm,cmd | fzf --layout=reverse-list | awk '{print $1}' | xargs -or kill
+	ps -eHo pid,ppid,comm | fzf --layout=reverse-list | awk '{print $1}' | xargs -or kill
 }
 
 #directories alias
