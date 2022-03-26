@@ -74,24 +74,24 @@ function! s:config(absolute_path) abort
   call extend(l:sections, l:read_config[1], 'keep')
   if get(l:read_config[0], 'root', [''])[0] ==? 'true'
     let l:root = fnamemodify(get(l:read_config[0], 'root')[1], ':h')
+  else
+    let l:root = ''
   endif
 
   let l:config = {}
+  call extend(l:config, {'root': [l:root]})
   for [pattern, pairs] in l:sections
     if expand('%:p') =~# pattern
       call extend(l:config, pairs)
     endif
   endfor
 
-  return [l:config, l:root]
+  return l:config
 endfunction
 
 function! editorconfig#init(absolute_path) abort
   let l:config = s:config(a:absolute_path)
-  " TODO: make this work with neovim, currently there's an error about
-  " E896: Argument of map() must be a List, Dictionary or Blob in neovim.
-  let l:pairs = map(copy(l:config[0]), 'v:val[0]')
-  let l:root = map(copy(l:config[1]), 'v:val[0]')
+  let l:pairs = map(copy(l:config), 'v:val[0]')
 
   if get(l:pairs, 'indent_style', '') ==? 'tab'
     let &et = 0
