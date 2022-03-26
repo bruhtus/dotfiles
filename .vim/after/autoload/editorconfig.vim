@@ -88,6 +88,8 @@ endfunction
 
 function! editorconfig#init(absolute_path) abort
   let l:config = s:config(a:absolute_path)
+  " TODO: make this work with neovim, currently there's an error about
+  " E896: Argument of map() must be a List, Dictionary or Blob in neovim.
   let l:pairs = map(copy(l:config[0]), 'v:val[0]')
   let l:root = map(copy(l:config[1]), 'v:val[0]')
 
