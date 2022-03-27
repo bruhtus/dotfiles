@@ -94,22 +94,23 @@ function! editorconfig#init(absolute_path) abort
   let l:pairs = map(copy(l:config), 'v:val[0]')
 
   if get(l:pairs, 'indent_style', '') ==? 'tab'
-    let &et = 0
+    let &l:et = 0
   elseif get(l:pairs, 'indent_style', '') ==? 'space'
-    let &et = 1
+    let &l:et = 1
   endif
 
   " Note:
   " in case someone drunk and provide indent_style as tab but didn't provide
   " tab_width, and also, to make things worse, provide indent_size as tab.
-  if get(l:pairs, 'indent_size', '') =~? '^tab$' && has_key(l:pairs, 'tab_width')
-    let &sw = l:pairs.tab_width
+  if get(l:pairs, 'indent_size', '') =~? '^tab$'
+        \ && has_key(l:pairs, 'tab_width')
+    let &l:sw = l:pairs.tab_width
   elseif get(l:pairs, 'indent_size', '') =~? '^[1-9]\d*$'
-    let &sw = l:pairs.indent_size
+    let &l:sw = l:pairs.indent_size
   endif
 
   if get(l:pairs, 'tab_width', '') =~? '^[1-9]\d*$'
-    let [&ts, &et] = [l:pairs.tab_width, 0]
+    let [&l:ts, &l:et] = [l:pairs.tab_width, 0]
   endif
 endfunction
 
