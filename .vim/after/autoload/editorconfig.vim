@@ -72,14 +72,13 @@ function! s:config(absolute_path) abort
   let l:read_config = s:read_editorconfig(a:absolute_path)
 
   call extend(l:sections, l:read_config[1], 'keep')
-  if get(l:read_config[0], 'root', [''])[0] ==? 'true'
-    let l:root = fnamemodify(get(l:read_config[0], 'root')[1], ':h')
-  else
-    let l:root = ''
-  endif
 
   let l:config = {}
-  call extend(l:config, {'root': [l:root]})
+  if get(l:read_config[0], 'root', [''])[0] ==? 'true'
+    let l:root = fnamemodify(get(l:read_config[0], 'root')[1], ':h')
+    call extend(l:config, {'root': [l:root]})
+  endif
+
   for [pattern, pairs] in l:sections
     if expand('%:p') =~# pattern
       call extend(l:config, pairs)
