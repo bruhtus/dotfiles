@@ -13,6 +13,7 @@ let s:fnmatch_replacements = {
       \ '.': '\.', '\%': '%', '\(': '(', '\)': ')', '\{': '{', '\}': '}', '\_': '_',
       \ '?': '[^/]', '*': '[^/]*', '/**/*': '/.*', '/**/': '/\%(.*/\)\=', '**': '.*'}
 
+" Credit: https://github.com/tpope/vim-sleuth/blob/master/plugin/sleuth.vim
 function! s:fnmatch_replace(pat) abort
   if has_key(s:fnmatch_replacements, a:pat)
     return s:fnmatch_replacements[a:pat]
@@ -31,12 +32,19 @@ function! s:fnmatch_replace(pat) abort
   endif
 endfunction
 
+" Credit: https://github.com/tpope/vim-sleuth/blob/master/plugin/sleuth.vim
 function! s:fnmatch_translate(pat) abort
   return substitute(a:pat, '\\.\|/\*\*/\*\=\|\*\*\=\|\[[!^]\=\]\=[^]/]*\]\|{\%(\\.\|[^{}]\|{[^\{}]*}\)*}\|[?.\~^$[]', '\=s:fnmatch_replace(submatch(0))', 'g')
 endfunction
 
+" Credit: https://github.com/tpope/vim-sleuth/blob/master/plugin/sleuth.vim
 function! s:read_editorconfig(absolute_path) abort
-  let l:lines = readfile(a:absolute_path)
+  try
+    let l:lines = readfile(a:absolute_path)
+  catch
+    let l:lines = []
+    echoe 'error in s:read_editorconfig()'
+  endtry
   let l:prefix = '\m\C^' . escape(fnamemodify(a:absolute_path, ':h'), '][^$.*\~')
   let l:preamble = {}
   let l:pairs = l:preamble
