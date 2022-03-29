@@ -108,8 +108,11 @@ function! statusline#active() abort
         \   && &expandtab ?
         \ ' ec:sw='.&shiftwidth.' ' :
         \ (exists('b:editorconfig_file') && !empty(b:editorconfig_file))
-        \   && !&expandtab ?
+        \   && !&expandtab && &tabstop == &shiftwidth ?
         \ ' ec:ts='.&tabstop.' ' :
+        \ (exists('b:editorconfig_file') && !empty(b:editorconfig_file))
+        \   && !&expandtab && &tabstop != &shiftwidth ?
+        \ ' ec:sw='.&shiftwidth.',ts='.&tabstop.' ' :
         \ &expandtab ? ' sw='.&shiftwidth.' ' :
         \ &tabstop == &shiftwidth ? ' ts='.&tabstop.' ' :
         \ ' sw='.&shiftwidth.',ts='.&tabstop.' '}"
