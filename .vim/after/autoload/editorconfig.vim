@@ -72,10 +72,6 @@ function! s:read_editorconfig(absolute_path) abort
 endfunction
 
 function! s:config(absolute_path) abort
-  if empty(a:absolute_path)
-    return [{}, '']
-  endif
-
   let l:sections = []
   let l:read_config = s:read_editorconfig(a:absolute_path)
 
