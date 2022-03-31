@@ -25,7 +25,9 @@ alias \
 # ref: https://unix.stackexchange.com/questions/141285/using-xargs-with-git
 alias \
 	gco='git branch -a | fzf | xargs -r git checkout' \
-	gcb='git checkout -b'
+	gch='git checkout' \
+	gcb='git checkout -b' \
+	gct='git branch -r | fzf | xargs -r git checkout -t'
 
 alias \
 	gpl='git pull' \
