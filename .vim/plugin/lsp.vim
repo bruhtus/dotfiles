@@ -2,6 +2,9 @@
 
 " let g:lsp_auto_enable = 0
 let g:lsp_settings_enable_suggestions = 0
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_diagnostics_echo_delay = 1
+" let g:lsp_diagnostics_float_cursor = 1
 
 " nnoremap <leader>w :call lsp#enable() <Bar> LspStatus<CR>
 
