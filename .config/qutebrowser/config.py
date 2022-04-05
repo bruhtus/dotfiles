@@ -151,7 +151,7 @@ config.set('tabs.show', 'never')
 # Bindings for normal mode
 config.bind('J', 'tab-next')
 config.bind('K', 'tab-prev')
-config.bind('M', 'hint links spawn mpv {hint-url}')
+config.bind('M', 'hint links spawn mpv --ytdl-format="bestvideo[ext=mp4][height<=?360]+bestaudio[ext=m4a]/best" {hint-url}')
 config.bind('Q', 'close')
 config.bind('zj', 'tab-move +')
 config.bind('zk', 'tab-move -')
