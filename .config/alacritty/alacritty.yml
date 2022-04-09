@@ -98,6 +98,7 @@ font:
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
     family: DejaVu Sans Mono
+    # family: Input Mono
     # family: Droid Sans Mono
     # family: Victor Mono Medium
     # family: Meslo LG S
