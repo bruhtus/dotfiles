@@ -80,14 +80,21 @@ function! s:detect_indent()
     let b:editorconfig_file = ''
   endif
 
-  let b:editorconfig_file =
-        \ get(b:, 'editorconfig_file', findfile('.editorconfig', escape(expand('%:p:h'), ' ') . ';'))
+  if !exists('b:editorconfig_path_cache')
+    let b:editorconfig_file =
+          \ get(b:, 'editorconfig_file', findfile('.editorconfig', escape(expand('%:p:h'), ' ') . ';'))
+    if !empty(b:editorconfig_file)
+      let b:editorconfig_path_cache = fnamemodify(b:editorconfig_file, ':p')
+    else
+      let b:editorconfig_path_cache = ''
+    endif
+  endif
   let b:indent_spaces = search('^  \+', 'nW')
   let b:indent_tabs = search('^\t', 'nW')
   let b:tab_with_space = search('\t\+ \+', 'nW')
   let b:space_with_tab = search(' \+\t\+', 'nW')
-  if !empty(b:editorconfig_file)
-    call editorconfig#init(fnamemodify(b:editorconfig_file, ':p'))
+  if !empty(b:editorconfig_path_cache)
+    call editorconfig#init(b:editorconfig_path_cache)
   else
     execute 'let '
           \ b:indent_tabs && !b:indent_spaces && !b:tab_with_space && !b:space_with_tab ?
