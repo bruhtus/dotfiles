@@ -43,7 +43,7 @@ function! s:read_editorconfig(absolute_path) abort
     let l:lines = readfile(a:absolute_path)
   catch
     let l:lines = []
-    echoe 'error in s:read_editorconfig()'
+    echoe 'error in s:read_editorconfig() ' . v:errmsg
   endtry
   let l:prefix = '\m\C^' . escape(fnamemodify(a:absolute_path, ':h'), '][^$.*\~')
   let l:preamble = {}
