@@ -14,7 +14,12 @@ function! vimlsp#init() abort
   " Issue: https://github.com/prabirshrestha/vim-lsp/issues/888
   let g:lsp_diagnostics_highlights_enabled = 0
   " let g:lsp_diagnostics_highlights_delay = 1
-  let g:lsp_hover_ui = 'float'
+  " let g:lsp_hover_ui = 'float'
+
+  let g:lsp_diagnostics_signs_priority_map = {
+        \ 'LspError': 12,
+        \ 'LspWarning': 11,
+        \ }
 
   if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
   nmap <buffer> gd <Plug>(lsp-definition)
@@ -24,7 +29,7 @@ function! vimlsp#init() abort
   " nmap <buffer> <leader>z <plug>(lsp-implementation)
   " nmap <buffer> <leader>x <plug>(lsp-type-definition)
   " nmap <buffer> <leader>e <plug>(lsp-rename)
-  nmap <buffer> K <Plug>(lsp-hover)
+  nmap <buffer> K <Plug>(lsp-hover-float)
   nmap <silent> <buffer> gs <Plug>(lsp-document-diagnostics)
   " nnoremap <expr> <buffer> <c-f> lsp#scroll(+4)
   " nnoremap <expr> <buffer> <c-d> lsp#scroll(-4)
