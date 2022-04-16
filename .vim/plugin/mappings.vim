@@ -142,6 +142,9 @@ nnoremap <silent> gB m':<C-u>call search('^'. matchstr(getline('.'), '\(^\s*\)')
 xnoremap < <gv
 xnoremap > >gv
 
+" update diff color after diffget
+nnoremap <silent> do do:diffupdate<CR>
+
 " set black hole register to c, C, s, S, x, X, d, and D
 nnoremap c "_c
 xnoremap c "_c
