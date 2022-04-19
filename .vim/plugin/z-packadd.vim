@@ -8,7 +8,7 @@
 " made `PacMove` command).
 
 let s:packlist = [
-      \ 'matchit',
+      "\ 'matchit',
       \ 'vim-surround',
       \ 'targets.vim',
       \ 'traces.vim',
