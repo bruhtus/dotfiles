@@ -59,11 +59,23 @@ inoremap <silent> <M-U> <C-[>:t .<CR>
 if !has('nvim') | execute "set <M-~>=\e~" | endif
 inoremap <silent> <M-~> <C-o>~<C-[>
 
+" Ref:
+" https://github.com/tpope/vim-unimpaired/blob/master/plugin/unimpaired.vim#L193-L195
+function! s:conflict_marker(reverse) abort
+  call search('^\(@@ .* @@\|[<=>|]\{7}[<=>|]\@!\)', a:reverse ? 'bW' : 'W')
+endfunction
+
 " split navigation
 " nnoremap <C-n> <C-w><C-w>
 " Ref: https://vi.stackexchange.com/a/2706
-nnoremap <expr> <C-j> &diff ? ']c' : '<C-w>j'
-nnoremap <expr> <C-k> &diff ? '[c' : '<C-w>k'
+nnoremap <expr> <C-j>
+      \ &diff && winnr('$') == 3 && argc() == 3 ? ':call <SID>conflict_marker(0)<CR>' :
+      \ &diff ? ']c' :
+      \ '<C-w>j'
+nnoremap <expr> <C-k>
+      \ &diff && winnr('$') == 3 && argc() == 3 ? ':call <SID>conflict_marker(1)<CR>' :
+      \ &diff ? '[c' :
+      \ '<C-w>k'
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
