@@ -4,6 +4,7 @@ function! vimlsp#init() abort
 
   setlocal omnifunc=lsp#complete
   let g:lsp_diagnostics_signs_enabled = 1
+  let g:lsp_diagnostics_signs_delay = 1
   let g:lsp_diagnostics_signs_insert_mode_enabled = 1
   " let g:lsp_diagnostics_float_delay = 1
   let g:lsp_document_code_action_signs_enabled = 0
