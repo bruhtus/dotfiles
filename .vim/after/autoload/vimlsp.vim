@@ -1,6 +1,7 @@
 function! vimlsp#init() abort
   " highlight link LspErrorHighlight SpellBad
   " highlight link LspHintHighlight SpellCap
+  " highlight link LspErrorText SpellBad
 
   setlocal omnifunc=lsp#complete
   let g:lsp_diagnostics_signs_enabled = 1
