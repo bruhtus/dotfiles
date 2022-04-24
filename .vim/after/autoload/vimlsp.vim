@@ -33,6 +33,7 @@ function! vimlsp#init() abort
   " nmap <buffer> <leader>e <plug>(lsp-rename)
   nmap <buffer> K <Plug>(lsp-hover-float)
   nmap <silent> <buffer> gs <Plug>(lsp-document-diagnostics)
+  nmap <buffer> <leader>q <Plug>(lsp-preview-close)<Plug>(lsp-float-close)
   " nnoremap <expr> <buffer> <c-f> lsp#scroll(+4)
   " nnoremap <expr> <buffer> <c-d> lsp#scroll(-4)
 endfunction
