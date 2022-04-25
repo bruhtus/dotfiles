@@ -5,7 +5,7 @@ function! enable#gv#normal()
   endif
 
   let l:choice = confirm("Current file git commit(s) or All git commit(s)?",
-        \	"&JCurrent\n&KAll")
+        \	"&JCurrent\n&KAll\n&NCancel", 3)
   if l:choice == 1
     try
       GV!
@@ -18,6 +18,8 @@ function! enable#gv#normal()
     catch /^Vim\%((\a\+)\)\=:E492/
       echo 'Gv plugin not installed'
     endtry
+  elseif l:choice == 3
+    " do nothing
   endif
 endfunction
 
@@ -28,7 +30,7 @@ function! enable#gv#visual()
   endif
 
   let l:choice = confirm("Current file git commit(s) or All git commit(s)?",
-        \	"&JCurrent\n&KAll")
+        \	"&JCurrent\n&KAll\n&NCancel", 3)
   if l:choice == 1
     try
       '<,'>GV
@@ -41,5 +43,7 @@ function! enable#gv#visual()
     catch /^Vim\%((\a\+)\)\=:E492/
       echo 'Gv plugin not installed'
     endtry
+  elseif l:choice == 3
+    " do nothing
   endif
 endfunction
