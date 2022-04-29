@@ -17,7 +17,7 @@ setopt always_to_end
 
 #(hopefully) remove maximum nested function level reached; increase FUNCNEST?
 #still not sure what's going on
-FUNCNEST=1500
+# FUNCNEST=1500
 
 #history
 HISTSIZE=10000000
