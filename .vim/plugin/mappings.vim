@@ -147,8 +147,8 @@ nnoremap <silent> [<Space>
       \ endif<CR>
 
 " Ref: https://vim.fandom.com/wiki/Move_to_next/previous_line_with_same_indentation
-nnoremap <silent> gb m':<C-u>call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%>' . line('.') . 'l\S', 'e')<CR>
-nnoremap <silent> gB m':<C-u>call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%<' . line('.') . 'l\S', 'be')<CR>
+nnoremap <silent> gb :<C-u>call search('^' . matchstr(getline('.'), '\(^\s*\)') . '\%>.l\S', 'se')<CR>
+nnoremap <silent> gB :<C-u>call search('^' . matchstr(getline('.'), '\(^\s*\)') . '\%<.l\S', 'sbe')<CR>
 
 " do not exit visual selection when shift-indenting
 xnoremap < <gv
