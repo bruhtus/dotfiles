@@ -27,15 +27,16 @@ nnoremap <buffer> <silent> yu :?```?+,/```/-y+<CR>
 " inspired by $VIMRUNTIME/ftplugin/vim.vim and $VIMRUNTIME/ftplugin/python.vim
 " Ref:
 " https://github.com/tpope/vim-markdown/blob/ed76403b2e0622bc137df4576275a9fd3720b875/ftplugin/markdown.vim#L30-L32
-" Note: for whatever reason, if the highlight for code fenced is on, the code
-" block is not recognized as `markdownCode` syntax which is weird. turn that
-" off so that we can use this mapping.
 " Note: if fanced languange activated, it will use the syntax of the specific
-" filetype, like comment on `sh` filetype wouldbe `shComment`.
-" TODO: figure out the regex for search().
+" filetype, like comment on `sh` filetype would be `shComment`.
 function! s:markdown_header_movement(reverse, end, operator)
-  let l:skip_patterns = "synIDattr(synID(line('.'), 1, 1), 'name') =~# 'shComment'"
+  let l:skip_patterns = "synIDattr(synID(line('.'), 1, 1), 'name') =~# '\a*Comment\\|markdownCode'"
   let l:search_options = 'z' . (a:reverse ? 'b' : '') . (a:operator ? 's' : '') . 'W'
+  " TODO:
+  " fix the header end pattern if the last line is markdown code block.
+  " because we skip any line with syntax highlight name markdownCode, we can
+  " go to the ``` of markdown code block.
+  " need a way to exclude the ``` of markdown code.
   let l:search_patterns =
         \ a:reverse && a:end ? '\v\S.*\n+(#)' :
         \ a:end ? '\v%$|\S.*\n+(#)' :
