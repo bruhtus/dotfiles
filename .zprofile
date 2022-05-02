@@ -92,6 +92,9 @@ export SSB_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zoom"
 # gpodder
 export GPODDER_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/gpodder"
 
+# java#openjdk
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="${XDG_CONFIG_HOME:-$HOME/.config}"/java
+
 # no less history
 export LESSHISTFILE="-"
 
