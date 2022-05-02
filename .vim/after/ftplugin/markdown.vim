@@ -33,9 +33,20 @@ nnoremap <buffer> <silent> yu :?```?+,/```/-y+<CR>
 " Note: if fanced languange activated, it will use the syntax of the specific
 " filetype, like comment on `sh` filetype wouldbe `shComment`.
 " TODO: figure out the regex for search().
-nnoremap <buffer> <silent> ]] m':<C-u>call search('\v^\S*(#)', 'W', '', '', "synIDattr(synID(line('.'), 1, 1), 'name') =~# 'shComment'")<CR>zz
-nnoremap <buffer> <silent> [[ m':<C-u>call search('\v^\S*(#)', 'zbW', '', '', "synIDattr(synID(line('.'), 1, 1), 'name') =~# 'shComment'")<CR>zz
-nnoremap <buffer> <silent> ][ m':<C-u>call search('\v%$\|\S.*\n+(#)', 'zW', '', '', "synIDattr(synID(line('.'), 1, 1), 'name') =~# 'shComment'")<CR>zz
-nnoremap <buffer> <silent> [] m':<C-u>call search('\v\S.*\n+(#)', 'zbW', '', '', "synIDattr(synID(line('.'), 1, 1), 'name') =~# 'shComment'")<CR>zz
-onoremap <buffer> <silent> ]] :<C-u>call search('\v^\S*(#)', 'W', '', '', "synIDattr(synID(line('.'), 1, 1), 'name') =~# 'shComment'")<CR>
-onoremap <buffer> <silent> [[ :<C-u>call search('\v^\S*(#)', 'zbW', '', '', "synIDattr(synID(line('.'), 1, 1), 'name') =~# 'shComment'")<CR>
+function! s:markdown_header_movement(reverse, end, operator)
+  let l:skip_patterns = "synIDattr(synID(line('.'), 1, 1), 'name') =~# 'shComment'"
+  let l:search_options = 'z' . (a:reverse ? 'b' : '') . (a:operator ? 's' : '') . 'W'
+  let l:search_patterns =
+        \ a:reverse && a:end ? '\v\S.*\n+(#)' :
+        \ a:end ? '\v%$|\S.*\n+(#)' :
+        \ '\v^\S*(#)'
+
+  return search(l:search_patterns, l:search_options, '', '', l:skip_patterns)
+endfunction
+
+nnoremap <buffer> <silent> ]] :<C-u>call <SID>markdown_header_movement(0, 0, 0)<CR>
+nnoremap <buffer> <silent> [[ :<C-u>call <SID>markdown_header_movement(1, 0, 0)<CR>
+nnoremap <buffer> <silent> ][ :<C-u>call <SID>markdown_header_movement(0, 1, 0)<CR>
+nnoremap <buffer> <silent> [] :<C-u>call <SID>markdown_header_movement(1, 1, 0)<CR>
+onoremap <buffer> <silent> ]] :<C-u>call <SID>markdown_header_movement(0, 0, 1)<CR>
+onoremap <buffer> <silent> [[ :<C-u>call <SID>markdown_header_movement(1, 0, 1)<CR>
