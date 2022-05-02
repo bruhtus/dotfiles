@@ -62,7 +62,7 @@ inoremap <silent> <M-~> <C-o>~<C-[>
 " Ref:
 " https://github.com/tpope/vim-unimpaired/blob/master/plugin/unimpaired.vim#L193-L195
 function! s:conflict_marker(reverse) abort
-  call search('^\(@@ .* @@\|[<=>|]\{7}[<=>|]\@!\)', a:reverse ? 'bW' : 'W')
+  return search('^\(@@ .* @@\|[<=>|]\{7}[<=>|]\@!\)', a:reverse ? 'bW' : 'W')
 endfunction
 
 " split navigation
