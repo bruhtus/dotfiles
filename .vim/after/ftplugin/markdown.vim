@@ -30,17 +30,14 @@ nnoremap <buffer> <silent> yu :?```?+,/```/-y+<CR>
 " Note: if fanced languange activated, it will use the syntax of the specific
 " filetype, like comment on `sh` filetype would be `shComment`.
 function! s:markdown_header_movement(reverse, end, operator)
-  let l:skip_patterns = "synIDattr(synID(line('.'), 1, 1), 'name') =~# '\a*Comment\\|markdownCode'"
-  let l:search_options = 'z' . (a:reverse ? 'b' : '') . (a:operator ? 's' : '') . 'W'
-  " TODO:
-  " fix the header end pattern if the last line is markdown code block.
-  " because we skip any line with syntax highlight name markdownCode, we can
-  " go to the ``` of markdown code block.
-  " need a way to exclude the ``` of markdown code.
+  let l:skip_patterns = "synIDattr(synID(line('.'), 1, 1), 'name') =~#"
+        \ . "'\a*Comment" . (a:end ? "'" : "\\|markdownCode'")
+  let l:search_options = 'z' . (a:reverse ? 'b' : '') . (a:operator ? 's' : '')
+        \ . 'W'
   let l:search_patterns =
-        \ a:reverse && a:end ? '\v\S.*\n+(#)' :
-        \ a:end ? '\v%$|\S.*\n+(#)' :
-        \ '\v^\S*(#)'
+        \ a:reverse && a:end ? '\v\S.*\n+(#){2,6}' :
+        \ a:end ? '\v%$|\S.*\n+(#){2,6}' :
+        \ '\v^\S*(#){1,6}\s+\w'
 
   return search(l:search_patterns, l:search_options, '', '', l:skip_patterns)
 endfunction
