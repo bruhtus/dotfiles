@@ -133,18 +133,16 @@ nnoremap <silent> [l :lprevious<CR>zz
 
 " map ]<Space> to location list toggle and [<Space> to quickfix list toggle
 " Ref: https://stackoverflow.com/a/63162084
-nnoremap <silent> ]<Space>
-      \ :if empty(filter(getwininfo(), 'v:val.loclist')) <Bar>
-      \   lopen <Bar>
-      \ else <Bar>
-      \   lclose <Bar>
-      \ endif<CR>
-nnoremap <silent> [<Space>
-      \ :if empty(filter(getwininfo(), 'v:val.quickfix')) <Bar>
-      \   copen <Bar>
-      \ else <Bar>
-      \   cclose <Bar>
-      \ endif<CR>
+if exists('*getwininfo()')
+  nnoremap <expr> <silent> ]<Space>
+        \ empty(filter(getwininfo(), 'v:val.loclist')) ?
+        \ ':lopen<CR>' :
+        \ ':lclose<CR>'
+  nnoremap <expr> <silent> [<Space>
+        \ empty(filter(getwininfo(), 'v:val.quickfix')) ?
+        \ ':copen<CR>' :
+        \ ':cclose<CR>'
+endif
 
 " Ref: https://vim.fandom.com/wiki/Move_to_next/previous_line_with_same_indentation
 nnoremap <silent> gb :<C-u>call search('^' . matchstr(getline('.'), '\(^\s*\)') . '\%>.l\S', 'se')<CR>
