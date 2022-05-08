@@ -29,6 +29,10 @@ endif
 " limitation on how the vim-lsp-settings (for whatever reason, we can't use
 " vim-lsp-settings when not entering vim, with v:vim_did_enter variable).
 if &ft !~# '\v(gitcommit|vim|zsh|sh|diff)'
+      \ && !&diff
+      \ && winnr('$') != 3
+      \ && argc() != 3
+
   call extend(s:packlist,
         \ [
           \ 'vim-lsp',
