@@ -285,16 +285,18 @@ nnoremap <expr> <silent> ZU
 " map zj to yank the entire visual selection and put below the given line
 " (takes count)
 " default: current line
+" Ref: https://vimtricks.com/p/reselect-pasted-text/
 xnoremap <expr> <silent> zj
       \ (v:count > 0 ? "m'" . v:count : '')
-      \ . ':<C-u>execute "' . "'<,'>t '>+" . '" . v:count<CR>'
+      \ . ':<C-u>execute "' . "'<,'>t '>+" . '" . v:count<CR>' . "'[V']"
 
 " map zk to yank the entire visual selection and put above the given line
 " (takes count)
 " default: current line
+" Ref: https://vimtricks.com/p/reselect-pasted-text/
 xnoremap <expr> <silent> zk
       \ (v:count > 0 ? "m'" . v:count : '')
-      \ . ':<C-u>execute "' . "'<,'>t '<-1-" . '" . v:count<CR>'
+      \ . ':<C-u>execute "' . "'<,'>t '<-1-" . '" . v:count<CR>' . "'[V']"
 
 " map ZH to put blank character above, and ZN to put blank character below
 " can use count to add how many blank character to insert
