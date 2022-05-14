@@ -31,7 +31,7 @@ nnoremap <buffer> <silent> yu :?```?+,/```/-y+<CR>
 " filetype, like comment on `sh` filetype would be `shComment`.
 function! s:markdown_header_movement(reverse, end, operator)
   let l:skip_patterns = "synIDattr(synID(line('.'), 1, 1), 'name') =~#"
-        \ . "'\a*Comment" . (a:end ? "'" : "\\|markdownCode'")
+        \ . "'\\(sh\\|python\\)Comment" . (a:end ? "'" : "\\|markdownCode'")
   let l:search_options = 'z' . (a:reverse ? 'b' : '') . (a:operator ? '' : 's')
         \ . 'W'
   let l:search_patterns =
