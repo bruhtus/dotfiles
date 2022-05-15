@@ -1,3 +1,8 @@
+" Note: reference how to use conceal
+" if has('conceal')
+"   setlocal conceallevel=2 concealcursor=nc
+" endif
+
 " preview markdown with `markdown-preview.nvim`
 
 let maplocalleader = '\'
