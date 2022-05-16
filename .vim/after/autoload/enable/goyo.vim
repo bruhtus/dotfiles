@@ -27,6 +27,18 @@ function! enable#goyo#leave()
   let &spell = b:spell
   unlet b:modeshow b:spell
   setlocal complete-=kspell
+  " Ref:
+  " https://github.com/junegunn/goyo.vim/pull/195#issuecomment-483080401
+  " https://github.com/junegunn/goyo.vim/blob/master/autoload/goyo.vim#L340
+  " Note:
+  " the syntax highlight for `markdownBold` and `markdownItalic`
+  " disappear because goyo tried to re-apply the current user colorscheme
+  " which means that those colorscheme might remove the previous syntax
+  " highlight (using `hi clear`).
+  " Solution:
+  " for now reload the syntax highlight using, either the `syntax on` like
+  " below, or `let &l:syntax = &l:syntax`.
+  if exists('g:syntax_on') | syntax on | endif
   try
     Limelight!
   catch /^Vim\%((\a\+)\)\=:E492/
