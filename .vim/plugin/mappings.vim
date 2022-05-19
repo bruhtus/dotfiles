@@ -68,11 +68,11 @@ endfunction
 " split navigation
 " nnoremap <C-n> <C-w><C-w>
 " Ref: https://vi.stackexchange.com/a/2706
-nnoremap <expr> <C-j>
+nnoremap <expr> <silent> <C-j>
       \ &diff && winnr('$') == 3 && argc() == 3 ? ':call <SID>conflict_marker(0)<CR>' :
       \ &diff ? ']c' :
       \ '<C-w>j'
-nnoremap <expr> <C-k>
+nnoremap <expr> <silent> <C-k>
       \ &diff && winnr('$') == 3 && argc() == 3 ? ':call <SID>conflict_marker(1)<CR>' :
       \ &diff ? '[c' :
       \ '<C-w>k'
