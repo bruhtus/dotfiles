@@ -6,7 +6,7 @@ command! -bar Delete
       \ packadd vim-eunuch |
       \ Delete
 
-command! -bar -nargs=1 Rename
+command! -bar -nargs=+ -complete=file Rename
       \ packadd vim-eunuch |
       \ Rename <args>
 
