@@ -10,6 +10,6 @@ command! -bar -nargs=+ -complete=file Rename
       \ packadd vim-eunuch |
       \ Rename <args>
 
-command! -bar -nargs=1 Mkdir
+command! -bar -nargs=? -complete=dir Mkdir
       \ packadd vim-eunuch |
       \ Mkdir <args>
