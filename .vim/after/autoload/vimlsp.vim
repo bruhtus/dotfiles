@@ -41,8 +41,8 @@ function! vimlsp#init() abort
   nnoremap <silent> <buffer> gs :call <SID>diagnostics_float()<CR>
   nmap <silent> <buffer> gy <Plug>(lsp-document-diagnostics)
 
-  " nnoremap <expr> <buffer> <C-f> lsp#scroll(+4)
-  " nnoremap <expr> <buffer> <C-b> lsp#scroll(-4)
+  inoremap <expr> <buffer> <C-f> lsp#scroll(+4)
+  inoremap <expr> <buffer> <C-b> lsp#scroll(-4)
 endfunction
 
 " Note:
