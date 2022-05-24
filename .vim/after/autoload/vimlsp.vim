@@ -59,7 +59,7 @@ function! s:diagnostics_float() abort
     call s:show_float(lsp#internal#diagnostics#under_cursor#get_diagnostic())
     augroup vim_lsp_diagnostics_float
       autocmd!
-      autocmd CursorMoved *
+      autocmd CursorMoved,InsertEnter *
             \ call s:hide_float() |
             \ let s:enabled = 0 |
             \ autocmd! vim_lsp_diagnostics_float
