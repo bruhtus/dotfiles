@@ -3,7 +3,7 @@
 alias \
 	g='git' \
 	ga='git add' \
-	gd='git diff' \
+	gd='git diff -p --numstat' \
 	gmv='git mv' \
 	gcl='git clone' \
 	gss='git status -sb' \
