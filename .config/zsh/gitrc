@@ -101,10 +101,11 @@ alias \
 	grs='git remote set-url' \
 	grv='git remote -v'
 
-alias gst='git stash'
-alias gstu='git stash -u'
-alias gstp='git stash pop'
-alias gstl='git stash list'
+alias \
+	gst='git stash' \
+	gstu='git stash -u' \
+	gstp='git stash pop' \
+	gstl='git stash list'
 
 alias gcd='cd "$(git rev-parse --show-toplevel)"'
 
