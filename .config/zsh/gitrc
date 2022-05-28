@@ -65,8 +65,7 @@ alias \
 
 alias \
 	gm='git merge' \
-	gmt='git mergetool' \
-	gma='git merge --abort'
+	gmt='git mergetool'
 
 alias \
 	grm='git rm' \
