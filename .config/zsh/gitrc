@@ -20,7 +20,8 @@ alias \
 
 alias \
 	gb='git branch' \
-	gbd='git branch -d'
+	gbd='git branch -d' \
+	gbm='git branch -m'
 
 # ref: https://unix.stackexchange.com/questions/141285/using-xargs-with-git
 alias \
