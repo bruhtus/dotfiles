@@ -176,13 +176,8 @@ call s:hi('Normal', [s:dark_fg], [s:dark_bg])
 
 call s:hi('LineNr',    [101], [s:dark_bg])
 
-if exists('$DISPLAY')
-  call s:hi('Visual',    [''],  [23])
-  call s:hi('VisualNOS', [''],  [23])
-else
-  call s:hi('Visual',    [''],  [44])
-  call s:hi('VisualNOS', [''],  [44])
-endif
+call s:hi('Visual', [''], [exists('$DISPLAY') ? 23 : 44])
+call s:hi('VisualNOS', [''], [exists('$DISPLAY') ? 23 : 44])
 
 call s:hi('Comment',         [65],  [''])
 call s:hi('Number',          [222], [''])
@@ -240,11 +235,7 @@ call s:hi('Underlined', [181],       [''])
 
 " set textwidth=80
 " set colorcolumn=+1
-if exists('$DISPLAY')
-  call s:hi('ColorColumn', [''], [238])
-else
-  call s:hi('ColorColumn', [''], [244])
-endif
+call s:hi('ColorColumn', [''], [exists('$DISPLAY') ? 238 : 244])
 
 " highlight blank line
 " Ref: https://stackoverflow.com/a/706083
@@ -305,7 +296,6 @@ call s:hi('Special', [216], [''])
 
 " :map, listchars
 call s:hi('SpecialKey', [59], [''])
-
 
 if !s:gui
   " Red / Blue / Cyan / Magenta
