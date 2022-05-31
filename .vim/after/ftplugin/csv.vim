@@ -2,14 +2,21 @@ setlocal nowrap colorcolumn=
 
 " Ref: https://github.com/chrisbra/csv.vim/blob/master/autoload/csv.vim
 " Ref: https://vim.fandom.com/wiki/Working_with_CSV_files
-let s:hiGroup = 'WildMenu'
+" Note: because syntax file sourced first, re-use that if possible.
+let s:hiGroup = 'Visual'
 let b:delimiter = get(g:, 'csv_delim', ',')
-let s:del = '\%(' . b:delimiter . '\|$\)'
-let b:col =
+let s:del = get(b:, 'del', '\%(' . b:delimiter . '\|$\)')
+let s:del_noend = get(b:, 'del_noend', '\%(' . b:delimiter . '\)')
+let b:col = get(b:, 'col',
       \ '\%(\%(\%(' . (b:delimiter !~ '\s' ? '\s*' : '') .
       \ '"\%(' . (exists("g:csv_nl") ? '\_' : '' ) .
       \ '[^"]\|""\)*"\s*\)' . s:del . '\)\|\%(' .
-      \  '[^' .  b:delimiter . ']*' . s:del . '\)\)'
+      \  '[^' .  b:delimiter . ']*' . s:del . '\)\)')
+let b:col_end = get(b:, 'col_end',
+      \ '\%(\%(\%(' . (b:delimiter !~ '\s' ? '\s*' : '') .
+      \ '"\%(' . (exists("g:csv_nl") ? '\_' : '' ) .
+      \ '[^"]\|""\)*"\)' . s:del_noend . '\)\|\%(' .
+      \  '[^' .  b:delimiter . ']*' . s:del_noend . '\)\)')
 
 " TODO: figure out how to make toogle to turn off highlight.
 " TODO: figure out how to echo the csv header.

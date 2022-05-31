@@ -3,30 +3,29 @@ if exists('b:current_syntax')
   finish
 endif
 
-" TODO: refactor this so that we can use this in csv ftplugin.
-let s:del_def = ','
-let s:del = '\%(' . s:del_def . '\|$\)'
-let s:del_noend = '\%(' . s:del_def . '\)'
-let s:col =
-      \ '\%(\%(\%(' . (s:del_def !~ '\s' ? '\s*' : '') .
+let b:delimiter = get(g:, 'csv_delim', ',')
+let b:del = '\%(' . b:delimiter . '\|$\)'
+let b:del_noend = '\%(' . b:delimiter . '\)'
+let b:col =
+      \ '\%(\%(\%(' . (b:delimiter !~ '\s' ? '\s*' : '') .
       \ '"\%(' . (exists("g:csv_nl") ? '\_' : '' ) .
-      \ '[^"]\|""\)*"\s*\)' . s:del . '\)\|\%(' .
-      \  '[^' .  s:del_def . ']*' . s:del . '\)\)'
-let s:col_end='\%(\%(\%(' . (s:del_def !~ '\s' ? '\s*' : '') .
+      \ '[^"]\|""\)*"\s*\)' . b:del . '\)\|\%(' .
+      \  '[^' .  b:delimiter . ']*' . b:del . '\)\)'
+let b:col_end =
+      \ '\%(\%(\%(' . (b:delimiter !~ '\s' ? '\s*' : '') .
       \ '"\%(' . (exists("g:csv_nl") ? '\_' : '' ) .
-      \ '[^"]\|""\)*"\)' . s:del_noend . '\)\|\%(' .
-      \  '[^' .  s:del_def . ']*' . s:del_noend . '\)\)'
-let s:del = get(b:, 'delimiter', s:del_def)
+      \ '[^"]\|""\)*"\)' . b:del_noend . '\)\|\%(' .
+      \  '[^' .  b:delimiter . ']*' . b:del_noend . '\)\)'
 
 exe 'syn match CSVColumnEven nextgroup=CSVColumnOdd /'
-      \ . s:col . '/ contains=CSVDelimiter'
+      \ . b:col . '/ contains=CSVDelimiter'
 exe 'syn match CSVColumnOdd nextgroup=CSVColumnEven /'
-      \ . s:col . '/ contains=CSVDelimiter'
+      \ . b:col . '/ contains=CSVDelimiter'
 exe 'syn match CSVColumnHeaderEven nextgroup=CSVColumnHeaderOdd /\%<'. (get(b:, 'csv_headerline', 1)+1).'l'
-      \. s:col . '/ contains=CSVDelimiter'
+      \. b:col . '/ contains=CSVDelimiter'
 exe 'syn match CSVColumnHeaderOdd nextgroup=CSVColumnHeaderEven /\%<'. (get(b:, 'csv_headerline', 1)+1).'l'
-      \. s:col . '/ contains=CSVDelimiter'
-exe "syn match CSVDelimiter /" . s:col_end . '/ms=e,me=e contained'
+      \. b:col . '/ contains=CSVDelimiter'
+exe "syn match CSVDelimiter /" . b:col_end . '/ms=e,me=e contained'
 
 " Note: this highlight based on seoul256mod.
 hi def link CSVDelimiter Delimiter
