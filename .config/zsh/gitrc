@@ -107,8 +107,10 @@ alias \
 	gstp='git stash pop' \
 	gstl='git stash list'
 
-alias gcd='cd "$(git rev-parse --show-toplevel)"'
+alias \
+	gcd='cd "$(git rev-parse --show-toplevel)"'
 
-alias gzot='git pull origin main'
+alias \
+	gzot='git pull origin main'
 
 # vim:ft=sh
