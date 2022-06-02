@@ -91,9 +91,9 @@ function gwa() {
 	[ ! -z "$git_branch" ] && git worktree add $git_root/.worktree/$git_branch $git_branch || return 0
 }
 
-function gwr() {
-	git worktree list | fzf | awk '{print $1}' | xargs -r git worktree remove
-}
+# ref: https://stackoverflow.com/a/47698869 (using awk in shell alias)
+alias \
+	gwr='git worktree list | fzf | awk "{print \$1}" | xargs -r git worktree remove'
 
 alias \
 	gra='git remote add' \
