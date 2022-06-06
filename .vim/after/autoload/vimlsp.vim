@@ -54,86 +54,99 @@ endfunction
 " Ref:
 " https://github.com/prabirshrestha/vim-lsp/issues/1074#issuecomment-942911494
 function! s:diagnostics_float() abort
-  if !s:enabled
-    let s:enabled = 1
-    call s:show_float(lsp#internal#diagnostics#under_cursor#get_diagnostic())
-    augroup vim_lsp_diagnostics_float
-      autocmd!
-      autocmd CursorMoved,InsertEnter *
-            \ call s:hide_float() |
-            \ let s:enabled = 0 |
-            \ autocmd! vim_lsp_diagnostics_float
-    augroup END
-  endif
+  let s:Diagnostic = call(
+        \ 'lsp#internal#diagnostics#under_cursor#get_diagnostic',
+        \ []
+        \ )
+
+  " Note:
+  " the problem is in `l:pos` inside of `s:show_float()` function. the
+  " `s:compute_position()` function assume that we still in the first row and
+  " column, so we need to re-run the `s:show_float()` to get the right
+  " position.
+  " still not sure how to fix the `s:compute_position()` function.
+  try
+    call s:show_float(s:Diagnostic)
+  catch /^Vim\%((\a\+)\)\=:E684/
+    redraw
+    call s:show_float(s:Diagnostic)
+  endtry
+
+  augroup vim_lsp_diagnostics_float
+    autocmd!
+    autocmd CursorMoved,InsertEnter *
+          \ call s:hide_float() |
+          \ autocmd! vim_lsp_diagnostics_float
+  augroup END
 endfunction
 
 function! s:show_float(diagnostic) abort
-    let l:doc_win = s:get_doc_win()
-    if !empty(a:diagnostic) && has_key(a:diagnostic, 'message')
-        " Update contents.
-        call deletebufline(l:doc_win.get_bufnr(), 1, '$')
-        call setbufline(l:doc_win.get_bufnr(), 1, lsp#utils#_split_by_eol(a:diagnostic['message']))
+  let l:doc_win = s:get_doc_win()
+  if !empty(a:diagnostic) && has_key(a:diagnostic, 'message')
+    " Update contents.
+    call deletebufline(l:doc_win.get_bufnr(), 1, '$')
+    call setbufline(l:doc_win.get_bufnr(), 1, lsp#utils#_split_by_eol(a:diagnostic['message']))
 
-        " Compute size.
-        let l:size = l:doc_win.get_size({
-        \   'maxwidth': float2nr(&columns * 0.4),
-        \   'maxheight': float2nr(&lines * 0.4),
-        \ })
+    " Compute size.
+    let l:size = l:doc_win.get_size({
+          \   'maxwidth': float2nr(&columns * 0.4),
+          \   'maxheight': float2nr(&lines * 0.4),
+          \ })
 
-        " Compute position.
-        let l:pos = s:compute_position(l:size)
+    " Compute position.
+    let l:pos = s:compute_position(l:size)
 
-        " Open window.
-        call l:doc_win.open({
-        \   'row': l:pos[0],
-        \   'col': l:pos[1],
-        \   'width': l:size.width,
-        \   'height': l:size.height,
-        \   'border': v:true,
-        \   'topline': 1,
-        \ })
-    else
-        call s:hide_float()
-    endif
+    " Open window.
+    call l:doc_win.open({
+          \   'row': l:pos[0],
+          \   'col': l:pos[1],
+          \   'width': l:size.width,
+          \   'height': l:size.height,
+          \   'border': v:true,
+          \   'topline': 1,
+          \ })
+  else
+    call s:hide_float()
+  endif
 endfunction
 
 function! s:hide_float() abort
-    let l:doc_win = s:get_doc_win()
-    call l:doc_win.close()
+  let l:doc_win = s:get_doc_win()
+  call l:doc_win.close()
 endfunction
 
 function! s:get_doc_win() abort
-    if exists('s:doc_win')
-        return s:doc_win
-    endif
-
-    let s:doc_win = s:FloatingWindow.new({
-    \   'on_opened': { -> execute('doautocmd <nomodeline> User lsp_float_opened') },
-    \   'on_closed': { -> execute('doautocmd <nomodeline> User lsp_float_closed') }
-    \ })
-    call s:doc_win.set_var('&wrap', 1)
-    call s:doc_win.set_var('&conceallevel', 2)
-    noautocmd silent let l:bufnr = s:Buffer.create()
-    call s:doc_win.set_bufnr(l:bufnr)
-    call setbufvar(s:doc_win.get_bufnr(), '&buftype', 'nofile')
-    call setbufvar(s:doc_win.get_bufnr(), '&bufhidden', 'hide')
-    call setbufvar(s:doc_win.get_bufnr(), '&buflisted', 0)
-    call setbufvar(s:doc_win.get_bufnr(), '&swapfile', 0)
+  if exists('s:doc_win')
     return s:doc_win
+  endif
+
+  let s:doc_win = s:FloatingWindow.new({
+        \   'on_opened': { -> execute('doautocmd <nomodeline> User lsp_float_opened') },
+        \   'on_closed': { -> execute('doautocmd <nomodeline> User lsp_float_closed') }
+        \ })
+  call s:doc_win.set_var('&wrap', 1)
+  call s:doc_win.set_var('&conceallevel', 2)
+  noautocmd silent let l:bufnr = s:Buffer.create()
+  call s:doc_win.set_bufnr(l:bufnr)
+  call setbufvar(s:doc_win.get_bufnr(), '&buftype', 'nofile')
+  call setbufvar(s:doc_win.get_bufnr(), '&bufhidden', 'hide')
+  call setbufvar(s:doc_win.get_bufnr(), '&buflisted', 0)
+  call setbufvar(s:doc_win.get_bufnr(), '&swapfile', 0)
+  return s:doc_win
 endfunction
 
 function! s:compute_position(size) abort
-    let l:pos = screenpos(0, line('.'), col('.'))
-    if l:pos.row == 0 && l:pos.col == 0
-        " When the specified position is not visible
-        return []
-    endif
-    let l:pos = [l:pos.row + 1, l:pos.curscol + 1]
-    if l:pos[0] + a:size.height > &lines
-        let l:pos[0] = l:pos[0] - a:size.height - 3
-    endif
-    if l:pos[1] + a:size.width > &columns
-        let l:pos[1] = l:pos[1] - a:size.width - 3
-    endif
-    return l:pos
+  let l:pos = screenpos(0, line('.'), col('.'))
+  if l:pos.row == 0 && l:pos.col == 0
+    " When the specified position is not visible
+    return []
+  endif
+  let l:pos = [l:pos.row + 1, l:pos.curscol + 1]
+  if l:pos[0] + a:size.height > &lines
+    let l:pos[0] = l:pos[0] - a:size.height - 3
+  endif
+  if l:pos[1] + a:size.width > &columns
+    let l:pos[1] = l:pos[1] - a:size.width - 3
+  endif
+  return l:pos
 endfunction
