@@ -24,11 +24,13 @@ alias \
 	gbm='git branch -m'
 
 # ref: https://unix.stackexchange.com/questions/141285/using-xargs-with-git
+# ref: https://unix.stackexchange.com/a/174717
 alias \
-	gco='git branch -a | fzf | xargs -r git checkout' \
 	gch='git checkout' \
+	gco='git branch -a | awk "/^[^*]/" | fzf | xargs -r git checkout' \
 	gcb='git checkout -b' \
 	gct='git branch -r | fzf | xargs -r git checkout -t'
+
 
 alias \
 	gpl='git pull' \
@@ -110,6 +112,9 @@ alias \
 alias \
 	gcd='cd "$(git rev-parse --show-toplevel)"'
 
+# ref:
+# https://twitter.com/diawanchris/status/1531806319014838273
+# (default branch of remote repo)
 alias \
 	gzot='git pull origin main'
 
