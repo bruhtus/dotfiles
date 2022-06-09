@@ -390,7 +390,8 @@ call s:hi('CommandModeColor', [233], [217])
 " vim-sneak
 " -----------
 call s:hi('Sneak',      [s:dark_bg], [230])
-call s:hi('SneakLabel', [s:dark_bg], [230])
+call s:hi('SneakLabel', [exists('$DISPLAY') ? s:dark_bg : 2],
+      \ [exists('$DISPLAY') ? 230 : 0])
 
 " Ref: http://vim.wikia.com/wiki/Highlight_unwanted_spaces
 " ---------------------------------------------------^^^^^
