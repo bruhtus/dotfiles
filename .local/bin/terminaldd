@@ -1,4 +1,3 @@
 #!/bin/sh
 
-xwininfo -name dropdown_terminal || $TERMINAL -t dropdown_terminal
-
+xwininfo -name dropdown_terminal 2>/dev/null || $TERMINAL -t dropdown_terminal

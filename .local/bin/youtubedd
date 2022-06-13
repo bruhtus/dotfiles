@@ -1,4 +1,3 @@
 #!/bin/sh
 
-xwininfo -name dropdown_youtube || $TERMINAL -t dropdown_youtube -e youtube-viewer --resolution=480p
-
+xwininfo -name dropdown_youtube 2>/dev/null || $TERMINAL -t dropdown_youtube -e youtube-viewer --resolution=480p
