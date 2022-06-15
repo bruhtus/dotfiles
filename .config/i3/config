@@ -246,7 +246,7 @@ exec --no-startup-id killall pomo; pomo notify &
 exec --no-startup-id syncthing --no-browser
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
-exec --no-startup-id blueman-tray
+# exec --no-startup-id blueman-tray
 # exec --no-startup-id aarchup -t 10 -a /usr/bin/yay -Qua --loop-time 60
 # exec --no-startup-id blueman-applet
 # exec --no-startup-id $HOME/.config/conky/start_conky_color_scheme
