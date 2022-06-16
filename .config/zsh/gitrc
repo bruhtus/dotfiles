@@ -2,12 +2,17 @@
 # ref: https://stackoverflow.com/a/12538667
 alias \
 	g='git' \
-	ga='git add' \
 	gd='git diff -p --numstat' \
 	gmv='git mv' \
 	gcl='git clone' \
 	gss='git status -sb' \
 	gref='git reflog'
+
+# ref: https://stackoverflow.com/a/30050792 (xargs -a)
+alias \
+	ga='git add' \
+	gaf='git status -s | awk "{print \$2}" | fzf | xargs -r git add' \
+	gap='xargs -a <(git status -s | awk "{print \$2}") git add -p' \
 
 alias \
 	gc='git commit' \
