@@ -1,16 +1,17 @@
 #!/bin/sh
 
-# Terminate already running bar instances
+# terminate already running bar instances
 polybar-msg cmd quit || killall -q polybar
 
-# Wait until the processes have been shut down
+# wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do
   sleep 1; done
 
-tray_monitor=$(xrandr | grep primary | awk '{print $1}') #grep primary monitor from xrandr
+# grep primary monitor from xrandr
+tray_monitor=$(xrandr | grep primary | awk '{print $1}')
 
-#launch bar
-for m in $(polybar --list-monitors | cut -d":" -f1); do
+# launch bar
+for m in $(polybar --list-monitors | cut -d ':' -f 1); do
   #primary monitor launch mainbar-i3 and other monitor launch secondbar-i3
   if [ $m == $tray_monitor ]; then
     MONITOR=$m polybar -r mainbar-i3 2>/tmp/polybar-mainbar-i3.log & disown
