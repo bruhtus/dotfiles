@@ -44,7 +44,7 @@ function! enable#fzf#init()
             \ winheight(0) < 40 ? fzf#vim#with_preview(
             \ {'options': '--with-nth=1,4.. --delimiter : --nth 2..'},
             \ 'hidden', 'ctrl-/') :
-            \ winwidth(0) < 192 ? fzf#vim#with_preview(
+            \ winwidth(0) < 192 && winnr('$') == 1 ? fzf#vim#with_preview(
             \ {'options': '--with-nth=1,4.. --delimiter : --nth 2..'},
             \ 'up:50%:hidden', 'ctrl-/') :
             \ fzf#vim#with_preview(
