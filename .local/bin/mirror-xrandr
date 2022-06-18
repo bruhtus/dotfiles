@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# TODO: figure out how to POSIX compliant for word boundary in awk.
+# word boundary for gawk, we can use '/\<primary\>/'
+# which is similar in vim script.
 xrandr --auto --output \
   $(xrandr | awk '/primary/ {print $1}') \
   --auto --same-as \
