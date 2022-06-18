@@ -2,4 +2,5 @@
 
 [ $(xrandr | grep -cw 'connected') == 1 ] && \
   xrandr --auto || \
-  xrandr --auto --output $(xrandr | awk '/primary/ {print $1}') --auto --right-of $(xrandr | awk '!/primary/ && / connected/ {print $1}')
+  xrandr --auto --output $(xrandr | awk '/primary/ {print $1}') \
+  --auto --right-of $(xrandr | awk '!/primary/ && / connected/ {print $1}')
