@@ -7,3 +7,5 @@
   xrandr --auto || \
   xrandr --auto --output $(xrandr | awk '/primary/ {print $1}') \
   --auto --right-of $(xrandr | awk '!/primary/ && / connected/ {print $1}')
+
+sleep 1 && polybar-launch
