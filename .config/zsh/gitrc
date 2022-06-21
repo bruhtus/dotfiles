@@ -69,7 +69,8 @@ function gl() {
 alias \
 	glo='git log --graph --oneline' \
 	glg='git log -g' \
-	glp='git log -p'
+	glp='git log -p' \
+	gld='git log --graph --oneline --decorate $(git fsck --no-reflog | awk "/dangling commit/ {print \$3}")'
 
 alias \
 	gm='git merge' \
