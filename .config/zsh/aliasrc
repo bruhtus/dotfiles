@@ -31,8 +31,8 @@ alias \
 	rr='ranger' \
 	wiki='$EDITOR ~/sync/wiki/index.md' \
 	rate='curl rate.sx' \
-	lynx='lynx -vikeys' \
-	saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
+	lynx='lynx -vikeys'
+	# saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 
 #verbosity
 alias \
