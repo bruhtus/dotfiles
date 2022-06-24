@@ -32,7 +32,7 @@ alias \
 # ref: https://unix.stackexchange.com/a/174717
 alias \
 	gch='git checkout' \
-	gco='git branch | awk "/^[^*]/" | fzf | xargs -r git checkout' \
+	gco='git branch | awk "/^[^*+]/" | fzf | xargs -r git checkout' \
 	gcb='git checkout -b' \
 	gct='git branch -r | fzf | xargs -r git checkout -t'
 
