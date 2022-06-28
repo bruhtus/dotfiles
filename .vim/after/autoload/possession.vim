@@ -8,7 +8,8 @@ function! possession#init(bang) abort
 
   try
     if a:bang && filereadable(expand(session))
-      echom 'Deleting session in ' . fnamemodify(session, ':~:.')
+      echom 'Deleting session in '
+            \ . possession#msg_truncation(fnamemodify(session, ':~:.'))
       call delete(expand(session))
       unlet! g:current_possession
       return ''
@@ -16,7 +17,8 @@ function! possession#init(bang) abort
       echo 'Session for this path not found, nothing deleted'
       return ''
     elseif exists('g:current_possession')
-      echom 'Pausing session in ' . fnamemodify(session, ':~:.')
+      echom 'Pausing session in '
+            \ . possession#msg_truncation(fnamemodify(session, ':~:.'))
       unlet g:current_possession
       return ''
     elseif !empty(session)
@@ -29,7 +31,8 @@ function! possession#init(bang) abort
 
     let error = possession#persist()
     if empty(error)
-      echom 'Tracking session in ' . fnamemodify(file, ':~:.')
+      echom 'Tracking session in '
+            \ . possession#msg_truncation(fnamemodify(file, ':~:.'))
       let v:this_session = file
       return ''
     else

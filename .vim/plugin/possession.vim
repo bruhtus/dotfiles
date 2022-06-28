@@ -40,6 +40,31 @@ command! PMove
       \ call possession#move() |
       \ call possession#refresh_list()
 
+" Ref: vim-lsp/autoload/lsp/utils.vim (lsp#utils#echo_with_truncation())
+function! possession#msg_truncation(msg) abort
+  let l:msg = a:msg
+
+  if &laststatus == 0 || (&laststatus == 1 && winnr('$') == 1)
+    let l:winwidth = winwidth(0)
+
+    if &ruler
+      let l:winwidth -= 18
+    endif
+  else
+    let l:winwidth = &columns - 20
+  endif
+
+  if &showcmd
+    let l:winwidth -= 12
+  endif
+
+  if l:winwidth > 5 && l:winwidth < strdisplaywidth(a:msg)
+    let l:msg = l:msg[:l:winwidth - 5] . '...'
+  endif
+
+  return l:msg
+endfunction
+
 function! s:possession_load() abort
   let file = filereadable(expand(g:possession_git_root . '/Session.vim')) ?
         \ g:possession_git_root . '/Session.vim' :
@@ -54,7 +79,8 @@ function! s:possession_load() abort
     if bufexists(0) && !filereadable(bufname('#'))
       bw #
     endif
-    echom 'Tracking session in ' . fnamemodify(g:current_possession, ':~:.')
+    echom 'Loading session in '
+          \ . possession#msg_truncation(fnamemodify(g:current_possession, ':~:.'))
   elseif !empty(v:this_session)
     echo 'There is another session going on'
   elseif &modified
