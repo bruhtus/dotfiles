@@ -37,7 +37,7 @@ function! enable#fzf#init()
 
       " exclude filenames when using Rg
       " Ref: https://github.com/junegunn/fzf.vim/issues/714#issuecomment-428802659
-      command! -bang -nargs=* Rg
+      command! -bang -nargs=* CustomRg
             \ call fzf#vim#grep(
             \ "rg --column --line-number --no-heading --color=always --smart-case " . shellescape(<q-args>),
             \ 1,
@@ -49,6 +49,20 @@ function! enable#fzf#init()
             \ 'up:50%:hidden', 'ctrl-/') :
             \ fzf#vim#with_preview(
             \ {'options': '--with-nth=1,4.. --delimiter : --nth 2..'},
+            \ 'hidden', 'ctrl-/'), <bang>0)
+
+      command! -bang -nargs=* Rg
+            \ call fzf#vim#grep(
+            \ "rg --column --line-number --no-heading --color=always --smart-case " . shellescape(<q-args>),
+            \ 1,
+            \ winheight(0) < 40 ? fzf#vim#with_preview(
+            \ {'options': '--with-nth=1,4.. --delimiter :'},
+            \ 'hidden', 'ctrl-/') :
+            \ winwidth(0) < 192 && winnr('$') == 1 ? fzf#vim#with_preview(
+            \ {'options': '--with-nth=1,4.. --delimiter :'},
+            \ 'up:50%:hidden', 'ctrl-/') :
+            \ fzf#vim#with_preview(
+            \ {'options': '--with-nth=1,4.. --delimiter :'},
             \ 'hidden', 'ctrl-/'), <bang>0)
 
       " Custom BLines with preview (using ripgrep)
