@@ -148,6 +148,13 @@ config.set('tabs.show', 'never')
 # Show scrolling bar
 # config.set('scrolling.bar', 'always')
 
+# Ad-block
+config.set('content.blocking.method', 'both')
+
+# View pdf within qutebrowser
+config.set('content.pdfjs', True)
+
+# Ref: https://qutebrowser.org/doc/help/commands.html
 # Bindings for normal mode
 config.bind('J', 'tab-next')
 config.bind('K', 'tab-prev')
