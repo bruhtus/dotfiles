@@ -99,7 +99,11 @@ function! statusline#active() abort
   " Note: truncate from the right.
   " Ref: https://stackoverflow.com/a/20899652
   " let l:git = "  %([%{winwidth(0) > 70 ? strpart(statusline#gitbranch(), 0, 20) : ''}]%)"
-  let l:git = "  %<%([%{winwidth(0) > 70 ? statusline#gitbranch() : ''}]%)"
+  let l:git = "  %<%([%{winwidth(0) > 100 ? statusline#gitbranch() :
+        \ winwidth(0) > 70 ?
+        \ (strlen(statusline#gitbranch()) > 10 ? '...' . statusline#gitbranch()[-7:]
+        \ : statusline#gitbranch())
+        \ : ''}]%)"
   let l:sep = '%='
   " current line/total lines:cursor column percentage in file
   let l:line = '  %-16.(%l/%L:%c%)%P'
