@@ -41,8 +41,15 @@ function! vimlsp#init() abort
   nnoremap <silent> <buffer> gs :call <SID>diagnostics_float()<CR>
   nmap <silent> <buffer> gy <Plug>(lsp-document-diagnostics)
 
+  if has('patch-8.2.1978')
+    imap <buffer> <C-s> <Cmd>call
+          \ lsp#ui#vim#signature_help#get_signature_help_under_cursor()<CR>
+  else
+    " Note: combine this with <C-o> in insert mode.
+    nmap <buffer> <C-s> <Plug>(lsp-signature-help)
+  endif
+
   " Note: combine this with <C-o> in insert mode.
-  nmap <buffer> <C-s> <Plug>(lsp-signature-help)
   nmap <buffer> <C-n> <Plug>(lsp-preview-close)
 
   inoremap <expr> <buffer> <C-f> lsp#scroll(+4)
