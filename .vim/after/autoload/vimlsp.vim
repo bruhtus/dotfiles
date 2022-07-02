@@ -49,9 +49,6 @@ function! vimlsp#init() abort
     nmap <buffer> <C-s> <Plug>(lsp-signature-help)
   endif
 
-  " Note: combine this with <C-o> in insert mode.
-  nmap <buffer> <C-n> <Plug>(lsp-preview-close)
-
   inoremap <expr> <buffer> <C-f> lsp#scroll(+4)
   inoremap <expr> <buffer> <C-b> lsp#scroll(-4)
 endfunction
