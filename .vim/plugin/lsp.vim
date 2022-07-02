@@ -12,6 +12,4 @@ let g:lsp_signature_help_enabled = 0
 augroup lsp_enabled
   autocmd!
   autocmd User lsp_buffer_enabled call vimlsp#init()
-  autocmd BufEnter LspHoverPreview
-        \ nnoremap <silent> <nowait> <buffer>  q :<C-u>bw<CR>
 augroup END

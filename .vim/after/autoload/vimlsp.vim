@@ -54,7 +54,7 @@ function! vimlsp#init() abort
 endfunction
 
 " Note:
-" becauee there's a limit of character on quickfix list or location list
+" because there's a limit of character on quickfix list or location list
 " window, we can't really use the location list window to show all the
 " diagnostics message.
 " the diagnostics message will truncated at 1024 character.
