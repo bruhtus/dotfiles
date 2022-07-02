@@ -166,7 +166,7 @@ xnoremap x "_x
 nnoremap X "_X
 nnoremap <expr> d v:register == '"' ? '"_d' : 'd'
 xnoremap d "_d
-nnoremap D "_D
+nnoremap <expr> D v:register == '"' ? '"_D' : 'D'
 
 " set space d to default d command
 nnoremap <leader>d d
