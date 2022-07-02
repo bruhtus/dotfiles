@@ -164,7 +164,7 @@ nnoremap S "_S
 nnoremap x "_x
 xnoremap x "_x
 nnoremap X "_X
-nnoremap d "_d
+nnoremap <expr> d v:register == '"' ? '"_d' : 'd'
 xnoremap d "_d
 nnoremap D "_D
 
