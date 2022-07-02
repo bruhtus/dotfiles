@@ -41,6 +41,10 @@ function! vimlsp#init() abort
   nnoremap <silent> <buffer> gs :call <SID>diagnostics_float()<CR>
   nmap <silent> <buffer> gy <Plug>(lsp-document-diagnostics)
 
+  " Note: combine this with <C-o> in insert mode.
+  nmap <buffer> <C-s> <Plug>(lsp-signature-help)
+  nmap <buffer> <C-n> <Plug>(lsp-preview-close)
+
   inoremap <expr> <buffer> <C-f> lsp#scroll(+4)
   inoremap <expr> <buffer> <C-b> lsp#scroll(-4)
 endfunction
