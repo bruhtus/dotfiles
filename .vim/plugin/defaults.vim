@@ -71,7 +71,7 @@ set autoindent shiftround smarttab shiftwidth=2 softtabstop=-69
 " Note: this function doesn't acknowledge people that use one space as
 " indentation.
 " Note: the result is the line number, not the total.
-function! s:detect_indent()
+function! s:detect_indent() abort
   if &ft =~# 'git*'
     let b:editorconfig_file = ''
   endif
@@ -83,11 +83,8 @@ function! s:detect_indent()
   if !exists('b:editorconfig_path_cache')
     let b:editorconfig_file =
           \ get(b:, 'editorconfig_file', findfile('.editorconfig', escape(expand('%:p:h'), ' ') . ';'))
-    if !empty(b:editorconfig_file)
-      let b:editorconfig_path_cache = fnamemodify(b:editorconfig_file, ':p')
-    else
-      let b:editorconfig_path_cache = ''
-    endif
+    let b:editorconfig_path_cache = !empty(b:editorconfig_file) ?
+          \ fnamemodify(b:editorconfig_file, ':p') : ''
   endif
 
   " Note: skip the highlight with these name.
