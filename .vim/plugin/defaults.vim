@@ -89,10 +89,16 @@ function! s:detect_indent()
       let b:editorconfig_path_cache = ''
     endif
   endif
+
+  " Note: skip the highlight with these name.
+  let l:skip_patterns = "synIDattr(synID(line('.'), 1, 1), 'name') =~#"
+        \ . "'\a*Comment\\|markdownCode\\|shHereDoc'"
+
   let b:indent_spaces = search('^  \+', 'nW')
   let b:indent_tabs = search('^\t', 'nW')
-  let b:tab_with_space = search('\t\+ \+', 'nW')
-  let b:space_with_tab = search(' \+\t\+', 'nW')
+  let b:tab_with_space = search('\t\+ \+', 'nW', '', '', l:skip_patterns)
+  let b:space_with_tab = search(' \+\t\+', 'nW', '', '', l:skip_patterns)
+
   if !empty(b:editorconfig_path_cache)
     call editorconfig#init(b:editorconfig_path_cache)
   else
