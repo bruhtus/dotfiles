@@ -124,17 +124,6 @@ function! statusline#active() abort
   " the result is the line number, not the total
   " Flaw: if the `expandtab` set by modeline after there's a tab character in
   " a file, this component won't be triggered
-  let l:tab = "%{winwidth(0) > 80 ? (
-        \ (
-        \   !&et
-        \   && &ts != &sw
-        \   && !exists('b:editorconfig_file')
-        \ )
-        \ && ((exists('b:indent_tabs') && !b:indent_tabs)
-        \ || (exists('b:tab_with_space') && !b:tab_with_space)
-        \ || (exists('b:space_with_tab') && !b:space_with_tab)) ?
-        \ '[t:'.b:indent_tabs.',tws:'.b:tab_with_space.',swt:'.b:space_with_tab.']' : ''
-        \ ) : '' }"
   let l:ses = "%{exists('g:current_possession') ? '[S]' : ''}"
   " useful for resolving git merge conflict or using diff more than 2 windows
   let l:diff = "%{&diff && winnr('$') > 2 ? ' [' . bufnr() . '] ' : '' }"
@@ -147,7 +136,7 @@ function! statusline#active() abort
   "   return w:mode.'%*'.l:indent.l:git.l:sep.l:diff.l:readonly.l:filename.l:mod.l:sep.l:ses.'  '.l:ft.l:line
   " else
     " return l:mode.'%*'.l:diff.l:indent.l:totalbuf.l:alt.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
-    return l:diff.l:indent.l:totalbuf.l:alt.l:ses.l:readonly.l:root.l:filename.l:mod.l:sep.l:git.l:tab.l:ft.l:line
+    return l:diff.l:indent.l:totalbuf.l:alt.l:ses.l:readonly.l:root.l:filename.l:mod.l:sep.l:git.l:ft.l:line
   " endif
 endfunction
 
