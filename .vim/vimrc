@@ -15,9 +15,9 @@ command! PacSync  source $MYPACK | call pack#init() | call minpac#update()
 
 command! PacList
       \ if !exists('g:loaded_minpac') | packadd minpac | endif           |
-    \ echo 'Total: '
-    \ . len(minpac#getpackages('minpac', '', '', 1)) . ' plugin(s)'    |
-    \ echo join(sort(minpac#getpackages('minpac', '', '', 1)), "\n")
+      \ echo 'Total: '
+      \ . len(minpac#getpackages('minpac', '', '', 1)) . ' plugin(s)'    |
+      \ echo join(sort(minpac#getpackages('minpac', '', '', 1)), "\n")
 
 " Usage: PacQ start or PacQ opt
 " Ref: https://dev.to/dlains/create-your-own-vim-commands-415b
