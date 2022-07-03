@@ -91,7 +91,7 @@ function! statusline#active() abort
         \ pathshorten(expand('%'))}"
   let l:readonly = '%r'
   let l:mod = "%{&modified ? '  [+]' : !&modifiable ? '  [-]' : ''}"
-  let l:ft = "%{winwidth(0) > 70 ? (len(&filetype) ? &filetype : 'no ft') : ''}"
+  let l:ft = "%{winwidth(0) > 70 ? ' ' . (len(&filetype) ? &filetype : 'no ft') : ''}"
   " there's a glitch when using git branch cmd in statusline vim
   " let g:gitbranchcmd = "git branch --show-current 2>/dev/null | tr -d '\n'"
   " let l:git = "%{exists('*FugitiveHead') ? (winwidth(0) > 70 ? fugitive#head() : '') :
@@ -147,7 +147,7 @@ function! statusline#active() abort
   "   return w:mode.'%*'.l:indent.l:git.l:sep.l:diff.l:readonly.l:filename.l:mod.l:sep.l:ses.'  '.l:ft.l:line
   " else
     " return l:mode.'%*'.l:diff.l:indent.l:totalbuf.l:alt.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
-    return l:diff.l:indent.l:totalbuf.l:alt.l:ses.l:readonly.l:root.l:filename.l:mod.l:sep.l:git.l:tab.'  '.l:ft.l:line
+    return l:diff.l:indent.l:totalbuf.l:alt.l:ses.l:readonly.l:root.l:filename.l:mod.l:sep.l:git.l:tab.l:ft.l:line
   " endif
 endfunction
 
