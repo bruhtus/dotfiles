@@ -82,7 +82,9 @@ function! s:detect_indent() abort
 
   if !exists('b:editorconfig_path_cache')
     let b:editorconfig_file =
-          \ get(b:, 'editorconfig_file', findfile('.editorconfig', escape(expand('%:p:h'), ' ') . ';'))
+          \ get(b:, 'editorconfig_file',
+          \   findfile('.editorconfig', escape(expand('%:p:h'), ' ') . ';')
+          \ )
     let b:editorconfig_path_cache = !empty(b:editorconfig_file) ?
           \ fnamemodify(b:editorconfig_file, ':p') : ''
   endif
@@ -100,9 +102,11 @@ function! s:detect_indent() abort
     call editorconfig#init(b:editorconfig_path_cache)
   else
     execute 'let '
-          \ b:indent_tabs && !b:indent_spaces && !b:tab_with_space && !b:space_with_tab ?
+          \ b:indent_tabs && !b:indent_spaces && !b:tab_with_space
+          \   && !b:space_with_tab ?
           \ '[&l:ts, &l:et] = [&sw, 0]' :
-          \ (b:indent_tabs && b:indent_spaces) || b:tab_with_space || b:space_with_tab ?
+          \ (b:indent_tabs && b:indent_spaces) || b:tab_with_space
+          \   || b:space_with_tab ?
           \ '&l:et = 0' :
           \ '&l:et = 1'
   endif
