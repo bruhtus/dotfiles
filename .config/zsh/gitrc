@@ -45,14 +45,14 @@ alias \
 # ref: https://stackoverflow.com/a/1441062
 # note: it's better to clear the terminal screen before using this, so that less didn't go to the bottom of the screen.
 # note:
-# if we use `ctrl-c`, the exit code will be 130, not 0. return 0 so that we
-# didn't get a misleading error in shell prompt.
+# if we use `ctrl-c`, the exit code will be 130, not 0.
+# ref: https://stackoverflow.com/a/8977668 (about shell piping).
+# ref: https://unix.stackexchange.com/a/14276 (pipestatus in zsh and bash).
 function gl() {
-	git rev-parse --is-inside-work-tree >/dev/null || return 1
+	git rev-parse --is-inside-work-tree >/dev/null && git log >/dev/null || return 1
 	local files=$(sed -nE 's/.* -- (.*)/\1/p' <<< "$*")
 	local cmd="echo {} | grep -Eo '[a-f0-9]+' | head -1 | xargs -I% git show --color=always --format=medium --numstat -p % -- $files"
 
-	# return 0 solve the known issue above, still need to observe this.
 	git log --oneline --color=always --date=short --format='%C(auto)%h %ad%d%x09%s' | \
 		fzf \
 		--ansi \
@@ -62,8 +62,7 @@ function gl() {
 		--reverse \
 		--bind "enter:execute($cmd | less -r --incsearch)" \
 		--bind "ctrl-y:execute-silent(echo {} | grep -Eo '[a-f0-9]+' | head -1 | tr -d '[:space:]' | xsel --clipboard --input)" \
-		--preview="$cmd" || \
-		return 0
+		--preview="$cmd"
 }
 
 alias \
