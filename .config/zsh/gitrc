@@ -112,7 +112,8 @@ alias \
 	gst='git stash' \
 	gstu='git stash -u' \
 	gstp='git stash pop' \
-	gstl='git stash list'
+	gstl='git stash list' \
+	gstf='git status -s | awk "{print \$2}" | fzf --multi | xargs -r git stash push -u'
 
 alias \
 	gcd='cd "$(git rev-parse --show-toplevel)"'
