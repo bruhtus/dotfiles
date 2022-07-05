@@ -15,7 +15,9 @@
 [rebase]
 	autosquash = true
 [merge]
-	tool = vimdiff2
+	tool = vimdiff
+[mergetool "vimdiff"]
+	cmd = $EDITOR -d $LOCAL $MERGED $REMOTE -c 'wincmd l'
 [mergetool]
 	keepbackup = false
 [pull]
