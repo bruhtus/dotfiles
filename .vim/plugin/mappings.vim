@@ -102,7 +102,8 @@ nnoremap <C-b> <C-b>L^
 xnoremap <silent> <leader>y "+y:let @+=substitute(@+, '\n$', '', 'g')<CR>
 
 " set vim to paste from clipboard
-nnoremap <C-p> "+gp
+nnoremap <C-n> "+gp
+nnoremap <C-p> "+gP
 nnoremap <silent> <leader>p :put +<CR>
 nnoremap <silent> <leader>P :put! +<CR>
 
