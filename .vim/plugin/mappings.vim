@@ -218,6 +218,12 @@ nnoremap Q :lvimgrep /\v/j %<left><left><left><left>
 " print current working directory
 nnoremap <leader>; :<C-u>pwd<CR>
 
+" print current git branch
+nnoremap <expr> <leader>'
+      \ exists('*statusline#gitbranch()') ?
+      \ ':<C-u>echo statusline#gitbranch()<CR>' :
+      \ ':<C-u>echo "statusline#gitbranch() does not exist"'
+
 " toggle `relativenumber` option (useful when pairing)
 nnoremap <silent> <leader>r :<C-u>windo set relativenumber!<CR>
 
