@@ -137,12 +137,12 @@ nnoremap <silent> [l :lprevious<CR>zz
 if exists('*getwininfo()')
   nnoremap <expr> <silent> ]<Space>
         \ empty(filter(getwininfo(), 'v:val.loclist')) ?
-        \ ':lopen<CR>' :
-        \ ':lclose<CR>'
+        \ ':botright lwindow<CR>' :
+        \ ':botright lclose <Bar> wincmd p<CR>'
   nnoremap <expr> <silent> [<Space>
         \ empty(filter(getwininfo(), 'v:val.quickfix')) ?
-        \ ':copen<CR>' :
-        \ ':cclose<CR>'
+        \ ':botright cwindow<CR>' :
+        \ ':botright cclose <Bar> wincmd p<CR>'
 endif
 
 " Ref: https://vim.fandom.com/wiki/Move_to_next/previous_line_with_same_indentation
