@@ -13,17 +13,18 @@ if executable('rg')
   set grepprg=rg\ --smart-case\ --hidden\ --vimgrep\ -w
   set grepformat=%f:%l:%c:%m,%f
   if has('nvim')
-    nnoremap <silent> <BS> :silent! lgrep! <cword> **<CR>
+    nnoremap <silent> <BS> :silent! lgrep! <cword> ** <Bar> botright lwindow<CR>
   else
     " Ref: https://gist.github.com/romainl/56f0c28ef953ffc157f36cc495947ab3
     " :grep in vanilla vim not as smooth as neovim, it spit out the output
     " into terminal and need to redraw every time using it.
-    nnoremap <silent> <BS> :execute "lgetexpr system('" . &grepprg . ' ' . expand("<cword>") . "')"<CR>
+    nnoremap <silent> <BS> :execute "lgetexpr system('"
+          \ . &grepprg . ' ' . expand("<cword>") . "')" <Bar> botright lwindow<CR>
   endif
 
 else
-  nnoremap <silent> <BS> :execute 'lvimgrep /\v<' . expand('<cword>') . '>/j **'<CR>
-
+  nnoremap <silent> <BS> :execute 'lvimgrep /\v<' . expand('<cword>') . '>/j **'
+        \ <Bar> botright lwindow<CR>
 endif
 
 " use shift+tab to switch back and forth between two recent buffer
@@ -247,10 +248,12 @@ nnoremap <silent> ZX :up<CR>
 nnoremap <silent> ZA :on<CR>
 
 " set ZS to grep word under cursor in current buffer
-nnoremap <silent> ZS :execute 'lvimgrep /\v<' . expand('<cword>') . '>/j %'<CR>
+nnoremap <silent> ZS :execute 'lvimgrep /\v<' . expand('<cword>') . '>/j %' <Bar>
+      \ botright lwindow<CR>
 
 " set ZD to grep WORD under cursor in current buffer
-nnoremap <silent> ZD :execute 'lvimgrep /' . expand('<cWORD>') . '/j %'<CR>
+nnoremap <silent> ZD :execute 'lvimgrep /' . expand('<cWORD>') . '/j %' <Bar>
+      \ botright lwindow<CR>
 
 " set ZC as :reg
 nnoremap <silent> ZC :reg<CR>

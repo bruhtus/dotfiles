@@ -15,6 +15,6 @@ augroup location_quickfix_list
         \   let g:quickr_preview_keymaps = 0     |
         \   packadd quickr-preview.vim           |
         \ endif                                  |
-  autocmd QuickFixCmdPost [^l]* cwindow
-  autocmd QuickFixCmdPost l*    lwindow
+  " autocmd QuickFixCmdPost [^l]* cwindow
+  " autocmd QuickFixCmdPost l*    lwindow
 augroup END
