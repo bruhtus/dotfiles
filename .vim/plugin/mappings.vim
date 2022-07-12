@@ -236,11 +236,6 @@ nnoremap <leader>s :s//g<left><left>
 " Ref: https://vi.stackexchange.com/a/26153
 nnoremap <leader>a :%s/.*.*\n//c<left><left><left><left><left><left><left>
 
-" set space m to open terminal emulator
-if exists(':ter')
-  nnoremap <silent> <leader>m :ter<CR>
-endif
-
 " set ZX as :update
 nnoremap <silent> ZX :up<CR>
 
