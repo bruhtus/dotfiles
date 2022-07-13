@@ -20,7 +20,8 @@ function! enable#fzf#init()
     let g:fzf_action = {
           \ 'ctrl-t': 'tab split',
           \ 'ctrl-x': 'split',
-          \ 'ctrl-s': 'vsplit' }
+          \ 'ctrl-s': 'leftabove vsplit',
+          \ 'ctrl-d': 'vsplit' }
 
     " Ref: https://github.com/junegunn/fzf.vim/issues/942
     " More Info: `:h fzf-examples`
