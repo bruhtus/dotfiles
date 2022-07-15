@@ -13,6 +13,7 @@ function! pack#init() abort
     call minpac#init()
   endtry
 
+  call minpac#add('chrisbra/vim_faq',             { 'type': 'opt' })
   call minpac#add('tpope/vim-surround',           { 'type': 'opt' })
   call minpac#add('wellle/targets.vim',           { 'type': 'opt' })
   call minpac#add('markonm/traces.vim',           { 'type': 'opt' })
