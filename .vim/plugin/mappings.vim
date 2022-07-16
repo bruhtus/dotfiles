@@ -177,6 +177,10 @@ xnoremap <leader>d d
 " set space D to default D normal mode command
 nnoremap <leader>D D
 
+" update active buffer if the file changed
+" Ref: https://vi.stackexchange.com/a/13092
+nnoremap <silent> <leader>w :<C-u>windo checktime<CR>
+
 " make search result appear in the middle
 nnoremap n nzz
 nnoremap N Nzz
