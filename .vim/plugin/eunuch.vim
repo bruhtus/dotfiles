@@ -2,7 +2,7 @@
 " so, only load vim-eunuch when running these command
 " to check if the command really remapped `:command`
 
-command! -bar Delete
+command! -bang -bar Delete
       \ packadd vim-eunuch |
       \ Delete
 
