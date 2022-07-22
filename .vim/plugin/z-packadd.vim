@@ -27,10 +27,12 @@ endif
 " typescript filetype, we can't really use the lsp because there's a
 " limitation on how the vim-lsp-settings (for whatever reason, we can't use
 " vim-lsp-settings when not entering vim, with v:vim_did_enter variable).
-if &ft !~# '\v(gitcommit|vim|zsh|sh|diff)' && !&diff
+if &ft !~# '\v(gitcommit|vim|zsh|sh|diff)'
   let s:pack .= 'vim-lsp,'
   let s:pack .= 'vim-lsp-settings,'
-  let s:pack .= 'neoformat,'
+  if !&diff
+    let s:pack .= 'neoformat,'
+  endif
 endif
 
 let s:packlist = split(s:pack, ',')
