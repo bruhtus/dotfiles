@@ -85,7 +85,7 @@ function! enable#fzf#init()
     command! -bang -nargs=? -complete=dir Files
           \ call fzf#vim#files(<q-args>,
           \ winheight(0) < 40 ? fzf#vim#with_preview('hidden', 'ctrl-/') :
-          \ winwidth(0) < 192 ? fzf#vim#with_preview('up:50%:hidden', 'ctrl-/') :
+          \ winwidth(0) < 192 && winnr('$') == 1 ? fzf#vim#with_preview('up:50%:hidden', 'ctrl-/') :
           \ fzf#vim#with_preview('hidden', 'ctrl-/'), <bang>0)
 
   endif
