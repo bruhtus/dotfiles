@@ -166,6 +166,11 @@ config.bind('M', 'hint links spawn mpv --ytdl-format="bestvideo[ext=mp4][height<
 config.bind('Q', 'set-cmd-text -s :session-load')
 config.bind('ZX', 'set-cmd-text -s :session-save --only-active-window')
 config.bind('ZQ', 'close')
+# Note: the downside of this approach is that, we can only save and close one
+# one session. if we have two session opened, this mapping will screw up our session.
+# Ref: https://github.com/qutebrowser/qutebrowser/issues/572
+# config.bind('ZZ', 'set-cmd-text session-save --only-active-window;; set-cmd-text --append close')
+config.bind('ZZ', 'session-save --current --only-active-window;; close')
 config.bind('zj', 'tab-move +')
 config.bind('zk', 'tab-move -')
 config.bind('d', 'scroll-page 0 0.5')
