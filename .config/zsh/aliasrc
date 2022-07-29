@@ -13,6 +13,9 @@ alias visudo='sudo EDITOR=vim visudo'
 #display git status
 alias qwe='git-status-checker'
 
+#extended break for pomodoro
+alias shortbreak='sleep 10m && notify-send -u critical "break end"'
+
 #color command when possible
 alias \
 	grep='grep --color=auto' \
