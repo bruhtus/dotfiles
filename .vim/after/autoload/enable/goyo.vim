@@ -8,10 +8,11 @@ function! enable#goyo#enter()
     autocmd InsertLeave * setlocal ignorecase
   augroup END
   " highlight character in screen column 80 or more with error highlight
-  2match Error /.\%>80v/
+  " 2match Error /.\%>80v/
   let b:modeshow = &showmode
   let b:spell = &spell
-  setlocal showmode spell complete+=kspell
+  let b:textwidth = &textwidth
+  setlocal showmode spell complete+=kspell textwidth=78
   try
     if !exists(':Limelight') | packadd limelight.vim | endif
     Limelight
@@ -25,7 +26,8 @@ function! enable#goyo#leave()
   augroup! goyo_insert_mode
   let &showmode = b:modeshow
   let &spell = b:spell
-  unlet b:modeshow b:spell
+  let &textwidth = b:textwidth
+  unlet b:modeshow b:spell b:textwidth
   setlocal complete-=kspell
   " Ref:
   " https://github.com/junegunn/goyo.vim/pull/195#issuecomment-483080401
