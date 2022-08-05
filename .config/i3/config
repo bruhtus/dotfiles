@@ -105,7 +105,7 @@ bindsym $mod+Shift+t exec google-chrome-stable --new-window twitter.com
 bindsym $mod+Shift+q exec qutebrowser
 # bindsym $mod+Shift+p exec switch-picom
 
-bindsym $mod+Ctrl+d exec pcmanfm
+# bindsym $mod+Ctrl+d exec pcmanfm
 bindsym $mod+Ctrl+n exec docsmenu
 bindsym $mod+Ctrl+c exec $term -e btop
 bindsym $mod+Ctrl+z exec timeshift-launcher
