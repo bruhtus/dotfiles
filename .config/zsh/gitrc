@@ -81,7 +81,8 @@ alias \
 	grmc='git rm --cached'
 
 alias \
-	gres='git reset'
+	gres='git reset' \
+	gresf='git status -s | awk "/^[A|M]/" | fzf --multi | awk "{print \$2}" | xargs -r git reset'
 
 alias \
 	greb='git rebase'
