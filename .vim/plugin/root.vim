@@ -6,6 +6,8 @@ if &autochdir
   set noautochdir
 endif
 
+let g:root_pattern = ['.git', '=nvim', 'vimrc']
+
 augroup root_buffer
   autocmd!
   autocmd BufEnter *

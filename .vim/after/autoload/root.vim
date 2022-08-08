@@ -47,7 +47,6 @@ function! root#toggle()
     echo 'Root directory disabled'
 
   else
-    let g:root_pattern = ['.git', '=nvim', 'vimrc']
     let l:root_path = s:search_root(g:root_pattern)
 
     let g:root_extra_pattern = get(g:, 'root_extra_pattern', '')
