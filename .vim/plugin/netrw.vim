@@ -3,6 +3,7 @@
 
 " let g:loaded_netrw             = 1
 let g:loaded_netrwPlugin       = 0
+" let g:netrw_fastbrowse         = 0
 " let g:loaded_netrwSettings     = 1
 " let g:loaded_netrwFileHandlers = 1
 
