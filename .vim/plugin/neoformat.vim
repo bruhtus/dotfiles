@@ -1,4 +1,5 @@
 let g:neoformat_try_node_exe = 1
+" let g:neoformat_run_all_formatters = 1
 let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_html = ['prettier']
 
