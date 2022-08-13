@@ -1,9 +1,22 @@
+" Note: execute the return value.
+function! s:error_handling(plugin_name, ...) abort
+  let l:msg = get(a:000, 0, '')
+  if !empty(l:msg)
+    let l:error = 'echom "enable.vim:' . a:plugin_name . ':"' . string(l:msg)
+  else
+    let l:error = 'echom "enable.vim:' . a:plugin_name . ':"' . string(v:exception)
+  endif
+  return 'echohl Error | ' . l:error . ' | echohl None'
+endfunction
+
 function! enable#goyo()
   if !exists(':Goyo') | packadd goyo.vim | endif
   try
     Goyo
   catch /^Vim\%((\a\+)\)\=:E492/
-    echo 'Goyo plugin not installed'
+    exe s:error_handling('goyo', 'Goyo is not installed')
+  catch
+    exe s:error_handling('goyo')
   endtry
 endfunction
 
@@ -14,7 +27,9 @@ function! enable#rainbow()
   try
     RainbowToggle
   catch /^Vim\%((\a\+)\)\=:E492/
-    echo 'Rainbow plugin not installed'
+    exe s:error_handling('rainbow', 'Rainbow is not installed')
+  catch
+    exe s:error_handling('rainbow')
   endtry
 endfunction
 
@@ -31,10 +46,12 @@ function! enable#fugitive()
       norm gq
       wincmd p
     endif
-  catch /^Vim\%((\a\+)\)\=:fugitive/
-    echo 'Not git repo'
+  " catch /^Vim\%((\a\+)\)\=:fugitive/
+  "   echo 'Not git repo'
   catch  /^Vim\%((\a\+)\)\=:E492/
-    echo 'Fugitive plugin not installed'
+    exe s:error_handling('fugitive', 'Fugitive is not installed')
+  catch
+    exe s:error_handling('fugitive')
   endtry
 endfunction
 
@@ -45,7 +62,9 @@ function! enable#filebeagle()
   try
     FileBeagleBufferDir
   catch /^Vim\%((\a\+)\)\=:E492/
-    echo 'Filebeagle plugin not installed'
+    exe s:error_handling('filebeagle', 'Filebeagle is not installed')
+  catch
+    exe s:error_handling('filebeagle')
   endtry
 endfunction
 
@@ -57,7 +76,9 @@ function! enable#undotree()
     endif
     UndotreeToggle
   catch  /^Vim\%((\a\+)\)\=:E492/
-    echo 'Undotree plugin is not installed'
+    exe s:error_handling('undotree', 'Undotree is not installed')
+  catch
+    exe s:error_handling('undotree')
   endtry
 endfunction
 
@@ -66,12 +87,13 @@ function! enable#fzf(cmd)
     try
       call enable#fzf#init()
     catch /^Vim\%((\a\+)\)\=:E117/
-      echo 'enable#fzf#init() function not found'
+      exe s:error_handling('fzf')
+      return
     endtry
   endif
   try
     exe a:cmd
   catch
-    echo 'Fzf plugin not installed'
+    exe s:error_handling('fzf')
   endtry
 endfunction
