@@ -38,6 +38,7 @@ def _hastebin_redir(url: QUrl) -> bool:
 # Any return value other than a literal 'False' means we redirected
 REDIRECT_MAP = {
 	"reddit.com": operator.methodcaller('setHost', 'teddit.net'),
+	"old.reddit.com": operator.methodcaller('setHost', 'teddit.net'),
 	"www.reddit.com": operator.methodcaller('setHost', 'teddit.net'),
 
 	# Pastebins
