@@ -11,9 +11,27 @@ alias \
 # ref: https://stackoverflow.com/a/30050792 (xargs -a)
 alias \
 	ga='git add' \
-	gaf='git status -s | awk "{print \$2}" | fzf --multi | xargs -r git add' \
-	gap='xargs -a <(git status -s | awk "{print \$2}") git add -p' \
 	gcf='git status -s | awk "/^[^??]/ {print \$2}" | fzf --multi | xargs -r git checkout'
+	# gap='xargs -a <(git status -s | awk "{print \$2}") git add -p'
+
+# ref: https://github.com/junegunn/fzf/issues/2887#issuecomment-1199258039 (fzf reload example)
+# note: only able to parse filename without spacing.
+gaf() {
+	local diff='git diff --color=always {2}'
+	local git_config='git -c color.status=always'
+
+	FZF_DEFAULT_COMMAND="$git_config status -s" \
+		fzf \
+		--ansi \
+		--bind 'ctrl-i:reload(git add {2} && eval "$FZF_DEFAULT_COMMAND")' \
+		--bind 'ctrl-s:execute(git add -p {2})' \
+		--bind 'ctrl-d:reload(git reset {2} >/dev/null && eval "$FZF_DEFAULT_COMMAND")' \
+		--bind 'ctrl-g:reload(git reset >/dev/null && eval "$FZF_DEFAULT_COMMAND")' \
+		--bind 'ctrl-r:reload(eval "$FZF_DEFAULT_COMMAND")' \
+		--bind "ctrl-x:reload($git_config status -su)" \
+		--bind "enter:execute($diff | less -r --incsearch)" \
+		--preview "$diff"
+}
 
 alias \
 	gc='git commit' \
@@ -83,8 +101,7 @@ alias \
 	grmc='git rm --cached'
 
 alias \
-	gres='git reset' \
-	gresf='git status -s | awk "/^[A|M]/" | fzf --multi | awk "{print \$2}" | xargs -r git reset'
+	gres='git reset'
 
 alias \
 	greb='git rebase'
