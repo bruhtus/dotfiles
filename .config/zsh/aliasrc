@@ -121,44 +121,47 @@ alias sc='rg --hidden --files --type-not nonsense --type-not font --type-not tor
 alias cs='rg --hidden --files --type-not nonsense --type-not font --type-not torrent $(git rev-parse --show-toplevel 2>/dev/null) | fzf --multi --height 20% --preview="head -$LINES {}" --preview-window=wrap,hidden --bind "ctrl-/:toggle-preview,ctrl-n:preview-down,ctrl-p:preview-up" | xargs -or $EDITOR'
 
 #unpack tar archive
-function untar(){
-	tar -xzf $1 --one-top-level
-}
+# untar() {
+# 	tar -xzf $1 --one-top-level
+# }
 
 #list content of tar archive
-function tarls(){
-	tar --list -f $1 | less -F
-}
+# tarls() {
+# 	tar --list -f $1 | less -F
+# }
 
 #mounting and unmounting from CLI
-function dm(){
+dm() {
 	udisksctl mount -b /dev/$1
 }
-function dum(){
+dum() {
 	udisksctl unmount -b /dev/$1
 }
 
 #like pastebin but on terminal directly (using vim readonly mode for easy copy-paste)
-function termbin(){
-	$EDITOR -R <($@ | nc termbin.com 9999)
-}
+# termbin() {
+# 	$EDITOR -R <($@ | nc termbin.com 9999)
+# }
 
 #python alias
-function py(){
-	python $@ | less -F
-}
-function pyl(){
-	python $@ | less
-}
-function pyc(){
-	python -c $1
-}
-function pyv(){
-	$EDITOR -R <(python $@)
-}
+# py() {
+# 	python $@ | less -F
+# }
+
+# pyl() {
+# 	python $@ | less
+# }
+
+# pyc() {
+# 	python -c $1
+# }
+
+# pyv() {
+# 	$EDITOR -R <(python $@)
+# }
 
 #kill process
-function kj(){
+kj() {
 	ps -eHo pid,ppid,comm | fzf --layout=reverse-list | awk '{print $1}' | xargs -or kill
 }
 
