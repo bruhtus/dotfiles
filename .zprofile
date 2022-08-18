@@ -22,6 +22,8 @@ export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/x11/xinitrc"
 export PATH="$PATH:$HOME/.local/bin"
 ## npm global
 export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/npm/bin"
+## pnpm
+export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/pnpm"
 ## ruby gems
 export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/gem/bin"
 ## volta
@@ -57,6 +59,9 @@ export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc"
 
 # npm config
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/npmrc"
+
+# pnpm
+export PNPM_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/pnpm"
 
 # parallel
 export PARALLEL_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/parallel"
