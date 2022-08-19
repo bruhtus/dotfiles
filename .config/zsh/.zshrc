@@ -14,6 +14,7 @@ setopt hist_verify
 setopt share_history
 unsetopt menu_complete
 setopt always_to_end
+# unsetopt complete_aliases
 
 #(hopefully) remove maximum nested function level reached; increase FUNCNEST?
 #still not sure what's going on
@@ -38,7 +39,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 #basic auto-tab complete
 zstyle ':completion:*' menu select
-autoload -U compinit
+autoload -Uz compinit
 zmodload zsh/complist
 compinit -d ${XDG_CONFIG_HOME:-$HOME/.config}/zsh/zcompdump-$ZSH_VERSION
 
