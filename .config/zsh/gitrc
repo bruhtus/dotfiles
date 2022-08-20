@@ -17,15 +17,15 @@ alias \
 # ref: https://github.com/junegunn/fzf/issues/2887#issuecomment-1199258039 (fzf reload example)
 # note: only able to parse filename without spacing.
 gaf() {
-	local diff='git diff --color=always {2}'
+	local diff='git diff --color=always -- {2}'
 	local git_config='git -c color.status=always'
 
 	FZF_DEFAULT_COMMAND="$git_config status -s" \
 		fzf \
 		--ansi \
-		--bind 'ctrl-i:reload(git add {2} && eval "$FZF_DEFAULT_COMMAND")' \
-		--bind 'ctrl-s:execute(git add -p {2})+reload(eval "$FZF_DEFAULT_COMMAND")' \
-		--bind 'ctrl-d:reload(git reset {2} >/dev/null && eval "$FZF_DEFAULT_COMMAND")' \
+		--bind 'ctrl-i:reload(git add -- {2} && eval "$FZF_DEFAULT_COMMAND")' \
+		--bind 'ctrl-s:execute(git add -p -- {2})+reload(eval "$FZF_DEFAULT_COMMAND")' \
+		--bind 'ctrl-d:reload(git reset -- {2} >/dev/null && eval "$FZF_DEFAULT_COMMAND")' \
 		--bind 'ctrl-g:reload(git reset >/dev/null && eval "$FZF_DEFAULT_COMMAND")' \
 		--bind 'ctrl-r:reload(eval "$FZF_DEFAULT_COMMAND")' \
 		--bind "ctrl-x:reload($git_config status -su)" \
