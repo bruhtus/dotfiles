@@ -24,7 +24,7 @@ gaf() {
 		fzf \
 		--ansi \
 		--bind 'ctrl-i:reload(git add {2} && eval "$FZF_DEFAULT_COMMAND")' \
-		--bind 'ctrl-s:execute(git add -p {2})' \
+		--bind 'ctrl-s:execute(git add -p {2})+reload(eval "$FZF_DEFAULT_COMMAND")' \
 		--bind 'ctrl-d:reload(git reset {2} >/dev/null && eval "$FZF_DEFAULT_COMMAND")' \
 		--bind 'ctrl-g:reload(git reset >/dev/null && eval "$FZF_DEFAULT_COMMAND")' \
 		--bind 'ctrl-r:reload(eval "$FZF_DEFAULT_COMMAND")' \
