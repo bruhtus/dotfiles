@@ -36,7 +36,7 @@ export BROWSER=lynx
 export EDITOR=vim
 
 # fzf
-export FZF_DEFAULT_OPTS="--height 20% --bind 'ctrl-/:toggle-preview,ctrl-n:preview-down,ctrl-p:preview-up' --preview='head -$LINES {}' --preview-window=wrap,hidden"
+export FZF_DEFAULT_OPTS="--height 20% --bind 'ctrl-/:toggle-preview,ctrl-n:preview-down,ctrl-p:preview-up' --preview-window=wrap,hidden"
 
 # ripgrep
 export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/ripgrep/ripgreprc"
