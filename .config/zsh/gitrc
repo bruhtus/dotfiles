@@ -80,7 +80,8 @@ gl() {
 		--reverse \
 		--bind "enter:execute($cmd | less -R --incsearch)" \
 		--bind "ctrl-y:execute-silent(echo {1} | tr -d '[:space:]' | xsel --clipboard --input)" \
-		--preview="$cmd"
+		--preview='git show --color=always --oneline --numstat {1}' \
+		--preview-window=up,nohidden,20%
 }
 
 alias \
