@@ -69,9 +69,7 @@ alias \
 gl() {
 	git rev-parse --is-inside-work-tree >/dev/null && git log >/dev/null || return 1
 
-	# extract files parameters for `git show` command.
-	local files=$(sed -nE 's/.* -- (.*)/\1/p' <<< "$*")
-	local cmd="echo {+1} | xargs -I% git show --color=always --format=medium --numstat -p % -- $files"
+	local cmd='git show --color=always --format=medium --numstat -p {1}'
 
 	git log --oneline --color=always --date=short --format='%C(auto)%h %ad%d%x09%s' | \
 		fzf \
@@ -81,7 +79,7 @@ gl() {
 		--tiebreak=index \
 		--reverse \
 		--bind "enter:execute($cmd | less -R --incsearch)" \
-		--bind "ctrl-y:execute-silent(echo {+1} | tr -d '[:space:]' | xsel --clipboard --input)" \
+		--bind "ctrl-y:execute-silent(echo {1} | tr -d '[:space:]' | xsel --clipboard --input)" \
 		--preview="$cmd"
 }
 
