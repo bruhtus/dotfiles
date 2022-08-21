@@ -29,7 +29,7 @@ gaf() {
 		--bind 'ctrl-g:reload(git reset >/dev/null && eval "$FZF_DEFAULT_COMMAND")' \
 		--bind 'ctrl-r:reload(eval "$FZF_DEFAULT_COMMAND")' \
 		--bind "ctrl-x:reload($git_config status -su -- {2})" \
-		--bind "enter:execute($diff | less -r --incsearch)"
+		--bind "enter:execute($diff | less -R --incsearch)"
 }
 
 alias \
@@ -80,7 +80,7 @@ gl() {
 		--height=80% \
 		--tiebreak=index \
 		--reverse \
-		--bind "enter:execute($cmd | less -r --incsearch)" \
+		--bind "enter:execute($cmd | less -R --incsearch)" \
 		--bind "ctrl-y:execute-silent(echo {+1} | tr -d '[:space:]' | xsel --clipboard --input)" \
 		--preview="$cmd"
 }
