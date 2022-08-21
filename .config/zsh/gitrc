@@ -28,7 +28,7 @@ gaf() {
 		--bind 'ctrl-d:reload(git reset -- {2} >/dev/null && eval "$FZF_DEFAULT_COMMAND")' \
 		--bind 'ctrl-g:reload(git reset >/dev/null && eval "$FZF_DEFAULT_COMMAND")' \
 		--bind 'ctrl-r:reload(eval "$FZF_DEFAULT_COMMAND")' \
-		--bind "ctrl-x:reload($git_config status -su)" \
+		--bind "ctrl-x:reload($git_config status -su -- {2})" \
 		--bind "enter:execute($diff | less -r --incsearch)" \
 		--preview "$diff"
 }
