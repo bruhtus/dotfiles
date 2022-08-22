@@ -98,6 +98,14 @@ alias \
 	grm='git rm' \
 	grmc='git rm --cached'
 
+# Ref:
+# https://unix.stackexchange.com/a/305192 (remove trailing character with awk)
+# https://stackoverflow.com/a/12681856 (show git stash untracked file)
+# https://stackoverflow.com/a/1105666 (checkout stash)
+# https://stackoverflow.com/a/3801554 (list untracked file)
+alias \
+	gurm='git ls-files --others --exclude-standard | fzf --multi | xargs -r rm -v'
+
 alias \
 	gres='git reset'
 
