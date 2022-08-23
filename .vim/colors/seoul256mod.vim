@@ -283,8 +283,8 @@ call s:hi('NonText', [59], [''])
 call s:hi('MoreMsg', [173], [''])
 
 " Popup menu
-call s:hi('Pmenu',      [187], [236])
-call s:hi('PmenuSel',   [233], [250])
+call s:hi('Pmenu',      [187], [234])
+call s:hi('PmenuSel',   [230], [238])
 call s:hi('PmenuSbar',  [''],  [65])
 call s:hi('PmenuThumb', [''],  [23])
 
