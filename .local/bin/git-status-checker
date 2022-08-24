@@ -1,7 +1,8 @@
 #!/bin/sh
 
-function status(){
-  for d in $(ls -d ~/all-repos/*/); do
+status() {
+  # for d in $(ls -d ~/all-repos/*/); do
+  for d in ~/all-repos/*/; do
     echo $d && git -c color.ui=always -C $d status -s
   done
 
