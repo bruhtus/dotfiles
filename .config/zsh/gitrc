@@ -43,7 +43,7 @@ alias \
 
 alias \
 	gb='git branch' \
-	gbd='git branch | awk "/^[^*]/" | fzf | xargs -r git branch -D' \
+	gbd='git branch | awk "/^[^*+]/" | fzf --multi | xargs -r git branch -D' \
 	gbm='git branch -m'
 
 # ref: https://unix.stackexchange.com/questions/141285/using-xargs-with-git
