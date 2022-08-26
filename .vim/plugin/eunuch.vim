@@ -4,7 +4,7 @@
 
 command! -bang -bar Delete
       \ packadd vim-eunuch |
-      \ Delete
+      \ Delete<bang>
 
 command! -bar -nargs=+ -complete=file Rename
       \ packadd vim-eunuch |
