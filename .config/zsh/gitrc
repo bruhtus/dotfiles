@@ -81,7 +81,7 @@ gl() {
 		--bind "enter:execute($cmd | less -R --incsearch)" \
 		--bind 'ctrl-r:reload(eval "$FZF_DEFAULT_COMMAND")' \
 		--bind "ctrl-y:execute-silent(echo {1} | tr -d '[:space:]' | xsel --clipboard --input)" \
-		--preview='git show --color=always --oneline --numstat {1}' \
+		--preview='git show --color=always --numstat --format="%C(auto)%D%n%s" {1}' \
 		--preview-window=up,nohidden,20%
 }
 
