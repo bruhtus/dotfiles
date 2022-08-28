@@ -61,17 +61,17 @@ alias \
 
 # ref: https://github.com/wfxr/forgit/blob/b727321f2bd3d79c1dae805441261c45888cbb41/forgit.plugin.zsh#L17-L34
 # ref: https://stackoverflow.com/a/1441062
-# note: it's better to clear the terminal screen before using this, so that less didn't go to the bottom of the screen.
 # note:
 # if we use `ctrl-c`, the exit code will be 130, not 0.
 # ref: https://stackoverflow.com/a/8977668 (about shell piping).
 # ref: https://unix.stackexchange.com/a/14276 (pipestatus in zsh and bash).
+# ref: https://www.rapidtables.com/code/text/ascii-table.html (hex number).
 gl() {
 	git rev-parse --is-inside-work-tree >/dev/null || return 1
 
 	local cmd='git show --color=always --format=medium --numstat -p {1}'
 
-	FZF_DEFAULT_COMMAND='git log --color=always --date=short --format="%C(auto)%h %ad%x09%s%d"' \
+	FZF_DEFAULT_COMMAND='git log --color=always --date=short --format="%C(auto)%h%x20%ad%x20%x20%s%d"' \
 		fzf \
 		--ansi \
 		+m \
