@@ -122,7 +122,7 @@ alias \
 
 gwa() {
 	local git_root=$(git rev-parse --show-toplevel)
-	local git_branch=$(git branch -a | fzf | awk '{print $1}')
+	local git_branch=$(git branch -a | awk '/^[^*+]/ {print $1}' | fzf )
 	[ ! -z "$git_branch" ] && git worktree add $git_root/.worktree/$git_branch $git_branch || return 0
 }
 
