@@ -43,14 +43,14 @@ alias \
 
 alias \
 	gb='git branch' \
-	gbd='git branch | awk "/^[^*+]/" | fzf --multi | xargs -r git branch -D' \
+	gbd='git branch | awk "/^[^*+]/ {print \$1}" | fzf --multi | xargs -r git branch -D' \
 	gbm='git branch -m'
 
 # ref: https://unix.stackexchange.com/questions/141285/using-xargs-with-git
 # ref: https://unix.stackexchange.com/a/174717
 alias \
 	gch='git checkout' \
-	gco='git branch | awk "/^[^*+]/" | fzf | xargs -r git checkout' \
+	gco='git branch | awk "/^[^*+]/ {print \$1}" | fzf | xargs -r git checkout' \
 	gcb='git checkout -b' \
 	gct='git branch -r | fzf | xargs -r git checkout -t'
 
