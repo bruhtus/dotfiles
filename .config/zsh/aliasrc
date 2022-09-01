@@ -103,16 +103,20 @@ alias \
 	tp='task projects' \
 	tl='task all | less -r'
 
+# ref: https://www.linuxquestions.org/questions/linux-newbie-8/xargs-cd-is-not-working-796219/#post3906430 (why cd does not work with xargs).
+# ref: https://www.linuxquestions.org/questions/linux-newbie-8/xargs-cd-is-not-working-796219/#post3907371 (about pipeline).
 #cd to any directories in home directory from any directories
 #(up to 2 directory from home directory)
 #it's kind of overwhelm to search the entire home directory
-alias sd='cd "$(fd -aHI -d 2 -E .git -E node_modules -E .cache/npm/_cacache -t d . ~ | fzf --height 20%)"'
+# alias sd='cd "$(fd -aHI -d 2 -E .git -E node_modules -E .cache/npm/_cacache -t d . ~ | fzf --height 20%)"'
+alias sd='cd "$(find ~ -mindepth 1 -maxdepth 2 -name .eclipse -prune -o -type d | fzf --height 20% --bind change:first)"'
 
 #cd to any directories in current working directory
-alias da='cd "$(fd -aHI -E .git -E node_modules -t d . | fzf --height 20%)"'
+alias da='cd "$(fd -aHI -E .git -E node_modules -t d . | fzf --height 20% --bind change:first)"'
 
 #cd to any directories in git root directory/current working directory
-alias ds='cd "$(fd -aHI -E .git -E node_modules -t d . $(git rev-parse --show-toplevel 2>/dev/null) | fzf --height 20%)"'
+# alias ds='cd "$(fd -aHI -E .git -E node_modules -t d . $(git rev-parse --show-toplevel 2>/dev/null) | fzf --height 20%)"'
+alias ds='cd "$(find $(git rev-parse --show-toplevel) -mindepth 1 \( -name node_modules -o -name .git \) -prune -o -type d | sort -g | fzf --height 20% --bind change:first)"'
 
 #search and open file on current working directory in $EDITOR directly
 alias sc='rg --hidden --files --type-not nonsense --type-not font --type-not torrent | fzf --multi --height 20% --preview="head -$LINES {}" --preview-window=wrap,hidden --bind "ctrl-/:toggle-preview,ctrl-n:preview-down,ctrl-p:preview-up" | xargs -or $EDITOR'
