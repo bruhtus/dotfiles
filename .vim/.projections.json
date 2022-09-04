@@ -1,0 +1,26 @@
+{
+  "plugin/*.vim": {
+    "type": "plugin",
+    "alternate": [
+      "after/autoload/{basename}.vim",
+      "after/autoload/enable/{basename}.vim"
+    ]
+  },
+  "after/autoload/pack.vim": {
+    "type": "pack",
+    "alternate": "plugin/z-packadd.vim"
+  },
+  "after/autoload/*.vim": {
+    "type": "autoload"
+  },
+  "colors/seoul256mod.vim": {
+    "type": "color"
+  },
+  "pack/minpac/opt/**/plugin/*.vim": {
+    "type": "packplug",
+    "alternate": "{file|dirname|dirname}/autoload/{basename}.vim"
+  },
+  "pack/minpac/opt/**/autoload/*.vim": {
+    "type": "packautoload"
+  }
+}
