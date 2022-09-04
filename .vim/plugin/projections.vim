@@ -16,6 +16,10 @@ let g:projectionist_heuristics = {
       \     "libs/api/features/**/src/lib/*.schema.ts": {
       \       "type": "schema"
       \     },
+      \     "libs/api/features/**/src/lib/*.spec.ts": {
+      \       "type": "test",
+      \       "alternate": "{file|dirname}/{basename}.ts",
+      \     },
       \   },
       \   "workspace.json&libs/api/routes/": {
       \     "libs/api/routes/**/src/lib/*.ts": {
