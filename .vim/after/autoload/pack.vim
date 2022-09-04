@@ -18,6 +18,7 @@ function! pack#init() abort
   call minpac#add('wellle/targets.vim',           { 'type': 'opt' })
   call minpac#add('markonm/traces.vim',           { 'type': 'opt' })
   call minpac#add('tpope/vim-commentary',         { 'type': 'opt' })
+  call minpac#add('tpope/vim-projectionist',      { 'type': 'opt' })
   call minpac#add('jeetsukumaran/vim-indentwise', { 'type': 'opt' })
 
   call minpac#add('sbdchd/neoformat',       { 'type': 'opt' })

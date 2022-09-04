@@ -17,9 +17,10 @@ let s:pack .= 'targets.vim,'
 let s:pack .= 'traces.vim,'
 
 if &ft !=# 'gitcommit'
+  let s:pack .= 'bufstop,'
   let s:pack .= 'vim-commentary,'
   let s:pack .= 'vim-indentwise,'
-  let s:pack .= 'bufstop,'
+  let s:pack .= 'vim-projectionist,'
 endif
 
 " the flaw when only load in specific filetype is that, let's say we open
