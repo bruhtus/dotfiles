@@ -232,6 +232,14 @@ nnoremap <expr> <leader>'
 " toggle `relativenumber` option (useful when pairing)
 nnoremap <silent> <leader>r :<C-u>windo set relativenumber!<CR>
 
+" toggle focus current window
+nnoremap <expr> <silent> <leader>z
+      \ winnr('$') != 1 ?
+      \ !exists('t:zooming') ?
+      \ ':<C-u>resize <bar> vertical resize <bar> let t:zooming = 1<CR>' :
+      \ ':<C-u>wincmd = <bar> unlet t:zooming<CR>' :
+      \ ':<C-u>echoerr "Only one window"<CR>'
+
 " set space s to substitute command
 nnoremap <leader>s :s//g<left><left>
 
