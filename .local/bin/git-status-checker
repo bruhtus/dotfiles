@@ -9,4 +9,4 @@ status() {
   cd && pwd && dotbare -c color.ui=always status -s
 }
 
-status | less -Fr
+status | less -FR
