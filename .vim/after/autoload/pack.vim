@@ -13,13 +13,15 @@ function! pack#init() abort
     call minpac#init()
   endtry
 
-  call minpac#add('chrisbra/vim_faq',             { 'type': 'opt' })
-  call minpac#add('tpope/vim-surround',           { 'type': 'opt' })
-  call minpac#add('wellle/targets.vim',           { 'type': 'opt' })
-  call minpac#add('markonm/traces.vim',           { 'type': 'opt' })
-  call minpac#add('tpope/vim-commentary',         { 'type': 'opt' })
-  call minpac#add('tpope/vim-projectionist',      { 'type': 'opt' })
-  call minpac#add('jeetsukumaran/vim-indentwise', { 'type': 'opt' })
+  call minpac#add('tpope/vim-dadbod',                     { 'type': 'opt' })
+  call minpac#add('chrisbra/vim_faq',                     { 'type': 'opt' })
+  call minpac#add('tpope/vim-surround',                   { 'type': 'opt' })
+  call minpac#add('wellle/targets.vim',                   { 'type': 'opt' })
+  call minpac#add('markonm/traces.vim',                   { 'type': 'opt' })
+  call minpac#add('tpope/vim-commentary',                 { 'type': 'opt' })
+  call minpac#add('tpope/vim-projectionist',              { 'type': 'opt' })
+  call minpac#add('jeetsukumaran/vim-indentwise',         { 'type': 'opt' })
+  call minpac#add('kristijanhusak/vim-dadbod-completion', { 'type': 'opt' })
 
   call minpac#add('sbdchd/neoformat',       { 'type': 'opt' })
   call minpac#add('mattn/vim-lsp-settings', { 'type': 'opt' })

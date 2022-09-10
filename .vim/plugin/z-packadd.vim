@@ -2,6 +2,12 @@ if exists(':packadd') != 2 || $VIMNOPACK
   finish
 endif
 
+if expand('%') =~# 'psql.edit.*.sql'
+  " Note: need ctrl-c in insert mode
+  let g:omni_sql_no_default_maps = 1
+  finish
+endif
+
 " why the name with prefix `z-`? so that this will be loaded last.
 " the loaded order based on the alphabet.
 " in case the plugin need settings first before loading the plugin.
