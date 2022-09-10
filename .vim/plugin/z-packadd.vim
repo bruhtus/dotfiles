@@ -1,4 +1,6 @@
-if exists(':packadd') != 2 | finish | endif
+if exists(':packadd') != 2 || $VIMNOPACK
+  finish
+endif
 
 " why the name with prefix `z-`? so that this will be loaded last.
 " the loaded order based on the alphabet.
