@@ -10,6 +10,7 @@ set backspace=2
 set laststatus=2
 set history=10000
 set complete-=t,i " disable scanning tags and included files
+set winminwidth=0 " minimal line when making buffer full screen with ctrl-w|
 set winminheight=0 " minimal line when making buffer full screen with ctrl-w_
 set matchpairs+=<:>
 set nrformats-=octal
