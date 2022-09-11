@@ -169,6 +169,17 @@ kj() {
 	ps -eHo pid,ppid,comm | fzf --layout=reverse-list | awk '{print $1}' | xargs -or kill
 }
 
+# access psql inside docker:
+# docker exec -it container-names psql -d 'postgresql://user:password@localhost:5432/database-name' -P expanded=auto -v PAGER=less EDITOR=vim
+# inside psql: \setenv PAGER less (in case we can't use PAGER=less).
+# inside psql: \e (to access $EDITOR).
+# ref: https://stackoverflow.com/a/60341274
+psqld() {
+	export DOCKER_POSTGRES_DB="postgresql://postgres:postgres@localhost:${2:-5432}/$1"
+
+	psql -d $DOCKER_POSTGRES_DB -P expanded=auto
+}
+
 #directories alias
 alias \
 	-g ...='../..' \
