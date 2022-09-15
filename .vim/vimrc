@@ -19,7 +19,7 @@ let $MYPACK =
 
 command! PacClean source $MYPACK | call pack#init() | call minpac#clean()
 command! PacSync  source $MYPACK | call pack#init() | call minpac#update()
-" command! PacMove  source $MYPACK | call pack#init() | call pack#move()
+command! PacMove  source $MYPACK | call pack#init() | call pack#move()
 
 command! PacList
       \ if !exists('g:loaded_minpac') | packadd minpac | endif           |
