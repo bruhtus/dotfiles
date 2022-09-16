@@ -13,6 +13,7 @@ function! pack#init() abort
     call minpac#init()
   endtry
 
+  call minpac#add('jidn/vim-dbml',                        { 'type': 'opt' })
   call minpac#add('tpope/vim-dadbod',                     { 'type': 'opt' })
   call minpac#add('chrisbra/vim_faq',                     { 'type': 'opt' })
   call minpac#add('tpope/vim-surround',                   { 'type': 'opt' })
