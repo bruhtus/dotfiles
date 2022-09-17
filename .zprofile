@@ -46,8 +46,9 @@ export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/ripgrep/ripgreprc"
 export DOTBARE_TREE="$HOME"
 export DOTBARE_DIR="$HOME/.config"
 
-# psql pager
+# psql
 export PSQL_PAGER=less
+export PSQL_HISTORY="${XDG_STATE_HOME:-$HOME/.local/state}/psql_history"
 
 # terminal emulator
 export TERMINAL=alacritty
