@@ -65,11 +65,11 @@ alias \
 	nmco='nmcli d wifi connect'
 
 #grep, less, count, and redirect error to file
-alias \
-	-g G='| grep' \
-	-g L='| less -r' \
-	-g C='| wc -l' \
-	-g E='2> error.nganu'
+# alias \
+# 	-g G='| grep' \
+# 	-g L='| less -r' \
+# 	-g C='| wc -l' \
+# 	-g E='2> error.nganu'
 
 #pacman and yay alias
 alias \
@@ -182,10 +182,10 @@ psqld() {
 
 #directories alias
 alias \
-	-g ...='../..' \
-	-g ....='../../..' \
-	-g .....='../../../..' \
-	-g ......='../../../../..'
+	...='../..' \
+	....='../../..' \
+	.....='../../../..' \
+	......='../../../../..'
 
 alias \
 	1='cd ~1' \
