@@ -41,7 +41,7 @@ alias \
 alias \
 	cp='cp -iv' \
 	mv='mv -iv' \
-	rm='rm -v'
+	rm='rm -vI'
 
 #dotbare alias
 alias \
