@@ -22,6 +22,7 @@ set splitbelow splitright
 set nolangremap langnoremap
 set shortmess-=S shortmess+=F
 set number relativenumber numberwidth=5 signcolumn=yes
+set spelllang=en_us spellfile=~/.vim/spell/en.utf-8.add
 
 set completeopt-=preview " ignore omni complete description
 set completeopt+=noinsert completeopt+=noselect completeopt+=menuone
