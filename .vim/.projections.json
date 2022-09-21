@@ -21,6 +21,7 @@
     "alternate": "{file|dirname|dirname}/autoload/{basename}.vim"
   },
   "pack/minpac/opt/**/autoload/*.vim": {
-    "type": "packautoload"
+    "type": "packautoload",
+    "alternate": "{file|dirname|dirname}/plugin/{basename}.vim"
   }
 }
