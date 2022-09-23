@@ -1,35 +1,9 @@
 " we can also make .projections.json in project root,
 " that's why i use double quote.
 let g:projectionist_heuristics = {
-      \   "workspace.json&libs/api/features/" : {
-      \     "libs/api/features/**/src/lib/*.data.ts": {
-      \       "type": "data",
-      \       "alternate": "{file|dirname}/{basename}.data.spec.ts"
-      \     },
-      \     "libs/api/features/**/src/lib/*.shell.ts": {
-      \       "type": "shell",
-      \       "alternate": "{file|dirname}/{basename}.shell.spec.ts"
-      \     },
-      \     "libs/api/features/**/src/lib/*.core.ts": {
-      \       "type": "core"
-      \     },
-      \     "libs/api/features/**/src/lib/*.schema.ts": {
-      \       "type": "schema"
-      \     },
-      \     "libs/api/features/**/src/lib/*.spec.ts": {
-      \       "type": "test",
-      \       "alternate": "{file|dirname}/{basename}.ts",
-      \     },
-      \   },
-      \   "workspace.json&libs/api/routes/": {
-      \     "libs/api/routes/**/src/lib/*.ts": {
-      \       "type": "routes",
-      \       "alternate": "{file|dirname}/{basename}.spec.ts"
-      \     },
-      \   },
-      \   "workspace.json&libs/api/": {
-      \     "libs/api/*/index.ts": {
-      \       "type": "index"
+      \   ".projections.json": {
+      \     ".projections.json": {
+      \       "type": "project"
       \     },
       \   },
       \   ".git/&package.json": {
