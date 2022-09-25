@@ -24,6 +24,7 @@
     seoul256-dark-red-light:    #ffbfbd;
     seoul256-dark-yellow-dark:  #ffdd00;
     seoul256-dark-yellow-light: #ffde99;
+    seoul256-dark-green-light:  #5fd787;
 
     /* Theme colors */
     background:                  @seoul256-dark-bg0-hard;
@@ -40,11 +41,11 @@
     selected-normal-background:  @seoul256-dark-bg2;
     selected-normal-foreground:  @seoul256-dark-fg0;
 
-    active-background:           @seoul256-dark-yellow-dark;
-    active-foreground:           @background;
+    active-background:           @background;
+    active-foreground:           @seoul256-dark-green-light;
     alternate-active-background: @active-background;
     alternate-active-foreground: @active-foreground;
-    selected-active-background:  @seoul256-dark-yellow-light;
+    selected-active-background:  @seoul256-dark-bg2;
     selected-active-foreground:  @active-foreground;
 
     urgent-background:           @seoul256-dark-red-dark;
