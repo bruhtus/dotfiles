@@ -107,7 +107,7 @@ bindsym $mod+Shift+q exec qutebrowser
 
 # bindsym $mod+Ctrl+d exec pcmanfm
 bindsym $mod+Ctrl+n exec docsmenu
-bindsym $mod+Ctrl+c exec $term -e btop
+bindsym $mod+Ctrl+c exec $term -t btop -e btop
 bindsym $mod+Ctrl+z exec timeshift-launcher
 bindsym $mod+Ctrl+w exec google-chrome-stable
 bindsym $mod+Ctrl+q exec telegram-desktop
