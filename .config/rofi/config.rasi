@@ -3,9 +3,10 @@ configuration {
 	font: "DejaVu Sans Mono Medium 10";
 	show-icons: false;
 	drun-display-format: "{icon} {name}";
-	display-window: "  ";
-	display-run: "> ";
-	display-drun: "  ";
+	display-window: "w";
+	display-run: "$";
+	display-drun: "_";
+	display-combi: "exe";
 	cycle: false;
 }
 
