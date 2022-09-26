@@ -7,11 +7,11 @@ if !&laststatus
 endif
 
 if has('patch-8.1.1372')
-  function! statusline#update(winid) abort
+  function! StatuslineUpdate(winid) abort
     if a:winid == win_getid()
-      return statusline#active()
+      return StatuslineActive()
     else
-      return statusline#inactive()
+      return StatuslineInactive()
     endif
   endfunction
 
@@ -25,17 +25,17 @@ if has('patch-8.1.1372')
   " Note: this method solve the problem when enter vim using split window like
   " when use `git mergetool` command, the inactive statusline is not updated
   " when using autocmd
-  set statusline=%!statusline#update(g:statusline_winid)
+  set statusline=%!StatuslineUpdate(g:statusline_winid)
 
 else
   " Ref:
   " https://github.com/itchyny/lightline.vim/blob/a29b8331e1bb36b09bafa30c3aa77e89cdd832b2/autoload/lightline.vim#L21-L25
-  function! statusline#update() abort
+  function! StatuslineUpdate() abort
     let winnr = winnr()
     let current_win =
           \ winnr('$') == 1 && winnr > 0 ?
-          \ [statusline#active()] :
-          \ [statusline#active(), statusline#inactive()]
+          \ [StatuslineActive()] :
+          \ [StatuslineActive(), StatuslineInactive()]
     for num in range(1, winnr('$'))
       call setwinvar(num, '&statusline', current_win[num != winnr])
     endfor
@@ -44,7 +44,7 @@ else
   augroup statusline_startup
     autocmd!
     autocmd WinEnter,BufEnter,SessionLoadPost,FileChangedShellPost *
-          \ call statusline#update()
+          \ call StatuslineUpdate()
 
     "   maybe should have used ModeChanged event instead?
     "   not sure if i should add more autocommand
@@ -83,7 +83,7 @@ endif
 " endfunction
 
 " Ref: https://github.com/junegunn/dotfiles/blob/057ee47465e43aafbd20f4c8155487ef147e29ea/vimrc#L265-L275
-function! statusline#active() abort
+function! StatuslineActive() abort
   " let l:mode = "%{%statusline#mode()%}"
   let l:filename = " %{expand('%:p:~') ==# '' ? '[Blank]' :
         \ winwidth(0) > 160 ? expand('%:p:~') :
@@ -98,11 +98,11 @@ function! statusline#active() abort
   "       \ (winwidth(0) > 70 ? system(g:gitbranchcmd) : '')}"
   " Note: truncate from the right.
   " Ref: https://stackoverflow.com/a/20899652
-  " let l:git = "  %([%{winwidth(0) > 70 ? strpart(statusline#gitbranch(), 0, 20) : ''}]%)"
-  let l:git = "  %<%([%{winwidth(0) > 100 ? statusline#gitbranch() :
+  " let l:git = "  %([%{winwidth(0) > 70 ? strpart(StatuslineGitBranch(), 0, 20) : ''}]%)"
+  let l:git = "  %<%([%{winwidth(0) > 100 ? StatuslineGitBranch() :
         \ winwidth(0) > 70 ?
-        \ (strlen(statusline#gitbranch()) > 10 ? '...' . statusline#gitbranch()[-7:]
-        \ : statusline#gitbranch())
+        \ (strlen(StatuslineGitBranch()) > 10 ? '...' . StatuslineGitBranch()[-7:]
+        \ : StatuslineGitBranch())
         \ : ''}]%)"
   let l:sep = '%='
   " current line/total lines:cursor column percentage in file
@@ -140,7 +140,7 @@ function! statusline#active() abort
   " endif
 endfunction
 
-function! statusline#inactive() abort
+function! StatuslineInactive() abort
   let l:filename = " %{expand('%:p:~') ==# '' ? '[Blank]' :
         \ winwidth(0) < 71 ? expand('%:t') :
         \ expand('%:p:~')}"
@@ -158,7 +158,7 @@ endfunction
 
 " Ref: https://github.com/itchyny/vim-gitbranch/blob/master/autoload/gitbranch.vim
 " Check: https://github.com/itchyny/vim-gitbranch/pull/9
-function! statusline#gitbranch() abort
+function! StatuslineGitBranch() abort
   if get(b:, 'gitbranch_pwd', '') !=# expand('%:p:h') || !has_key(b:, 'gitbranch_path')
     call s:gitbranch_detect(expand('%:p:h'))
   endif
