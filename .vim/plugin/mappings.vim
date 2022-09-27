@@ -153,6 +153,7 @@ nnoremap <silent> gh :<C-u>call search('^' . matchstr(getline('.'), '\(^\s*\)') 
 " do not exit visual selection when shift-indenting
 xnoremap < <gv
 xnoremap > >gv
+xnoremap = =gv
 
 " update diff color after diffget
 nnoremap <silent> do do:diffupdate<CR>
