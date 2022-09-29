@@ -191,16 +191,16 @@ nnoremap g* g*zz
 nnoremap g# g#zz
 
 " set cu to substitute current word in all lines (use confim as safety guard)
-nnoremap cu :%s/\v<<C-r><C-w>>//gc<left><left><left>
+nnoremap cu :keeppatterns %s/\v<<C-r><C-w>>//gc<left><left><left>
 
 " set cU to substitute current WORD in all lines (use confim as safety guard)
-nnoremap cU :%s/\v<<C-r><C-a>>//gc<left><left><left>
+nnoremap cU :keeppatterns %s/\v<<C-r><C-a>>//gc<left><left><left>
 
 " set cd to substitute current word in current line (use confim as safety guard)
-nnoremap cd :s/<C-r><C-w>//gc<left><left><left>
+nnoremap cd :keeppatterns s/<C-r><C-w>//gc<left><left><left>
 
 " set cD to substitute current WORD in current line (use confim as safety guard)
-nnoremap cD :s/<C-r><C-a>//gc<left><left><left>
+nnoremap cD :keeppatterns s/<C-r><C-a>//gc<left><left><left>
 
 " delete below or above current line but exclude the current line
 " TODO: make operator pending mapping for K and J
@@ -242,12 +242,16 @@ nnoremap <expr> <silent> <leader>z
       \ ':<C-u>echoerr "Only one window"<CR>'
 
 " set space s to substitute command
-nnoremap <leader>s :s//g<left><left>
+nnoremap <leader>s :keeppatterns s
+xnoremap <leader>s :<C-u>keeppatterns '<,'>s
+
+" set space S to spawn keeppatterns command
+nnoremap <leader>S :<C-u>keeppatterns
 
 " set space a to remove the entire line that match pattern
 " similar to `:g/pattern/d_`
 " Ref: https://vi.stackexchange.com/a/26153
-nnoremap <leader>a :%s/.*.*\n//c<left><left><left><left><left><left><left>
+nnoremap <leader>a :keeppatterns %s/.*.*\n//c<left><left><left><left><left><left><left>
 
 " set ZX as :update
 nnoremap <silent> ZX :up<CR>
