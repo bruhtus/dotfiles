@@ -17,7 +17,12 @@ alias \
 # ref: https://github.com/junegunn/fzf/issues/2887#issuecomment-1199258039 (fzf reload example)
 # note: only able to parse filename without spacing.
 gaf() {
-	local diff='git diff --color=always -- {2}'
+	local diff='
+	[ {1} != "??" ] &&
+		{ git diff --color=always -- {2} | less -R --incsearch } ||
+			{ git diff --color=always --no-index -- /dev/null {2} | less -R --incsearch }
+	'
+
 	local git_config='git -c color.status=always'
 
 	FZF_DEFAULT_COMMAND="$git_config status -s" \
@@ -29,7 +34,7 @@ gaf() {
 		--bind 'ctrl-g:reload(git reset >/dev/null && eval "$FZF_DEFAULT_COMMAND")' \
 		--bind 'ctrl-r:reload(eval "$FZF_DEFAULT_COMMAND")' \
 		--bind "ctrl-x:reload($git_config status -su -- {2})" \
-		--bind "enter:execute($diff | less -R --incsearch)"
+		--bind "enter:execute($diff)"
 }
 
 alias \
