@@ -20,4 +20,4 @@ augroup root_buffer
         \ endif
 augroup END
 
-nnoremap <silent> - :call root#toggle()<CR>
+nnoremap <silent> _ :call root#toggle()<CR>

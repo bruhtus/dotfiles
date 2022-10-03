@@ -108,9 +108,6 @@ nnoremap <C-p> "+gP
 nnoremap <silent> <leader>p :put +<CR>
 nnoremap <silent> <leader>P :put! +<CR>
 
-" remap _ to set current height window to highest possible
-nnoremap _ <C-w>_
-
 " remap + to set current height of each split window to the same height
 nnoremap + <C-w>=
 
