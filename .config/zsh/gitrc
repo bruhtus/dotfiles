@@ -37,6 +37,12 @@ gaf() {
 		--bind "enter:execute($diff)"
 }
 
+gcff() {
+	git diff --name-only HEAD $1 | \
+		fzf --ansi --multi --height=80% --reverse --preview="git diff --color=always HEAD $1 -- {1}" --preview-window=nohidden | \
+		xargs -r git restore -s $1
+}
+
 alias \
 	gc='git commit' \
 	gca='git commit --amend'
