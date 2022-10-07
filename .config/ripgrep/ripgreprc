@@ -1,5 +1,5 @@
 --type-add
-nonsense:*.{pdf,mp4,svg,csv,ico,tdb,jpg,jpeg,png,epub,mobi,min,xls,doc,ppt,docx,pptx}*
+nonsense:*.{pdf,mp4,svg,ico,tdb,jpg,jpeg,png,epub,mobi,min,xls,doc,ppt,docx,pptx}*
 
 --type-add
 font:*.{ttf,woff,eot}
