@@ -98,11 +98,11 @@ function! StatuslineActive() abort
   "       \ (winwidth(0) > 70 ? system(g:gitbranchcmd) : '')}"
   " Note: truncate from the right.
   " Ref: https://stackoverflow.com/a/20899652
-  " let l:git = "  %([%{winwidth(0) > 70 ? strpart(StatuslineGitBranch(), 0, 20) : ''}]%)"
-  let l:git = "  %<%([%{winwidth(0) > 100 ? StatuslineGitBranch() :
+  " let l:git = "  %([%{winwidth(0) > 70 ? strpart(GitBranch(), 0, 20) : ''}]%)"
+  let l:git = "  %<%([%{winwidth(0) > 100 ? GitBranch() :
         \ winwidth(0) > 70 ?
-        \ (strlen(StatuslineGitBranch()) > 10 ? '...' . StatuslineGitBranch()[-7:]
-        \ : StatuslineGitBranch())
+        \ (strlen(GitBranch()) > 10 ? '...' . GitBranch()[-7:]
+        \ : GitBranch())
         \ : ''}]%)"
   let l:sep = '%='
   " current line/total lines:cursor column percentage in file
@@ -158,7 +158,7 @@ endfunction
 
 " Ref: https://github.com/itchyny/vim-gitbranch/blob/master/autoload/gitbranch.vim
 " Check: https://github.com/itchyny/vim-gitbranch/pull/9
-function! StatuslineGitBranch() abort
+function! GitBranch() abort
   if get(b:, 'gitbranch_pwd', '') !=# expand('%:p:h') || !has_key(b:, 'gitbranch_path')
     call s:gitbranch_detect(expand('%:p:h'))
   endif
@@ -173,7 +173,7 @@ function! StatuslineGitBranch() abort
   return ''
 endfunction
 
-function! s:gitbranch_dir(path) abort
+function! GitDir(path) abort
   let path = a:path
   let prev = ''
   let git_modules = path =~# '/\.git/modules/'
@@ -199,7 +199,7 @@ endfunction
 function! s:gitbranch_detect(path) abort
   unlet! b:gitbranch_path
   let b:gitbranch_pwd = expand('%:p:h')
-  let dir = s:gitbranch_dir(a:path)
+  let dir = GitDir(a:path)
   if dir !=# ''
     let path = dir . '/HEAD'
     if filereadable(path)

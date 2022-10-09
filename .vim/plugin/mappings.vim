@@ -223,9 +223,9 @@ nnoremap <leader>; :<C-u>pwd<CR>
 
 " print current git branch
 nnoremap <expr> <leader>'
-      \ exists('*StatuslineGitBranch()') ?
-      \ ':<C-u>echo StatuslineGitBranch()<CR>' :
-      \ ':<C-u>echo "StatuslineGitBranch() does not exist"<CR>'
+      \ exists('*GitBranch()') ?
+      \ ':<C-u>echo GitBranch()<CR>' :
+      \ ':<C-u>echo "GitBranch() does not exist"<CR>'
 
 " toggle `relativenumber` option (useful when pairing)
 nnoremap <silent> <leader>r :<C-u>windo set relativenumber!<CR>
