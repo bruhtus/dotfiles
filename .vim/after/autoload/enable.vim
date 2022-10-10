@@ -20,19 +20,6 @@ function! enable#goyo()
   endtry
 endfunction
 
-function! enable#rainbow()
-  if !exists(':RainbowToggle')
-    let g:rainbow_active = 0 | packadd rainbow
-  endif
-  try
-    RainbowToggle
-  catch /^Vim\%((\a\+)\)\=:E492/
-    exe s:error_handling('rainbow', 'Rainbow is not installed')
-  catch
-    exe s:error_handling('rainbow')
-  endtry
-endfunction
-
 function! enable#fugitive()
   try
     if &filetype !=# 'fugitive' && empty(filter(range(1, winnr('$')), 'getwinvar(v:val, "&ft") ==# "fugitive"'))
