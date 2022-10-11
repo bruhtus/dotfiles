@@ -4,36 +4,38 @@ function! possession#init(bang) abort
     call mkdir(fnamemodify(g:possession_dir, ':p'), 'p')
   endif
 
-  let session = get(g:, 'current_possession', v:this_session)
+  let l:session = get(g:, 'current_possession', v:this_session)
 
   try
-    if a:bang && filereadable(expand(session))
+    if a:bang && filereadable(expand(l:session))
       echom 'Deleting session in '
-            \ . possession#msg_truncation(fnamemodify(session, ':~:.'))
-      call delete(expand(session))
+            \ . PossessionMsgTruncation(fnamemodify(l:session, ':~:.'))
+      call delete(expand(l:session))
       unlet! g:current_possession
+      let v:this_session = ''
+      unlet l:session
       return ''
-    elseif a:bang && !filereadable(expand(session))
+    elseif a:bang && !filereadable(expand(l:session))
       echo 'Session for this path not found, nothing deleted'
       return ''
     elseif exists('g:current_possession')
       echom 'Pausing session in '
-            \ . possession#msg_truncation(fnamemodify(session, ':~:.'))
+            \ . PossessionMsgTruncation(fnamemodify(l:session, ':~:.'))
       unlet g:current_possession
       return ''
-    elseif !empty(session)
-      let file = session
+    elseif !empty(l:session)
+      let l:file = l:session
     else
-      let file = g:possession_file_pattern
+      let l:file = PossessionFilePattern()
     endif
 
-    let g:current_possession = file
+    let g:current_possession = l:file
 
-    let error = possession#persist()
+    let error = PossessionPersist()
     if empty(error)
       echom 'Tracking session in '
-            \ . possession#msg_truncation(fnamemodify(file, ':~:.'))
-      let v:this_session = file
+            \ . PossessionMsgTruncation(fnamemodify(l:file, ':~:.'))
+      let v:this_session = l:file
       return ''
     else
       return error
@@ -87,7 +89,7 @@ function! possession#delete_session() abort
 
   if l:choice == 1
     redraw
-    echom 'Deleting session ' . possession#msg_truncation(expand('<cfile>'))
+    echom 'Deleting session ' . PossessionMsgTruncation(expand('<cfile>'))
     call remove(g:possession_list, line('.')-1)
     call delete(expand(l:session_path))
     setlocal modifiable
@@ -104,19 +106,30 @@ function! possession#delete_session() abort
 endfunction
 
 function! possession#move() abort
-  let renamed = g:possession_git_root . '/Session.vim'
+  let renamed = PossessionGitRoot() . '/Session.vim'
 
-  if !filereadable(expand(renamed)) && filereadable(expand(g:possession_file_pattern))
-    call rename(expand(g:possession_file_pattern), expand(renamed))
+  " Note: from session file in possession dir to Session.vim in current dir.
+  if !filereadable(expand(renamed)) && filereadable(expand(PossessionFilePattern()))
+    call rename(expand(PossessionFilePattern()), expand(renamed))
     let g:current_possession = renamed
     echom 'Tracking session in ' . fnamemodify(g:current_possession, ':~:.')
 
-  elseif filereadable(expand(renamed)) && !filereadable(expand(g:possession_file_pattern))
-    call rename(expand(renamed), expand(g:possession_file_pattern))
-    let g:current_possession = g:possession_file_pattern
+  " Note: from Session.vim in current dir to session file in possession dir.
+  elseif filereadable(expand(renamed)) && !filereadable(expand(PossessionFilePattern()))
+    call rename(expand(renamed), expand(PossessionFilePattern()))
+    let g:current_possession = PossessionFilePattern()
     echom 'Tracking session in ' . fnamemodify(g:current_possession, ':~:.')
 
-  elseif filereadable(expand(renamed)) && filereadable(expand(g:possession_file_pattern))
+  " Note:
+  " from current possession filename in possession dir to current file
+  " pattern.
+  " useful if we want to change git branch or git root on the go.
+  elseif !filereadable(PossessionFilePattern()) && filereadable(expand(g:current_possession))
+    call rename(expand(g:current_possession), expand(PossessionFilePattern()))
+    let g:current_possession = PossessionFilePattern()
+    echom 'Tracking session in ' . fnamemodify(g:current_possession, ':~:.')
+
+  elseif filereadable(expand(renamed)) && filereadable(expand(PossessionFilePattern()))
     let choice = confirm('Session file exist, replace it?',
           \ "&Yes\n&No", 2)
     if choice == 1
@@ -125,12 +138,12 @@ function! possession#move() abort
             \ "&Current working directory\n&Possession directory\n&Quit", 3)
       if decide == 1
         redraw
-        call rename(expand(renamed), expand(g:possession_file_pattern))
-        let g:current_possession = g:possession_file_pattern
+        call rename(expand(renamed), expand(PossessionFilePattern()))
+        let g:current_possession = PossessionFilePattern()
         echom 'Tracking session in ' . fnamemodify(g:current_possession, ':~:.')
       elseif decide == 2
         redraw
-        call rename(expand(g:possession_file_pattern), expand(renamed))
+        call rename(expand(PossessionFilePattern()), expand(renamed))
         let g:current_possession = renamed
         echom 'Tracking session in ' . fnamemodify(g:current_possession, ':~:.')
       elseif decide == 3
