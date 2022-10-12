@@ -108,6 +108,11 @@ endfunction
 function! possession#move() abort
   let renamed = PossessionGitRoot() . '/Session.vim'
 
+  if !exists('g:current_possession')
+    echo 'There is no active session'
+    return ''
+  endif
+
   " Note: from session file in possession dir to Session.vim in current dir.
   if !filereadable(expand(renamed)) && filereadable(expand(PossessionFilePattern()))
     call rename(expand(PossessionFilePattern()), expand(renamed))
