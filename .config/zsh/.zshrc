@@ -1,4 +1,6 @@
 bindkey -v
+
+# ref: https://zsh.sourceforge.io/Doc/Release/Options.html
 setopt autocd
 setopt auto_pushd
 # setopt pushd_minus
