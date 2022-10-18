@@ -7,6 +7,8 @@
 
 let maplocalleader = '\'
 
+setlocal spell textwidth=78
+
 " \\ to preview markdown
 let g:mkdp_refresh_slow = 1
 nnoremap <buffer> <silent> <localleader>\
