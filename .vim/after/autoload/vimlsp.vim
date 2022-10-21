@@ -29,12 +29,6 @@ function! vimlsp#init() abort
 
   if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
   nmap <buffer> gd <Plug>(lsp-definition)
-  " nmap <buffer> gs <plug>(lsp-document-symbol-search)
-  " nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
-  " nmap <buffer> <leader>q <plug>(lsp-references)
-  " nmap <buffer> <leader>z <plug>(lsp-implementation)
-  " nmap <buffer> <leader>x <plug>(lsp-type-definition)
-  " nmap <buffer> <leader>e <plug>(lsp-rename)
   nmap <buffer> K <Plug>(lsp-hover-float)
   nmap <buffer> <leader>q <Plug>(lsp-preview-close)<Plug>(lsp-float-close)
 
