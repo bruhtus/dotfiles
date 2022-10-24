@@ -14,6 +14,7 @@ function! pack#init() abort
   endtry
 
   call minpac#add('jidn/vim-dbml',                        { 'type': 'opt' })
+  call minpac#add('tkhren/vim-fake',                      { 'type': 'opt' })
   call minpac#add('tpope/vim-dadbod',                     { 'type': 'opt' })
   call minpac#add('chrisbra/vim_faq',                     { 'type': 'opt' })
   call minpac#add('tpope/vim-surround',                   { 'type': 'opt' })
