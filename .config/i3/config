@@ -10,8 +10,10 @@ set $outer_gaps 0
 # #---End---# #
 
 # #---Default Config---# #
+# ref: https://gist.github.com/lirenlin/9892945?permalink_comment_id=4312849#gistcomment-4312849
 default_border pixel 1
 default_floating_border normal
+for_window [class="^.*"] border pixel 1
 hide_edge_borders none
 font xft:URWGothic-Book 11
 floating_modifier $mod
