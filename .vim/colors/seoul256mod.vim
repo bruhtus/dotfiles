@@ -330,7 +330,7 @@ endif
 
 " statusline
 call s:hi('StatusLine',       [s:dark_bg],     [187])
-call s:hi('StatusLineNC',     [s:dark_bg + 2], [187])
+call s:hi('StatusLineNC',     [s:dark_bg],     [144])
 call s:hi('StatusLineTerm',   [s:dark_bg],     [151])
 call s:hi('StatusLineTermNC', [s:dark_bg + 2], [187])
 hi StatusLineTerm cterm=bold,reverse gui=bold,reverse
