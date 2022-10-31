@@ -257,7 +257,7 @@ call s:hi('PmenuSbar',  [''],  [235])
 call s:hi('PmenuThumb', [''],  [237])
 
 call s:hi('Search',    [s:dark_fg], [24])
-call s:hi('IncSearch', [95],        [255])
+call s:hi('IncSearch', [179],       [232])
 
 " String delimiter, interpolation
 call s:hi('Special', [141], [''])
