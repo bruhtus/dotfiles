@@ -13,7 +13,7 @@
   "after/autoload/*.vim": {
     "type": "autoload"
   },
-  "colors/seoul256mod.vim": {
+  "colors/*.vim": {
     "type": "color"
   },
   "pack/minpac/opt/**/plugin/*.vim": {
