@@ -207,7 +207,7 @@ call s:hi('Underlined', [181], [''])
 
 " set textwidth=80
 " set colorcolumn=+1
-call s:hi('ColorColumn', [''], [exists('$DISPLAY') ? 235 : 244])
+call s:hi('ColorColumn', [''], [exists('$DISPLAY') ? 237 : 244])
 
 " highlight blank line
 " Ref: https://stackoverflow.com/a/706083
