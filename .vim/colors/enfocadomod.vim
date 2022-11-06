@@ -203,7 +203,7 @@ call s:hi('Structure', [75], [''])
 
 call s:hi('Error',      [203], ['NONE'])
 call s:hi('ErrorMsg',   [203], ['NONE'])
-call s:hi('Underlined', [181], [''])
+call s:hi('Underlined', [''], [''])
 
 " set textwidth=80
 " set colorcolumn=+1
