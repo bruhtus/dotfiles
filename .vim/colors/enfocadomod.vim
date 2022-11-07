@@ -293,7 +293,7 @@ hi StatusLineTermNC cterm=bold,reverse gui=bold,reverse
 call s:hi('TabLineFill', [s:dark_bg],      [''])
 call s:hi('TabLineSel',  [252],            [233])
 call s:hi('TabLine',     [s:dark_bg + 12], [s:dark_bg + 4])
-call s:hi('WildMenu',    [s:dark_bg],      [187])
+call s:hi('WildMenu',    [s:dark_bg],      [s:dark_fg])
 
 " :set all
 call s:hi('Title', [253], [''])
