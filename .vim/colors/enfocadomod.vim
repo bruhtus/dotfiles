@@ -209,10 +209,7 @@ let s:undercurl = ['undercurl', 'undercurl']
 " All highlights are removed.
 unlet! g:colors_name
 hi clear
-if !exists('syntax_on') || !exists('syntax_manual')
-  syntax enable
-  syntax reset
-else
+if exists('syntax_on')
   syntax reset
 endif
 
@@ -286,7 +283,7 @@ call s:hi('lCursor', s:none, s:fg_0, s:bg_1, s:none)
 call s:hi('LineNrAbove', s:none, s:none, s:dim_0, s:none)
 call s:hi('Match', s:none, s:none, s:br_accent_0, s:none)
 call s:hi('MatchFuzzy', s:nocombine, s:none, s:accent_0, s:none)
-call s:hi('MatchParen', s:none, s:bg_2, s:none, s:none)
+call s:hi('MatchParen', s:none, s:dim_0, s:none, s:none)
 call s:hi('ModeMsg', s:nocombine, s:none, s:fg_0, s:none)
 call s:hi('MoreMsg', s:nocombine, s:none, s:br_yellow, s:none)
 call s:hi('None', s:none, s:none, s:none, s:none)
