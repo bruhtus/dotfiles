@@ -324,7 +324,7 @@ call s:hi('Visual', s:none, exists('$DISPLAY') ? s:bg_2 : ['#808080', 244], s:no
 call s:hi('VisualNC', s:none, s:bg_1, s:none, s:none)
 call s:hi('VisualNOS', s:none, exists('$DISPLAY') ? s:bg_2 : ['#808080', 244], s:none, s:none)
 call s:hi('WarningMsg', s:nocombine, s:none, s:br_orange, s:none)
-call s:hi('WildMenu', s:bold, s:bg_2, s:br_accent_0, s:none)
+call s:hi('WildMenu', s:none, s:bg_0, s:br_accent_0, s:none)
 highlight! link CursorLineSign CursorLineNr
 highlight! link CursorLineFold CursorLine
 highlight! link EndOfBuffer NonText
