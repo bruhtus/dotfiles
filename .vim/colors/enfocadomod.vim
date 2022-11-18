@@ -361,7 +361,7 @@ call s:hi('Statement', s:nocombine, s:none, s:accent_1, s:none)
 call s:hi('StatementBuiltin', s:nocombine, s:none, s:builtin_1, s:none)
 call s:hi('String', s:nocombine, s:none, s:cyan, s:br_cyan)
 call s:hi('Text', s:nocombine, s:none, s:fg_0, s:none)
-call s:hi('Todo', s:bold, s:br_cyan, s:bg_1, s:none)
+call s:hi('Todo', s:none, s:br_cyan, s:base, s:none)
 call s:hi('Type', s:none, s:none, s:br_accent_1, s:none)
 call s:hi('TypeBuiltin', s:none, s:none, s:br_builtin_1, s:none)
 highlight! link Boolean StatementBuiltin
