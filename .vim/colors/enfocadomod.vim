@@ -391,33 +391,35 @@ highlight! link Typedef Type
 highlight! Underlined term=none cterm=none gui=none
 
 " Neovim diagnostic.
-call s:hi('DiagnosticError', s:none, s:none, s:br_red, s:none)
-call s:hi('DiagnosticHint', s:none, s:none, s:br_blue, s:none)
-call s:hi('DiagnosticInfo', s:none, s:none, s:br_yellow, s:none)
-call s:hi('DiagnosticWarn', s:none, s:none, s:br_orange, s:none)
-call s:hi('DiagnosticFloatingError', s:none, s:bg_1, s:br_red, s:none)
-call s:hi('DiagnosticFloatingHint', s:none, s:bg_1, s:br_blue, s:none)
-call s:hi('DiagnosticFloatingInfo', s:none, s:bg_1, s:br_yellow, s:none)
-call s:hi('DiagnosticFloatingWarn', s:none, s:bg_1, s:br_orange, s:none)
-call s:hi('DiagnosticUnderlineError', s:undercurl, s:none, s:none, s:br_red)
-call s:hi('DiagnosticUnderlineHint', s:undercurl, s:none, s:none, s:br_blue)
-call s:hi('DiagnosticUnderlineInfo', s:undercurl, s:none, s:none, s:br_yellow)
-call s:hi('DiagnosticUnderlineWarn', s:undercurl, s:none, s:none, s:br_orange)
-if (s:hasTermguicolors && &termguicolors) || s:hasGui_running
-  call s:hi('DiagnosticVirtualTextError', s:none, s:blend_error, s:br_red, s:none)
-  call s:hi('DiagnosticVirtualTextHint', s:none, s:blend_hint, s:br_blue, s:none)
-  call s:hi('DiagnosticVirtualTextInfo', s:none, s:blend_info, s:br_yellow, s:none)
-  call s:hi('DiagnosticVirtualTextWarn', s:none, s:blend_warn, s:br_orange, s:none)
-else
-  highlight! link DiagnosticVirtualTextError DiagnosticFloatingError
-  highlight! link DiagnosticVirtualTextHint DiagnosticFloatingHint
-  highlight! link DiagnosticVirtualTextInfo DiagnosticFloatingInfo
-  highlight! link DiagnosticVirtualTextWarn DiagnosticFloatingWarn
+if has('nvim')
+  call s:hi('DiagnosticError', s:none, s:none, s:br_red, s:none)
+  call s:hi('DiagnosticHint', s:none, s:none, s:br_blue, s:none)
+  call s:hi('DiagnosticInfo', s:none, s:none, s:br_yellow, s:none)
+  call s:hi('DiagnosticWarn', s:none, s:none, s:br_orange, s:none)
+  call s:hi('DiagnosticFloatingError', s:none, s:bg_1, s:br_red, s:none)
+  call s:hi('DiagnosticFloatingHint', s:none, s:bg_1, s:br_blue, s:none)
+  call s:hi('DiagnosticFloatingInfo', s:none, s:bg_1, s:br_yellow, s:none)
+  call s:hi('DiagnosticFloatingWarn', s:none, s:bg_1, s:br_orange, s:none)
+  call s:hi('DiagnosticUnderlineError', s:undercurl, s:none, s:none, s:br_red)
+  call s:hi('DiagnosticUnderlineHint', s:undercurl, s:none, s:none, s:br_blue)
+  call s:hi('DiagnosticUnderlineInfo', s:undercurl, s:none, s:none, s:br_yellow)
+  call s:hi('DiagnosticUnderlineWarn', s:undercurl, s:none, s:none, s:br_orange)
+  if (s:hasTermguicolors && &termguicolors) || s:hasGui_running
+    call s:hi('DiagnosticVirtualTextError', s:none, s:blend_error, s:br_red, s:none)
+    call s:hi('DiagnosticVirtualTextHint', s:none, s:blend_hint, s:br_blue, s:none)
+    call s:hi('DiagnosticVirtualTextInfo', s:none, s:blend_info, s:br_yellow, s:none)
+    call s:hi('DiagnosticVirtualTextWarn', s:none, s:blend_warn, s:br_orange, s:none)
+  else
+    highlight! link DiagnosticVirtualTextError DiagnosticFloatingError
+    highlight! link DiagnosticVirtualTextHint DiagnosticFloatingHint
+    highlight! link DiagnosticVirtualTextInfo DiagnosticFloatingInfo
+    highlight! link DiagnosticVirtualTextWarn DiagnosticFloatingWarn
+  endif
+  highlight! link DiagnosticSignError DiagnosticError
+  highlight! link DiagnosticSignHint DiagnosticHint
+  highlight! link DiagnosticSignInfo DiagnosticInfo
+  highlight! link DiagnosticSignWarn DiagnosticWarn
 endif
-highlight! link DiagnosticSignError DiagnosticError
-highlight! link DiagnosticSignHint DiagnosticHint
-highlight! link DiagnosticSignInfo DiagnosticInfo
-highlight! link DiagnosticSignWarn DiagnosticWarn
 
 " ------------------------------------------------------------------------------
 " SECTION: Filetypes syntax groups highlighting.
