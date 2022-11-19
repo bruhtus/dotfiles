@@ -18,7 +18,7 @@ function! s:get_colors()
   " Dark or light scheme is initialized.
   if &background ==# 'dark'
     " Selenized black color scheme.
-    let l:colors.bg_0 = ['#181818', 234]
+    let l:colors.bg_0 = ['#121212', 233]
     let l:colors.bg_1 = ['#252525', 235]
     let l:colors.bg_2 = ['#3b3b3b', 237]
     let l:colors.dim_0 = ['#777777', 243]
