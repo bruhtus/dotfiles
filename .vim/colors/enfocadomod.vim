@@ -27,20 +27,20 @@ function! s:get_colors()
 
     let l:colors.red = ['#d75f5f', 167]
     let l:colors.green = ['#5faf5f', 71]
-    let l:colors.yellow = ['#d7af5f', 179]
+    let l:colors.yellow = ['#ffd751', 221]
     let l:colors.blue = ['#5f87ff', 69]
-    let l:colors.magenta = ['#ff5faf', 205]
-    let l:colors.cyan = ['#5fafaf', 73]
+    let l:colors.magenta = ['#d787af', 175]
+    let l:colors.cyan = ['#87d7d7', 116]
     let l:colors.orange = ['#d7875f', 173]
     let l:colors.violet = ['#af87d7', 140]
 
     let l:colors.br_red = ['#ff5f5f', 203]
-    let l:colors.br_green = ['#87d75f', 113]
-    let l:colors.br_yellow = ['#ffd751', 221]
+    let l:colors.br_green = ['#87d787', 114]
+    let l:colors.br_yellow = ['#ffd7af', 222]
     let l:colors.br_blue = ['#5fafff', 75]
-    let l:colors.br_magenta = ['#ff87d7', 212]
-    let l:colors.br_cyan = ['#5fd7af', 79]
-    let l:colors.br_orange = ['#ff875f', 209]
+    let l:colors.br_magenta = ['#ffafd7', 218]
+    let l:colors.br_cyan = ['#87ffff', 123]
+    let l:colors.br_orange = ['#ffaf87', 216]
     let l:colors.br_violet = ['#af87ff', 141]
 
     " Base background color.
