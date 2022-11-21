@@ -10,6 +10,7 @@
 "              the code and nothing else.
 " -----------------------------------------------------------------------------
 
+" Ref: https://www.ditig.com/256-colors-cheat-sheet
 " A funcref is created to get the color scheme based on the vim background.
 function! s:get_colors()
   " Colors are initialized.
