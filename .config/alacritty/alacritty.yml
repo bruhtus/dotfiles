@@ -244,7 +244,7 @@ colors:
 
   # Bright colors
   bright:
-    black:   '#8a8a8a'
+    black:   '#3b3b3b'
     red:     '#e09b99'
     green:   '#bcddbd'
     yellow:  '#dfdebd'
