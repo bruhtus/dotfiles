@@ -82,32 +82,46 @@ function! s:diagnostics_float() abort
 endfunction
 
 function! s:show_float(diagnostic) abort
-  let l:doc_win = s:get_doc_win()
-  if !empty(a:diagnostic) && has_key(a:diagnostic, 'message')
-    " Update contents.
-    call deletebufline(l:doc_win.get_bufnr(), 1, '$')
-    call setbufline(l:doc_win.get_bufnr(), 1, lsp#utils#_split_by_eol(a:diagnostic['message']))
+  if !has('nvim')
+    if !empty(a:diagnostic) && has_key(a:diagnostic, 'message')
+      let l:lines = split(a:diagnostic['message'], '\n', 1)
+      call lsp#ui#vim#output#preview('', l:lines, {
+            \   'statusline': ' LSP Diagnostics'
+            \})
+      let s:displaying_message = 1
+    elseif get(s:, 'displaying_message', 0)
+      call lsp#ui#vim#output#closepreview()
+      let s:displaying_message = 0
+    endif
 
-    " Compute size.
-    let l:size = l:doc_win.get_size({
-          \   'maxwidth': float2nr(&columns * 0.4),
-          \   'maxheight': float2nr(&lines * 0.4),
-          \ })
-
-    " Compute position.
-    let l:pos = s:compute_position(l:size)
-
-    " Open window.
-    call l:doc_win.open({
-          \   'row': l:pos[0],
-          \   'col': l:pos[1],
-          \   'width': l:size.width,
-          \   'height': l:size.height,
-          \   'border': v:true,
-          \   'topline': 1,
-          \ })
   else
-    call s:hide_float()
+    let l:doc_win = s:get_doc_win()
+    if !empty(a:diagnostic) && has_key(a:diagnostic, 'message')
+      " Update contents.
+      call deletebufline(l:doc_win.get_bufnr(), 1, '$')
+      call setbufline(l:doc_win.get_bufnr(), 1, lsp#utils#_split_by_eol(a:diagnostic['message']))
+
+      " Compute size.
+      let l:size = l:doc_win.get_size({
+            \   'maxwidth': float2nr(&columns * 0.4),
+            \   'maxheight': float2nr(&lines * 0.4),
+            \ })
+
+      " Compute position.
+      let l:pos = s:compute_position(l:size)
+
+      " Open window.
+      call l:doc_win.open({
+            \   'row': l:pos[0],
+            \   'col': l:pos[1],
+            \   'width': l:size.width,
+            \   'height': l:size.height,
+            \   'border': v:true,
+            \   'topline': 1,
+            \ })
+    else
+      call s:hide_float()
+    endif
   endif
 endfunction
 
