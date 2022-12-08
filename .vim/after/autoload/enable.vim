@@ -59,7 +59,7 @@ function! enable#undotree()
   try
     if !exists('g:loaded_undotree')
       packadd undotree
-      let g:undotree_WindowLayout = 2
+      let g:undotree_WindowLayout = 1
     endif
     UndotreeToggle
   catch  /^Vim\%((\a\+)\)\=:E492/
