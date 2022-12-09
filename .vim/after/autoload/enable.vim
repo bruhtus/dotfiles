@@ -62,6 +62,7 @@ function! enable#undotree()
       let g:undotree_WindowLayout = 1
     endif
     UndotreeToggle
+    wincmd =
   catch  /^Vim\%((\a\+)\)\=:E492/
     exe s:error_handling('undotree', 'Undotree is not installed')
   catch
