@@ -8,7 +8,7 @@ let g:neoformat_enabled_markdown = []
 " autocmd doesn't interfere with trim whitespace autocmd.
 function! s:neoformat_on_save() abort
   if !exists('g:no_formatter') && exists(':Neoformat')
-    Neoformat
+    silent Neoformat
   endif
 endfunction
 
