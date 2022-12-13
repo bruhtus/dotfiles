@@ -462,10 +462,10 @@ highlight! link diffSubname Title
 " Highlight blank line
 " Ref: https://stackoverflow.com/a/706083
 " Ref: https://stackoverflow.com/a/27897508
-augroup highlight_blank_lines
-  autocmd!
-  autocmd VimEnter,WinEnter * match ColorColumn /^$/
-augroup END
+" augroup highlight_blank_lines
+"   autocmd!
+"   autocmd VimEnter,WinEnter * match ColorColumn /^$/
+" augroup END
 
 " vim-sneak
 call s:hi('SneakLabel', s:none, s:base, ['#87ff87', 120], s:none)
