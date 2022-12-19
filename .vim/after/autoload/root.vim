@@ -104,10 +104,8 @@ function! root#toggle()
 endfunction
 
 function! root#temp()
-  let l:root = systemlist('git rev-parse --show-toplevel')[0]
-  if v:shell_error
-    echo 'Not in git repo'
-  else
-    execute 'lcd ' . l:root
+  let l:root_path = s:search_root(g:root_pattern)
+  if !empty(l:root_path)
+    execute 'lcd' . l:root_path
   endif
 endfunction
