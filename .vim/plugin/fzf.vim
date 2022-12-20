@@ -5,6 +5,7 @@
 
 " open fzf to search all files in current working directory
 nnoremap <silent> <leader>i :call enable#fzf('Files')<CR>
+nnoremap <silent> <leader>I :call root#temp() <Bar> call enable#fzf('Files')<CR>
 
 " open fzf to search all lines in current buffer
 " nnoremap <silent> <leader>u
