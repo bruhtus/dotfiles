@@ -26,7 +26,7 @@ nnoremap <expr> <silent> <leader>o
       \ ":echo 'Ripgrep is not installed'<CR>"
 
 nnoremap <expr> <silent> <leader>O
-      \ executable('rg') ? ":call enable#fzf('Rg')<CR>" :
+      \ executable('rg') ? ":call root#temp() <Bar> call enable#fzf('Rg')<CR>" :
       \ ":echo 'Ripgrep is not installed'<CR>"
 
 " open fzf to search all lines in all opened buffer
