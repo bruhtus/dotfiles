@@ -13,6 +13,7 @@ setopt hist_ignore_dups
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt hist_save_no_dups
+setopt hist_save_by_copy
 setopt hist_verify
 setopt share_history
 unsetopt menu_complete
