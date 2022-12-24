@@ -11,127 +11,44 @@
 " -----------------------------------------------------------------------------
 
 " Ref: https://www.ditig.com/256-colors-cheat-sheet
-" A funcref is created to get the color scheme based on the vim background.
 function! s:get_colors()
-  " Colors are initialized.
   let l:colors = {}
 
-  " Dark or light scheme is initialized.
-  if &background ==# 'dark'
-    " Selenized black color scheme.
-    let l:colors.bg_0 = ['#121212', 233]
-    let l:colors.bg_1 = ['#252525', 235]
-    let l:colors.bg_2 = ['#3b3b3b', 237]
-    let l:colors.dim_0 = ['#777777', 243]
-    let l:colors.fg_0 = ['#b9b9b9', 250]
-    let l:colors.fg_1 = ['#dedede', 253]
+  let l:colors.bg_0 = ['#121212', 233]
+  let l:colors.bg_1 = ['#252525', 235]
+  let l:colors.bg_2 = ['#3b3b3b', 237]
+  let l:colors.dim_0 = ['#777777', 243]
+  let l:colors.fg_0 = ['#b9b9b9', 250]
+  let l:colors.fg_1 = ['#dedede', 253]
 
-    let l:colors.red = ['#d75f5f', 167]
-    let l:colors.green = ['#5faf5f', 71]
-    let l:colors.yellow = ['#ffd700', 220]
-    let l:colors.blue = ['#5f87ff', 69]
-    let l:colors.magenta = ['#d787af', 175]
-    let l:colors.cyan = ['#5fafaf', 73]
-    let l:colors.orange = ['#d7875f', 173]
-    let l:colors.violet = ['#af87d7', 140]
+  let l:colors.red = ['#d75f5f', 167]
+  let l:colors.green = ['#5faf5f', 71]
+  let l:colors.yellow = ['#ffd700', 220]
+  let l:colors.blue = ['#5f87ff', 69]
+  let l:colors.magenta = ['#d787af', 175]
+  let l:colors.cyan = ['#5fafaf', 73]
+  let l:colors.orange = ['#d7875f', 173]
+  let l:colors.violet = ['#af87d7', 140]
 
-    let l:colors.br_red = ['#ff5f5f', 203]
-    let l:colors.br_green = ['#87d787', 114]
-    let l:colors.br_yellow = ['#ffd751', 221]
-    let l:colors.br_blue = ['#5fafff', 75]
-    let l:colors.br_magenta = ['#ffafd7', 218]
-    let l:colors.br_cyan = ['#87ffff', 123]
-    let l:colors.br_orange = ['#ffaf87', 216]
-    let l:colors.br_violet = ['#af87ff', 141]
+  let l:colors.br_red = ['#ff5f5f', 203]
+  let l:colors.br_green = ['#87d787', 114]
+  let l:colors.br_yellow = ['#ffd751', 221]
+  let l:colors.br_blue = ['#5fafff', 75]
+  let l:colors.br_magenta = ['#ffafd7', 218]
+  let l:colors.br_cyan = ['#87ffff', 123]
+  let l:colors.br_orange = ['#ffaf87', 216]
+  let l:colors.br_violet = ['#af87ff', 141]
 
-    " Base background color.
-    let l:colors.base = ['#000000', 16]
+  let l:colors.base = ['#000000', 16]
 
-    " Pseudo transparency colors.
-    let l:colors.blend_error = ['#462624', 'NONE']
-    let l:colors.blend_hint = ['#233246', 'NONE']
-    let l:colors.blend_info = ['#433a20', 'NONE']
-    let l:colors.blend_warn = ['#453024', 'NONE']
-    let l:colors.blend_added = ['#2c3326', 'NONE']
-    let l:colors.blend_modified = ['#2c281b', 'NONE']
-    let l:colors.blend_removed = ['#2e1e1d', 'NONE']
-    let l:colors.blend_search = ['#62552e', 'NONE']
-  else
-    " Selenized white color scheme.
-    let l:colors.bg_0 = ['#ffffff', 231]
-    let l:colors.bg_1 = ['#ebebeb', 255]
-    let l:colors.bg_2 = ['#cdcdcd', 252]
-    let l:colors.dim_0 = ['#878787', 245]
-    let l:colors.fg_0 = ['#474747', 238]
-    let l:colors.fg_1 = ['#282828', 235]
+  let l:colors.accent_0 = l:colors.green
+  let l:colors.accent_1 = l:colors.blue
+  let l:colors.br_accent_0 = l:colors.green
+  let l:colors.br_accent_1 = l:colors.blue
 
-    let l:colors.red = ['#d6000c', 160]
-    let l:colors.green = ['#1d9700', 28]
-    let l:colors.yellow = ['#c49700', 172]
-    let l:colors.blue = ['#0064e4', 26]
-    let l:colors.magenta = ['#dd0f9d', 91]
-    let l:colors.cyan = ['#00ad9c', 37]
-    let l:colors.orange = ['#d04a00', 166]
-    let l:colors.violet = ['#7f51d6', 98]
-
-    let l:colors.br_red = ['#bf0000', 124]
-    let l:colors.br_green = ['#008400', 28]
-    let l:colors.br_yellow = ['#af8500', 136]
-    let l:colors.br_blue = ['#0054cf', 26]
-    let l:colors.br_magenta = ['#c7008b', 162]
-    let l:colors.br_cyan = ['#009a8a', 30]
-    let l:colors.br_orange = ['#ba3700', 130]
-    let l:colors.br_violet = ['#6b40c3', 61]
-
-    " Base background color.
-    let l:colors.base = l:colors.bg_1
-
-    " Pseudo transparency colors.
-    let l:colors.blend_error = ['#f2cccc', 'NONE']
-    let l:colors.blend_hint = ['#ccddf5', 'NONE']
-    let l:colors.blend_info = ['#efe7cc', 'NONE']
-    let l:colors.blend_warn = ['#f1d7cc', 'NONE']
-    let l:colors.blend_added = ['#e8f4e5', 'NONE']
-    let l:colors.blend_modified = ['#f9f4e5', 'NONE']
-    let l:colors.blend_removed = ['#fbe5e6', 'NONE']
-    let l:colors.blend_search = ['#d9cca4', 'NONE']
-  endif
-
-  " Get Enfocado style.
-  let g:enfocado_style = get(g:, 'enfocado_style', 'nature')
-
-  " Style colors.
-  if g:enfocado_style ==# 'nature'
-    " Nature accent colors.
-    let l:colors.accent_0 = l:colors.green
-    let l:colors.accent_1 = l:colors.blue
-    let l:colors.br_accent_0 = l:colors.br_green
-    let l:colors.br_accent_1 = l:colors.br_blue
-
-    " Nature builtin colors (neon colors).
-    let l:colors.builtin_0 = l:colors.magenta
-    let l:colors.builtin_1 = l:colors.violet
-    let l:colors.br_builtin_0 = l:colors.br_magenta
-    let l:colors.br_builtin_1 = l:colors.br_violet
-  else
-    " Neon accent colors.
-    let l:colors.accent_0 = l:colors.magenta
-    let l:colors.accent_1 = l:colors.violet
-    let l:colors.br_accent_0 = l:colors.br_magenta
-    let l:colors.br_accent_1 = l:colors.br_violet
-
-    " Neon builtin colors (nature colors).
-    let l:colors.builtin_0 = l:colors.green
-    let l:colors.builtin_1 = l:colors.blue
-    let l:colors.br_builtin_0 = l:colors.br_green
-    let l:colors.br_builtin_1 = l:colors.br_blue
-  endif
-
-  " Colors return.
   return l:colors
 endfunction
 
-" A function is created to highlight the groups.
 function s:hi(group, attr, bg, fg, sp)
   execute 'highlight! '.a:group . ' ' .
         \ 'cterm='.a:attr[1] . ' ' . 'gui='.a:attr[0] . ' ' .
@@ -140,11 +57,9 @@ function s:hi(group, attr, bg, fg, sp)
         \ 'guisp='.a:sp[0]
 endfunction
 
-" Necessary variables are initialized.
 let s:hasTermguicolors = has('termguicolors') ? 1 : 0
 let s:hasGui_running = has('gui_running') ? 1 : 0
 
-" The script ends if the theme is not supported.
 if !s:hasGui_running
   set t_Co=256
 endif
@@ -180,24 +95,10 @@ let s:br_violet = s:colorScheme.br_violet
 
 let s:base = s:colorScheme.base
 
-let s:blend_search = s:colorScheme.blend_search
-let s:blend_error = s:colorScheme.blend_error
-let s:blend_info = s:colorScheme.blend_info
-let s:blend_hint = s:colorScheme.blend_hint
-let s:blend_warn = s:colorScheme.blend_warn
-let s:blend_added = s:colorScheme.blend_added
-let s:blend_removed = s:colorScheme.blend_removed
-let s:blend_modified = s:colorScheme.blend_modified
-
 let s:accent_0 = s:colorScheme.accent_0
 let s:accent_1 = s:colorScheme.accent_1
 let s:br_accent_0 = s:colorScheme.br_accent_0
 let s:br_accent_1 = s:colorScheme.br_accent_1
-
-let s:builtin_0 = s:colorScheme.builtin_0
-let s:builtin_1 = s:colorScheme.builtin_1
-let s:br_builtin_0 = s:colorScheme.br_builtin_0
-let s:br_builtin_1 = s:colorScheme.br_builtin_1
 
 " Attributes are declared.
 let s:none = ['NONE', 'NONE']
@@ -253,14 +154,14 @@ let g:terminal_color_14 = s:br_cyan[0]
 let g:terminal_color_15 = s:fg_1[0]
 
 " ------------------------------------------------------------------------------
-" SECTION: Neo(Vim) base groups highlighting.
+" SECTION: Vim base groups highlighting.
 " ------------------------------------------------------------------------------
 " General interface.
 call s:hi('IncSearch', s:none, s:br_yellow, s:bg_1, s:none)
 call s:hi('Search', s:none, s:br_yellow, s:bg_1, s:none)
 call s:hi('LineNr', s:none, s:none, s:dim_0, s:none)
 call s:hi('Accent', s:none, s:none, s:br_accent_0, s:none)
-call s:hi('Builtin', s:none, s:none, s:br_builtin_0, s:none)
+call s:hi('Builtin', s:none, s:none, s:br_magenta, s:none)
 call s:hi('ColorColumn', s:none, exists('$DISPLAY') ? s:bg_2 : ['#808080', 244], s:none, s:none)
 call s:hi('Conceal', s:nocombine, s:none, s:bg_2, s:none)
 call s:hi('Cursor', s:none, s:fg_0, s:bg_1, s:none)
@@ -352,19 +253,19 @@ call s:hi('Error', s:none, s:none, s:br_red, s:none)
 call s:hi('Trace', s:nocombine, s:none, s:br_magenta, s:none)
 call s:hi('Exception', s:nocombine, s:none, s:orange, s:none)
 call s:hi('Function', s:none, s:none, s:br_accent_0, s:none)
-call s:hi('FunctionBuiltin', s:none, s:none, s:br_builtin_0, s:none)
+call s:hi('FunctionBuiltin', s:none, s:none, s:br_magenta, s:none)
 call s:hi('Identifier', s:nocombine, s:none, s:accent_0, s:none)
-call s:hi('IdentifierBuiltin', s:nocombine, s:none, s:builtin_0, s:none)
+call s:hi('IdentifierBuiltin', s:nocombine, s:none, s:magenta, s:none)
 call s:hi('Link', s:none, s:none, s:br_cyan, s:br_cyan)
 call s:hi('PreProc', s:nocombine, s:none, s:accent_1, s:none)
-call s:hi('Special', s:nocombine, s:none, s:br_builtin_1, s:none)
+call s:hi('Special', s:nocombine, s:none, s:br_violet, s:none)
 call s:hi('Statement', s:nocombine, s:none, s:accent_1, s:none)
-call s:hi('StatementBuiltin', s:nocombine, s:none, s:builtin_1, s:none)
+call s:hi('StatementBuiltin', s:nocombine, s:none, s:violet, s:none)
 call s:hi('String', s:nocombine, s:none, s:cyan, s:br_cyan)
 call s:hi('Text', s:nocombine, s:none, s:fg_0, s:none)
 call s:hi('Todo', s:none, s:br_cyan, s:base, s:none)
 call s:hi('Type', s:none, s:none, s:br_accent_1, s:none)
-call s:hi('TypeBuiltin', s:none, s:none, s:br_builtin_1, s:none)
+call s:hi('TypeBuiltin', s:none, s:none, s:br_violet, s:none)
 highlight! link Boolean StatementBuiltin
 highlight! link Character String
 highlight! link Conditional Statement
@@ -406,10 +307,10 @@ if has('nvim')
   call s:hi('DiagnosticUnderlineInfo', s:undercurl, s:none, s:none, s:br_yellow)
   call s:hi('DiagnosticUnderlineWarn', s:undercurl, s:none, s:none, s:br_orange)
   if (s:hasTermguicolors && &termguicolors) || s:hasGui_running
-    call s:hi('DiagnosticVirtualTextError', s:none, s:blend_error, s:br_red, s:none)
-    call s:hi('DiagnosticVirtualTextHint', s:none, s:blend_hint, s:br_blue, s:none)
-    call s:hi('DiagnosticVirtualTextInfo', s:none, s:blend_info, s:br_yellow, s:none)
-    call s:hi('DiagnosticVirtualTextWarn', s:none, s:blend_warn, s:br_orange, s:none)
+    call s:hi('DiagnosticVirtualTextError', s:none, s:bg_0, s:br_red, s:none)
+    call s:hi('DiagnosticVirtualTextHint', s:none, s:bg_0, s:blue, s:none)
+    call s:hi('DiagnosticVirtualTextInfo', s:none, s:bg_0, s:br_yellow, s:none)
+    call s:hi('DiagnosticVirtualTextWarn', s:none, s:bg_0, s:br_orange, s:none)
   else
     highlight! link DiagnosticVirtualTextError DiagnosticFloatingError
     highlight! link DiagnosticVirtualTextHint DiagnosticFloatingHint
