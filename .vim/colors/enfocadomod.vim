@@ -31,7 +31,7 @@ function! s:get_colors()
     let l:colors.yellow = ['#ffd700', 220]
     let l:colors.blue = ['#5f87ff', 69]
     let l:colors.magenta = ['#d787af', 175]
-    let l:colors.cyan = ['#87d7d7', 116]
+    let l:colors.cyan = ['#5fafaf', 73]
     let l:colors.orange = ['#d7875f', 173]
     let l:colors.violet = ['#af87d7', 140]
 
