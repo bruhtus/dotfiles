@@ -3,7 +3,6 @@
 try
   " let g:seoul256_srgb = 1
   " colo seoul256mod
-  set background=dark
   colo enfocadomod
 
   " Ref: https://groups.google.com/g/vim_use/c/SNVPt60d0-c/m/F346-XjX8HMJ
