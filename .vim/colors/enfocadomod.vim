@@ -17,7 +17,7 @@ function! s:get_colors()
   let l:colors.bg_0 = ['#121212', 233]
   let l:colors.bg_1 = ['#252525', 235]
   let l:colors.bg_2 = ['#3b3b3b', 237]
-  let l:colors.dim_0 = ['#777777', 243]
+  let l:colors.dim_0 = ['#808080', 244]
   let l:colors.fg_0 = ['#b9b9b9', 250]
   let l:colors.fg_1 = ['#dedede', 253]
 
