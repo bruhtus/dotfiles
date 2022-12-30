@@ -45,3 +45,78 @@ command! PacInstall
       \ )
 
 " Ref: https://learnvimscriptthehardway.stevelosh.com/chapters/42.html
+
+if exists(':packadd') != 2 || $VIMNOPACK
+  finish
+endif
+
+packadd! vim-surround
+packadd! targets.vim
+packadd! traces.vim
+
+function! IDE() abort
+  if exists('g:ide_loaded') | return | endif
+
+  " Note: lsp startup config.
+  " let g:lsp_auto_enable = 0
+  let g:lsp_settings_enable_suggestions = 0
+  let g:lsp_diagnostics_echo_cursor = 1
+  let g:lsp_diagnostics_echo_delay = 1
+  let g:lsp_signature_help_enabled = 0
+  let g:lsp_document_highlight_enabled = 0
+  let g:lsp_diagnostics_virtual_text_enabled = 0
+  let g:lsp_fold_enabled = 0
+  let g:lsp_float_max_width = winwidth(0)
+  " let g:lsp_diagnostics_float_cursor = 1
+
+  " Note: neoformat startup config
+  let g:neoformat_try_node_exe = 1
+  " let g:neoformat_run_all_formatters = 1
+  let g:neoformat_enabled_javascript = ['prettier']
+  let g:neoformat_enabled_html = ['prettier']
+  let g:neoformat_enabled_markdown = []
+
+  augroup lsp_init
+    autocmd!
+    autocmd User lsp_buffer_enabled call vimlsp#init()
+    autocmd BufWritePre *
+          \ if !exists('g:no_formatter') && exists(':Neoformat') |
+          \   silent Neoformat |
+          \ endif
+  augroup END
+
+  packadd vim-lsp
+  packadd vim-lsp-settings
+  packadd neoformat
+  exe 'doautocmd <nomodeline> FileType ' . &ft
+  call lsp#enable()
+
+  let g:ide_loaded = 1
+endfunction
+
+let g:lsp_filetype = [
+      \   'typescript',
+      \   'typescriptreact',
+      \   'javascript',
+      \   'dart',
+      \ ]
+
+augroup lazy_load_package
+  autocmd!
+
+  " TODO:
+  " manually remove autocmd instead of using ++once for backward compatibility.
+  autocmd FileType * ++once
+        \ if &ft !=# 'gitcommit' && expand('%') !~# 'psql.edit.*.sql' |
+        \   packadd bufstop |
+        \   packadd vim-dbml |
+        \   packadd vim-commentary |
+        "\   packadd vim-indentwise |
+        \   packadd vim-projectionist |
+        \ endif
+
+  " TODO:
+  " manually remove autocmd instead of using ++once for backward compatibility.
+  exe 'autocmd FileType \v(' . join(g:lsp_filetype, '|') . ') ++once'
+        \ . ' call IDE()'
+augroup END
