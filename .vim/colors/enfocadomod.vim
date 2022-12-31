@@ -10,6 +10,16 @@
 "              the code and nothing else.
 " -----------------------------------------------------------------------------
 
+hi clear
+let g:colors_name = 'enfocadomod'
+
+let s:hasTermguicolors = has('termguicolors') ? 1 : 0
+let s:hasGui_running = has('gui_running') ? 1 : 0
+
+if !s:hasGui_running
+  set t_Co=256
+endif
+
 " Ref: https://www.ditig.com/256-colors-cheat-sheet
 function! s:get_colors()
   let l:colors = {}
@@ -57,13 +67,6 @@ function s:hi(group, attr, bg, fg, sp)
         \ 'guisp='.a:sp[0]
 endfunction
 
-let s:hasTermguicolors = has('termguicolors') ? 1 : 0
-let s:hasGui_running = has('gui_running') ? 1 : 0
-
-if !s:hasGui_running
-  set t_Co=256
-endif
-
 " Get the color scheme.
 let s:colorScheme = s:get_colors()
 
@@ -107,13 +110,6 @@ let s:bold = ['nocombine,bold', 'nocombine,bold']
 let s:italic = ['nocombine,italic', 'nocombine,italic']
 let s:underline = ['underline', 'underline']
 let s:undercurl = ['undercurl', 'undercurl']
-
-" All highlights are removed.
-unlet! g:colors_name
-hi clear
-if exists('syntax_on')
-  syntax reset
-endif
 
 " Vim terminal variables are assigned.
 let g:terminal_ansi_colors = [
@@ -370,6 +366,3 @@ highlight! link diffSubname Title
 
 " vim-sneak
 call s:hi('SneakLabel', s:none, s:base, ['#87ff87', 120], s:none)
-
-" The Enfocado theme is initialized.
-let g:colors_name = 'enfocadomod'
