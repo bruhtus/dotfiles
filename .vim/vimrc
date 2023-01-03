@@ -88,7 +88,11 @@ function! IDE() abort
   packadd vim-lsp
   packadd vim-lsp-settings
   packadd neoformat
-  exe 'doautocmd <nomodeline> FileType ' . &ft
+
+  if exists('#' . lsp_settings#utils#group_name(&ft) . '#FileType#' . &ft)
+    exe 'doautocmd <nomodeline>' lsp_settings#utils#group_name(&ft) 'FileType' &ft
+  endif
+
   call lsp#enable()
 
   let g:ide_loaded = 1
