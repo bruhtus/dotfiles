@@ -21,44 +21,6 @@ if !s:hasGui_running
 endif
 
 " Ref: https://www.ditig.com/256-colors-cheat-sheet
-function! s:get_colors()
-  let l:colors = {}
-
-  let l:colors.bg_0 = ['#121212', 233]
-  let l:colors.bg_1 = ['#252525', 235]
-  let l:colors.bg_2 = ['#3b3b3b', 237]
-  let l:colors.dim_0 = ['#808080', 244]
-  let l:colors.fg_0 = ['#b9b9b9', 250]
-  let l:colors.fg_1 = ['#dedede', 253]
-
-  let l:colors.red = ['#d75f5f', 167]
-  let l:colors.green = ['#5faf5f', 71]
-  let l:colors.yellow = ['#ffd700', 220]
-  let l:colors.blue = ['#5f87ff', 69]
-  let l:colors.magenta = ['#d787af', 175]
-  let l:colors.cyan = ['#5fafaf', 73]
-  let l:colors.orange = ['#d7875f', 173]
-  let l:colors.violet = ['#af87d7', 140]
-
-  let l:colors.br_red = ['#ff5f5f', 203]
-  let l:colors.br_green = ['#87d787', 114]
-  let l:colors.br_yellow = ['#ffd751', 221]
-  let l:colors.br_blue = ['#5fafff', 75]
-  let l:colors.br_magenta = ['#ffafd7', 218]
-  let l:colors.br_cyan = ['#87ffff', 123]
-  let l:colors.br_orange = ['#ffaf87', 216]
-  let l:colors.br_violet = ['#af87ff', 141]
-
-  let l:colors.base = ['#000000', 16]
-
-  let l:colors.accent_0 = l:colors.green
-  let l:colors.accent_1 = l:colors.blue
-  let l:colors.br_accent_0 = l:colors.green
-  let l:colors.br_accent_1 = l:colors.blue
-
-  return l:colors
-endfunction
-
 function s:hi(group, attr, bg, fg, sp)
   execute 'highlight! '.a:group . ' ' .
         \ 'cterm='.a:attr[1] . ' ' . 'gui='.a:attr[0] . ' ' .
@@ -67,41 +29,38 @@ function s:hi(group, attr, bg, fg, sp)
         \ 'guisp='.a:sp[0]
 endfunction
 
-" Get the color scheme.
-let s:colorScheme = s:get_colors()
-
 " The color scheme to use are assigned.
-let s:bg_0 = s:colorScheme.bg_0
-let s:bg_1 = s:colorScheme.bg_1
-let s:bg_2 = s:colorScheme.bg_2
-let s:dim_0 = s:colorScheme.dim_0
-let s:fg_0 = s:colorScheme.fg_0
-let s:fg_1 = s:colorScheme.fg_1
+let s:bg_0 = ['#121212', 233]
+let s:bg_1 = ['#252525', 235]
+let s:bg_2 = ['#3b3b3b', 237]
+let s:dim_0 = ['#808080', 244]
+let s:fg_0 = ['#b9b9b9', 250]
+let s:fg_1 = ['#dedede', 253]
 
-let s:red = s:colorScheme.red
-let s:green = s:colorScheme.green
-let s:yellow = s:colorScheme.yellow
-let s:blue = s:colorScheme.blue
-let s:magenta = s:colorScheme.magenta
-let s:cyan = s:colorScheme.cyan
-let s:orange = s:colorScheme.orange
-let s:violet = s:colorScheme.violet
+let s:red = ['#d75f5f', 167]
+let s:green = ['#5faf5f', 71]
+let s:yellow = ['#ffd700', 220]
+let s:blue = ['#5f87ff', 69]
+let s:magenta = ['#d787af', 175]
+let s:cyan = ['#5fafaf', 73]
+let s:orange = ['#d7875f', 173]
+let s:violet = ['#af87d7', 140]
 
-let s:br_red = s:colorScheme.br_red
-let s:br_green = s:colorScheme.br_green
-let s:br_yellow = s:colorScheme.br_yellow
-let s:br_blue = s:colorScheme.br_blue
-let s:br_magenta = s:colorScheme.br_magenta
-let s:br_cyan = s:colorScheme.br_cyan
-let s:br_orange = s:colorScheme.br_orange
-let s:br_violet = s:colorScheme.br_violet
+let s:br_red = ['#ff5f5f', 203]
+let s:br_green = ['#87d787', 114]
+let s:br_yellow = ['#ffd751', 221]
+let s:br_blue = ['#5fafff', 75]
+let s:br_magenta = ['#ffafd7', 218]
+let s:br_cyan = ['#87ffff', 123]
+let s:br_orange = ['#ffaf87', 216]
+let s:br_violet = ['#af87ff', 141]
 
-let s:base = s:colorScheme.base
+let s:base = ['#000000', 16]
 
-let s:accent_0 = s:colorScheme.accent_0
-let s:accent_1 = s:colorScheme.accent_1
-let s:br_accent_0 = s:colorScheme.br_accent_0
-let s:br_accent_1 = s:colorScheme.br_accent_1
+let s:accent_0 = s:green
+let s:accent_1 = s:blue
+let s:br_accent_0 = s:green
+let s:br_accent_1 = s:blue
 
 " Attributes are declared.
 let s:none = ['NONE', 'NONE']
