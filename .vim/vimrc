@@ -111,7 +111,7 @@ augroup lazy_load_package
   " TODO:
   " manually remove autocmd instead of using ++once for backward compatibility.
   autocmd FileType * ++once
-        \ if &ft !=# 'gitcommit' && expand('%') !~# 'psql.edit.*.sql' |
+        \ if &ft !=# 'gitcommit' && expand('%') !~# '\v(psql.edit.*.sql|zsh\w*.zsh)' |
         \   packadd bufstop |
         \   packadd vim-dbml |
         \   packadd vim-commentary |
