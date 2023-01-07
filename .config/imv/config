@@ -31,12 +31,11 @@ gg = goto 1
 <Ctrl+l> = pan -50 0
 
 # Zooming
-k = zoom 1
+<Shift+H> = reset
+<Shift+K> = zoom 1
+<Shift+J> = zoom -1
 <Shift+plus> = zoom 1
-i = zoom 1
-j = zoom -1
 <minus> = zoom -1
-o = zoom -1
 
 # Rotate Clockwise by 90 degrees
 <Ctrl+r> = rotate by 90
