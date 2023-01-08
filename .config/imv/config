@@ -17,18 +17,14 @@ q = quit
 y = exec echo working!
 
 # Image navigation
-h = prev
-<bracketleft> = prev
-l = next
-<bracketright> = next
 gg = goto 1
 <Shift+G> = goto -1
 
 # Panning
-<Ctrl+j> = pan 0 -50
-<Ctrl+k> = pan 0 50
-<Ctrl+h> = pan 50 0
-<Ctrl+l> = pan -50 0
+j = pan 0 -50
+k = pan 0 50
+h = pan 50 0
+l = pan -50 0
 
 # Zooming
 <Shift+H> = reset
