@@ -215,7 +215,6 @@ config.bind("<Ctrl-d>", "fake-key <Delete>", "insert")
 config.bind("<Ctrl-w>", "fake-key <Ctrl-Backspace>", "insert")
 config.bind("<Ctrl-u>", "fake-key <Shift-Home><Delete>", "insert")
 config.bind("<Ctrl-k>", "fake-key <Shift-End><Delete>", "insert")
-config.bind("<Ctrl-x><Ctrl-e>", "open-editor", "insert")
 
 c.fonts.default_family = []
 c.fonts.default_size = '11pt'
