@@ -186,9 +186,9 @@ config.bind('cB', 'set-cmd-text :open -b -r {url:pretty}')
 # config.bind('za', 'config-cycle statusbar.show never always;; config-cycle tabs.show never always')
 config.bind('<Space>', 'config-cycle tabs.show never always')
 config.bind('<Shift-Tab>', 'tab-focus')
-config.bind('<Ctrl-k>', 'zoom-in')
-config.bind('<Ctrl-j>', 'zoom-out')
-config.bind('<Ctrl-h>', 'zoom')
+config.bind('<Ctrl-=>', 'zoom-in')
+config.bind('<Ctrl-->', 'zoom-out')
+config.bind('<Ctrl-0>', 'zoom')
 
 # Unbind default bindings
 config.unbind('xo')
