@@ -92,4 +92,5 @@ function set_win_title(){
 # check `man zshmisc`
 precmd_functions+=(set_win_title)
 
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
+[ -f ${ZDOTDIR:-$HOME/.config/zsh}/prompt ] && source $ZDOTDIR/prompt
