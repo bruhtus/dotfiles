@@ -28,9 +28,10 @@ zstyle ':vcs_info:git:*' actionformats '(%a) %F(magenta)%b%f %m%u%c'
     fi
 }
 
+# ref: https://stackoverflow.com/a/53823705
 +vi-git-stash() {
-    if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
-      [[ $(git stash list | wc -l) > 0 ]]; then
+    if [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) == 'true' ]] && \
+      git rev-list --quiet refs/stash 2>/dev/null; then
         hook_com[branch]+=' %F{white}$%f'
     fi
 }
