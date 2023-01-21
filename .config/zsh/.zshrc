@@ -1,3 +1,4 @@
+# ref: man zshzle
 bindkey -v
 
 # ref: https://zsh.sourceforge.io/Doc/Release/Options.html
@@ -32,7 +33,7 @@ SAVEHIST=1000000
 [ -d "${XDG_DATA_HOME:-$HOME/.local/share}/zsh" ] && HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/history" || \
   mkdir "${XDG_DATA_HOME:-$HOME/.local/share}/zsh" && HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/history"
 
-#load aliases if exist
+# load aliases if exist
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasrc"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/gitrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/gitrc"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/pyv" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/pyv"
@@ -41,7 +42,7 @@ SAVEHIST=1000000
 # ref: https://superuser.com/a/1092328
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
-#basic auto-tab complete
+# basic auto-tab complete
 zstyle ':completion:*' menu select
 autoload -Uz compinit
 zmodload zsh/complist
@@ -54,7 +55,7 @@ compinit -d ${XDG_CONFIG_HOME:-$HOME/.config}/zsh/zcompdump-$ZSH_VERSION
   mzadd zsh-users/zsh-history-substring-search && \
   # mzadd zdharma/fast-syntax-highlighting && \
 
-#vim keys to tab complete menu
+# vim keys to tab complete menu
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'k' vi-up-line-or-history
@@ -69,14 +70,11 @@ bindkey -M vicmd 'j' history-substring-search-down
 #figlet -f slant bruhtus
 #pfetch
 
-#Edit line in vim with ctrl-x ctrl-x:
+# edit line in vim with ctrl-x ctrl-x:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^X^X' edit-command-line
 
-#Rsi vi bindkey
-#Ref:
-#https://stackoverflow.com/a/23134765
-#man zshzle
+# ref: https://stackoverflow.com/a/23134765
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 bindkey '^B' backward-char
