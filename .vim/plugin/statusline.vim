@@ -11,13 +11,20 @@ set statusline=%!StatuslineActive()
 " Ref: https://github.com/junegunn/dotfiles/blob/057ee47465e43aafbd20f4c8155487ef147e29ea/vimrc#L265-L275
 function! StatuslineActive() abort
   " let l:mode = "%{%statusline#mode()%}"
-  let l:filename = " %{expand('%:p:~') ==# '' ? '[Blank]' :
-        \ winwidth(0) > 160 ? expand('%:p:~') :
-        \ winwidth(0) < 71 ? expand('%:t') :
-        \ pathshorten(expand('%'))}"
+  " let l:filename = " %{expand('%:p:~') ==# '' ? '[Blank]' :
+  "       \ winwidth(0) > 160 ? expand('%:p:~') :
+  "       \ winwidth(0) < 71 ? expand('%:t') :
+  "       \ pathshorten(expand('%'))}"
+
+  let l:filename = ' %t'
   let l:readonly = '%r'
-  let l:mod = "%{&modified ? '  [+]' : !&modifiable ? '  [-]' : ''}"
-  let l:ft = "%{winwidth(0) > 70 ? ' ' . (len(&filetype) ? &filetype : 'no ft') : ''}"
+
+  " let l:mod = "%{&modified ? '  [+]' : !&modifiable ? '  [-]' : ''}"
+  let l:mod = ' %m'
+
+  " let l:ft = "%{winwidth(0) > 70 ? ' ' . (len(&filetype) ? &filetype : 'no ft') : ''}"
+  let l:ft = '%y'
+
   " there's a glitch when using git branch cmd in statusline vim
   " let g:gitbranchcmd = "git branch --show-current 2>/dev/null | tr -d '\n'"
   " let l:git = "%{exists('*FugitiveHead') ? (winwidth(0) > 70 ? fugitive#head() : '') :
@@ -30,39 +37,43 @@ function! StatuslineActive() abort
         \ (strlen(GitBranch()) > 10 ? '...' . GitBranch()[-7:]
         \ : GitBranch())
         \ : ''}]%)"
+
   let l:sep = '%='
+
   " current line/total lines:cursor column percentage in file
   let l:line = '  %-16.(%l/%L:%c%)%P'
+
   let l:indent = "%{
         \ (exists('b:editorconfig_file') && !empty(b:editorconfig_file))
         \   && &expandtab ?
-        \ ' ec:sw='.&shiftwidth.' ' :
+        \ ' sw='.&shiftwidth.'* ' :
         \ (exists('b:editorconfig_file') && !empty(b:editorconfig_file))
         \   && !&expandtab && &tabstop == &shiftwidth ?
-        \ ' ec:ts='.&tabstop.' ' :
+        \ ' ts='.&tabstop.'* ' :
         \ (exists('b:editorconfig_file') && !empty(b:editorconfig_file))
         \   && !&expandtab && &tabstop != &shiftwidth ?
-        \ ' ec:sw='.&shiftwidth.',ts='.&tabstop.' ' :
+        \ ' sw='.&shiftwidth.',ts='.&tabstop.'* ' :
         \ &expandtab ? ' sw='.&shiftwidth.' ' :
         \ &tabstop == &shiftwidth ? ' ts='.&tabstop.' ' :
         \ ' sw='.&shiftwidth.',ts='.&tabstop.' '}"
-  " indicator if there's some anomaly with the indentation
-  " the result is the line number, not the total
-  " Flaw: if the `expandtab` set by modeline after there's a tab character in
-  " a file, this component won't be triggered
+
   let l:ses = "%{exists('g:current_possession') ? '[S]' : ''}"
+
   " useful for resolving git merge conflict or using diff more than 2 windows
   let l:diff = "%{&diff && winnr('$') > 2 ? ' [' . bufnr() . '] ' : '' }"
+
   " check if there's alternate buffer or not
-  let l:alt = "%{bufnr('#') == '-1' ? '' : '[#]'}"
+  " let l:alt = "%{bufnr('#') == '-1' ? '' : '[#]'}"
+
   " Ref: https://superuser.com/a/345593
   let l:totalbuf = "%{'[' . len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) . ']'}"
-  let l:root = "%{winwidth(0) > 160 && exists('b:root_enabled') ? '[/]' : ''}"
+  " let l:root = "%{winwidth(0) > 160 && exists('b:root_enabled') ? '[/]' : ''}"
+
   " if has('nvim')
   "   return w:mode.'%*'.l:indent.l:git.l:sep.l:diff.l:readonly.l:filename.l:mod.l:sep.l:ses.'  '.l:ft.l:line
   " else
     " return l:mode.'%*'.l:diff.l:indent.l:totalbuf.l:alt.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
-    return l:diff.l:indent.l:totalbuf.l:alt.l:ses.l:readonly.l:root.l:filename.l:mod.l:sep.l:git.l:ft.l:line
+    return l:diff.l:indent.l:totalbuf.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.l:ft.l:line
   " endif
 endfunction
 
