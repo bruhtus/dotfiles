@@ -79,8 +79,10 @@ bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 bindkey '^B' backward-char
 bindkey '^F' forward-char
-bindkey '^X^F' vi-find-next-char
-bindkey '^X^B' vi-find-prev-char
+# bindkey '^X^F' vi-find-next-char
+# bindkey '^X^B' vi-find-prev-char
+# bindkey '^X;' vi-repeat-find
+# bindkey '^X,' vi-rev-repeat-find
 
 function set_win_title(){
   # echo -ne "\033]0; $(basename "$PWD") \007"
