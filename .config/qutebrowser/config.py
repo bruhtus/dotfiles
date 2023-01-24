@@ -152,7 +152,7 @@ config.set('tabs.show', 'never')
 config.set('content.blocking.method', 'both')
 
 # View pdf within qutebrowser
-config.set('content.pdfjs', True)
+config.set('content.pdfjs', False)
 
 # Show notification
 # Per domain setting reference: https://qutebrowser.org/doc/help/configuring.html#_per_domain_settings
