@@ -17,6 +17,8 @@ setopt hist_save_no_dups
 setopt hist_save_by_copy
 setopt hist_verify
 setopt share_history
+setopt append_history
+setopt inc_append_history
 unsetopt menu_complete
 setopt always_to_end
 # unsetopt complete_aliases
