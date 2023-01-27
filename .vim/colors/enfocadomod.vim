@@ -177,9 +177,7 @@ call s:hi('Title', s:none, s:none, s:fg_1, s:none)
 call s:hi('ToolbarButton', s:nocombine, s:accent_0, s:bg_1, s:none)
 call s:hi('ToolbarLine', s:nocombine, s:bg_1, s:dim_0, s:none)
 call s:hi('VertSplit', s:nocombine, s:none, s:dim_0, s:none)
-call s:hi('Visual', s:italic, s:bg_2, s:none, s:none)
-call s:hi('VisualNC', s:italic, s:bg_2, s:none, s:none)
-call s:hi('VisualNOS', s:italic, s:bg_2, s:none, s:none)
+call s:hi('Visual', s:none, s:dim_0, s:fg_1, s:none)
 call s:hi('WarningMsg', s:nocombine, s:none, s:br_orange, s:none)
 call s:hi('WildMenu', s:none, s:bg_0, s:br_accent_0, s:none)
 highlight! link CursorLineSign CursorLineNr
@@ -192,6 +190,8 @@ highlight! link MsgSeparator StatusLineNC
 highlight! link NormalNC Normal
 highlight! link Substitute Search
 highlight! link TermCursorNC None
+highlight! link VisualNc Visual
+highlight! link VisualNOS Visual
 highlight! link Whitespace NonText
 highlight! link WinBar Text
 highlight! link WinBarNC Dimmed
