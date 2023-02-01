@@ -180,12 +180,12 @@ nnoremap <leader>D D
 nnoremap <silent> - :<C-u>windo checktime<CR>
 
 " make search result appear in the middle
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
-nnoremap g* g*zz
-nnoremap g# g#zz
+" nnoremap n nzz
+" nnoremap N Nzz
+" nnoremap * *zz
+" nnoremap # #zz
+" nnoremap g* g*zz
+" nnoremap g# g#zz
 
 " set cu to substitute current word in all lines (use confim as safety guard)
 nnoremap cu :keeppatterns %s/\v<<C-r><C-w>>//gc<left><left><left>
