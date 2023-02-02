@@ -27,8 +27,8 @@ else
         \ <Bar> botright lwindow<CR>
 endif
 
-" use shift+tab to switch back and forth between two recent buffer
-nnoremap <S-Tab> <C-^>
+" use ctrl-s to toggle between two recent buffer
+nnoremap <C-S> <C-^>
 
 " remap Alt-a to append while in insert mode
 " Ref: https://vi.stackexchange.com/a/2363/34851
