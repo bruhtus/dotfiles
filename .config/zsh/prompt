@@ -22,7 +22,7 @@ zstyle ':vcs_info:git:*' formats ' %F{magenta}%b%f %u%c'
 zstyle ':vcs_info:git:*' actionformats ' %F{yellow}(%a)%f %F{magenta}%10<..<%b%<<%f %u%c'
 
 +vi-git-untracked() {
-    if [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) == 'true' ]] && \
+    if [ $(git rev-parse --is-inside-work-tree 2>/dev/null) = true ] && \
       git status --porcelain 2>/dev/null | grep -q '^??'; then
         hook_com[unstaged]+='%F{yellow}?%f'
     fi
@@ -30,7 +30,7 @@ zstyle ':vcs_info:git:*' actionformats ' %F{yellow}(%a)%f %F{magenta}%10<..<%b%<
 
 # ref: https://stackoverflow.com/a/53823705
 +vi-git-stash() {
-    if [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) == 'true' ]] && \
+    if [ $(git rev-parse --is-inside-work-tree 2>/dev/null) = true ] && \
       git rev-list --quiet refs/stash 2>/dev/null; then
         hook_com[branch]+=' %F{white}$%f'
     fi
