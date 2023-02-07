@@ -2,6 +2,7 @@
 # https://salferrarello.com/zsh-git-status-prompt/
 # https://github.com/zap-zsh/singularisart-prompt/blob/master/singularisart-prompt.zsh-theme
 # https://github.com/zap-zsh/zap-prompt/blob/master/zap-prompt.zsh-theme
+# https://gist.github.com/jeebak/2fb31f964669892f6ef457508916bdb3
 
 # autoload zsh add-zsh-hook and vcs_info functions (-U autoload w/o substition, -z use zsh style)
 autoload -Uz add-zsh-hook vcs_info
