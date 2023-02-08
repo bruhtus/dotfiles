@@ -69,6 +69,6 @@ prompt_newline=$'\n%{\r%}'
 PROMPT='${prompt_newline}'
 PROMPT+='%B%F{cyan}%(4~|%-1~/../%2~|%~)%f%b'
 PROMPT+='%B${vcs_info_msg_0_}%b'
-PROMPT+='${prompt_newline}%(?:%B%F{green}>%f%b :%B%F{red}x%f%b )'
+PROMPT+='${prompt_newline}%(?:%B%F{green}%(!.#.>)%f%b :%B%F{red}x%f%b )'
 
 # vim:ft=zsh
