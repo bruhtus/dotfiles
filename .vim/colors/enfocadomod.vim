@@ -316,4 +316,4 @@ highlight! link diffRemoved DiffDelete
 highlight! link diffSubname Title
 
 " vim-sneak
-call s:hi('SneakLabel', s:none, s:base, ['#87ff87', 120], s:none)
+call s:hi('SneakLabel', s:none, s:base, ['#ffff00', 11], s:none)
