@@ -3,6 +3,7 @@
 set title titlestring=%t " check `:h 'statusline'` for the flags
 
 set hidden
+set mouse=
 set autoread
 set linebreak
 set belloff=all
