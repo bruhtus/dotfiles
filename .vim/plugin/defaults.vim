@@ -28,7 +28,7 @@ set spelllang=en_us spellfile=~/.vim/spell/en.utf-8.add
 set completeopt-=preview " ignore omni complete description
 set completeopt+=noinsert completeopt+=noselect completeopt+=menuone
 
-set showmode showcmd
+set showmode showcmd cmdheight=1
 set ignorecase smartcase incsearch
 set nobackup noswapfile nostartofline
 set updatetime=0 timeoutlen=500 ttimeoutlen=30
