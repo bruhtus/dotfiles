@@ -57,6 +57,10 @@ if v:version > 703 || v:version == 703 && has('patch541')
   set formatoptions+=j " delete comment character when joining commented lines
 endif
 
+" Ref:
+" https://teddit.net/r/vim/comments/5l939k/recommendation_deinvim_as_a_plugin_manager/
+if exists('+guioptions') | set guioptions=M | endif
+
 " in case I don't want to use statusline
 " if &ruler | set rulerformat=%-13.(%r%m%)\ %P | endif
 if &ruler | set rulerformat=%-13.(%l/%<%L:%c%)\ %P | endif
