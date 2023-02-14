@@ -88,6 +88,11 @@ function! s:detect_indent() abort
     let b:editorconfig_file = ''
   endif
 
+  " Note: for neovim terminal.
+  if &buftype ==# 'terminal'
+    let b:editorconfig_file = ''
+  endif
+
   if !exists('b:editorconfig_path_cache')
     let b:editorconfig_file =
           \ get(b:, 'editorconfig_file',
