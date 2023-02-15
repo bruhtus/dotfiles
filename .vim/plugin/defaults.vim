@@ -32,8 +32,10 @@ set showmode showcmd cmdheight=1
 set ignorecase smartcase incsearch
 set nobackup noswapfile nostartofline
 set updatetime=0 timeoutlen=500 ttimeoutlen=30
-set list listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-set fillchars=eob:\ ,vert:\|,fold:-
+
+" Ref: https://en.wikipedia.org/wiki/Code_page_437
+set list listchars=tab:\\u00ac\\u00b7,trail:-,extends:\\u25c4,precedes:\\u25ba,nbsp:\\u00b7
+set fillchars=eob:\ ,vert:\\u2502
 
 " to make vim session use absolute path, remove curdir option
 set sessionoptions-=options sessionoptions-=curdir sessionoptions+=globals
