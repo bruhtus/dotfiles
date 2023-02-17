@@ -16,24 +16,25 @@ add-zsh-hook precmd vcs_info
 # ref: https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#vcs_005finfo-Configuration
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' use-simple true
-zstyle ':vcs_info:*' check-for-changes true
+# zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' check-for-staged-changes true
 zstyle ':vcs_info:*' unstagedstr '%F{red}!%f'
 zstyle ':vcs_info:*' stagedstr '%F{green}+%f'
 zstyle ':vcs_info:git:*' formats ' %F{magenta}%b%f %m%u%c'
 zstyle ':vcs_info:git:*' actionformats ' %F{yellow}(%a)%f %F{magenta}%10<..<%b%<<%f %u%c'
 
-+vi-git-untracked() {
-  if [ $(git rev-parse --is-inside-work-tree 2>/dev/null) = true ] && \
-    git status --porcelain 2>/dev/null | grep -q '^??'; then
-      hook_com[unstaged]+='%F{yellow}?%f'
-  fi
-}
+# +vi-git-untracked() {
+#   if [ $(git rev-parse --is-inside-work-tree 2>/dev/null) = true ] && \
+#     git status --porcelain 2>/dev/null | grep -q '^??'; then
+#       hook_com[unstaged]+='%F{yellow}?%f'
+#   fi
+# }
 
 # ref: https://stackoverflow.com/a/53823705
 +vi-git-stash() {
   if [ $(git rev-parse --is-inside-work-tree 2>/dev/null) = true ] && \
     git rev-list --quiet refs/stash 2>/dev/null; then
-      hook_com[misc]+='%F{white}$%f '
+      hook_com[misc]+='%F{white}$%f'
   fi
 }
 
@@ -53,12 +54,13 @@ zstyle ':vcs_info:git:*' actionformats ' %F{yellow}(%a)%f %F{magenta}%10<..<%b%<
   local behind=${ahead_and_behind[2]}
 
   (( $ahead )) && gitstatus+=( ">${ahead}" )
-  (( $behind )) && gitstatus+=( "<${behind}" )
+  (( $behind )) && gitstatus+=( "<${behind} " )
 
+  # ref: https://zsh.sourceforge.io/Doc/Release/Expansion.html#Parameter-Expansion-Flags
   hook_com[misc]+=${(j:/:)gitstatus}
 }
 
-zstyle ':vcs_info:git*+set-message:*' hooks git-stash git-untracked git-ahead-behind
+zstyle ':vcs_info:git*+set-message:*' hooks git-ahead-behind git-stash
 
 # variables common to all prompt styles
 prompt_newline=$'\n%{\r%}'
