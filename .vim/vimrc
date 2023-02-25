@@ -103,6 +103,7 @@ let g:lsp_filetype = [
       \   'typescriptreact',
       \   'javascript',
       \   'dart',
+      \   'terraform',
       \ ]
 
 augroup lazy_load_package
