@@ -45,7 +45,7 @@ set sessionoptions-=options sessionoptions-=curdir sessionoptions+=globals
 " Note: the `cursorlineopt` is (finally) appear in nvim 0.6
 if exists('+cursorlineopt') | set cursorline cursorlineopt=number | endif
 
-if exists('+colorcolumn') | set colorcolumn=80 | endif
+if exists('+colorcolumn') | set colorcolumn= | endif
 
 if exists('+wildmenu') | set wildmenu | endif
 set wildignorecase
