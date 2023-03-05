@@ -6,9 +6,18 @@ nnoremap <expr> <silent> <leader>k
       \ (!exists('g:loaded_sneak_plugin') ? ":<C-u>packadd vim-sneak<CR>" : '' )
       \ . '<Plug>SneakLabel_s'
 
+xnoremap <expr> <silent> <leader>k
+      \ (!exists('g:loaded_sneak_plugin') ? ":<C-u>packadd vim-sneak<CR>gv" : '' )
+      \ . '<Plug>SneakLabel_s'
+
 nnoremap <expr> <silent> <leader>j
       \ (!exists('g:loaded_sneak_plugin') ? ":<C-u>packadd vim-sneak<CR>" : '' )
       \ . '<Plug>SneakLabel_S'
+
+xnoremap <expr> <silent> <leader>j
+      \ (!exists('g:loaded_sneak_plugin') ? ":<C-u>packadd vim-sneak<CR>gv" : '' )
+      \ . '<Plug>SneakLabel_S'
+      \ . '<Plug>Sneak_,'
 
 " nnoremap <expr> <silent> <leader>k
 "       \ (!exists('g:loaded_sneak_plugin') ?
