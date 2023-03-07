@@ -14,6 +14,9 @@ scan_timeout = 10
 [package]
 disabled = true
 
+[battery]
+disabled = true
+
 [cmd_duration]
 # Show command duration over 10,000 milliseconds (=10 sec)
 format = '\[[took $duration]($style)\]'
