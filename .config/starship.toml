@@ -19,7 +19,7 @@ disabled = true
 
 [cmd_duration]
 # Show command duration over 10,000 milliseconds (=10 sec)
-format = '\[[took $duration]($style)\]'
+format = '[$duration]($style)'
 min_time = 10_000
 
 [line_break]
