@@ -28,7 +28,7 @@ disabled = true
 [directory]
 truncation_length = 2
 truncate_to_repo = false
-truncation_symbol = "../"
+truncation_symbol = '../'
 
 [character]
 success_symbol = '[>](bold green)'
