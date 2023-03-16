@@ -34,7 +34,7 @@ set nobackup noswapfile nostartofline
 set updatetime=0 timeoutlen=500 ttimeoutlen=30
 
 " Ref: https://en.wikipedia.org/wiki/Code_page_437
-set list listchars=tab:\\u00ac\\u00b7,trail:-,extends:\\u25c4,precedes:\\u25ba,nbsp:\\u00b7
+set list listchars=tab:\\u00ac\\u00b7,trail:\\u2022,extends:\\u25c4,precedes:\\u25ba,nbsp:\\u00b7
 set fillchars=eob:\ ,vert:\\u2502
 
 " to make vim session use absolute path, remove curdir option
