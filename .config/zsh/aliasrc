@@ -175,7 +175,7 @@ kj() {
 # inside psql: \e (to access $EDITOR).
 # ref: https://stackoverflow.com/a/60341274
 psqld() {
-	export DOCKER_POSTGRES_DB="postgresql://postgres:postgres@localhost:${2:-5432}/$1"
+	local DOCKER_POSTGRES_DB="postgresql://postgres:postgres@localhost:${2:-5432}/$1"
 
 	psql -d $DOCKER_POSTGRES_DB -P expanded=auto
 }
