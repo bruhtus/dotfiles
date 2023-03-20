@@ -55,6 +55,8 @@ set wildignore=*/.git/*,*.pdf,*.epub,*.mobi
 " check if there's termwinkey variable or not
 if exists('+termwinkey') | set termwinkey=<C-p> | endif
 
+if exists('+undoreload') | set undoreload=0 | endif
+
 if v:version > 703 || v:version == 703 && has('patch541')
   set formatoptions+=j " delete comment character when joining commented lines
 endif
