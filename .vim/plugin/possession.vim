@@ -122,10 +122,18 @@ function! s:possession_load() abort
     if bufexists(0) && !filereadable(bufname('#'))
       bw #
     endif
+
+    " Note: reload all visible buffer.
+    let l:temp_undoreload = &undoreload
+    let &undoreload = 0
+    windo e
+    let &undoreload = l:temp_undoreload
+
     " Note:
     " make sure that the echo message appear when using this with VimEnter
     " autocmd event
     redraw
+
     echom 'Loading session in '
           \ . PossessionMsgTruncation(fnamemodify(g:current_possession, ':~:.'))
   elseif !empty(v:this_session)
