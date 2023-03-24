@@ -166,7 +166,7 @@ endfunction
 
 augroup possession
   autocmd!
-  autocmd VimEnter * nested
+  autocmd VimEnter * nested ++once
         \ if !argc()                 |
         \   call s:possession_load() |
         \ endif
