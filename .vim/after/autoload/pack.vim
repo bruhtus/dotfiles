@@ -75,6 +75,7 @@ function! pack#init() abort
   " call minpac#add('glepnir/dashboard-nvim',       { 'type': 'opt' })
   " call minpac#add('easymotion/vim-easymotion',    { 'type': 'opt' })
   " call minpac#add('Konfekt/vim-sentence-chopper', { 'type': 'opt' })
+  " call minpac#add('bruhtus/textobj-word-column.vim', { 'type': 'opt', 'branch': 'personal' })
 endfunction
 
 " Ref: minpac/autoload/minpac/impl.vim
