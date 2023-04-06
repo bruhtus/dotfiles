@@ -5,10 +5,6 @@ let g:possession_window_name = get(g:, 'possession_window_name',
       \ 'possession')
 
 let g:possession_dir = get(g:, 'possession_dir',
-      \ has('nvim-0.3.1') ?
-      \ stdpath('data') . '/session' :
-      \ has('nvim') ?
-      \ '~/.local/share/nvim/session' :
       \ '~/.local/share/vim/session'
       \ )
 
