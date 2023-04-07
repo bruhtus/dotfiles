@@ -119,11 +119,11 @@ function! s:possession_load() abort
       bw #
     endif
 
-    " Note: reload all visible buffer.
-    let l:temp_undoreload = &undoreload
-    let &undoreload = 0
-    windo e
-    let &undoreload = l:temp_undoreload
+    " " Note: reload all visible buffer.
+    " let l:temp_undoreload = &undoreload
+    " let &undoreload = 0
+    " windo e
+    " let &undoreload = l:temp_undoreload
 
     " Note:
     " make sure that the echo message appear when using this with VimEnter
