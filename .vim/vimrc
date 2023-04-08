@@ -53,6 +53,7 @@ endif
 packadd! vim-surround
 packadd! targets.vim
 packadd! traces.vim
+packadd! vim-dbml
 packadd! vim-projectionist
 
 function! IDE() abort
@@ -117,7 +118,6 @@ augroup lazy_load_package
   autocmd FileType * ++once
         \ if &ft !=# 'gitcommit' && expand('%') !~# '\v(psql.edit.*.sql|zsh\w*.zsh)' |
         \   packadd bufstop |
-        \   packadd vim-dbml |
         \   packadd vim-commentary |
         "\   packadd vim-indentwise |
         \ endif
