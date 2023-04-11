@@ -76,7 +76,19 @@ function! possession#show_list() abort
   nnoremap <buffer> <silent> <nowait> d <C-d>
   nnoremap <buffer> <silent> u <C-u>
   nnoremap <buffer> <silent> D :<C-u>call possession#delete_session()<CR>
+
+  " TODO: add refresh session list mapping.
+
+  " Note:
+  " in case there's a plugin that change modifiable options for preview
+  " window.
+  if !&l:modifiable
+    setlocal modifiable
+  endif
+
+  " Note: put all the session list inside preview window.
   call setline(1, g:possession_list)
+
   call s:set_options()
 endfunction
 
