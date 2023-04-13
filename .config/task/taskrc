@@ -38,4 +38,4 @@ context.personal.read=project:personal
 context.personal.write=project:personal
 context.zot.read=project:zot
 context.zot.write=project:zot
-context=zot
+context=personal
