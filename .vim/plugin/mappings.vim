@@ -219,7 +219,7 @@ nnoremap <expr> <silent> U
 nnoremap Q :lvimgrep /\v/j %<left><left><left><left>
 
 " print current working directory
-nnoremap <leader>; :<C-u>pwd<CR>
+nnoremap <leader>m :<C-u>pwd<CR>
 
 " print current git branch
 nnoremap <expr> <leader>'

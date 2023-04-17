@@ -18,11 +18,11 @@ xnoremap <expr> <silent> <leader>j
       \ (!exists('g:loaded_sneak_plugin') ? ":<C-u>packadd vim-sneak<CR>gv" : '' )
       \ . '<Plug>SneakLabel_S'
 
-nnoremap <expr> <silent> <leader>m
+nnoremap <expr> <silent> <leader>;
       \ (!exists('g:loaded_sneak_plugin') ? ":<C-u>packadd vim-sneak<CR>" : '' )
       \ . '<Plug>Sneak_;'
 
-xnoremap <expr> <silent> <leader>m
+xnoremap <expr> <silent> <leader>;
       \ (!exists('g:loaded_sneak_plugin') ? ":<C-u>packadd vim-sneak<CR>gv" : '' )
       \ . '<Plug>Sneak_;'
 
