@@ -54,6 +54,7 @@ packadd! vim-surround
 packadd! targets.vim
 packadd! traces.vim
 packadd! vim-dbml
+packadd! vim-bufstop
 packadd! vim-projectionist
 
 function! IDE() abort
@@ -117,7 +118,6 @@ augroup lazy_load_package
   " manually remove autocmd instead of using ++once for backward compatibility.
   autocmd FileType * ++once
         \ if &ft !=# 'gitcommit' && expand('%') !~# '\v(psql.edit.*.sql|zsh\w*.zsh)' |
-        \   packadd vim-bufstop |
         \   packadd vim-commentary |
         "\   packadd vim-indentwise |
         \ endif
