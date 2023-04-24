@@ -53,9 +53,13 @@ endif
 packadd! vim-surround
 packadd! targets.vim
 packadd! traces.vim
-packadd! vim-dbml
-packadd! vim-bufstop
-packadd! vim-projectionist
+
+if expand('%') !~# '\v(psql.edit.*.sql|zsh\w*.zsh|COMMIT_EDITMSG)'
+  packadd! vim-dbml
+  packadd! vim-bufstop
+  packadd! vim-commentary
+  packadd! vim-projectionist
+endif
 
 function! IDE() abort
   if exists('g:ide_loaded') | return | endif
@@ -113,14 +117,6 @@ let g:lsp_filetype = [
 
 augroup lazy_load_package
   autocmd!
-
-  " TODO:
-  " manually remove autocmd instead of using ++once for backward compatibility.
-  autocmd FileType * ++once
-        \ if &ft !=# 'gitcommit' && expand('%') !~# '\v(psql.edit.*.sql|zsh\w*.zsh)' |
-        \   packadd vim-commentary |
-        "\   packadd vim-indentwise |
-        \ endif
 
   " TODO:
   " manually remove autocmd instead of using ++once for backward compatibility.
