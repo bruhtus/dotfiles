@@ -76,7 +76,7 @@ function! possession#show_list() abort
   nnoremap <buffer> <silent> <nowait> q :<C-u>bw <Bar> wincmd p<CR>
   nnoremap <buffer> <silent> <nowait> d <C-d>
   nnoremap <buffer> <silent> u <C-u>
-  nnoremap <buffer> <silent> D :<C-u>call possession#delete_session()<CR>
+  nnoremap <buffer> <silent> D :<C-u>call <SID>delete_session()<CR>
 
   " TODO: add refresh session list mapping.
 
@@ -93,7 +93,7 @@ function! possession#show_list() abort
   call s:set_options()
 endfunction
 
-function! possession#delete_session() abort
+function! s:delete_session() abort
   let l:session_name = substitute(expand('<cfile>'), '[\.\/]', '%', 'g')
   let l:session_path = g:possession_dir . '/' . l:session_name
 
