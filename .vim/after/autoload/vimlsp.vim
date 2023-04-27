@@ -34,6 +34,7 @@ function! vimlsp#init() abort
 
   nnoremap <silent> <buffer> gs :call <SID>diagnostics_float()<CR>
   nmap <silent> <buffer> gy <Plug>(lsp-document-diagnostics)
+  nmap <silent> <buffer> gz <Plug>(lsp-references)
 
   if has('patch-8.2.1978')
     inoremap <buffer> <C-j> <Cmd>call
