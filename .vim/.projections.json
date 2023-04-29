@@ -7,8 +7,7 @@
     ]
   },
   "after/autoload/pack.vim": {
-    "type": "pack",
-    "alternate": "plugin/z-packadd.vim"
+    "type": "pack"
   },
   "after/autoload/*.vim": {
     "type": "autoload"
