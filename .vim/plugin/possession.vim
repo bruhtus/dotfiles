@@ -113,7 +113,7 @@ function! s:possession_load() abort
   endif
 
   if empty(v:this_session) && file !=# '' && !&modified
-    exe 'silent source ' . fnameescape(file)
+    exe 'silent! source ' . fnameescape(file)
     let g:current_possession = v:this_session
     if bufexists(0) && !filereadable(bufname('#'))
       bw #
