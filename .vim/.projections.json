@@ -1,4 +1,7 @@
 {
+  "vimrc": {
+    "type": "vimrc"
+  },
   "plugin/*.vim": {
     "type": "plugin",
     "alternate": [
