@@ -65,14 +65,14 @@ endfunction
 
 command! -bang Possess
       \ call possession#init(<bang>0) |
-      \ call possession#refresh_list()
+      \ call possession#update_list()
 
 command! PList
       \ call possession#show_list()
 
 command! PMove
       \ call possession#move() |
-      \ call possession#refresh_list()
+      \ call possession#update_list()
 
 " Ref: vim-lsp/autoload/lsp/utils.vim (lsp#utils#echo_with_truncation())
 function! PossessionMsgTruncation(msg) abort
