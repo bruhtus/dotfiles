@@ -124,6 +124,9 @@ alias sc='rg --hidden --files --type-not nonsense --type-not font --type-not tor
 #search and open file on git root directory/current working directory in $EDITOR directly
 alias cs='rg --hidden --files --type-not nonsense --type-not font --type-not torrent $(git rev-parse --show-toplevel 2>/dev/null) | fzf --multi --height 20% --preview="head -$LINES {}" --preview-window=wrap,hidden --bind "ctrl-/:toggle-preview,ctrl-n:preview-down,ctrl-p:preview-up" | xargs -or $EDITOR'
 
+# terraform alias
+alias tf=terraform
+
 #unpack tar archive
 # untar() {
 # 	tar -xzf $1 --one-top-level
