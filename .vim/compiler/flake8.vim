@@ -19,7 +19,7 @@ endif
 
 " ensure that flake8 is installed
 if executable('flake8')
-  CompilerSet makeprg=flake8\ %\ \\\|\ egrep\ -v\ 'F401\\\|F841\\\|E501\\\|E402'
+  CompilerSet makeprg=flake8\ %\ \\\|\ grep\ -Ev\ 'F401\\\|F841\\\|E501\\\|E402'
   " Ref: https://stackoverflow.com/a/7757750 (the first comment)
   " Ref: https://stackoverflow.com/a/36959245
   " Ref: :h efm-ignore
