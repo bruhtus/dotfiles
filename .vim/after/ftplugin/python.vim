@@ -8,15 +8,15 @@
 " iabbrev <buffer> mm if __name__ == '__main__':<CR>
 " iabbrev <buffer> f; if:<left>
 
-augroup make_python
-  autocmd!
-  autocmd BufWritePost *.py
-        \ if expand('%:~:p') !=# '~/.config/qutebrowser/config.py' |
-        \   compiler flake8 |
-        \   silent! make!   |
-        \   redraw!         |
-        \ endif
-augroup END
+" augroup make_python
+"   autocmd!
+"   autocmd BufWritePost *.py
+"         \ if expand('%:~:p') !=# '~/.config/qutebrowser/config.py' |
+"         \   compiler flake8 |
+"         \   silent! make!   |
+"         \   redraw!         |
+"         \ endif
+" augroup END
 
 " ensure that pynvim is installed
 " if executable('pynvim')
