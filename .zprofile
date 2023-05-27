@@ -32,7 +32,7 @@ export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/gem/bin"
 export PATH="$PATH:${XDG_CONFIG_HOME:-$HOME/.config}/volta/bin"
 
 # non xdg-open web browser
-export BROWSER=lynx
+# export BROWSER=lynx
 
 # editor
 export EDITOR=vim
