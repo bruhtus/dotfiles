@@ -23,12 +23,11 @@ image/png=img.desktop
 image/jpeg=img.desktop
 application/pdf=pdf.desktop
 application/octet-stream=office.desktop
-x-scheme-handler/tg=userapp-Telegram Desktop-8E88V1.desktop
+x-scheme-handler/tg=org.telegram.desktop.desktop
 x-scheme-handler/http=browser.desktop
 x-scheme-handler/https=browser.desktop
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-startcenter.desktop
 
 [Added Associations]
-
-x-scheme-handler/tg=userapp-Telegram Desktop-IAIRY0.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-IAIRY0.desktop;userapp-Telegram Desktop-8E88V1.desktop;org.telegram.desktop.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-startcenter.desktop;
