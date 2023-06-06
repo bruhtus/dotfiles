@@ -1,13 +1,15 @@
 # ref: man zshzle
 bindkey -v
 
-# ref: https://zsh.sourceforge.io/Doc/Release/Options.html
+# ref:
+# https://zsh.sourceforge.io/Doc/Release/Options.html
+# https://unix.stackexchange.com/a/670027
 setopt autocd
 setopt auto_pushd
 # setopt pushd_minus
 setopt pushd_silent
 setopt pushd_ignore_dups
-setopt extended_history
+# setopt extended_history
 setopt hist_expire_dups_first
 setopt hist_find_no_dups
 setopt hist_ignore_dups
@@ -18,7 +20,7 @@ setopt hist_save_by_copy
 setopt hist_verify
 setopt share_history
 setopt append_history
-setopt inc_append_history
+# setopt inc_append_history
 unsetopt menu_complete
 setopt always_to_end
 # unsetopt complete_aliases
