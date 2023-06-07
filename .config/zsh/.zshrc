@@ -29,6 +29,18 @@ setopt always_to_end
 #still not sure what's going on
 # FUNCNEST=1500
 
+# every time any command we run that takes longer than the value we set it to in seconds,
+# zsh will print usage statistics afterwards as if you had run the command prefixed with time.
+# ref: man zshparam
+REPORTTIME=10
+
+# ref:
+# https://unix.stackexchange.com/a/562651
+# https://www.baeldung.com/linux/time-command
+# https://en.wikipedia.org/wiki/User-mode_Linux
+# https://wiki.archlinux.org/title/User-mode_Linux
+TIMEFMT='%J  %*U user %*S system %P cpu %*E total'
+
 #history
 HISTSIZE=10000000
 SAVEHIST=1000000
@@ -88,7 +100,7 @@ bindkey '^F' forward-char
 # bindkey '^X;' vi-repeat-find
 # bindkey '^X,' vi-rev-repeat-find
 
-function set_win_title(){
+set_win_title(){
   # echo -ne "\033]0; $(basename "$PWD") \007"
   print -Pn "\e]0;%~\a"
 }
