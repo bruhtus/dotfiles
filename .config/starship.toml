@@ -1,7 +1,6 @@
 # extend default format
 format = '''
-(bold green)$custom$git_branch$git_status
-(bold green)$directory$all
+(bold green)$directory$git_branch$git_state$git_status$cmd_duration
 (bold green)$character'''
 
 # Inserts a blank line between shell prompts
@@ -36,7 +35,7 @@ error_symbol = '[x](bold red)'
 vicmd_symbol = '[<](bold green)'
 
 [git_status]
-format = '([$all_status$ahead_behind]($style) )'
+format = '([$all_status$ahead_behind]($style))'
 conflicted = '=${count} '
 ahead = '>${count} '
 behind = '<${count} '
