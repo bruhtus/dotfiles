@@ -1,4 +1,4 @@
-[ -z $PYV_DIR ] && export PYV_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/pyv"
+[ -z $PYV_DIR ] && PYV_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/pyv"
 
 #python virtual env alias
 alias pde='deactivate'
