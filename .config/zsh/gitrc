@@ -50,7 +50,8 @@ alias \
 alias \
 	gp='git push' \
 	gpd='git push --dry-run' \
-	ggp='git push -u origin "$(git branch --show-current)"'
+	ggp='git push -u origin "$(git branch --show-current)"' \
+	ggpd='git push origin -d "$(git branch --show-current)"'
 
 alias \
 	gb='git branch' \
