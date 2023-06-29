@@ -16,7 +16,7 @@ function! StatuslineActive() abort
   "       \ winwidth(0) < 71 ? expand('%:t') :
   "       \ pathshorten(expand('%'))}"
 
-  let l:filename = ' %t'
+  let l:filename = ' %<%f'
   let l:readonly = '%r'
 
   " let l:mod = "%{&modified ? '  [+]' : !&modifiable ? '  [-]' : ''}"
@@ -32,7 +32,7 @@ function! StatuslineActive() abort
   " Note: truncate from the right.
   " Ref: https://stackoverflow.com/a/20899652
   " let l:git = "  %([%{winwidth(0) > 70 ? strpart(GitBranch(), 0, 20) : ''}]%)"
-  let l:git = "  %<%([%{winwidth(0) > 100 ? GitBranch() :
+  let l:git = "  %([%{winwidth(0) > 100 ? GitBranch() :
         \ winwidth(0) > 70 ?
         \ (strlen(GitBranch()) > 10 ? '...' . GitBranch()[-7:]
         \ : GitBranch())
