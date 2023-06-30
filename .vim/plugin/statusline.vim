@@ -16,7 +16,7 @@ function! StatuslineActive() abort
   "       \ winwidth(0) < 71 ? expand('%:t') :
   "       \ pathshorten(expand('%'))}"
 
-  let l:filename = ' %<%f'
+  let l:filename = ' %#Statusline#%<%f%*'
   let l:readonly = '%r'
 
   " let l:mod = "%{&modified ? '  [+]' : !&modifiable ? '  [-]' : ''}"
