@@ -41,7 +41,7 @@ function! StatuslineActive() abort
   let l:sep = '%='
 
   " current line/total lines:cursor column percentage in file
-  let l:line = '  %-16.(%l/%L:%c%)%P'
+  let l:line = ' %-13.(%l/%L:%c%) %-4P'
 
   let l:indent = "%{
         \ (exists('b:editorconfig_file') && !empty(b:editorconfig_file))
