@@ -46,16 +46,16 @@ function! StatuslineActive() abort
   let l:indent = "%{
         \ (exists('b:editorconfig_file') && !empty(b:editorconfig_file))
         \   && &expandtab ?
-        \ ' sw='.&shiftwidth.'* ' :
+        \ 'sw='.&shiftwidth.'* ' :
         \ (exists('b:editorconfig_file') && !empty(b:editorconfig_file))
         \   && !&expandtab && &tabstop == &shiftwidth ?
-        \ ' ts='.&tabstop.'* ' :
+        \ 'ts='.&tabstop.'* ' :
         \ (exists('b:editorconfig_file') && !empty(b:editorconfig_file))
         \   && !&expandtab && &tabstop != &shiftwidth ?
-        \ ' sw='.&shiftwidth.',ts='.&tabstop.'* ' :
-        \ &expandtab ? ' sw='.&shiftwidth.' ' :
-        \ &tabstop == &shiftwidth ? ' ts='.&tabstop.' ' :
-        \ ' sw='.&shiftwidth.',ts='.&tabstop.' '}"
+        \ 'sw='.&shiftwidth.',ts='.&tabstop.'* ' :
+        \ &expandtab ? 'sw='.&shiftwidth.' ' :
+        \ &tabstop == &shiftwidth ? 'ts='.&tabstop.' ' :
+        \ 'sw='.&shiftwidth.',ts='.&tabstop.' '}"
 
   let l:ses = "%{exists('g:current_possession') ? '[S]' : ''}"
 
