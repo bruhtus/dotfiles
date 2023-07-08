@@ -128,14 +128,14 @@ alias cs='rg --hidden --files --type-not nonsense --type-not font --type-not tor
 alias tf=terraform
 
 #unpack tar archive
-# untar() {
-# 	tar -xzf $1 --one-top-level
-# }
+untar() {
+	tar -xzf $1 --one-top-level
+}
 
 #list content of tar archive
-# tarls() {
-# 	tar --list -f $1 | less -F
-# }
+tarls() {
+	tar --list -f $1 | less -F
+}
 
 #mounting and unmounting from CLI
 dm() {
