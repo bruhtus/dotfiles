@@ -67,9 +67,38 @@ alias \
 	gct='git branch -r | fzf | xargs -r git checkout -t'
 
 
-alias \
-	gpl='git pull' \
-	ggl='git pull origin "$(git branch --show-current)"'
+# ref:
+# check current branch upstream: https://stackoverflow.com/a/9753364
+# local variable exit code: https://superuser.com/a/1103711
+# flags: https://stackoverflow.com/a/22395652
+# TODO:
+# make ggl a shell function with flags.
+# check ventoy script for reference.
+ggl() {
+	git rev-parse --is-inside-work-tree >/dev/null || return 1
+
+	local current_branch
+	current_branch="$(git branch --show-current)" || return "$?"
+
+	local local_upstream_branch
+	local_upstream_branch="$(git for-each-ref --format='%(upstream:short)' --count=1 --omit-empty "$(git symbolic-ref -q HEAD)")" || return "$?"
+
+	[ -z "$local_upstream_branch" ] && echo 'No upstream reference' && return "$?"
+	local remote_name="${local_upstream_branch%/*}" # something like `origin`
+	local remote_branch_name="${local_upstream_branch##*/}"
+
+	local git_ls_remote
+	git_ls_remote="$(git ls-remote --head "$remote_name" "$remote_branch_name")" || return $?
+
+	[ ! -z "$git_ls_remote" ] && \
+	{
+		echo "Pulling from branch "$remote_branch_name" on remote "$remote_name"" && \
+			git pull "$remote_name" "$remote_branch_name"
+	} || {
+		echo "No branch "$remote_branch_name" on remote "$remote_name"" && \
+			git branch --unset-upstream
+	}
+}
 
 # ref: https://github.com/wfxr/forgit/blob/b727321f2bd3d79c1dae805441261c45888cbb41/forgit.plugin.zsh#L17-L34
 # ref: https://stackoverflow.com/a/1441062
