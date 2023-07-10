@@ -95,7 +95,7 @@ ggl() {
 		echo "Pulling from branch "$remote_branch_name" on remote "$remote_name"" && \
 			git pull "$remote_name" "$remote_branch_name"
 	} || {
-		echo "No branch "$remote_branch_name" on remote "$remote_name"" && \
+		printf "No branch "$remote_branch_name" on remote "$remote_name"\nUnset upstream reference\n" && \
 			git branch --unset-upstream
 	}
 }
