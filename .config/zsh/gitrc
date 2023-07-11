@@ -88,7 +88,8 @@ ggl() {
 	local remote_branch_name="${local_upstream_branch##*/}"
 
 	local git_ls_remote
-	git_ls_remote="$(git ls-remote --head "$remote_name" "$remote_branch_name")" || return $?
+	# `timeout` command is from GNU coreutils.
+	git_ls_remote="$(timeout --preserve-status 5s git ls-remote --head "$remote_name" "$remote_branch_name")" || return $?
 
 	[ ! -z "$git_ls_remote" ] && \
 	{
