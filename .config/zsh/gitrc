@@ -71,6 +71,7 @@ alias \
 # check current branch upstream: https://stackoverflow.com/a/9753364
 # local variable exit code: https://superuser.com/a/1103711
 # flags: https://stackoverflow.com/a/22395652
+# shift command: https://www.geeksforgeeks.org/shift-command-in-linux-with-examples/
 # TODO:
 # make ggl a shell function with flags.
 # check ventoy script for reference.
