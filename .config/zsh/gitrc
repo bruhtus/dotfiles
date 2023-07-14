@@ -85,8 +85,8 @@ ggl() {
 	local_upstream_branch="$(git for-each-ref --format='%(upstream:short)' --count=1 --omit-empty "$(git symbolic-ref -q HEAD)")" || return "$?"
 
 	[ -z "$local_upstream_branch" ] && echo 'No upstream reference' && return "$?"
-	local remote_name="${local_upstream_branch%/*}" # something like `origin`
-	local remote_branch_name="${local_upstream_branch##*/}"
+	local remote_name="${local_upstream_branch%%/*}" # something like `origin`
+	local remote_branch_name="${local_upstream_branch#*/}"
 
 	local git_ls_remote
 	# `timeout` command is from GNU coreutils.
