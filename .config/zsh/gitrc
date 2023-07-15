@@ -70,23 +70,56 @@ alias \
 # ref:
 # check current branch upstream: https://stackoverflow.com/a/9753364
 # local variable exit code: https://superuser.com/a/1103711
-# flags: https://stackoverflow.com/a/22395652
+# options using while: https://stackoverflow.com/a/22395652
+# options using getopts: https://archive.is/TRzn4
 # shift command: https://www.geeksforgeeks.org/shift-command-in-linux-with-examples/
 # TODO:
-# make ggl a shell function with flags.
-# check ventoy script for reference.
+# add option -r for input remote.
 ggl() {
 	git rev-parse --is-inside-work-tree >/dev/null || return 1
 
-	local current_branch
-	current_branch="$(git branch --show-current)" || return "$?"
+	# initial value, will get replaced on certain condition.
+	local option
+	local remote_name=origin
+	local remote_branch_name
+	remote_branch_name="$(git branch --show-current)" || return "$?"
 
-	local local_upstream_branch
-	local_upstream_branch="$(git for-each-ref --format='%(upstream:short)' --count=1 --omit-empty "$(git symbolic-ref -q HEAD)")" || return "$?"
+	# manually handle options that aren't listed:
+	# https://stackoverflow.com/a/31221377
+	while getopts :b:r:h option; do
+		case "$option" in
+			b)
+				[ ! -z "${OPTARG#-[brh]}" ] &&
+				{
+					git check-ref-format --branch "$OPTARG" >/dev/null &&
+						remote_branch_name="$OPTARG" ||
+						return "$?"
+				} || {
+					echo "Can not use option '$OPTARG' as argument" && return 1
+				}
+				;;
+			r)
+				echo "$option remote $OPTARG"
+				;;
+			h)
+				echo "Usage: $0 [-b <branch-name>] [-r <remote-name>]"
+				return
+				;;
+			*)
+				echo "$0: '-$OPTARG' is not a valid option. Use '-h' for available options."
+				return 1
+				;;
+		esac
+	done
 
-	[ -z "$local_upstream_branch" ] && echo 'No upstream reference' && return "$?"
-	local remote_name="${local_upstream_branch%%/*}" # something like `origin`
-	local remote_branch_name="${local_upstream_branch#*/}"
+	if [ -z "$option" ]; then
+		local local_upstream_branch
+		local_upstream_branch="$(git for-each-ref --format='%(upstream:short)' --count=1 --omit-empty "$(git symbolic-ref -q HEAD)")" || return "$?"
+
+		[ -z "$local_upstream_branch" ] && echo 'No upstream reference' && return 1
+		remote_name="${local_upstream_branch%%/*}" # something like `origin`
+		remote_branch_name="${local_upstream_branch#*/}"
+	fi
 
 	local git_ls_remote
 	# `timeout` command is from GNU coreutils.
