@@ -73,16 +73,20 @@ alias \
 # options using while: https://stackoverflow.com/a/22395652
 # options using getopts: https://archive.is/TRzn4
 # shift command: https://www.geeksforgeeks.org/shift-command-in-linux-with-examples/
-# TODO:
-# add option -r for input remote.
+# default branch on remote repo: https://davidwalsh.name/get-default-branch-name
 ggl() {
-	git rev-parse --is-inside-work-tree >/dev/null || return 1
+	local inside_worktree
+	inside_worktree=$(git rev-parse --is-inside-work-tree) || return "$?"
+	[ "$inside_worktree" = false ] && echo 'Not inside git worktree' && return 1
 
-	# initial value, will get replaced on certain condition.
 	local option
-	local remote_name=origin
+	local remote_name
 	local remote_branch_name
-	remote_branch_name="$(git branch --show-current)" || return "$?"
+
+	local upstream_reference
+	upstream_reference="$(git for-each-ref --format='%(upstream:short)' --count=1 --omit-empty "$(git symbolic-ref -q HEAD)")" || return "$?"
+	local upstream_remote_name="${upstream_reference%%/*}" # something like `origin`
+	local upstream_branch_name="${upstream_reference#*/}"
 
 	# manually handle options that aren't listed:
 	# https://stackoverflow.com/a/31221377
@@ -99,7 +103,14 @@ ggl() {
 				}
 				;;
 			r)
-				echo "$option remote $OPTARG"
+				[ ! -z "${OPTARG#-[brh]}" ] &&
+				{
+					git check-ref-format --allow-onelevel "$OPTARG" >/dev/null &&
+						remote_name="$OPTARG" ||
+						return "$?"
+				} || {
+					echo "Can not use option '$OPTARG' as argument" && return 1
+				}
 				;;
 			h)
 				echo "Usage: $0 [-b <branch-name>] [-r <remote-name>]"
@@ -112,14 +123,14 @@ ggl() {
 		esac
 	done
 
-	if [ -z "$option" ]; then
-		local local_upstream_branch
-		local_upstream_branch="$(git for-each-ref --format='%(upstream:short)' --count=1 --omit-empty "$(git symbolic-ref -q HEAD)")" || return "$?"
+	[ -z "$option" ] && [ -z "$upstream_reference" ] && \
+		echo 'No upstream reference' && return 1
 
-		[ -z "$local_upstream_branch" ] && echo 'No upstream reference' && return 1
-		remote_name="${local_upstream_branch%%/*}" # something like `origin`
-		remote_branch_name="${local_upstream_branch#*/}"
-	fi
+	[ -z "$remote_name" ] && remote_name="${upstream_remote_name:-origin}"
+
+	[ -z "$remote_branch_name" ] && {
+		remote_branch_name="${upstream_branch_name:-$(git branch --show-current)}" || return "$?"
+	}
 
 	local git_ls_remote
 	# `timeout` command is from GNU coreutils.
@@ -130,8 +141,10 @@ ggl() {
 		echo "Pulling from branch "$remote_branch_name" on remote "$remote_name"" && \
 			git pull "$remote_name" "$remote_branch_name"
 	} || {
-		printf "No branch "$remote_branch_name" on remote "$remote_name"\nUnset upstream reference\n" && \
-			git branch --unset-upstream
+		[ -z "$option" ] && \
+			printf "No branch "$remote_branch_name" on remote "$remote_name"\nUnset upstream reference\n" && \
+			git branch --unset-upstream || \
+			echo "No branch "$remote_branch_name" on remote "$remote_name""
 	}
 }
 
@@ -241,11 +254,5 @@ gstl() {
 
 alias \
 	gcd='cd "$(git rev-parse --show-toplevel)"'
-
-# ref:
-# https://twitter.com/diawanchris/status/1531806319014838273
-# (default branch of remote repo)
-alias \
-	gzot='git pull origin main'
 
 # vim:ft=sh
