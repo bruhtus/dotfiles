@@ -69,7 +69,7 @@ prompt_newline=$'\n%{\r%}'
 # e.g. here we add the Git information in red
 # shorten path ref: https://unix.stackexchange.com/a/273567
 PROMPT='${prompt_newline}'
-PROMPT+='%F{yellow}%n@%M%f '
+PROMPT+='%F{green}%n%f@%F{green}%M%f '
 PROMPT+='%F{cyan}%(4~|%-1~/../%2~|%~)%f'
 PROMPT+='${vcs_info_msg_0_}'
 PROMPT+='${prompt_newline}%(?:%F{green}%(!.#.>)%f :%?%F{red}%(!.#.>)%f )'
