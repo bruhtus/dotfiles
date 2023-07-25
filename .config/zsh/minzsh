@@ -3,15 +3,15 @@
 
 [ -z $MINZSH_DIR ] && export MINZSH_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/plugins"
 
-function mzls(){
+mzls() {
   \ls -l $MINZSH_DIR | awk '{print $9}' 2> /dev/null || echo "No zsh plugin ever downloaded"
 }
 
-function mzrm(){
+mzrm() {
   [ ! -z $1 ] && \rm -rf "$MINZSH_DIR/$1" || echo "Please specify the plugin you want to remove"
 }
 
-function mzadd(){
+mzadd() {
   # reference:
   # https://unix.stackexchange.com/a/325492/479142
   # https://stackoverflow.com/a/66462684
@@ -34,7 +34,7 @@ function mzadd(){
   fi
 }
 
-function mzupdate(){
+mzupdate() {
   for d in $(\ls -d $MINZSH_DIR/*); do
     paste <(echo "${d##*/} ") <(git -C "$d" pull)
   done
