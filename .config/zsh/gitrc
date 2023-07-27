@@ -72,6 +72,7 @@ alias \
 # options using while: https://stackoverflow.com/a/22395652
 # options using getopts: https://archive.is/TRzn4
 # shift command: https://www.geeksforgeeks.org/shift-command-in-linux-with-examples/
+# prefix and suffix parameter expansion: https://unix.stackexchange.com/a/732587
 # default branch on remote repo: https://davidwalsh.name/get-default-branch-name
 ggl() {
 	local inside_worktree
