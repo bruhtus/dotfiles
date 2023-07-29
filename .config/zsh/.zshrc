@@ -23,6 +23,7 @@ setopt append_history
 # setopt inc_append_history
 unsetopt menu_complete
 setopt always_to_end
+# setopt no_flow_control
 # unsetopt complete_aliases
 
 #(hopefully) remove maximum nested function level reached; increase FUNCNEST?
