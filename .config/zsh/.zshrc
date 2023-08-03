@@ -43,8 +43,8 @@ REPORTTIME=10
 TIMEFMT='%J  %*U user %*S system %P cpu %*E total'
 
 #history
-HISTSIZE=10000000
-SAVEHIST=1000000
+HISTSIZE=100000000
+SAVEHIST=10000000
 # create .cache/zsh directory if it doesn't exists
 # ref: https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
 [ -d "${XDG_DATA_HOME:-$HOME/.local/share}/zsh" ] && HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/history" || \
