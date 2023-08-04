@@ -96,6 +96,7 @@ bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 bindkey '^B' backward-char
 bindkey '^F' forward-char
+# bindkey '^K' kill-line
 # bindkey '^X^F' vi-find-next-char
 # bindkey '^X^B' vi-find-prev-char
 # bindkey '^X;' vi-repeat-find
