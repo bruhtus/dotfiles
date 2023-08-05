@@ -231,11 +231,11 @@ nnoremap <expr> <leader>'
 nnoremap <silent> <leader>r :<C-u>windo set relativenumber!<CR>
 
 " toggle focus current window
-nnoremap <expr> <silent> <leader>z
+nnoremap <expr> <silent> ZA
       \ winnr('$') != 1 ?
-      \ !exists('t:zooming') ?
-      \ ':<C-u>resize <bar> vertical resize <bar> let t:zooming = 1<CR>' :
-      \ ':<C-u>wincmd = <bar> unlet t:zooming<CR>' :
+      \ !exists('t:zoom') ?
+      \ ':<C-u>resize <bar> vertical resize <bar> let t:zoom = 1<CR>' :
+      \ ':<C-u>wincmd = <bar> unlet t:zoom<CR>' :
       \ ':<C-u>echoerr "Only one window"<CR>'
 
 " set space s to substitute command
@@ -252,9 +252,6 @@ nnoremap <leader>a :keeppatterns %s/.*.*\n//c<left><left><left><left><left><left
 
 " set ZX as :update
 nnoremap <silent> ZX :up<CR>
-
-" set ZA as :on
-nnoremap <silent> ZA :on<CR>
 
 " set ZS to grep word under cursor in current buffer
 nnoremap <silent> ZS :execute 'lvimgrep /\v<' . expand('<cword>') . '>/j %' <Bar>
