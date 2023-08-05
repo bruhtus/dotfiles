@@ -68,12 +68,13 @@ function! StatuslineActive() abort
   " Ref: https://superuser.com/a/345593
   " let l:totalbuf = "%{'[' . len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) . ']'}"
   let l:root = "%{winwidth(0) > 80 && exists('b:root_enabled') ? '[/]' : ''}"
+  let l:zoom = "%{exists('t:zoom') ? '[Z]' : ''}"
 
   " if has('nvim')
   "   return w:mode.'%*'.l:indent.l:git.l:sep.l:diff.l:readonly.l:filename.l:mod.l:sep.l:ses.'  '.l:ft.l:line
   " else
     " return l:mode.'%*'.l:diff.l:indent.l:totalbuf.l:alt.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
-    return l:diff.l:indent.l:root.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.l:ft.l:line
+    return l:diff.l:indent.l:zoom.l:root.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.l:ft.l:line
   " endif
 endfunction
 
