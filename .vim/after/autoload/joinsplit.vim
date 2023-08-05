@@ -22,9 +22,14 @@
 "   endtry
 " endfunction
 
+function! joinsplit#exec_join() abort
+  set operatorfunc=s:join_lines
+  return 'g@'
+endfunction
+
 " Ref:
 " https://github.com/jeetsukumaran/vim-linearly/blob/master/plugin/linearly.vim
-function! joinsplit#join_lines(submode)
+function! s:join_lines(submode) abort
   norm! m`
   '[,']join
   norm! g``
@@ -32,7 +37,7 @@ endfunction
 
 " Ref:
 " https://github.com/Konfekt/vim-sentence-chopper/blob/master/autoload/sentences.vim
-function! joinsplit#split_line_on_pattern(open, close)
+function! joinsplit#split_line_on_pattern(open, close) abort
   norm! m`
   let gdefault = &gdefault
   set gdefault&

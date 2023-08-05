@@ -3,7 +3,7 @@
 " nnoremap <expr> <silent> J
 "       \ v:count > 0 ? ':<C-u>set operatorfunc=joinsplit#join_lines<CR>g@' . v:count :
 "       \ 'm`J``'
-nnoremap <silent> J :<C-u>set operatorfunc=joinsplit#join_lines<CR>g@
+nnoremap <expr> <silent> J joinsplit#exec_join()
 
 " the default gs normal mode command put vim in sleep state (can't
 " interact with vim at certain time), the count decided how long the sleep
