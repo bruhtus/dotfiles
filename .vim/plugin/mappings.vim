@@ -28,6 +28,20 @@ xnoremap <silent> <BS> :<C-u>execute 'lgetexpr system("'
       \ . &grepprg . ' ' . "'" . <SID>prev_visual_selection() . "'" . '")'
       \ <Bar> botright lwindow<CR>
 
+" set ZS to grep word under cursor in current buffer
+nnoremap <silent> ZS :execute 'lvimgrep /\v<' . expand('<cword>') . '>/j %' <Bar>
+      \ botright lwindow<CR>
+
+" set ZD to grep WORD under cursor in current buffer
+nnoremap <silent> ZD :execute 'lvimgrep /' . expand('<cWORD>') . '/j %' <Bar>
+      \ botright lwindow<CR>
+
+" remap ex mode to access vimgrep in current buffer
+" you can still access ex mode using gQ
+" \v make every following character except a-zA-Z0-9 a special character
+" Ref: https://vi.stackexchange.com/a/34390 (direct positioning command line)
+nnoremap Q :lvimgrep /\v/j % <Bar> botright lwindow<C-r>=setcmdpos(getcmdpos()-23)[1]<CR>
+
 " use ctrl-s to toggle between two recent buffer
 nnoremap <C-S> <C-^>
 
@@ -214,12 +228,6 @@ nnoremap Y y$
 nnoremap <expr> <silent> U
       \ (v:count > 0 ? "m'" . v:count : '') . ":<C-u>execute 't +' . v:count<CR>"
 
-" remap ex mode to access vimgrep in current buffer
-" you can still access ex mode using gQ
-" \v make every following character except a-zA-Z0-9 a special character
-" Ref: https://vi.stackexchange.com/a/34390 (direct positioning command line)
-nnoremap Q :lvimgrep /\v/j % <Bar> botright lwindow<C-r>=setcmdpos(getcmdpos()-23)[1]<CR>
-
 " print current working directory
 nnoremap <leader><Space> :<C-u>pwd<CR>
 
@@ -254,14 +262,6 @@ nnoremap <leader>a :keeppatterns %s/.*.*\n//c<C-r>=setcmdpos(getcmdpos()-7)[1]<C
 
 " set ZX as :update
 nnoremap <silent> ZX :up<CR>
-
-" set ZS to grep word under cursor in current buffer
-nnoremap <silent> ZS :execute 'lvimgrep /\v<' . expand('<cword>') . '>/j %' <Bar>
-      \ botright lwindow<CR>
-
-" set ZD to grep WORD under cursor in current buffer
-nnoremap <silent> ZD :execute 'lvimgrep /' . expand('<cWORD>') . '/j %' <Bar>
-      \ botright lwindow<CR>
 
 " set ZC as :reg
 nnoremap <silent> ZC :reg<CR>
