@@ -25,6 +25,13 @@ set shortmess-=S shortmess+=F
 set number relativenumber numberwidth=5 signcolumn=yes
 set spelllang=en_us spellfile=~/.vim/spell/en.utf-8.add
 
+set grepformat=%f:%l:%c:%m,%f
+if executable('rg')
+  set grepprg=rg\ --smart-case\ --hidden\ --vimgrep\ -w
+elseif has('unix')
+  set grepprg=grep\ -iIrnw
+endif
+
 set completeopt-=preview " ignore omni complete description
 set completeopt+=noinsert completeopt+=noselect completeopt+=menuone
 

@@ -9,23 +9,12 @@ xnoremap <expr> <CR> &buftype ==# 'quickfix' ? "\<CR>" :
 
 " remap backspace to grep the exact under the cursor word in all files
 " at current working directory
-if executable('rg')
-  set grepprg=rg\ --smart-case\ --hidden\ --vimgrep\ -w
-  set grepformat=%f:%l:%c:%m,%f
-  if has('nvim')
-    nnoremap <silent> <BS> :silent! lgrep! <cword> ** <Bar> botright lwindow<CR>
-  else
-    " Ref: https://gist.github.com/romainl/56f0c28ef953ffc157f36cc495947ab3
-    " :grep in vanilla vim not as smooth as neovim, it spit out the output
-    " into terminal and need to redraw every time using it.
-    nnoremap <silent> <BS> :execute "lgetexpr system('"
-          \ . &grepprg . ' ' . expand("<cword>") . "')" <Bar> botright lwindow<CR>
-  endif
-
-else
-  nnoremap <silent> <BS> :execute 'lvimgrep /\v<' . expand('<cword>') . '>/j **'
-        \ <Bar> botright lwindow<CR>
-endif
+" Ref: https://gist.github.com/romainl/56f0c28ef953ffc157f36cc495947ab3
+" :grep in vanilla vim not as smooth as neovim, it spit out the output
+" into terminal and need to redraw every time using it.
+nnoremap <silent> <BS> :execute "lgetexpr system('"
+      \ . &grepprg . ' ' . expand("<cword>") . "')"
+      \ <Bar> botright lwindow<CR>
 
 " use ctrl-s to toggle between two recent buffer
 nnoremap <C-S> <C-^>
