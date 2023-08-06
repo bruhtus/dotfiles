@@ -219,10 +219,10 @@ nnoremap <expr> <silent> U
 nnoremap Q :lvimgrep /\v/j %<left><left><left><left>
 
 " print current working directory
-nnoremap <leader>m :<C-u>pwd<CR>
+nnoremap <leader><Space> :<C-u>pwd<CR>
 
 " print current git branch
-nnoremap <expr> <leader>'
+nnoremap <expr> <leader>.
       \ exists('*GitBranch()') ?
       \ ':<C-u>echo GitBranch()<CR>' :
       \ ':<C-u>echo "GitBranch() does not exist"<CR>'
