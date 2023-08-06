@@ -177,16 +177,16 @@ nnoremap <silent> - :<C-u>windo checktime<CR>
 " nnoremap g# g#zz
 
 " set cu to substitute current word in all lines (use confim as safety guard)
-nnoremap cu :keeppatterns %s/\v<<C-r><C-w>>//gc<left><left><left>
+nnoremap cu :keeppatterns %s/\v<<C-r><C-w>>//gc<C-r>=setcmdpos(getcmdpos()-3)[1]<CR>
 
 " set cU to substitute current WORD in all lines (use confim as safety guard)
-nnoremap cU :keeppatterns %s/\v<<C-r><C-a>>//gc<left><left><left>
+nnoremap cU :keeppatterns %s/\v<<C-r><C-a>>//gc<C-r>=setcmdpos(getcmdpos()-3)[1]<CR>
 
 " set cd to substitute current word in current line (use confim as safety guard)
-nnoremap cd :keeppatterns s/<C-r><C-w>//gc<left><left><left>
+nnoremap cd :keeppatterns s/<C-r><C-w>//gc<C-r>=setcmdpos(getcmdpos()-3)[1]<CR>
 
 " set cD to substitute current WORD in current line (use confim as safety guard)
-nnoremap cD :keeppatterns s/<C-r><C-a>//gc<left><left><left>
+nnoremap cD :keeppatterns s/<C-r><C-a>//gc<C-r>=setcmdpos(getcmdpos()-3)[1]<CR>
 
 " delete below or above current line but exclude the current line
 " TODO: make operator pending mapping for K and J
@@ -205,7 +205,8 @@ nnoremap <expr> <silent> U
 " remap ex mode to access vimgrep in current buffer
 " you can still access ex mode using gQ
 " \v make every following character except a-zA-Z0-9 a special character
-nnoremap Q :lvimgrep /\v/j %<left><left><left><left>
+" Ref: https://vi.stackexchange.com/a/34390 (direct positioning command line)
+nnoremap Q :lvimgrep /\v/j % <Bar> botright lwindow<C-r>=setcmdpos(getcmdpos()-23)[1]<CR>
 
 " print current working directory
 nnoremap <leader><Space> :<C-u>pwd<CR>
@@ -237,7 +238,7 @@ nnoremap <leader>S :<C-u>keeppatterns
 " set space a to remove the entire line that match pattern
 " similar to `:g/pattern/d_`
 " Ref: https://vi.stackexchange.com/a/26153
-nnoremap <leader>a :keeppatterns %s/.*.*\n//c<left><left><left><left><left><left><left>
+nnoremap <leader>a :keeppatterns %s/.*.*\n//c<C-r>=setcmdpos(getcmdpos()-7)[1]<CR>
 
 " set ZX as :update
 nnoremap <silent> ZX :up<CR>
