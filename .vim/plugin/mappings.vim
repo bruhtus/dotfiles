@@ -16,6 +16,18 @@ nnoremap <silent> <BS> :execute "lgetexpr system('"
       \ . &grepprg . ' ' . expand("<cword>") . "')"
       \ <Bar> botright lwindow<CR>
 
+" Ref: https://stackoverflow.com/q/1533565
+function! s:prev_visual_selection() abort
+  return getline("'<")[getpos("'<")[2]-1:getpos("'>")[2]-1]
+endfunction
+
+" remap backspace to grep word in visual selection in all files at current
+" working directory
+" result: execute 'lgetexpr system("grepprg 'visual text'")'
+xnoremap <silent> <BS> :<C-u>execute 'lgetexpr system("'
+      \ . &grepprg . ' ' . "'" . <SID>prev_visual_selection() . "'" . '")'
+      \ <Bar> botright lwindow<CR>
+
 " use ctrl-s to toggle between two recent buffer
 nnoremap <C-S> <C-^>
 
