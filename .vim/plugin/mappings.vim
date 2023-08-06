@@ -29,11 +29,11 @@ xnoremap <silent> <BS> :<C-u>execute 'lgetexpr system("'
       \ <Bar> botright lwindow<CR>
 
 " set ZS to grep word under cursor in current buffer
-nnoremap <silent> ZS :execute 'lvimgrep /\v<' . expand('<cword>') . '>/j %' <Bar>
+nnoremap <silent> ZS :execute 'lvimgrep /\M\<' . expand('<cword>') . '\>/j %' <Bar>
       \ botright lwindow<CR>
 
 " set ZD to grep WORD under cursor in current buffer
-nnoremap <silent> ZD :execute 'lvimgrep /' . expand('<cWORD>') . '/j %' <Bar>
+nnoremap <silent> ZD :execute 'lvimgrep /\M' . expand('<cWORD>') . '/j %' <Bar>
       \ botright lwindow<CR>
 
 " remap ex mode to access vimgrep in current buffer
