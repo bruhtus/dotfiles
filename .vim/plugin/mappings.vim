@@ -36,6 +36,11 @@ nnoremap <silent> ZS :execute 'lvimgrep /\M\<' . expand('<cword>') . '\>/j %' <B
 nnoremap <silent> ZD :execute 'lvimgrep /\M' . expand('<cWORD>') . '/j %' <Bar>
       \ botright lwindow<CR>
 
+" set ZD to grep visual selection in current buffer
+xnoremap <silent> ZD :<C-u>execute
+      \ 'lvimgrep /\M' . <SID>prev_visual_selection() . '/j %' <Bar>
+      \ botright lwindow<CR>
+
 " remap ex mode to access vimgrep in current buffer
 " you can still access ex mode using gQ
 " \v make every following character except a-zA-Z0-9 a special character
