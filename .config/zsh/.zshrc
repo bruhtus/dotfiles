@@ -81,8 +81,10 @@ bindkey -M menuselect 'l' vi-forward-char
 # zsh-history-substring-search keybindings
 bindkey '^K' history-substring-search-up
 bindkey '^J' history-substring-search-down
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
+# bindkey -M vicmd 'k' history-substring-search-up
+# bindkey -M vicmd 'j' history-substring-search-down
+bindkey -M vicmd 'k' up-line
+bindkey -M vicmd 'j' down-line
 
 #figlet -f slant bruhtus
 #pfetch
