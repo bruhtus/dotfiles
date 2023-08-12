@@ -48,7 +48,7 @@ nnoremap <silent> ZD :execute 'lvimgrep /\M' . expand('<cWORD>') . '/j %' <Bar>
 nnoremap Q :lvimgrep /\v/j % <Bar> botright lwindow<C-r>=setcmdpos(getcmdpos()-23)[1]<CR>
 
 " use ctrl-s to toggle between two recent buffer
-nnoremap <C-S> <C-^>
+nnoremap <C-s> <C-6>
 
 " remap Alt-a to append while in insert mode
 " Ref: https://vi.stackexchange.com/a/2363/34851
