@@ -41,14 +41,30 @@ xnoremap <silent> ZS :<C-u>execute
 nnoremap <silent> ZD :execute 'lvimgrep /\M' . expand('<cWORD>') . '/j %' <Bar>
       \ botright lwindow<CR>
 
+function! s:custom_grep() abort
+  call inputsave()
+  let l:path = input('Search on: ', '', 'file')
+  call inputrestore()
+
+  call inputsave()
+  let l:keyword = input('Find: ')
+  call inputrestore()
+
+  execute 'lgetexpr system("'
+        \ . &grepprg . ' --fixed-strings ' . "'" . l:keyword . "'"
+        \ . (empty(l:path) ? '' : ' ') . l:path . '")'
+  botright lwindow
+endfunction
+
 " remap ex mode to access vimgrep in current buffer
 " you can still access ex mode using gQ
-" \v make every following character except a-zA-Z0-9 a special character
-" Ref: https://vi.stackexchange.com/a/34390 (direct positioning command line)
-nnoremap Q :lvimgrep /\v/j % <Bar> botright lwindow<C-r>=setcmdpos(getcmdpos()-23)[1]<CR>
+nnoremap <silent> Q :<C-u>call <SID>custom_grep()<CR>
 
 " use ctrl-s to toggle between two recent buffer
 nnoremap <C-s> <C-6>
+
+" use ctrl-r ctrl-e to get current file directory
+cnoremap <C-r><C-e> <C-r>=expand('%:p:h')<CR>
 
 " remap Alt-a to append while in insert mode
 " Ref: https://vi.stackexchange.com/a/2363/34851
@@ -208,6 +224,7 @@ nnoremap <silent> - :<C-u>windo checktime<CR>
 " nnoremap g# g#zz
 
 " set cu to substitute current word in all lines (use confim as safety guard)
+" Ref: https://vi.stackexchange.com/a/34390 (direct positioning command line)
 nnoremap cu :keeppatterns %s/\v<<C-r><C-w>>//gc<C-r>=setcmdpos(getcmdpos()-3)[1]<CR>
 
 " set cU to substitute current WORD in all lines (use confim as safety guard)
