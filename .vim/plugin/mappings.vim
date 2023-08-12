@@ -32,13 +32,13 @@ xnoremap <silent> <BS> :<C-u>execute 'lgetexpr system("'
 nnoremap <silent> ZS :execute 'lvimgrep /\M\<' . expand('<cword>') . '\>/j %' <Bar>
       \ botright lwindow<CR>
 
-" set ZD to grep WORD under cursor in current buffer
-nnoremap <silent> ZD :execute 'lvimgrep /\M' . expand('<cWORD>') . '/j %' <Bar>
+" set ZS to grep visual selection in current buffer
+xnoremap <silent> ZS :<C-u>execute
+      \ 'lvimgrep /\M' . <SID>prev_visual_selection() . '/j %' <Bar>
       \ botright lwindow<CR>
 
-" set ZD to grep visual selection in current buffer
-xnoremap <silent> ZD :<C-u>execute
-      \ 'lvimgrep /\M' . <SID>prev_visual_selection() . '/j %' <Bar>
+" set ZD to grep WORD under cursor in current buffer
+nnoremap <silent> ZD :execute 'lvimgrep /\M' . expand('<cWORD>') . '/j %' <Bar>
       \ botright lwindow<CR>
 
 " remap ex mode to access vimgrep in current buffer
