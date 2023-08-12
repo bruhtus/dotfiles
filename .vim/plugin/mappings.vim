@@ -25,7 +25,7 @@ endfunction
 " working directory
 " result: execute 'lgetexpr system("grepprg 'visual text'")'
 xnoremap <silent> <BS> :<C-u>execute 'lgetexpr system("'
-      \ . &grepprg . ' ' . "'" . <SID>prev_visual_selection() . "'" . '")'
+      \ . &grepprg . ' --fixed-strings ' . "'" . <SID>prev_visual_selection() . "'" . '")'
       \ <Bar> botright lwindow<CR>
 
 " set ZS to grep word under cursor in current buffer
