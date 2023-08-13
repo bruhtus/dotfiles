@@ -127,9 +127,11 @@ function! s:move_same_indentation(reverse) abort
   let l:pattern = '^' . matchstr(getline('.'), '\(^\s*\)')
         \ . '\%' . (a:reverse ? '<' : '>') . '.l\S'
 
-  " TODO: fix when indent is 0 skipped text after blank line
+  " skip if previous or next line has the same indentation and non-blank lines
   let l:skip_expr = "indent('.') == indent(line('.')"
-        \ . (a:reverse ? '+' : '-') . " 1)"
+        \ . (a:reverse ? '+' : '-') . "1)"
+        \ . " && getline(line('.')"
+        \ . (a:reverse ? '+' : '-') . "1) !~# '^$'"
 
   return search(l:pattern, l:flags, 0, 0, l:skip_expr)
 endfunction
