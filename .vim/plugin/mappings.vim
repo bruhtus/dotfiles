@@ -180,8 +180,20 @@ if exists('*getwininfo()')
 endif
 
 " Ref: https://vim.fandom.com/wiki/Move_to_next/previous_line_with_same_indentation
-nnoremap <silent> gb :<C-u>call search('^' . matchstr(getline('.'), '\(^\s*\)') . '\%>.l\S', 'se')<CR>
-nnoremap <silent> gh :<C-u>call search('^' . matchstr(getline('.'), '\(^\s*\)') . '\%<.l\S', 'sbe')<CR>
+function! s:move_same_indentation(reverse) abort
+  let l:flags = (a:reverse ? 'b' : '') . 'seW'
+  let l:pattern = '^' . matchstr(getline('.'), '\(^\s*\)')
+        \ . '\%' . (a:reverse ? '<' : '>') . '.l\S'
+
+  " TODO: fix when indent is 0 skipped text after blank line
+  let l:skip_expr = "indent('.') == indent(line('.')"
+        \ . (a:reverse ? '+' : '-') . " 1)"
+
+  return search(l:pattern, l:flags, 0, 0, l:skip_expr)
+endfunction
+
+nnoremap <silent> gb :<C-u>call <SID>move_same_indentation(0)<CR>
+nnoremap <silent> gh :<C-u>call <SID>move_same_indentation(1)<CR>
 
 " do not exit visual selection when shift-indenting
 xnoremap < <gv
