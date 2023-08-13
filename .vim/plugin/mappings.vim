@@ -96,26 +96,6 @@ inoremap <silent> <M-U> <C-[>:t .<CR>
 if !has('nvim') | execute "set <M-~>=\e~" | endif
 inoremap <silent> <M-~> <C-o>~<C-[>
 
-" Ref:
-" https://github.com/tpope/vim-unimpaired/blob/master/plugin/unimpaired.vim#L193-L195
-function! s:conflict_marker(reverse) abort
-  return search('^\(@@ .* @@\|[<=>|]\{7}[<=>|]\@!\)', a:reverse ? 'bW' : 'W')
-endfunction
-
-" split navigation
-" nnoremap <C-n> <C-w><C-w>
-" Ref: https://vi.stackexchange.com/a/2706
-nnoremap <expr> <silent> <C-j>
-      \ &diff && winnr('$') == 3 && argc() == 3 ? ':call <SID>conflict_marker(0)<CR>' :
-      \ &diff ? ']c' :
-      \ '<C-w>j'
-nnoremap <expr> <silent> <C-k>
-      \ &diff && winnr('$') == 3 && argc() == 3 ? ':call <SID>conflict_marker(1)<CR>' :
-      \ &diff ? '[c' :
-      \ '<C-w>k'
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-
 " remap ctrl-q to behave like default ctrl-l
 " ctrl-q default in normal mode behave like ctrl-v (visual block)
 nnoremap <C-q> <C-l>
@@ -165,6 +145,21 @@ nnoremap <silent> [k :cp<CR>zz
 " map ]l to lnext and [l to lprevious
 nnoremap <silent> ]l :lnext<CR>zz
 nnoremap <silent> [l :lprevious<CR>zz
+
+" Ref:
+" https://github.com/tpope/vim-unimpaired/blob/master/plugin/unimpaired.vim#L193-L195
+function! s:conflict_marker(reverse) abort
+  return search('^\(@@ .* @@\|[<=>|]\{7}[<=>|]\@!\)', a:reverse ? 'bW' : 'W')
+endfunction
+
+" diff navigation
+" Ref: https://vi.stackexchange.com/a/2706
+nnoremap <expr> <silent> ]c
+      \ &diff && winnr('$') == 3 && argc() == 3 ? ':call <SID>conflict_marker(0)<CR>' :
+      \ ']c'
+nnoremap <expr> <silent> [c
+      \ &diff && winnr('$') == 3 && argc() == 3 ? ':call <SID>conflict_marker(1)<CR>' :
+      \ '[c'
 
 " map ]<Space> to location list toggle and [<Space> to quickfix list toggle
 " Ref: https://stackoverflow.com/a/63162084
