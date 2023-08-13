@@ -96,9 +96,17 @@ inoremap <silent> <M-U> <C-[>:t .<CR>
 if !has('nvim') | execute "set <M-~>=\e~" | endif
 inoremap <silent> <M-~> <C-o>~<C-[>
 
-" remap ctrl-q to behave like default ctrl-l
-" ctrl-q default in normal mode behave like ctrl-v (visual block)
-nnoremap <C-q> <C-l>
+" highlight word under cursor
+nnoremap <expr> <silent> <C-h>
+      \ ':<C-u>match Search /'
+      \ . (empty(expand('<cword>')) ? '\m^$' : '\M' . expand('<cword>'))
+      \ . '/<CR>'
+
+" update diff in diff mode first, and then clear match, finally redraw the
+" screen
+nnoremap <expr> <silent> <C-l>
+      \ (&diff ? ':<C-u>diffupdate <Bar> ' : ':<C-u>') . 'match none<CR>'
+      \ . '<C-l>'
 
 " remap ctrl-c to esc (or ctrl-[)
 " there's a different between ctrl-c default and esc, like when exit while
