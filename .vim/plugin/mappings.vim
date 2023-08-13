@@ -121,6 +121,22 @@ nnoremap <C-d> <C-d>M^
 nnoremap <C-f> <C-f>H^
 nnoremap <C-b> <C-b>L^
 
+" Ref: https://vim.fandom.com/wiki/Move_to_next/previous_line_with_same_indentation
+function! s:move_same_indentation(reverse) abort
+  let l:flags = (a:reverse ? 'b' : '') . 'seW'
+  let l:pattern = '^' . matchstr(getline('.'), '\(^\s*\)')
+        \ . '\%' . (a:reverse ? '<' : '>') . '.l\S'
+
+  " TODO: fix when indent is 0 skipped text after blank line
+  let l:skip_expr = "indent('.') == indent(line('.')"
+        \ . (a:reverse ? '+' : '-') . " 1)"
+
+  return search(l:pattern, l:flags, 0, 0, l:skip_expr)
+endfunction
+
+nnoremap <silent> <C-j> :<C-u>call <SID>move_same_indentation(0)<CR>
+nnoremap <silent> <C-k> :<C-u>call <SID>move_same_indentation(1)<CR>
+
 " set vim to copy to clipboard
 " remove new line character in clipboard register
 " Ref: https://stackoverflow.com/q/20735923
@@ -181,22 +197,6 @@ if exists('*getwininfo()')
         \ ':botright cwindow<CR>' :
         \ ':botright cclose <Bar> wincmd p<CR>'
 endif
-
-" Ref: https://vim.fandom.com/wiki/Move_to_next/previous_line_with_same_indentation
-function! s:move_same_indentation(reverse) abort
-  let l:flags = (a:reverse ? 'b' : '') . 'seW'
-  let l:pattern = '^' . matchstr(getline('.'), '\(^\s*\)')
-        \ . '\%' . (a:reverse ? '<' : '>') . '.l\S'
-
-  " TODO: fix when indent is 0 skipped text after blank line
-  let l:skip_expr = "indent('.') == indent(line('.')"
-        \ . (a:reverse ? '+' : '-') . " 1)"
-
-  return search(l:pattern, l:flags, 0, 0, l:skip_expr)
-endfunction
-
-nnoremap <silent> gb :<C-u>call <SID>move_same_indentation(0)<CR>
-nnoremap <silent> gh :<C-u>call <SID>move_same_indentation(1)<CR>
 
 " do not exit visual selection when shift-indenting
 xnoremap < <gv
