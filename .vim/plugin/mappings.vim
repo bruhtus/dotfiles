@@ -99,7 +99,7 @@ inoremap <silent> <M-~> <C-o>~<C-[>
 " highlight word under cursor
 nnoremap <expr> <silent> <C-h>
       \ ':<C-u>match Search /'
-      \ . (empty(expand('<cword>')) ? '\m^$' : '\M' . expand('<cword>'))
+      \ . (empty(expand('<cword>')) ? '\m^$' : '\M\<' . expand('<cword>') . '\>')
       \ . '/<CR>'
 
 " update diff in diff mode first, and then clear match, finally redraw the
