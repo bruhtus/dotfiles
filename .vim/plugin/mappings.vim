@@ -63,8 +63,8 @@ nnoremap <silent> Q :<C-u>call <SID>custom_grep()<CR>
 " use ctrl-s to toggle between two recent buffer
 nnoremap <C-s> <C-6>
 
-" use ctrl-r ctrl-e to get current file directory
-cnoremap <C-r><C-e> <C-r>=expand('%:p:h')<CR>
+" use ctrl-r ctrl-d to get current file directory
+cnoremap <C-r><C-d> <C-r>=expand('%:p:h')<CR>
 
 " remap Alt-a to append while in insert mode
 " Ref: https://vi.stackexchange.com/a/2363/34851
