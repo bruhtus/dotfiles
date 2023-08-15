@@ -112,8 +112,7 @@ let g:terminal_color_15 = s:fg_1[0]
 " SECTION: Vim base groups highlighting.
 " ------------------------------------------------------------------------------
 " General interface.
-call s:hi('IncSearch', s:none, s:br_yellow, s:bg_1, s:none)
-call s:hi('Search', s:none, s:br_yellow, s:bg_1, s:none)
+call s:hi('Search', s:none, s:yellow, s:fg_1, s:none)
 call s:hi('LineNr', s:none, s:none, s:dim_0, s:none)
 call s:hi('Accent', s:none, s:none, s:br_accent_0, s:none)
 call s:hi('Builtin', s:none, s:none, s:br_magenta, s:none)
@@ -183,6 +182,7 @@ call s:hi('WildMenu', s:none, s:bg_0, s:yellow, s:none)
 highlight! link CursorLineSign CursorLineNr
 highlight! link CursorLineFold CursorLine
 highlight! link EndOfBuffer NonText
+highlight! link IncSearch Search
 highlight! link Line ColorColumn
 highlight! link LineNrBelow LineNrAbove
 highlight! link MsgArea Text
