@@ -45,6 +45,7 @@ function! s:custom_grep() abort
   call inputsave()
   let l:path = input('Search on: ', '', 'file')
   call inputrestore()
+  redraw
 
   call inputsave()
   let l:keyword = input('Find: ')
