@@ -29,9 +29,9 @@ exe "syn match CSVDelimiter /" . b:col_end . '/ms=e,me=e contained'
 
 " Note: this highlight based on seoul256mod.
 hi def link CSVDelimiter Delimiter
-hi def CSVColumnHeaderOdd ctermbg=NONE ctermfg=153 guibg=NONE guifg='#afd7ff'
-hi def link CSVColumnHeaderEven ModeMsg
-hi def link CSVColumnOdd String
-hi def link CSVColumnEven Statement
+hi def link CSVColumnHeaderOdd DiffAdd
+hi def link CSVColumnHeaderEven DiffDelete
+hi def link CSVColumnOdd DiffAdd
+hi def link CSVColumnEven DiffDelete
 
 let b:current_syntax = "csv"
