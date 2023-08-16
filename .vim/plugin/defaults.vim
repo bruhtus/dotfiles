@@ -27,9 +27,9 @@ set spelllang=en_us spellfile=~/.vim/spell/en.utf-8.add
 
 set grepformat=%f:%l:%c:%m,%f
 if executable('rg')
-  set grepprg=rg\ --smart-case\ --hidden\ --vimgrep\ -w
+  set grepprg=rg\ --smart-case\ --hidden\ --vimgrep
 elseif has('unix')
-  set grepprg=grep\ -iIrnw
+  set grepprg=grep\ -iIrn
 endif
 
 set completeopt-=preview " ignore omni complete description

@@ -13,7 +13,7 @@ xnoremap <expr> <CR> &buftype ==# 'quickfix' ? "\<CR>" :
 " :grep in vanilla vim not as smooth as neovim, it spit out the output
 " into terminal and need to redraw every time using it.
 nnoremap <silent> <BS> :execute "lgetexpr system('"
-      \ . &grepprg . ' ' . expand("<cword>") . "')"
+      \ . &grepprg . ' -w ' . expand("<cword>") . "')"
       \ <Bar> botright lwindow<CR>
 
 " Ref: https://stackoverflow.com/q/1533565
@@ -25,7 +25,7 @@ endfunction
 " working directory
 " result: execute 'lgetexpr system("grepprg 'visual text'")'
 xnoremap <silent> <BS> :<C-u>execute 'lgetexpr system("'
-      \ . &grepprg . ' --fixed-strings ' . "'" . <SID>prev_visual_selection() . "'" . '")'
+      \ . &grepprg . ' -w --fixed-strings ' . "'" . <SID>prev_visual_selection() . "'" . '")'
       \ <Bar> botright lwindow<CR>
 
 " set ZS to grep word under cursor in current buffer
