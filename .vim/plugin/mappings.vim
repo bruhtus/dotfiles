@@ -268,6 +268,11 @@ nnoremap Y y$
 nnoremap <expr> <silent> U
       \ (v:count > 0 ? "m'" . v:count : '') . ":<C-u>execute 't +' . v:count<CR>"
 
+" show unix time as human-readable. 1690773718 => '2023-07-31 10:21:58'
+" Ref:
+" https://github.com/justinmk/config/commit/ef788ed68a1d3cabc4e29c12869d9af1aef02c8c
+nnoremap <silent> gA :<C-u>echo strftime('%Y-%m-%d %H:%M:%S', '<c-r><c-w>')<cr>
+
 " print current working directory
 nnoremap <leader><Space> :<C-u>pwd<CR>
 
