@@ -1,7 +1,3 @@
-let g:sneak#label = 1
-let g:sneak#use_ic_scs = 1
-let g:sneak#target_labels = ';aszxcfvqwertyuiopbnmABCEFGIJKNOPQRSTUVZ'
-
 nnoremap <expr> <silent> <leader>k
       \ (!exists('g:loaded_sneak_plugin') ? ":<C-u>packadd vim-sneak<CR>" : '' )
       \ . '<Plug>SneakLabel_s'
