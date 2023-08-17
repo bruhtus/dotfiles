@@ -7,7 +7,7 @@ xnoremap <expr> <silent> <leader>k
       \ . '<Plug>SneakLabel_s'
 
 onoremap <expr> <silent> z
-      \ (!exists('g:loaded_sneak_plugin') ? ":<C-u>packadd vim-sneak<CR>" : '' )
+      \ (!exists('g:loaded_sneak_plugin') ? ":<C-u>packadd vim-sneak<CR>" . v:operator : '' )
       \ . '<Plug>SneakLabel_s'
 
 nnoremap <expr> <silent> <leader>j
@@ -19,8 +19,8 @@ xnoremap <expr> <silent> <leader>j
       \ . '<Plug>SneakLabel_S'
 
 onoremap <expr> <silent> Z
-      \ (!exists('g:loaded_sneak_plugin') ? ":<C-u>packadd vim-sneak<CR>" : '' )
-      \ . '<Plug>SneakLabel_s'
+      \ (!exists('g:loaded_sneak_plugin') ? ":<C-u>packadd vim-sneak<CR>" . v:operator : '' )
+      \ . '<Plug>SneakLabel_S'
 
 nnoremap <expr> <silent> <leader>;
       \ (!exists('g:loaded_sneak_plugin') ? ":<C-u>packadd vim-sneak<CR>" : '' )
@@ -31,7 +31,7 @@ xnoremap <expr> <silent> <leader>;
       \ . '<Plug>Sneak_;'
 
 onoremap <expr> <silent> <leader>;
-      \ (!exists('g:loaded_sneak_plugin') ? ":<C-u>packadd vim-sneak<CR>" : '' )
+      \ (!exists('g:loaded_sneak_plugin') ? ":<C-u>packadd vim-sneak<CR>" . v:operator : '' )
       \ . '<Plug>Sneak_;'
 
 nnoremap <expr> <silent> <leader>,
@@ -43,7 +43,7 @@ xnoremap <expr> <silent> <leader>,
       \ . '<Plug>Sneak_,'
 
 onoremap <expr> <silent> <leader>,
-      \ (!exists('g:loaded_sneak_plugin') ? ":<C-u>packadd vim-sneak<CR>" : '' )
+      \ (!exists('g:loaded_sneak_plugin') ? ":<C-u>packadd vim-sneak<CR>" . v:operator : '' )
       \ . '<Plug>Sneak_,'
 
 " nnoremap <expr> <silent> <leader>k
