@@ -8,6 +8,7 @@ set autoread
 set linebreak
 set belloff=all
 set backspace=2
+set noautochdir
 set laststatus=2
 set history=10000
 set complete-=t,i " disable scanning tags and included files
@@ -45,7 +46,7 @@ set list listchars=tab:\\u00ac\\u00b7,trail:\\u2022,extends:\\u25c4,precedes:\\u
 set fillchars=eob:\ ,vert:\\u2502
 
 " to make vim session use absolute path, remove curdir option
-set sessionoptions-=options sessionoptions-=curdir sessionoptions+=globals
+set sessionoptions-=blank sessionoptions-=options sessionoptions+=globals
 
 " to set CursorLineNr highlight
 " Ref: https://vi.stackexchange.com/a/24914

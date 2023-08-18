@@ -1,3 +1,4 @@
+finish
 " minimalist vim-rooter alternative
 
 " inspired by tpope's vim-sensible plugin

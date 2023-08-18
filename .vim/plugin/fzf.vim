@@ -5,7 +5,7 @@
 
 " open fzf to search all files in current working directory
 nnoremap <silent> <leader>i :call enable#fzf('Files')<CR>
-nnoremap <silent> <leader>I :call root#temp() <Bar> call enable#fzf('Files')<CR>
+nnoremap <silent> <leader>I :call enable#fzf('Files %:p:h')<CR>
 
 " open fzf to search all lines in current buffer
 " nnoremap <silent> <leader>u
@@ -26,7 +26,7 @@ nnoremap <expr> <silent> <leader>o
       \ ":echo 'Ripgrep is not installed'<CR>"
 
 nnoremap <expr> <silent> <leader>O
-      \ executable('rg') ? ":call root#temp() <Bar> call enable#fzf('Rg')<CR>" :
+      \ executable('rg') ? ":call enable#fzf('Rg')<CR>" :
       \ ":echo 'Ripgrep is not installed'<CR>"
 
 " open fzf to search all lines in all opened buffer
