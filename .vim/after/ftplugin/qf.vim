@@ -11,3 +11,9 @@ nmap <buffer> <nowait> <Space> <Plug>(quickr_preview)
 " for whatever reason the preview window won't close if qf window already
 " closed in vanilla vim
 nnoremap <buffer> <silent> i :cclose <Bar> lclose <Bar> pclose <Bar> wincmd p<CR>
+
+" refresh quickfix result
+nnoremap <buffer> <nowait> <expr> <silent> r
+      \ exists('w:quickfix_title') ?
+      \ ':<C-u>exe substitute(w:quickfix_title, "^:", "", "")<CR>' :
+      \ ':<C-u>echo "variable w:quickfix_title does not exist<CR>"'
