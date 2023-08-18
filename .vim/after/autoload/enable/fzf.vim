@@ -21,7 +21,8 @@ function! enable#fzf#init()
           \ 'ctrl-t': 'tab split',
           \ 'ctrl-x': 'split',
           \ 'ctrl-s': 'leftabove vsplit',
-          \ 'ctrl-d': 'vsplit' }
+          \ 'ctrl-d': 'belowright vsplit'
+          \ }
 
     " Ref: https://github.com/junegunn/fzf.vim/issues/942
     " More Info: `:h fzf-examples`
@@ -40,7 +41,7 @@ function! enable#fzf#init()
       " Ref: https://github.com/junegunn/fzf.vim/issues/714#issuecomment-428802659
       command! -bang -nargs=* CustomRg
             \ call fzf#vim#grep(
-            \ "rg --column --line-number --no-heading --color=always --smart-case " . shellescape(<q-args>),
+            \ "rg --column --line-number --no-heading --color=always --smart-case -- " . shellescape(<q-args>),
             \ 1,
             \ winheight(0) < 40 ? fzf#vim#with_preview(
             \ {'options': '--with-nth=1,4.. --delimiter : --nth 2..'},
@@ -54,7 +55,7 @@ function! enable#fzf#init()
 
       command! -bang -nargs=* Rg
             \ call fzf#vim#grep(
-            \ "rg --column --line-number --no-heading --color=always --smart-case " . shellescape(<q-args>),
+            \ "rg --column --line-number --no-heading --color=always --smart-case -- " . shellescape(<q-args>),
             \ 1,
             \ winheight(0) < 40 ? fzf#vim#with_preview(
             \ {'options': '--with-nth=1,4.. --delimiter :'},
