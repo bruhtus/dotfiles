@@ -179,14 +179,10 @@ function! s:conflict_marker(reverse) abort
   return search('^\(@@ .* @@\|[<=>|]\{7}[<=>|]\@!\)', a:reverse ? 'bW' : 'W')
 endfunction
 
-" diff navigation
+" conflict navigation
 " Ref: https://vi.stackexchange.com/a/2706
-nnoremap <expr> <silent> ]c
-      \ &diff && winnr('$') == 3 && argc() == 3 ? ':call <SID>conflict_marker(0)<CR>' :
-      \ ']c'
-nnoremap <expr> <silent> [c
-      \ &diff && winnr('$') == 3 && argc() == 3 ? ':call <SID>conflict_marker(1)<CR>' :
-      \ '[c'
+nnoremap <silent> ]= :<C-u>call <SID>conflict_marker(0)<CR>
+nnoremap <silent> [= :<C-u>call <SID>conflict_marker(1)<CR>
 
 " map ]<Space> to location list toggle and [<Space> to quickfix list toggle
 " Ref: https://stackoverflow.com/a/63162084
