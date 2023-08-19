@@ -78,3 +78,37 @@ augroup lazy_load_lsp
           \ . ' call IDE() | autocmd! lazy_load_lsp FileType | augroup! lazy_load_lsp'
   endif
 augroup END
+
+" let s:lsp_server_dir = $HOME . '/.local/share/vim-lsp-settings/servers/typescript-language-server'
+
+" if executable(s:lsp_server_dir . '/typescript-language-server')
+"   autocmd User lsp_setup call lsp#register_server({
+"         \ 'name': 'typescript-language-server'
+"         \ ,'cmd': {server_info->[
+"         \   &shell,
+"         \   &shellcmdflag,
+"         \   s:lsp_server_dir . '/typescript-language-server --stdio',
+"         \ ]}
+"         \ ,'root_uri': {
+"         \   server_info->lsp#utils#path_to_uri(
+"         \     lsp#utils#find_nearest_parent_file_directory(
+"         \       lsp#utils#get_buffer_path(),
+"         \       ['package.json', '.git/']
+"         \     )
+"         \   )
+"         \ }
+"         \ ,'allowlist': ['typescript']
+"         \ ,'blocklist': []
+"         \ ,'initialization_options': {
+"         \   'preferences': {
+"         \     'includeInlayParameterNameHintsWhenArgumentMatchesName': v:true,
+"         \     'includeInlayParameterNameHints': 'all',
+"         \     'includeInlayVariableTypeHints': v:true,
+"         \     'includeInlayPropertyDeclarationTypeHints': v:true,
+"         \     'includeInlayFunctionParameterTypeHints': v:true,
+"         \     'includeInlayEnumMemberValueHints': v:true,
+"         \     'includeInlayFunctionLikeReturnTypeHints': v:true
+"         \   }
+"         \ }
+"         \ })
+" endif
