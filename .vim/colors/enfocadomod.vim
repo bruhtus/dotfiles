@@ -165,8 +165,6 @@ call s:hi('SpellLocal', s:underline, s:none, s:cyan, s:cyan)
 call s:hi('SpellRare', s:underline, s:none, s:magenta, s:magenta)
 call s:hi('StatusLine', s:nocombine, s:bg_0, s:fg_0, s:none)
 call s:hi('StatusLineNC', s:nocombine, s:bg_0, s:dim_0, s:none)
-call s:hi('StatuslineTerm', s:nocombine, s:bg_1, s:dim_0, s:none)
-call s:hi('StatuslineTermNC', s:nocombine, s:bg_1, s:bg_2, s:none)
 call s:hi('Success', s:nocombine, s:none, s:green, s:none)
 call s:hi('TabLine', s:nocombine, s:bg_1, s:dim_0, s:none)
 call s:hi('TabLineFill', s:nocombine, s:bg_0, s:fg_0, s:none)
@@ -188,6 +186,8 @@ highlight! link LineNrBelow LineNrAbove
 highlight! link MsgArea Text
 highlight! link MsgSeparator StatusLineNC
 highlight! link NormalNC Normal
+highlight! link StatuslineTerm StatusLine
+highlight! link StatuslineTermNC StatusLineNC
 highlight! link Substitute Search
 highlight! link TermCursorNC None
 highlight! link VisualNc Visual
