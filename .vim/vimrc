@@ -3,6 +3,7 @@
 if $VIMBARE
   set noloadplugins
   set viminfofile=NONE
+  set noswapfile nobackup
   finish
 endif
 
