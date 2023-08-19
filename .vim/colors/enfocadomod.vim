@@ -221,6 +221,7 @@ call s:hi('Text', s:nocombine, s:none, s:fg_0, s:none)
 call s:hi('Todo', s:none, s:br_cyan, s:base, s:none)
 call s:hi('Type', s:none, s:none, s:br_accent_1, s:none)
 call s:hi('TypeBuiltin', s:none, s:none, s:br_violet, s:none)
+call s:hi('Underlined', s:none, s:none, s:blue, s:none)
 highlight! link Boolean StatementBuiltin
 highlight! link Character String
 highlight! link Conditional Statement
@@ -245,7 +246,6 @@ highlight! link StorageClass Type
 highlight! link Structure Type
 highlight! link Tag Statement
 highlight! link Typedef Type
-highlight! Underlined term=none cterm=none gui=none
 
 " Neovim diagnostic.
 if has('nvim')
