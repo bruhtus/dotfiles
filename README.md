@@ -30,7 +30,6 @@ dotbare push origin master
 Install zsh first, and then do the instruction below:
 
 ```sh
-sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 wget https://raw.githubusercontent.com/bruhtus/dotfiles/master/.config/zsh/minzsh
 . minzsh
 mzadd kazhala/dotbare
