@@ -112,7 +112,7 @@ let g:terminal_color_15 = s:fg_1[0]
 " SECTION: Vim base groups highlighting.
 " ------------------------------------------------------------------------------
 " General interface.
-call s:hi('Search', s:none, s:yellow, s:fg_1, s:none)
+call s:hi('Search', s:none, ['#ff00ff', 201], ['#ffffff', 231], s:none)
 call s:hi('LineNr', s:none, s:none, s:dim_0, s:none)
 call s:hi('Accent', s:none, s:none, s:br_accent_0, s:none)
 call s:hi('Builtin', s:none, s:none, s:br_magenta, s:none)
@@ -316,4 +316,4 @@ highlight! link diffRemoved DiffDelete
 highlight! link diffSubname Title
 
 " vim-sneak
-call s:hi('SneakLabel', s:none, s:base, ['#ffff00', 11], s:none)
+" call s:hi('SneakLabel', s:none, s:base, s:br_yellow, s:none)
