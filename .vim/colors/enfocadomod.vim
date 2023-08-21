@@ -21,7 +21,7 @@ if !s:hasGui_running
 endif
 
 " Ref: https://www.ditig.com/256-colors-cheat-sheet
-function s:hi(group, attr, bg, fg, sp)
+function! s:hi(group, attr, bg, fg, sp) abort
   execute 'highlight! '.a:group . ' ' .
         \ 'cterm='.a:attr[1] . ' ' . 'gui='.a:attr[0] . ' ' .
         \ 'ctermbg='.a:bg[1] . ' ' . 'guibg='.a:bg[0] . ' ' .
