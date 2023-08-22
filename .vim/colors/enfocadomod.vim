@@ -70,43 +70,45 @@ let s:italic = ['nocombine,italic', 'nocombine,italic']
 let s:underline = ['underline', 'underline']
 let s:undercurl = ['undercurl', 'undercurl']
 
-" Vim terminal variables are assigned.
-let g:terminal_ansi_colors = [
-      \   s:bg_1[0],
-      \   s:red[0],
-      \   s:green[0],
-      \   s:yellow[0],
-      \   s:blue[0],
-      \   s:magenta[0],
-      \   s:cyan[0],
-      \   s:dim_0[0],
-      \   s:bg_2[0],
-      \   s:br_red[0],
-      \   s:br_green[0],
-      \   s:br_yellow[0],
-      \   s:br_blue[0],
-      \   s:br_magenta[0],
-      \   s:br_cyan[0],
-      \   s:fg_1[0]
-      \ ]
-
-" Neovim terminal variables are assigned.
-let g:terminal_color_0 = s:bg_1[0]
-let g:terminal_color_1 = s:red[0]
-let g:terminal_color_2 = s:green[0]
-let g:terminal_color_3 = s:yellow[0]
-let g:terminal_color_4 = s:blue[0]
-let g:terminal_color_5 = s:magenta[0]
-let g:terminal_color_6 = s:cyan[0]
-let g:terminal_color_7 = s:dim_0[0]
-let g:terminal_color_8 = s:bg_2[0]
-let g:terminal_color_9 = s:br_red[0]
-let g:terminal_color_10 = s:br_green[0]
-let g:terminal_color_11 = s:br_yellow[0]
-let g:terminal_color_12 = s:br_blue[0]
-let g:terminal_color_13 = s:br_magenta[0]
-let g:terminal_color_14 = s:br_cyan[0]
-let g:terminal_color_15 = s:fg_1[0]
+if !has('nvim')
+  " Vim terminal variables are assigned.
+  let g:terminal_ansi_colors = [
+        \   s:bg_1[0],
+        \   s:red[0],
+        \   s:green[0],
+        \   s:yellow[0],
+        \   s:blue[0],
+        \   s:magenta[0],
+        \   s:cyan[0],
+        \   s:dim_0[0],
+        \   s:bg_2[0],
+        \   s:br_red[0],
+        \   s:br_green[0],
+        \   s:br_yellow[0],
+        \   s:br_blue[0],
+        \   s:br_magenta[0],
+        \   s:br_cyan[0],
+        \   s:fg_1[0]
+        \ ]
+else
+  " Neovim terminal variables are assigned.
+  let g:terminal_color_0 = s:bg_1[0]
+  let g:terminal_color_1 = s:red[0]
+  let g:terminal_color_2 = s:green[0]
+  let g:terminal_color_3 = s:yellow[0]
+  let g:terminal_color_4 = s:blue[0]
+  let g:terminal_color_5 = s:magenta[0]
+  let g:terminal_color_6 = s:cyan[0]
+  let g:terminal_color_7 = s:dim_0[0]
+  let g:terminal_color_8 = s:bg_2[0]
+  let g:terminal_color_9 = s:br_red[0]
+  let g:terminal_color_10 = s:br_green[0]
+  let g:terminal_color_11 = s:br_yellow[0]
+  let g:terminal_color_12 = s:br_blue[0]
+  let g:terminal_color_13 = s:br_magenta[0]
+  let g:terminal_color_14 = s:br_cyan[0]
+  let g:terminal_color_15 = s:fg_1[0]
+endif
 
 " ------------------------------------------------------------------------------
 " SECTION: Vim base groups highlighting.
