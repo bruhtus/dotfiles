@@ -1,3 +1,5 @@
+" Vim Help: https://vimhelp.org/
+
 " Ref:
 " https://github.com/tpope/dotfiles/blob/c31d6515e126ce2e52dbb11a7b01f4ac4cc2bd0c/.vimrc#L33-L36
 if $VIMBARE
