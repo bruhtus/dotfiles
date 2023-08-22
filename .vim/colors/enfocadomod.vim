@@ -176,7 +176,7 @@ call s:hi('ToolbarLine', s:nocombine, s:bg_1, s:dim_0, s:none)
 call s:hi('VertSplit', s:nocombine, s:none, s:dim_0, s:none)
 call s:hi('Visual', s:none, s:dim_0, s:fg_1, s:none)
 call s:hi('WarningMsg', s:nocombine, s:none, s:br_orange, s:none)
-call s:hi('WildMenu', s:none, s:bg_0, s:yellow, s:none)
+call s:hi('WildMenu', s:none, s:bg_0, s:fg_1, s:none)
 highlight! link CursorLineSign CursorLineNr
 highlight! link CursorLineFold CursorLine
 highlight! link EndOfBuffer NonText
