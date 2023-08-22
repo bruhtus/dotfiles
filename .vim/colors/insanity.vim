@@ -1,12 +1,12 @@
 " -----------------------------------------------------------------------------
-" Name:        Yalord
+" Name:        Insanity
 " Author:      Robertus Chris <diawan@pm.me>
 " License:     Vim License (see `:help license`)
 " Description: Simple monochrome theme with a few accent colors.
 " -----------------------------------------------------------------------------
 
 hi clear
-let g:colors_name = 'yalord'
+let g:colors_name = 'insanity'
 set background=dark
 
 if !has('gui_running')
