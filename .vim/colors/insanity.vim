@@ -224,6 +224,9 @@ hi! link diffOldFile Normal
 hi! link diffOnly Normal
 hi! link diffRemoved DiffDelete
 hi! link diffSubname Normal
+
+" markdown
+hi! link markdownUrl Link
 " }}}
 
 " vim:set et sw=2 foldmethod=marker foldlevel=0:
