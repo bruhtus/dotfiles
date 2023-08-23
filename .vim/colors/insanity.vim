@@ -227,6 +227,11 @@ hi! link diffSubname Normal
 
 " markdown
 hi! link markdownUrl Link
+
+" git commit
+hi! link gitcommitSelectedFile Link
+hi! link gitcommitDiscardedFile Link
+hi! link gitcommitUntrackedFile Link
 " }}}
 
 " vim:set et sw=2 foldmethod=marker foldlevel=0:
