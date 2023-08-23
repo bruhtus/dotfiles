@@ -168,6 +168,7 @@ call s:hi('String', s:nocombine, s:none, s:green, s:cyan)
 call s:hi('Todo', s:none, s:bg, s:br_cyan, s:none)
 call s:hi('Comment', s:none, s:bg, s:fg_1, s:none)
 call s:hi('Special', s:none, s:bg, s:fg_2, s:none)
+call s:hi('Link', s:none, s:none, s:cyan, s:none)
 
 hi! link Ignore Comment
 hi! link Function Special
@@ -180,7 +181,6 @@ hi! link TypeBuiltin Normal
 hi! link Exception WarningMsg
 hi! link Error ErrorMsg
 hi! link Character String
-hi! link Link String
 hi! link Text String
 hi! link Constant String
 hi! link Underlined String
