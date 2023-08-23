@@ -223,7 +223,7 @@ hi! link diffNoEOL Normal
 hi! link diffOldFile Normal
 hi! link diffOnly Normal
 hi! link diffRemoved DiffDelete
-hi! link diffSubname Title
+hi! link diffSubname Normal
 " }}}
 
 " vim:set et sw=2 foldmethod=marker foldlevel=0:
