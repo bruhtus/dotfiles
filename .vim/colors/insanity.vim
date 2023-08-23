@@ -208,20 +208,20 @@ hi! link helpURL Link
 
 " diff
 hi! link diffAdded DiffAdd
-hi! link diffBDiffer Text
+hi! link diffBDiffer Normal
 hi! link diffChanged DiffChange
 hi! link diffComment Comment
-hi! link diffCommon Text
-hi! link diffDiffer Text
-hi! link diffFile Text
-hi! link diffIdentical Text
-hi! link diffIndexLine Text
-hi! link diffIsA Text
+hi! link diffCommon Normal
+hi! link diffDiffer Normal
+hi! link diffFile Link
+hi! link diffIdentical Normal
+hi! link diffIndexLine Normal
+hi! link diffIsA Normal
 hi! link diffLine Title
-hi! link diffNewFile Text
-hi! link diffNoEOL Text
-hi! link diffOldFile Text
-hi! link diffOnly Text
+hi! link diffNewFile Normal
+hi! link diffNoEOL Normal
+hi! link diffOldFile Normal
+hi! link diffOnly Normal
 hi! link diffRemoved DiffDelete
 hi! link diffSubname Title
 " }}}
