@@ -51,9 +51,12 @@ function! s:custom_grep() abort
   let l:keyword = input('Find: ')
   call inputrestore()
 
-  execute 'lgetexpr system("'
-        \ . &grepprg . ' --fixed-strings ' . "'" . l:keyword . "'"
-        \ . (empty(l:path) ? '' : ' ') . l:path . '")'
+  " Interpretation:
+  " system('grepprg --fixed-strings ' . shellescape(l:keyword) . ' l:path')
+  execute "lgetexpr system('"
+        \ . &grepprg . " --fixed-strings '" . " . shellescape(l:keyword)"
+        \ . (empty(l:path) ? '' : " . ' " . l:path . "'") . ')'
+
   botright lwindow
 endfunction
 
