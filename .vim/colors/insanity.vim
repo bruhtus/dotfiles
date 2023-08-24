@@ -164,7 +164,7 @@ hi! link VisualNOS Visual
 " }}}
 
 " {{{ Declare general highlight
-call s:hi('String', s:nocombine, s:none, s:green, s:cyan)
+call s:hi('String', s:nocombine, s:none, s:green, s:none)
 call s:hi('Todo', s:none, s:bg, s:br_cyan, s:none)
 call s:hi('Comment', s:none, s:bg, s:fg_1, s:none)
 call s:hi('Special', s:none, s:bg, s:fg_2, s:none)
@@ -184,7 +184,7 @@ hi! link Character String
 hi! link Text String
 hi! link Constant String
 hi! link Underlined String
-hi! link Statement String
+hi! link Statement Link
 
 hi! link ToolbarLine TabLine
 hi! link ToolbarButton TabLineSel
