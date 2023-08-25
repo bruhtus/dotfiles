@@ -40,24 +40,25 @@ zstyle ':vcs_info:git:*' actionformats ' %B%F{yellow}(%a)%f%%b %F{magenta}%10<..
 
 # ref: https://github.com/zsh-users/zsh/blob/bffdbccda69683ce857dfad457e3209c0f00aa0c/Misc/vcs_info-examples#L180-L198
 +vi-git-ahead-behind() {
-  local ahead behind
-  local -a gitstatus
-
   # Exit early in case the worktree is on a detached HEAD
-  git rev-parse ${hook_com[branch]}@{upstream} >/dev/null 2>&1 || return 0
+  # git rev-parse ${hook_com[branch]}@{upstream} >/dev/null 2>&1 || return 0
 
-  local -a ahead_and_behind=(
-    $(git rev-list --left-right --count HEAD...${hook_com[branch]}@{upstream} 2>/dev/null)
-  )
+  # local -a ahead_and_behind=(
+  #   $(git rev-list --left-right --count HEAD...${hook_com[branch]}@{upstream} 2>/dev/null)
+  # )
 
-  local ahead=${ahead_and_behind[1]}
-  local behind=${ahead_and_behind[2]}
+  # local ahead=${ahead_and_behind[1]}
+  # local behind=${ahead_and_behind[2]}
 
-  (( $ahead )) && gitstatus+=( ">${ahead}" )
-  (( $behind )) && gitstatus+=( "<${behind} " )
+  # local -a gitstatus
+  # (( $ahead )) && gitstatus+=( ">${ahead}" )
+  # (( $behind )) && gitstatus+=( "<${behind}" )
+
+  local track="$(git for-each-ref --format='%(upstream:trackshort)' --count=1 --omit-empty "$(git symbolic-ref -q HEAD)")"
 
   # ref: https://zsh.sourceforge.io/Doc/Release/Expansion.html#Parameter-Expansion-Flags
-  hook_com[misc]+=${(j:/:)gitstatus}
+  # hook_com[misc]+=${(j:/:)gitstatus}
+  hook_com[misc]+=$track
 }
 
 zstyle ':vcs_info:git*+set-message:*' hooks git-ahead-behind git-stash
