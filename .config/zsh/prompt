@@ -4,6 +4,9 @@
 # https://github.com/zap-zsh/zap-prompt/blob/master/zap-prompt.zsh-theme
 # https://gist.github.com/jeebak/2fb31f964669892f6ef457508916bdb3
 
+# variables common to all prompt styles
+prompt_newline=$'\n%{\r%}'
+
 # autoload zsh add-zsh-hook and vcs_info functions (-U autoload w/o substition, -z use zsh style)
 autoload -Uz add-zsh-hook vcs_info
 
@@ -20,8 +23,8 @@ zstyle ':vcs_info:*' use-simple true
 zstyle ':vcs_info:*' check-for-staged-changes true
 zstyle ':vcs_info:*' unstagedstr '%F{red}!%f'
 zstyle ':vcs_info:*' stagedstr '%F{green}+%f'
-zstyle ':vcs_info:git:*' formats ' %F{magenta}%b%f %m%u%c'
-zstyle ':vcs_info:git:*' actionformats ' %B%F{yellow}(%a)%f%%b %F{magenta}%10<..<%b%<<%f %u%c'
+zstyle ':vcs_info:git:*' formats ' %F{cyan}%b%f %m%u%c'
+zstyle ':vcs_info:git:*' actionformats ' %B%F{yellow}(%a)%f%%b %F{cyan}%10<..<%b%<<%f %u%c'
 
 # +vi-git-untracked() {
 #   if [ $(git rev-parse --is-inside-work-tree 2>/dev/null) = true ] && \
@@ -63,15 +66,12 @@ zstyle ':vcs_info:git:*' actionformats ' %B%F{yellow}(%a)%f%%b %F{magenta}%10<..
 
 zstyle ':vcs_info:git*+set-message:*' hooks git-ahead-behind git-stash
 
-# variables common to all prompt styles
-prompt_newline=$'\n%{\r%}'
-
 # add ${vcs_info_msg_0} to the prompt
 # e.g. here we add the Git information in red
 # shorten path ref: https://unix.stackexchange.com/a/273567
 PROMPT='${prompt_newline}'
 PROMPT+='%F{green}%n%f@%F{green}%M%f '
-PROMPT+='%F{cyan}%(4~|%-1~/../%2~|%~)%f'
+PROMPT+='%B%F{blue}%(4~|%-1~/../%2~|%~)%f%b'
 PROMPT+='${vcs_info_msg_0_}'
 PROMPT+='${prompt_newline}%(?:%F{green}%(!.#.>)%f :%?%F{red}%(!.#.>)%f )'
 
