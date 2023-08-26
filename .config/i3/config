@@ -257,17 +257,17 @@ exec --no-startup-id xfce4-power-manager
 
 # Theme colors
 
-set_from_resource $fg i3wm.color7 #d8d8d8
-set_from_resource $bg i3wm.color2 #222D31
+# set_from_resource $fg i3wm.color7 #d8d8d8
+# set_from_resource $bg i3wm.color2 #222D31
 
   # class                 border  backgr. text    indicator child_border
-  client.focused          $bg     #101010 #f4eee4 #22a0f4   $bg
-  client.focused_inactive #000000 #0c0c0c #ffffff #000000   #0c0c0c
-  client.unfocused        #000000 #0c0c0c #ffffff #000000   #0c0c0c
-  client.urgent           $bg     $bg     $fg     $fg       $bg
-  client.placeholder      $bg     $bg     $fg     $fg       $bg
+  client.focused          #222d31 #101010 #f4eee4 #2e9ef4   #b9b9b9
+#   client.focused_inactive #000000 #0c0c0c #ffffff #000000   #0c0c0c
+#   client.unfocused        #000000 #0c0c0c #ffffff #000000   #0c0c0c
+#   client.urgent           $bg     $bg     $fg     $fg       $bg
+#   client.placeholder      $bg     $bg     $fg     $fg       $bg
 
-  client.background       $bg
+#   client.background       $bg
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
