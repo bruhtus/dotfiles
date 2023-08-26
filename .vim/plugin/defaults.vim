@@ -52,7 +52,7 @@ set sessionoptions-=blank sessionoptions-=options sessionoptions+=globals
 " to set CursorLineNr highlight
 " Ref: https://vi.stackexchange.com/a/24914
 " Note: the `cursorlineopt` is (finally) appear in nvim 0.6
-if exists('+cursorlineopt') | set cursorline cursorlineopt=number | endif
+" if exists('+cursorlineopt') | set cursorline cursorlineopt=number | endif
 
 if exists('+colorcolumn') | set colorcolumn= | endif
 
