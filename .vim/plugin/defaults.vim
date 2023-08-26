@@ -59,7 +59,7 @@ if exists('+colorcolumn') | set colorcolumn= | endif
 if exists('+wildmenu') | set wildmenu | endif
 set wildignorecase
 set wildmode=longest:full,full
-set wildignore=*/.git/*,*.pdf,*.epub,*.mobi
+set wildignore=*/.git/*,*.pdf,*.epub,*.mobi,*.png,*.jpg,*.JPG,*.jpeg,*.gif,*.mp4,*.xlsx,*.cbz,*.apk
 
 " check if there's termwinkey variable or not
 if exists('+termwinkey') | set termwinkey=<C-p> | endif
