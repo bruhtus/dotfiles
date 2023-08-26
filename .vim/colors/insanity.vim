@@ -232,6 +232,9 @@ hi! link markdownUrl Link
 hi! link gitcommitSelectedFile Link
 hi! link gitcommitDiscardedFile Link
 hi! link gitcommitUntrackedFile Link
+
+" vim-sneak
+hi! link SneakLabel Search
 " }}}
 
 " vim:set et sw=2 foldmethod=marker foldlevel=0:
