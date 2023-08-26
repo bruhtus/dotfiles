@@ -2,7 +2,7 @@
 " Name:        Insanity
 " Author:      Robertus Chris <diawan@pm.me>
 " License:     Vim License (see `:help license`)
-" Description: Simple monochrome theme with a few accent colors.
+" Description: Colorscheme for insane people.
 " -----------------------------------------------------------------------------
 
 hi clear
@@ -40,7 +40,7 @@ let s:br_red = ['#ff5f5f', 203]
 let s:br_green = ['#87d787', 114]
 let s:br_yellow = ['#ffd751', 221]
 let s:br_blue = ['#5fafff', 75]
-let s:br_magenta = ['#ff00ff', 201]
+let s:br_magenta = ['#d75fd7', 170]
 let s:br_cyan = ['#87ffff', 123]
 " }}}
 
