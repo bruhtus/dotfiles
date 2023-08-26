@@ -22,8 +22,8 @@ set viewoptions-=options
 set splitbelow splitright
 set nolangremap langnoremap
 set shortmess-=S shortmess+=F
-set number relativenumber numberwidth=5 signcolumn=yes
 set spelllang=en_us spellfile=~/.vim/spell/en.utf-8.add
+" set number relativenumber numberwidth=5 signcolumn=yes
 
 set grepformat=%f:%l:%c:%m,%f
 if executable('rg')
