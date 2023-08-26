@@ -31,7 +31,7 @@ let s:fg_3 = ['#ffffff', 231]
 
 let s:red = ['#d75f5f', 167]
 let s:green = ['#5faf5f', 71]
-let s:yellow = ['#ffd700', 220]
+let s:yellow = ['#af5f00', 130]
 let s:blue = ['#5f87ff', 69]
 let s:magenta = ['#d787af', 175]
 let s:cyan = ['#5fafaf', 73]
