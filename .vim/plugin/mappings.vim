@@ -281,8 +281,12 @@ nnoremap <expr> <leader>.
       \ ':<C-u>echo GitBranch()<CR>' :
       \ ':<C-u>echo "GitBranch() does not exist"<CR>'
 
-" toggle `relativenumber` option (useful when pairing)
-nnoremap <silent> <leader>r :<C-u>windo set relativenumber!<CR>
+" toggle 'number' option (useful for pair programming)
+nnoremap <silent> yu :<C-u>set number!<CR>
+
+" toggle `relativenumber` option
+nnoremap <silent> <leader>r :<C-u>setlocal relativenumber!<CR>
+xnoremap <silent> <leader>r :<C-u>setlocal relativenumber!<CR>gv
 
 " toggle focus current window
 nnoremap <expr> <silent> ZA
