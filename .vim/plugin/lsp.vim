@@ -46,12 +46,10 @@ function! IDE() abort
   endif
 
   if exists('g:lsp_enabled')
-    windo set signcolumn=auto
     unlet! g:lsp_enabled
     call lsp#disable()
     LspStopServer
   else
-    windo set signcolumn=yes
     let g:lsp_enabled = 1
     call lsp#enable()
   endif
