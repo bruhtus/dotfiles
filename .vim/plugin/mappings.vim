@@ -1,11 +1,11 @@
 " default mappings
 
 " set enter as : except in quickfix window and command line window
-nnoremap <expr> <CR> &buftype ==# 'quickfix' ? "\<CR>" :
-      \ &buftype ==# 'nofile' ? "\<CR>" : ':'
+" nnoremap <expr> <CR> &buftype ==# 'quickfix' ? "\<CR>" :
+"       \ &buftype ==# 'nofile' ? "\<CR>" : ':'
 
-xnoremap <expr> <CR> &buftype ==# 'quickfix' ? "\<CR>" :
-      \ &buftype ==# 'nofile' ? "\<CR>" : ':'
+" xnoremap <expr> <CR> &buftype ==# 'quickfix' ? "\<CR>" :
+"       \ &buftype ==# 'nofile' ? "\<CR>" : ':'
 
 " remap backspace to grep the exact under the cursor word in all files
 " at current working directory
