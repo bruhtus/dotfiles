@@ -1,3 +1,4 @@
+finish
 " if there's no count, use like the default J
 " if there's count, use the operatorfunc
 " nnoremap <expr> <silent> J
