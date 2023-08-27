@@ -9,7 +9,6 @@ function! vimlsp#init() abort
   let g:lsp_diagnostics_signs_enabled = 1
   let g:lsp_diagnostics_signs_delay = 1
   let g:lsp_diagnostics_signs_insert_mode_enabled = 1
-  let g:lsp_document_code_action_signs_enabled = 0
   let g:lsp_format_sync_timeout = 1000
   let g:lsp_preview_float = 1
   " Note: there's an error E685 when delete with range while there's a
