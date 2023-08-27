@@ -256,18 +256,14 @@ exec --no-startup-id xfce4-power-manager
 # exec --no-startup-id xautolock -time 10 -locker blurlock
 
 # Theme colors
+# class                 border  backgr. text    indicator child_border
+client.focused          #808080 #3b3b3b #ffffff #ffffff   #808080
+client.focused_inactive #333333 #3b3b3b #808080 #484e50   #3b3b3b
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #d75f5f #ffffff #d75f5f   #d75f5f
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
-# set_from_resource $fg i3wm.color7 #d8d8d8
-# set_from_resource $bg i3wm.color2 #222D31
-
-  # class                 border  backgr. text    indicator child_border
-  client.focused          #222d31 #101010 #f4eee4 #2e9ef4   #b9b9b9
-#   client.focused_inactive #000000 #0c0c0c #ffffff #000000   #0c0c0c
-#   client.unfocused        #000000 #0c0c0c #ffffff #000000   #0c0c0c
-#   client.urgent           $bg     $bg     $fg     $fg       $bg
-#   client.placeholder      $bg     $bg     $fg     $fg       $bg
-
-#   client.background       $bg
+client.background       #ffffff
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
