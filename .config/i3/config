@@ -14,7 +14,7 @@ set $outer_gaps 0
 default_border pixel 1
 workspace_layout tabbed
 default_floating_border normal
-for_window [class="^.*"] border pixel 1
+# for_window [class="^.*"] border pixel 1
 hide_edge_borders none
 font xft:URWGothic-Book 11
 floating_modifier $mod
