@@ -1,9 +1,7 @@
 " colorscheme config (require seoul256mod.vim colorscheme)
 
 try
-  " let g:seoul256_srgb = 1
-  " colo seoul256mod
-  colo enfocadomod
+  colo insanity
 
   " Ref: https://groups.google.com/g/vim_use/c/SNVPt60d0-c/m/F346-XjX8HMJ
   " disable termguicolors in tty (even when using tmux in tty)
@@ -23,8 +21,6 @@ try
   " endif
 
 catch /^Vim\%((\a\+)\)\=:E185/
-  " unlet g:seoul256_srgb
-  " echo 'Seoul256mod colorscheme not found'
-  echo 'Enfocadomod colorscheme not found'
+  echo 'Insanity colorscheme not found'
 
 endtry
