@@ -126,7 +126,7 @@ nnoremap <C-f> <C-f>H^
 nnoremap <C-b> <C-b>L^
 
 " Ref: https://vim.fandom.com/wiki/Move_to_next/previous_line_with_same_indentation
-function! s:move_same_indentation(reverse) abort
+function! s:move_same_indentation(reverse, ...) abort
   let l:flags = (a:reverse ? 'b' : '') . 'seW'
   let l:pattern = '^' . matchstr(getline('.'), '\(^\s*\)')
         \ . '\%' . (a:reverse ? '<' : '>') . '.l\S'
@@ -137,11 +137,17 @@ function! s:move_same_indentation(reverse) abort
         \ . " && getline(line('.')"
         \ . (a:reverse ? '+' : '-') . "1) !~# '^$'"
 
+  if a:0
+    norm! gv
+  endif
+
   return search(l:pattern, l:flags, 0, 0, l:skip_expr)
 endfunction
 
 nnoremap <silent> <C-j> :<C-u>call <SID>move_same_indentation(0)<CR>
 nnoremap <silent> <C-k> :<C-u>call <SID>move_same_indentation(1)<CR>
+xnoremap <silent> <C-j> :<C-u>call <SID>move_same_indentation(0, visualmode())<CR>
+xnoremap <silent> <C-k> :<C-u>call <SID>move_same_indentation(1, visualmode())<CR>
 
 " set vim to copy to clipboard
 " remove new line character in clipboard register
