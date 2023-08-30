@@ -1,6 +1,4 @@
 function! vimlsp#init() abort
-  let s:enabled = 0
-
   " highlight link LspErrorHighlight SpellBad
   " highlight link LspHintHighlight SpellCap
   " highlight link LspErrorText SpellBad
@@ -31,6 +29,7 @@ function! vimlsp#init() abort
 
   nnoremap <silent> <buffer> gs :<C-u>call <SID>diagnostics_float()<CR>
   nmap <silent> <buffer> gy <Plug>(lsp-document-diagnostics)
+  nnoremap <silent> <buffer> gY :<C-u>LspDocumentDiagnostics --buffers=*<CR>
   nmap <silent> <buffer> gz <Plug>(lsp-references)
 
   if has('patch-8.2.1978')
