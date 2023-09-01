@@ -1,0 +1,4 @@
+#!/bin/sh
+
+xwininfo -name dropdown_tmux &>/dev/null || \
+  $TERMINAL --title dropdown_tmux --command tmux -L dropdown new -s OwO

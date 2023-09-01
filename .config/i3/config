@@ -36,6 +36,10 @@ for_window [title="dropdown_terminal"] move scratchpad
 for_window [title="dropdown_terminal"] move scratchpad
 for_window [title="dropdown_terminal"] sticky enable
 for_window [title="dropdown_terminal"] resize set 900 520
+for_window [title="dropdown_tmux"] move scratchpad
+for_window [title="dropdown_tmux"] move scratchpad
+for_window [title="dropdown_tmux"] sticky enable
+for_window [title="dropdown_tmux"] resize set 900 520
 # #---End---# #
 
 # #---Basic Key Bindings---# #
@@ -102,7 +106,7 @@ bindsym $mod+v exec rofi -show emoji -modi emoji
 bindsym $mod+m exec rofisearch
 
 # bindsym $mod+Shift+c exec $term -e $EDITOR '/home/bruhtus/.config/i3/config'
-bindsym $mod+Shift+x [title="dropdown_terminal"] scratchpad show; [title="dropdown_terminal"] move position center
+bindsym $mod+Shift+x [title="dropdown_tmux"] scratchpad show; [title="dropdown_tmux"] move position center
 bindsym $mod+Shift+y exec google-chrome-stable --new-window https://github.com/settings/tokens
 bindsym $mod+Shift+t exec google-chrome-stable --new-window twitter.com
 bindsym $mod+Shift+q exec qutebrowser
@@ -114,7 +118,7 @@ bindsym $mod+Ctrl+c exec $term -t btop -e btop
 bindsym $mod+Ctrl+z exec timeshift-launcher
 bindsym $mod+Ctrl+w exec google-chrome-stable
 bindsym $mod+Ctrl+q exec telegram-desktop
-bindsym $mod+Ctrl+x [title="dropdown_youtube"] scratchpad show; [title="dropdown_youtube"] move position center
+# bindsym $mod+Ctrl+x [title="dropdown_youtube"] scratchpad show; [title="dropdown_youtube"] move position center
 bindsym $mod+Ctrl+a exec --no-startup-id rofi -show combi
 bindsym $mod+Ctrl+s --release exec --no-startup-id flameshot gui
 # bindsym $mod+Ctrl+s --release exec --no-startup-id flameshot screen -r -c
@@ -242,7 +246,8 @@ exec_always --no-startup-id startxrandr
 exec_always --no-startup-id remaps
 # exec_always --no-startup-id polybar-launch
 # exec_always --no-startup-id youtubedd
-exec_always --no-startup-id terminaldd
+# exec_always --no-startup-id terminaldd
+exec_always --no-startup-id tmuxdd
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # exec --no-startup-id xwallpaper --maximize all-repos/wallpaper/wallpaper.jpg; picom -b
 exec --no-startup-id killall -q pomo; pomo notify &
