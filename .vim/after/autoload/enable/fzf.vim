@@ -3,35 +3,44 @@ function! enable#fzf#init()
     packadd fzf | packadd fzf.vim
 
     " disable ruler when open fzf window in vim
-    if !has('nvim')
-      autocmd! FileType fzf
-            \ let b:ruler = &ruler  |
-            \ set noruler           |
-            \  autocmd BufLeave <buffer>
-            \  let &ruler = b:ruler |
-            \  unlet b:ruler
-    endif
+    " augroup fzf_buffers
+    "   autocmd! FileType fzf
+    "         \ let g:before_fzf_ruler = &ruler |
+    "         \ let g:before_fzf_laststatus = &laststatus |
+    "         \ set noruler laststatus=0 |
+    "         \  autocmd BufLeave <buffer>
+    "         \  let &ruler = g:before_fzf_ruler |
+    "         \  let &laststatus = g:before_fzf_laststatus |
+    "         \  unlet g:before_fzf_ruler g:before_fzf_laststatus
+    " augroup END
 
     " move preview half page-up/down using ctrl-p/n
     " ctrl-b/f useful to move the cursor to the left/right
     " wrap preview content
-    let $FZF_DEFAULT_OPTS = "--bind ctrl-n:preview-half-page-down,ctrl-p:preview-half-page-up --preview-window=wrap,hidden"
+    let $FZF_DEFAULT_OPTS = "--reverse --bind ctrl-n:preview-half-page-down,ctrl-p:preview-half-page-up --preview-window=wrap,hidden"
 
     let g:fzf_action = {
           \ 'ctrl-t': 'tab split',
           \ 'ctrl-x': 'split',
           \ 'ctrl-s': 'leftabove vsplit',
-          \ 'ctrl-d': 'belowright vsplit'
+          \ 'ctrl-v': 'belowright vsplit'
           \ }
 
     " Ref: https://github.com/junegunn/fzf.vim/issues/942
     " More Info: `:h fzf-examples`
+    " let g:fzf_layout = {
+    "       \ 'window': {
+    "       \   'width': 1,
+    "       \   'height': 0.5,
+    "       \   'yoffset': 0,
+    "       \   'border': 'bottom'
+    "       \ }
+    "       \ }
+
     let g:fzf_layout = {
-          \ 'window': {
-          \   'width': 1,
-          \   'height': 0.5,
-          \   'yoffset': 0,
-          \   'border': 'bottom' }}
+          \ 'window':
+          \   'botright 10new'
+          \ }
 
     " safety measure if ripgrep not installed
     if executable('rg')
