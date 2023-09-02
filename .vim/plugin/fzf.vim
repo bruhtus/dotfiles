@@ -38,7 +38,7 @@ nnoremap <silent> <leader>h :<C-u>call enable#fzf('Lines')<CR>
 " TODO:
 " https://sean-warman.medium.com/the-quest-for-the-ultimate-vim-file-browser-e0556f9764dc
 " https://github.com/junegunn/fzf/issues/1750
-nnoremap <expr> <silent> <leader>f
-      \ executable('fd') ? ':<C-u>call enable#fzf#init() \| '
-      \ . "call fzf#run(fzf#wrap({'source': 'fd -aHI -d 2 -E .git -t d . ~', 'sink': 'lcd'}))<CR>" :
-      \ ":<C-u>echo 'fd is not installed'<CR>"
+" nnoremap <expr> <silent> <leader>f
+"       \ executable('fd') ? ':<C-u>call enable#fzf#init() \| '
+"       \ . "call fzf#run(fzf#wrap({'source': 'fd -aHI -d 2 -E .git -t d . ~', 'sink': 'lcd'}))<CR>" :
+"       \ ":<C-u>echo 'fd is not installed'<CR>"
