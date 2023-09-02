@@ -1,4 +1,9 @@
 #!/bin/sh
 
+# because terminal emulator does not give us exit code when the command failed,
+# use shell to run the actual command instead of using `--command` flag.
+# ref:
+# https://github.com/LukeSmithxyz/voidrice/commit/c7e3d61753201d48835cdc819dcd6557bc2cffe7
+# https://github.com/alacritty/alacritty/issues/6081#issuecomment-1135055105
 xwininfo -name dropdown_tmux &>/dev/null || \
-  $TERMINAL --title dropdown_tmux --command tmux -L dropdown new -s OwO
+  $TERMINAL --title dropdown_tmux --command sh -c 'tmux -L dropdown new -s OwO || tmux -L dropdown a'
