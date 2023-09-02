@@ -20,6 +20,9 @@ nnoremap <silent> <leader>I :<C-u>call enable#fzf('Files %:p:h')<CR>
 "       \ endif<CR>
 nnoremap <silent> <leader>u :<C-u>call enable#fzf('BLines')<CR>
 
+" open fzf to search opened buffers
+nnoremap <silent> <leader>n :<C-u>call enable#fzf('Buffers')<CR>
+
 " open fzf to search all content in current working directory
 nnoremap <expr> <silent> <leader>o
       \ executable('rg') ? ":<C-u>call enable#fzf('CustomRg')<CR>" :
