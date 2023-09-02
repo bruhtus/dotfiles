@@ -213,7 +213,7 @@ hi! link diffChanged DiffChange
 hi! link diffComment Comment
 hi! link diffCommon Normal
 hi! link diffDiffer Normal
-hi! link diffFile Link
+hi! link diffFile DiffChange
 hi! link diffIdentical Normal
 hi! link diffIndexLine Normal
 hi! link diffIsA Normal
