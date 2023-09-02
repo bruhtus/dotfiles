@@ -12,9 +12,9 @@
 " Ref: https://gist.github.com/romainl/56f0c28ef953ffc157f36cc495947ab3
 " :grep in vanilla vim not as smooth as neovim, it spit out the output
 " into terminal and need to redraw every time using it.
-nnoremap <silent> <BS> :execute "lgetexpr system('"
+nnoremap <silent> <BS> :execute "cgetexpr system('"
       \ . &grepprg . ' -w ' . expand("<cword>") . "')"
-      \ <Bar> botright lwindow<CR>
+      \ <Bar> botright cwindow<CR>
 
 " Ref: https://stackoverflow.com/q/1533565
 function! s:prev_visual_selection() abort
@@ -24,9 +24,9 @@ endfunction
 " remap backspace to grep word in visual selection in all files at current
 " working directory
 " result: execute 'lgetexpr system("grepprg 'visual text'")'
-xnoremap <silent> <BS> :<C-u>execute 'lgetexpr system("'
+xnoremap <silent> <BS> :<C-u>execute 'cgetexpr system("'
       \ . &grepprg . ' -w --fixed-strings ' . "'" . <SID>prev_visual_selection() . "'" . '")'
-      \ <Bar> botright lwindow<CR>
+      \ <Bar> botright cwindow<CR>
 
 " set ZS to grep word under cursor in current buffer
 nnoremap <silent> ZS :execute 'lvimgrep /\M\<' . expand('<cword>') . '\>/j %' <Bar>
@@ -53,11 +53,11 @@ function! s:custom_grep() abort
 
   " Interpretation:
   " system('grepprg --fixed-strings ' . shellescape(l:keyword) . ' l:path')
-  execute "lgetexpr system('"
+  execute "cgetexpr system('"
         \ . &grepprg . " --fixed-strings '" . " . shellescape(l:keyword)"
         \ . (empty(l:path) ? '' : " . ' " . l:path . "'") . ')'
 
-  botright lwindow
+  botright cwindow
 endfunction
 
 " remap ex mode to access vimgrep in current buffer
