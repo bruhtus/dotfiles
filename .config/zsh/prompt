@@ -4,6 +4,9 @@
 # https://github.com/zap-zsh/zap-prompt/blob/master/zap-prompt.zsh-theme
 # https://gist.github.com/jeebak/2fb31f964669892f6ef457508916bdb3
 
+# disable python venv prompt
+VIRTUAL_ENV_DISABLE_PROMPT=1
+
 # variables common to all prompt styles
 prompt_newline=$'\n%{\r%}'
 
@@ -73,6 +76,7 @@ PROMPT='${prompt_newline}'
 PROMPT+='%F{green}%n%f@%F{green}%M%f '
 PROMPT+='%B%F{blue}%(4~|%-1~/../%2~|%~)%f%b'
 PROMPT+='${vcs_info_msg_0_}'
+PROMPT+=' ${VIRTUAL_ENV##*/}'
 PROMPT+='${prompt_newline}%(?:%F{green}%(!.#.>)%f :%?%F{red}%(!.#.>)%f )'
 
 # vim:ft=zsh
