@@ -105,7 +105,6 @@ call s:hi('ErrorMsg', s:nocombine, s:none, s:br_red, s:none)
 call s:hi('LineNr', s:none, s:none, s:fg_2, s:none)
 call s:hi('LineNrAbove', s:none, s:none, s:fg_1, s:none)
 call s:hi('MatchParen', s:none, s:none, s:br_cyan, s:none)
-call s:hi('ModeMsg', s:nocombine, s:none, s:fg_2, s:none)
 call s:hi('NonText', s:nocombine, s:none, s:fg_1, s:none)
 call s:hi('Normal', s:nocombine, s:bg, s:fg_2, s:none)
 call s:hi('SignColumn', s:none, s:none, s:none, s:none)
@@ -132,6 +131,7 @@ hi! link MoreMsg WarningMsg
 hi! link PopupNotification WarningMsg
 hi! link Question WarningMsg
 hi! link SpecialKey NonText
+hi! link ModeMsg Normal
 hi! link Terminal Normal
 
 call s:hi('Pmenu', s:nocombine, s:bg, s:fg_1, s:none)
