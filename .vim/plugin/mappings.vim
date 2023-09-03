@@ -298,8 +298,8 @@ xnoremap <silent> <leader>r :<C-u>setlocal relativenumber!<CR>gv
 nnoremap <expr> <silent> ZA
       \ winnr('$') != 1 ?
       \ !exists('t:zoom') ?
-      \ ':<C-u>resize <bar> vertical resize <bar> let t:zoom = 1<CR>' :
-      \ ':<C-u>wincmd = <bar> unlet t:zoom<CR>' :
+      \ ':<C-u>let t:zoom = winrestcmd() <Bar> resize <Bar> vertical resize<CR>' :
+      \ ':<C-u>exe t:zoom <Bar> unlet t:zoom<CR>' :
       \ ':<C-u>echoerr "Only one window"<CR>'
 
 " set space s to substitute command
