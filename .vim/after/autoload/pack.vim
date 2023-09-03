@@ -29,7 +29,6 @@ function! pack#init() abort
   call minpac#add('mattn/vim-lsp-settings', { 'type': 'opt' })
   call minpac#add('prabirshrestha/vim-lsp', { 'type': 'opt' })
 
-  call minpac#add('bruhtus/gv.vim',           { 'type': 'opt', 'branch': 'personal' })
   call minpac#add('bruhtus/vim-sneak',        { 'type': 'opt', 'branch': 'personal' })
   call minpac#add('bruhtus/vim-bufstop',      { 'type': 'opt', 'branch': 'personal' })
 
@@ -53,6 +52,8 @@ function! pack#init() abort
   call minpac#add('jeetsukumaran/vim-filebeagle', { 'type': 'opt' })
   call minpac#add('iamcco/markdown-preview.nvim', { 'type': 'opt',
         \ 'do': 'packadd markdown-preview.nvim | call mkdp#util#install()' })
+
+  " call minpac#add('bruhtus/gv.vim',           { 'type': 'opt', 'branch': 'personal' })
 
   " if has('nvim-0.5')
   "   call minpac#add('neovim/nvim-lspconfig',     { 'type': 'opt' })

@@ -1,3 +1,4 @@
+finish
 " gv.vim plugin config (to check git commit in vim)
 " check also after/autoload directory
 
