@@ -70,8 +70,9 @@ function! StatuslineActive() abort
   " let l:totalbuf = "%{'[' . len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) . ']'}"
   let l:root = "%{winwidth(0) > 80 && exists('b:root_enabled') ? '[/]' : ''}"
   let l:zoom = "%{exists('t:zoom') ? '[Z]' : ''}"
+  let l:lsp = "%{exists('g:lsp_enabled') ? '[L]' : ''}"
 
-  return l:diff.l:indent.l:zoom.l:root.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.l:line
+  return l:diff.l:indent.l:zoom.l:root.l:ses.l:lsp.l:readonly.l:filename.l:mod.l:sep.l:git.l:line
 endfunction
 
 " if has('patch-8.1.1372')
