@@ -23,7 +23,7 @@ function! StatuslineActive() abort
   let l:mod = '%-4m'
 
   " let l:ft = "%{winwidth(0) > 70 ? ' ' . (len(&filetype) ? &filetype : 'no ft') : ''}"
-  let l:ft = '%y'
+  " let l:ft = '%y'
 
   " there's a glitch when using git branch cmd in statusline vim
   " let g:gitbranchcmd = "git branch --show-current 2>/dev/null | tr -d '\n'"
@@ -75,7 +75,7 @@ function! StatuslineActive() abort
   "   return w:mode.'%*'.l:indent.l:git.l:sep.l:diff.l:readonly.l:filename.l:mod.l:sep.l:ses.'  '.l:ft.l:line
   " else
     " return l:mode.'%*'.l:diff.l:indent.l:totalbuf.l:alt.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
-    return l:diff.l:indent.l:zoom.l:root.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.l:ft.l:line
+    return l:diff.l:indent.l:zoom.l:root.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.l:line
   " endif
 endfunction
 
