@@ -77,7 +77,8 @@ if exists('+guioptions') | set guioptions=M | endif
 
 " in case I don't want to use statusline
 " if &ruler | set rulerformat=%-13.(%r%m%)\ %P | endif
-if &ruler | set rulerformat=%-13.(%l/%<%L:%c%)\ %P | endif
+" if &ruler | set rulerformat=%-13.(%l/%<%L:%c%)\ %P | endif
+if &ruler | set rulerformat=%l:%c%=%P| endif
 
 " Ref: https://vi.stackexchange.com/a/28017/34851
 set autoindent shiftround smarttab shiftwidth=2 softtabstop=-69
