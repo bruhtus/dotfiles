@@ -71,12 +71,7 @@ function! StatuslineActive() abort
   let l:root = "%{winwidth(0) > 80 && exists('b:root_enabled') ? '[/]' : ''}"
   let l:zoom = "%{exists('t:zoom') ? '[Z]' : ''}"
 
-  " if has('nvim')
-  "   return w:mode.'%*'.l:indent.l:git.l:sep.l:diff.l:readonly.l:filename.l:mod.l:sep.l:ses.'  '.l:ft.l:line
-  " else
-    " return l:mode.'%*'.l:diff.l:indent.l:totalbuf.l:alt.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.'  '.l:ft.l:line
-    return l:diff.l:indent.l:zoom.l:root.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.l:line
-  " endif
+  return l:diff.l:indent.l:zoom.l:root.l:ses.l:readonly.l:filename.l:mod.l:sep.l:git.l:line
 endfunction
 
 " if has('patch-8.1.1372')
