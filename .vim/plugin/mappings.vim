@@ -300,7 +300,7 @@ nnoremap <expr> <silent> ZA
       \ !exists('t:zoom') ?
       \ ':<C-u>let t:zoom = winrestcmd() <Bar> resize <Bar> vertical resize<CR>' :
       \ ':<C-u>exe t:zoom <Bar> unlet t:zoom<CR>' :
-      \ ':<C-u>echoerr "Only one window"<CR>'
+      \ ':<C-u>echoerr "Only one window" <Bar> unlet! t:zoom<CR>'
 
 " set space s to substitute command
 nnoremap <leader>s :keeppatterns s
