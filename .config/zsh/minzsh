@@ -29,7 +29,7 @@ mzadd() {
 
   # git clone plugin from github
   else
-    git clone "https://github.com/$1.git" "$MINZSH_DIR/$plugin_name" && mzadd "$1" || echo "Failed to git clone https://github.com/$1.git"
+    git clone --depth 1 --single-branch --no-tags "https://github.com/$1.git" "$MINZSH_DIR/$plugin_name" && mzadd "$1" || echo "Failed to git clone https://github.com/$1.git"
 
   fi
 }
