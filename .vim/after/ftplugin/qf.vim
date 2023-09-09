@@ -20,15 +20,15 @@ function! s:preview() abort
   if len(l:list)
     let l:selected = l:list[l:index]
     exe 'aboveleft pedit +' . l:selected.lnum . ' ' . bufname(l:selected.bufnr)
-  endif
 
-  set eventignore+=all
-  keepjumps wincmd P
-  " make sure the options can be local to window rather than local to buffer
-  setlocal nonumber norelativenumber nofoldenable scrolloff=999
-  exe 'match Search /\%' . l:selected.lnum . 'l^\s*\zs.\{-}\ze\s*$/'
-  keepjumps wincmd p
-  set eventignore-=all
+    set eventignore+=all
+    keepjumps wincmd P
+    " make sure the options can be local to window rather than local to buffer
+    setlocal nonumber norelativenumber nofoldenable scrolloff=999
+    exe 'match Search /\%' . l:selected.lnum . 'l^\s*\zs.\{-}\ze\s*$/'
+    keepjumps wincmd p
+    set eventignore-=all
+  endif
 endfunction
 
 nmap <buffer> <silent> <nowait> m <C-w>z<CR>zz<C-w>p
