@@ -45,14 +45,13 @@ function! StatuslineActive() abort
   let l:line = ' %-13.(%l:%c%) %-4P'
 
   let l:indent = "%{
-        \ (exists('b:editorconfig_file') && !empty(b:editorconfig_file))
-        \   && &expandtab ?
+        \ exists('b:editorconfig_enabled') && &expandtab ?
         \ 'sw='.&shiftwidth.'* ' :
-        \ (exists('b:editorconfig_file') && !empty(b:editorconfig_file))
-        \   && !&expandtab && &tabstop == &shiftwidth ?
+        \ exists('b:editorconfig_enabled') && !&expandtab
+        \   && &tabstop == &shiftwidth ?
         \ 'ts='.&tabstop.'* ' :
-        \ (exists('b:editorconfig_file') && !empty(b:editorconfig_file))
-        \   && !&expandtab && &tabstop != &shiftwidth ?
+        \ exists('b:editorconfig_enabled') && !&expandtab
+        \   && &tabstop != &shiftwidth ?
         \ 'sw='.&shiftwidth.',ts='.&tabstop.'* ' :
         \ &expandtab ? 'sw='.&shiftwidth.' ' :
         \ &tabstop == &shiftwidth ? 'ts='.&tabstop.' ' :

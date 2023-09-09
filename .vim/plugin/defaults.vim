@@ -98,6 +98,42 @@ function! s:detect_indent() abort
   let b:indent_space_with_tab = search(' \+\t\+', 'nw', 0, 0, l:skip_patterns)
 endfunction
 
+function! s:use_editorconfig() abort
+  if &ft =~# 'git*'
+    return
+  endif
+
+  if expand('%:p') =~# '\v(fugitive|scp)://.*'
+    return
+  endif
+
+  if &buftype =~# '\v(nofile|nowrite|quickfix|terminal)'
+    return
+  endif
+
+  if !exists('b:editorconfig_path')
+    " Note:
+    " only search editorconfig file until home directory rather than root
+    " directory.
+    let l:editorconfig_file = findfile(
+          \   '.editorconfig',
+          \   escape(expand('%:p:h'), ' ') . ';' . expand('~')
+          \ )
+
+    let b:editorconfig_path = !empty(l:editorconfig_file) ?
+          \ fnamemodify(l:editorconfig_file, ':p') : ''
+
+    " Note: make sure we can read the editorconfig file.
+    if filereadable(b:editorconfig_path)
+      call editorconfig#init(b:editorconfig_path)
+      let b:editorconfig_enabled = 1
+      return 1
+    endif
+  endif
+
+  return
+endfunction
+
 " automatically setlocal expandtab and tabstop depending on
 " whether there's a tab character or not
 " Ref:
@@ -107,31 +143,7 @@ endfunction
 " - http://vimregex.com/#anchors
 " - `:h :let-option`, `:h :let-unpack`
 function! s:set_indent() abort
-  if &ft =~# 'git*'
-    let b:editorconfig_file = ''
-  endif
-
-  if expand('%:p') =~# '\v(fugitive|scp)://.*'
-    let b:editorconfig_file = ''
-  endif
-
-  " Note: for neovim terminal.
-  if &buftype ==# 'terminal'
-    let b:editorconfig_file = ''
-  endif
-
-  if !exists('b:editorconfig_path_cache')
-    let b:editorconfig_file =
-          \ get(b:, 'editorconfig_file',
-          \   findfile('.editorconfig', escape(expand('%:p:h'), ' ') . ';')
-          \ )
-    let b:editorconfig_path_cache = !empty(b:editorconfig_file) ?
-          \ fnamemodify(b:editorconfig_file, ':p') : ''
-  endif
-
-  if !empty(b:editorconfig_path_cache)
-    call editorconfig#init(b:editorconfig_path_cache)
-  else
+  if !s:use_editorconfig()
     execute 'let '
           \ b:indent_tabs && !b:indent_spaces && !b:indent_tab_with_space
           \   && !b:indent_space_with_tab ?
