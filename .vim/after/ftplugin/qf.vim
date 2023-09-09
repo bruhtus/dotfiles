@@ -31,7 +31,7 @@ function! s:preview() abort
   set eventignore-=all
 endfunction
 
-nmap <buffer> <silent> <nowait> m <CR>zz<C-w>p
+nmap <buffer> <silent> <nowait> m <C-w>z<CR>zz<C-w>p
 nnoremap <buffer> <silent> <nowait> <Space> :<C-u>call <SID>preview()<CR>
 " for whatever reason the preview window won't close if qf window already
 " closed in vanilla vim
