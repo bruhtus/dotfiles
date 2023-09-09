@@ -83,18 +83,30 @@ if &ruler | set rulerformat=%l:%c%=%P| endif
 " Ref: https://vi.stackexchange.com/a/28017/34851
 set autoindent shiftround smarttab shiftwidth=2 softtabstop=-69
 
+" Note:
+" - this function doesn't acknowledge people that use one space as indentation.
+" - the result is the line number, not the total.
+" let result = searchcount(#{pattern: '\t\+ \+', maxcount: -69})
+function! s:detect_indent() abort
+  " Note: skip the highlight with these name.
+  let l:skip_patterns = "synIDattr(synID(line('.'), 1, 1), 'name') =~#"
+        \ . "'\a*Comment\\|markdownCode\\|shHereDoc'"
+
+  let b:indent_spaces = search('^  \+', 'nw')
+  let b:indent_tabs = search('^\t', 'nw')
+  let b:indent_tab_with_space = search('\t\+ \+', 'nw', 0, 0, l:skip_patterns)
+  let b:indent_space_with_tab = search(' \+\t\+', 'nw', 0, 0, l:skip_patterns)
+endfunction
+
 " automatically setlocal expandtab and tabstop depending on
 " whether there's a tab character or not
-" Ref: https://github.com/itchyny/dotfiles/blob/a7d5f94d794554c7a4eee68b3248c862b67abb14/.vimrc#L89
-" Ref: https://github.com/luochen1990/indent-detector.vim/blob/master/plugin/indent_detector.vim
-" Ref: https://stackoverflow.com/a/35968022
-" Ref: http://vimregex.com/#anchors
-" Ref: `:h :let-option`, `:h :let-unpack`
-" let result = searchcount(#{pattern: '\t\+ \+', maxcount: -69})
-" Note: this function doesn't acknowledge people that use one space as
-" indentation.
-" Note: the result is the line number, not the total.
-function! s:detect_indent() abort
+" Ref:
+" - https://github.com/itchyny/dotfiles/blob/a7d5f94d794554c7a4eee68b3248c862b67abb14/.vimrc#L89
+" - https://github.com/luochen1990/indent-detector.vim/blob/master/plugin/indent_detector.vim
+" - https://stackoverflow.com/a/35968022
+" - http://vimregex.com/#anchors
+" - `:h :let-option`, `:h :let-unpack`
+function! s:set_indent() abort
   if &ft =~# 'git*'
     let b:editorconfig_file = ''
   endif
@@ -117,35 +129,30 @@ function! s:detect_indent() abort
           \ fnamemodify(b:editorconfig_file, ':p') : ''
   endif
 
-  " Note: skip the highlight with these name.
-  let l:skip_patterns = "synIDattr(synID(line('.'), 1, 1), 'name') =~#"
-        \ . "'\a*Comment\\|markdownCode\\|shHereDoc'"
-
-  let b:indent_spaces = search('^  \+', 'nW')
-  let b:indent_tabs = search('^\t', 'nW')
-  let b:tab_with_space = search('\t\+ \+', 'nW', '', '', l:skip_patterns)
-  let b:space_with_tab = search(' \+\t\+', 'nW', '', '', l:skip_patterns)
-
   if !empty(b:editorconfig_path_cache)
     call editorconfig#init(b:editorconfig_path_cache)
   else
     execute 'let '
-          \ b:indent_tabs && !b:indent_spaces && !b:tab_with_space
-          \   && !b:space_with_tab ?
+          \ b:indent_tabs && !b:indent_spaces && !b:indent_tab_with_space
+          \   && !b:indent_space_with_tab ?
           \ '[&l:ts, &l:et] = [&sw, 0]' :
-          \ (b:indent_tabs && b:indent_spaces) || b:tab_with_space
-          \   || b:space_with_tab ?
-          \ '&l:et = 0' :
+          \ (b:indent_tabs && b:indent_spaces) || b:indent_tab_with_space
+          \   || b:indent_space_with_tab ?
+          \ '[&l:ts, &l:et] = [&g:ts, 0]' :
           \ '&l:et = 1'
   endif
 endfunction
 
-augroup indent_detection
+augroup indentation
   autocmd!
   " Note: because using BufRead instead of BufEnter, the setting is only set
   " once, when reading a file into the buffer. why didn't use BufEnter then?
   " so that we didn't overwrite modeline. modeline was set before BufEnter.
-  autocmd BufNewFile,BufRead,FileType * call s:detect_indent()
+  autocmd BufNewFile,BufRead,FileType *
+        \ call s:detect_indent() |
+        \ call s:set_indent()
+
+  autocmd BufWritePost * call s:detect_indent()
 augroup END
 
 " set infercase
