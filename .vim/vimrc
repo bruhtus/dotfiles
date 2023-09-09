@@ -54,8 +54,8 @@ if exists(':packadd') != 2 || $VIMNOPACK
 endif
 
 packadd! vim-surround
-packadd! targets.vim
-packadd! traces.vim
+" packadd! targets.vim
+" packadd! traces.vim
 packadd! vim-sneak
 
 if expand('%') !~# '\v(psql.edit.*.sql|zsh\w*.zsh|COMMIT_EDITMSG)'
