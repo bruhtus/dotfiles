@@ -22,7 +22,6 @@ function! pack#init() abort
   call minpac#add('markonm/traces.vim',                   { 'type': 'opt' })
   call minpac#add('tpope/vim-commentary',                 { 'type': 'opt' })
   call minpac#add('tpope/vim-projectionist',              { 'type': 'opt' })
-  call minpac#add('jeetsukumaran/vim-indentwise',         { 'type': 'opt' })
   call minpac#add('kristijanhusak/vim-dadbod-completion', { 'type': 'opt' })
 
   call minpac#add('sbdchd/neoformat',       { 'type': 'opt' })
@@ -30,7 +29,6 @@ function! pack#init() abort
   call minpac#add('prabirshrestha/vim-lsp', { 'type': 'opt' })
 
   call minpac#add('bruhtus/vim-sneak',        { 'type': 'opt', 'branch': 'personal' })
-  call minpac#add('bruhtus/vim-bufstop',      { 'type': 'opt', 'branch': 'personal' })
 
   call minpac#add('junegunn/fzf',                 { 'type': 'opt' })
   call minpac#add('junegunn/fzf.vim',             { 'type': 'opt' })
@@ -54,6 +52,7 @@ function! pack#init() abort
         \ 'do': 'packadd markdown-preview.nvim | call mkdp#util#install()' })
 
   " call minpac#add('bruhtus/gv.vim',           { 'type': 'opt', 'branch': 'personal' })
+  " call minpac#add('bruhtus/vim-bufstop',      { 'type': 'opt', 'branch': 'personal' })
 
   " if has('nvim-0.5')
   "   call minpac#add('neovim/nvim-lspconfig',     { 'type': 'opt' })
@@ -75,6 +74,8 @@ function! pack#init() abort
   " call minpac#add('kshenoy/vim-signature',        { 'type': 'opt' })
   " call minpac#add('glepnir/dashboard-nvim',       { 'type': 'opt' })
   " call minpac#add('easymotion/vim-easymotion',    { 'type': 'opt' })
+  " call minpac#add('jessekelighine/vindent.vim',   { 'type': 'opt' })
+  " call minpac#add('jeetsukumaran/vim-indentwise', { 'type': 'opt' })
   " call minpac#add('Konfekt/vim-sentence-chopper', { 'type': 'opt' })
   " call minpac#add('bruhtus/textobj-word-column.vim', { 'type': 'opt', 'branch': 'personal' })
 endfunction
