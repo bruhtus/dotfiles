@@ -27,7 +27,7 @@ set spelllang=en_us spellfile=~/.vim/spell/en.utf-8.add
 
 set grepformat=%f:%l:%c:%m,%f
 if executable('rg')
-  set grepprg=rg\ --smart-case\ --hidden\ --vimgrep
+  set grepprg=rg\ --smart-case\ --hidden\ --line-number
 elseif has('unix')
   set grepprg=grep\ -iIrn
 endif
