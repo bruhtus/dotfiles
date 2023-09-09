@@ -43,21 +43,26 @@ nnoremap <silent> ZD :execute 'lvimgrep /\M' . expand('<cWORD>') . '/j %' <Bar>
 
 function! s:custom_grep() abort
   call inputsave()
-  let l:path = input('Search on: ', '', 'file')
+  let l:path = input('Path: ', '', 'file')
   call inputrestore()
   redraw
 
   call inputsave()
-  let l:keyword = input('Find: ')
+  let l:keyword = input('Grep: ')
   call inputrestore()
+  redraw
 
-  " Interpretation:
-  " system('grepprg --fixed-strings ' . shellescape(l:keyword) . ' l:path')
-  execute "cgetexpr system('"
-        \ . &grepprg . " --fixed-strings '" . " . shellescape(l:keyword)"
-        \ . (empty(l:path) ? '' : " . ' " . l:path . "'") . ')'
+  if !empty(l:keyword)
+    " Interpretation:
+    " system('grepprg --fixed-strings ' . shellescape(l:keyword) . ' l:path')
+    execute "cgetexpr system('"
+          \ . &grepprg . " --fixed-strings '" . " . shellescape(l:keyword)"
+          \ . (empty(l:path) ? '' : " . ' " . l:path . "'") . ')'
 
-  botright cwindow
+    botright cwindow
+  else
+    echo 'Nothing to grep'
+  endif
 endfunction
 
 " remap ex mode to access vimgrep in current buffer
