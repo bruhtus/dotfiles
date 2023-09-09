@@ -43,7 +43,6 @@ function! pack#init() abort
   call minpac#add('dstein64/vim-startuptime',     { 'type': 'opt' })
   call minpac#add('AndrewRadev/linediff.vim',     { 'type': 'opt' })
   call minpac#add('tweekmonster/helpful.vim',     { 'type': 'opt' })
-  call minpac#add('ronakg/quickr-preview.vim',    { 'type': 'opt' })
   call minpac#add('tweekmonster/startuptime.vim', { 'type': 'opt' })
   call minpac#add('jeetsukumaran/vim-filebeagle', { 'type': 'opt' })
   call minpac#add('iamcco/markdown-preview.nvim', { 'type': 'opt',
@@ -56,6 +55,9 @@ function! pack#init() abort
   "   call minpac#add('neovim/nvim-lspconfig',     { 'type': 'opt' })
   "   call minpac#add('kabouzeid/nvim-lspinstall', { 'type': 'opt' })
   " endif
+
+  " call minpac#add('bfrg/vim-qf-preview',       { 'type': 'opt' })
+  " call minpac#add('ronakg/quickr-preview.vim', { 'type': 'opt' })
 
   " call minpac#add('mihaifm/bufstop',              { 'type': 'opt' })
   " call minpac#add('junegunn/gv.vim',              { 'type': 'opt' })

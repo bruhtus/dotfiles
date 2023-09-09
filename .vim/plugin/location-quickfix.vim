@@ -10,19 +10,11 @@ augroup location_quickfix_list
   autocmd WinEnter * if winnr('$') == 1 && &buftype == 'quickfix' | q | endif
 
   autocmd QuickFixCmdPre [^l]*
-        \ if !exists('g:quickr_preview_keymaps') |
-        \   let g:quickr_preview_keymaps = 0 |
-        \   packadd quickr-preview.vim |
-        \ endif |
         \ if has('patch-8.1.0649') && exists(':Cfilter') != 2 |
         \   packadd cfilter |
         \ endif
 
   autocmd QuickFixCmdPre l*
-        \ if !exists('g:quickr_preview_keymaps') |
-        \   let g:quickr_preview_keymaps = 0 |
-        \   packadd quickr-preview.vim |
-        \ endif |
         \ if has('patch-8.1.0649') && exists(':Lfilter') != 2 |
         \   packadd cfilter |
         \ endif
