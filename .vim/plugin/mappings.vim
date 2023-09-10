@@ -400,17 +400,15 @@ nnoremap <silent> ZN :<C-u>put =repeat((nr2char(10)), v:count1)<Bar>'[-1<CR>
 " cnoremap <C-s> <right>
 
 " mapping to interact with built-in terminal
-if has('nvim')
-  tnoremap <C-Space> <C-\><C-n>
-
-elseif has('patch-8.0.0877')
-  " Vim Patch: http://ftp.vim.org/pub/vim/patches/8.0/
-  " Use Plugin: tweekmonster/helpful.vim
-  " for whatever reason i can't use ctrl space in vim
-  " vim interprets <Nul> or <C-@> when you press ctrl-space
-  tnoremap <C-@> <C-\><C-n>
-
-endif
+" if has('nvim')
+"   tnoremap <C-Space> <C-\><C-n>
+" elseif has('patch-8.0.0877')
+"   " Vim Patch: http://ftp.vim.org/pub/vim/patches/8.0/
+"   " Use Plugin: tweekmonster/helpful.vim
+"   " for whatever reason i can't use ctrl space in vim
+"   " vim interprets <Nul> or <C-@> when you press ctrl-space
+"   tnoremap <C-@> <C-\><C-n>
+" endif
 
 " Ref: https://vi.stackexchange.com/a/693
 " nnoremap <buffer> <silent> cd m':<C-u>call search('\%' . virtcol('.') . 'v\S', 'W')<CR>
