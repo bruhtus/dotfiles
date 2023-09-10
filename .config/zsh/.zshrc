@@ -51,9 +51,9 @@ SAVEHIST=10000000
   mkdir "${XDG_DATA_HOME:-$HOME/.local/share}/zsh" && HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/history"
 
 # load aliases if exist
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasrc"
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/gitrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/gitrc"
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/pyv" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/pyv"
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasrc" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasrc"
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/gitrc" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/gitrc"
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/pyv" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/pyv"
 
 # case insensitive completion
 # ref: https://superuser.com/a/1092328
@@ -66,7 +66,7 @@ zmodload zsh/complist
 compinit -d ${XDG_CONFIG_HOME:-$HOME/.config}/zsh/zcompdump-$ZSH_VERSION
 
 # add zsh plugin
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" && \
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" && \
   {
     mzadd kazhala/dotbare ;
     mzadd zsh-users/zsh-history-substring-search ;
@@ -121,4 +121,4 @@ set_win_title(){
 precmd_functions+=(set_win_title)
 
 # eval "$(starship init zsh)"
-[ -f ${ZDOTDIR:-$HOME/.config/zsh}/prompt ] && source $ZDOTDIR/prompt
+[ -f ${ZDOTDIR:-$HOME/.config/zsh}/prompt ] && . $ZDOTDIR/prompt
