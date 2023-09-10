@@ -396,8 +396,8 @@ nnoremap <silent> ZN :<C-u>put =repeat((nr2char(10)), v:count1)<Bar>'[-1<CR>
 
 " use ctrl-x to move left and ctrl-s to move right in command line mode
 " check `:h cmdline` to make sure you didn't remap the useful one
-cnoremap <C-x> <left>
-cnoremap <C-s> <right>
+" cnoremap <C-x> <left>
+" cnoremap <C-s> <right>
 
 " mapping to interact with built-in terminal
 if has('nvim')
