@@ -1,5 +1,5 @@
 # ref: man zshzle
-bindkey -v
+bindkey -e
 
 # ref:
 # https://zsh.sourceforge.io/Doc/Release/Options.html
@@ -81,8 +81,8 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 
 # zsh-history-substring-search keybindings
-bindkey '^K' history-substring-search-up
-bindkey '^J' history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 # bindkey -M vicmd 'k' history-substring-search-up
 # bindkey -M vicmd 'j' history-substring-search-down
 bindkey -M vicmd 'k' up-line
@@ -95,16 +95,22 @@ bindkey -M vicmd 'j' down-line
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^X^E' edit-command-line
 
+# delete word until non-alphanumeric character
+bindkey '^[^H' vi-backward-kill-word
+
 # ref: https://stackoverflow.com/a/23134765
-bindkey '^A' beginning-of-line
-bindkey '^E' end-of-line
-bindkey '^B' backward-char
-bindkey '^F' forward-char
+# bindkey '^A' beginning-of-line
+# bindkey '^E' end-of-line
+# bindkey '^B' backward-char
+# bindkey '^F' forward-char
 # bindkey '^K' kill-line
 # bindkey '^X^F' vi-find-next-char
 # bindkey '^X^B' vi-find-prev-char
 # bindkey '^X;' vi-repeat-find
 # bindkey '^X,' vi-rev-repeat-find
+
+# bindkey '^R' history-incremental-search-backward
+# bindkey '^J' history-incremental-search-forward
 
 set_win_title(){
   # echo -ne "\033]0; $(basename "$PWD") \007"
