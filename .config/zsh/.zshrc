@@ -67,10 +67,12 @@ compinit -d ${XDG_CONFIG_HOME:-$HOME/.config}/zsh/zcompdump-$ZSH_VERSION
 
 # add zsh plugin
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" && \
-  mzadd kazhala/dotbare && \
-  mzadd zsh-users/zsh-syntax-highlighting && \
-  mzadd zsh-users/zsh-history-substring-search && \
-  # mzadd zdharma/fast-syntax-highlighting && \
+  {
+    mzadd kazhala/dotbare ;
+    mzadd zsh-users/zsh-syntax-highlighting ;
+    mzadd zsh-users/zsh-history-substring-search ;
+    # mzadd zdharma/fast-syntax-highlighting ;
+  }
 
 # vim keys to tab complete menu
 bindkey -M menuselect 'h' vi-backward-char
