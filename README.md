@@ -66,8 +66,7 @@ Python venv manager  | [Pyv](https://github.com/bruhtus/pyv)
 - [Download only vim config](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/bruhtus/dotfiles/tree/master/.vim).
 - [Atlassian tutorial](https://www.atlassian.com/git/tutorials/dotfiles).
 - [Dotbare github repo](https://github.com/kazhala/dotbare).
-- [Alacritty color schemes](https://github.com/alacritty/alacritty/wiki/Color-schemes).
-- [Alacritty preview color scheme](https://github.com/eendroroy/alacritty-theme).
+- [Alacritty color schemes](https://github.com/alacritty/alacritty-theme).
 - [Yanking in w3m](https://unix.stackexchange.com/questions/12497/yanking-urls-in-w3m).
 - [Keycode/keysym for xorg or i3wm](http://xahlee.info/linux/linux_show_keycode_keysym.html).
 - [Notification arch-based updates](https://eang.it/notifications-of-pacman-updates/).
