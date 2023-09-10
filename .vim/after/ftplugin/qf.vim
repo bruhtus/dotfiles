@@ -7,8 +7,6 @@ function! s:preview() abort
     return
   endif
 
-  let l:index = line('.') - 1
-
   " check whether current window is location or quickfix list.
   " Ref: https://vi.stackexchange.com/a/18090
   if get(getloclist(0, {'winid':0}), 'winid', 0)
@@ -18,6 +16,7 @@ function! s:preview() abort
   endif
 
   if len(l:list)
+    let l:index = line('.') - 1
     let l:selected = l:list[l:index]
     exe 'aboveleft pedit +' . l:selected.lnum . ' ' . bufname(l:selected.bufnr)
 
