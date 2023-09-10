@@ -1,6 +1,6 @@
 # Personal Dotfiles
 
-![setup-screenshot](https://raw.githubusercontent.com/wiki/bruhtus/dotfiles/arch-linux-setup-july-2023.png)
+![setup-screenshot](https://raw.githubusercontent.com/wiki/bruhtus/dotfiles/arch-linux-setup-sep-2023.png)
 
 This repo is to backup my linux configuration so that I don't need to
 re-configure every new installation.
