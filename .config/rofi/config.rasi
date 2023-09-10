@@ -11,4 +11,4 @@ configuration {
 	cycle: false;
 }
 
-@theme "~/.config/rofi/themes/seoul256.rasi"
+@theme "~/.config/rofi/themes/insanity.rasi"
