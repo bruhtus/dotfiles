@@ -383,8 +383,8 @@ nnoremap <silent> ZH :<C-u>put!=repeat((nr2char(10)), v:count1)<Bar>']+1<CR>
 nnoremap <silent> ZN :<C-u>put =repeat((nr2char(10)), v:count1)<Bar>'[-1<CR>
 
 " use ctrl-k/j to go up/down in command line history
-cnoremap <C-k> <up>
-cnoremap <C-j> <down>
+" cnoremap <C-k> <up>
+" cnoremap <C-j> <down>
 
 " no double `/` when tapping `/` while using wildmenu
 " Ref: https://github.com/Gavinok/dotvim/blob/190356011fa2da232481cf5e4068a404f5827914/vimrc#L291-L295
