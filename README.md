@@ -52,7 +52,7 @@ Shell plugin manager | [Minzsh](https://github.com/bruhtus/dotfiles/blob/master/
 Package manager      | [Pacman](https://wiki.archlinux.org/title/pacman)<br> [Yay (AUR helper)](https://github.com/Jguer/yay)
 Status bar           | [Polybar](https://github.com/polybar/polybar)
 Notification daemon  | [Dunst](https://github.com/dunst-project/dunst)
-Launcher             | [Rofi](https://github.com/davatorium/rofi)<br> [Dmenu](https://tools.suckless.org/dmenu/)
+Launcher             | [Rofi](https://github.com/davatorium/rofi)<br> [Dmenu](https://tools.suckless.org/dmenu/) (no longer using)
 Compositor           | [Picom](https://github.com/yshui/picom)
 File manager         | [Ranger (TUI)](https://github.com/ranger/ranger)<br> [Pcmanfm (GUI)](https://github.com/lxde/pcmanfm)
 Video player         | [Mpv](https://mpv.io/)
