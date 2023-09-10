@@ -69,8 +69,8 @@ compinit -d ${XDG_CONFIG_HOME:-$HOME/.config}/zsh/zcompdump-$ZSH_VERSION
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" && \
   {
     mzadd kazhala/dotbare ;
-    mzadd zsh-users/zsh-syntax-highlighting ;
     mzadd zsh-users/zsh-history-substring-search ;
+    # mzadd zsh-users/zsh-syntax-highlighting ;
     # mzadd zdharma/fast-syntax-highlighting ;
   }
 
