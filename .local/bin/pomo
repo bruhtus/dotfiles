@@ -116,8 +116,8 @@ function pomo_msg(){
     # Send a message using the GUI or console at the end of the next
     # work or break block.  This requires a Pomodoro session to
     # have already been started...
-    break_end_msg='End of a break period. Time to focus!'
-    work_end_msg='End of a focus period. Time for a break!'
+    break_end_msg='End of break period. Time for work!'
+    work_end_msg='End of work period. Time for break!'
     [[ -e "$POMO" ]] || return 1
     pomo_update
     running=$(pomo_stat)
