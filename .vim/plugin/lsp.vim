@@ -26,8 +26,9 @@ function! IDE() abort
     packadd vim-lsp-settings
 
     if exists('*lsp_settings#utils#group_name')
-          \ &&  exists('#' . lsp_settings#utils#group_name(&ft) . '#FileType#' . &ft)
-      exe 'doautocmd <nomodeline>' lsp_settings#utils#group_name(&ft) 'FileType' &ft
+      if exists('#' . lsp_settings#utils#group_name(&ft) . '#FileType#' . &ft)
+        exe 'doautocmd <nomodeline>' lsp_settings#utils#group_name(&ft) 'FileType' &ft
+      endif
     endif
   endif
 
