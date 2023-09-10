@@ -53,7 +53,7 @@ Package manager      | [Pacman](https://wiki.archlinux.org/title/pacman)<br> [Ya
 Status bar           | [Polybar](https://github.com/polybar/polybar)
 Notification daemon  | [Dunst](https://github.com/dunst-project/dunst)
 Launcher             | [Rofi](https://github.com/davatorium/rofi)<br> [Dmenu](https://tools.suckless.org/dmenu/) (no longer using)
-Compositor           | [Picom](https://github.com/yshui/picom)
+Compositor           | [Picom](https://github.com/yshui/picom) (no longer using)
 File manager         | [Ranger (TUI)](https://github.com/ranger/ranger)<br> [Pcmanfm (GUI)](https://github.com/lxde/pcmanfm)
 Video player         | [Mpv](https://mpv.io/)
 System monitor       | [Htop](https://github.com/htop-dev/htop)<br> [Btop](https://github.com/aristocratos/btop)<br> [Bpytop](https://github.com/aristocratos/bpytop) (no longer using)<br> [Gtop](https://github.com/aksakalli/gtop) (no longer using)<br> [Conky](https://github.com/brndnmtthws/conky) (no longer using)
