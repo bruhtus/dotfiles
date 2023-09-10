@@ -16,8 +16,8 @@ function! StatuslineActive() abort
   "       \ winwidth(0) < 71 ? expand('%:t') :
   "       \ pathshorten(expand('%'))}"
 
-  let l:filename = ' %#Statusline#%<%f%* '
-  let l:readonly = '%r'
+  let l:filename = '%#Statusline#%<%f%* '
+  let l:readonly = '%-5r'
 
   " let l:mod = "%{&modified ? '  [+]' : !&modifiable ? '  [-]' : ''}"
   let l:mod = '%-4m'
@@ -34,7 +34,7 @@ function! StatuslineActive() abort
   " let l:git = "  %([%{winwidth(0) > 70 ? strpart(GitBranch(), 0, 20) : ''}]%)"
   let l:git = "%([%{winwidth(0) > 100 ? GitBranch() :
         \ winwidth(0) > 70 ?
-        \ (strlen(GitBranch()) > 10 ? '...' . GitBranch()[-7:]
+        \ (strlen(GitBranch()) > 6 ? '...' . GitBranch()[-3:]
         \ : GitBranch())
         \ : ''}]%)"
 
@@ -42,7 +42,8 @@ function! StatuslineActive() abort
 
   " current line/total lines:cursor column percentage in file
   " let l:line = ' %-13.(%l/%L:%c%) %-4P'
-  let l:line = ' %-13.(%l:%c%) %-4P'
+  let l:line = '%-11.(%l:%c%)'
+  let l:percent = '%-4P'
 
   let l:indent = "%{
         \ exists('b:editorconfig_enabled') && &expandtab ?
@@ -71,7 +72,19 @@ function! StatuslineActive() abort
   let l:zoom = "%{exists('t:zoom') ? '[Z]' : ''}"
   let l:lsp = "%{exists('g:lsp_enabled') ? '[L]' : ''}"
 
-  return l:diff.l:indent.l:zoom.l:ses.l:lsp.l:readonly.l:filename.l:mod.l:sep.l:git.l:line
+  return l:diff
+        \ .l:percent
+        \ .l:readonly
+        \ .l:filename
+        \ .l:mod
+        \ .l:sep
+        \ .l:zoom
+        \ .l:ses
+        \ .l:lsp
+        \ .l:git
+        \ .' '
+        \ .l:indent
+        \ .l:line
 endfunction
 
 " if has('patch-8.1.1372')
