@@ -31,7 +31,7 @@ Install zsh first, and then do the instruction below:
 
 ```sh
 wget https://raw.githubusercontent.com/bruhtus/dotfiles/master/.config/zsh/minzsh
-. minzsh
+. ./minzsh
 mzadd kazhala/dotbare
 dotbare finit -u git@github.com:bruhtus/dotfiles.git
 ```
