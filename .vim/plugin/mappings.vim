@@ -123,12 +123,12 @@ nnoremap <expr> <silent> <C-l>
 inoremap <C-c> <C-[>
 
 " make pointer in the middle of buffer while half page up/down
-nnoremap <C-u> <C-u>M^
-nnoremap <C-d> <C-d>M^
+" nnoremap <C-u> <C-u>M^
+" nnoremap <C-d> <C-d>M^
 
 " make pointer in the top/bottom of buffer while page up/down
-nnoremap <C-f> <C-f>H^
-nnoremap <C-b> <C-b>L^
+" nnoremap <C-f> <C-f>H^
+" nnoremap <C-b> <C-b>L^
 
 " Ref: https://vim.fandom.com/wiki/Move_to_next/previous_line_with_same_indentation
 function! s:move_same_indentation(reverse, visual) abort
@@ -270,7 +270,7 @@ nnoremap <silent> dK :<C-u>exe "k' <Bar> -" . v:count1 . ',-1d_'<CR>g``
 nnoremap <silent> dJ :<C-u>exe "k' <Bar> +1,+" . v:count1 . 'd_'<CR>g``
 
 " remap Y to yank from pointer to the end of the line
-nnoremap Y y$
+" nnoremap Y y$
 
 " remap U to yank the entire line and put below the given line (takes count)
 " default: current line
