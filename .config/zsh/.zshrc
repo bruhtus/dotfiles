@@ -89,9 +89,9 @@ bindkey -M vicmd 'j' down-line
 #figlet -f slant bruhtus
 #pfetch
 
-# edit line in vim with ctrl-x ctrl-x:
+# edit line in vim with ctrl-x ctrl-e (similar on bash)
 autoload edit-command-line; zle -N edit-command-line
-bindkey '^X^X' edit-command-line
+bindkey '^X^E' edit-command-line
 
 # ref: https://stackoverflow.com/a/23134765
 bindkey '^A' beginning-of-line
