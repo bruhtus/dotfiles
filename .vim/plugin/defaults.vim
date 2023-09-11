@@ -27,9 +27,9 @@ set spelllang=en_us spellfile=~/.vim/spell/en.utf-8.add
 
 set grepformat=%f:%l:%c:%m,%f
 if executable('rg')
-  set grepprg=rg\ --smart-case\ --hidden\ --line-number
+  set grepprg=rg\ --smart-case\ --hidden\ -H\ --line-number
 elseif has('unix')
-  set grepprg=grep\ -iIrn
+  set grepprg=grep\ -iHIrn
 endif
 
 set complete-=t,i " disable scanning tags and included files
@@ -168,7 +168,7 @@ augroup indentation
 augroup END
 
 " set infercase
-" set nrformats+=alpha " add aplhabet in increment/decrement
+" set nrformats+=alpha " add alphabet in increment/decrement
 
 if has('nvim')
   set guicursor=
