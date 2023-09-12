@@ -23,7 +23,7 @@ function! vimlsp#init() abort
         \ 'LspWarning': 11,
         \ }
 
-  nmap <buffer> <C-]> <Plug>(lsp-definition)
+  " nmap <buffer> <C-]> <Plug>(lsp-definition)
   nmap <buffer> K <Plug>(lsp-hover-float)
   nmap <buffer> <F12> <Plug>(lsp-preview-close)<Plug>(lsp-float-close)
 
