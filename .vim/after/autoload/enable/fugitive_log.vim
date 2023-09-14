@@ -6,9 +6,9 @@ function! enable#fugitive_log#normal() abort
   let l:choice = confirm("Current file git commit(s) or All git commit(s)?",
         \ "&JCurrent\n&KAll\n&NCancel", 3)
   if l:choice == 1
-    -tab Git log --color=never --format='%h %s (%an)%d' %
+    -tab Git log --color=never --date=short --format='%h %cd  %s (%an)%d' %
   elseif l:choice == 2
-    -tab Git log --color=never --format='%h %s (%an)%d'
+    -tab Git log --color=never --date=short --format='%h %cd  %s (%an)%d'
   elseif l:choice == 3
     " do nothing
   endif
@@ -17,6 +17,6 @@ endfunction
 function! enable#fugitive_log#visual() abort
   if !exists('g:loaded_fugitive') | packadd vim-fugitive | endif
 
-  exe '-tab Git log --color=never --format="%h %s (%an)%d" -L '
+  exe '-tab Git log --color=never --date=short --format="%h %cd  %s (%an)%d" -L '
         \ . line("'<") . ',' . line("'>") . ':' . expand('%')
 endfunction
