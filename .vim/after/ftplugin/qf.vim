@@ -21,6 +21,9 @@ function! s:preview() abort
     exe 'aboveleft pedit +' . l:selected.lnum . ' ' . bufname(l:selected.bufnr)
 
     keepjumps wincmd P
+    if foldclosed('.') != -1
+      foldopen
+    endif
     exe 'match Search /\%' . l:selected.lnum . 'l^\s*\zs.\{-}\ze\s*$/'
     keepjumps wincmd p
   endif
