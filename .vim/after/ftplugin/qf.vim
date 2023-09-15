@@ -16,8 +16,6 @@ function! s:preview() abort
   endif
 
   if len(l:list)
-    set eventignore+=all
-
     let l:index = line('.') - 1
     let l:selected = l:list[l:index]
     exe 'aboveleft pedit +' . l:selected.lnum . ' ' . bufname(l:selected.bufnr)
@@ -25,7 +23,6 @@ function! s:preview() abort
     keepjumps wincmd P
     exe 'match Search /\%' . l:selected.lnum . 'l^\s*\zs.\{-}\ze\s*$/'
     keepjumps wincmd p
-    set eventignore-=all
   endif
 endfunction
 
