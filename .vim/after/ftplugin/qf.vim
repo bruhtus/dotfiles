@@ -23,8 +23,6 @@ function! s:preview() abort
     exe 'aboveleft pedit +' . l:selected.lnum . ' ' . bufname(l:selected.bufnr)
 
     keepjumps wincmd P
-    " make sure the options can be local to window rather than local to buffer
-    setlocal nonumber norelativenumber nofoldenable scrolloff=999
     exe 'match Search /\%' . l:selected.lnum . 'l^\s*\zs.\{-}\ze\s*$/'
     keepjumps wincmd p
     set eventignore-=all
