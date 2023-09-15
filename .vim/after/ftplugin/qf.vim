@@ -3,7 +3,7 @@
 " Ref:
 " https://github.com/ronakg/quickr-preview.vim/issues/20#issuecomment-536802265
 function! s:preview() abort
-  if &buftype != 'quickfix'
+  if &buftype !=# 'quickfix'
     return
   endif
 
@@ -16,11 +16,12 @@ function! s:preview() abort
   endif
 
   if len(l:list)
+    set eventignore+=all
+
     let l:index = line('.') - 1
     let l:selected = l:list[l:index]
     exe 'aboveleft pedit +' . l:selected.lnum . ' ' . bufname(l:selected.bufnr)
 
-    set eventignore+=all
     keepjumps wincmd P
     " make sure the options can be local to window rather than local to buffer
     setlocal nonumber norelativenumber nofoldenable scrolloff=999
