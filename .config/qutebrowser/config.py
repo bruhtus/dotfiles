@@ -124,7 +124,7 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 
 # Enable clipboard
 # Ref: https://teddit.net/r/qutebrowser/comments/brjljl/using_the_copy_to_clipboard_buttons_on_webpages/
-config.set('content.javascript.can_access_clipboard', True)
+config.set('content.javascript.clipboard', 'access')
 
 # Make hint uppercase.
 # Type: Bool
