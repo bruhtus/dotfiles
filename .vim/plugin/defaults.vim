@@ -107,7 +107,8 @@ function! s:use_editorconfig() abort
     return
   endif
 
-  if &buftype =~# '\v(nofile|nowrite|quickfix|terminal)'
+  " Note: only use editorconfig in normal buffer
+  if !empty(&buftype)
     return
   endif
 
