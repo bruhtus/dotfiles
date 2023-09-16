@@ -113,13 +113,11 @@ function! s:use_editorconfig() abort
   endif
 
   if !exists('b:editorconfig_path')
+    " Ref: `:h file-searching` (the upward stop directory example didn't work)
     " Note:
-    " only search editorconfig file until home directory rather than root
-    " directory.
-    let l:editorconfig_file = findfile(
-          \   '.editorconfig',
-          \   escape(expand('%:p:h'), ' ') . ';' . expand('~')
-          \ )
+    " have no idea how to use upward search stop directory,
+    " so start search from current file directory upward until root directory.
+    let l:editorconfig_file = findfile('.editorconfig', '.;')
 
     let b:editorconfig_path = !empty(l:editorconfig_file) ?
           \ fnamemodify(l:editorconfig_file, ':p') : ''
