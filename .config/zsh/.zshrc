@@ -45,10 +45,12 @@ TIMEFMT='%J  %*U user %*S system %P cpu %*E total'
 #history
 HISTSIZE=100000000
 SAVEHIST=10000000
-# create .cache/zsh directory if it doesn't exists
-# ref: https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
-[ -d "${XDG_DATA_HOME:-$HOME/.local/share}/zsh" ] && HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/history" || \
-  mkdir "${XDG_DATA_HOME:-$HOME/.local/share}/zsh" && HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/history"
+# create .local/state directory if it doesn't exist
+# parameter expansion: https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
+# XDG_STATE_HOME explanation:
+# https://wiki.debian.org/XDGBaseDirectorySpecification#state
+[ -d "${XDG_STATE_HOME:-$HOME/.local/state}" ] && HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh_history" || \
+  mkdir "${XDG_STATE_HOME:-$HOME/.local/state}" && HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh_history"
 
 # load aliases if exist
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasrc" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasrc"

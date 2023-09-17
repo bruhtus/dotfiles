@@ -11,6 +11,8 @@ export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=black,fg=white,bold'
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=black,fg=white'
 
 # initialize XDG Base Directory
+# XDG_STATE_HOME explanation:
+# https://wiki.debian.org/XDGBaseDirectorySpecification#state
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -72,14 +74,14 @@ export PNPM_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/pnpm"
 # parallel
 export PARALLEL_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/parallel"
 
-# node repl history
-export NODE_REPL_HISTORY="${XDG_DATA_HOME:-$HOME/.local/share}/node_repl_history"
+# nodejs repl history
+export NODE_REPL_HISTORY="${XDG_STATE_HOME:-$HOME/.local/state}/node_repl_history"
 
 # go
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 
 # bash
-export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/bash/history"
+export HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/bash_history"
 
 # visidata
 export VD_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/visidata"
