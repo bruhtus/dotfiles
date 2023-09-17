@@ -9,22 +9,23 @@
 " Alternative: https://github.com/vim/vim/issues/2286#issuecomment-484794784
 
 " Credit: https://github.com/tpope/vim-sleuth/blob/master/plugin/sleuth.vim
-let s:fnmatch_replacements = {
+let s:FnmatchReplacements = {
       \ '.': '\.', '\%': '%', '\(': '(', '\)': ')', '\{': '{', '\}': '}', '\_': '_',
       \ '?': '[^/]', '*': '[^/]*', '/**/*': '/.*', '/**/': '/\%(.*/\)\=', '**': '.*'}
 
 " Credit: https://github.com/tpope/vim-sleuth/blob/master/plugin/sleuth.vim
-function! s:fnmatch_replace(pat) abort
-  if has_key(s:fnmatch_replacements, a:pat)
-    return s:fnmatch_replacements[a:pat]
+function! s:FnmatchReplace(pat) abort
+  if has_key(s:FnmatchReplacements, a:pat)
+    return s:FnmatchReplacements[a:pat]
   elseif len(a:pat) ==# 1
     return '\' . a:pat
   elseif a:pat =~# '^{[+-]\=\d\+\.\.[+-]\=\d\+}$'
     return '\%(' . join(range(matchstr(a:pat, '[+-]\=\d\+'), matchstr(a:pat, '\.\.\zs[+-]\=\d\+')), '\|') . '\)'
   elseif a:pat =~# '^{.*\\\@<!\%(\\\\\)*,.*}$'
-    return '\%(' . substitute(a:pat[1:-2], ',\|\%(\\.\|{[^\{}]*}\|[^,]\)*', '\=submatch(0) ==# "," ? "\\|" : s:fnmatch_translate(submatch(0))', 'g') . '\)'
+    " TODO: remove space after comma
+    return '\%(' . substitute(a:pat[1:-2], ',\|\%(\\.\|{[^\{}]*}\|[^,]\)*', '\=submatch(0) ==# "," ? "\\|" : s:FnmatchTranslate(submatch(0))', 'g') . '\)'
   elseif a:pat =~# '^{.*}$'
-    return '{' . s:fnmatch_translate(a:pat[1:-2]) . '}'
+    return '{' . s:FnmatchTranslate(a:pat[1:-2]) . '}'
   elseif a:pat =~# '^\[!'
     return '[^' . a:pat[2:-1]
   else
@@ -33,28 +34,31 @@ function! s:fnmatch_replace(pat) abort
 endfunction
 
 " Credit: https://github.com/tpope/vim-sleuth/blob/master/plugin/sleuth.vim
-function! s:fnmatch_translate(pat) abort
-  return substitute(a:pat, '\\.\|/\*\*/\*\=\|\*\*\=\|\[[!^]\=\]\=[^]/]*\]\|{\%(\\.\|[^{}]\|{[^\{}]*}\)*}\|[?.\~^$[]', '\=s:fnmatch_replace(submatch(0))', 'g')
+function! s:FnmatchTranslate(pat) abort
+  return substitute(a:pat, '\\.\|/\*\*/\*\=\|\*\*\=\|\[[!^]\=\]\=[^]/]*\]\|{\%(\\.\|[^{}]\|{[^\{}]*}\)*}\|[?.\~^$[]', '\=s:FnmatchReplace(submatch(0))', 'g')
 endfunction
 
 " Credit: https://github.com/tpope/vim-sleuth/blob/master/plugin/sleuth.vim
-function! s:read_editorconfig(absolute_path) abort
+function! s:ReadEditorConfig(absolute_path) abort
   try
     let l:lines = readfile(a:absolute_path)
   catch
     let l:lines = []
-    echoe 'error in s:read_editorconfig() ' . v:errmsg
   endtry
+
   let l:prefix = '\m\C^' . escape(fnamemodify(a:absolute_path, ':h'), '][^$.*\~')
   let l:preamble = {}
   let l:pairs = l:preamble
   let l:sections = []
 
-  for line in l:lines
-    let l:line = substitute(line, '^[[:space:]]*\|[[:space:]]*\%([^[:space:]]\@<![;#].*\)\=$', '', 'g')
-    let l:match = matchlist(line, '^\%(\[\(\%(\\.\|[^\;#]\)*\)\]\|\([^[:space:]]\@=[^;#=:]*[^;#=:[:space:]]\)[[:space:]]*[=:][[:space:]]*\(.*\)\)$')
+  let i = 0
+  while i < len(l:lines)
+    let l:line = l:lines[i]
+    let i += 1
+    let l:line = substitute(l:line, '^[[:space:]]*\|[[:space:]]*\%([^[:space:]]\@<![;#].*\)\=$', '', 'g')
+    let l:match = matchlist(l:line, '^\%(\[\(\%(\\.\|[^\;#]\)*\)\]\|\([^[:space:]]\@=[^;#=:]*[^;#=:[:space:]]\)[[:space:]]*[=:][[:space:]]*\(.*\)\)$')
     if len(get(l:match, 2, ''))
-      let pairs[tolower(l:match[2])] = [l:match[3], a:absolute_path]
+      let l:pairs[tolower(l:match[2])] = [l:match[3], a:absolute_path, i]
     elseif len(get(l:match, 1, '')) && len(get(l:match, 1, '')) <= 4096
       if l:match[1] =~# '^/'
         let l:pattern = l:match[1]
@@ -63,58 +67,45 @@ function! s:read_editorconfig(absolute_path) abort
       else
         let l:pattern = '/**/' . l:match[1]
       endif
-      let pairs = {}
-      call add(l:sections, [prefix . s:fnmatch_translate(l:pattern) . '$', pairs])
+      let l:pairs = {}
+      call add(l:sections, [l:prefix . s:FnmatchTranslate(l:pattern) . '$', l:pairs])
     endif
-  endfor
+  endwhile
 
   return [l:preamble, l:sections]
 endfunction
 
-function! s:config(absolute_path) abort
+function! editorconfig#detect(absolute_path) abort
+  let l:root = ''
+  let l:tail = '.editorconfig'
+  let l:dir = fnamemodify(a:absolute_path, ':h')
+  let l:prev_dir = ''
   let l:sections = []
-  let l:read_config = s:read_editorconfig(a:absolute_path)
 
-  call extend(l:sections, l:read_config[1], 'keep')
+  " only search editorconfig until home directory.
+  while l:dir !=# l:prev_dir && l:dir !=# fnamemodify('~', ':p:h:h')
+    let l:head = substitute(l:dir, '/\=$', '/', '')
+    let l:read_from = l:head . l:tail
+
+    let l:contents = s:ReadEditorConfig(read_from)
+    call extend(l:sections, l:contents[1], 'keep')
+    if get(l:contents[0], 'root', [''])[0] ==? 'true'
+      let l:root = l:head
+      break
+    endif
+
+    let l:prev_dir = l:dir
+    let l:dir = fnamemodify(l:dir, ':h')
+  endwhile
 
   let l:config = {}
-  if get(l:read_config[0], 'root', [''])[0] ==? 'true'
-    let l:root = fnamemodify(get(l:read_config[0], 'root')[1], ':h')
-    call extend(l:config, {'root': [l:root]})
-  endif
-
-  for [pattern, pairs] in l:sections
-    if expand('%:p') =~# pattern
-      call extend(l:config, pairs)
+  for [l:pattern, l:pairs] in l:sections
+    if a:absolute_path =~# l:pattern
+      call extend(l:config, l:pairs)
     endif
   endfor
 
-  return l:config
-endfunction
-
-function! editorconfig#init(absolute_path) abort
-  let l:config = s:config(a:absolute_path)
-  let l:pairs = map(copy(l:config), 'v:val[0]')
-
-  if get(l:pairs, 'indent_style', '') ==? 'tab'
-    let &l:et = 0
-  elseif get(l:pairs, 'indent_style', '') ==? 'space'
-    let &l:et = 1
-  endif
-
-  " Note:
-  " in case someone drunk and provide indent_style as tab but didn't provide
-  " tab_width, and also, to make things worse, provide indent_size as tab.
-  if get(l:pairs, 'indent_size', '') =~? '^tab$'
-        \ && has_key(l:pairs, 'tab_width')
-    let &l:sw = l:pairs.tab_width
-  elseif get(l:pairs, 'indent_size', '') =~? '^[1-9]\d*$'
-    let &l:sw = l:pairs.indent_size
-  endif
-
-  if get(l:pairs, 'tab_width', '') =~? '^[1-9]\d*$'
-    let [&l:ts, &l:et] = [l:pairs.tab_width, 0]
-  endif
+  return [l:config, l:root]
 endfunction
 
 " function! editorconfig#indent(file) abort

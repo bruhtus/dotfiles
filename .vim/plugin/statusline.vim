@@ -46,12 +46,12 @@ function! StatuslineActive() abort
   let l:percent = '%-4P'
 
   let l:indent = "%{
-        \ exists('b:editorconfig_enabled') && &expandtab ?
+        \ get(b:, 'editorconfig_enabled') && &expandtab ?
         \ 'sw='.&shiftwidth.'* ' :
-        \ exists('b:editorconfig_enabled') && !&expandtab
+        \ get(b:, 'editorconfig_enabled') && !&expandtab
         \   && &tabstop == &shiftwidth ?
         \ 'ts='.&tabstop.'* ' :
-        \ exists('b:editorconfig_enabled') && !&expandtab
+        \ get(b:, 'editorconfig_enabled') && !&expandtab
         \   && &tabstop != &shiftwidth ?
         \ 'sw='.&shiftwidth.',ts='.&tabstop.'* ' :
         \ &expandtab ? 'sw='.&shiftwidth.' ' :
