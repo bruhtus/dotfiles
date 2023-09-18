@@ -100,15 +100,14 @@ endfunction
 
 " Ref: https://spec.editorconfig.org/
 " Note: prioritize default vim filetype indentation over editorconfig.
-" TODO: make reload editorconfig command.
 function! s:use_editorconfig() abort
-  if &ft =~# '\%\(git*\|netrw\)'
+  " do not use editorconfig in `fugitive://.*`, `scp://.*`, or any filename
+  " that start with `<alphabet>:`, or filebeagle buffer.
+  if @% =~# '^\a\+:' || @% =~# '^filebeagle'
     return
   endif
 
-  " do not use editorconfig in `fugitive://.*`, `scp://.*`, or any filename
-  " that start with `<alphabet>:`, filebeagle buffer.
-  if @% =~# '^\a\+:' || @% =~# '^filebeagle'
+  if &ft =~# '\%\(git*\|netrw\)'
     return
   endif
 
@@ -117,64 +116,11 @@ function! s:use_editorconfig() abort
     return
   endif
 
-  " Credit: https://github.com/tpope/vim-sleuth/blob/master/plugin/sleuth.vim
   if !exists('b:editorconfig_enabled')
-    let l:bufname = exists('+shellslash') ? tr(@%, '\', '/') : @%
-
-    " do not use editorconfig in directory or unnamed buffer.
-    if isdirectory(l:bufname) || empty(l:bufname)
-      return
-    endif
-
-    if l:bufname !~# '^/'
-      let l:absolute_path = fnamemodify(l:bufname, ':p')
-    else
-      let l:absolute_path = l:bufname
-    endif
-
-    let [l:config, l:root] = editorconfig#detect(l:absolute_path)
-
-    if !empty(l:root)
-      let b:editorconfig_root = l:root
-    endif
-
-    if !empty(l:config)
-      let l:pairs = map(copy(l:config), 'v:val[0]')
-      " let l:sources = map(copy(l:config), 'v:val[1:-1]')
-      call filter(l:pairs, 'v:val !=? "unset"')
-      let b:editorconfig_options = l:pairs
-
-      if get(l:pairs, 'indent_style', '') ==? 'tab'
-        let &l:et = 0
-      elseif get(l:pairs, 'indent_style', '') ==? 'space'
-        let &l:et = 1
-      endif
-
-      " Note:
-      " in case someone drunk and provide indent_style as tab but didn't provide
-      " tab_width, and also, to make things worse, provide indent_size as tab.
-      if get(l:pairs, 'indent_size', '') =~? '^tab$'
-            \ && has_key(l:pairs, 'tab_width')
-        let &l:sw = l:pairs.tab_width
-      elseif get(l:pairs, 'indent_size', '') =~? '^[1-9]\d*$'
-        let &l:sw = l:pairs.indent_size
-      endif
-
-      if get(l:pairs, 'tab_width', '') =~? '^[1-9]\d*$'
-        let [&l:ts, &l:et] = [l:pairs.tab_width, 0]
-      endif
-
-      if get(l:pairs, 'trim_trailing_whitespace', '') =~? '^true$\|^false$'
-        " check plugin/trim-whitespace.vim
-        let b:no_trim_whitespace = 1
-      endif
-
-      let b:editorconfig_enabled = 1
-    else
-      let b:editorconfig_enabled = 0
-    endif
-    return b:editorconfig_enabled
+    call editorconfig#init()
+    command! EditorconfigReload call editorconfig#init()
   endif
+
   return
 endfunction
 

@@ -9,14 +9,14 @@
 " Alternative: https://github.com/vim/vim/issues/2286#issuecomment-484794784
 
 " Credit: https://github.com/tpope/vim-sleuth/blob/master/plugin/sleuth.vim
-let s:FnmatchReplacements = {
+let s:fnmatch_replacements = {
       \ '.': '\.', '\%': '%', '\(': '(', '\)': ')', '\{': '{', '\}': '}', '\_': '_',
       \ '?': '[^/]', '*': '[^/]*', '/**/*': '/.*', '/**/': '/\%(.*/\)\=', '**': '.*'}
 
 " Credit: https://github.com/tpope/vim-sleuth/blob/master/plugin/sleuth.vim
 function! s:FnmatchReplace(pat) abort
-  if has_key(s:FnmatchReplacements, a:pat)
-    return s:FnmatchReplacements[a:pat]
+  if has_key(s:fnmatch_replacements, a:pat)
+    return s:fnmatch_replacements[a:pat]
   elseif len(a:pat) ==# 1
     return '\' . a:pat
   elseif a:pat =~# '^{[+-]\=\d\+\.\.[+-]\=\d\+}$'
@@ -75,7 +75,8 @@ function! s:ReadEditorConfig(absolute_path) abort
   return [l:preamble, l:sections]
 endfunction
 
-function! editorconfig#detect(absolute_path) abort
+" Credit: https://github.com/tpope/vim-sleuth/blob/master/plugin/sleuth.vim
+function! s:DetectEditorConfig(absolute_path) abort
   let l:root = ''
   let l:tail = '.editorconfig'
   let l:dir = fnamemodify(a:absolute_path, ':h')
@@ -106,6 +107,71 @@ function! editorconfig#detect(absolute_path) abort
   endfor
 
   return [l:config, l:root]
+endfunction
+
+" Credit: https://github.com/tpope/vim-sleuth/blob/master/plugin/sleuth.vim
+function! s:ApplyEditorConfig(config) abort
+  let l:pairs = map(copy(a:config), 'v:val[0]')
+  " let l:sources = map(copy(a:config), 'v:val[1:-1]')
+  call filter(l:pairs, 'v:val !=? "unset"')
+  let b:editorconfig_options = l:pairs
+
+  if get(l:pairs, 'indent_style', '') ==? 'tab'
+    let &l:et = 0
+  elseif get(l:pairs, 'indent_style', '') ==? 'space'
+    let &l:et = 1
+  endif
+
+  " Note:
+  " in case someone drunk and provide indent_style as tab but didn't provide
+  " tab_width, and also, to make things worse, provide indent_size as tab.
+  if get(l:pairs, 'indent_size', '') =~? '^tab$'
+        \ && has_key(l:pairs, 'tab_width')
+    let &l:sw = l:pairs.tab_width
+  elseif get(l:pairs, 'indent_size', '') =~? '^[1-9]\d*$'
+    let &l:sw = l:pairs.indent_size
+  endif
+
+  if get(l:pairs, 'tab_width', '') =~? '^[1-9]\d*$'
+    let [&l:ts, &l:et] = [l:pairs.tab_width, 0]
+  endif
+
+  if get(l:pairs, 'trim_trailing_whitespace', '') =~? '^true$\|^false$'
+    " check plugin/trim-whitespace.vim
+    let b:no_trim_whitespace = 1
+  endif
+endfunction
+
+" Credit: https://github.com/tpope/vim-sleuth/blob/master/plugin/sleuth.vim
+function! editorconfig#init() abort
+  let l:bufname = exists('+shellslash') ? tr(@%, '\', '/') : @%
+
+  " do not use editorconfig in directory or unnamed buffer.
+  if isdirectory(l:bufname) || empty(l:bufname)
+    let b:editorconfig_enabled = 0
+    return
+  endif
+
+  if l:bufname !~# '^/'
+    let l:absolute_path = fnamemodify(l:bufname, ':p')
+  else
+    let l:absolute_path = l:bufname
+  endif
+
+  let [l:config, l:root] = s:DetectEditorConfig(l:absolute_path)
+
+  if !empty(l:root)
+    let b:editorconfig_root = l:root
+  endif
+
+  if !empty(l:config)
+    call s:ApplyEditorConfig(l:config)
+    let b:editorconfig_enabled = 1
+  else
+    let b:editorconfig_enabled = 0
+  endif
+
+  return b:editorconfig_enabled
 endfunction
 
 " function! editorconfig#indent(file) abort
