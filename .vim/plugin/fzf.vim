@@ -24,10 +24,6 @@ nnoremap <silent> <leader>u :<C-u>call enable#fzf('BLines')<CR>
 nnoremap <silent> <leader>n :<C-u>call enable#fzf('Buffers')<CR>
 
 " open fzf to search all content in current working directory
-nnoremap <expr> <silent> <leader>o
-      \ executable('rg') ? ":<C-u>call enable#fzf('CustomRg')<CR>" :
-      \ ":<C-u>echo 'Ripgrep is not installed'<CR>"
-
 nnoremap <expr> <silent> <leader>O
       \ executable('rg') ? ":<C-u>call enable#fzf('Rg')<CR>" :
       \ ":<C-u>echo 'Ripgrep is not installed'<CR>"

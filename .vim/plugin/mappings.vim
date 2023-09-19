@@ -65,9 +65,7 @@ function! s:custom_grep() abort
   endif
 endfunction
 
-" remap ex mode to access vimgrep in current buffer
-" you can still access ex mode using gQ
-nnoremap <silent> Q :<C-u>call <SID>custom_grep()<CR>
+nnoremap <silent> <leader>o :<C-u>call <SID>custom_grep()<CR>
 
 " use ctrl-s to toggle between two recent buffer
 nnoremap <C-s> <C-6>
