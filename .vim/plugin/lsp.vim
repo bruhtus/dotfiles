@@ -32,22 +32,21 @@ function! IDE() abort
     endif
   endif
 
-  if !exists('g:loaded_neoformat')
-    let g:neoformat_try_node_exe = 1
-    " let g:neoformat_run_all_formatters = 1
-    let g:neoformat_enabled_javascript = ['prettier']
-    let g:neoformat_enabled_html = ['prettier']
-    let g:neoformat_enabled_markdown = []
-    packadd neoformat
-
-    autocmd lsp_init BufWritePre *
-          \ if !exists('g:no_formatter') && exists(':Neoformat') |
-          \   silent Neoformat |
-          \ endif
-  endif
+  " if !exists('g:loaded_neoformat')
+  "   let g:neoformat_try_node_exe = 1
+  "   " let g:neoformat_run_all_formatters = 1
+  "   let g:neoformat_enabled_javascript = ['prettier']
+  "   let g:neoformat_enabled_html = ['prettier']
+  "   let g:neoformat_enabled_markdown = []
+  "   packadd neoformat
+  "   autocmd lsp_init BufWritePre *
+  "         \ if !exists('g:no_formatter') && exists(':Neoformat') |
+  "         \   silent Neoformat |
+  "         \ endif
+  " endif
 
   if exists('g:lsp_enabled')
-    unlet! g:lsp_enabled
+    unlet g:lsp_enabled
     call lsp#disable()
     LspStopServer
   else
