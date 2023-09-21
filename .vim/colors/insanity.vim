@@ -31,7 +31,7 @@ let s:fg_3 = ['#ffffff', 231]
 
 let s:red = ['#d75f5f', 167]
 let s:green = ['#5faf5f', 71]
-let s:yellow = ['#af5f00', 130]
+let s:yellow = ['#878700', 100]
 let s:blue = ['#5f87ff', 69]
 let s:magenta = ['#d787af', 175]
 let s:cyan = ['#5fafaf', 73]
@@ -151,11 +151,11 @@ call s:hi('SpellLocal', s:none, s:none, s:cyan, s:none)
 call s:hi('SpellRare', s:none, s:none, s:green, s:none)
 
 call s:hi('StatusLine', s:nocombine, s:bg, s:fg_1, s:none)
-call s:hi('StatusLineNC', s:nocombine, s:bg, s:fg_0, s:none)
+call s:hi('StatusLineNC', s:nocombine, s:bg, s:yellow, s:none)
 hi! link StatuslineTerm StatusLine
 hi! link StatuslineTermNC StatusLineNC
 
-call s:hi('TabLine', s:nocombine, s:bg, s:fg_0, s:none)
+call s:hi('TabLine', s:nocombine, s:bg, s:yellow, s:none)
 call s:hi('TabLineFill', s:nocombine, s:bg, s:none, s:none)
 call s:hi('TabLineSel', s:nocombine, s:bg, s:fg_1, s:none)
 
