@@ -4,17 +4,29 @@
 # https://github.com/zap-zsh/zap-prompt/blob/master/zap-prompt.zsh-theme
 # https://gist.github.com/jeebak/2fb31f964669892f6ef457508916bdb3
 
-# disable python venv prompt
-VIRTUAL_ENV_DISABLE_PROMPT=1
-
-# variables common to all prompt styles
-prompt_newline=$'\n%{\r%}'
+# enable substitution in the prompt.
+setopt prompt_subst
 
 # autoload zsh add-zsh-hook and vcs_info functions (-U autoload w/o substition, -z use zsh style)
 autoload -Uz add-zsh-hook vcs_info
 
-# enable substitution in the prompt.
-setopt prompt_subst
+# variables common to all prompt styles
+_prompt_newline_=$'\n%{\r%}'
+
+# disable python venv prompt
+VIRTUAL_ENV_DISABLE_PROMPT=1
+
+_pyv_env_name() {
+  local venv="${VIRTUAL_ENV##*/}"
+  {
+    [ ! -z "$venv" ] && PYV_ENV_NAME="${venv/#/pyv:}"
+  } || {
+    [ ! -z "$PYV_ENV_NAME" ] && unset PYV_ENV_NAME
+  }
+}
+
+# get python venv name before a prompt is displayed (precmd)
+add-zsh-hook precmd _pyv_env_name
 
 # run vcs_info just before a prompt is displayed (precmd)
 add-zsh-hook precmd vcs_info
@@ -72,11 +84,11 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-ahead-behind git-stash
 # add ${vcs_info_msg_0} to the prompt
 # e.g. here we add the Git information in red
 # shorten path ref: https://unix.stackexchange.com/a/273567
-PROMPT='${prompt_newline}'
+PROMPT='${_prompt_newline_}'
 PROMPT+='%F{green}%n%f@%F{green}%M%f '
 PROMPT+='%B%F{blue}%(4~|%-1~/../%2~|%~)%f%b'
 PROMPT+='${vcs_info_msg_0_}'
-PROMPT+=' ${VIRTUAL_ENV##*/}'
-PROMPT+='${prompt_newline}%(?:%F{green}%(!.#.>)%f :%?%F{red}%(!.#.>)%f )'
+PROMPT+=' $PYV_ENV_NAME'
+PROMPT+='${_prompt_newline_}%(?:%F{green}%(!.#.>)%f :%?%F{red}%(!.#.>)%f )'
 
 # vim:ft=zsh
