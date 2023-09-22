@@ -36,7 +36,7 @@ mzadd() {
 
 mzupdate() {
   for d in $(\ls -d $MINZSH_DIR/*); do
-    paste <(echo "${d##*/} ") <(git -C "$d" pull --no-stat)
+    paste <(echo "${d##*/} ") <(git -C "$d" pull --no-stat --no-tags)
   done
 }
 
