@@ -24,6 +24,7 @@ alias \
 #unfaedah alias
 alias \
 	asd='ddgr -n 4' \
+	zxc='youtube-viewer --resolution=480p' \
 	reload='exec zsh' \
 	wttr='curl wttr.in\?%tpFQn1m' \
 	translate='gawk -f <(curl -Ls git.io/translate) -- -shell' \
