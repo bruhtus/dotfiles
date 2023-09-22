@@ -16,11 +16,20 @@ alias \
 # ref: https://github.com/junegunn/fzf/issues/2887#issuecomment-1199258039 (fzf reload example)
 # note: only able to parse filename without spacing.
 gaf() {
-	local diff='
-	[ {1} != "??" ] &&
-		{ git diff --color=always -- {2} | less -R --incsearch } ||
-			{ git diff --color=always --no-index -- /dev/null {2} | less -R --incsearch }
+	local inside_worktree
+	inside_worktree=$(git rev-parse --is-inside-work-tree) || return "$?"
+	[ "$inside_worktree" = false ] && echo 'Not inside git worktree' && return 1
+
+	local diff_unstaged='
+	[ {1} = "??" ] &&
+		{ git diff --color=always --no-index -- /dev/null {2} | less -R --incsearch } ||
+			{ git diff --color=always -- {2} | less -R --incsearch }
 	'
+
+	# ref:
+	# - https://stackoverflow.com/a/3527985
+	# - `man git-diff` (EXAMPLES section)
+	local diff_staged='git diff --color=always --cached -- {2} | less -R --incsearch'
 
 	local git_config='git -c color.status=always'
 
@@ -32,8 +41,9 @@ gaf() {
 		--bind 'ctrl-d:reload(git reset -- {2} >/dev/null && eval "$FZF_DEFAULT_COMMAND")' \
 		--bind 'ctrl-g:reload(git reset >/dev/null && eval "$FZF_DEFAULT_COMMAND")' \
 		--bind 'ctrl-r:reload(eval "$FZF_DEFAULT_COMMAND")' \
-		--bind "ctrl-x:reload($git_config status -su -- {2})" \
-		--bind "enter:execute($diff)"
+		--bind "ctrl-t:reload($git_config status -su -- {2})" \
+		--bind "enter:execute($diff_unstaged)" \
+		--bind "ctrl-x:execute($diff_staged)"
 }
 
 gcff() {
