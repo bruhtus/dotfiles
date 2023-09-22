@@ -1,6 +1,6 @@
 [user]
 	email = hibruhtus@gmail.com
-	name = bruhtus
+	name = Robertus Chris
 [credential]
 	; helper = cache --timeout=86400
 [credential "https://github.com/bruhtus"]
