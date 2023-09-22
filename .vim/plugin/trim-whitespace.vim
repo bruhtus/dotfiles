@@ -6,7 +6,7 @@ augroup no_trailing_whitespace
   autocmd BufWritePre *
         \ if !exists('b:no_trim_whitespace') && expand('<afile>') !=# 'viminfo' |
         \   let b:save = winsaveview() |
-        \   keeppatterns %s/\s\+$//e   |
+        \   keepjumps keeppatterns %s/\s\+$//e   |
         \   call winrestview(b:save)   |
         \   unlet b:save |
         \ endif
