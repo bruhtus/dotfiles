@@ -269,6 +269,7 @@ exec --no-startup-id killall -q pomo; pomo notify &
 exec --no-startup-id [ -z $(grep 'syncthing' <(ps -eo comm) | tr -d '\n') ] && syncthing --no-browser
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
+exec --no-startup-id dunst
 # exec --no-startup-id blueman-tray
 # exec --no-startup-id aarchup -t 10 -a /usr/bin/yay -Qua --loop-time 60
 # exec --no-startup-id blueman-applet
