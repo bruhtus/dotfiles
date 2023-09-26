@@ -174,10 +174,10 @@ if has('nvim')
   " augroup END
 
 else
-  if !isdirectory(expand('~/.local/share/vim'))
-    call mkdir(expand('~/.local/share/vim'))
+  if !isdirectory(expand('~/.local/state/vim'))
+    call mkdir(expand('~/.local/state/vim'))
   endif
-  set viminfo+=n~/.local/share/vim/viminfo
+  set viminfo+=n~/.local/state/vim/viminfo
 endif
 
 if has('syntax')  | syntax on                 | endif
