@@ -71,6 +71,9 @@ export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/npmrc"
 # pnpm
 export PNPM_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/pnpm"
 
+# pm2
+export PM2_HOME="${XDG_STATE_HOME:-$HOME/.local/state}/pm2"
+
 # parallel
 export PARALLEL_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/parallel"
 
