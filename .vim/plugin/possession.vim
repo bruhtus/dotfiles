@@ -5,7 +5,7 @@ let g:possession_window_name = get(g:, 'possession_window_name',
       \ 'possession')
 
 let g:possession_dir = get(g:, 'possession_dir',
-      \ '~/.local/share/vim/session'
+      \ '~/.local/state/vim/session'
       \ )
 
 " Note: remove the last slice in directory path
