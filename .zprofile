@@ -131,6 +131,8 @@ export ANSIBLE_GALAXY_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/ansible/galaxy_
 # python
 export PYTHONSTARTUP="${XDG_CONFIG_HOME:-$HOME/.config}/python/repl.py"
 export PYTHONHISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/python_history"
+export PYTHONPYCACHEPREFIX="${XDG_CACHE_HOME:-$HOME/.cache}/python"
+export PYTHONUSERBASE="${XDG_DATA_HOME:-$HOME/.local/share}/python"
 
 # coloring less
 export MANPAGER='less -R --use-color -DER -DPY -Ddg -Du+b'
