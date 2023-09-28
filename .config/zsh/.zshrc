@@ -93,8 +93,11 @@ bindkey -M vicmd 'j' down-line
 #figlet -f slant bruhtus
 #pfetch
 
+# ref edit-command-line: `man zshcontrib`
+# ref autoload: `man zshbuiltins`
+# ref zle: `man zshzle`
 # edit line in vim with ctrl-x ctrl-e (similar on bash)
-autoload edit-command-line; zle -N edit-command-line
+autoload -Uz edit-command-line; zle -N edit-command-line
 bindkey '^X^E' edit-command-line
 
 # delete word until non-alphanumeric character
