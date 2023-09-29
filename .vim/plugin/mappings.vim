@@ -13,7 +13,7 @@
 " :grep in vanilla vim not as smooth as neovim, it spit out the output
 " into terminal and need to redraw every time using it.
 nnoremap <silent> <BS> :execute "cgetexpr system('"
-      \ . &grepprg . ' -w ' . expand("<cword>") . "')"
+      \ . &grepprg . ' -w -e ' . expand("<cword>") . "')"
       \ <Bar> botright cwindow<CR>
 
 " Ref: https://stackoverflow.com/q/1533565
@@ -25,7 +25,7 @@ endfunction
 " working directory
 " result: execute 'lgetexpr system("grepprg 'visual text'")'
 xnoremap <silent> <BS> :<C-u>execute 'cgetexpr system("'
-      \ . &grepprg . ' -w --fixed-strings ' . "'" . <SID>prev_visual_selection() . "'" . '")'
+      \ . &grepprg . ' -w --fixed-strings -e ' . "'" . <SID>prev_visual_selection() . "'" . '")'
       \ <Bar> botright cwindow<CR>
 
 " set ZS to grep word under cursor in current buffer
@@ -54,9 +54,9 @@ function! s:custom_grep() abort
 
   if !empty(l:keyword)
     " Interpretation:
-    " system('grepprg --fixed-strings ' . shellescape(l:keyword) . ' l:path')
+    " system('grepprg --fixed-strings -e' . shellescape(l:keyword) . ' l:path')
     execute "cgetexpr system('"
-          \ . &grepprg . " --fixed-strings '" . " . shellescape(l:keyword)"
+          \ . &grepprg . " --fixed-strings -e '" . " . shellescape(l:keyword)"
           \ . (empty(l:path) ? '' : " . ' " . l:path . "'") . ')'
 
     botright cwindow
