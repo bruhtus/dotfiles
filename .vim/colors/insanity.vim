@@ -55,15 +55,15 @@ if !has('nvim')
         \   s:blue[0],
         \   s:magenta[0],
         \   s:cyan[0],
+        \   s:fg_2[0],
         \   s:fg_1[0],
-        \   s:fg_0[0],
         \   s:br_red[0],
         \   s:br_green[0],
         \   s:br_yellow[0],
         \   s:br_blue[0],
         \   s:br_magenta[0],
         \   s:br_cyan[0],
-        \   s:fg_2[0]
+        \   s:fg_3[0]
         \ ]
 else
   " neovim built-in terminal emulator
@@ -74,15 +74,15 @@ else
   let g:terminal_color_4 = s:blue[0]
   let g:terminal_color_5 = s:magenta[0]
   let g:terminal_color_6 = s:cyan[0]
-  let g:terminal_color_7 = s:fg_1[0]
-  let g:terminal_color_8 = s:fg_0[0]
+  let g:terminal_color_7 = s:fg_2[0]
+  let g:terminal_color_8 = s:fg_1[0]
   let g:terminal_color_9 = s:br_red[0]
   let g:terminal_color_10 = s:br_green[0]
   let g:terminal_color_11 = s:br_yellow[0]
   let g:terminal_color_12 = s:br_blue[0]
   let g:terminal_color_13 = s:br_magenta[0]
   let g:terminal_color_14 = s:br_cyan[0]
-  let g:terminal_color_15 = s:fg_2[0]
+  let g:terminal_color_15 = s:fg_3[0]
 endif
 " }}}
 
