@@ -21,6 +21,9 @@ function! s:preview() abort
     exe 'aboveleft pedit +' . l:selected.lnum . ' ' . bufname(l:selected.bufnr)
 
     keepjumps wincmd P
+    " for whatever reason, the preview window height is different when we open
+    " it from quickfix window.
+    exe 'resize ' . &previewheight
     if foldclosed('.') != -1
       foldopen
     endif
