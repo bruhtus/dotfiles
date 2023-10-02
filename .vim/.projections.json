@@ -15,6 +15,9 @@
   "after/autoload/*.vim": {
     "type": "autoload"
   },
+  "after/ftplugin/*.vim": {
+    "type": "ftplugin"
+  },
   "colors/*.vim": {
     "type": "color"
   },
