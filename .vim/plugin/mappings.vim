@@ -42,10 +42,20 @@ nnoremap <silent> ZD :execute 'lvimgrep /\M' . expand('<cWORD>') . '/j %' <Bar>
       \ botright lwindow<CR>
 
 function! s:custom_grep() abort
-  call inputsave()
-  let l:path = input('Path: ', '', 'file')
-  call inputrestore()
+  let l:choice = confirm('Use current working directory?',
+        \ "&JYes\n&KNo\n&NCancel", 3)
   redraw
+
+  if l:choice == 1
+    " do nothing
+  elseif l:choice == 2
+    call inputsave()
+    let l:path = input('Path: ', '', 'file')
+    call inputrestore()
+    redraw
+  elseif l:choice == 3
+    return
+  endif
 
   call inputsave()
   let l:keyword = input('Grep: ')
@@ -57,7 +67,7 @@ function! s:custom_grep() abort
     " system('grepprg --fixed-strings -e' . shellescape(l:keyword) . ' l:path')
     execute "cgetexpr system('"
           \ . &grepprg . " --fixed-strings -e '" . " . shellescape(l:keyword)"
-          \ . (empty(l:path) ? '' : " . ' " . l:path . "'") . ')'
+          \ . ((!exists('l:path') || empty(l:path)) ? '' : " . ' " . expand(l:path) . "'") . ')'
 
     botright cwindow
   else
