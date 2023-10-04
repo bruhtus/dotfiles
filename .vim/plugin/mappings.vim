@@ -259,17 +259,17 @@ nnoremap <silent> - :<C-u>windo checktime<CR>
 " nnoremap g* g*zz
 " nnoremap g# g#zz
 
-" set cu to substitute current word in all lines (use confim as safety guard)
+" set cu to substitute current word in all lines (use confirm as safety guard)
 " Ref: https://vi.stackexchange.com/a/34390 (direct positioning command line)
 nnoremap cu :keeppatterns %s/\v<<C-r><C-w>>//gc<C-r>=setcmdpos(getcmdpos()-3)[1]<CR>
 
-" set cU to substitute current WORD in all lines (use confim as safety guard)
+" set cU to substitute current WORD in all lines (use confirm as safety guard)
 nnoremap cU :keeppatterns %s/\v<<C-r><C-a>>//gc<C-r>=setcmdpos(getcmdpos()-3)[1]<CR>
 
-" set cd to substitute current word in current line (use confim as safety guard)
+" set cd to substitute current word in current line (use confirm as safety guard)
 nnoremap cd :keeppatterns s/<C-r><C-w>//gc<C-r>=setcmdpos(getcmdpos()-3)[1]<CR>
 
-" set cD to substitute current WORD in current line (use confim as safety guard)
+" set cD to substitute current WORD in current line (use confirm as safety guard)
 nnoremap cD :keeppatterns s/<C-r><C-a>//gc<C-r>=setcmdpos(getcmdpos()-3)[1]<CR>
 
 " delete below or above current line but exclude the current line
