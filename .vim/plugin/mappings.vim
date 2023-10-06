@@ -335,7 +335,7 @@ nnoremap <leader>a :keeppatterns %s/.*.*\n//c<C-r>=setcmdpos(getcmdpos()-7)[1]<C
 nnoremap <silent> ZX :up<CR>
 
 " set ZC as :reg
-nnoremap <silent> ZC :reg<CR>
+" nnoremap <silent> ZC :reg<CR>
 
 " map ZJ to move current line below the given line (takes count) and add the
 " current line position to jumplist
