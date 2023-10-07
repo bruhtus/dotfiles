@@ -103,7 +103,7 @@ endfunction
 function! s:use_editorconfig() abort
   " do not use editorconfig in `fugitive://.*`, `scp://.*`, or any filename
   " that start with `<alphabet>:`, or filebeagle buffer.
-  if @% =~# '^\a\+:\|^filebeagle'
+  if @% =~# '^\a\+:\|^filebeagle\|^/tmp/'
     return
   endif
 
