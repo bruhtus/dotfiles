@@ -107,7 +107,7 @@ function! s:use_editorconfig() abort
     return
   endif
 
-  if &ft =~# '^git\|^netrw'
+  if &ft =~# '^git\|^netrw\|^csv'
     return
   endif
 
