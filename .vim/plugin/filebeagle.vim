@@ -1,3 +1,4 @@
 " vim-filebeagle config
 
-nnoremap <silent> <leader>l :call enable#filebeagle()<CR>
+let g:filebeagle_suppress_keymaps = 1
+nnoremap <silent> <leader>l :FileBeagleBufferDir<CR>
