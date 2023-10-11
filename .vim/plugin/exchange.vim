@@ -16,3 +16,8 @@ nmap <expr> <silent> cxx
       \ (!exists('g:loaded_exchange') ?
       \ ':<C-u>packadd vim-exchange <Bar> let g:loaded_exchange = 1<CR>' : ''
       \ ) . '<Plug>(ExchangeLine)'
+
+xmap <expr> <silent> X
+      \ (!exists('g:loaded_exchange') ?
+      \ ':<C-u>packadd vim-exchange <Bar> let g:loaded_exchange = 1<CR>gv' : ''
+      \ ) . '<Plug>(Exchange)'
