@@ -163,8 +163,8 @@ config.set('content.notifications.enabled', True)
 config.bind('J', 'tab-next')
 config.bind('K', 'tab-prev')
 config.bind('M', 'hint links spawn mpv --ytdl-format="bestvideo[ext=mp4][height<=?360]+bestaudio[ext=m4a]/best" {hint-url}')
-config.bind('Q', 'set-cmd-text -s :session-load')
-config.bind('ZX', 'set-cmd-text -s :session-save --only-active-window')
+config.bind('Q', 'cmd-set-text -s :session-load')
+config.bind('ZX', 'cmd-set-text -s :session-save --only-active-window')
 config.bind('ZQ', 'close')
 # Note: the downside of this approach is that, we can only save and close one
 # one session. if we have two session opened, this mapping will screw up our session.
