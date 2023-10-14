@@ -138,7 +138,7 @@ config.set('downloads.location.directory','/home/bruhtus/downloads/')
 
 # Change tabs position and tabs padding
 config.set('tabs.position', 'left')
-# config.set('tabs.width', '8%')
+config.set('tabs.width', '8%')
 c.tabs.padding = {'top': 0, 'bottom': 0, 'left': 0, 'right': 0}
 
 # Do not display tab and statusbar at startup
