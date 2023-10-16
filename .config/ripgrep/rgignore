@@ -1,5 +1,4 @@
 *.git/
-*pack/minpac
 *pack/packager
 *gems/
 *gnome/
