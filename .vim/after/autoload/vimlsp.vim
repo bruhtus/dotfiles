@@ -27,7 +27,7 @@ function! vimlsp#init() abort
   nmap <buffer> K <Plug>(lsp-hover-float)
   nmap <buffer> <F12> <Plug>(lsp-preview-close)<Plug>(lsp-float-close)
 
-  nnoremap <silent> <buffer> gs :<C-u>call <SID>diagnostics_float()<CR>
+  nnoremap <silent> <buffer> <leader>e :<C-u>call <SID>diagnostics_float()<CR>
   nmap <silent> <buffer> gy <Plug>(lsp-document-diagnostics)
   nnoremap <silent> <buffer> gY :<C-u>LspDocumentDiagnostics --buffers=*<CR>
   nmap <silent> <buffer> gz <Plug>(lsp-references)
