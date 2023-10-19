@@ -47,6 +47,10 @@ gaf() {
 }
 
 gcff() {
+	local inside_worktree
+	inside_worktree=$(git rev-parse --is-inside-work-tree) || return "$?"
+	[ "$inside_worktree" = false ] && echo 'Not inside git worktree' && return 1
+
 	git diff --name-only HEAD $1 | \
 		fzf --ansi --multi --height=80% --reverse --preview="git diff --color=always HEAD $1 -- {1}" --preview-window=nohidden | \
 		xargs -r git restore -s $1
