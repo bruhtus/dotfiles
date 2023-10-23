@@ -134,6 +134,9 @@ export PYTHONHISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/python_history"
 export PYTHONPYCACHEPREFIX="${XDG_CACHE_HOME:-$HOME/.cache}/python"
 export PYTHONUSERBASE="${XDG_DATA_HOME:-$HOME/.local/share}/python"
 
+# docker
+export DOCKER_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/docker"
+
 # coloring less
 export MANPAGER='less -R --use-color -DER -DPY -Ddg -Du+b'
 export MANROFFOPT='-P -c'
