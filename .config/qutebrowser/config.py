@@ -162,7 +162,7 @@ config.set('content.notifications.enabled', True)
 # Bindings for normal mode
 config.bind('J', 'tab-next')
 config.bind('K', 'tab-prev')
-config.bind('M', 'hint links spawn mpv --ytdl-format="bestvideo[ext=mp4][height<=?360]+bestaudio[ext=m4a]/best" {hint-url}')
+config.bind('M', 'hint links spawn youtube-viewer --resolution=480p {hint-url}')
 config.bind('Q', 'cmd-set-text -s :session-load')
 config.bind('ZX', 'cmd-set-text -s :session-save --only-active-window')
 config.bind('ZQ', 'close')
