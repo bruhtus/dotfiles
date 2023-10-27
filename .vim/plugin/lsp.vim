@@ -4,7 +4,7 @@ function! IDE() abort
     let g:lsp_auto_enable = 0
     let g:lsp_document_code_action_signs_enabled = 0
     let g:lsp_settings_enable_suggestions = 0
-    let g:lsp_diagnostics_echo_cursor = 1
+    let g:lsp_diagnostics_echo_cursor = 0
     let g:lsp_diagnostics_echo_delay = 1
     let g:lsp_signature_help_enabled = 0
     let g:lsp_document_highlight_enabled = 0
