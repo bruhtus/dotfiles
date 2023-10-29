@@ -58,25 +58,24 @@ endfunction
 " toggle lsp
 nnoremap <silent> <leader>q :<C-u>call IDE()<CR>
 
-let g:lsp_filetype = [
-      \   'typescript',
-      \   'typescriptreact',
-      \   'javascript',
-      \   'dart',
-      \   'terraform',
-      \ ]
+" let g:lsp_filetype = [
+"       \   'typescript',
+"       \   'typescriptreact',
+"       \   'javascript',
+"       \   'dart',
+"       \   'terraform',
+"       \ ]
 
-augroup lazy_load_lsp
-  autocmd!
-
-  if has('patch-8.1.1113')
-    exe 'autocmd FileType \v(' . join(g:lsp_filetype, '|') . ') ++once'
-          \ . ' call IDE() | augroup! lazy_load_lsp'
-  else
-    exe 'autocmd FileType \v(' . join(g:lsp_filetype, '|') . ')'
-          \ . ' call IDE() | autocmd! lazy_load_lsp FileType | augroup! lazy_load_lsp'
-  endif
-augroup END
+" augroup lazy_load_lsp
+"   autocmd!
+"   if has('patch-8.1.1113')
+"     exe 'autocmd FileType \v(' . join(g:lsp_filetype, '|') . ') ++once'
+"           \ . ' call IDE() | augroup! lazy_load_lsp'
+"   else
+"     exe 'autocmd FileType \v(' . join(g:lsp_filetype, '|') . ')'
+"           \ . ' call IDE() | autocmd! lazy_load_lsp FileType | augroup! lazy_load_lsp'
+"   endif
+" augroup END
 
 " let s:lsp_server_dir = $HOME . '/.local/share/vim-lsp-settings/servers/typescript-language-server'
 
