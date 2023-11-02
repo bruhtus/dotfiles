@@ -39,10 +39,10 @@ function! vimlsp#init() abort
     imap <buffer> <C-j> <C-\><C-o><Plug>(lsp-signature-help)
   endif
 
-  nnoremap <expr> <buffer> <C-]> lsp#scroll(+4)
-  nnoremap <expr> <buffer> <C-[> lsp#scroll(-4)
-  inoremap <expr> <buffer> <C-f> lsp#scroll(+4)
-  inoremap <expr> <buffer> <C-b> lsp#scroll(-4)
+  nnoremap <expr> <buffer> ]- lsp#scroll(+1)
+  nnoremap <expr> <buffer> [- lsp#scroll(-1)
+  " inoremap <expr> <buffer> <C-f> lsp#scroll(+4)
+  " inoremap <expr> <buffer> <C-b> lsp#scroll(-4)
 endfunction
 
 " Note:
