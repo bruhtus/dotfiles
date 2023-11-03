@@ -32,12 +32,12 @@ function! vimlsp#init() abort
   nnoremap <silent> <buffer> gY :<C-u>LspDocumentDiagnostics --buffers=*<CR>
   nmap <silent> <buffer> gz <Plug>(lsp-references)
 
-  if has('patch-8.2.1978')
-    inoremap <buffer> <C-j> <Cmd>call
-          \ lsp#ui#vim#signature_help#get_signature_help_under_cursor()<CR>
-  else
+  " if has('patch-8.2.1978')
+  "   inoremap <buffer> <C-j> <Cmd>call
+  "         \ lsp#ui#vim#signature_help#get_signature_help_under_cursor()<CR>
+  " else
     imap <buffer> <C-j> <C-\><C-o><Plug>(lsp-signature-help)
-  endif
+  " endif
 
   nnoremap <expr> <buffer> ]- lsp#scroll(+1)
   nnoremap <expr> <buffer> [- lsp#scroll(-1)
