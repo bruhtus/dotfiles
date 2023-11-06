@@ -22,8 +22,7 @@ function! s:FnmatchReplace(pat) abort
   elseif a:pat =~# '^{[+-]\=\d\+\.\.[+-]\=\d\+}$'
     return '\%(' . join(range(matchstr(a:pat, '[+-]\=\d\+'), matchstr(a:pat, '\.\.\zs[+-]\=\d\+')), '\|') . '\)'
   elseif a:pat =~# '^{.*\\\@<!\%(\\\\\)*,.*}$'
-    " TODO: remove space after comma
-    return '\%(' . substitute(a:pat[1:-2], ',\|\%(\\.\|{[^\{}]*}\|[^,]\)*', '\=submatch(0) ==# "," ? "\\|" : s:FnmatchTranslate(submatch(0))', 'g') . '\)'
+    return '\%(' . substitute(a:pat[1:-2], ',\s*\|\%(\\.\|{[^\{}]*}\|[^,]\)*', '\=submatch(0) =~# ",\s*" ? "\\|" : s:FnmatchTranslate(submatch(0))', 'g') . '\)'
   elseif a:pat =~# '^{.*}$'
     return '{' . s:FnmatchTranslate(a:pat[1:-2]) . '}'
   elseif a:pat =~# '^\[!'
