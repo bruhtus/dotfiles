@@ -135,7 +135,7 @@ function! s:ApplyEditorConfig(config) abort
     let [&l:ts, &l:et] = [l:pairs.tab_width, 0]
   endif
 
-  if get(l:pairs, 'trim_trailing_whitespace', '') =~? '^true$\|^false$'
+  if get(l:pairs, 'trim_trailing_whitespace', '') =~? '^false$'
     " check plugin/trim-whitespace.vim
     let b:no_trim_whitespace = 1
   endif
