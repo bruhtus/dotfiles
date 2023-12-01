@@ -64,7 +64,7 @@ alias \
 	gp='git push' \
 	gpf='git push --force-with-lease' \
 	ggp='git push -u origin "$(git branch --show-current)"' \
-	ggpd='git push origin -d "$(git branch --show-current)"'
+	ggpd='git push origin -d "$(git branch --show-current)" && git branch --unset-upstream'
 
 alias \
 	gb='git branch' \
