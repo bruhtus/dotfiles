@@ -1,0 +1,70 @@
+[colors.bright]
+black = "#3b3b3b"
+blue = "#5fafff"
+cyan = "#87ffff"
+green = "#87d787"
+magenta = "#d75fd7"
+red = "#ff5f5f"
+white = "#d9d9d9"
+yellow = "#ffd751"
+
+[colors.normal]
+black = "#121212"
+blue = "#5f87ff"
+cyan = "#5fafaf"
+green = "#5faf5f"
+magenta = "#d787af"
+red = "#d75f5f"
+white = "#b9b9b9"
+yellow = "#878700"
+
+[colors.primary]
+background = "#121212"
+foreground = "#d0d0d0"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 12.0
+
+[font.normal]
+family = "DejaVu Sans Mono"
+
+[font.offset]
+x = 0
+y = 0
+
+[[keyboard.bindings]]
+action = "ScrollLineUp"
+key = "K"
+mods = "Control|Alt"
+
+[[keyboard.bindings]]
+action = "ScrollLineDown"
+key = "J"
+mods = "Control|Alt"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "K"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "J"
+mods = "Control|Shift"
+
+[scrolling]
+history = 10000
+
+[window]
+title = "Alacritty"
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.padding]
+x = 0
+y = 0
