@@ -47,7 +47,7 @@ export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/ripgrep/ripgreprc"
 
 # dotbare
 export DOTBARE_TREE="$HOME"
-export DOTBARE_DIR="$HOME/.config"
+export DOTBARE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/dotbare"
 
 # psql
 export PSQL_PAGER=less
