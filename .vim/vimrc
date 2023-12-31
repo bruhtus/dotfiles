@@ -53,15 +53,17 @@ if exists(':packadd') != 2 || $VIMNOPACK
   finish
 endif
 
-packadd! vim-surround
-" packadd! targets.vim
-" packadd! traces.vim
-packadd! vim-sneak
+if isdirectory(expand('~/.vim/pack'))
+  packadd! vim-surround
+  " packadd! targets.vim
+  " packadd! traces.vim
+  packadd! vim-sneak
 
-if expand('%') !~# '\v(psql.edit.*.sql|zsh\w*.zsh|bash-fc.\w*|COMMIT_EDITMSG)'
-  packadd! vim-dbml
-  " packadd! vim-bufstop
-  packadd! vim-commentary
-  packadd! vim-filebeagle
-  packadd! vim-projectionist
+  if expand('%') !~# '\v(psql.edit.*.sql|zsh\w*.zsh|bash-fc.\w*|COMMIT_EDITMSG)'
+    packadd! vim-dbml
+    " packadd! vim-bufstop
+    packadd! vim-commentary
+    packadd! vim-filebeagle
+    packadd! vim-projectionist
+  endif
 endif

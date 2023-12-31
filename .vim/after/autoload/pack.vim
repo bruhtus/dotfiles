@@ -1,16 +1,16 @@
 function! pack#init() abort
+  let l:init_opts = {
+        \ 'dir': expand('~/.vim')
+        \ }
+
   try
     if !exists('g:loaded_minpac') | packadd minpac | endif
-    call minpac#init()
+    call minpac#init(l:init_opts)
   catch /^Vim\%((\a\+)\)\=:E117/
-    if has('nvim')
-      exe '!git clone https://github.com/k-takata/minpac.git ' . stdpath('config') . '/pack/minpac/opt/minpac'
-    else
-      silent! exe '!git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac'
-      redraw!
-    endif
+    silent! exe '!git clone https://github.com/k-takata/minpac.git ' . l:init_opts.dir . '/pack/minpac/opt/minpac'
+    redraw!
     if !exists('g:loaded_minpac') | packadd minpac | endif
-    call minpac#init()
+    call minpac#init(l:init_opts)
   endtry
 
   call minpac#add('jidn/vim-dbml',                        { 'type': 'opt' })
