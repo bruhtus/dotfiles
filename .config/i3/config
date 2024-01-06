@@ -18,6 +18,7 @@ default_floating_border normal
 hide_edge_borders none
 font xft:URWGothic-Book 11
 floating_modifier $mod
+title_align center
 # #---End---# #
 
 # #---i3 Gaps---# #
