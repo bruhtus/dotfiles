@@ -1,5 +1,5 @@
 configuration {
-	modi: "window,run,drun,combi";
+	modi: "window,run,drun,combi,windowcd";
 	combi-modi: "run";
 	font: "DejaVu Sans Mono Medium 10";
 	show-icons: false;
