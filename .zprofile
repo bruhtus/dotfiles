@@ -32,6 +32,8 @@ export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/pnpm"
 export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/gem/bin"
 ## volta
 export PATH="$PATH:${XDG_CONFIG_HOME:-$HOME/.config}/volta/bin"
+## go
+export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/go/bin"
 
 # non xdg-open web browser
 # export BROWSER=lynx
