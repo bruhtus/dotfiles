@@ -49,12 +49,12 @@ zstyle ':vcs_info:git:*' actionformats ' %B%F{yellow}(%a)%f%%b %F{cyan}%10<..<%b
 # }
 
 # ref: https://stackoverflow.com/a/53823705
-+vi-git-stash() {
-  if [ $(git rev-parse --is-inside-work-tree 2>/dev/null) = true ] && \
-    git rev-list --quiet refs/stash 2>/dev/null; then
-      hook_com[misc]+='%F{white}$%f'
-  fi
-}
+# +vi-git-stash() {
+#   if [ $(git rev-parse --is-inside-work-tree 2>/dev/null) = true ] && \
+#     git rev-list --quiet refs/stash 2>/dev/null; then
+#       hook_com[misc]+='%F{white}$%f'
+#   fi
+# }
 
 # ref: https://github.com/zsh-users/zsh/blob/bffdbccda69683ce857dfad457e3209c0f00aa0c/Misc/vcs_info-examples#L180-L198
 +vi-git-ahead-behind() {
@@ -79,7 +79,7 @@ zstyle ':vcs_info:git:*' actionformats ' %B%F{yellow}(%a)%f%%b %F{cyan}%10<..<%b
   hook_com[misc]+=$track
 }
 
-zstyle ':vcs_info:git*+set-message:*' hooks git-ahead-behind git-stash
+zstyle ':vcs_info:git*+set-message:*' hooks git-ahead-behind
 
 # add ${vcs_info_msg_0} to the prompt
 # e.g. here we add the Git information in red
