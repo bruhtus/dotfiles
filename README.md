@@ -20,21 +20,15 @@ dotbare commit -m 'Add zshrc'
 dotbare push origin master
 ```
 
-## Restore dotfiles in new system
-> Note to myself: don't forget to make the script executable by doing
-> `chmod +x <filename>`
-
-> To enable updates-notifier, use
-> `systemctl --user enable --now updates-notifier.timer`
-
-Install zsh first, and then do the instruction below:
-
+## Restore this dotfiles in new system
+Install zsh first, and then run the command below per line:
 ```sh
 wget https://raw.githubusercontent.com/bruhtus/dotfiles/master/.config/zsh/minzsh
 . ./minzsh
 mzadd kazhala/dotbare
 export DOTBARE_DIR="$HOME/.local/state/dotbare"
 dotbare finit -u git@github.com:bruhtus/dotfiles.git
+systemctl --user enable --now updates-notifier.timer
 ```
 
 <details>
