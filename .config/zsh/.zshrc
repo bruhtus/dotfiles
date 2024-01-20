@@ -70,10 +70,10 @@ compinit -d ${XDG_CONFIG_HOME:-$HOME/.config}/zsh/zcompdump-$ZSH_VERSION
 # add zsh plugin
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" && \
   {
-    mzadd kazhala/dotbare ;
-    mzadd zsh-users/zsh-history-substring-search ;
-    # mzadd zsh-users/zsh-syntax-highlighting ;
-    # mzadd zdharma/fast-syntax-highlighting ;
+    mzadd kazhala/dotbare
+    # mzadd zsh-users/zsh-history-substring-search
+    # mzadd zsh-users/zsh-syntax-highlighting
+    # mzadd zdharma/fast-syntax-highlighting
   }
 
 # vim keys to tab complete menu
@@ -83,10 +83,11 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 
 # zsh-history-substring-search keybindings
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+# bindkey '^[[A' history-substring-search-up
+# bindkey '^[[B' history-substring-search-down
 # bindkey -M vicmd 'k' history-substring-search-up
 # bindkey -M vicmd 'j' history-substring-search-down
+
 bindkey -M vicmd 'k' up-line
 bindkey -M vicmd 'j' down-line
 
