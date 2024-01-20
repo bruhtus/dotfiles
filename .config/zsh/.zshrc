@@ -65,7 +65,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu select
 autoload -Uz compinit
 zmodload zsh/complist
-compinit -d ${XDG_CONFIG_HOME:-$HOME/.config}/zsh/zcompdump-$ZSH_VERSION
+compinit -d ${XDG_STATE_HOME:-$HOME/.local/state}/zcompdump
 
 # add zsh plugin
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" && \
