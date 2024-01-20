@@ -196,17 +196,17 @@ psqld() {
 # 3. this function doesn't change the env inside vim. so we still need to
 # restart vim.
 [ ! -z $TMUX ] && \
-  function renew_tmux_shell_env() {
-    local tmux_env=$(grep "^${1:-DISPLAY}" <(tmux showenv))
-    # ref:
-    # https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
-    # https://unix.stackexchange.com/q/599771
-    {
-      [ ! -z ${1:-DISPLAY/#/$} ] && [ -z $tmux_env ] && unset ${1:-DISPLAY}
-    } || {
-      [ ! -z $tmux_env ] && export $tmux_env
-    }
-  }
+	function renew_tmux_shell_env() {
+		local tmux_env=$(grep "^${1:-DISPLAY}" <(tmux showenv))
+		# ref:
+		# https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
+		# https://unix.stackexchange.com/q/599771
+		{
+			[ ! -z ${1:-DISPLAY/#/$} ] && [ -z $tmux_env ] && unset ${1:-DISPLAY}
+		} || {
+			[ ! -z $tmux_env ] && export $tmux_env
+		}
+	}
 
 #directories alias
 alias \
