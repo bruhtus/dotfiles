@@ -8,7 +8,8 @@
 setopt prompt_subst
 
 # autoload zsh add-zsh-hook and vcs_info functions (-U autoload w/o substition, -z use zsh style)
-autoload -Uz add-zsh-hook vcs_info
+autoload -Uz add-zsh-hook
+# autoload -Uz vcs_info
 
 # variables common to all prompt styles
 _prompt_newline_=$'\n%{\r%}'
@@ -29,17 +30,17 @@ _pyv_env_name() {
 add-zsh-hook precmd _pyv_env_name
 
 # run vcs_info just before a prompt is displayed (precmd)
-add-zsh-hook precmd vcs_info
+# add-zsh-hook precmd vcs_info
 
 # ref: https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#vcs_005finfo-Configuration
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' use-simple true
-# zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' check-for-staged-changes true
-zstyle ':vcs_info:*' unstagedstr '%F{red}!%f'
-zstyle ':vcs_info:*' stagedstr '%F{green}+%f'
-zstyle ':vcs_info:git:*' formats ' %F{cyan}%b%f %m%u%c'
-zstyle ':vcs_info:git:*' actionformats ' %B%F{yellow}(%a)%f%%b %F{cyan}%10<..<%b%<<%f %u%c'
+# zstyle ':vcs_info:*' enable git
+# zstyle ':vcs_info:*' use-simple true
+# # zstyle ':vcs_info:*' check-for-changes true
+# zstyle ':vcs_info:*' check-for-staged-changes true
+# zstyle ':vcs_info:*' unstagedstr '%F{red}!%f'
+# zstyle ':vcs_info:*' stagedstr '%F{green}+%f'
+# zstyle ':vcs_info:git:*' formats ' %F{cyan}%b%f %m%u%c'
+# zstyle ':vcs_info:git:*' actionformats ' %B%F{yellow}(%a)%f%%b %F{cyan}%10<..<%b%<<%f %u%c'
 
 # +vi-git-untracked() {
 #   if [ $(git rev-parse --is-inside-work-tree 2>/dev/null) = true ] && \
@@ -87,7 +88,7 @@ zstyle ':vcs_info:git:*' actionformats ' %B%F{yellow}(%a)%f%%b %F{cyan}%10<..<%b
 PROMPT='${_prompt_newline_}'
 PROMPT+='%F{green}%n%f@%F{green}%M%f '
 PROMPT+='%B%F{blue}%(4~|%-1~/../%2~|%~)%f%b'
-PROMPT+='${vcs_info_msg_0_}'
+# PROMPT+='${vcs_info_msg_0_}'
 PROMPT+=' $PYV_ENV_NAME'
 PROMPT+='${_prompt_newline_}%(?:%F{green}%(!.#.>)%f :%?%F{red}%(!.#.>)%f )'
 
