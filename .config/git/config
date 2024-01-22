@@ -26,3 +26,5 @@
 	verbose = true
 [safe]
 	directory = /opt/flutter
+[diff]
+	wsErrorHighlight = all
