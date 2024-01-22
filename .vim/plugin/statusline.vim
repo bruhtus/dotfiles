@@ -32,11 +32,11 @@ function! StatuslineActive() abort
   " Note: truncate from the right.
   " Ref: https://stackoverflow.com/a/20899652
   " let l:git = "  %([%{winwidth(0) > 70 ? strpart(GitBranch(), 0, 20) : ''}]%)"
-  let l:git = "%([%{winwidth(0) > 100 ? GitBranch() :
-        \ winwidth(0) > 70 ?
-        \ (strlen(GitBranch()) > 6 ? '...' . GitBranch()[-3:]
-        \ : GitBranch())
-        \ : ''}]%)"
+  " let l:git = "%([%{winwidth(0) > 100 ? GitBranch() :
+  "       \ winwidth(0) > 70 ?
+  "       \ (strlen(GitBranch()) > 6 ? '...' . GitBranch()[-3:]
+  "       \ : GitBranch())
+  "       \ : ''}]%)"
 
   let l:sep = '%='
 
@@ -81,7 +81,7 @@ function! StatuslineActive() abort
         \ .l:zoom
         \ .l:ses
         \ .l:lsp
-        \ .l:git
+        "\ .l:git
         \ .' '
         \ .l:indent
         \ .l:line
