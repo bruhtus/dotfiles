@@ -299,7 +299,7 @@ nnoremap <silent> gA :<C-u>echo strftime('%Y-%m-%d %H:%M:%S', '<c-r><c-w>')<cr>
 nnoremap <leader><Space> :<C-u>pwd<CR>
 
 " print current git branch
-nnoremap <expr> <leader>.
+nnoremap <expr> <silent> <leader>.
       \ exists('*GitBranch()') ?
       \ ':<C-u>echo GitBranch()<CR>' :
       \ ':<C-u>echo "GitBranch() does not exist"<CR>'
