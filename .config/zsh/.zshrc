@@ -63,15 +63,16 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # basic auto-tab complete
 zstyle ':completion:*' menu select
-autoload -Uz compinit
 zmodload zsh/complist
-zcompdump="${XDG_STATE_HOME:-$HOME/.local/state}/zcompdump"
-compinit -d $zcompdump
-# ref:
-# - man zshbuiltins
-# - https://github.com/romkatv/zsh-bench/blob/3b4896c4840c64bea8e79b8392a93dfdc5a0a096/configs/diy%2B%2B/skel/.zshrc#L32
-[ $zcompdump.zwc -nt $zcompdump ] || zcompile -R $zcompdump
-unset -v zcompdump
+zmodload zsh/computil
+# autoload -Uz compinit
+# zcompdump="${XDG_STATE_HOME:-$HOME/.local/state}/zcompdump"
+# compinit -d $zcompdump
+# # ref:
+# # - man zshbuiltins
+# # - https://github.com/romkatv/zsh-bench/blob/3b4896c4840c64bea8e79b8392a93dfdc5a0a096/configs/diy%2B%2B/skel/.zshrc#L32
+# [ $zcompdump.zwc -nt $zcompdump ] || zcompile -R $zcompdump
+# unset -v zcompdump
 
 # add zsh plugin
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" && \
