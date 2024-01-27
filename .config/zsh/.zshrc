@@ -57,22 +57,33 @@ SAVEHIST=10000000
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/gitrc" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/gitrc"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/pyv" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/pyv"
 
-# case insensitive completion
-# ref: https://superuser.com/a/1092328
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-
 # basic auto-tab complete
-zstyle ':completion:*' menu select
 zmodload zsh/complist
 zmodload zsh/computil
-# autoload -Uz compinit
-# zcompdump="${XDG_STATE_HOME:-$HOME/.local/state}/zcompdump"
-# compinit -d $zcompdump
-# # ref:
-# # - man zshbuiltins
-# # - https://github.com/romkatv/zsh-bench/blob/3b4896c4840c64bea8e79b8392a93dfdc5a0a096/configs/diy%2B%2B/skel/.zshrc#L32
-# [ $zcompdump.zwc -nt $zcompdump ] || zcompile -R $zcompdump
-# unset -v zcompdump
+
+# ref:
+# - man zshcompsys
+# - check `compinstall` command
+# - https://superuser.com/a/1092328 (case insensitive completion)
+zstyle ':completion:*' completer _complete _ignored
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' file-sort name
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' menu select
+zstyle ':completion:*' use-compctl true
+
+# format: ':completion:<function>:<completer>:<command>:<argument>:<tag>'
+zstyle ':completion:*:*:ls:*:*' list-dirs-first true
+
+zcompdump="${XDG_STATE_HOME:-$HOME/.local/state}/zcompdump"
+autoload -Uz compinit
+compinit -d $zcompdump
+
+# ref:
+# - man zshbuiltins
+# - https://github.com/romkatv/zsh-bench/blob/3b4896c4840c64bea8e79b8392a93dfdc5a0a096/configs/diy%2B%2B/skel/.zshrc#L32
+[ $zcompdump.zwc -nt $zcompdump ] || zcompile -R $zcompdump
+unset -v zcompdump
 
 # add zsh plugin
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" && \
