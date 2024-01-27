@@ -69,7 +69,7 @@ zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' file-sort name
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' menu yes=long select
+zstyle ':completion:*' menu yes select interactive
 zstyle ':completion:*' select-prompt '%l'
 zstyle ':completion:*' use-compctl true
 
@@ -97,10 +97,10 @@ unset -v zcompdump
   }
 
 # vim keys to tab complete menu
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
+# bindkey -M menuselect 'h' vi-backward-char
+# bindkey -M menuselect 'j' vi-down-line-or-history
+# bindkey -M menuselect 'k' vi-up-line-or-history
+# bindkey -M menuselect 'l' vi-forward-char
 
 # zsh-history-substring-search keybindings
 # bindkey '^[[A' history-substring-search-up
