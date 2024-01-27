@@ -124,6 +124,9 @@ bindkey '^X^E' edit-command-line
 # delete word until non-alphanumeric character
 bindkey '^[^H' vi-backward-kill-word
 
+# expand word from left of cursor instead of under the cursor
+bindkey '^I' expand-or-complete-prefix
+
 # ref: https://stackoverflow.com/a/23134765
 # bindkey '^A' beginning-of-line
 # bindkey '^E' end-of-line
