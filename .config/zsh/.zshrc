@@ -79,6 +79,7 @@ zstyle ':completion:*:*:ls:*:*' list-dirs-first true
 zcompdump="${XDG_STATE_HOME:-$HOME/.local/state}/zcompdump"
 autoload -Uz compinit
 compinit -d $zcompdump
+_comp_options+=(globdots)
 
 # ref:
 # - man zshbuiltins
