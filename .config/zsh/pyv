@@ -4,7 +4,14 @@
 alias pde='deactivate'
 
 pve() {
-	[ -d $PYV_DIR ] && \ls --format=single-column $PYV_DIR || echo "No python virtual env on $PYV_DIR"
+	[ -d $PYV_DIR ] || {
+		echo "$PYV_DIR does not exist" && return
+	}
+
+	[ $(\ls --format=single-column $PYV_DIR | wc -l) = 0 ] && \
+		echo "No python virtual env on $PYV_DIR" && return
+
+	\ls --format=single-column $PYV_DIR
 }
 
 #create python virtual env
