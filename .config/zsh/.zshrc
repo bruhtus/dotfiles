@@ -111,9 +111,6 @@ unset -v zcompdump
 bindkey -M vicmd 'k' up-line
 bindkey -M vicmd 'j' down-line
 
-#figlet -f slant bruhtus
-#pfetch
-
 # ref edit-command-line: `man zshcontrib`
 # ref autoload: `man zshbuiltins`
 # ref zle: `man zshzle`
