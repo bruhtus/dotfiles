@@ -108,8 +108,8 @@ unset -v zcompdump
 # bindkey -M vicmd 'k' history-substring-search-up
 # bindkey -M vicmd 'j' history-substring-search-down
 
-bindkey -M vicmd 'k' up-line
-bindkey -M vicmd 'j' down-line
+# bindkey -M vicmd 'k' up-line
+# bindkey -M vicmd 'j' down-line
 
 # ref edit-command-line: `man zshcontrib`
 # ref autoload: `man zshbuiltins`
