@@ -11,6 +11,10 @@ function! IDE() abort
     let g:lsp_diagnostics_virtual_text_enabled = 0
     let g:lsp_fold_enabled = 0
     let g:lsp_float_max_width = winwidth(0)
+    " Note: there's an error E685 when delete with range while there's a
+    " diagnostics highlight.
+    " Issue: https://github.com/prabirshrestha/vim-lsp/issues/888
+    let g:lsp_diagnostics_highlights_enabled = 0
     " let g:lsp_diagnostics_float_cursor = 1
     " let g:lsp_diagnostics_float_delay = 1
     " let g:lsp_log_file = expand('~/.vim/lsp.log')

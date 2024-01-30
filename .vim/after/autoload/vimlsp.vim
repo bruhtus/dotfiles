@@ -11,10 +11,6 @@ function! vimlsp#init() abort
   let g:lsp_diagnostics_signs_insert_mode_enabled = 1
   let g:lsp_format_sync_timeout = 1000
   let g:lsp_preview_float = 1
-  " Note: there's an error E685 when delete with range while there's a
-  " diagnostics highlight.
-  " Issue: https://github.com/prabirshrestha/vim-lsp/issues/888
-  let g:lsp_diagnostics_highlights_enabled = 0
   " let g:lsp_diagnostics_highlights_delay = 1
   " let g:lsp_hover_ui = 'float'
 
