@@ -48,8 +48,8 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 bindsym $mod+Ctrl+plus move scratchpad
 bindsym $mod+Ctrl+minus scratchpad show
-bindsym $mod+slash workspace next
-bindsym $mod+period workspace prev
+# bindsym $mod+slash workspace next
+# bindsym $mod+period workspace prev
 
 # bindsym $mod+Ctrl+0 gaps inner current set $inner_gaps; gaps outer current set $outer_gaps
 # bindsym $mod+Ctrl+plus  gaps inner current plus 5
