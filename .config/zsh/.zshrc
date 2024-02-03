@@ -42,6 +42,9 @@ REPORTTIME=10
 # https://wiki.archlinux.org/title/User-mode_Linux
 TIMEFMT='%J  %*U user %*S system %P cpu %*E total'
 
+# ref: man zshparam
+ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;'
+
 #history
 HISTSIZE=100000000
 SAVEHIST=10000000
