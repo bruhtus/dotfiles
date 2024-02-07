@@ -84,8 +84,8 @@ VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # add ${vcs_info_msg_0} to the prompt
 # shorten path ref: https://unix.stackexchange.com/a/273567
-PROMPT='${_prompt_newline_}'
-PROMPT+='%F{green}%n%f@%F{green}%M%f '
+# PROMPT='${_prompt_newline_}'
+PROMPT='%F{green}%n%f@%F{green}%M%f '
 PROMPT+='%B%F{blue}%(4~|%-1~/../%2~|%~)%f%b'
 # PROMPT+='${vcs_info_msg_0_}'
 # PROMPT+=' $PYV_ENV_NAME'
