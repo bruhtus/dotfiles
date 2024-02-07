@@ -8,7 +8,7 @@
 setopt prompt_subst
 
 # autoload zsh add-zsh-hook and vcs_info functions (-U autoload w/o substition, -z use zsh style)
-autoload -Uz add-zsh-hook
+# autoload -Uz add-zsh-hook
 # autoload -Uz vcs_info
 
 # variables common to all prompt styles
@@ -17,17 +17,17 @@ _prompt_newline_=$'\n%{\r%}'
 # disable python venv prompt
 VIRTUAL_ENV_DISABLE_PROMPT=1
 
-_pyv_env_name() {
-  local venv="${VIRTUAL_ENV##*/}"
-  {
-    [ ! -z "$venv" ] && PYV_ENV_NAME="${venv/#/pyv:}"
-  } || {
-    [ ! -z "$PYV_ENV_NAME" ] && unset PYV_ENV_NAME
-  }
-}
+# _pyv_env_name() {
+#   local venv="${VIRTUAL_ENV##*/}"
+#   {
+#     [ ! -z "$venv" ] && PYV_ENV_NAME="${venv/#/pyv:}"
+#   } || {
+#     [ ! -z "$PYV_ENV_NAME" ] && unset PYV_ENV_NAME
+#   }
+# }
 
 # get python venv name before a prompt is displayed (precmd)
-add-zsh-hook precmd _pyv_env_name
+# add-zsh-hook precmd _pyv_env_name
 
 # run vcs_info just before a prompt is displayed (precmd)
 # add-zsh-hook precmd vcs_info
@@ -83,13 +83,12 @@ add-zsh-hook precmd _pyv_env_name
 # zstyle ':vcs_info:git*+set-message:*' hooks git-ahead-behind
 
 # add ${vcs_info_msg_0} to the prompt
-# e.g. here we add the Git information in red
 # shorten path ref: https://unix.stackexchange.com/a/273567
 PROMPT='${_prompt_newline_}'
 PROMPT+='%F{green}%n%f@%F{green}%M%f '
 PROMPT+='%B%F{blue}%(4~|%-1~/../%2~|%~)%f%b'
 # PROMPT+='${vcs_info_msg_0_}'
-PROMPT+=' $PYV_ENV_NAME'
+# PROMPT+=' $PYV_ENV_NAME'
 PROMPT+='${_prompt_newline_}%(?:%F{green}%(!.#.>)%f :%?%F{red}%(!.#.>)%f )'
 
 # vim:ft=zsh
