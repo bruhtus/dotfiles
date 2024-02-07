@@ -168,7 +168,10 @@ dum() {
 # 	$EDITOR -R <(python $@)
 # }
 
-#kill process
+# kill process
+# ref:
+# - man signal.7
+# - kill -l (list signal)
 kj() {
 	ps -eHo pid,ppid,comm | fzf --layout=reverse-list | awk '{print $1}' | xargs -or kill
 }
