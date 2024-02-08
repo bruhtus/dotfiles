@@ -19,6 +19,7 @@ hide_edge_borders none
 font xft:URWGothic-Book 11
 floating_modifier $mod
 title_align center
+focus_wrapping workspace
 # #---End---# #
 
 # #---i3 Gaps---# #
