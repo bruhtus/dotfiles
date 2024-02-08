@@ -21,6 +21,7 @@ floating_modifier $mod
 title_align center
 focus_wrapping workspace
 focus_follows_mouse no
+focus_on_window_activation urgent
 # #---End---# #
 
 # #---i3 Gaps---# #
