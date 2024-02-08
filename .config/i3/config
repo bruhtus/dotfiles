@@ -20,6 +20,7 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 title_align center
 focus_wrapping workspace
+focus_follows_mouse no
 # #---End---# #
 
 # #---i3 Gaps---# #
