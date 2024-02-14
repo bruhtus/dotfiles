@@ -4,6 +4,7 @@ bindkey -e
 # ref:
 # https://zsh.sourceforge.io/Doc/Release/Options.html
 # https://unix.stackexchange.com/a/670027
+# history options explanation: https://zsh.sourceforge.io/Guide/zshguide02.html#l18
 setopt autocd
 setopt auto_pushd
 # setopt pushd_minus
