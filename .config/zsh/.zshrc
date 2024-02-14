@@ -22,7 +22,7 @@ setopt hist_verify
 setopt hist_no_store
 setopt hist_reduce_blanks
 setopt share_history
-setopt append_history
+# setopt append_history
 # setopt inc_append_history
 unsetopt menu_complete
 setopt always_to_end
