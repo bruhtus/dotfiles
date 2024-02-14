@@ -19,6 +19,7 @@ setopt hist_save_no_dups
 setopt hist_save_by_copy
 setopt hist_verify
 setopt hist_no_store
+setopt hist_reduce_blanks
 setopt share_history
 setopt append_history
 # setopt inc_append_history
