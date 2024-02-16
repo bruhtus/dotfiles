@@ -272,7 +272,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # exec --no-startup-id xwallpaper --maximize all-repos/wallpaper/wallpaper.jpg; picom -b
 exec --no-startup-id killall -q pomo; pomo notify &
 exec --no-startup-id [ -z $(grep 'syncthing' <(ps -eo comm) | tr -d '\n') ] && syncthing --no-browser
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id dunst
 # exec --no-startup-id blueman-tray
