@@ -42,8 +42,8 @@ TIMEFMT='%J  %*U user %*S system %P cpu %*E total'
 ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;'
 
 # history
-HISTSIZE=100000000
-SAVEHIST=10000000
+HISTSIZE=1000000000
+SAVEHIST=100000000
 HISTORY_IGNORE='(cd|cd ..|less *|ls|ls *|d|[1-9]|sx|qwe|sd|da|ds|sc|cs|v|zxc|dba|dba -p *|dbc|dbd|dbp|cpu|mem|t|ta *|kj|gss|gd|gaf|gc|gc -a|gp|gpf|ggp|gbd|nj|gch -|gco|gct|ggl|ggl *|gl|gmt|gurm|gres|gfp|gwl|gwa|gwr|gst|gstu|gstp|gstf|gstl|gcd)'
 # create .local/state directory if it doesn't exist
 # parameter expansion: https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
