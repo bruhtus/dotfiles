@@ -69,7 +69,7 @@ zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' file-sort name
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' menu yes select interactive
+zstyle ':completion:*' menu yes=long select interactive
 zstyle ':completion:*' select-prompt '%l'
 zstyle ':completion:*' use-compctl true
 
