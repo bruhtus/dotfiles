@@ -88,13 +88,13 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+Shift+n focus child
 bindsym $mod+Shift+z layout toggle split
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
-bindsym $mod+Shift+slash move container to workspace next; workspace next
-bindsym $mod+Shift+period move container to workspace prev; workspace prev
+# bindsym $mod+Shift+slash move container to workspace next; workspace next
+# bindsym $mod+Shift+period move container to workspace prev; workspace prev
 
 bindsym $mod+Ctrl+f fullscreen toggle
 bindsym $mod+Ctrl+b move container to workspace back_and_forth
-bindsym $mod+Ctrl+slash move container to workspace next
-bindsym $mod+Ctrl+period move container to workspace prev
+# bindsym $mod+Ctrl+slash move container to workspace next
+# bindsym $mod+Ctrl+period move container to workspace prev
 
 bindsym $mod+Ctrl+Shift+h exec --no-startup-id i3resize left
 bindsym $mod+Ctrl+Shift+j exec --no-startup-id i3resize down
