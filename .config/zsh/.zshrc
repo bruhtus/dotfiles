@@ -18,7 +18,7 @@ setopt hist_save_no_dups
 setopt hist_verify
 setopt hist_no_store
 setopt hist_reduce_blanks
-setopt share_history
+setopt inc_append_history
 setopt always_to_end
 unsetopt menu_complete
 
