@@ -8,11 +8,8 @@ bindkey -e
 # currently unset options: `unsetopt`
 setopt autocd
 setopt auto_pushd
-# setopt pushd_minus
 setopt pushd_silent
 setopt pushd_ignore_dups
-# setopt extended_history
-# setopt hist_expire_dups_first
 setopt hist_find_no_dups
 setopt hist_ignore_dups
 setopt hist_ignore_all_dups
@@ -22,12 +19,8 @@ setopt hist_verify
 setopt hist_no_store
 setopt hist_reduce_blanks
 setopt share_history
-# setopt append_history
-# setopt inc_append_history
-unsetopt menu_complete
 setopt always_to_end
-# setopt no_flow_control
-# unsetopt complete_aliases
+unsetopt menu_complete
 
 #(hopefully) remove maximum nested function level reached; increase FUNCNEST?
 #still not sure what's going on
