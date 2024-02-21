@@ -11,8 +11,14 @@ let g:projectionist_heuristics = {
       \       "type": "package"
       \     },
       \   },
-      \   "docs/*.dbml": {
+      \   "docs/": {
       \     "docs/*.dbml": {
+      \       "type": "docs"
+      \     },
+      \     "docs/*.md": {
+      \       "type": "docs"
+      \     },
+      \     "docs/*.markdown": {
       \       "type": "docs"
       \     },
       \   },
