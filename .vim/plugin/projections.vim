@@ -12,13 +12,7 @@ let g:projectionist_heuristics = {
       \     },
       \   },
       \   "docs/": {
-      \     "docs/*.dbml": {
-      \       "type": "docs"
-      \     },
-      \     "docs/*.md": {
-      \       "type": "docs"
-      \     },
-      \     "docs/*.markdown": {
+      \     "docs/*": {
       \       "type": "docs"
       \     },
       \   },
