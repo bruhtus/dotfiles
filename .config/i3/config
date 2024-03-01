@@ -147,11 +147,6 @@ bindsym Ctrl+Shift+space exec dunstctl history-pop
 #bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 # #---End---# #
 
-# #---Function Key Bindings---# #
-bindsym $mod+Shift+F3 exec pcmanfm_pkexec
-bindsym $mod+F5 exec $term -e 'mocp'
-# #---End---# #
-
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
@@ -205,7 +200,6 @@ bindsym $mod+Shift+Return move container to workspace $ws10; workspace $ws10
 
 # Open applications on specific workspaces
 # ref: https://unix.stackexchange.com/a/363848
-# assign [class="Pcmanfm"] $ws3
 assign [title="btop"] $ws1
 assign [class="Alacritty" title="^(?!dropdown_)\w*$"] $ws10
 assign [class="Google-chrome"] $ws2
@@ -215,33 +209,9 @@ assign [class="TelegramDesktop"] $ws3
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="calamares"] floating enable border normal
-for_window [class="Clipgrab"] floating enable
 for_window [title="File Transfer*"] floating enable
-for_window [class="fpakman"] floating enable
-for_window [class="Galculator"] floating enable border pixel 1
-for_window [class="GParted"] floating enable border normal
-for_window [class="Lightdm-settings"] floating enable
-for_window [class="Lxappearance"] floating enable sticky enable border normal
-for_window [class="Manjaro Settings Manager"] floating enable border normal
-for_window [title="MuseScore: Play Panel"] floating enable
 for_window [class="mpv"] floating enable sticky enable
-for_window [class="Nitrogen"] floating enable sticky enable border normal
-for_window [class="Oblogout"] fullscreen enable
-for_window [class="octopi"] floating enable
-for_window [class="Pamac-manager"] floating enable
-for_window [class="Pavucontrol"] floating enable
 for_window [class="qt5ct"] floating enable sticky enable border normal
-for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
-for_window [class="Simple-scan"] floating enable border normal
-for_window [class="(?i)System-config-printer.py"] floating enable border normal
-for_window [class="Skype"] floating enable border normal
-for_window [class="Timeset-gui"] floating enable border normal
-for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [class="Xfburn"] floating enable
-
-# switch to workspace with urgent window automatically
-# for_window [urgent=latest] focus
 
 # Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
@@ -264,22 +234,13 @@ bindsym $mod+minus exec --no-startup-id blurlock
 # Autostart applications
 exec_always --no-startup-id startxrandr
 exec_always --no-startup-id remaps
-# exec_always --no-startup-id polybar-launch
-# exec_always --no-startup-id youtubedd
-# exec_always --no-startup-id terminaldd
 exec_always --no-startup-id tmuxdd
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # exec --no-startup-id xwallpaper --maximize all-repos/wallpaper/wallpaper.jpg; picom -b
 exec --no-startup-id killall -q pomo; pomo notify &
 # exec --no-startup-id [ -z $(grep 'syncthing' <(ps -eo comm) | tr -d '\n') ] && syncthing --no-browser
-# exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id dunst
-# exec --no-startup-id blueman-tray
-# exec --no-startup-id aarchup -t 10 -a /usr/bin/yay -Qua --loop-time 60
-# exec --no-startup-id blueman-applet
-# exec --no-startup-id $HOME/.config/conky/start_conky_color_scheme
-# exec --no-startup-id xautolock -time 10 -locker blurlock
 
 # Theme colors
 # class                  border  backgr. text    indicator child_border
@@ -291,18 +252,6 @@ client.urgent            #2f343a #d75f5f #ffffff #d75f5f   #d75f5f
 client.placeholder       #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background        #ffffff
-
-################################################################################################
-## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
-################################################################################################
-
-# exec --no-startup-id volumeicon
-# bindsym $mod+z exec $term -t 'alsamixer' -e 'alsamixer'
-#exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
-
-################################################################################################
 
 # Screen brightness controls
 # bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
