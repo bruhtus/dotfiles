@@ -48,55 +48,49 @@ function! enable#fzf#init()
 
       " exclude filenames when using Rg
       " Ref: https://github.com/junegunn/fzf.vim/issues/714#issuecomment-428802659
-      command! -bang -nargs=* CustomRg
-            \ call fzf#vim#grep(
-            \ "rg --column --line-number --no-heading --color=always --smart-case -- " . shellescape(<q-args>),
-            \ 1,
-            \ winheight(0) < 40 ? fzf#vim#with_preview(
-            \ {'options': '--with-nth=1,4.. --delimiter : --nth 2..'},
-            \ 'hidden', 'ctrl-/') :
-            \ winwidth(0) < 192 && winnr('$') == 1 ? fzf#vim#with_preview(
-            \ {'options': '--with-nth=1,4.. --delimiter : --nth 2..'},
-            \ 'up:50%:hidden', 'ctrl-/') :
-            \ fzf#vim#with_preview(
-            \ {'options': '--with-nth=1,4.. --delimiter : --nth 2..'},
-            \ 'hidden', 'ctrl-/'), <bang>0)
+      " command! -bang -nargs=* CustomRg
+      "       \ call fzf#vim#grep(
+      "       \ "rg --column --line-number --no-heading --color=always --smart-case -- " . shellescape(<q-args>),
+      "       \ 1,
+      "       \ winheight(0) < 40 ? fzf#vim#with_preview(
+      "       \ {'options': '--with-nth=1,4.. --delimiter : --nth 2..'},
+      "       \ 'hidden', 'ctrl-/') :
+      "       \ winwidth(0) < 192 && winnr('$') == 1 ? fzf#vim#with_preview(
+      "       \ {'options': '--with-nth=1,4.. --delimiter : --nth 2..'},
+      "       \ 'up:50%:hidden', 'ctrl-/') :
+      "       \ fzf#vim#with_preview(
+      "       \ {'options': '--with-nth=1,4.. --delimiter : --nth 2..'},
+      "       \ 'hidden', 'ctrl-/'), <bang>0)
 
       command! -bang -nargs=* Rg
             \ call fzf#vim#grep(
             \ "rg --column --line-number --no-heading --color=always --smart-case -- " . shellescape(<q-args>),
             \ 1,
-            \ winheight(0) < 40 ? fzf#vim#with_preview(
-            \ {'options': '--with-nth=1,4.. --delimiter :'},
-            \ 'hidden', 'ctrl-/') :
-            \ winwidth(0) < 192 && winnr('$') == 1 ? fzf#vim#with_preview(
-            \ {'options': '--with-nth=1,4.. --delimiter :'},
-            \ 'up:50%:hidden', 'ctrl-/') :
             \ fzf#vim#with_preview(
             \ {'options': '--with-nth=1,4.. --delimiter :'},
             \ 'hidden', 'ctrl-/'), <bang>0)
 
       " Custom BLines with preview (using ripgrep)
       " Ref: https://github.com/junegunn/fzf.vim/issues/374#issuecomment-724301156
-      command! -bang -nargs=* CustomBLines
-            \ call fzf#vim#grep(
-            \ 'rg --with-filename --column --line-number --no-heading --smart-case . ' . fnameescape(expand('%:p')),
-            \ 1,
-            \ winheight(0) < 40 ? fzf#vim#with_preview(
-            \ {'options': '--layout reverse-list --query ' . shellescape(<q-args>) . ' --with-nth=2,4.. --tiebreak=index --delimiter : --nth 2..'}, 'hidden', 'ctrl-/') :
-            \ winwidth(0) < 192 ? fzf#vim#with_preview(
-            \ {'options': '--layout reverse-list --query ' . shellescape(<q-args>) . ' --with-nth=2,4.. --tiebreak=index --delimiter : --nth 2..'}, 'up:50%:hidden', 'ctrl-/') :
-            \ fzf#vim#with_preview({'options': '--layout reverse-list --query ' . shellescape(<q-args>) . ' --with-nth=2,4.. --tiebreak=index --delimiter : --nth 2..'}, 'hidden', 'ctrl-/'))
+      " command! -bang -nargs=* CustomBLines
+      "       \ call fzf#vim#grep(
+      "       \ 'rg --with-filename --column --line-number --no-heading --smart-case . ' . fnameescape(expand('%:p')),
+      "       \ 1,
+      "       \ winheight(0) < 40 ? fzf#vim#with_preview(
+      "       \ {'options': '--layout reverse-list --query ' . shellescape(<q-args>) . ' --with-nth=2,4.. --tiebreak=index --delimiter : --nth 2..'}, 'hidden', 'ctrl-/') :
+      "       \ winwidth(0) < 192 ? fzf#vim#with_preview(
+      "       \ {'options': '--layout reverse-list --query ' . shellescape(<q-args>) . ' --with-nth=2,4.. --tiebreak=index --delimiter : --nth 2..'}, 'up:50%:hidden', 'ctrl-/') :
+      "       \ fzf#vim#with_preview({'options': '--layout reverse-list --query ' . shellescape(<q-args>) . ' --with-nth=2,4.. --tiebreak=index --delimiter : --nth 2..'}, 'hidden', 'ctrl-/'))
       " \   fzf#vim#with_preview({'options': '--layout reverse-list  --with-nth=-1.. --delimiter="/"'}, 'right:50%'))
     endif
 
     " preview at the top when winwidth less than 192
     " and at the right when winheight less than 40
-    command! -bang -nargs=? -complete=dir Files
-          \ call fzf#vim#files(<q-args>,
-          \ winheight(0) < 40 ? fzf#vim#with_preview('hidden', 'ctrl-/') :
-          \ winwidth(0) < 192 && winnr('$') == 1 ? fzf#vim#with_preview('up:50%:hidden', 'ctrl-/') :
-          \ fzf#vim#with_preview('hidden', 'ctrl-/'), <bang>0)
+    " command! -bang -nargs=? -complete=dir Files
+    "       \ call fzf#vim#files(<q-args>,
+    "       \ winheight(0) < 40 ? fzf#vim#with_preview('hidden', 'ctrl-/') :
+    "       \ winwidth(0) < 192 && winnr('$') == 1 ? fzf#vim#with_preview('up:50%:hidden', 'ctrl-/') :
+    "       \ fzf#vim#with_preview('hidden', 'ctrl-/'), <bang>0)
 
   endif
 endfunction
