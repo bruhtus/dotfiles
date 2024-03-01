@@ -49,6 +49,9 @@ if has('linebreak') | set showbreak=▲ | endif
 " to make vim session use absolute path, remove curdir option
 set sessionoptions-=blank sessionoptions-=options sessionoptions+=globals
 
+" jumping to errors with quickfix command.
+set switchbuf=uselast
+
 " to set CursorLineNr highlight
 " Ref: https://vi.stackexchange.com/a/24914
 " Note: the `cursorlineopt` is (finally) appear in nvim 0.6
