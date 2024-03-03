@@ -104,11 +104,11 @@ ggl() {
 	local upstream_branch_name="${upstream_reference#*/}"
 
 	# manually handle options that aren't listed:
-	# https://stackoverflow.com/a/31221377
-	while getopts :b:r:h option; do
+	# https://pubs.opengroup.org/onlinepubs/9699919799/utilities/getopts.html
+	while getopts :b:r: option; do
 		case "$option" in
 			b)
-				[ ! -z "${OPTARG#-[brh]}" ] &&
+				[ ! -z "${OPTARG#-[br]}" ] &&
 				{
 					git check-ref-format --branch "$OPTARG" >/dev/null &&
 						remote_branch_name="$OPTARG" ||
@@ -118,7 +118,7 @@ ggl() {
 				}
 				;;
 			r)
-				[ ! -z "${OPTARG#-[brh]}" ] &&
+				[ ! -z "${OPTARG#-[br]}" ] &&
 				{
 					git check-ref-format --allow-onelevel "$OPTARG" >/dev/null &&
 						remote_name="$OPTARG" ||
@@ -127,12 +127,12 @@ ggl() {
 					echo "Can not use option '$OPTARG' as argument" && return 1
 				}
 				;;
-			h)
-				echo "Usage: $0 [-b <branch-name>] [-r <remote-name>]"
-				return
+			:)
+				echo "Option -$OPTARG requires an argument"
+				return 1
 				;;
-			*)
-				echo "$0: '-$OPTARG' is not a valid option. Use '-h' for available options."
+			?)
+				echo 'Usage: ggl [-b <branch-name>] [-r <remote-name>]'
 				return 1
 				;;
 		esac
