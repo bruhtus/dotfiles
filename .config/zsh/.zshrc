@@ -44,7 +44,7 @@ ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;'
 # history
 HISTSIZE=1000000000
 SAVEHIST=100000000
-HISTORY_IGNORE='(cd|cd ..|less *|ls|ls *|d|[1-9]|sx|qwe|sd|da|ds|sc|cs|v|zxc|dba|dba -p *|dbc|dbd|dbp|cpu|mem|t|ta *|kj|gss|gd|gaf|gc|gc -a|gp|gpf|ggp|gbd|nj|gch -|gco|gct|ggl|ggl *|gl|gmt|gurm|gres|gfp|gwl|gwa|gwr|gst|gstu|gstp|gstf|gstl|gcd)'
+HISTORY_IGNORE='(cd|cd ..|less *|ls|ls *|d|[1-9]|sx|qwe|sd|da|ds|sc|cs|v|zxc|sdfa *|sdfa -p *|sdfc|sdfd|sdfd *|sdfs|sdfp|cpu|mem|t|ta *|kj|gss|gd|gaf|gc|gc -a|gp|gpf|ggp|gbd|nj|gch -|gco|gct|ggl|ggl *|gl|gmt|gurm|gres|gfp|gwl|gwa|gwr|gst|gstu|gstp|gstf|gstl|gcd)'
 # create .local/state directory if it doesn't exist
 # parameter expansion: https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
 # XDG_STATE_HOME explanation:
