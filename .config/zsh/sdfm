@@ -59,4 +59,8 @@ sdfa() {
   sdfm add "$@"
 }
 
+sdfd() {
+  sdfm diff "$@"
+}
+
 # vim:ft=sh
