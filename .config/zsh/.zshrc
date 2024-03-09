@@ -87,14 +87,18 @@ _comp_options+=(globdots)
 [ $zcompdump.zwc -nt $zcompdump ] || zcompile -R $zcompdump
 unset -v zcompdump
 
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/sdfm" ] && \
+  . "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/sdfm"
+
+compdef _files sdfa
+
 # add zsh plugin
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" && \
-  {
-    mzadd kazhala/dotbare
-    # mzadd zsh-users/zsh-history-substring-search
-    # mzadd zsh-users/zsh-syntax-highlighting
-    # mzadd zdharma/fast-syntax-highlighting
-  }
+# [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" && \
+#   {
+#     # mzadd zsh-users/zsh-history-substring-search
+#     # mzadd zsh-users/zsh-syntax-highlighting
+#     # mzadd zdharma/fast-syntax-highlighting
+#   }
 
 # vim keys to tab complete menu
 # bindkey -M menuselect 'h' vi-backward-char

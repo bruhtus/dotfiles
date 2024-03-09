@@ -2,32 +2,75 @@
 
 ![setup-screenshot](https://raw.githubusercontent.com/wiki/bruhtus/dotfiles/arch-linux-setup-sep-2023.png)
 
-This repo is to backup my linux configuration so that I don't need to
-re-configure every new installation.
-I use [dotbare](https://github.com/kazhala/dotbare) to manage my dotfiles.
-Below is the simplified version to setup dotbare.
+This repo is to backup my linux configuration so that i don't need to
+re-configure on every new installation.
+I use [sdfm](.config/zsh/sdfm) to manage my dotfiles.
 
-## Initialize dotbare to backup dotfiles
+## Initialize dotfiles git repo using SDFM
+
+We can use SDFM, which is a shell function that i created and
+you can check on `.config/zsh/sdfm` in this git repo, to manage our dotfiles.
+
+First, download the file using `wget` or `curl` like this:
 ```sh
-dotbare finit
+wget https://raw.githubusercontent.com/bruhtus/dotfiles/master/.config/zsh/sdfm
 ```
 
-#### Example command
+And then source the file (assuming we are on the same directory as the
+downloaded file):
 ```sh
-dotbare status
-dotbare add .zshrc
-dotbare commit -m 'Add zshrc'
-dotbare push origin master
+. ./sdfm
+```
+
+After that, we can initialize new dotfiles repo using this command:
+```sh
+sdfi
+```
+
+The default dotfiles git repo is in "$HOME/.local/state/sdfm". To change the
+default dotfiles git repo, we can use this command:
+```sh
+SDFM_GIT_DIR="$HOME/sdfm" sdfi
+```
+
+Don't forget to add the new $SDFM_GIT_DIR env variable into your shell
+config or edit the sdfm file before sourcing the file.
+
+To add a remote url, we can use this command:
+```sh
+sdfi -u <git-remote-url>
+```
+
+To add a file, we can use this command:
+```sh
+sdfa <file>
+```
+
+To commit the changes, we can use this command:
+```sh
+sdfc
+
+# or
+sdfc -m 'commit message'
+```
+
+To push the changes, we can use this command:
+```sh
+sdfp
+```
+
+To check the status of our dotfiles repo, we can use this command:
+```sh
+sdfs
 ```
 
 ## Restore this dotfiles in new system
+
 Install zsh first, and then run the command below per line:
 ```sh
-wget https://raw.githubusercontent.com/bruhtus/dotfiles/master/.config/zsh/minzsh
-. ./minzsh
-mzadd kazhala/dotbare
-export DOTBARE_DIR="$HOME/.local/state/dotbare"
-dotbare finit -u git@github.com:bruhtus/dotfiles.git
+wget https://raw.githubusercontent.com/bruhtus/dotfiles/master/.config/zsh/sdfm
+. ./sdfm
+sdfi -u https://github.com/bruhtus/dotfiles.git -fa
 systemctl --user enable --now updates-notifier.timer
 ```
 
@@ -58,9 +101,9 @@ Python venv manager  | [Pyv](https://github.com/bruhtus/pyv)
 </details>
 
 ## Resources
+
 - [Download only vim config](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/bruhtus/dotfiles/tree/master/.vim).
 - [Atlassian tutorial](https://www.atlassian.com/git/tutorials/dotfiles).
-- [Dotbare github repo](https://github.com/kazhala/dotbare).
 - [Alacritty color schemes](https://github.com/alacritty/alacritty-theme).
 - [Yanking in w3m](https://unix.stackexchange.com/questions/12497/yanking-urls-in-w3m).
 - [Keycode/keysym for xorg or i3wm](http://xahlee.info/linux/linux_show_keycode_keysym.html).

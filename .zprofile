@@ -47,10 +47,6 @@ export FZF_DEFAULT_OPTS="--height 20% --bind 'ctrl-/:toggle-preview,ctrl-n:previ
 # ripgrep
 export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/ripgrep/ripgreprc"
 
-# dotbare
-export DOTBARE_TREE="$HOME"
-export DOTBARE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/dotbare"
-
 # psql
 export PSQL_PAGER=less
 export PSQL_HISTORY="${XDG_STATE_HOME:-$HOME/.local/state}/psql_history"

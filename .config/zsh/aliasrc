@@ -44,17 +44,6 @@ alias \
 	mv='mv -iv' \
 	rm='rm -vI'
 
-#dotbare alias
-alias \
-	dba='dotbare add' \
-	dbc='dotbare commit' \
-	dbl='dotbare log' \
-	dblp='dotbare log -p' \
-	dblo='dotbare log --oneline' \
-	dbmv='dotbare mv' \
-	dbp='dotbare push' \
-	dbd='dotbare diff'
-
 #ls alias
 alias \
 	ls='ls -lhX --color=auto --group-directories-first'

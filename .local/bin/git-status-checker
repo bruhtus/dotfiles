@@ -6,9 +6,6 @@ status() {
     echo "$d"
     git -c color.ui=always -C "$d" status -s
   done
-
-  echo "$HOME"
-  dotbare -c color.ui=always -C "$HOME" status -s
 }
 
 status | less -FR
