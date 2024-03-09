@@ -35,7 +35,7 @@ sdfi() {
         ;;
       f)
         echo 'Fetching...'
-        sdfm fetch --depth=1 || return "$?"
+        sdfm fetch --depth=1 --set-upstream $SDFM_GIT_REMOTE $SDFM_GIT_BRANCH || return "$?"
         sdfm reset -q $SDFM_GIT_REMOTE/$SDFM_GIT_BRANCH || return "$?"
         sdfm diff --name-status --diff-filter=M HEAD || return "$?"
         ;;
