@@ -136,13 +136,7 @@ config.set('url.start_pages', '/home/bruhtus/.config/qutebrowser/index.html')
 # Change download directory
 config.set('downloads.location.directory','/home/bruhtus/downloads/')
 
-# Change tabs position and tabs padding
-config.set('tabs.position', 'left')
-config.set('tabs.width', '8%')
-c.tabs.padding = {'top': 0, 'bottom': 0, 'left': 0, 'right': 0}
-
-# Do not display tab and statusbar at startup
-# config.set('statusbar.show', 'never')
+# Do not display tab at startup
 config.set('tabs.show', 'never')
 
 # Show scrolling bar
@@ -160,8 +154,6 @@ config.set('content.notifications.enabled', True)
 
 # Ref: https://qutebrowser.org/doc/help/commands.html
 # Bindings for normal mode
-config.bind('J', 'tab-next')
-config.bind('K', 'tab-prev')
 config.bind('M', 'hint links spawn youtube-viewer --resolution=480p {hint-url}')
 config.bind('Q', 'cmd-set-text -s :session-load')
 config.bind('ZX', 'cmd-set-text -s :session-save --only-active-window')
@@ -171,8 +163,7 @@ config.bind('ZQ', 'close')
 # Ref: https://github.com/qutebrowser/qutebrowser/issues/572
 # config.bind('ZZ', 'cmd-set-text session-save --only-active-window;; cmd-set-text --append close')
 config.bind('ZZ', 'session-save --current --only-active-window;; close')
-config.bind('zj', 'tab-move +')
-config.bind('zk', 'tab-move -')
+config.bind('T', 'cmd-set-text -sr :tab-focus --no-last')
 config.bind('d', 'scroll-page 0 0.5')
 config.bind('u', 'scroll-page 0 -0.5')
 config.bind('x', 'tab-close')
@@ -183,9 +174,6 @@ config.bind('cw', 'cmd-set-text :open {url:pretty}')
 config.bind('cW', 'cmd-set-text :open -t -r {url:pretty}')
 config.bind('cb', 'cmd-set-text -s :open -b')
 config.bind('cB', 'cmd-set-text :open -b -r {url:pretty}')
-# config.bind('za', 'config-cycle statusbar.show never always;; config-cycle tabs.show never always')
-config.bind('<Space>', 'config-cycle tabs.show never always')
-config.bind('<Shift-Tab>', 'tab-focus')
 config.bind('<Ctrl-=>', 'zoom-in')
 config.bind('<Ctrl-->', 'zoom-out')
 config.bind('<Ctrl-0>', 'zoom')
