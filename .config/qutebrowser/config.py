@@ -186,10 +186,10 @@ config.unbind('xo')
 config.unbind('xO')
 
 # Bindings for insert mode
+config.bind("<Ctrl-c>", "mode-leave", "insert")
 config.bind("<Ctrl-h>", "fake-key <Backspace>", "insert")
 config.bind("<Ctrl-m>", "fake-key <Enter>", "insert")
 config.bind("<Ctrl-i>", "fake-key <Tab>", "insert")
-# config.bind("<Ctrl-c>", "fake-key <Ctrl-[>", "insert")
 config.bind("<Ctrl-a>", "fake-key <Home>", "insert")
 config.bind("<Ctrl-e>", "fake-key <End>", "insert")
 config.bind("<Ctrl-b>", "fake-key <Left>", "insert")
