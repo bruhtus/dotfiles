@@ -219,5 +219,5 @@ c.colors.hints.match.fg = 'lightgreen'
 
 c.colors.webpage.preferred_color_scheme = 'dark'
 
-c.url.default_page = 'https://searx.be/'
+c.url.default_page = 'about:blank'
 c.url.searchengines = {'DEFAULT': 'https://searx.be/search?q={}'}
