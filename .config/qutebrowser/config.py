@@ -177,6 +177,7 @@ config.bind('cB', 'cmd-set-text :open -b -r {url:pretty}')
 config.bind('<Ctrl-=>', 'zoom-in')
 config.bind('<Ctrl-->', 'zoom-out')
 config.bind('<Ctrl-0>', 'zoom')
+config.bind('<Ctrl-s>', 'tab-focus last')
 
 # Unbind default bindings
 config.unbind('xo')
