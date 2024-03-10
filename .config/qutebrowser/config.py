@@ -178,6 +178,7 @@ config.bind('<Ctrl-=>', 'zoom-in')
 config.bind('<Ctrl-->', 'zoom-out')
 config.bind('<Ctrl-0>', 'zoom')
 config.bind('<Ctrl-s>', 'tab-focus last')
+config.bind('<Escape>', 'clear-keychain ;; search ;; stop')
 
 # Unbind default bindings
 config.unbind('xo')
