@@ -131,7 +131,7 @@ config.set('content.javascript.clipboard', 'access')
 config.set('hints.uppercase', True)
 
 # Change start pages
-config.set('url.start_pages','/home/bruhtus/.config/qutebrowser/index.html')
+config.set('url.start_pages', '/home/bruhtus/.config/qutebrowser/index.html')
 
 # Change download directory
 config.set('downloads.location.directory','/home/bruhtus/downloads/')
@@ -225,6 +225,8 @@ c.completion.height = '20%'
 c.colors.hints.bg = 'black'
 c.colors.hints.fg = 'white'
 c.colors.hints.match.fg = 'lightgreen'
+
+c.colors.webpage.preferred_color_scheme = 'dark'
 
 c.url.default_page = 'https://searx.be/'
 c.url.searchengines = {'DEFAULT': 'https://searx.be/search?q={}'}
