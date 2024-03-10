@@ -139,8 +139,8 @@ config.set('downloads.location.directory','/home/bruhtus/downloads/')
 # Do not display tab at startup
 config.set('tabs.show', 'never')
 
-# Show scrolling bar
-# config.set('scrolling.bar', 'always')
+# Do not show scrolling bar
+config.set('scrolling.bar', 'never')
 
 # Ad-block
 config.set('content.blocking.method', 'both')
