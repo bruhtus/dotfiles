@@ -201,6 +201,10 @@ config.bind("<Ctrl-w>", "fake-key <Ctrl-Backspace>", "insert")
 config.bind("<Ctrl-u>", "fake-key <Shift-Home><Delete>", "insert")
 config.bind("<Ctrl-k>", "fake-key <Shift-End><Delete>", "insert")
 
+# Bindings for command mode
+config.bind("<Ctrl-n>", "completion-item-focus next", "command")
+config.bind("<Ctrl-p>", "completion-item-focus prev", "command")
+
 c.fonts.default_family = []
 c.fonts.default_size = '11pt'
 c.fonts.hints = 'default_size default_family'
