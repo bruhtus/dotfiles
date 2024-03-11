@@ -154,7 +154,7 @@ config.bind('O', 'cmd-set-text -s :open -t')
 config.bind('P', 'open -t -- {clipboard}')
 config.bind('Q', 'cmd-set-text -s :session-load')
 config.bind('R', 'reload -f')
-config.bind('T', 'cmd-set-text -sr :tab-focus --no-last')
+config.bind('t', 'cmd-set-text -sr :tab-focus --no-last')
 config.bind('ZX', 'cmd-set-text -s :session-save --only-active-window')
 config.bind('ZQ', 'close')
 # Note: the downside of this approach is that, we can only save and close one
