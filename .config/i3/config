@@ -122,7 +122,7 @@ bindsym $mod+Ctrl+n exec docsmenu
 bindsym $mod+Ctrl+c exec $term -t btop -e btop
 bindsym $mod+Ctrl+z exec timeshift-launcher
 bindsym $mod+Ctrl+w exec google-chrome-stable
-bindsym $mod+Ctrl+q exec telegram-desktop
+bindsym $mod+Ctrl+q exec qutebrowser --target private-window
 # bindsym $mod+Ctrl+x [title="dropdown_youtube"] scratchpad show; [title="dropdown_youtube"] move position center
 bindsym $mod+Ctrl+a exec --no-startup-id rofi -show combi
 bindsym $mod+Ctrl+s --release exec --no-startup-id flameshot gui
