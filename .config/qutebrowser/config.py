@@ -251,7 +251,6 @@ config.bind('<Ctrl-C>', 'mode-leave', mode='hint')
 
 ## Bindings for passthrough mode
 config.bind('<Shift-Escape>', 'mode-leave', mode='passthrough')
-config.bind('<Ctrl-C>', 'mode-leave', mode='passthrough')
 
 ## Bindings for prompt mode
 config.bind('<Ctrl-Alt-H>', 'rl-backward-kill-word', mode='prompt')
