@@ -6,9 +6,9 @@ This repo is to backup my linux configuration so that i don't need to
 re-configure on every new installation.
 I use [sdfm](.config/zsh/sdfm) to manage my dotfiles.
 
-## Initialize dotfiles git repo using SDFM
+## Initialize dotfiles git repo using sdfm
 
-We can use SDFM, which is a shell function that i created and
+We can use sdfm, which is a shell function that i created and
 you can check on `.config/zsh/sdfm` in this git repo, to manage our dotfiles.
 
 First, download the file using `wget` or `curl` like this:
