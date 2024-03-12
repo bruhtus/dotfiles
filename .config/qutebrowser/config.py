@@ -38,14 +38,6 @@ c.completion.web_history.exclude = [
 
 c.confirm_quit = ['downloads']
 
-c.content.headers.user_agent = ' \
-Mozilla/5.0 ({os_info}) \
-AppleWebKit/{webkit_version} \
-(KHTML, like Gecko) {qt_key}/{qt_version} \
-{upstream_browser_key}/{upstream_browser_version} \
-Safari/{webkit_version} \
-'
-
 c.content.autoplay = False
 c.content.blocking.enabled = True
 c.content.blocking.method = 'auto'
