@@ -64,13 +64,6 @@ c.fonts.default_family = []
 c.fonts.default_size = '11pt'
 c.fonts.hints = 'default_size default_family'
 
-c.hints.prev_regexes = [
-    '\\bprev(ious)?\\b',
-    '\\bback\\b',
-    '\\bolder\\b',
-    '\\b[<←≪]\\b',
-    '\\b(<<|«)\\b',
-]
 c.hints.uppercase = True
 c.hints.leave_on_load = True
 
