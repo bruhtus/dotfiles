@@ -34,6 +34,7 @@ c.completion.shrink = False
 c.completion.web_history.exclude = [
     'file://*/.config/qutebrowser/index.html',
     'about:blank',
+    'qute://start',
 ]
 
 c.confirm_quit = ['downloads']
@@ -84,12 +85,12 @@ c.tabs.show = 'never'
 c.tabs.select_on_remove = 'last-used'
 c.tabs.wrap = False
 
-c.url.default_page = 'about:blank'
+c.url.default_page = 'qute://start'
 c.url.searchengines = {
     'DEFAULT': 'https://searx.be/search?q={}',
     '!g': 'https://google.com/search?q={}',
 }
-c.url.start_pages = '/home/bruhtus/.config/qutebrowser/index.html'
+c.url.start_pages = 'qute://start'
 c.url.yank_ignored_parameters = [
     'ref',
     'utm_source',
