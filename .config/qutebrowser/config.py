@@ -81,7 +81,7 @@ c.statusbar.widgets = [
 ]
 
 c.tabs.show = 'never'
-c.tabs.select_on_remove = 'prev'
+c.tabs.select_on_remove = 'last-used'
 c.tabs.wrap = False
 
 c.url.default_page = 'about:blank'
