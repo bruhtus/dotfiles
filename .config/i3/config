@@ -51,8 +51,6 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 bindsym $mod+Ctrl+plus move scratchpad
 bindsym $mod+Ctrl+minus scratchpad show
-# bindsym $mod+slash workspace next
-# bindsym $mod+period workspace prev
 
 # bindsym $mod+Ctrl+0 gaps inner current set $inner_gaps; gaps outer current set $outer_gaps
 # bindsym $mod+Ctrl+plus  gaps inner current plus 5
@@ -88,13 +86,9 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+Shift+n focus child
 bindsym $mod+Shift+z layout toggle split
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
-# bindsym $mod+Shift+slash move container to workspace next; workspace next
-# bindsym $mod+Shift+period move container to workspace prev; workspace prev
 
 bindsym $mod+Ctrl+f fullscreen toggle
 bindsym $mod+Ctrl+b move container to workspace back_and_forth
-# bindsym $mod+Ctrl+slash move container to workspace next
-# bindsym $mod+Ctrl+period move container to workspace prev
 
 bindsym $mod+Ctrl+Shift+h exec --no-startup-id i3resize left
 bindsym $mod+Ctrl+Shift+j exec --no-startup-id i3resize down
@@ -106,24 +100,18 @@ bindsym $mod+Ctrl+Shift+space exec --no-startup-id pomo pause
 
 #---Application---#
 bindsym $mod+d exec $term
-# bindsym $mod+i exec google-chrome-stable --new-window https://github.com/stars/bruhtus
 bindsym $mod+v exec rofi -show emoji -modi emoji
 bindsym $mod+m exec rofisearch
 
-# bindsym $mod+Shift+c exec $term -e $EDITOR '/home/bruhtus/.config/i3/config'
 bindsym $mod+Shift+x [title="dropdown_tmux"] scratchpad show; [title="dropdown_tmux"] move position center
 bindsym $mod+Shift+y exec google-chrome-stable --new-window https://github.com/settings/tokens
-bindsym $mod+Shift+t exec google-chrome-stable --new-window twitter.com
 bindsym $mod+Shift+q exec qutebrowser
-# bindsym $mod+Shift+p exec switch-picom
 
-# bindsym $mod+Ctrl+d exec pcmanfm
 bindsym $mod+Ctrl+n exec docsmenu
 bindsym $mod+Ctrl+c exec $term -t btop -e btop
 bindsym $mod+Ctrl+z exec timeshift-launcher
 bindsym $mod+Ctrl+w exec google-chrome-stable
 bindsym $mod+Ctrl+q exec qutebrowser --target private-window
-# bindsym $mod+Ctrl+x [title="dropdown_youtube"] scratchpad show; [title="dropdown_youtube"] move position center
 bindsym $mod+Ctrl+a exec --no-startup-id rofi -show combi
 bindsym $mod+Ctrl+s --release exec --no-startup-id flameshot gui
 # bindsym $mod+Ctrl+s --release exec --no-startup-id flameshot screen -r -c
@@ -135,12 +123,6 @@ bindsym $mod+Ctrl+Shift+b exec xdg-open https://github.com/bruhtus?tab=repositor
 bindsym $mod+Ctrl+space exec dunstctl close-all
 bindsym Ctrl+Shift+space exec dunstctl history-pop
 #---End---#
-
-#bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-#bindsym $mod+Ctrl+Shift+q exec --no-startup-id i3-scrot
-#bindsym $mod+Shift+a --release exec --no-startup-id i3-scrot -w
-#bindsym $mod+Shift+s --release exec --no-startup-id i3-scrot -s
-#bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 # #---End---# #
 
 # Workspace names
