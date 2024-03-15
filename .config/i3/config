@@ -225,7 +225,7 @@ mode "$mode_system" {
 }
 
 # Lock screen
-bindsym $mod+minus exec --no-startup-id blurlock
+bindsym $mod+minus exec --no-startup-id i3lock -c 121212
 
 # Autostart applications
 exec_always --no-startup-id startxrandr
