@@ -73,9 +73,6 @@ bindsym $mod+Ctrl+Shift+j exec --no-startup-id i3resize down
 bindsym $mod+Ctrl+Shift+k exec --no-startup-id i3resize up
 bindsym $mod+Ctrl+Shift+l exec --no-startup-id i3resize right
 
-bindsym $mod+Ctrl+Shift+u exec --no-startup-id pomo pause && pomo stop
-bindsym $mod+Ctrl+Shift+space exec --no-startup-id pomo pause
-
 #---Application---#
 bindsym $mod+d exec $term
 bindsym $mod+v exec rofi -show emoji -modi emoji
@@ -97,6 +94,8 @@ bindsym $mod+Ctrl+s --release exec --no-startup-id flameshot gui
 
 bindsym $mod+Ctrl+Shift+n exec google-chrome-stable --incognito
 bindsym $mod+Ctrl+Shift+b exec xdg-open https://github.com/bruhtus?tab=repositories
+bindsym $mod+Ctrl+Shift+u exec --no-startup-id pomo pause && pomo stop
+bindsym $mod+Ctrl+Shift+space exec --no-startup-id pomo pause
 
 bindsym $mod+Ctrl+space exec dunstctl close-all
 bindsym Ctrl+Shift+space exec dunstctl history-pop
