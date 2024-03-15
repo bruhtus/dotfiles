@@ -131,7 +131,6 @@ bindsym $mod+Ctrl+s --release exec --no-startup-id flameshot gui
 
 bindsym $mod+Ctrl+Shift+n exec google-chrome-stable --incognito
 bindsym $mod+Ctrl+Shift+b exec google-chrome-stable --incognito https://github.com/bruhtus?tab=repositories
-bindsym $mod+Ctrl+Shift+s exec google-chrome-stable --incognito http://127.0.0.1:8384/
 # bindsym $mod+Ctrl+Shift+z exec blueman-manager
 # bindsym $mod+Ctrl+Shift+x exec google-chrome-stable --new-window https://colab.research.google.com/drive/1BBgjbUt-nY83RBgHZ_6_Y_3Ox5BZj2rk?usp=sharing
 
