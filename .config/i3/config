@@ -130,7 +130,7 @@ bindsym $mod+Ctrl+s --release exec --no-startup-id flameshot gui
 # bindsym $mod+Ctrl+s --release exec --no-startup-id flameshot screen -r -p $HOME/pictures/
 
 bindsym $mod+Ctrl+Shift+n exec google-chrome-stable --incognito
-bindsym $mod+Ctrl+Shift+b exec google-chrome-stable --incognito https://github.com/bruhtus?tab=repositories
+bindsym $mod+Ctrl+Shift+b exec xdg-open https://github.com/bruhtus?tab=repositories
 
 bindsym $mod+Ctrl+space exec dunstctl close-all
 bindsym Ctrl+Shift+space exec dunstctl history-pop
