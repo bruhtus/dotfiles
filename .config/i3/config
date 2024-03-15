@@ -33,13 +33,6 @@ smart_borders on
 # #---End---# #
 
 # #---Dropdown/Scratchpad Windows---# #
-for_window [title="dropdown_youtube"] move scratchpad
-for_window [title="dropdown_youtube"] sticky enable
-for_window [title="dropdown_youtube"] resize set 900 520
-for_window [title="dropdown_terminal"] move scratchpad
-for_window [title="dropdown_terminal"] move scratchpad
-for_window [title="dropdown_terminal"] sticky enable
-for_window [title="dropdown_terminal"] resize set 900 520
 for_window [title="dropdown_tmux"] move scratchpad
 for_window [title="dropdown_tmux"] move scratchpad
 for_window [title="dropdown_tmux"] sticky enable
