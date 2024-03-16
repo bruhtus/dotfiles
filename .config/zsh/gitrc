@@ -182,7 +182,6 @@ gl() {
 	FZF_DEFAULT_COMMAND='git log --color=always --date=short --format="%C(auto)%h%x20%cd%x20%x20%s%d"' \
 		fzf \
 		--exit-0 \
-		--sync \
 		--ansi \
 		+m \
 		--height=-2 \
@@ -267,7 +266,6 @@ gstl() {
 	FZF_DEFAULT_COMMAND='git stash list --color=always --oneline' \
 		fzf \
 		--exit-0 \
-		--sync \
 		--ansi \
 		+m \
 		--height=20% \
