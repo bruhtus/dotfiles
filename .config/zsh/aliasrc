@@ -162,7 +162,14 @@ dum() {
 # - man signal.7
 # - kill -l (list signal)
 kj() {
-	ps -eHo pid,ppid,comm | fzf --layout=reverse-list | awk '{print $1}' | xargs -or kill
+	FZF_DEFAULT_COMMAND='ps -eHo pid,ppid,comm' \
+		fzf \
+		--no-sort \
+		--layout=reverse-list \
+		--header-lines=1 \
+		--bind 'enter:execute-silent(kill {1})' \
+		--bind 'ctrl-d:execute-silent(kill -9 {1})' \
+		--bind 'ctrl-r:reload(eval "$FZF_DEFAULT_COMMAND")'
 }
 
 # access psql inside docker:
