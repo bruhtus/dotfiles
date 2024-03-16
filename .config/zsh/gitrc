@@ -35,6 +35,7 @@ gaf() {
 
 	FZF_DEFAULT_COMMAND="$git_config status -s" \
 		fzf \
+		--exit-0 \
 		--nth=2.. \
 		--ansi \
 		--bind 'ctrl-i:reload(git add -- {2} && eval "$FZF_DEFAULT_COMMAND")' \
