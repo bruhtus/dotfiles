@@ -184,7 +184,7 @@ gl() {
 		--exit-0 \
 		--ansi \
 		+m \
-		--height=-2 \
+		--height=80% \
 		--tiebreak=index \
 		--reverse \
 		--bind "enter:execute($cmd | less -R --incsearch)" \
