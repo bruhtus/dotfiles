@@ -254,7 +254,6 @@ alias \
 	gstu='git stash -u' \
 	gstp='git stash pop' \
 	gstf='git status -su | awk "!/^M/ {print \$2}" | fzf --multi | xargs -r git stash push -u'
-	# gstl='git stash list'
 
 # Ref: https://stackoverflow.com/a/66831429
 gstl() {
@@ -266,6 +265,8 @@ gstl() {
 
 	FZF_DEFAULT_COMMAND='git stash list --color=always --oneline' \
 		fzf \
+		--exit-0 \
+		--sync \
 		--ansi \
 		+m \
 		--height=20% \
