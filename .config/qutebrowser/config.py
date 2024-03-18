@@ -83,7 +83,7 @@ c.statusbar.widgets = [
 
 c.tabs.show = 'never'
 c.tabs.select_on_remove = 'last-used'
-c.tabs.wrap = False
+c.tabs.wrap = True
 
 c.url.default_page = 'qute://start'
 c.url.searchengines = {
