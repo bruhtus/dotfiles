@@ -81,9 +81,6 @@ export NODE_REPL_HISTORY="${XDG_STATE_HOME:-$HOME/.local/state}/node_repl_histor
 # go
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 
-# bash
-export HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/bash_history"
-
 # visidata
 export VD_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/visidata"
 
