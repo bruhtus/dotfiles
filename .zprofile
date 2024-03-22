@@ -163,11 +163,6 @@ export MANROFFOPT='-P -c'
 # )
 export LS_COLORS="ow=1;34;40"
 
-# cuda
-# export PATH="/opt/cuda/bin:$PATH"
-# export CPATH="/opt/cuda/include:$CPATH"
-# export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64:/opt/cuda/lib"
-
 # task config and data
 # export TASKRC="${XDG_CONFIG_HOME:-$HOME/.config}/task/taskrc"
 # export TASKDATA="${XDG_DATA_HOME:-$HOME/.local/share}/task"
