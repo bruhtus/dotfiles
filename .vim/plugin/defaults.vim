@@ -61,7 +61,7 @@ if exists('+colorcolumn') | set colorcolumn= | endif
 
 if exists('+wildmenu') | set wildmenu | endif
 set wildignorecase
-set wildmode=longest:full,full
+" set wildmode=longest:full,full
 set wildignore=*/.git/*
 " if has('patch-8.2.4655') | set wildoptions=pum | endif
 
