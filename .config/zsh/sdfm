@@ -6,7 +6,6 @@
 [ -n "$SDFM_GIT_BRANCH" ] || SDFM_GIT_BRANCH='master'
 
 alias sdfm='git --git-dir="$SDFM_GIT_DIR" --work-tree="$SDFM_GIT_WORKTREE"'
-alias sdfs='git --git-dir="$SDFM_GIT_DIR" --work-tree="$SDFM_GIT_WORKTREE" status -s'
 alias sdfc='git --git-dir="$SDFM_GIT_DIR" --work-tree="$SDFM_GIT_WORKTREE" commit'
 alias sdfp='git --git-dir="$SDFM_GIT_DIR" --work-tree="$SDFM_GIT_WORKTREE" push'
 
@@ -20,35 +19,46 @@ sdfi() {
   } || return "$?"
 
   [ -d "$SDFM_GIT_DIR" ] || {
-    sdfm init -b $SDFM_GIT_BRANCH || return "$?"
+    sdfm init -b "$SDFM_GIT_BRANCH" || return "$?"
       sdfm config status.showUntrackedFiles no || return "$?"
       sdfm config push.autoSetupRemote true || return "$?"
     }
 
-  while getopts :u:fa option; do
+  while getopts :u:fap: option; do
     case $option in
       u)
         if [ -z "$(sdfm remote show)" ]; then
-          sdfm remote add $SDFM_GIT_REMOTE "$OPTARG" || return "$?"
+          sdfm remote add "$SDFM_GIT_REMOTE" "$OPTARG" || return "$?"
           echo "Remote $SDFM_GIT_REMOTE added"
         fi
         ;;
       f)
         echo 'Fetching...'
-        sdfm fetch --depth=1 --set-upstream $SDFM_GIT_REMOTE $SDFM_GIT_BRANCH || return "$?"
-        sdfm reset -q $SDFM_GIT_REMOTE/$SDFM_GIT_BRANCH || return "$?"
+        sdfm fetch --depth=1 --set-upstream \
+          "$SDFM_GIT_REMOTE" "$SDFM_GIT_BRANCH" || return "$?"
+
+        sdfm reset -q "$SDFM_GIT_REMOTE"/"$SDFM_GIT_BRANCH" || return "$?"
         sdfm diff --name-status --diff-filter=M HEAD || return "$?"
         ;;
       a)
         sdfm checkout -- . || return "$?"
+
+        if [ "$(sdfm config core.bare)" = true ]; then
+          sdfm config core.bare false || return "$?"
+        fi
+
         echo 'Last commit applied'
+        ;;
+      p)
+        sdfm checkout -- "$OPTARG" || return "$?"
+        sdfm config core.bare true
         ;;
       :)
         echo "Option -$OPTARG requires an argument"
         return 1
         ;;
       ?)
-        echo 'Usage: sdfi [-u <url>] [-f] [-a]'
+        echo 'Usage: sdfi [-u <url>] [-f] [-a] [-p <path>]'
         return 1
         ;;
     esac
@@ -61,6 +71,14 @@ sdfa() {
 
 sdfd() {
   sdfm diff "$@"
+}
+
+sdfs() {
+  if [ "$(sdfm config core.bare)" = false  ]; then
+    sdfm status -s || return "$?"
+  else
+    sdfm diff --name-status --diff-filter=M HEAD || return "$?"
+  fi
 }
 
 # vim:ft=sh
