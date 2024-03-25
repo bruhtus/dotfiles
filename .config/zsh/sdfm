@@ -27,10 +27,10 @@ sdfi() {
   while getopts :u:fap: option; do
     case $option in
       u)
-        if [ -z "$(sdfm remote show)" ]; then
+        [ -n "$(sdfm remote show)" ] || {
           sdfm remote add "$SDFM_GIT_REMOTE" "$OPTARG" || return "$?"
           echo "Remote $SDFM_GIT_REMOTE added"
-        fi
+        }
         ;;
       f)
         echo 'Fetching...'
@@ -43,9 +43,9 @@ sdfi() {
       a)
         sdfm checkout -- . || return "$?"
 
-        if [ "$(sdfm config core.bare)" = true ]; then
+        [ "$(sdfm config core.bare)" = false ] || {
           sdfm config core.bare false || return "$?"
-        fi
+        }
 
         echo 'Last commit applied'
         ;;
