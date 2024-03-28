@@ -42,7 +42,7 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-bindsym $mod+n focus parent
+bindsym $mod+n focus child
 bindsym $mod+s split h
 bindsym $mod+x split v
 bindsym $mod+z layout tabbed
@@ -60,7 +60,7 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-bindsym $mod+Shift+n focus child
+bindsym $mod+Shift+n focus parent
 bindsym $mod+Shift+z layout toggle split
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
