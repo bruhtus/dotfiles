@@ -11,8 +11,8 @@ set $term alacritty
 # ref: https://gist.github.com/lirenlin/9892945?permalink_comment_id=4312849#gistcomment-4312849
 font xft:URWGothic-Book 11
 workspace_layout tabbed
-default_border pixel 1
-default_floating_border normal
+# default_border pixel 1
+# default_floating_border normal
 # for_window [class="^.*"] border pixel 1
 hide_edge_borders smart
 floating_modifier $mod
