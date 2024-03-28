@@ -1,0 +1,61 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+general {
+  colors = true
+  interval = 1
+  color_good = "#5faf5f"
+  color_degraded = "#ffd751"
+  color_bad = "#ff5f5f"
+}
+
+order += "tztime local"
+order += "memory"
+order += "cpu_usage"
+order += "load"
+order += "battery all"
+order += "volume master"
+order += "wireless _first_"
+order += "ethernet _first_"
+
+wireless _first_ {
+  format_up = "W: %essid [%quality] %ip"
+  format_down = "W: down"
+  format_quality = "%d%s"
+}
+
+ethernet _first_ {
+  format_up = "E: %ip [%speed]"
+  format_down = "E: down"
+}
+
+battery all {
+  format = "[%status] %percentage %remaining"
+  last_full_capacity = true
+  low_threshold = 35
+  threshold_type = "percentage"
+}
+
+cpu_usage {
+  format = "C: %usage"
+}
+
+# explaination about load on linux: https://serverfault.com/a/771298
+load {
+  format = "L: %1min"
+}
+
+memory {
+  format = "M: %used"
+  threshold_degraded = "1.5G"
+  format_degraded = "LOW: %used"
+}
+
+tztime local {
+  format = "%Y-%m-%d %H:%M:%S"
+}
+
+volume master {
+  format = "V: %volume"
+  format_muted = "V[M]: %volume"
+}
