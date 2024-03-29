@@ -83,7 +83,7 @@ bindsym $mod+Shift+q exec qutebrowser
 
 bindsym $mod+Ctrl+n exec docsmenu
 bindsym $mod+Ctrl+c exec $term -t btop -e btop
-bindsym $mod+Ctrl+z exec timeshift-launcher
+bindsym $mod+Ctrl+z exec --no-startup-id rofi -show windowcd
 bindsym $mod+Ctrl+w exec google-chrome-stable
 bindsym $mod+Ctrl+q exec qutebrowser --target private-window
 bindsym $mod+Ctrl+a exec --no-startup-id rofi -show combi
