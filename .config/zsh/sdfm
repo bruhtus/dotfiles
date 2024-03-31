@@ -7,6 +7,7 @@
 
 alias sdfm='git --git-dir="$SDFM_GIT_DIR" --work-tree="$SDFM_GIT_WORKTREE"'
 alias sdfc='git --git-dir="$SDFM_GIT_DIR" --work-tree="$SDFM_GIT_WORKTREE" commit'
+alias sdfs='git --git-dir="$SDFM_GIT_DIR" --work-tree="$SDFM_GIT_WORKTREE" stat'
 alias sdfp='git --git-dir="$SDFM_GIT_DIR" --work-tree="$SDFM_GIT_WORKTREE" push'
 
 sdfi() {
@@ -22,7 +23,10 @@ sdfi() {
     sdfm init -b "$SDFM_GIT_BRANCH" || return "$?"
       sdfm config status.showUntrackedFiles no || return "$?"
       sdfm config push.autoSetupRemote true || return "$?"
+      sdfm config alias.stat 'status -s' || return "$?"
     }
+
+  local config_abbrev="$(sdfm config core.abbrev)"
 
   while getopts :u:fap: option; do
     case $option in
@@ -41,17 +45,26 @@ sdfi() {
         sdfm diff --name-status --diff-filter=M HEAD || return "$?"
         ;;
       a)
-        sdfm checkout -- . || return "$?"
-
-        [ "$(sdfm config core.bare)" = false ] || {
-          sdfm config core.bare false || return "$?"
+        [ "$config_abbrev" = 'auto' ] || {
+          sdfm config core.abbrev auto || return "$?"
+          sdfm config alias.stat 'status -s' || return "$?"
         }
+
+        sdfm checkout -- . || return "$?"
 
         echo 'Last commit applied'
         ;;
       p)
-        sdfm checkout -- "$OPTARG" || return "$?"
-        sdfm config core.bare true
+        if [ -z "$config_abbrev" ] || [ "$config_abbrev" != 'auto' ]; then
+          sdfm config core.abbrev no
+          sdfm config alias.stat 'diff --name-status --diff-filter=M HEAD'
+          sdfm checkout -- "$OPTARG" || return "$?"
+          echo "$OPTARG initialized"
+
+        else
+          echo 'Can not use partial init, already in full init'
+          return 1
+        fi
         ;;
       :)
         echo "Option -$OPTARG requires an argument"
@@ -71,14 +84,6 @@ sdfa() {
 
 sdfd() {
   sdfm diff "$@"
-}
-
-sdfs() {
-  if [ "$(sdfm config core.bare)" = false  ]; then
-    sdfm status -s || return "$?"
-  else
-    sdfm diff --name-status --diff-filter=M HEAD || return "$?"
-  fi
 }
 
 # vim:ft=sh
