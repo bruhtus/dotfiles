@@ -201,7 +201,7 @@ exec --no-startup-id dunst
 client.focused           #808080 #3b3b3b #ffffff #ffffff   #808080
 client.focused_inactive  #333333 #3b3b3b #808080 #484e50   #3b3b3b
 client.unfocused         #333333 #222222 #888888 #292d2e   #222222
-client.urgent            #2f343a #d75f5f #ffffff #d75f5f   #d75f5f
+client.urgent            #2f343a #900000 #ffffff #900000   #900000
 client.placeholder       #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background        #ffffff
@@ -217,8 +217,8 @@ bar {
     focused_workspace  #808080 #3b3b3b #ffffff
     active_workspace   #333333 #3b3b3b #808080
     inactive_workspace #333333 #222222 #888888
-    urgent_workspace   #2f343a #d75f5f #ffffff
-    binding_mode       #2f343a #d75f5f #ffffff
+    urgent_workspace   #2f343a #900000 #ffffff
+    binding_mode       #2f343a #900000 #ffffff
   }
 }
 
