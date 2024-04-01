@@ -45,6 +45,7 @@ load {
 }
 
 memory {
+  memory_used_method = "memavailable"
   format = "M: %used"
   threshold_degraded = "1.5G"
   format_degraded = "LOW: %used"
