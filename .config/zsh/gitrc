@@ -10,7 +10,7 @@ alias \
 # ref: https://stackoverflow.com/a/30050792 (xargs -a)
 alias \
 	ga='git add' \
-	gcf='git status -s | awk "/^[^??]/ {print \$2}" | fzf --multi | xargs -r git checkout'
+	gcf='git status -s | awk "/^[^??]/ {print \$2}" | fzf --multi --layout=reverse-list | xargs -r git checkout'
 	# gap='xargs -a <(git status -s | awk "{print \$2}") git add -p'
 
 # ref: https://github.com/junegunn/fzf/issues/2887#issuecomment-1199258039 (fzf reload example)
@@ -37,6 +37,7 @@ gaf() {
 		fzf \
 		--exit-0 \
 		--nth=2.. \
+		--layout=reverse-list \
 		--ansi \
 		--bind 'ctrl-i:reload(git add -- {2} && eval "$FZF_DEFAULT_COMMAND")' \
 		--bind 'ctrl-s:execute(git add -p -- {2})+reload(eval "$FZF_DEFAULT_COMMAND")' \
@@ -70,7 +71,7 @@ alias \
 
 alias \
 	gb='git branch' \
-	gbd='git branch | awk "/^[^*+]/ {print \$1}" | fzf --multi --exit-0 | xargs -r git branch -D' \
+	gbd='git branch | awk "/^[^*+]/ {print \$1}" | fzf --multi --exit-0 --layout=reverse-list | xargs -r git branch -D' \
 	gbm='git branch -m' \
 	nj='git branch --show-current'
 
@@ -273,7 +274,7 @@ alias \
 	gst='git stash' \
 	gstu='git stash -u' \
 	gstp='git stash pop' \
-	gstf='git status -su | awk "!/^M/ {print \$2}" | fzf --multi | xargs -r git stash push -u'
+	gstf='git status -su | awk "!/^M/ {print \$2}" | fzf --multi --layout=reverse-list | xargs -r git stash push -u'
 
 # Ref: https://stackoverflow.com/a/66831429
 gstl() {
