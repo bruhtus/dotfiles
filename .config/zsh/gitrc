@@ -9,8 +9,7 @@ alias \
 
 # ref: https://stackoverflow.com/a/30050792 (xargs -a)
 alias \
-	ga='git add' \
-	gcf='git status -s | awk "/^[^??]/ {print \$2}" | fzf --multi --layout=reverse-list | xargs -r git checkout'
+	ga='git add'
 	# gap='xargs -a <(git status -s | awk "{print \$2}") git add -p'
 
 # ref: https://github.com/junegunn/fzf/issues/2887#issuecomment-1199258039 (fzf reload example)
@@ -81,7 +80,8 @@ alias \
 	gch='git checkout' \
 	gco='git branch | awk "/^[^*+]/ {print \$1}" | fzf --exit-0 | xargs -r git checkout' \
 	gcb='git checkout -b' \
-	gct='git branch -r | fzf | xargs -r git checkout -t'
+	gct='git branch -r | fzf | xargs -r git checkout -t' \
+	gchf='git status -s | awk "/^[^??]/ {print \$2}" | fzf --multi --layout=reverse-list | xargs -r git checkout'
 
 
 # ref:
