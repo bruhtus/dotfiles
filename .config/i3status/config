@@ -52,7 +52,7 @@ memory {
 }
 
 tztime local {
-  format = "%Y-%m-%d [%H:%M:%S]"
+  format = "[%H:%M:%S] %a, %d %b %Y"
 }
 
 volume master {
