@@ -87,7 +87,7 @@ c.tabs.wrap = True
 
 c.url.default_page = 'qute://start'
 c.url.searchengines = {
-    'DEFAULT': 'https://searx.be/search?q={}',
+    'DEFAULT': 'https://search.disroot.org/search?q={}',
     '!g': 'https://google.com/search?q={}',
 }
 c.url.start_pages = 'qute://start'
