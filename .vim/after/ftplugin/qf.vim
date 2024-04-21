@@ -33,7 +33,7 @@ function! s:preview() abort
 endfunction
 
 nmap <buffer> <silent> <nowait> o <C-w>z<CR>zz<C-w>p
-nnoremap <buffer> <silent> <nowait> <Space> :<C-u>call <SID>preview()<CR>
+nnoremap <buffer> <silent> <nowait> p :<C-u>call <SID>preview()<CR>
 " for whatever reason the preview window won't close if qf window already
 " closed in vanilla vim
 nnoremap <buffer> <silent> i :cclose <Bar> lclose <Bar> pclose <Bar> wincmd p<CR>
