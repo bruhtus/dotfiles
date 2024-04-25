@@ -234,7 +234,7 @@ alias \
 # https://stackoverflow.com/a/1105666 (checkout stash)
 # https://stackoverflow.com/a/3801554 (list untracked file)
 alias \
-	gurm='git ls-files --others --exclude-standard | fzf --multi | xargs -r rm -v'
+	gurm='git ls-files --others --exclude-standard | fzf --multi --layout=reverse-list | xargs -r rm -v'
 
 alias \
 	gres='git reset'
