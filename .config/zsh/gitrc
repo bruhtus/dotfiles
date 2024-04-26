@@ -240,7 +240,8 @@ alias \
 	gres='git reset'
 
 alias \
-	greb='git rebase'
+	greb='git rebase' \
+	grebs='git rebase --autosquash'
 
 alias \
 	gf='git fetch' \
