@@ -99,6 +99,16 @@ function! s:detect_indent() abort
   let b:indent_tabs = search('^\t', 'nw')
   let b:indent_tab_with_space = search('\t\+ \+', 'nw', 0, 0, l:skip_patterns)
   let b:indent_space_with_tab = search(' \+\t\+', 'nw', 0, 0, l:skip_patterns)
+
+  let b:indent_info = join(
+        \   [
+        \     "First line indent space: " . b:indent_spaces,
+        \     "First line indent tab: " . b:indent_tabs,
+        \     "First line tab with space: " . b:indent_tab_with_space,
+        \     "First line space with tab: " . b:indent_space_with_tab,
+        \   ],
+        \   "\n"
+        \ )
 endfunction
 
 " Ref: https://spec.editorconfig.org/
