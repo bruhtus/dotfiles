@@ -98,6 +98,7 @@ wget https://raw.githubusercontent.com/bruhtus/dotfiles/master/.config/zsh/sdfm
 . ./sdfm
 sdfi -u https://github.com/bruhtus/dotfiles.git -fa
 systemctl --user enable --now updates-notifier.timer
+systemctl --user enable --now low-battery-notifier.timer
 ```
 
 ## Resources

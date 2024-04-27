@@ -1,0 +1,6 @@
+[Unit]
+Description=Notify low battery
+
+[Service]
+Type=oneshot
+ExecStart=/home/bruhtus/.local/bin/low-battery-notifier

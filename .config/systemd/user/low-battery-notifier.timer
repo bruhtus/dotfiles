@@ -1,0 +1,10 @@
+[Unit]
+Description=Run low-battery-notifier.service every 15 minutes
+Requires=low-battery-notifier.service
+
+[Timer]
+OnBootSec=1m
+OnUnitActiveSec=15m
+
+[Install]
+WantedBy=timers.target
