@@ -312,7 +312,7 @@ nnoremap <silent> <leader>r :<C-u>setlocal relativenumber!<CR>
 xnoremap <silent> <leader>r :<C-u>setlocal relativenumber!<CR>gv
 
 " toggle focus current window
-nnoremap <expr> <silent> ZA
+nnoremap <expr> <silent> <leader>z
       \ winnr('$') != 1 ?
       \ !exists('t:zoom') ?
       \ ':<C-u>let t:zoom = winrestcmd() <Bar> resize <Bar> vertical resize<CR>' :
