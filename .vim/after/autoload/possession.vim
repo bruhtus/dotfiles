@@ -69,6 +69,67 @@ function! s:set_options() abort
   let &l:statusline = 'Total: ' . len(g:possession_list) . ' session(s)'
 endfunction
 
+function! s:load_session() abort
+  if !has('patch-7.4.2204')
+    echo 'This feature is not available in your vim/neovim version'
+    return
+  endif
+
+  let l:session_name = substitute(expand('<cfile>'), '[\.\/]', '%', 'g')
+  let l:session_path = g:possession_dir . '/' . l:session_name
+
+  let l:mod = empty(map(getbufinfo({ 'bufmodified': 1 }), { _,b -> b.bufnr }))
+
+  let l:load_choice = confirm('Do you want to load session ' . expand('<cfile>') . '?',
+        \ "&Yes\n&No", 2)
+
+  if l:load_choice == 1
+    redraw
+    " TODO: figure out how to check if current buffer empty or not
+    if line('$') == 1 && empty(getline(1)) && !l:mod
+      let l:not_empty_buffer_choice = confirm("Current buffer is not empty,\ndo you want to load session with extra buffer or not?",
+            \ "&Yes\n&No\n&Cancel", 3)
+
+      if l:not_empty_buffer_choice == 1
+        redraw
+        exe 'silent! source ' . fnameescape(l:session_path)
+        let g:current_possession = v:this_session
+        if bufexists(0) && !filereadable(bufname('#'))
+          bw #
+        endif
+
+      elseif l:not_empty_buffer_choice == 2
+        redraw
+
+        " save the mark
+        if !has('nvim')
+          wviminfo
+        else
+          wshada
+        endif
+
+        " remove all buffer
+        %bw
+
+        exe 'silent! source ' . fnameescape(l:session_path)
+        let g:current_possession = v:this_session
+        if bufexists(0) && !filereadable(bufname('#'))
+          bw #
+        endif
+
+      elseif l:not_empty_buffer_choice == 3
+        redraw
+        echo 'No session loaded'
+      endif
+
+    endif
+
+  elseif l:load_choice == 2
+    redraw
+    echo 'No session loaded'
+  endif
+endfunction
+
 function! possession#show_list() abort
   call possession#update_list()
   exe 'botright pedit ' . g:possession_window_name
@@ -77,6 +138,7 @@ function! possession#show_list() abort
   nnoremap <buffer> <silent> <nowait> d <C-d>
   nnoremap <buffer> <silent> u <C-u>
   nnoremap <buffer> <silent> D :<C-u>call <SID>delete_session()<CR>
+  " nnoremap <buffer> <silent> <CR> :<C-u>call <SID>load_session()<CR>
 
   " TODO: add refresh session list mapping.
 
