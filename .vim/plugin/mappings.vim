@@ -331,6 +331,8 @@ nnoremap <leader>S :<C-u>keeppatterns
 " Ref: https://vi.stackexchange.com/a/26153
 nnoremap <leader>a :keeppatterns %s/.*.*\n//c<C-r>=setcmdpos(getcmdpos()-7)[1]<CR>
 
+nnoremap <leader>v :'<,'>
+
 " set ZX as :update
 nnoremap <silent> ZX :up<CR>
 
