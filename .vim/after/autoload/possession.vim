@@ -61,7 +61,7 @@ function! possession#update_list() abort
 endfunction
 
 function! s:set_options() abort
-  setlocal number norelativenumber
+  setlocal nonumber norelativenumber
   setlocal bufhidden=wipe buftype=nofile nobuflisted
   setlocal foldcolumn=0 nofoldenable
   setlocal noswapfile nomodifiable nowrap
