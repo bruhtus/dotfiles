@@ -5,7 +5,7 @@ let g:possession_window_name = get(g:, 'possession_window_name',
       \ 'possession')
 
 let g:possession_dir = get(g:, 'possession_dir',
-      \ '~/.local/state/vim/session'
+      \ $XDG_STATE_HOME . '/vim/session'
       \ )
 
 " Note: remove the last slice in directory path
