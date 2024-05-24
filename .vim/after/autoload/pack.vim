@@ -1,6 +1,6 @@
 function! pack#init() abort
   let l:init_opts = {
-        \ 'dir': expand('~/.vim')
+        \ 'dir': $MYVIMDIR
         \ }
 
   try
