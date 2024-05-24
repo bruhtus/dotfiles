@@ -51,11 +51,6 @@ function! pack#init() abort
   " call minpac#add('bruhtus/gv.vim',           { 'type': 'opt', 'branch': 'personal' })
   " call minpac#add('bruhtus/vim-bufstop',      { 'type': 'opt', 'branch': 'personal' })
 
-  " if has('nvim-0.5')
-  "   call minpac#add('neovim/nvim-lspconfig',     { 'type': 'opt' })
-  "   call minpac#add('kabouzeid/nvim-lspinstall', { 'type': 'opt' })
-  " endif
-
   " call minpac#add('bfrg/vim-qf-preview',       { 'type': 'opt' })
   " call minpac#add('ronakg/quickr-preview.vim', { 'type': 'opt' })
 
