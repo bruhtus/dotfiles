@@ -8,16 +8,6 @@ nnoremap <silent> <leader>i :<C-u>call enable#fzf('Files')<CR>
 nnoremap <silent> <leader>I :<C-u>call enable#fzf('Files %:p:h')<CR>
 
 " open fzf to search all lines in current buffer
-" nnoremap <silent> <leader>u
-"       \ :if &ft ==# 'filebeagle' \|\| &ft ==# 'GV' \|\| &ft ==# 'git' <Bar>
-"       \   call enable#fzf('BLines') <Bar>
-"       \ elseif &modified <Bar>
-"       \   call enable#fzf('BLines') <Bar>
-"       \ elseif executable('rg') <Bar>
-"       \   call enable#fzf('CustomBLines') <Bar>
-"       \ else <Bar>
-"       \   call enable#fzf('BLines') <Bar>
-"       \ endif<CR>
 nnoremap <silent> <leader>u :<C-u>call enable#fzf('BLines')<CR>
 
 " open fzf to search opened buffers
