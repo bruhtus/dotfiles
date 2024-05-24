@@ -14,7 +14,6 @@ function! pack#init() abort
   endtry
 
   call minpac#add('jidn/vim-dbml',                        { 'type': 'opt' })
-  call minpac#add('tkhren/vim-fake',                      { 'type': 'opt' })
   call minpac#add('tpope/vim-dadbod',                     { 'type': 'opt' })
   call minpac#add('chrisbra/vim_faq',                     { 'type': 'opt' })
   call minpac#add('tpope/vim-surround',                   { 'type': 'opt' })
@@ -54,6 +53,7 @@ function! pack#init() abort
   " call minpac#add('bfrg/vim-qf-preview',       { 'type': 'opt' })
   " call minpac#add('ronakg/quickr-preview.vim', { 'type': 'opt' })
 
+  " call minpac#add('tkhren/vim-fake',              { 'type': 'opt' })
   " call minpac#add('mihaifm/bufstop',              { 'type': 'opt' })
   " call minpac#add('junegunn/gv.vim',              { 'type': 'opt' })
   " call minpac#add('tpope/vim-sleuth',             { 'type': 'opt' })
