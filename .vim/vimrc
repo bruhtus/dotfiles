@@ -13,12 +13,12 @@ let mapleader = ' '
 
 if !has('packages') | echom 'Please install vim-plug instead' | finish | endif
 
-let $MYPACK =
-      \ filereadable(expand('~/.vim/after/autoload/pack.vim')) ?
-      \ expand('~/.vim/after/autoload/pack.vim') :
-      \ has('nvim-0.3.1') ?
-      \ stdpath('config') . '/after/autoload/pack.vim' :
-      \ expand('~/.config/nvim/after/autoload/pack.vim')
+let $MYVIMDIR = $HOME . '/.vim'
+let $MYPACK = $MYVIMDIR . '/after/autoload/pack.vim'
+
+if empty($XDG_STATE_HOME)
+  let $XDG_STATE_HOME = $HOME . '/.local/state'
+endif
 
 command! PacClean source $MYPACK | call pack#init() | call minpac#clean()
 command! PacSync  source $MYPACK | call pack#init() | call minpac#update()
