@@ -187,10 +187,10 @@ if has('nvim')
   " augroup END
 
 else
-  if !isdirectory(expand('~/.local/state/vim'))
-    call mkdir(expand('~/.local/state/vim'))
+  if !isdirectory($XDG_STATE_HOME . '/vim')
+    call mkdir($XDG_STATE_HOME . '/vim', 'p')
   endif
-  set viminfo+=n~/.local/state/vim/viminfo
+  set viminfo+=n$XDG_STATE_HOME/vim/viminfo
 endif
 
 if has('syntax')  | syntax on                 | endif
