@@ -4,7 +4,7 @@ function! vimlsp#init() abort
   " highlight link LspErrorText SpellBad
 
   setlocal omnifunc=lsp#complete signcolumn=yes
-  if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+  " if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
 
   let g:lsp_diagnostics_signs_enabled = 1
   let g:lsp_diagnostics_signs_delay = 1
@@ -19,7 +19,7 @@ function! vimlsp#init() abort
         \ 'LspWarning': 11,
         \ }
 
-  " nmap <buffer> <C-]> <Plug>(lsp-definition)
+  nmap <buffer> <C-]> <Plug>(lsp-definition)
   nmap <buffer> K <Plug>(lsp-hover-float)
   nmap <buffer> <F12> <Plug>(lsp-preview-close)<Plug>(lsp-float-close)
 
