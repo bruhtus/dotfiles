@@ -1,3 +1,5 @@
+! ref: https://x.org/releases/unsupported/doc/papers/tutorials/resources.txt
+
 Xft.dpi:       96
 Xft.antialias: true
 Xft.hinting:   true
@@ -15,36 +17,36 @@ XTerm*reverseVideo:      on
 XTerm*selectToClipboard: true
 
 !! black dark/light
-*color0:                          #222D31
-*color8:                          #585858
+*color0:                          #121212
+*color8:                          #3b3b3b
 
 !! red dark/light
-*color1:                          #ab4642
-*color9:                          #ab4642
+*color1:                          #d75f5f
+*color9:                          #ff5f5f
 
 !! green dark/light
-*color2:                          #7E807E
-*color10:                         #8D8F8D
+*color2:                          #5faf5f
+*color10:                         #87d787
 
 !! yellow dark/light
-*color3:                          #f7ca88
-*color11:                         #f7ca88
+*color3:                          #878700
+*color11:                         #ffd751
 
 !! blue dark/light
-*color4:                          #7cafc2
-*color12:                         #7cafc2
+*color4:                          #5f87ff
+*color12:                         #5fafff
 
 !! magenta dark/light
-*color5:                          #ba8baf
-*color13:                         #ba8baf
+*color5:                          #d787af
+*color13:                         #d75fd7
 
 !! cyan dark/light
-*color6:                          #1ABB9B
-*color14:                         #1ABB9B
+*color6:                          #5fafaf
+*color14:                         #87ffff
 
 !! white dark/light
-*color7:                          #d8d8d8
-*color15:                         #f8f8f8
+*color7:                          #b9b9b9
+*color15:                         #d9d9d9
 
 Xcursor.theme: xcursor-breeze
-Xcursor.size:                     0
+Xcursor.size:  0
