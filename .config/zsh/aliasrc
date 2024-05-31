@@ -50,7 +50,8 @@ alias \
 alias \
 	nmls='nmcli d wifi list --rescan yes' \
 	nmdc='nmcli c down' \
-	nmco='nmcli d wifi connect'
+	nmco='nmcli d wifi connect' \
+	nmcp='nmcli d wifi show-password'
 
 #grep, less, count, and redirect error to file
 # alias \
