@@ -173,6 +173,7 @@ config.bind('yt', 'tab-clone')
 
 # Bindings for insert mode
 config.bind('<Escape>', 'mode-leave', mode='insert')
+config.bind('<Shift-Escape>', 'mode-enter passthrough', mode='insert')
 config.bind('<Ctrl-H>', 'fake-key <Backspace>', mode='insert')
 config.bind('<Ctrl-M>', 'fake-key <Enter>', mode='insert')
 config.bind('<Ctrl-I>', 'fake-key <Tab>', mode='insert')
