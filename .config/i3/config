@@ -162,7 +162,6 @@ assign [class="Slack"] $ws3
 assign [class="TelegramDesktop"] $ws3
 
 # Open specific applications in floating mode
-for_window [title="alsamixer"] floating enable border pixel 1
 for_window [title="File Transfer*"] floating enable
 for_window [class="mpv"] floating enable sticky enable
 for_window [class="qt5ct"] floating enable sticky enable border normal
