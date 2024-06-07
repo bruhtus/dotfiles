@@ -11,13 +11,13 @@ alias sdfs='git --git-dir="$SDFM_GIT_DIR" --work-tree="$SDFM_GIT_WORKTREE" stat'
 alias sdfp='git --git-dir="$SDFM_GIT_DIR" --work-tree="$SDFM_GIT_WORKTREE" push'
 
 sdfi() {
-  {
-    [ -d "${SDFM_GIT_DIR%/*}" ] || mkdir -pv "${SDFM_GIT_DIR%/*}"
-  } || return "$?"
+  [ -d "${SDFM_GIT_DIR%/*}" ] || {
+    mkdir -pv "${SDFM_GIT_DIR%/*}" || return "$?"
+  }
 
-  {
-    [ -d "${SDFM_GIT_WORKTREE%/*}" ] || mkdir -pv "${SDFM_GIT_WORKTREE%/*}"
-  } || return "$?"
+  [ -d "${SDFM_GIT_WORKTREE%/*}" ] || {
+    mkdir -pv "${SDFM_GIT_WORKTREE%/*}" || return "$?"
+  }
 
   [ -d "$SDFM_GIT_DIR" ] || {
     sdfm init -b "$SDFM_GIT_BRANCH" || return "$?"
@@ -26,7 +26,8 @@ sdfi() {
       sdfm config alias.stat 'status -s' || return "$?"
     }
 
-  local config_abbrev="$(sdfm config core.abbrev)"
+  local config_abbrev
+  config_abbrev="$(sdfm config core.abbrev)" || return "$?"
 
   while getopts :u:fap: option; do
     case $option in
