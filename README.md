@@ -1,5 +1,8 @@
 # Personal Dotfiles
 
+> “Simplicity is prerequisite for reliability.”<br>
+> \- Edsger W. Dijkstra
+
 This repo is to backup my linux configuration so that i don't need to
 re-configure on every new installation.
 I use [sdfm](.config/zsh/sdfm) to manage my dotfiles.
