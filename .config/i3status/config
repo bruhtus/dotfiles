@@ -29,7 +29,7 @@ ethernet _first_ {
 }
 
 battery all {
-  format = "[%status] %percentage %remaining"
+  format = "[%status] %percentage %consumption"
   last_full_capacity = true
   low_threshold = 35
   threshold_type = "percentage"
