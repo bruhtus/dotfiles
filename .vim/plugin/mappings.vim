@@ -260,7 +260,7 @@ nnoremap <leader>D D
 
 " update active buffer if the file changed
 " Ref: https://vi.stackexchange.com/a/13092
-nnoremap <silent> - :<C-u>windo checktime<CR>
+nnoremap <silent> _ :<C-u>windo checktime<CR>
 
 " make search result appear in the middle
 " nnoremap n nzz
