@@ -201,14 +201,20 @@ nnoremap <silent> [l :lprevious<CR>zz
 
 " Ref:
 " https://github.com/tpope/vim-unimpaired/blob/master/plugin/unimpaired.vim#L193-L195
-function! s:conflict_marker(reverse) abort
+function! s:conflict_marker(reverse, visual) abort
+  if a:visual
+    norm! gv
+  endif
+
   return search('^\(@@ .* @@\|[<=>|]\{7}[<=>|]\@!\)', a:reverse ? 'bW' : 'W')
 endfunction
 
 " conflict navigation
 " Ref: https://vi.stackexchange.com/a/2706
-nnoremap <silent> ]= :<C-u>call <SID>conflict_marker(0)<CR>
-nnoremap <silent> [= :<C-u>call <SID>conflict_marker(1)<CR>
+nnoremap <silent> ]= :<C-u>call <SID>conflict_marker(0, 0)<CR>
+nnoremap <silent> [= :<C-u>call <SID>conflict_marker(1, 0)<CR>
+xnoremap <silent> ]= :<C-u>call <SID>conflict_marker(0, 1)<CR>
+xnoremap <silent> [= :<C-u>call <SID>conflict_marker(1, 1)<CR>
 
 " toggle 'number' option (useful for pair programming)
 nnoremap <silent> ]- :<C-u>set number!<CR>
