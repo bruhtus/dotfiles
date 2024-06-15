@@ -151,18 +151,19 @@ ggl() {
 
 	local git_ls_remote
 	# `timeout` command is from GNU coreutils.
-	git_ls_remote="$(timeout --preserve-status 5s git ls-remote --head "$remote_name" "$remote_branch_name")" || return $?
+	git_ls_remote="$(timeout --preserve-status 5s git ls-remote --head "$remote_name" "$remote_branch_name")" || return "$?"
 
-	[ ! -z "$git_ls_remote" ] && \
-	{
-		echo "Pulling from branch "$remote_branch_name" on remote "$remote_name"" && \
-			git pull "$remote_name" "$remote_branch_name"
-	} || {
-		[ -z "$option" ] && \
-			printf "No branch "$remote_branch_name" on remote "$remote_name"\nUnset upstream reference\n" && \
-			git branch --unset-upstream || \
+	if [ ! -z "$git_ls_remote" ]; then
+		echo "Pulling from branch "$remote_branch_name" on remote "$remote_name""
+		git pull "$remote_name" "$remote_branch_name" || return "$?"
+	else
+		if [ -z "$option" ]; then
+			printf "No branch "$remote_branch_name" on remote "$remote_name"\nUnset upstream reference\n"
+			git branch --unset-upstream || return "$?"
+		else
 			echo "No branch "$remote_branch_name" on remote "$remote_name""
-	}
+		fi
+	fi
 }
 
 # ref: https://github.com/wfxr/forgit/blob/b727321f2bd3d79c1dae805441261c45888cbb41/forgit.plugin.zsh#L17-L34
