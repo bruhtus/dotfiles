@@ -264,10 +264,6 @@ xnoremap <leader>d d
 " set space D to default D normal mode command
 nnoremap <leader>D D
 
-" update active buffer if the file changed
-" Ref: https://vi.stackexchange.com/a/13092
-nnoremap <silent> _ :<C-u>windo checktime<CR>
-
 " make search result appear in the middle
 " nnoremap n nzz
 " nnoremap N Nzz
@@ -341,6 +337,10 @@ nnoremap <leader>v :'<,'>
 
 " set ZX as :update
 nnoremap <silent> ZX :up<CR>
+
+" update active buffer if the file changed
+" Ref: https://vi.stackexchange.com/a/13092
+nnoremap <silent> ZA :<C-u>windo checktime<CR>
 
 " set ZC as :reg
 " nnoremap <silent> ZC :reg<CR>
