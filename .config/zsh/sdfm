@@ -9,6 +9,7 @@ alias sdfm='git --git-dir="$SDFM_GIT_DIR" --work-tree="$SDFM_GIT_WORKTREE"'
 alias sdfc='git --git-dir="$SDFM_GIT_DIR" --work-tree="$SDFM_GIT_WORKTREE" commit'
 alias sdfs='git --git-dir="$SDFM_GIT_DIR" --work-tree="$SDFM_GIT_WORKTREE" stat'
 alias sdfp='git --git-dir="$SDFM_GIT_DIR" --work-tree="$SDFM_GIT_WORKTREE" push'
+alias sdfpl='git --git-dir="$SDFM_GIT_DIR" --work-tree="$SDFM_GIT_WORKTREE" pull --autostash'
 
 sdfi() {
   [ -d "${SDFM_GIT_DIR%/*}" ] || {
