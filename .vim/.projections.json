@@ -13,7 +13,10 @@
     "type": "pack"
   },
   "after/autoload/*.vim": {
-    "type": "autoload"
+    "type": "autoload",
+    "related": [
+      "plugin/{}.vim"
+    ]
   },
   "after/ftplugin/*.vim": {
     "type": "ftplugin"
