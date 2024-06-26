@@ -5,8 +5,8 @@
   "plugin/*.vim": {
     "type": "plugin",
     "alternate": [
-      "after/autoload/{basename}.vim",
-      "after/autoload/enable/{basename}.vim"
+      "after/autoload/{}.vim",
+      "after/autoload/enable/{}.vim"
     ]
   },
   "after/autoload/pack.vim": {
