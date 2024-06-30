@@ -26,3 +26,5 @@
 	verbose = true
 [diff]
 	wsErrorHighlight = all
+[includeIf "gitdir:~/work-repos/"]
+	path = work
