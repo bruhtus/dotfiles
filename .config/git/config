@@ -24,7 +24,5 @@
 	rebase = true
 [commit]
 	verbose = true
-[safe]
-	directory = /opt/flutter
 [diff]
 	wsErrorHighlight = all
