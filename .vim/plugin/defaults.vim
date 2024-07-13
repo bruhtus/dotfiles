@@ -86,11 +86,32 @@ if &ruler | set rulerformat=%l:%c%=%P| endif
 " Ref: https://vi.stackexchange.com/a/28017/34851
 set autoindent shiftround smarttab shiftwidth=2 softtabstop=-69
 
+function! s:no_set_indent() abort
+  let l:large_file = 100 * 1024 * 1024
+
+  " Note: prevent detect and set indent if file size is more than 100 mb
+  if getfsize(expand('<afile>')) >= l:large_file
+    return 1
+  endif
+
+  if @% =~# '^filebeagle\|.*\.csv'
+    return 1
+  endif
+
+  if &ft =~# '^git\|^netrw'
+    return 1
+  endif
+endfunction
+
 " Note:
 " - this function doesn't acknowledge people that use one space as indentation.
 " - the result is the line number, not the total.
 " let result = searchcount(#{pattern: '\t\+ \+', maxcount: -69})
 function! s:detect_indent() abort
+  if s:no_set_indent()
+    return
+  endif
+
   " Note: skip the highlight with these name.
   let l:skip_patterns = "synIDattr(synID(line('.'), 1, 1), 'name') =~#"
         \ . "'\a*Comment\\|markdownCode\\|shHereDoc'"
@@ -109,18 +130,16 @@ function! s:detect_indent() abort
         \   ],
         \   "\n"
         \ )
+
+  return 1
 endfunction
 
 " Ref: https://spec.editorconfig.org/
 " Note: prioritize default vim filetype indentation over editorconfig.
 function! s:use_editorconfig() abort
-  " do not use editorconfig in `fugitive://.*`, `scp://.*`, or any filename
-  " that start with `<alphabet>:`, or filebeagle buffer.
-  if @% =~# '^\a\+:\|^filebeagle\|^/tmp/'
-    return
-  endif
-
-  if &ft =~# '^git\|^netrw\|^csv'
+  " do not use set indent and editorconfig in `fugitive://.*`, `scp://.*`,
+  " or any filename that start with `<alphabet>:`.
+  if @% =~# '^\a\+:\|^/tmp/'
     return
   endif
 
@@ -146,6 +165,10 @@ endfunction
 " - http://vimregex.com/#anchors
 " - `:h :let-option`, `:h :let-unpack`
 function! s:set_indent() abort
+  if !s:detect_indent()
+    return
+  endif
+
   if !s:use_editorconfig()
     execute 'let '
           \ b:indent_tabs && !b:indent_spaces && !b:indent_tab_with_space
@@ -163,10 +186,7 @@ augroup indentation
   " Note: because using BufRead instead of BufEnter, the setting is only set
   " once, when reading a file into the buffer. why didn't use BufEnter then?
   " so that we didn't overwrite modeline. modeline was set before BufEnter.
-  autocmd BufNewFile,BufRead,FileType *
-        \ call s:detect_indent() |
-        \ call s:set_indent()
-
+  autocmd BufNewFile,BufRead,FileType * call s:set_indent()
   autocmd BufWritePost * call s:detect_indent()
 augroup END
 
