@@ -23,14 +23,14 @@ pce() {
 		{
 			[ -d "$PYV_DIR/$1" ] && echo "$1 python virtual environment already exist"
 		} || {
-			python -m venv "$PYV_DIR/$1" 2> /dev/null && echo "Created $1 python virtual environment"
+			python -m venv --copies "$PYV_DIR/$1" 2> /dev/null && echo "Created $1 python virtual environment"
 		}
 
 	elif [ "$projectdir" != "" ]; then
 		{
 			[ -d "$PYV_DIR/$projectdir" ] && echo "$projectdir python virtual environment already exist"
 		} || {
-			python -m venv "$PYV_DIR/$projectdir" 2> /dev/null && echo "Created $projectdir python virtual environment"
+			python -m venv --copies "$PYV_DIR/$projectdir" 2> /dev/null && echo "Created $projectdir python virtual environment"
 		}
 
 	else
