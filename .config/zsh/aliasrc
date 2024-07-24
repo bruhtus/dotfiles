@@ -179,7 +179,7 @@ kj() {
 psqld() {
 	export DOCKER_POSTGRES_DB="postgresql://${user:-postgres}:${password:-postgres}@localhost:${2:-5432}/$1"
 
-	psql -d $DOCKER_POSTGRES_DB -P expanded=auto
+	psql -d $DOCKER_POSTGRES_DB -P expanded=auto -P 'null=(null)'
 }
 
 # ref:
