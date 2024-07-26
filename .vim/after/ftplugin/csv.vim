@@ -96,8 +96,8 @@ function! s:csv_get_header() abort
 
   return substitute(
         \   l:trim_header_whitespace,
-        \   b:delimiter,
-        \   '',
+        \   b:delimiter . '\|$',
+        \   ' (' . l:colnr . ')',
         \   '',
         \ )
 endfunction
