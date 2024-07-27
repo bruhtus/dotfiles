@@ -216,21 +216,6 @@ nnoremap <silent> [= :<C-u>call <SID>conflict_marker(1, 0)<CR>
 xnoremap <silent> ]= :<C-u>call <SID>conflict_marker(0, 1)<CR>
 xnoremap <silent> [= :<C-u>call <SID>conflict_marker(1, 1)<CR>
 
-
-" map ]<Space> to location list toggle and [<Space> to quickfix list toggle
-" Ref:
-" - https://vi.stackexchange.com/a/18090
-" - https://stackoverflow.com/a/63162084
-nnoremap <expr> <silent> ]<Space>
-      \ get(getloclist(0, {'winid':0}), 'winid', 0) == 0 ?
-      \ ':lwindow<CR>' :
-      \ ':lclose <Bar> wincmd p<CR>'
-
-nnoremap <expr> <silent> [<Space>
-      \ get(getqflist({'winid':0}), 'winid', 0) == 0 ?
-      \ ':botright cwindow<CR>' :
-      \ ':cclose <Bar> wincmd p<CR>'
-
 " do not exit visual selection when shift-indenting
 xnoremap < <gv
 xnoremap > >gv
@@ -296,6 +281,20 @@ nnoremap <silent> yor :<C-u>setlocal relativenumber!<CR>
 
 " toggle `spell` option
 nnoremap <silent> yos :<C-u>setlocal spell!<CR>
+
+" map yol to location list toggle and yoc to quickfix list toggle
+" Ref:
+" - https://vi.stackexchange.com/a/18090
+" - https://stackoverflow.com/a/63162084
+nnoremap <expr> <silent> yol
+      \ get(getloclist(0, {'winid':0}), 'winid', 0) == 0 ?
+      \ ':lwindow<CR>' :
+      \ ':lclose <Bar> wincmd p<CR>'
+
+nnoremap <expr> <silent> yoc
+      \ get(getqflist({'winid':0}), 'winid', 0) == 0 ?
+      \ ':botright cwindow<CR>' :
+      \ ':cclose <Bar> wincmd p<CR>'
 
 " remap U to yank the entire line and put below the given line (takes count)
 " default: current line
