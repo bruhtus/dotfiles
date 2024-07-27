@@ -216,12 +216,6 @@ nnoremap <silent> [= :<C-u>call <SID>conflict_marker(1, 0)<CR>
 xnoremap <silent> ]= :<C-u>call <SID>conflict_marker(0, 1)<CR>
 xnoremap <silent> [= :<C-u>call <SID>conflict_marker(1, 1)<CR>
 
-" toggle 'number' option (useful for pair programming)
-nnoremap <silent> ]- :<C-u>set number!<CR>
-
-" toggle `relativenumber` option
-nnoremap <silent> [- :<C-u>setlocal relativenumber!<CR>
-xnoremap <silent> [- :<C-u>setlocal relativenumber!<CR>gv
 
 " map ]<Space> to location list toggle and [<Space> to quickfix list toggle
 " Ref: https://stackoverflow.com/a/63162084
@@ -292,6 +286,12 @@ nnoremap <silent> dJ :<C-u>exe "k' <Bar> +1,+" . v:count1 . 'd_'<CR>g``
 
 " remap Y to yank from pointer to the end of the line
 " nnoremap Y y$
+
+" toggle 'number' option (useful for pair programming)
+nnoremap <silent> yon :<C-u>set number!<CR>
+
+" toggle `relativenumber` option
+nnoremap <silent> yor :<C-u>setlocal relativenumber!<CR>
 
 " remap U to yank the entire line and put below the given line (takes count)
 " default: current line
