@@ -30,16 +30,16 @@ xnoremap <silent> <BS> :<C-u>execute 'cgetexpr system("'
 
 " set ZS to grep word under cursor in current buffer
 nnoremap <silent> ZS :execute 'lvimgrep /\M\<' . expand('<cword>') . '\>/j %' <Bar>
-      \ botright lwindow<CR>
+      \ lwindow<CR>
 
 " set ZS to grep visual selection in current buffer
 xnoremap <silent> ZS :<C-u>execute
       \ 'lvimgrep /\M' . <SID>prev_visual_selection() . '/j %' <Bar>
-      \ botright lwindow<CR>
+      \ lwindow<CR>
 
 " set ZD to grep WORD under cursor in current buffer
 nnoremap <silent> ZD :execute 'lvimgrep /\M' . expand('<cWORD>') . '/j %' <Bar>
-      \ botright lwindow<CR>
+      \ lwindow<CR>
 
 function! s:custom_grep() abort
   let l:choice = confirm('Use current working directory?',
