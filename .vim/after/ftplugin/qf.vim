@@ -1,4 +1,4 @@
-" setlocal nowrap
+setlocal nowrap
 
 " Ref:
 " https://github.com/ronakg/quickr-preview.vim/issues/20#issuecomment-536802265
