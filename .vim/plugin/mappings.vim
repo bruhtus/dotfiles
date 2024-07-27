@@ -218,17 +218,18 @@ xnoremap <silent> [= :<C-u>call <SID>conflict_marker(1, 1)<CR>
 
 
 " map ]<Space> to location list toggle and [<Space> to quickfix list toggle
-" Ref: https://stackoverflow.com/a/63162084
-if exists('*getwininfo()')
-  nnoremap <expr> <silent> ]<Space>
-        \ empty(filter(getwininfo(), 'v:val.loclist')) ?
-        \ ':botright lwindow<CR>' :
-        \ ':botright lclose <Bar> wincmd p<CR>'
-  nnoremap <expr> <silent> [<Space>
-        \ empty(filter(getwininfo(), 'v:val.quickfix')) ?
-        \ ':botright cwindow<CR>' :
-        \ ':botright cclose <Bar> wincmd p<CR>'
-endif
+" Ref:
+" - https://vi.stackexchange.com/a/18090
+" - https://stackoverflow.com/a/63162084
+nnoremap <expr> <silent> ]<Space>
+      \ get(getloclist(0, {'winid':0}), 'winid', 0) == 0 ?
+      \ ':lwindow<CR>' :
+      \ ':lclose <Bar> wincmd p<CR>'
+
+nnoremap <expr> <silent> [<Space>
+      \ get(getqflist({'winid':0}), 'winid', 0) == 0 ?
+      \ ':botright cwindow<CR>' :
+      \ ':cclose <Bar> wincmd p<CR>'
 
 " do not exit visual selection when shift-indenting
 xnoremap < <gv
