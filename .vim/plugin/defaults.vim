@@ -25,7 +25,6 @@ set shortmess-=S shortmess+=F
 set spelllang=en_us spellfile=$MYVIMDIR/spell/en.utf-8.add
 " set number relativenumber numberwidth=5 signcolumn=yes
 
-set grepformat=%f:%l:%c:%m,%f
 if executable('rg')
   set grepprg=rg\ --smart-case\ --hidden\ -H\ --line-number
 elseif has('unix')
