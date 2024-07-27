@@ -93,7 +93,7 @@ function! s:no_set_indent() abort
     return 1
   endif
 
-  if @% =~# '^filebeagle\|.*\.csv'
+  if @% =~# '^filebeagle\|.*\.csv\|.*\.go'
     return 1
   endif
 
