@@ -293,6 +293,9 @@ nnoremap <silent> yon :<C-u>set number!<CR>
 " toggle `relativenumber` option
 nnoremap <silent> yor :<C-u>setlocal relativenumber!<CR>
 
+" toggle `spell` option
+nnoremap <silent> yos :<C-u>setlocal spell!<CR>
+
 " remap U to yank the entire line and put below the given line (takes count)
 " default: current line
 " add current line to jumplist if v:count more than zero
