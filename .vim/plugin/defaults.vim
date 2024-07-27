@@ -172,7 +172,7 @@ function! s:set_indent() abort
     execute 'let '
           \ b:indent_tabs && !b:indent_spaces && !b:indent_tab_with_space
           \   && !b:indent_space_with_tab ?
-          \ '[&l:ts, &l:et] = [&sw, 0]' :
+          \ '[&l:ts, &l:et] = [&g:sw, 0]' :
           \ (b:indent_tabs && b:indent_spaces) || b:indent_tab_with_space
           \   || b:indent_space_with_tab ?
           \ '[&l:ts, &l:et] = [&g:ts, 0]' :
