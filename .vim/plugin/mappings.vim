@@ -41,6 +41,28 @@ xnoremap <silent> ZS :<C-u>execute
 nnoremap <silent> ZD :execute 'lvimgrep /\M' . expand('<cWORD>') . '/j %' <Bar>
       \ lwindow<CR>
 
+" Use vimgrep in current file with regex
+function! s:custom_vimgrep() abort
+  call inputsave()
+  let l:keyword = input('Vimgrep: ')
+  call inputrestore()
+  redraw
+
+  if !empty(l:keyword)
+    try
+      execute 'lvimgrep /' . l:keyword . '/j %'
+    catch  /^Vim\%((\a\+)\)\=:E480/
+      echo 'No match: ' . l:keyword
+    catch
+      echohl Error | echo v:exception | echohl None
+    endtry
+
+    lwindow
+  endif
+endfunction
+
+nnoremap <silent> ZC :<C-u>call <SID>custom_vimgrep()<CR>
+
 function! s:custom_grep() abort
   let l:choice = confirm('Use current working directory?',
         \ "&JYes\n&KNo\n&NCancel", 3)
@@ -344,9 +366,6 @@ nnoremap <silent> ZX :up<CR>
 " update active buffer if the file changed
 " Ref: https://vi.stackexchange.com/a/13092
 nnoremap <silent> ZA :<C-u>windo checktime<CR>
-
-" set ZC as :reg
-" nnoremap <silent> ZC :reg<CR>
 
 " map ZJ to move current line below the given line (takes count) and add the
 " current line position to jumplist
