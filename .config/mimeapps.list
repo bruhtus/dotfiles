@@ -14,6 +14,7 @@ x-scheme-handler/https=browser.desktop
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-startcenter.desktop
 x-scheme-handler/eclipse+command=_usr_lib_dbeaver_.desktop
 x-scheme-handler/webcal=google-chrome.desktop
+x-scheme-handler/postman=Postman.desktop
 x-scheme-handler/tonsite=org.telegram.desktop.desktop
 
 [Added Associations]
