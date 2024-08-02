@@ -102,6 +102,24 @@ systemctl --user enable --now updates-notifier.timer
 systemctl --user enable --now low-battery-notifier.timer
 ```
 
+## Linux default application
+
+Linux uses "MIME Types" to determine the type of a file (for example "image/jpeg")
+and the Freedesktop Specifications (XDG) to determine which software should be used
+for which MIME Type.
+
+The "database" of associations between types and software is created by looking at
+`mimeapps.list` files at several places (global configuration, your specific user
+configuration, ...), and can be edited through the command line using xdg-mime.
+
+Many softwares (your file explorer for example) will rely on xdg-open to open files,
+which will query your preferences to know which software to start.
+
+The `.desktop` in `mimeapps.list` file can also be seen and changed in
+~/.local/share/applications
+
+More info: https://wiki.archlinux.org/index.php/Xdg-utils
+
 ## Resources
 
 - [Download only vim config](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/bruhtus/dotfiles/tree/master/.vim).
