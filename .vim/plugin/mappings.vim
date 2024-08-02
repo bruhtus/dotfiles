@@ -177,8 +177,8 @@ nnoremap <C-p> "+gP
 nnoremap <silent> <leader>p :put +<CR>
 nnoremap <silent> <leader>P :put! +<CR>
 
-" remap + to set signcolumn to yes
-nnoremap <silent> + :<C-u>setlocal signcolumn=yes<CR>
+" remap + to sync syntax (:h :syn-sync)
+nnoremap + :<C-u>syntax sync minlines=
 
 " add current line position to jumplist when using `=`
 nnoremap = m'=
