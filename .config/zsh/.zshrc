@@ -43,7 +43,7 @@ ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;'
 # history
 HISTSIZE=1000000000
 SAVEHIST=1000000000
-HISTORY_IGNORE='(cd|cd ..|less *|ls|ls *|command -v *|which *|cp *|mv *|rm *|cal|cal *|nmtui|bash|dash|dash -E|[1-9]|nnn|n|sx|d|qwe|sd|da|ds|sc|cs|v|zxc|sdfa *|sdfa -p *|sdfc|sdfd|sdfd *|sdfs|sdfp|sdfpl|sdfl|cpu|mem|t|ta *|kj|nmls|nmco *|nmdc *|gss|gd|gaf|gc|gc -a|gca|gca *|gp|gpf|ggp|gbd|nj|gch -|gco|gct|ggl|ggl *|gl|gmt|gurm|gres|gfp|gwl|gwa|gwr|gst|gstu|gstp|gstf|gstl|gcd|gcb *|reload)'
+HISTORY_IGNORE='(cd|cd ..|less *|ls|ls *|command -v *|which *|cp *|mv *|rm *|cal|cal *|nmtui|bash|dash|dash -E|[1-9]|nnn|n|sx|d|qwe|sd|da|ds|sc|cs|v|zxc|sdfa *|sdfa -p *|sdfc|sdfd|sdfd *|sdfs|sdfp|sdfpl|sdfl|cpu|mem|t|ta *|kj|nmls|nmco *|nmdc *|gss|gd|gaf|gc|gc -a|gca|gca *|gp|gpf|ggp|gbd|nj|gch -|gchf|gco|gct|ggl|ggl *|gl|gmt|gurm|gres|gfp|gwl|gwa|gwr|gst|gstu|gstp|gstf|gstl|gcd|gcb *|reload)'
 # create .local/state directory if it doesn't exist
 # parameter expansion: https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
 # XDG_STATE_HOME explanation:
