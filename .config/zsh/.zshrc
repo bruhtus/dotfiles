@@ -21,6 +21,14 @@ setopt inc_append_history
 setopt always_to_end
 unsetopt menu_complete
 
+_set_win_title() {
+  # echo -ne "\033]0; $(basename "$PWD") \007"
+  print -Pn "\e]0;%~\a"
+}
+
+# check `man zshmisc`
+precmd_functions+=(_set_win_title)
+
 #(hopefully) remove maximum nested function level reached; increase FUNCNEST?
 #still not sure what's going on
 # FUNCNEST=1500
@@ -141,13 +149,5 @@ bindkey '^I' expand-or-complete-prefix
 
 # bindkey '^R' history-incremental-search-backward
 # bindkey '^J' history-incremental-search-forward
-
-set_win_title(){
-  # echo -ne "\033]0; $(basename "$PWD") \007"
-  print -Pn "\e]0;%~\a"
-}
-
-# check `man zshmisc`
-precmd_functions+=(set_win_title)
 
 [ -f ${ZDOTDIR:-$HOME/.config/zsh}/prompt ] && . ${ZDOTDIR:-$HOME/.config/zsh}/prompt
