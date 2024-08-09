@@ -50,6 +50,7 @@ export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/ripgrep/ripgreprc"
 # psql
 export PSQL_PAGER=less
 export PSQL_HISTORY="${XDG_STATE_HOME:-$HOME/.local/state}/psql_history"
+export PSQLRC="${XDG_CONFIG_HOME:-$HOME/.config}/pg/psqlrc"
 
 # terminal emulator
 export TERMINAL=alacritty
