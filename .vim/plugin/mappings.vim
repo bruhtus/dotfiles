@@ -276,10 +276,10 @@ nnoremap <leader>D D
 
 " set cu to substitute current word in all lines (use confirm as safety guard)
 " Ref: https://vi.stackexchange.com/a/34390 (direct positioning command line)
-nnoremap cu :keeppatterns %s/\v<<C-r><C-w>>//gc<C-r>=setcmdpos(getcmdpos()-3)[1]<CR>
+nnoremap cu :keeppatterns %s/\<<C-r><C-w>\>//gc<C-r>=setcmdpos(getcmdpos()-3)[1]<CR>
 
 " set cU to substitute current WORD in all lines (use confirm as safety guard)
-nnoremap cU :keeppatterns %s/\v<<C-r><C-a>>//gc<C-r>=setcmdpos(getcmdpos()-3)[1]<CR>
+nnoremap cU :keeppatterns %s/\<<C-r><C-a>\>//gc<C-r>=setcmdpos(getcmdpos()-3)[1]<CR>
 
 " set cd to substitute current word in current line (use confirm as safety guard)
 nnoremap cd :keeppatterns s/<C-r><C-w>//gc<C-r>=setcmdpos(getcmdpos()-3)[1]<CR>
