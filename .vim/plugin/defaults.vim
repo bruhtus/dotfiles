@@ -65,7 +65,7 @@ set wildignore=*/.git/*
 " if has('patch-8.2.4655') | set wildoptions=pum | endif
 
 " check if there's termwinkey variable or not
-if exists('+termwinkey') | set termwinkey=<C-p> | endif
+if exists('+termwinkey') | set termwinkey=<C-q> | endif
 
 if exists('+undoreload') | set undoreload=0 | endif
 
