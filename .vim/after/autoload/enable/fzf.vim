@@ -22,7 +22,7 @@ function! enable#fzf#init()
     " ctrl-b/f useful to move the cursor to the left/right
     let $FZF_DEFAULT_OPTS = "--reverse" .
           \ " --bind ctrl-n:preview-half-page-down,ctrl-p:preview-half-page-up" .
-          \ " --bind ctrl-g:'execute(less -i --incsearch --search-options=W -g {})'"
+          \ " --bind ctrl-g:'execute(less -c -i --incsearch --search-options=W -g {})'"
 
     let $FZF_PREVIEW_COMMAND = 'cat {}'
 
