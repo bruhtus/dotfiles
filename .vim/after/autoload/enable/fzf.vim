@@ -14,10 +14,14 @@ function! enable#fzf#init()
     "         \  unlet g:before_fzf_ruler g:before_fzf_laststatus
     " augroup END
 
+    let g:fzf_vim = {
+          \   'preview_window': ['hidden,wrap,left,99%', 'ctrl-/']
+          \ }
+
     " move preview half page-up/down using ctrl-p/n
     " ctrl-b/f useful to move the cursor to the left/right
     " wrap preview content
-    let $FZF_DEFAULT_OPTS = "--reverse --bind ctrl-n:preview-half-page-down,ctrl-p:preview-half-page-up --preview-window=wrap,hidden"
+    let $FZF_DEFAULT_OPTS = "--reverse --bind ctrl-n:preview-half-page-down,ctrl-p:preview-half-page-up"
 
     let g:fzf_action = {
           \ 'ctrl-t': 'tab split',
