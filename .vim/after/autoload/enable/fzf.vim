@@ -20,8 +20,9 @@ function! enable#fzf#init()
 
     " move preview half page-up/down using ctrl-p/n
     " ctrl-b/f useful to move the cursor to the left/right
-    " wrap preview content
-    let $FZF_DEFAULT_OPTS = "--reverse --bind ctrl-n:preview-half-page-down,ctrl-p:preview-half-page-up"
+    let $FZF_DEFAULT_OPTS = "--reverse" .
+          \ " --bind ctrl-n:preview-half-page-down,ctrl-p:preview-half-page-up" .
+          \ " --bind ctrl-g:'execute(less --incsearch {})'"
 
     let g:fzf_action = {
           \ 'ctrl-t': 'tab split',
