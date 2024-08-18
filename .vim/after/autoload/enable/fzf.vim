@@ -24,6 +24,8 @@ function! enable#fzf#init()
           \ " --bind ctrl-n:preview-half-page-down,ctrl-p:preview-half-page-up" .
           \ " --bind ctrl-g:'execute(less --incsearch {})'"
 
+    let $FZF_PREVIEW_COMMAND = 'cat {}'
+
     let g:fzf_action = {
           \ 'ctrl-t': 'tab split',
           \ 'ctrl-x': 'split',
