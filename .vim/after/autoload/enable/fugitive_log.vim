@@ -17,6 +17,7 @@ endfunction
 function! enable#fugitive_log#visual() abort
   if !exists('g:loaded_fugitive') | packadd vim-fugitive | endif
 
-  exe '-tab Git log --color=never --date=short --format="%h %cd  %s (%an)%d" -L '
+  exe '-tab Git log --color=never --date=short --pretty=format:"%h %cd  %s (%an)%d" -L '
         \ . line("'<") . ',' . line("'>") . ':' . expand('%:p')
+  redraw!
 endfunction
