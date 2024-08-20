@@ -304,6 +304,9 @@ nnoremap <silent> yor :<C-u>setlocal relativenumber!<CR>
 " toggle `spell` option
 nnoremap <silent> yos :<C-u>setlocal spell!<CR>
 
+" toggle `expandtab` option
+nnoremap <silent> yoe :<C-u>setlocal expandtab!<CR>
+
 " map yol to location list toggle and yoc to quickfix list toggle
 " Ref:
 " - https://vi.stackexchange.com/a/18090
