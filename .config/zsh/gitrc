@@ -21,14 +21,14 @@ gaf() {
 
 	local diff_unstaged='
 	[ {1} = "??" ] &&
-		{ git diff --color=always --no-index -- /dev/null {2} | less -R --incsearch } ||
-			{ git diff --color=always -- {2} | less -R --incsearch }
+		{ git diff --color=always --no-index -- /dev/null {2} | less -c -i --incsearch --search-options=W -g -R } ||
+			{ git diff --color=always -- {2} | less -c -i --incsearch --search-options=W -g -R }
 	'
 
 	# ref:
 	# - https://stackoverflow.com/a/3527985
 	# - `man git-diff` (EXAMPLES section)
-	local diff_staged='git diff --color=always --cached -- {2} | less -R --incsearch'
+	local diff_staged='git diff --color=always --cached -- {2} | less -c -i --incsearch --search-options=W -g -R'
 
 	local git_config='git -c color.status=always'
 
@@ -188,7 +188,7 @@ gl() {
 		--height=80% \
 		--tiebreak=index \
 		--reverse \
-		--bind "enter:execute($cmd | less -R --incsearch)" \
+		--bind "enter:execute($cmd | less -c -i --incsearch --search-options=W -g -R)" \
 		--bind 'ctrl-r:reload(eval "$FZF_DEFAULT_COMMAND")' \
 		--bind "ctrl-y:execute-silent(echo {1} | tr -d '[:space:]' | xsel --clipboard --input)" \
 		--preview='git show --color=always --numstat --format="%C(auto)%D%n%s" {1}' \
@@ -216,7 +216,7 @@ gfc() {
 		--height=80% \
 		--tiebreak=index \
 		--reverse \
-		--bind "enter:execute($cmd | less -R --incsearch)" \
+		--bind "enter:execute($cmd | less -c -i --incsearch --search-options=W -g -R)" \
 		--bind "ctrl-y:execute-silent(echo {3} | tr -d '[:space:]' | xsel --clipboard --input)" \
 		--preview="$cmd"
 }
@@ -295,7 +295,7 @@ gstl() {
 		--reverse \
 		--preview='git stash show -u --color=always --numstat {1}' \
 		--preview-window=up,nohidden \
-		--bind "enter:execute($cmd | less -R --incsearch)" \
+		--bind "enter:execute($cmd | less -c -i --incsearch --search-options=W -g -R)" \
 		--bind 'ctrl-r:reload(eval "$FZF_DEFAULT_COMMAND")' \
 		--bind "ctrl-y:execute-silent(echo {2} | tr -d '[:space:]\:' | xsel --clipboard --input)"
 }
