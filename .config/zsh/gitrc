@@ -274,7 +274,7 @@ alias \
 alias \
 	gst='git stash' \
 	gstu='git stash -u' \
-	gstp='git stash pop' \
+	gstp='git stash pop --quiet --index' \
 	gstf='git status -su | awk "!/^M/ {print \$2}" | fzf --multi --layout=reverse-list | xargs -r git stash push -u'
 
 # Ref: https://stackoverflow.com/a/66831429
