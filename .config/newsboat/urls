@@ -4,6 +4,9 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA "~B
 ---arch-linux---
 https://archlinux.org/feeds/news/
 
+---suckless---
+https://suckless.org/atom.xml
+
 # ref: https://github.com/DIYbiosphere/sphere/issues/146#issuecomment-286245216
 ---github-commits---
 https://github.com/koirand/pulp/commits/master.atom "github"
