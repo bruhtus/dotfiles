@@ -4,7 +4,7 @@
 # #---Basic Definitions---# #
 #Mod1=<Alt>, Mod4=<Super>
 set $mod Mod1
-set $term alacritty
+set $term st
 # #---End---# #
 
 # #---Default Config---# #
@@ -25,9 +25,9 @@ workspace_auto_back_and_forth no
 # #---End---# #
 
 # #---Dropdown/Scratchpad Windows---# #
-for_window [title="dropdown_tmux"] move scratchpad
-for_window [title="dropdown_tmux"] sticky enable
-for_window [title="dropdown_tmux"] resize set 900 520
+for_window [instance="dropdown_tmux"] move scratchpad
+for_window [instance="dropdown_tmux"] sticky enable
+for_window [instance="dropdown_tmux"] resize set 900 520
 # #---End---# #
 
 # #---Basic Key Bindings---# #
@@ -77,7 +77,7 @@ bindsym $mod+d exec $term
 bindsym $mod+v exec rofi -show emoji -modi emoji
 bindsym $mod+m exec rofisearch
 
-bindsym $mod+Shift+x [title="dropdown_tmux"] scratchpad show; [title="dropdown_tmux"] move position center
+bindsym $mod+Shift+x [instance="dropdown_tmux"] scratchpad show; [instance="dropdown_tmux"] move position center
 bindsym $mod+Shift+y exec google-chrome-stable --new-window https://github.com/settings/tokens
 bindsym $mod+Shift+q exec qutebrowser
 
@@ -155,7 +155,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10; workspace $ws10
 # Open applications on specific workspaces
 # ref: https://unix.stackexchange.com/a/363848
 assign [title="btop"] $ws1
-assign [class="Alacritty" title="^(?!dropdown_)\w*$"] $ws3
+assign [class="st" instance="^(?!dropdown_tmux)"] $ws3
 assign [class="Google-chrome"] $ws2
 assign [class="qutebrowser"] $ws2
 assign [class="Slack"] $ws7

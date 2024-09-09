@@ -53,7 +53,7 @@ export PSQL_HISTORY="${XDG_STATE_HOME:-$HOME/.local/state}/psql_history"
 export PSQLRC="${XDG_CONFIG_HOME:-$HOME/.config}/pg/psqlrc"
 
 # terminal emulator
-export TERMINAL=alacritty
+export TERMINAL=st
 
 # qt application
 export QT_QPA_PLATFORMTHEME="qt5ct"

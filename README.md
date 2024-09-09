@@ -15,7 +15,7 @@ Category             | Name
 Operating system     | [Arch linux](https://archlinux.org/)
 Window manager       | [i3](https://github.com/i3/i3)
 Text editor          | [Vim](https://github.com/vim/vim)<br> [Neovim](https://github.com/neovim/neovim) (no longer using)
-Terminal emulator    | [Alacritty](https://github.com/alacritty/alacritty)
+Terminal emulator    | [st](https://st.suckless.org)<br> [Alacritty](https://github.com/alacritty/alacritty) (no longer using)
 Terminal multiplexer | [Tmux](https://github.com/tmux/tmux)
 Shell                | [Zsh](https://zsh.sourceforge.io/Doc/Release/index.html) (interactive)<br> [Bash](https://www.gnu.org/software/bash/)
 Shell prompt         | [Custom zsh prompt](https://github.com/bruhtus/dotfiles/blob/master/.config/zsh/prompt)<br> [Starship](https://starship.rs/) (no longer using)<br> [Powerlevel10k](https://github.com/romkatv/powerlevel10k) (no longer using)
@@ -124,7 +124,6 @@ More info: https://wiki.archlinux.org/index.php/Xdg-utils
 
 - [Download only vim config](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/bruhtus/dotfiles/tree/master/.vim).
 - [Atlassian tutorial](https://www.atlassian.com/git/tutorials/dotfiles).
-- [Alacritty color schemes](https://github.com/alacritty/alacritty-theme).
 - [Yanking in w3m](https://unix.stackexchange.com/questions/12497/yanking-urls-in-w3m).
 - [Keycode/keysym for xorg or i3wm](http://xahlee.info/linux/linux_show_keycode_keysym.html).
 - [Notification arch-based updates](https://eang.it/notifications-of-pacman-updates/).
