@@ -19,11 +19,7 @@ gaf() {
 	inside_worktree=$(git rev-parse --is-inside-work-tree) || return "$?"
 	[ "$inside_worktree" = false ] && echo 'Not inside git worktree' && return 1
 
-	local diff_unstaged='
-	[ {1} = "??" ] &&
-		{ git diff --color=always --no-index -- /dev/null {2} | less -c -i --incsearch --search-options=W -g -R } ||
-			{ git diff --color=always -- {2} | less -c -i --incsearch --search-options=W -g -R }
-	'
+	local diff_unstaged='[ {1} = "??" ] && { git diff --color=always --no-index -- /dev/null {2} | less -c -i --incsearch --search-options=W -g -R } || { git diff --color=always -- {2} | less -c -i --incsearch --search-options=W -g -R }'
 
 	# ref:
 	# - https://stackoverflow.com/a/3527985
