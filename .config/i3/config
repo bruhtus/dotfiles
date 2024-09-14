@@ -191,7 +191,7 @@ set $mode_system (e)xit, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
     bindsym e exec --no-startup-id i3-msg exit
     bindsym r exec --no-startup-id reboot
-    bindsym Shift+s exec --no-startup-id shutdown -h now
+    bindsym Shift+s exec --no-startup-id shutdown now
 
     # exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"
