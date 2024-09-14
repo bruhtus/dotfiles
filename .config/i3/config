@@ -5,6 +5,8 @@
 #Mod1=<Alt>, Mod4=<Super>
 set $mod Mod1
 set $term st
+set $resize i3-msg resize
+set $resize_size 2 px or 2 ppt
 # #---End---# #
 
 # #---Default Config---# #
@@ -67,10 +69,19 @@ bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_
 bindsym $mod+Ctrl+f fullscreen toggle
 bindsym $mod+Ctrl+b move container to workspace back_and_forth
 
-bindsym $mod+Ctrl+Shift+h exec --no-startup-id i3resize left
-bindsym $mod+Ctrl+Shift+j exec --no-startup-id i3resize down
-bindsym $mod+Ctrl+Shift+k exec --no-startup-id i3resize up
-bindsym $mod+Ctrl+Shift+l exec --no-startup-id i3resize right
+# resize window
+bindsym $mod+Ctrl+Shift+h exec --no-startup-id \
+  $resize shrink right $resize_size &>/dev/null || \
+  $resize grow left $resize_size
+bindsym $mod+Ctrl+Shift+j exec --no-startup-id \
+  $resize shrink up $resize_size &>/dev/null || \
+  $resize grow down $resize_size
+bindsym $mod+Ctrl+Shift+k exec --no-startup-id \
+  $resize grow up $resize_size &>/dev/null || \
+  $resize shrink down $resize_size
+bindsym $mod+Ctrl+Shift+l exec --no-startup-id \
+  $resize grow right $resize_size &>/dev/null || \
+  $resize shrink left $resize_size
 
 #---Application---#
 bindsym $mod+d exec $term
