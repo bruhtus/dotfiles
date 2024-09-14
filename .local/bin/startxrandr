@@ -1,11 +1,36 @@
 #!/bin/sh
 
-# TODO: figure out how to POSIX compliant for word boundary in awk.
-# word boundary for gawk, we can use '/\<primary\>/'
+xrandr_primary() {
+  local mode
+
+  if $(
+    grep -q 'GA401QC' /sys/devices/virtual/dmi/id/product_name
+  ); then
+      mode='--mode 1920x1080'
+  fi
+
+  xrandr \
+    --auto \
+    --output "$(xrandr | awk '/primary/ {print $1}')" \
+    $mode \
+    "$@" || exit "$?"
+}
+
+nonprimary_display="$(xrandr | awk '!/primary/ && / connected/ {print $1}')" || \
+  exit "$1"
+
+# word boundary for gawk: '/\<primary\>/'
 # which is similar in vim script.
-[ $(xrandr | grep -cw 'connected') == 1 ] && \
-  xrandr --auto || \
-  xrandr --auto --output $(xrandr | awk '/primary/ {print $1}') \
-  --auto --right-of $(xrandr | awk '!/primary/ && / connected/ {print $1}')
+if [ "$(xrandr | grep -cw 'connected')" = 1 ]; then
+  xrandr_primary
+
+else
+  if [ "$1" = 'mirror' ]; then
+    xrandr_primary --same-as "$nonprimary_display"
+  else
+    xrandr_primary --right-of "$nonprimary_display"
+  fi
+
+fi
 
 # sleep 1 && polybar-launch
