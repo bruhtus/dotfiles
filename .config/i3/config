@@ -77,8 +77,13 @@ bindsym $mod+d exec $term
 bindsym $mod+v exec rofi -show emoji -modi emoji
 bindsym $mod+m exec rofisearch
 
-bindsym $mod+Shift+x [instance="dropdown_tmux"] scratchpad show; [instance="dropdown_tmux"] move position center
-bindsym $mod+Shift+y exec google-chrome-stable --new-window https://github.com/settings/tokens
+bindsym $mod+Shift+x \
+  [instance="dropdown_tmux"] scratchpad show; \
+  [instance="dropdown_tmux"] move position center
+
+bindsym $mod+Shift+y \
+  exec google-chrome-stable --new-window https://github.com/settings/tokens
+
 bindsym $mod+Shift+q exec qutebrowser
 
 bindsym $mod+Ctrl+n exec docsmenu
@@ -92,7 +97,10 @@ bindsym $mod+Ctrl+s --release exec --no-startup-id flameshot gui
 # bindsym $mod+Ctrl+s --release exec --no-startup-id flameshot screen -r -p $HOME/pictures/
 
 bindsym $mod+Ctrl+Shift+n exec google-chrome-stable --incognito
-bindsym $mod+Ctrl+Shift+b exec xdg-open https://github.com/bruhtus?tab=repositories
+
+bindsym $mod+Ctrl+Shift+b \
+  exec xdg-open https://github.com/bruhtus?tab=repositories
+
 bindsym $mod+Ctrl+Shift+u exec --no-startup-id pomo pause && pomo stop
 bindsym $mod+Ctrl+Shift+space exec --no-startup-id pomo pause
 
@@ -220,10 +228,15 @@ bar {
 }
 
 # Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+# bindsym XF86MonBrightnessUp \
+#   exec "xbacklight -inc 10; notify-send 'brightness up'"
+# bindsym XF86MonBrightnessDown \
+#   exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl -- set-sink-mute @DEFAULT_SINK@ toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id \
+  pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id \
+  pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id \
+  pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
