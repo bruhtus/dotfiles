@@ -28,8 +28,7 @@ sdfi() {
       sdfm config alias.stat 'status -s' || return "$?"
     }
 
-  local config_abbrev
-  config_abbrev="$(sdfm config core.abbrev)" || return "$?"
+  local config_abbrev="$(sdfm config core.abbrev)"
 
   while getopts :u:fap: option; do
     case $option in
