@@ -5,12 +5,15 @@
 [ -n "$SDFM_GIT_REMOTE" ] || SDFM_GIT_REMOTE='origin'
 [ -n "$SDFM_GIT_BRANCH" ] || SDFM_GIT_BRANCH='master'
 
-alias sdfm='git --git-dir="$SDFM_GIT_DIR" --work-tree="$SDFM_GIT_WORKTREE"'
-alias sdfc='git --git-dir="$SDFM_GIT_DIR" --work-tree="$SDFM_GIT_WORKTREE" commit'
-alias sdfs='git --git-dir="$SDFM_GIT_DIR" --work-tree="$SDFM_GIT_WORKTREE" stat'
-alias sdfp='git --git-dir="$SDFM_GIT_DIR" --work-tree="$SDFM_GIT_WORKTREE" push'
-alias sdfpl='git --git-dir="$SDFM_GIT_DIR" --work-tree="$SDFM_GIT_WORKTREE" pull --autostash'
-alias sdfl='git --git-dir="$SDFM_GIT_DIR" --work-tree="$SDFM_GIT_WORKTREE" log --date=human --abbrev-commit'
+[ -n "$SDFM_GIT_COMMAND" ] || \
+  SDFM_GIT_COMMAND='git --git-dir="$SDFM_GIT_DIR" --work-tree="$SDFM_GIT_WORKTREE"'
+
+alias sdfm="$SDFM_GIT_COMMAND"
+alias sdfc="$SDFM_GIT_COMMAND commit"
+alias sdfs="$SDFM_GIT_COMMAND stat"
+alias sdfp="$SDFM_GIT_COMMAND push"
+alias sdfpl="$SDFM_GIT_COMMAND pull --autostash"
+alias sdfl="$SDFM_GIT_COMMAND log --date=human --abbrev-commit"
 
 sdfi() {
   [ -d "${SDFM_GIT_DIR%/*}" ] || {
