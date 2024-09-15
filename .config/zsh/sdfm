@@ -21,11 +21,13 @@ sdfi() {
     mkdir -pv "${SDFM_GIT_WORKTREE%/*}" || return "$?"
   }
 
+  local non_checkout_message='! echo "No tracked file, use -a or -p flag to checkout file"'
+
   [ -d "$SDFM_GIT_DIR" ] || {
     sdfm init -b "$SDFM_GIT_BRANCH" || return "$?"
       sdfm config status.showUntrackedFiles no || return "$?"
       sdfm config push.autoSetupRemote true || return "$?"
-      sdfm config alias.stat 'status -s' || return "$?"
+      sdfm config alias.stat $non_checkout_message || return "$?"
     }
 
   local config_abbrev="$(sdfm config core.abbrev)"
