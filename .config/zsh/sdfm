@@ -32,7 +32,7 @@ sdfi() {
 
   local config_abbrev="$(sdfm config core.abbrev)"
 
-  while getopts :u:fap: option; do
+  while getopts :u:fap:r option; do
     case $option in
       u)
         [ -n "$(sdfm remote show)" ] || {
@@ -49,33 +49,58 @@ sdfi() {
         sdfm diff --name-status --diff-filter=M HEAD || return "$?"
         ;;
       a)
-        [ "$config_abbrev" = 'auto' ] || {
+        if [ -z "$config_abbrev" ]; then
           sdfm config core.abbrev auto || return "$?"
+          config_abbrev="$(sdfm config core.abbrev)"
+
           sdfm config alias.stat 'status -s' || return "$?"
-        }
+          sdfm checkout -- . || return "$?"
+          echo 'Last commit applied'
 
-        sdfm checkout -- . || return "$?"
-
-        echo 'Last commit applied'
-        ;;
-      p)
-        if [ -z "$config_abbrev" ] || [ "$config_abbrev" != 'auto' ]; then
-          sdfm config core.abbrev no
-          sdfm config alias.stat 'diff --name-status --diff-filter=M HEAD'
-          sdfm checkout -- "$OPTARG" || return "$?"
-          echo "$OPTARG initialized"
+        elif [ "$config_abbrev" = auto ]; then
+          echo 'Commit already applied'
+          return 1
 
         else
-          echo 'Can not use partial init, already in full init'
+          printf '%s\n' \
+            'Already in partial checkout state.' \
+            'Use -r to reset state and remove tracked file.'
+        fi
+        ;;
+      p)
+        # can checkout multiple files.
+        if [ -z "$config_abbrev" ]; then
+          sdfm config core.abbrev no
+          config_abbrev="$(sdfm config core.abbrev)"
+          sdfm config alias.stat 'diff --name-status --diff-filter=M HEAD'
+        fi
+
+        if [ "$config_abbrev" = no ]; then
+          sdfm checkout -- "$OPTARG" || return "$?"
+          echo "Checkout $OPTARG"
+
+        else
+          printf '%s\n' \
+            'Already in full checkout state.' \
+            'Use -r to reset state and remove tracked file.'
           return 1
         fi
+        ;;
+      r)
+        echo 'Reset state and remove all tracked files'
+        sdfm read-tree -u -m "$(sdfm hash-object -t tree /dev/null)" || return "$1"
+        sdfm reset -q
+
+        sdfm config unset core.abbrev
+        config_abbrev="$(sdfm config core.abbrev)"
+        sdfm config alias.stat $non_checkout_message
         ;;
       :)
         echo "Option -$OPTARG requires an argument"
         return 1
         ;;
       ?)
-        echo 'Usage: sdfi [-u <url>] [-f] [-a] [-p <path>]'
+        echo 'Usage: sdfi [-u <url>] [-f] [-a] [-p <path>] [-r]'
         return 1
         ;;
     esac
