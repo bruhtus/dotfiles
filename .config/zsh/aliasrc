@@ -77,15 +77,6 @@ alias \
 	cpu='ps axch -o cmd:15,%cpu --sort=-%cpu | head' \
 	mem='ps axch -o cmd:15,%mem --sort=-%mem | head'
 
-#taskwarrior alias
-alias \
-	t='task' \
-	ta='task add' \
-	tg='task tags' \
-	tt='task context' \
-	tp='task projects' \
-	tl='task all | less -r'
-
 # ref: https://www.linuxquestions.org/questions/linux-newbie-8/xargs-cd-is-not-working-796219/#post3906430 (why cd does not work with xargs).
 # ref: https://www.linuxquestions.org/questions/linux-newbie-8/xargs-cd-is-not-working-796219/#post3907371 (about pipeline).
 #cd to any directories in home directory from any directories
