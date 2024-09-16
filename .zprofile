@@ -119,9 +119,6 @@ export LYNX_LSS="${XDG_CONFIG_HOME:-$HOME/.config}/lynx/lynx.lss"
 # volta
 export VOLTA_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/volta"
 
-# yarn
-# export YARNRC="${XDG_CONFIG_HOME:-$HOME/.config}/yarn/config"
-
 # ansible
 export ANSIBLE_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/ansible"
 export ANSIBLE_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/ansible.cfg"
