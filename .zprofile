@@ -158,7 +158,3 @@ export MANROFFOPT='-P -c'
 #     [tw]="sticky and other-writable directory"
 # )
 export LS_COLORS="ow=1;34;40"
-
-# task config and data
-# export TASKRC="${XDG_CONFIG_HOME:-$HOME/.config}/task/taskrc"
-# export TASKDATA="${XDG_DATA_HOME:-$HOME/.local/share}/task"
