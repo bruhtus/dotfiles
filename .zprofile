@@ -7,8 +7,6 @@
 
 # zsh
 export ZDOTDIR="$HOME/.config/zsh"
-export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=black,fg=white,bold'
-export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=black,fg=white'
 
 # initialize XDG Base Directory
 # XDG_STATE_HOME explanation:
