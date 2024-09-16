@@ -125,23 +125,6 @@ dum() {
 # 	$EDITOR -R <($@ | nc termbin.com 9999)
 # }
 
-#python alias
-# py() {
-# 	python $@ | less -F
-# }
-
-# pyl() {
-# 	python $@ | less
-# }
-
-# pyc() {
-# 	python -c $1
-# }
-
-# pyv() {
-# 	$EDITOR -R <(python $@)
-# }
-
 # kill process
 # ref:
 # - man signal.7
