@@ -189,9 +189,9 @@ for_window [class="qt5ct"] floating enable sticky enable border normal
 bindsym $mod+plus mode "$mode_system"
 set $mode_system (e)xit, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
-    bindsym e exec --no-startup-id i3-msg exit
-    bindsym r exec --no-startup-id reboot
-    bindsym Shift+s exec --no-startup-id shutdown now
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym r exec --no-startup-id reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id shutdown now, mode "default"
 
     # exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"
