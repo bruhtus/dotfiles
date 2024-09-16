@@ -60,8 +60,13 @@ HISTORY_IGNORE='(cd|cd ..|clear|less *|ls|ls *|command -v *|which *|which-comman
 # parameter expansion: https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
 # XDG_STATE_HOME explanation:
 # https://wiki.debian.org/XDGBaseDirectorySpecification#state
-[ -d "${XDG_STATE_HOME:-$HOME/.local/state}" ] && HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh_history" || \
-  mkdir "${XDG_STATE_HOME:-$HOME/.local/state}" && HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh_history"
+if [ -d "${XDG_STATE_HOME:-$HOME/.local/state}" ]; then
+  HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh_history"
+else
+  mkdir -p "${XDG_STATE_HOME:-$HOME/.local/state}" || \
+    echo "Error create ${XDG_STATE_HOME:-$HOME/.local/state} with exit code $?"
+  HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh_history"
+fi
 
 # load aliases if exist
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasrc" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasrc"
