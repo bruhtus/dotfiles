@@ -30,9 +30,7 @@ alias \
 	translate='gawk -f <(curl -Ls git.io/translate) -- -shell' \
 	ipa='curl ifconfig.co' \
 	rs='rsync -ahP' \
-	cm='cd /run/media' \
 	v='$EDITOR' \
-	rate='curl rate.sx' \
 	lynx='lynx -vikeys'
 	# saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 
@@ -69,10 +67,6 @@ alias \
 	yayss='yay -Ss' \
 	yaysua='yay -Sua' \
 	yayq='yay -Qua'
-
-#tmux alias
-alias tma='tmux a'
-alias tms='tmux new -s'
 
 #screenkey alias
 alias \
