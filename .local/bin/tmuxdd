@@ -5,5 +5,7 @@
 # ref:
 # https://github.com/LukeSmithxyz/voidrice/commit/c7e3d61753201d48835cdc819dcd6557bc2cffe7
 # https://github.com/alacritty/alacritty/issues/6081#issuecomment-1135055105
-xwininfo -name dropdown_tmux &>/dev/null || \
-  $TERMINAL -n dropdown_tmux -e sh -c 'tmux -L dropdown new -s OwO || tmux -L dropdown a'
+name=dropdown_tmux
+
+xwininfo -name $name &>/dev/null || \
+  $TERMINAL -n $name -t $name -e sh -c 'tmux -L dropdown new -s OwO || tmux -L dropdown a'
