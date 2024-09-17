@@ -174,7 +174,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10; workspace $ws10
 # Open applications on specific workspaces
 # ref: https://unix.stackexchange.com/a/363848
 assign [title="btop"] $ws1
-assign [class="st" instance="^(?!dropdown_tmux)"] $ws3
+assign [class="^st-256color" instance="^(?!dropdown_tmux)"] $ws3
 assign [class="Google-chrome"] $ws2
 assign [class="qutebrowser"] $ws2
 assign [class="Slack"] $ws7
