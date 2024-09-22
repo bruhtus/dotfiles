@@ -85,7 +85,7 @@ zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' file-sort name
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' menu yes=long select interactive
+zstyle ':completion:*' menu yes=2 select interactive
 zstyle ':completion:*' select-prompt '%l'
 zstyle ':completion:*' use-compctl true
 
@@ -116,6 +116,9 @@ compdef _files sdfd
 #     # mzadd zsh-users/zsh-syntax-highlighting
 #     # mzadd zdharma/fast-syntax-highlighting
 #   }
+
+# ctrl-i to trigger interactive mode.
+bindkey -M menuselect '^I' interactive
 
 # vim keys to tab complete menu
 # bindkey -M menuselect 'h' vi-backward-char
