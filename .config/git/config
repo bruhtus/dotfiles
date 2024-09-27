@@ -23,7 +23,7 @@
 [pull]
 	rebase = true
 [commit]
-	verbose = true
+	verbose = false
 [diff]
 	wsErrorHighlight = all
 [includeIf "gitdir:~/work-repos/"]
