@@ -272,6 +272,13 @@ gwa() {
 	fi
 }
 
+gwc() {
+	local inside_worktree
+	inside_worktree=$(git rev-parse --is-inside-work-tree) || return "$?"
+	[ "$inside_worktree" = false ] && echo 'Not inside git worktree' && return 1
+
+	cd "$(git worktree list | awk "{print \$1}" | fzf )"
+}
 
 alias \
 	gra='git remote add' \
