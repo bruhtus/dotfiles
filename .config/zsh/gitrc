@@ -253,8 +253,10 @@ alias \
 	gf='git fetch' \
 	gfp='git fetch --prune'
 
+# ref: https://stackoverflow.com/a/47698869 (using awk in shell alias)
 alias \
-	gwl='git worktree list'
+	gwl='git worktree list' \
+	gwr='git worktree list | awk "NR>1 {print \$1}" | fzf --exit-0 | xargs -r git worktree remove'
 
 gwa() {
 	local inside_worktree
@@ -266,9 +268,6 @@ gwa() {
 	[ ! -z "$git_branch" ] && git worktree add $git_root/.worktree/$git_branch $git_branch || return 0
 }
 
-# ref: https://stackoverflow.com/a/47698869 (using awk in shell alias)
-alias \
-	gwr='git worktree list | fzf | awk "{print \$1}" | xargs -r git worktree remove'
 
 alias \
 	gra='git remote add' \
