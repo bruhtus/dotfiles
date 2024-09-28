@@ -265,7 +265,11 @@ gwa() {
 
 	local git_root="$(git rev-parse --show-toplevel)"
 	local git_branch="$(git branch -a | awk '/^[^*+]/ {print $1}' | fzf --exit-0 )"
-	[ ! -z "$git_branch" ] && git worktree add $git_root/.worktree/$git_branch $git_branch || return 0
+	local worktree_dir="$(printf '%s\n' $git_branch | sed 's/\//-/g')"
+	if [ ! -z "$git_branch" ]; then
+		git worktree add \
+			"${XDG_STATE_HOME:-$HOME/.local/state}/git-worktrees/${git_root##*/}/$worktree_dir" "$git_branch" || return "$?"
+	fi
 }
 
 
