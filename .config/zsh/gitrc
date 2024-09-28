@@ -263,8 +263,8 @@ gwa() {
 	inside_worktree=$(git rev-parse --is-inside-work-tree) || return "$?"
 	[ "$inside_worktree" = false ] && echo 'Not inside git worktree' && return 1
 
-	local git_root=$(git rev-parse --show-toplevel)
-	local git_branch=$(git branch -a | awk '/^[^*+]/ {print $1}' | fzf )
+	local git_root="$(git rev-parse --show-toplevel)"
+	local git_branch="$(git branch -a | awk '/^[^*+]/ {print $1}' | fzf --exit-0 )"
 	[ ! -z "$git_branch" ] && git worktree add $git_root/.worktree/$git_branch $git_branch || return 0
 }
 
