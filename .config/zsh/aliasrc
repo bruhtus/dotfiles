@@ -33,9 +33,9 @@ alias \
 
 #verbosity
 alias \
-	cp='cp -iv' \
-	mv='mv -iv' \
-	rm='rm -vI'
+	cp='cp -i' \
+	mv='mv -i' \
+	rm='rm -I'
 
 #ls alias
 alias \
