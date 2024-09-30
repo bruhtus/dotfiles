@@ -194,13 +194,13 @@ hi! link ToolbarButton TabLineSel
 " help
 hi! link helpHeadline Title
 hi! link helpSectionDelim Comment
-hi! link helpExample Text
+hi! link helpExample String
 hi! link helpBar Comment
 hi! link helpHyperTextJump Link
 hi! link helpHyperTextEntry Link
 hi! link helpVim String
-hi! link helpCommand Text
-hi! link helpHeader Title
+hi! link helpCommand String
+hi! link helpHeader String
 hi! link helpNote Todo
 hi! link helpWarning WarningMsg
 hi! link helpDeprecated ErrorMsg
