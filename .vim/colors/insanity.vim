@@ -196,8 +196,8 @@ hi! link helpHeadline Title
 hi! link helpSectionDelim Comment
 hi! link helpExample Text
 hi! link helpBar Comment
-hi! link helpHyperTextJump String
-hi! link helpHyperTextEntry String
+hi! link helpHyperTextJump Link
+hi! link helpHyperTextEntry Link
 hi! link helpVim String
 hi! link helpCommand Text
 hi! link helpHeader Title
