@@ -232,6 +232,7 @@ hi! link markdownUrl Link
 hi! link gitcommitSelectedFile Link
 hi! link gitcommitDiscardedFile Link
 hi! link gitcommitUntrackedFile Link
+hi! link gitcommitSummary String
 
 " vim-sneak
 hi! link SneakLabel Search
