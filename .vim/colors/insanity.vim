@@ -147,8 +147,8 @@ hi! link MessageWindow PmenuSel
 
 call s:hi('SpellBad', s:none, s:none, s:br_red, s:none)
 call s:hi('SpellCap', s:none, s:none, s:magenta, s:none)
-call s:hi('SpellLocal', s:none, s:none, s:cyan, s:none)
-call s:hi('SpellRare', s:none, s:none, s:green, s:none)
+hi! link SpellLocal Normal
+hi! link SpellRare Normal
 
 call s:hi('StatusLine', s:nocombine, s:bg, s:fg_1, s:none)
 call s:hi('StatusLineNC', s:nocombine, s:bg, s:yellow, s:none)
