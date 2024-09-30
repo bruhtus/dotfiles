@@ -180,10 +180,10 @@ hi! link Type Special
 hi! link TypeBuiltin Normal
 hi! link Exception WarningMsg
 hi! link Error ErrorMsg
-hi! link Character String
-hi! link Text String
-hi! link Constant String
-hi! link Underlined String
+hi! link Character Normal
+hi! link Text Normal
+hi! link Constant Normal
+hi! link Underlined Normal
 hi! link Statement Link
 
 hi! link ToolbarLine TabLine
