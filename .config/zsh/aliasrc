@@ -93,7 +93,7 @@ alias sd='cd "$(find ~ -mindepth 1 -maxdepth 2 -name .eclipse -prune -o -type d 
 
 #search and open file on current working directory in $EDITOR directly
 # alias sc='rg --hidden --files --type-not nonsense --type-not font --type-not torrent | fzf --multi --height 20% --preview="head -$LINES {}" --preview-window=wrap,hidden --bind "ctrl-/:toggle-preview,ctrl-n:preview-down,ctrl-p:preview-up" | xargs -or -I {} $EDITOR "{}"'
-alias sc='rg --hidden --files --type-not nonsense --type-not font --type-not torrent | fzf --multi --height 20% --bind "enter:become(vim {+})" --bind "ctrl-/:execute(less -c -i --incsearch --search-options=W -g {})"'
+alias sc='[ "$PWD" != "$HOME" ] && fzf --multi --height 20% --bind "enter:become(vim {+})" --bind "ctrl-/:execute(less -c -i --incsearch --search-options=W -g {})"'
 
 #search and open file on git root directory/current working directory in $EDITOR directly
 # alias cs='rg --hidden --files --type-not nonsense --type-not font --type-not torrent $(git rev-parse --show-toplevel 2>/dev/null) | fzf --multi --height 20% --preview="head -$LINES {}" --preview-window=wrap,hidden --bind "ctrl-/:toggle-preview,ctrl-n:preview-down,ctrl-p:preview-up" | xargs -or -I {} $EDITOR "{}"'
