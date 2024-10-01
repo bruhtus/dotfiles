@@ -49,7 +49,7 @@ pre() {
 		echo "No python virtual environment match, nothing deleted"
 
 	elif [ "$projectdir" != "" ]; then
-		\rm -r "$PYV_DIR/$projectdir" 2> /dev/null && echo "$projectdir python virutal environment deleted" || \
+		\rm -r "$PYV_DIR/$projectdir" 2> /dev/null && echo "$projectdir python virtual environment deleted" || \
 		echo "No python virtual environment match, nothing deleted"
 
 	else
