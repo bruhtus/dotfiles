@@ -1,9 +1,9 @@
-nmap <silent> <leader>k <Plug>SneakLabel_s
-xmap <silent> <leader>k <Plug>SneakLabel_s
+nmap <silent> <leader>l <Plug>SneakLabel_s
+xmap <silent> <leader>l <Plug>SneakLabel_s
 omap <silent> z <Plug>SneakLabel_s
 
-nmap <silent> <leader>j <Plug>SneakLabel_S
-xmap <silent> <leader>j <Plug>SneakLabel_S
+nmap <silent> <leader>h <Plug>SneakLabel_S
+xmap <silent> <leader>h <Plug>SneakLabel_S
 omap <silent> Z <Plug>SneakLabel_S
 
 nmap <silent> <leader>; <Plug>Sneak_;
