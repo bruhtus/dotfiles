@@ -21,7 +21,7 @@ nnoremap <expr> <silent> <leader>O
 " open fzf to search all lines in all opened buffer
 " wish there's a preview for `Lines` command (still can't figure out how it
 " works)
-nnoremap <silent> <leader>h :<C-u>call enable#fzf('Lines')<CR>
+nnoremap <silent> <leader>U :<C-u>call enable#fzf('Lines')<CR>
 
 " change current working directory with fzf (still WIP)
 " TODO:
