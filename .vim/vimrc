@@ -10,6 +10,7 @@ if $VIMBARE
 endif
 
 let mapleader = ' '
+nnoremap <Space> <Nop>
 
 if !has('packages') | echom 'Please install vim-plug instead' | finish | endif
 
