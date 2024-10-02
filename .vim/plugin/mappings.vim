@@ -363,6 +363,13 @@ nnoremap <leader>a :keeppatterns %s/.*.*\n//c<C-r>=setcmdpos(getcmdpos()-7)[1]<C
 
 nnoremap <leader>v :'<,'>
 
+" put blank character above and below
+" can use count to add how many blank character to insert
+" it respect `startofline` option, so turn that off if you don't want the
+" cursor to move
+nnoremap <silent> <leader>k :<C-u>put!=repeat((nr2char(10)), v:count1)<Bar>']+1<CR>
+nnoremap <silent> <leader>j :<C-u>put =repeat((nr2char(10)), v:count1)<Bar>'[-1<CR>
+
 " set ZX as :update
 nnoremap <silent> ZX :up<CR>
 
@@ -419,13 +426,6 @@ xnoremap <expr> <silent> zj
 xnoremap <expr> <silent> zk
       \ (v:count > 0 ? "m'" . v:count : '')
       \ . ':<C-u>execute "' . "'<,'>t '<-1-" . '" . v:count<CR>' . "'[V']"
-
-" map ZH to put blank character above, and ZN to put blank character below
-" can use count to add how many blank character to insert
-" it respect `startofline` option, so turn that off if you don't want the
-" cursor to move
-nnoremap <silent> ZH :<C-u>put!=repeat((nr2char(10)), v:count1)<Bar>']+1<CR>
-nnoremap <silent> ZN :<C-u>put =repeat((nr2char(10)), v:count1)<Bar>'[-1<CR>
 
 " use ctrl-k/j to go up/down in command line history
 " cnoremap <C-k> <up>
