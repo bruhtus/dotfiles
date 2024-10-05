@@ -1,0 +1,25 @@
+@ News
+https://archlinux.org/feeds/news/
+https://suckless.org/atom.xml
+
+@ Youtube
+https://www.youtube.com/feeds/videos.xml?channel_id=UCnrVURWNd7VYjlQQ0UDpOQQ
+https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA
+https://www.youtube.com/feeds/videos.xml?channel_id=UCrqM0Ym_NbK1fqeQG2VIohg
+https://www.youtube.com/feeds/videos.xml?channel_id=UCAR6ZWEICAkPavvZF_NiGYA
+
+@ Github
+https://github.com/koirand/pulp/commits/master.atom
+https://github.com/junegunn/seoul256.vim/commits/master.atom
+https://github.com/justinmk/vim-sneak/commits/master.atom
+https://github.com/itchyny/vim-gitbranch/commits/master.atom
+https://github.com/peitalin/vim-jsx-typescript/commits/master/after/indent/typescriptreact.vim.atom
+https://github.com/plasticboy/vim-markdown/commits/master/indent/markdown.vim.atom
+https://github.com/Vimjas/vim-python-pep8-indent/commits/master/indent/python.vim.atom
+https://github.com/hashivim/vim-terraform/commits/master/syntax/hcl.vim.atom
+https://github.com/hashivim/vim-terraform/commits/master/syntax/terraform.vim.atom
+https://github.com/junegunn/gv.vim/commits/master.atom
+https://github.com/tpope/vim-sleuth/commits/master.atom
+https://github.com/vim/vim/commits/master.atom
+https://github.com/neovim/neovim/commits/master.atom
+https://github.com/neovim/neovim/commits/master/runtime/doc/news.txt.atom

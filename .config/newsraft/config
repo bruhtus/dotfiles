@@ -1,0 +1,1 @@
+bind m exec youtube-viewer --resolution=480p "%l"
