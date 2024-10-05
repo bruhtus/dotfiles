@@ -129,7 +129,7 @@ export PYTHONUSERBASE="${XDG_DATA_HOME:-$HOME/.local/share}/python"
 export DOCKER_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/docker"
 
 # coloring less
-export MANPAGER='less -i --incsearch --search-options=W -g -R --use-color -DER -DPY -Ddg -Du+b'
+export MANPAGER='less -i --incsearch --search-options=W -g -R --use-color -DER -DPY -DSWM -Ddg -Du+c'
 export MANROFFOPT='-P -c'
 
 # change ls color
