@@ -29,8 +29,7 @@ alias \
 	translate='gawk -f <(curl -Ls git.io/translate) -- -shell' \
 	ipa='curl ifconfig.co' \
 	rs='rsync -ahP' \
-	v='$EDITOR' \
-	lynx='lynx -vikeys'
+	v='$EDITOR'
 	# saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 
 #verbosity
