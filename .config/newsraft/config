@@ -1,1 +1,2 @@
+item-limit 10
 bind m exec youtube-viewer --resolution=480p "%l"
