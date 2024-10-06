@@ -37,9 +37,9 @@ def _hastebin_redir(url: QUrl) -> bool:
 
 # Any return value other than a literal 'False' means we redirected
 REDIRECT_MAP = {
-    "reddit.com": operator.methodcaller('setHost', 'redlib.vimmer.dev'),
-    "old.reddit.com": operator.methodcaller('setHost', 'redlib.vimmer.dev'),
-    "www.reddit.com": operator.methodcaller('setHost', 'redlib.vimmer.dev'),
+    # "reddit.com": operator.methodcaller('setHost', 'redlib.vimmer.dev'),
+    # "old.reddit.com": operator.methodcaller('setHost', 'redlib.vimmer.dev'),
+    # "www.reddit.com": operator.methodcaller('setHost', 'redlib.vimmer.dev'),
 
     # Pastebins
     "paste.debian.net": _debian_redir,
