@@ -11,6 +11,7 @@ endif
 
 let mapleader = ' '
 nnoremap <Space> <Nop>
+xnoremap <Space> <Nop>
 
 if !has('packages') | echom 'Please install vim-plug instead' | finish | endif
 
