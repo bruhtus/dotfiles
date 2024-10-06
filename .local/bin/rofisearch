@@ -18,7 +18,7 @@ hearch='https://hearch.co/search?q='
 # The url format must allow for the search keywords at the end of the url.
 # For example: https://www.amazon.com/s?k=XXXX searches Amazon for 'XXXX'.
 declare -A options
-options[archwiki]='https://wiki.archlinux.org/index.php?search='
+options[arch-wiki]='https://wiki.archlinux.org/index.php?search='
 options[libgen]='https://libgen.is/search.php?req='
 options[search]="$hearch"
 options[translate-to-english]='https://translate.google.com/?sl=auto&tl=en&text='
@@ -26,19 +26,16 @@ options[translate-to-bahasa]='https://translate.google.com/?sl=auto&tl=id&text='
 options[youtube]='https://www.youtube.com/results?search_query='
 
 # Picking a search engine.
-if [ -z "$engine" ]; then
-  engine=$(
-    printf '%s\n' "${!options[@]}" | \
-      sort | \
-      rofi -dmenu -i -l 6 -cycle -p 'Choose'
-  ) "$@" || exit
-  url="${options["$engine"]}"
-fi
+engine=$(
+  printf '%s\n' "${!options[@]}" | \
+    sort | \
+    rofi -dmenu -i -l 6 -cycle -p 'Choose'
+) || exit
+
+url="${options["$engine"]}"
 
 # Searching the chosen engine.
-if [ -z "$query" ]; then
-  query=$(rofi -dmenu -l 0 -p "$engine") "$@" || exit
-fi
+query=$(rofi -dmenu -l 0 -p "$engine") || exit
 
 # Display search results in web browser
 "$browser" "$url$query"
