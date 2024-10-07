@@ -20,7 +20,7 @@ hearch='https://hearch.co/search?q='
 declare -A options
 options[arch-wiki]='https://wiki.archlinux.org/index.php?search='
 options[libgen]='https://libgen.is/search.php?req='
-options[search]="$hearch"
+options[search]="$searx"
 options[translate-to-english]='https://translate.google.com/?sl=auto&tl=en&text='
 options[translate-to-bahasa]='https://translate.google.com/?sl=auto&tl=id&text='
 options[youtube]='https://www.youtube.com/results?search_query='
