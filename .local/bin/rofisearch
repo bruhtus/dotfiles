@@ -29,7 +29,7 @@ options[youtube]='https://www.youtube.com/results?search_query='
 engine=$(
   printf '%s\n' "${!options[@]}" | \
     sort | \
-    rofi -dmenu -i -l 6 -cycle -p 'Choose'
+    rofi -dmenu -i -l 6 -cycle -p 'choose' -select 'search'
 ) || exit
 
 url="${options["$engine"]}"
