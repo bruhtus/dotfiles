@@ -23,13 +23,14 @@ options[libgen]='https://libgen.is/search.php?req='
 options[search]="$searx"
 options[translate-to-english]='https://translate.google.com/?sl=auto&tl=en&text='
 options[translate-to-bahasa]='https://translate.google.com/?sl=auto&tl=id&text='
+options[url]=''
 options[youtube]='https://www.youtube.com/results?search_query='
 
 # Picking a search engine.
 engine=$(
   printf '%s\n' "${!options[@]}" | \
     sort | \
-    rofi -dmenu -i -l 6 -cycle -p 'choose' -select 'search'
+    rofi -dmenu -i -l 7 -cycle -p 'choose' -select 'search'
 ) || exit
 
 url="${options["$engine"]}"
