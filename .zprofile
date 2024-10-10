@@ -29,7 +29,7 @@ export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/pnpm"
 ## ruby gems
 export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/gem/bin"
 ## volta
-export PATH="$PATH:${XDG_CONFIG_HOME:-$HOME/.config}/volta/bin"
+export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/volta/bin"
 ## go
 export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/go/bin"
 
@@ -112,7 +112,7 @@ export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/readline/inputrc"
 export LYNX_LSS="${XDG_CONFIG_HOME:-$HOME/.config}/lynx/lynx.lss"
 
 # volta
-export VOLTA_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/volta"
+export VOLTA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/volta"
 
 # ansible
 export ANSIBLE_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/ansible"
