@@ -92,8 +92,8 @@ bindsym $mod+Shift+x \
   [instance="dropdown_tmux"] scratchpad show; \
   [instance="dropdown_tmux"] move position center
 
-bindsym $mod+Shift+y \
-  exec google-chrome-stable --new-window https://github.com/settings/tokens
+# bindsym $mod+Shift+y \
+#   exec google-chrome-stable --new-window https://github.com/settings/tokens
 
 bindsym $mod+Shift+q exec qutebrowser
 
