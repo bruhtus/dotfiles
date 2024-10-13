@@ -148,6 +148,26 @@ bindkey '^[^H' vi-backward-kill-word
 # expand word from left of cursor instead of under the cursor
 bindkey '^I' expand-or-complete-prefix
 
+# readline-like keybinding
+# ref: https://stackoverflow.com/a/19344422
+rl-kill-word() {
+  WORDCHARS='' zle kill-word
+}
+zle -N rl-kill-word
+bindkey '^[d' rl-kill-word
+
+rl-backward-word() {
+  WORDCHARS='' zle backward-word
+}
+zle -N rl-backward-word
+bindkey '^[b' rl-backward-word
+
+rl-forward-word() {
+  WORDCHARS='' zle forward-word
+}
+zle -N rl-forward-word
+bindkey '^[f' rl-forward-word
+
 # ref: https://stackoverflow.com/a/23134765
 # bindkey '^A' beginning-of-line
 # bindkey '^E' end-of-line
