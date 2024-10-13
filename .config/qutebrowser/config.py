@@ -193,10 +193,13 @@ config.bind('<Ctrl-K>', 'fake-key <Shift-End><Delete>', mode='insert')
 
 # Bindings for command mode
 config.bind('<Ctrl-Alt-H>', 'rl-backward-kill-word', mode='command')
+config.bind('<Alt-D>', 'rl-kill-word', mode='command')
 config.bind('<Ctrl-A>', 'rl-beginning-of-line', mode='command')
 config.bind('<Ctrl-B>', 'rl-backward-char', mode='command')
+config.bind('<Alt-B>', 'rl-backward-word', mode='command')
 config.bind('<Ctrl-E>', 'rl-end-of-line', mode='command')
 config.bind('<Ctrl-F>', 'rl-forward-char', mode='command')
+config.bind('<Alt-F>', 'rl-forward-word', mode='command')
 config.bind('<Ctrl-H>', 'rl-backward-delete-char', mode='command')
 config.bind('<Ctrl-K>', 'rl-kill-line', mode='command')
 config.bind('<Ctrl-N>', 'completion-item-focus next', mode='command')
