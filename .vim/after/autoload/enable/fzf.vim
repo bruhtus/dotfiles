@@ -51,7 +51,7 @@ function! enable#fzf#init()
 
     " safety measure if ripgrep not installed
     if executable('rg')
-      let $FZF_DEFAULT_COMMAND = "rg --hidden --files --no-ignore-vcs --type-not nonsense --type-not font --type-not torrent"
+      " let $FZF_DEFAULT_COMMAND = "rg --hidden --files --no-ignore-vcs --type-not nonsense --type-not font --type-not torrent"
 
       " exclude filenames when using Rg
       " Ref: https://github.com/junegunn/fzf.vim/issues/714#issuecomment-428802659
