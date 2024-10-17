@@ -28,6 +28,7 @@ function! vimlsp#init() abort
   nmap <silent> <buffer> gy <Plug>(lsp-document-diagnostics)
   nnoremap <silent> <buffer> gY :<C-u>LspDocumentDiagnostics --buffers=*<CR>
   nmap <silent> <buffer> gz <Plug>(lsp-references)
+  nmap <silent> <buffer> g. <Plug>(lsp-document-symbol)
   nmap <silent> <buffer> <C-w><C-e> m':<C-u>LspNextDiagnostic<CR>
   nmap <silent> <buffer> <C-w><C-y> m':<C-u>LspPreviousDiagnostic<CR>
 
