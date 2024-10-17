@@ -60,6 +60,7 @@ if isdirectory(expand('~/.vim/pack'))
   " packadd! targets.vim
   " packadd! traces.vim
   packadd! vim-sneak
+  packadd! cfilter
 
   if expand('%') !~# '\v(psql.edit.*.sql|zsh\w*.zsh|bash-fc.\w*|COMMIT_EDITMSG)'
     packadd! vim-dbml
