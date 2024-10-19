@@ -20,23 +20,33 @@ hearch='https://hearch.co/search?q='
 declare -A options
 options[arch-wiki]='https://wiki.archlinux.org/index.php?search='
 options[libgen]='https://libgen.is/search.php?req='
-options[search]="$searx"
 options[translate-to-english]='https://translate.google.com/?sl=auto&tl=en&text='
 options[translate-to-bahasa]='https://translate.google.com/?sl=auto&tl=id&text='
-options[url]=''
 options[youtube]='https://www.youtube.com/results?search_query='
 
 # Picking a search engine.
-engine=$(
+selected=$(
   printf '%s\n' "${!options[@]}" | \
     sort | \
-    rofi -dmenu -i -l 7 -cycle -p 'choose' -select 'search'
+    rofi -dmenu -i -l 5 -cycle -p 'search'
 ) || exit
 
-url="${options["$engine"]}"
+url="${options["$selected"]}"
 
 # Searching the chosen engine.
-query=$(rofi -dmenu -l 0 -p "$engine") || exit
+if [ ! -z "$url" ]; then
+  query=$(rofi -dmenu -l 0 -p "$selected") || exit
+else
+  case "$selected" in
+    'http://'*|'https://'*)
+      url="$selected"
+      ;;
+    *)
+      url="$searx"
+      query="$selected"
+      ;;
+  esac
+fi
 
 # Display search results in web browser
 "$browser" "$url$query"
