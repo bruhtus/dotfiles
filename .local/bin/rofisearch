@@ -14,7 +14,7 @@ searx='https://opnxng.com/search?q='
 hearch='https://hearch.co/search?q='
 
 # An array of search engines.  You can edit this list to add/remove
-# search engines. The format must be: "engine_name]="url".
+# search engines. The format must be: "[engine_name]="url".
 # The url format must allow for the search keywords at the end of the url.
 # For example: https://www.amazon.com/s?k=XXXX searches Amazon for 'XXXX'.
 declare -A options
@@ -24,7 +24,7 @@ options[translate-to-english]='https://translate.google.com/?sl=auto&tl=en&text=
 options[translate-to-bahasa]='https://translate.google.com/?sl=auto&tl=id&text='
 options[youtube]='https://www.youtube.com/results?search_query='
 
-# Picking a search engine.
+# Pick search engine.
 selected=$(
   printf '%s\n' "${!options[@]}" | \
     sort | \
@@ -33,7 +33,7 @@ selected=$(
 
 url="${options["$selected"]}"
 
-# Searching the chosen engine.
+# Search with the chosen engine.
 if [ ! -z "$url" ]; then
   query=$(rofi -dmenu -l 0 -p "$selected") || exit
 else
@@ -49,4 +49,4 @@ else
 fi
 
 # Display search results in web browser
-"$browser" "$url$query"
+"$browser" "$url$query" 2>&1 | if read stdin; then notify-send "$stdin"; fi
