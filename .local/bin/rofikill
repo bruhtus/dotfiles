@@ -1,0 +1,12 @@
+#!/bin/dash
+
+process="$(\
+ps -eHo pid,ppid,comm |
+rofi -dmenu -cycle -matching regex -p kill
+)" || exit
+
+if [ ! -z "$process" ]; then
+  pid="$(echo "$process" | awk 'NR==1 {print $1}')"
+  name="$(echo "$process" | awk 'NR==1 {print $3}')"
+  kill "$pid" && notify-send "Killed $name"
+fi

@@ -85,7 +85,7 @@ bindsym $mod+Ctrl+Shift+l exec --no-startup-id \
 
 #---Application---#
 bindsym $mod+c exec $term
-bindsym $mod+v exec rofi -show emoji -modi emoji
+bindsym $mod+v exec rofikill
 bindsym $mod+m exec rofisearch
 
 bindsym $mod+Shift+x \
