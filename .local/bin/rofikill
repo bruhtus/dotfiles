@@ -1,8 +1,11 @@
 #!/bin/dash
 
+ps="$(ps -eHo pid,ppid,comm)"
+header="$(echo "$ps" | awk 'NR==1')"
+
 process="$(\
-ps -eHo pid,ppid,comm |
-rofi -dmenu -cycle -matching regex -p kill
+echo "$ps" | awk 'NR!=1' |
+rofi -dmenu -cycle -mesg "$header" -matching regex -p kill
 )" || exit
 
 if [ ! -z "$process" ]; then
