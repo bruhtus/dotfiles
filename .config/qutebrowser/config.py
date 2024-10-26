@@ -20,6 +20,7 @@ c.changelog_after_upgrade = 'minor'
 c.colors.hints.bg = 'black'
 c.colors.hints.fg = 'white'
 c.colors.hints.match.fg = 'lightgreen'
+c.colors.webpage.bg = 'black'
 c.colors.webpage.preferred_color_scheme = 'dark'
 
 c.completion.height = '20%'
@@ -108,6 +109,7 @@ config.bind(':', 'cmd-set-text :')
 config.bind('.', 'cmd-repeat-last')
 config.bind('/', 'cmd-set-text /')
 config.bind('?', 'cmd-set-text ?')
+config.bind(',k', 'config-cycle colors.webpage.bg white black')
 config.bind(',m', 'hint links spawn youtube-viewer --resolution=480p {hint-url}')
 config.bind(',c', 'hint links spawn google-chrome-stable --incognito {hint-url}')
 config.bind(',C', 'spawn google-chrome-stable --incognito {url}')
