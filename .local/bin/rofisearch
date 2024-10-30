@@ -29,7 +29,22 @@ selected=$(
   printf '%s\n' "${!options[@]}" | \
     sort | \
     rofi -dmenu -i -l 5 -cycle -p 'search'
-) || exit
+) || exit_code="$?"
+
+# ref:
+# - `man rofi-keys`
+# - `man rofi-script`
+case "$exit_code" in
+  1)
+    exit
+    ;;
+  10)
+    browser='qutebrowser --target window'
+    ;;
+  11)
+    browser='google-chrome-stable --incognito'
+    ;;
+esac
 
 url="${options["$selected"]}"
 
@@ -49,4 +64,4 @@ else
 fi
 
 # Display search results in web browser
-"$browser" "$url$query"
+$browser "$url$query"
