@@ -171,6 +171,12 @@ rl-forward-word() {
 zle -N rl-forward-word
 bindkey '^[f' rl-forward-word
 
+rl-transpose-words() {
+  WORDCHARS='' zle transpose-words
+}
+zle -N rl-transpose-words
+bindkey '^[t' rl-transpose-words
+
 # ref: https://stackoverflow.com/a/23134765
 # bindkey '^A' beginning-of-line
 # bindkey '^E' end-of-line
