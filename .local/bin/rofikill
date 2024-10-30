@@ -11,5 +11,5 @@ rofi -dmenu -cycle -mesg "$header" -matching regex -p kill
 if [ ! -z "$process" ]; then
   pid="$(echo "$process" | awk 'NR==1 {print $1}')"
   name="$(echo "$process" | awk 'NR==1 {print $3}')"
-  kill "$pid" && notify-send "Killed $name"
+  kill "$pid" && notify-send -t 1000 "Killed $name"
 fi
