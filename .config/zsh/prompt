@@ -81,7 +81,9 @@ VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # shorten path ref: https://unix.stackexchange.com/a/273567
 # ansi-c quoting ref: https://www.gnu.org/software/bash/manual/html_node/ANSI_002dC-Quoting.html
-PROMPT='%F{green}%n%f@%F{green}%M%f '
+# semantic prompt ref: https://gitlab.freedesktop.org/Per_Bothner/specifications/blob/master/proposals/semantic-prompts.md
+PROMPT=$'\e]133;A\e\\'
+PROMPT+='%F{green}%n%f@%F{green}%M%f '
 PROMPT+='%B%F{blue}%(4~|%-1~/../%2~|%~)%f%b'
 # PROMPT+='$vcs_info_msg_0_'
 # PROMPT+=' $PYV_ENV_NAME'
