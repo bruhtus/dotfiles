@@ -31,6 +31,7 @@ precmd_functions+=(_set_win_title)
 
 preexec() {
   fc -AI
+  print -n "\e]133;C\e\\"
 }
 
 #(hopefully) remove maximum nested function level reached; increase FUNCNEST?
