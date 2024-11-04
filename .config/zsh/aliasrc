@@ -44,7 +44,7 @@ alias \
 
 #nmcli alias
 alias \
-	nmls='nmcli d wifi list --rescan yes' \
+	nmls='nmcli -f "in-use,ssid,rate,bars,security" d wifi list --rescan yes' \
 	nmdc='nmcli c down' \
 	nmco='nmcli d wifi connect' \
 	nmcp='nmcli d wifi show-password'
