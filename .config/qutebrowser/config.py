@@ -72,6 +72,7 @@ c.hints.leave_on_load = True
 c.input.match_counts = False
 c.scrolling.bar = 'never'
 
+c.statusbar.position = 'top'
 c.statusbar.widgets = [
     'keypress',
     'search_match',
