@@ -77,9 +77,9 @@ c.statusbar.widgets = [
     'keypress',
     'search_match',
     'history',
+    'tabs',
     'url',
     'progress',
-    'tabs',
     'scroll',
 ]
 
