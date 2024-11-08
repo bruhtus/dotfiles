@@ -34,7 +34,7 @@ selected=$(
       -l 5 \
       -cycle \
       -p 'search' \
-      -mesg 'enter: $BROWSER/xdg-open, alt-1: qutebrowser, alt-2: chrome incognito'
+      -mesg 'enter: $BROWSER/xdg-open, alt-1: qutebrowser, alt-2: chrome incognito, alt-3: chrome'
 ) || exit_code="$?"
 
 # ref:
@@ -49,6 +49,9 @@ case "$exit_code" in
     ;;
   11)
     browser='google-chrome-stable --incognito'
+    ;;
+  12)
+    browser='google-chrome-stable'
     ;;
 esac
 
