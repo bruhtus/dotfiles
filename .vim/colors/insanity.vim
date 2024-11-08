@@ -94,7 +94,7 @@ let s:nocombine = ['nocombine,NONE', 'nocombine,NONE']
 " {{{ Declare default highlight
 call s:hi('ColorColumn', s:none, s:fg_0, s:none, s:none)
 call s:hi('Conceal', s:nocombine, s:none, s:fg_0, s:none)
-call s:hi('Cursor', s:none, s:fg_0, s:bg, s:none)
+call s:hi('Cursor', s:none, s:fg_2, s:bg, s:none)
 call s:hi('CursorLineNr', s:none, s:none, s:fg_2, s:none)
 call s:hi('Directory', s:none, s:none, s:blue, s:none)
 call s:hi('DiffAdd', s:none, s:none, s:green, s:none)
