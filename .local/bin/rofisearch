@@ -28,7 +28,13 @@ options[youtube]='https://www.youtube.com/results?search_query='
 selected=$(
   printf '%s\n' "${!options[@]}" | \
     sort | \
-    rofi -dmenu -i -l 5 -cycle -p 'search'
+    rofi \
+      -dmenu \
+      -i \
+      -l 5 \
+      -cycle \
+      -p 'search' \
+      -mesg 'enter: $BROWSER/xdg-open, alt-1: qutebrowser, alt-2: chrome incognito'
 ) || exit_code="$?"
 
 # ref:
