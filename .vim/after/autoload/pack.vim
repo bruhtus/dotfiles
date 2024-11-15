@@ -60,6 +60,7 @@ function! pack#init() abort
   " call minpac#add('phaazon/hop.nvim',             { 'type': 'opt' })
   " call minpac#add('preservim/tagbar',             { 'type': 'opt' })
   " call minpac#add('thinca/vim-themis',            { 'type': 'opt' })
+  " call minpac#add('habamax/vim-shout',            { 'type': 'opt' })
   " call minpac#add('justinmk/vim-sneak',           { 'type': 'opt' })
   " call minpac#add('wellle/targets.vim',           { 'type': 'opt' })
   " call minpac#add('markonm/traces.vim',           { 'type': 'opt' })
