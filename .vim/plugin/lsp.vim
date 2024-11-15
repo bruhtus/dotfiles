@@ -51,10 +51,12 @@ function! IDE() abort
 
   if exists('g:lsp_enabled')
     unlet g:lsp_enabled
+    redraw! " for statusline info.
     call lsp#disable()
     LspStopServer
   else
     let g:lsp_enabled = 1
+    redraw! " for statusline info.
     call lsp#enable()
   endif
 endfunction
