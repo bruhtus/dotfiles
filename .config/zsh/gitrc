@@ -188,7 +188,8 @@ gl() {
 	FZF_DEFAULT_COMMAND='git log --color=never --date=short --format="%C(auto)%h%x20%cd%x20%x20%s%d"' \
 		fzf \
 		--exit-0 \
-		+m \
+		--no-multi \
+		--no-sort \
 		--height=80% \
 		--tiebreak=index \
 		--reverse \
