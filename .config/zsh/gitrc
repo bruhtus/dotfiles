@@ -37,12 +37,13 @@ git diff --color=always -- {2} | less -c -i --incsearch --search-options=W -g -R
 
 	local git_config='git -c color.status=always'
 
-	FZF_DEFAULT_COMMAND="$git_config status -s" \
+	FZF_DEFAULT_COMMAND="$git_config status -s | sort" \
 		fzf \
 		--exit-0 \
 		--nth=2.. \
 		--layout=reverse-list \
 		--ansi \
+		--no-sort \
 		--bind 'ctrl-i:reload(git add -- {2} && eval "$FZF_DEFAULT_COMMAND")' \
 		--bind 'ctrl-s:execute(git add -p -- {2})+reload(eval "$FZF_DEFAULT_COMMAND")' \
 		--bind 'ctrl-d:reload(git reset -- {2} >/dev/null && eval "$FZF_DEFAULT_COMMAND")' \
