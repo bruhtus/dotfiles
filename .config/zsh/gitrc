@@ -190,6 +190,7 @@ gl() {
 		--exit-0 \
 		--no-multi \
 		--no-sort \
+		--track \
 		--height=80% \
 		--tiebreak=index \
 		--reverse \
