@@ -49,7 +49,7 @@ git diff --color=always -- {2} | less -c -i --incsearch --search-options=W -g -R
 		--bind 'ctrl-d:reload(git reset -- {2} >/dev/null && eval "$FZF_DEFAULT_COMMAND")' \
 		--bind 'ctrl-g:reload(git reset >/dev/null && eval "$FZF_DEFAULT_COMMAND")' \
 		--bind 'ctrl-r:reload(eval "$FZF_DEFAULT_COMMAND")' \
-		--bind "ctrl-t:reload($git_config status -su -- {2})" \
+		--bind "ctrl-t:transform-query(echo {2})+reload($git_config status -su -- {2})" \
 		--bind "enter:execute($diff_unstaged)" \
 		--bind "ctrl-x:execute($diff_staged)"
 }
