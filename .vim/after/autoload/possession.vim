@@ -122,6 +122,12 @@ function! s:load_session() abort
         echo 'No session loaded'
       endif
 
+    else
+      exe 'silent! source ' . fnameescape(l:session_path)
+      let g:current_possession = v:this_session
+      if bufexists(0) && !filereadable(bufname('#'))
+        bw #
+      endif
     endif
 
   elseif l:load_choice == 2
@@ -138,7 +144,7 @@ function! possession#show_list() abort
   nnoremap <buffer> <silent> <nowait> d <C-d>
   nnoremap <buffer> <silent> u <C-u>
   nnoremap <buffer> <silent> D :<C-u>call <SID>delete_session()<CR>
-  " nnoremap <buffer> <silent> <CR> :<C-u>call <SID>load_session()<CR>
+  nnoremap <buffer> <silent> <CR> :<C-u>call <SID>load_session()<CR>
 
   " TODO: add refresh session list mapping.
 
