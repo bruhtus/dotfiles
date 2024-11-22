@@ -8,4 +8,4 @@
 name=dropdown_tmux
 
 xwininfo -name $name &>/dev/null || \
-  $TERMINAL -n $name -t $name -e sh -c 'tmux -L dropdown new -s OwO || tmux -L dropdown a'
+  $TERMINAL -n $name -t $name -e tmux -L dropdown new-session -A -s OwO
