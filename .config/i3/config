@@ -88,7 +88,7 @@ bindsym $mod+c exec $term
 bindsym $mod+v exec rofikill
 bindsym $mod+m exec rofisearch
 
-bindsym $mod+Shift+x \
+bindsym $mod+s \
   [instance="dropdown_tmux"] scratchpad show; \
   [instance="dropdown_tmux"] move position center
 
