@@ -84,7 +84,6 @@ bindsym $mod+Ctrl+Shift+l exec --no-startup-id \
   $resize shrink left $resize_size
 
 #---Application---#
-bindsym $mod+c exec $term
 bindsym $mod+v exec rofikill
 bindsym $mod+m exec rofisearch
 
@@ -97,6 +96,7 @@ bindsym $mod+s \
 
 bindsym $mod+Shift+q exec qutebrowser
 
+bindsym $mod+Ctrl+m exec $term
 bindsym $mod+Ctrl+n exec docsmenu
 bindsym $mod+Ctrl+c exec $term -t btop -e btop
 bindsym $mod+Ctrl+z exec --no-startup-id rofi -show window
