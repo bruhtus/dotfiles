@@ -72,5 +72,14 @@ else
   esac
 fi
 
+command -v jq >/dev/null || {
+  notify-send 'jq is not installed'
+  exit 1
+}
+
+# reserved character URI:
+# https://datatracker.ietf.org/doc/html/rfc3986#section-2.2
+encode_query="$(jq -rn --arg x "$query" '$x|@uri')"
+
 # Display search results in web browser
-$browser "$url$query"
+$browser "$url$encode_query"
