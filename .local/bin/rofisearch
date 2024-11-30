@@ -72,14 +72,37 @@ else
   esac
 fi
 
-command -v jq >/dev/null || {
-  notify-send 'jq is not installed'
+command -v sed >/dev/null || {
+  notify-send 'sed is not installed'
   exit 1
 }
 
-# reserved character URI:
-# https://datatracker.ietf.org/doc/html/rfc3986#section-2.2
-encode_query="$(jq -rn --arg x "$query" '$x|@uri')"
+# ref:
+# - https://datatracker.ietf.org/doc/html/rfc3986#section-2.2 (reserved character URI)
+# - https://bureau-it.com/en/artigos/url-encoding-decoding-with-sed/
+encode_query="$(\
+  printf '%s' "$query" | \
+  sed \
+  -e 's/ /%20/g' \
+  -e 's/:/%3A/g' \
+  -e 's/,/%2C/g' \
+  -e 's/\?/%3F/g' \
+  -e 's/#/%23/g' \
+  -e 's/\[/%5B/g' \
+  -e 's/\]/%5D/g' \
+  -e 's/@/%40/g' \
+  -e 's/!/%41/g' \
+  -e 's/\$/%24/g' \
+  -e 's/&/%26/g' \
+  -e "s/'/%27/g" \
+  -e 's/(/%28/g' \
+  -e 's/)/%29/g' \
+  -e 's/\*/%2A/g' \
+  -e 's/\+/%2B/g' \
+  -e 's/,/%2C/g' \
+  -e 's/;/%3B/g' \
+  -e 's/=/%3D/g'
+)"
 
 # Display search results in web browser
 $browser "$url$encode_query"
