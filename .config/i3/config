@@ -27,9 +27,10 @@ workspace_auto_back_and_forth no
 # #---End---# #
 
 # #---Dropdown/Scratchpad Windows---# #
-for_window [instance="scratchmux"] move scratchpad
-for_window [instance="scratchmux"] sticky enable
-for_window [instance="scratchmux"] resize set 900 520
+for_window [instance="scratchmux"] \
+  move scratchpad, \
+  sticky enable, \
+  resize set 900 520
 # #---End---# #
 
 # #---Basic Key Bindings---# #
@@ -87,9 +88,9 @@ bindsym $mod+Ctrl+Shift+l exec --no-startup-id \
 bindsym $mod+v exec rofikill
 bindsym $mod+m exec rofisearch
 
-bindsym $mod+s \
-  [instance="scratchmux"] scratchpad show; \
-  [instance="scratchmux"] move position center
+bindsym $mod+s [instance="scratchmux"] \
+  scratchpad show, \
+  move position center
 
 # bindsym $mod+Shift+y \
 #   exec google-chrome-stable --new-window https://github.com/settings/tokens
@@ -183,8 +184,8 @@ assign [class="(?i)(soffice|libreoffice.*)"] $ws8
 
 # Open specific applications in floating mode
 for_window [title="File Transfer*"] floating enable
-for_window [class="mpv"] floating enable sticky enable
-for_window [class="qt5ct"] floating enable sticky enable border normal
+for_window [class="mpv"] floating enable, sticky enable
+for_window [class="qt5ct"] floating enable, sticky enable, border normal
 
 # Set shutdown, restart, and exit i3
 bindsym $mod+plus mode "$mode_system"
