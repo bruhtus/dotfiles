@@ -213,13 +213,21 @@ nnoremap ? m'?
 nnoremap <silent> [w :ea1f<CR>
 nnoremap <silent> ]w :lat1f<CR>
 
-" map ]k to cnext and [k to cprevious
-nnoremap <silent> ]k :cn<CR>zz
-nnoremap <silent> [k :cp<CR>zz
+" map ]q to cnext and [q to cprevious
+nnoremap <silent> [q :cprevious<CR>
+nnoremap <silent> ]q :cnext<CR>
+nnoremap <silent> [Q :cfirst<CR>
+nnoremap <silent> ]Q :clast<CR>
+nnoremap <silent> [<C-q> :cpfile<CR>
+nnoremap <silent> ]<C-q> :cnfile<CR>
 
 " map ]l to lnext and [l to lprevious
-nnoremap <silent> ]l :lnext<CR>zz
-nnoremap <silent> [l :lprevious<CR>zz
+nnoremap <silent> [l :lprevious<CR>
+nnoremap <silent> ]l :lnext<CR>
+nnoremap <silent> [L :lfirst<CR>
+nnoremap <silent> ]L :llast<CR>
+nnoremap <silent> [<C-l> :lpfile<CR>
+nnoremap <silent> ]<C-l> :lnfile<CR>
 
 " Ref:
 " https://github.com/tpope/vim-unimpaired/blob/master/plugin/unimpaired.vim#L193-L195
