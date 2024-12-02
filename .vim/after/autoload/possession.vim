@@ -144,7 +144,7 @@ function! possession#show_list() abort
   nnoremap <buffer> <silent> <nowait> d <C-d>
   nnoremap <buffer> <silent> u <C-u>
   nnoremap <buffer> <silent> D :<C-u>call <SID>delete_session()<CR>
-  nnoremap <buffer> <silent> <CR> :<C-u>call <SID>load_session()<CR>
+  nnoremap <buffer> <silent> o :<C-u>call <SID>load_session()<CR>
 
   " TODO: add refresh session list mapping.
 
