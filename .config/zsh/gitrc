@@ -66,7 +66,7 @@ alias \
 
 alias \
 	gb='git branch' \
-	gbd='git branch | awk "/^[^*+]/ {print \$1}" | fzf --multi --exit-0 | xargs -r git branch -D' \
+	gbd='git branch | awk "/^[^*+]/ {print \$1}" | fzf --multi --exit-0 --cycle | xargs -r git branch -D' \
 	gbm='git branch -m' \
 	nj='git branch --show-current'
 
@@ -74,7 +74,7 @@ alias \
 # ref: https://unix.stackexchange.com/a/174717
 alias \
 	gch='git checkout' \
-	gco='git branch | awk "/^[^*+]/ {print \$1}" | fzf --exit-0 | xargs -r git checkout' \
+	gco='git branch | awk "/^[^*+]/ {print \$1}" | fzf --exit-0 --cycle | xargs -r git checkout' \
 	gcb='git checkout -b' \
 	gct='git branch -r | fzf | xargs -r git checkout -t' \
 	gchf='git status -s | awk "/^[^??]/ {print \$2}" | fzf --multi --layout=reverse-list | xargs -r git checkout'
