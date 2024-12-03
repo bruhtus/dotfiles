@@ -255,24 +255,24 @@ xnoremap = =gv
 nnoremap <silent> do do:diffupdate<CR>
 
 " set black hole register to c, C, s, S, x, X, d, and D
-nnoremap c "_c
-xnoremap c "_c
-nnoremap C "_C
-nnoremap s "_s
-nnoremap S "_S
-nnoremap x "_x
-xnoremap x "_x
-nnoremap X "_X
-nnoremap <expr> d v:register == '"' ? '"_d' : 'd'
-xnoremap <expr> d v:register == '"' ? '"_d' : 'd'
-nnoremap <expr> D v:register == '"' ? '"_D' : 'D'
+" nnoremap c "_c
+" xnoremap c "_c
+" nnoremap C "_C
+" nnoremap s "_s
+" nnoremap S "_S
+" nnoremap x "_x
+" xnoremap x "_x
+" nnoremap X "_X
+" nnoremap <expr> d v:register == '"' ? '"_d' : 'd'
+" xnoremap <expr> d v:register == '"' ? '"_d' : 'd'
+" nnoremap <expr> D v:register == '"' ? '"_D' : 'D'
 
 " set space d to default d command
-nnoremap <leader>d d
-xnoremap <leader>d d
+" nnoremap <leader>d d
+" xnoremap <leader>d d
 
 " set space D to default D normal mode command
-nnoremap <leader>D D
+" nnoremap <leader>D D
 
 " make search result appear in the middle
 " nnoremap n nzz
