@@ -128,7 +128,7 @@ dum() {
 # - man signal.7
 # - kill -l (list signal)
 kj() {
-	FZF_DEFAULT_COMMAND='ps -eHo pid,ppid,comm' \
+	FZF_DEFAULT_COMMAND='ps -eHo pid,ppid,cmd' \
 		fzf \
 		--no-sort \
 		--layout=reverse-list \
