@@ -163,7 +163,7 @@ endfunction
 augroup possession
   autocmd!
   autocmd VimEnter * nested ++once
-        \ if !argc()                 |
+        \ if !argc() && empty($VIMNOSESSION) |
         \   call s:possession_load() |
         \ endif
   autocmd VimLeavePre * call PossessionPersist()
