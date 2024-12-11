@@ -230,14 +230,14 @@ bar {
   tray_output primary
   separator_symbol "  "
 
-  colors {
-    # <colorclass> <border> <background> <text>
-    # focused_workspace  #808080 #424242 #ffffff
-    # active_workspace   #3b3b3b #333333 #a3a3a3
-    # inactive_workspace #333333 #222222 #888888
-    # urgent_workspace   #2f343a #900000 #ffffff
-    # binding_mode       #2f343a #900000 #ffffff
-  }
+  # colors {
+  #   # <colorclass> <border> <background> <text>
+  #   focused_workspace  #808080 #424242 #ffffff
+  #   active_workspace   #3b3b3b #333333 #a3a3a3
+  #   inactive_workspace #333333 #222222 #888888
+  #   urgent_workspace   #2f343a #900000 #ffffff
+  #   binding_mode       #2f343a #900000 #ffffff
+  # }
 }
 
 # Screen brightness controls
