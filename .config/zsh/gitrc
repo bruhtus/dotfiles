@@ -42,6 +42,7 @@ git diff --color=always -- {2} | less -c -i --incsearch --search-options=W -g -R
 		--exit-0 \
 		--nth=2.. \
 		--layout=reverse-list \
+		--cycle \
 		--ansi \
 		--no-sort \
 		--bind 'ctrl-i:reload(git add -- {2} && eval "$FZF_DEFAULT_COMMAND")' \
