@@ -67,7 +67,6 @@ alias \
 
 alias \
 	gb='git branch' \
-	gbd='git branch | awk "/^[^*+]/ {print \$1}" | fzf --multi --exit-0 --cycle | xargs -r git branch -D' \
 	gbm='git branch -m' \
 	nj='git branch --show-current'
 
@@ -75,10 +74,24 @@ alias \
 # ref: https://unix.stackexchange.com/a/174717
 alias \
 	gch='git checkout' \
-	gco='git branch | awk "/^[^*+]/ {print \$1}" | fzf --exit-0 --cycle | xargs -r git checkout' \
 	gcb='git checkout -b' \
 	gct='git branch -r | fzf | xargs -r git checkout -t' \
 	gchf='git status -s | awk "/^[^??]/ {print \$2}" | fzf --multi --layout=reverse-list | xargs -r git checkout'
+
+gco() {
+	local inside_worktree
+	inside_worktree=$(git rev-parse --is-inside-work-tree) || return "$?"
+	[ "$inside_worktree" = false ] && echo 'Not inside git worktree' && return 1
+
+	FZF_DEFAULT_COMMAND='git branch | awk "/^[^*+]/ {print \$1}"' \
+		fzf \
+			--exit-0 \
+			--cycle \
+			--bind 'enter:become(git checkout {1})' \
+			--bind 'ctrl-r:reload(eval "$FZF_DEFAULT_COMMAND")' \
+			--bind 'ctrl-d:execute-silent(git branch -D {1})+reload(eval "$FZF_DEFAULT_COMMAND")' \
+			--bind 'ctrl-/:execute(git log --date=human --abbrev-commit {1})'
+}
 
 gchff() {
 	local inside_worktree
