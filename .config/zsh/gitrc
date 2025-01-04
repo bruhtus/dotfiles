@@ -186,21 +186,36 @@ ggl() {
 	fi
 }
 
-# ref: https://github.com/wfxr/forgit/blob/b727321f2bd3d79c1dae805441261c45888cbb41/forgit.plugin.zsh#L17-L34
-# ref: https://stackoverflow.com/a/1441062
 # note:
 # if we use `ctrl-c`, the exit code will be 130, not 0.
-# ref: https://stackoverflow.com/a/8977668 (about shell piping).
-# ref: https://unix.stackexchange.com/a/14276 (pipestatus in zsh and bash).
-# ref: https://www.rapidtables.com/code/text/ascii-table.html (hex number).
+# ref:
+# - https://github.com/wfxr/forgit/blob/b727321f2bd3d79c1dae805441261c45888cbb41/forgit.plugin.zsh#L17-L34
+# - https://stackoverflow.com/a/1441062
+# - https://stackoverflow.com/a/8977668 (about shell piping).
+# - https://unix.stackexchange.com/a/14276 (pipestatus in zsh and bash).
+# - https://www.rapidtables.com/code/text/ascii-table.html (hex number).
+# - https://matthew-brett.github.io/pydagogue/git_log_dots.html
 gl() {
 	local inside_worktree
 	inside_worktree=$(git rev-parse --is-inside-work-tree) || return "$?"
 	[ "$inside_worktree" = false ] && echo 'Not inside git worktree' && return 1
 
-	local cmd='git show --color=always --format=fuller --numstat -p {1}'
+	local git_show='git show --color=always --format=fuller --numstat -p {1}'
+	local git_log='git log --color=never --date=short --format="%C(auto)%h%x20%cd%x20%x20%s%d"'
 
-	FZF_DEFAULT_COMMAND='git log --color=never --date=short --format="%C(auto)%h%x20%cd%x20%x20%s%d"' \
+	while getopts :b: option; do
+		case "$option" in
+			b)
+				git check-ref-format --branch "$OPTARG" >/dev/null || return "$?"
+				git show-ref --quiet "$OPTARG" || {
+					echo 'Git branch not found'
+					return 1
+				}
+				git_log="$git_log $OPTARG.."
+		esac
+	done
+
+	FZF_DEFAULT_COMMAND="$git_log"\
 		fzf \
 		--exit-0 \
 		--no-multi \
@@ -209,7 +224,7 @@ gl() {
 		--height=80% \
 		--tiebreak=index \
 		--reverse \
-		--bind "enter:execute($cmd | less -c -i --incsearch --search-options=W -g -R)" \
+		--bind "enter:execute($git_show | less -c -i --incsearch --search-options=W -g -R)" \
 		--bind 'ctrl-r:reload(eval "$FZF_DEFAULT_COMMAND")' \
 		--bind "ctrl-y:execute-silent(echo {1} | tr -d '[:space:]' | xsel --clipboard --input)" \
 		--preview='git show --color=always --numstat --format="%C(auto)%D%n%s" {1}' \
