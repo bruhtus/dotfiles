@@ -23,6 +23,7 @@ options[libgen]='https://libgen.is/search.php?req='
 options[translate-to-english]='https://translate.google.com/?sl=auto&tl=en&text='
 options[translate-to-bahasa]='https://translate.google.com/?sl=auto&tl=id&text='
 options[youtube]='https://www.youtube.com/results?search_query='
+options[zlibrary]='https://z-library.sk/s/'
 
 # Picking a search engine.
 selected=$(
