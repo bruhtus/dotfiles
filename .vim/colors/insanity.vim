@@ -134,7 +134,7 @@ hi! link SpecialKey NonText
 hi! link ModeMsg Normal
 hi! link Terminal Normal
 
-call s:hi('Pmenu', s:nocombine, s:bg, s:fg_1, s:none)
+call s:hi('Pmenu', s:nocombine, s:bg, s:blue, s:none)
 call s:hi('PmenuSbar', s:nocombine, s:bg, s:none, s:none)
 call s:hi('PmenuSel', s:none, s:bg, s:fg_3, s:none)
 call s:hi('PmenuThumb', s:nocombine, s:fg_1, s:none, s:none)
