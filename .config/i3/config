@@ -180,6 +180,7 @@ assign [class="Google-chrome"] $ws2
 assign [class="qutebrowser"] $ws2
 assign [class="Slack"] $ws7
 assign [class="TelegramDesktop"] $ws7
+assign [class="Zathura"] $ws8
 assign [class="(?i)(soffice|libreoffice.*)"] $ws8
 
 # Open specific applications in floating mode
