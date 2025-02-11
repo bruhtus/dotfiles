@@ -19,7 +19,7 @@ workspace_layout tabbed
 hide_edge_borders smart
 floating_modifier $mod
 title_align center
-focus_wrapping force
+focus_wrapping workspace
 focus_follows_mouse no
 focus_on_window_activation urgent
 no_focus [tiling_from=auto]
