@@ -176,6 +176,9 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10; workspace $ws10
 
+# Move current workspace to the next output screen
+bindsym $mod+backslash move workspace to output next
+
 # Open applications on specific workspaces
 # ref: https://unix.stackexchange.com/a/363848
 assign [title="btop"] $ws1
