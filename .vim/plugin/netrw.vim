@@ -1,3 +1,4 @@
+finish
 " disable netrw but autoload it for `gx`
 " Ref: https://github.com/justinmk/config/blob/master/.config/nvim/init.vim#L55-L57
 
