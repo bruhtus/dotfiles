@@ -20,6 +20,7 @@ selected=$(
       -no-custom \
       -l 4 \
       -select 'qutebrowser-private' \
+      -mesg "url: $url" \
       -p 'browser'
 ) || exit "$?"
 
