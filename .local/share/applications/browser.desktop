@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=Browser
-Exec=/usr/bin/qutebrowser --target private-window %u
+Exec=/home/bruhtus/.local/bin/rofibrowser %u
