@@ -9,19 +9,6 @@ configuration {
 	display-drun: "_";
 	display-combi: "exe";
 	cycle: false;
-
-	// ref: `man rofi-keys`
-	kb-remove-word-back: "Control+Alt+Meta+h,Control+BackSpace";
-	kb-custom-1: "Alt+Meta+1";
-	kb-custom-2: "Alt+Meta+2";
-	kb-custom-3: "Alt+Meta+3";
-	kb-custom-4: "Alt+Meta+4";
-	kb-custom-5: "Alt+Meta+5";
-	kb-custom-6: "Alt+Meta+6";
-	kb-custom-7: "Alt+Meta+7";
-	kb-custom-8: "Alt+Meta+8";
-	kb-custom-9: "Alt+Meta+9";
-	kb-custom-10: "Alt+Meta+0";
 }
 
 @theme "~/.config/rofi/themes/insanity.rasi"
