@@ -20,6 +20,7 @@ selected=$(
       -no-custom \
       -l 4 \
       -select 'qutebrowser-private' \
+      -theme-str 'textbox { markup: false;}' \
       -mesg "url: $url" \
       -p 'browser'
 ) || exit "$?"
