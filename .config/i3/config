@@ -232,11 +232,23 @@ exec --no-startup-id dunst
 
 # client.background        #ffffff
 
+# disable mouse scroll wheel
+bindsym button4 nop
+bindsym button5 nop
+bindsym button6 nop
+bindsym button7 nop
+
 bar {
   status_command i3status
   position top
   tray_output primary
   separator_symbol "  "
+
+  # disable mouse scroll wheel
+  bindsym button4 nop
+  bindsym button5 nop
+  bindsym button6 nop
+  bindsym button7 nop
 
   # colors {
   #   # <colorclass> <border> <background> <text>
