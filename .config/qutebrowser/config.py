@@ -88,8 +88,9 @@ c.tabs.wrap = True
 
 c.url.default_page = 'qute://start'
 c.url.searchengines = {
-    'DEFAULT': 'https://opnxng.com/search?q={}',
+    'DEFAULT': 'https://hearch.co/search?q={}',
     '!g': 'https://google.com/search?q={}',
+    '!s': 'https://opnxng.com/search?q={}',
 }
 c.url.start_pages = 'qute://start'
 c.url.yank_ignored_parameters = [
