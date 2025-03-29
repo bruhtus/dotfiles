@@ -50,7 +50,7 @@ else
       url="$selected"
       ;;
     *)
-      url="$searx"
+      url="$hearch"
       query="$selected"
       ;;
   esac
