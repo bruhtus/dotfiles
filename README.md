@@ -128,3 +128,5 @@ More info: https://wiki.archlinux.org/index.php/Xdg-utils
 - [Yanking in w3m](https://unix.stackexchange.com/questions/12497/yanking-urls-in-w3m).
 - [Keycode/keysym for xorg or i3wm](http://xahlee.info/linux/linux_show_keycode_keysym.html).
 - [Notification arch-based updates](https://eang.it/notifications-of-pacman-updates/).
+- [Desktop entry
+specification](https://specifications.freedesktop.org/desktop-entry-spec/latest/)
