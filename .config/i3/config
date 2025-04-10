@@ -18,6 +18,7 @@ workspace_layout tabbed
 # for_window [class="^.*"] border pixel 1
 hide_edge_borders smart
 floating_modifier $mod
+floating_maximum_size 974 x 670
 title_align center
 focus_wrapping workspace
 focus_follows_mouse no
