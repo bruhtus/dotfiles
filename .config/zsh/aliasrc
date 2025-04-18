@@ -25,10 +25,8 @@ alias \
 	asd='ddgr -n 4' \
 	zxc='youtube-viewer --resolution=480p' \
 	reload='exec zsh' \
-	wttr='curl wttr.in\?%tpFQn1m' \
 	translate='gawk -f <(curl -Ls git.io/translate) -- -shell' \
 	ipa='curl ifconfig.co' \
-	rs='rsync -ahP' \
 	v='$EDITOR'
 	# saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 
@@ -96,9 +94,6 @@ alias sc='[ "$PWD" != "$HOME" ] && fzf --multi --height 20% --bind "enter:become
 
 #search and open file on git root directory/current working directory in $EDITOR directly
 # alias cs='rg --hidden --files --type-not nonsense --type-not font --type-not torrent $(git rev-parse --show-toplevel 2>/dev/null) | fzf --multi --height 20% --preview="head -$LINES {}" --preview-window=wrap,hidden --bind "ctrl-/:toggle-preview,ctrl-n:preview-down,ctrl-p:preview-up" | xargs -or -I {} $EDITOR "{}"'
-
-# terraform alias
-alias tf=terraform
 
 #unpack tar archive
 untar() {
