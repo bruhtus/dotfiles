@@ -4,8 +4,7 @@ alias \
 	gd='git diff -p --numstat' \
 	gmv='git mv' \
 	gcl='git clone' \
-	gss='git status -sb' \
-	gref='git reflog'
+	gss='git status -sb'
 
 # ref: https://stackoverflow.com/a/30050792 (xargs -a)
 alias \
@@ -232,9 +231,7 @@ gl() {
 }
 
 alias \
-	glo='git log --graph --oneline' \
 	glg='git log -g' \
-	glp='git log -p' \
 	gld='git log --graph --oneline --decorate $(git fsck --no-reflog | awk "/dangling commit/ {print \$3}")'
 
 gfc() {
@@ -258,7 +255,6 @@ gfc() {
 }
 
 alias \
-	gm='git merge' \
 	gmt='git mergetool'
 
 alias \
