@@ -22,7 +22,16 @@ function! s:FnmatchReplace(pat) abort
   elseif a:pat =~# '^{[+-]\=\d\+\.\.[+-]\=\d\+}$'
     return '\%(' . join(range(matchstr(a:pat, '[+-]\=\d\+'), matchstr(a:pat, '\.\.\zs[+-]\=\d\+')), '\|') . '\)'
   elseif a:pat =~# '^{.*\\\@<!\%(\\\\\)*,.*}$'
-    return '\%(' . substitute(a:pat[1:-2], ',\s*\|\%(\\.\|{[^\{}]*}\|[^,]\)*', '\=submatch(0) =~# ",\s*" ? "\\|" : s:FnmatchTranslate(submatch(0))', 'g') . '\)'
+    let l:done = []
+    let l:rest = a:pat[0:-2]
+
+    while !empty(rest)
+      let l:match = matchstr(l:rest, '\%(\\.\|{[^\{}]*}\|[^,]\)*', 1)
+      let l:rest = strpart(l:rest, len(l:match) + 1)
+      call add(l:done, s:FnmatchTranslate(l:match))
+    endwhile
+
+    return '\%(' . join(l:done, '\|') . '\)'
   elseif a:pat =~# '^{.*}$'
     return '{' . s:FnmatchTranslate(a:pat[1:-2]) . '}'
   elseif a:pat =~# '^\[!'
