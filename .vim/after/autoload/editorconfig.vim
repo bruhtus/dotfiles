@@ -26,7 +26,7 @@ function! s:FnmatchReplace(pat) abort
     let l:rest = a:pat[0:-2]
 
     while !empty(rest)
-      let l:match = matchstr(l:rest, '\%(\\.\|{[^\{}]*}\|[^,]\)*', 1)
+      let l:match = matchstr(l:rest, '\%(\\.\|{[^\{}]*}\|[^, ]\)*', 1)
       let l:rest = strpart(l:rest, len(l:match) + 1)
       call add(l:done, s:FnmatchTranslate(l:match))
     endwhile
