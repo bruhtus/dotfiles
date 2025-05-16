@@ -100,8 +100,8 @@ endfunction
 
 nnoremap <silent> <leader>o :<C-u>call <SID>custom_grep()<CR>
 
-" use ctrl-s to toggle between two recent buffer
-nnoremap <C-s> <C-6>
+" use ctrl-m to toggle between two recent buffer
+nnoremap <C-m> <C-6>
 
 " use ctrl-r ctrl-d to get current file directory
 cnoremap <C-r><C-d> <C-r>=expand('%:p:h')<CR>
