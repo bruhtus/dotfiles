@@ -341,10 +341,10 @@ nnoremap <expr> <silent> U
 nnoremap <silent> gA :<C-u>echo strftime('%Y-%m-%d %H:%M:%S', '<c-r><c-w>')<cr>
 
 " print current working directory
-nnoremap <leader><Space> :<C-u>pwd<CR>
+nnoremap <leader>. :<C-u>pwd<CR>
 
 " print current git branch
-nnoremap <expr> <silent> <leader>.
+nnoremap <expr> <silent> <leader><CR>
       \ exists('*GitBranch()') ?
       \ ':<C-u>echo GitBranch()<CR>' :
       \ ':<C-u>echo "GitBranch() does not exist"<CR>'
