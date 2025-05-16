@@ -100,9 +100,6 @@ endfunction
 
 nnoremap <silent> <leader>o :<C-u>call <SID>custom_grep()<CR>
 
-" use ctrl-m to toggle between two recent buffer
-nnoremap <C-m> <C-6>
-
 " use ctrl-r ctrl-d to get current file directory
 cnoremap <C-r><C-d> <C-r>=expand('%:p:h')<CR>
 
@@ -339,6 +336,9 @@ nnoremap <expr> <silent> U
 " Ref:
 " https://github.com/justinmk/config/commit/ef788ed68a1d3cabc4e29c12869d9af1aef02c8c
 nnoremap <silent> gA :<C-u>echo strftime('%Y-%m-%d %H:%M:%S', '<c-r><c-w>')<cr>
+
+" toggle between two recent buffer
+nnoremap <leader><Space> <C-6>
 
 " print current working directory
 nnoremap <leader>. :<C-u>pwd<CR>
