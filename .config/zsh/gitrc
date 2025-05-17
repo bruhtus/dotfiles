@@ -339,7 +339,8 @@ gstl() {
 		--preview-window=up,nohidden \
 		--bind "enter:execute($cmd | less -c -i --incsearch --search-options=W -g -R)" \
 		--bind 'ctrl-r:reload(eval "$FZF_DEFAULT_COMMAND")' \
-		--bind "ctrl-y:execute-silent(echo {1} | tr -d '[:space:]' | xsel --clipboard --input)"
+		--bind "ctrl-y:execute-silent(echo {1} | tr -d '[:space:]' | xsel --clipboard --input)" \
+		--bind 'ctrl-s:become(git stash pop --quiet --index {1})'
 }
 
 alias \
