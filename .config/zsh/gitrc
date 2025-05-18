@@ -1,7 +1,7 @@
 #git alias
 # ref: https://stackoverflow.com/a/12538667
 alias \
-	gd='git diff -p --numstat --word-diff' \
+	gd='git diff -p --numstat' \
 	gmv='git mv' \
 	gcl='git clone' \
 	gss='git status -sb'
