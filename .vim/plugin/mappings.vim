@@ -92,7 +92,11 @@ function! s:custom_grep() abort
           \ . &grepprg . " --fixed-strings -e '" . " . shellescape(l:keyword)"
           \ . ((!exists('l:path') || empty(l:path)) ? '' : " . ' " . expand(l:path) . "'") . ')'
 
-    botright cwindow
+    if getqflist({'idx': 0}).idx > 0
+      botright cwindow
+    else
+      echo 'No match: ' . l:keyword
+    endif
   else
     echo 'Nothing to grep'
   endif
