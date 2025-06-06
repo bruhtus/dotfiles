@@ -7,7 +7,7 @@ header="$(echo "$ps" | awk 'NR==1')"
 
 process="$(\
 echo "$ps" | awk 'NR!=1' |
-rofi -dmenu -cycle -mesg "$header" -matching regex -p kill
+rofi -dmenu -cycle -i -mesg "$header" -matching regex -p kill
 )" || exit
 
 if [ ! -z "$process" ]; then
