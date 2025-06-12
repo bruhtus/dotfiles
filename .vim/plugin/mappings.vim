@@ -368,6 +368,9 @@ xnoremap <leader>s :<C-u>keeppatterns '<,'>s
 " set space S to spawn keeppatterns command
 nnoremap <leader>S :<C-u>keeppatterns
 
+" set space S in visual mode to substitute command
+xnoremap <leader>S :<C-u>keeppatterns %s;<C-r>=<SID>prev_visual_selection()<CR>
+
 " set space a to remove the entire line that match pattern
 " similar to `:g/pattern/d_`
 " Ref: https://vi.stackexchange.com/a/26153
