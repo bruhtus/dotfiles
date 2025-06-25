@@ -248,7 +248,7 @@ bindsym button7 nop
 
 bar {
   status_command i3status
-  position top
+  position bottom
   tray_output primary
   separator_symbol "  "
 
