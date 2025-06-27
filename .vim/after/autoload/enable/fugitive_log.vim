@@ -6,7 +6,7 @@ function! enable#fugitive_log#normal() abort
   let l:choice = confirm("Current file git commit(s) or All git commit(s)?",
         \ "&JCurrent\n&KAll\n&NCancel", 3)
   if l:choice == 1
-    -tab Git log --color=never --date=short --format='%h %cd  %s (%an)%d' %
+    -tab Git log --color=never --follow --date=short --format='%h %cd  %s (%an)%d' %
   elseif l:choice == 2
     -tab Git log --color=never --date=short --format='%h %cd  %s (%an)%d'
   elseif l:choice == 3
