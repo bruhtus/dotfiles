@@ -45,7 +45,7 @@ for_window [instance="scratchmux"] \
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 bindsym $mod+Ctrl+plus move scratchpad
-bindsym $mod+Ctrl+minus scratchpad show
+bindsym $mod+Ctrl+minus [instance="^(?!scratchmux)"] scratchpad show
 # #---End---# #
 
 # #---Letter Key Bindings---# #
