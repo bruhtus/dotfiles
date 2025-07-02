@@ -187,6 +187,32 @@ n() {
 		}
 }
 
+campv() {
+	command -v mpv >/dev/null || {
+		echo 'mpv is not installed' && return 1
+	}
+
+	# ref:
+	# https://github.com/amarz45/mpvcam
+	# https://wiki.archlinux.org/title/Webcam_setup#mpv
+	# https://askubuntu.com/a/848390 (choose webcam)
+	# check available webcam: v4l2-ctl --list-devices
+	mpv \
+		--pause=no \
+		--panscan=1 \
+		--profile=low-latency \
+		--untimed \
+		--cache=no \
+		--force-seekable=no \
+		--no-osc \
+		--script-opts-add=osc-visibility=never \
+		--vf=hflip \
+		--really-quiet \
+		--title=sadboi \
+		--x11-name=campv \
+		"av://v4l2:/dev/video${camera:-0}"
+}
+
 alias \
 	1='cd ~1' \
 	2='cd ~2' \
