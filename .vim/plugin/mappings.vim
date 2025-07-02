@@ -14,7 +14,7 @@
 " into terminal and need to redraw every time using it.
 nnoremap <silent> <BS> :execute "cgetexpr system('"
       \ . &grepprg . ' -w -e ' . expand("<cword>") . "')"
-      \ <Bar> botright cwindow<CR>
+      \ <Bar> keepalt botright cwindow <Bar> keepalt wincmd p<CR>
 
 " Ref: https://stackoverflow.com/q/1533565
 function! s:prev_visual_selection() abort
@@ -26,7 +26,7 @@ endfunction
 " result: execute 'lgetexpr system("grepprg 'visual text'")'
 xnoremap <silent> <BS> :<C-u>execute 'cgetexpr system("'
       \ . &grepprg . ' -w --fixed-strings -e ' . "'" . <SID>prev_visual_selection() . "'" . '")'
-      \ <Bar> botright cwindow<CR>
+      \ <Bar> keepalt botright cwindow <Bar> keepalt wincmd p<CR>
 
 " set ZS to grep word under cursor in current buffer
 nnoremap <silent> ZS :execute 'lvimgrep /\M\<' . expand('<cword>') . '\>/j %' <Bar>
@@ -93,7 +93,8 @@ function! s:custom_grep() abort
           \ . ((!exists('l:path') || empty(l:path)) ? '' : " . ' " . expand(l:path) . "'") . ')'
 
     if getqflist({'idx': 0}).idx > 0
-      botright cwindow
+      keepalt botright cwindow
+      keepalt wincmd p
     else
       echo 'No match: ' . l:keyword
     endif
