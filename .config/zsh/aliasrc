@@ -206,7 +206,6 @@ campv() {
 		--force-seekable=no \
 		--no-osc \
 		--script-opts-add=osc-visibility=never \
-		--autofit=10% \
 		--vf=hflip \
 		--really-quiet \
 		--title=sadboi \
