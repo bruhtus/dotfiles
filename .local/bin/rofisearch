@@ -22,6 +22,7 @@ declare -A options
 options[annas-archive]='https://annas-archive.org/search?q='
 options[arch-wiki]='https://wiki.archlinux.org/index.php?search='
 options[google]="$google"
+options[gutenberg]="https://www.gutenberg.org/ebooks/search/?query="
 options[libgen]='https://libgen.is/search.php?req='
 options[translate-to-english]='https://translate.google.com/?sl=auto&tl=en&text='
 options[translate-to-bahasa]='https://translate.google.com/?sl=auto&tl=id&text='
