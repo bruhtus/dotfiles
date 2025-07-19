@@ -19,6 +19,7 @@ google='https://google.com/search?q='
 # The url format must allow for the search keywords at the end of the url.
 # For example: https://www.amazon.com/s?k=XXXX searches Amazon for 'XXXX'.
 declare -A options
+options[annas-archive]='https://annas-archive.org/search?q='
 options[arch-wiki]='https://wiki.archlinux.org/index.php?search='
 options[google]="$google"
 options[libgen]='https://libgen.is/search.php?req='
