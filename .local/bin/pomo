@@ -15,13 +15,13 @@ fi
 
 [[ -n $POMO_FILE ]] && POMO=$POMO_FILE || POMO=/tmp/pomo
 
-[[ -n $POMO_WORK_TIME ]] && WORK_TIME=$POMO_WORK_TIME || WORK_TIME=50
+[[ -n $POMO_FOCUS_TIME ]] && FOCUS_TIME=$POMO_FOCUS_TIME || FOCUS_TIME=50
 [[ -n $POMO_BREAK_TIME ]] && BREAK_TIME=$POMO_BREAK_TIME || BREAK_TIME=10
 
 #--- Pomodoro functions ---
 
 function pomo_start(){
-    # Start new pomo block (work+break cycle).
+    # Start new pomo block (focus+break cycle).
     test -e "$(dirname -- "$POMO")" || mkdir "$(dirname -- "$POMO")"
     :> "$POMO" # remove saved time stamp due to a pause.
     touch "$POMO"
@@ -63,7 +63,7 @@ function pomo_pause(){
 function pomo_update(){
     # Update the time stamp on POMO a new cycle has started.
     running=$(pomo_stat)
-    block_time=$(( (WORK_TIME+BREAK_TIME)*60 ))
+    block_time=$(( (FOCUS_TIME+BREAK_TIME)*60 ))
     if [[ $running -ge $block_time ]]; then
         ago=$(( running % block_time )) # We should've started the new cycle a while ago?
         mtime=$(${DATE_CMD} --date "@$(( $(date +%s) - ago))" +%m%d%H%M.%S)
@@ -72,7 +72,7 @@ function pomo_update(){
 }
 
 function pomo_stat(){
-    # Return number of seconds since start of pomo block (work+break cycle).
+    # Return number of seconds since start of pomo block (focus+break cycle).
     [[ -e "$POMO" ]] && running=$(cat "$POMO") || running=0
     if [[ -z $running ]]; then
         pomo_start=$(${STAT_CMD} -c +%Y "$POMO")
@@ -84,17 +84,17 @@ function pomo_stat(){
 
 function pomo_clock(){
     # Print out how much time is remaining in block.
-    # WMM:SS indicates MM:SS left in the work block.
+    # FMM:SS indicates MM:SS left in the focus block.
     # BMM:SS indicates MM:SS left in the break block.
     if [[ -e "$POMO" ]]; then
         pomo_update
         running=$(pomo_stat)
-        left=$(( WORK_TIME*60 - running ))
+        left=$(( FOCUS_TIME*60 - running ))
         if [[ $left -lt 0 ]]; then
             left=$(( left + BREAK_TIME*60 ))
             prefix=B
         else
-            prefix=W
+            prefix=F
         fi
         pomo_ispaused && prefix=P$prefix
         min=$(( left / 60 ))
@@ -114,35 +114,35 @@ function pomo_status(){
 
 function pomo_msg(){
     # Send a message using the GUI or console at the end of the next
-    # work or break block.  This requires a Pomodoro session to
+    # focus or break block.  This requires a Pomodoro session to
     # have already been started...
-    break_end_msg='End of break period. Time for work!'
-    work_end_msg='End of work period. Time for break!'
+    break_end_msg='End of break period. Time for focus!'
+    focus_end_msg='End of focus period. Time for break!'
     [[ -e "$POMO" ]] || return 1
     pomo_update
     running=$(pomo_stat)
     while true; do
-        left=$(( WORK_TIME*60 - running ))
-        work=true
+        left=$(( FOCUS_TIME*60 - running ))
+        focus=true
         if [[ $left -lt 0 ]]; then
             left=$(( left + BREAK_TIME*60 ))
-            work=false
+            focus=false
         fi
         sleep $left
-        # pomo_stat is time from the start of the work+block cycle.
-        # 1. If switching from work->break then stat >= running + left.
-        # 2. If switching from break->work then either
+        # pomo_stat is time from the start of the focus+block cycle.
+        # 1. If switching from focus->break then stat >= running + left.
+        # 2. If switching from break->focus then either
         #    stat >= running + left (haven't updated timestamp) or
         #    stat < running (have just updated the timestamp from a
         #    separate pomo call, e.g. using pomo status).
         stat=$(pomo_stat)
         [[ $stat -ge $(( running + left )) ]] && break
-        $work || { [[ $stat -lt $running ]] && break; }
+        $focus || { [[ $stat -lt $running ]] && break; }
         running=$stat
     done
     if [[ $(( stat - running - left )) -le 1 ]]; then
-        if $work; then
-            send_msg "$work_end_msg"
+        if $focus; then
+            send_msg "$focus_end_msg"
             sleep 1
             pomo_pause
         else
@@ -201,10 +201,10 @@ pause
 clock
     Print how much time (minutes and seconds) is remaining in the current
     Pomodoro cycle.  A prefix of B indicates a break period, a prefix of
-    W indicates a work period and a prefix of P indicates the current period is
+    F indicates a focus period and a prefix of P indicates the current period is
     paused.
 notify
-    Raise a notification at the end of every Pomodoro work and break block in
+    Raise a notification at the end of every Pomodoro focus and break block in
     an infinite loop.  Requires notify-send (linux) or osascript (OS X).
 status
     Continuously print the current status of the Pomodoro timer once a second,
@@ -221,8 +221,8 @@ POMO_FILE
     Location of the Pomodoro file used to store the duration of the Pomodoro
     period (mostly using timestamps).  Multiple Pomodoro timers can be run by
     using different files.  Default: \$HOME/.local/share/pomo.
-POMO_WORK_TIME
-    Duration of the work period in minutes.  Default: 25.
+POMO_FOCUS_TIME
+    Duration of the focus period in minutes.  Default: 25.
 POMO_BREAK_TIME
     Duration of the break period in minutes.  Default: 5.
 END
