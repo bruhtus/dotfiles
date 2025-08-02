@@ -2,8 +2,10 @@
 # see "man i3status" for documentation.
 
 general {
-  colors = true
+  output_format = none
   interval = 1
+  separator = "   |   "
+  colors = false
   color_good = "#5faf5f"
   color_degraded = "#ffd751"
   color_bad = "#ff5f5f"

@@ -247,7 +247,7 @@ bindsym button6 nop
 bindsym button7 nop
 
 bar {
-  status_command i3status
+  status_command ~/.config/i3status/status
   position bottom
   tray_output primary
   separator_symbol "  "
