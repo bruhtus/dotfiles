@@ -197,6 +197,7 @@ campv() {
 	# https://askubuntu.com/a/848390 (choose webcam)
 	# check available webcam: v4l2-ctl --list-devices
 	mpv \
+		--geometry=-10-155 \
 		--pause=no \
 		--panscan=1 \
 		--profile=low-latency \
