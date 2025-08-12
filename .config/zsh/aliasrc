@@ -26,8 +26,7 @@ alias \
 	zxc='youtube-viewer --resolution=480p' \
 	reload='exec zsh' \
 	translate='gawk -f <(curl -Ls git.io/translate) -- -shell' \
-	ipa='curl ifconfig.co' \
-	v='$EDITOR'
+	ipa='curl ifconfig.co'
 	# saveme='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 
 #verbosity
