@@ -55,10 +55,6 @@ git diff --color=always -- {2} | less -c -i --incsearch --search-options=W -g -R
 }
 
 alias \
-	gc='git commit' \
-	gca='git commit --amend'
-
-alias \
 	gp='git push' \
 	gpf='git push --force-with-lease' \
 	ggp='git push -u origin "$(git branch --show-current)"' \
