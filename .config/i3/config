@@ -118,7 +118,7 @@ bindsym $mod+Ctrl+s --release exec --no-startup-id flameshot gui
 
 bindsym $mod+Ctrl+Shift+n exec google-chrome-stable --incognito
 
-bindsym $mod+Ctrl+Shift+b \
+bindsym $mod+Ctrl+Shift+x \
   exec xdg-open https://github.com/bruhtus?tab=repositories
 
 bindsym $mod+Ctrl+Shift+u exec --no-startup-id pomo pause && pomo stop
