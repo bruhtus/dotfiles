@@ -1,11 +1,11 @@
 [Unit]
-Description=Runs updates-notifier.service every hour
+Description=Runs updates-notifier.service every 8 hours
 
 [Timer]
 # time to wait after booting
 OnBootSec=5min
 # time between running each consecutive time
-OnUnitActiveSec=1h
+OnUnitActiveSec=8h
 Unit=updates-notifier.service
 
 [Install]
