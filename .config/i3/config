@@ -121,8 +121,10 @@ bindsym $mod+Ctrl+Shift+n exec google-chrome-stable --incognito
 bindsym $mod+Ctrl+Shift+x \
   exec xdg-open https://github.com/bruhtus?tab=repositories
 
-bindsym $mod+Ctrl+Shift+u exec --no-startup-id pomo pause && pomo stop
-bindsym $mod+Ctrl+Shift+space exec --no-startup-id pomo pause
+bindsym $mod+Ctrl+Shift+u exec --no-startup-id simo reset
+bindsym $mod+Ctrl+Shift+y exec --no-startup-id simo focus -n
+bindsym $mod+Ctrl+Shift+b exec --no-startup-id simo break -n
+bindsym $mod+Ctrl+Shift+space exec --no-startup-id simo pause
 
 bindsym $mod+Ctrl+space exec dunstctl close-all
 bindsym Ctrl+Shift+space exec dunstctl history-pop
@@ -225,7 +227,6 @@ exec_always --no-startup-id remaps
 exec_always --no-startup-id tmuxdd
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # exec --no-startup-id xwallpaper --maximize all-repos/wallpaper/wallpaper.jpg; picom -b
-exec --no-startup-id killall -q pomo; pomo notify &
 # exec --no-startup-id [ -z $(grep 'syncthing' <(ps -eo comm) | tr -d '\n') ] && syncthing --no-browser
 # exec --no-startup-id xfce4-power-manager
 exec --no-startup-id dunst

@@ -3,5 +3,5 @@
 i3status | while :
 do
   read line
-  echo "$(pomo clock)   |   $line" || exit 1
+  echo "$(simo status)   |   $line" || exit 1
 done
