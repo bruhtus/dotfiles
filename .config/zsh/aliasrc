@@ -198,6 +198,7 @@ campv() {
 	# check available webcam: v4l2-ctl --list-devices
 	mpv \
 		--geometry=-10-155 \
+		--autofit=30% \
 		--pause=no \
 		--panscan=1 \
 		--profile=low-latency \
