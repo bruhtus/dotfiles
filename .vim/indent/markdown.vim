@@ -1,5 +1,9 @@
+" SPDX-FileCopyrightText: © 2022 Caleb Maclennan <caleb@alerque.com>
+" SPDX-FileCopyrightText: © 2009 Benjamin D. Williams <benw@plasticboy.com>
+" SPDX-License-Identifier: MIT
+
 " Ref:
-" https://github.com/plasticboy/vim-markdown/blob/master/indent/markdown.vim
+" https://github.com/preservim/vim-markdown/blob/master/indent/markdown.vim
 if exists('b:did_indent') | finish | endif
 let b:did_indent = 1
 
@@ -70,7 +74,7 @@ function GetMarkdownIndent()
         else
             " Last line is the first line of a list item, increase indent
             return ind + list_ind
-        end
+        endif
     else
         return ind
     endif
