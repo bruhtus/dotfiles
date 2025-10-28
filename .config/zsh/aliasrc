@@ -209,7 +209,7 @@ campv() {
 		--script-opts-add=osc-visibility=never \
 		--vf=hflip \
 		--really-quiet \
-		--title=sadboi \
+		--title=${title:-sadboi} \
 		--x11-name=campv \
 		"av://v4l2:/dev/video${camera:-0}"
 }
