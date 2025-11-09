@@ -86,13 +86,18 @@ function! s:custom_grep() abort
   redraw
 
   if !empty(l:keyword)
+    echo 'Searching ' . l:keyword . '...'
+
     " Interpretation:
     " system('grepprg --fixed-strings -e' . shellescape(l:keyword) . ' l:path')
     execute "cgetexpr system('"
           \ . &grepprg . " --fixed-strings -e '" . " . shellescape(l:keyword)"
           \ . ((!exists('l:path') || empty(l:path)) ? '' : " . ' " . expand(l:path) . "'") . ')'
 
+    redraw!
+
     if getqflist({'idx': 0}).idx > 0
+      echom 'Found keyword: ' . l:keyword
       keepalt botright cwindow
       keepalt wincmd p
     else
