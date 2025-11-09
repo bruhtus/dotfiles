@@ -199,6 +199,8 @@ campv() {
 	mpv \
 		--geometry=-10-155 \
 		--autofit=30% \
+		--contrast=-15 \
+		--saturation=-15 \
 		--pause=no \
 		--panscan=1 \
 		--profile=low-latency \
