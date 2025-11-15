@@ -29,11 +29,13 @@ function! IDE() abort
   if !exists('g:loaded_lsp_settings')
     packadd vim-lsp-settings
 
-    if exists('*lsp_settings#utils#group_name')
-      if exists('#' . lsp_settings#utils#group_name(&ft) . '#FileType#' . &ft)
-        exe 'doautocmd <nomodeline>' lsp_settings#utils#group_name(&ft) 'FileType' &ft
-      endif
-    endif
+    " if exists('*lsp_settings#utils#group_name')
+    "   if exists('#' . lsp_settings#utils#group_name(&ft) . '#FileType#' . &ft)
+    "     exe 'doautocmd <nomodeline>' lsp_settings#utils#group_name(&ft) 'FileType' &ft
+    "   endif
+    " endif
+
+    call lsp_settings#init()
   endif
 
   " if !exists('g:loaded_neoformat')
