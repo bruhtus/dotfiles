@@ -26,5 +26,7 @@
 	verbose = false
 [diff]
 	wsErrorHighlight = all
+[includeIf "gitdir:~/floss-contrib/"]
+	path = floss
 [includeIf "gitdir:~/work-repos/"]
 	path = work
