@@ -28,7 +28,7 @@ focus_wrapping workspace
 focus_follows_mouse no
 focus_on_window_activation urgent
 no_focus [tiling_from=auto]
-no_focus [instance="youtube-viewer|campv"]
+no_focus [instance="youtube-viewer|campv|simo-gui"]
 for_window [floating_from="auto"] move position center
 workspace_auto_back_and_forth no
 popup_during_fullscreen leave_fullscreen
@@ -99,6 +99,8 @@ bindsym $mod+m exec rofisearch
 bindsym $mod+s [instance="scratchmux"] \
   scratchpad show, \
   move position center
+
+bindsym $mod+Ctrl+0 [instance="campv|simo-gui"] move scratchpad
 
 # bindsym $mod+Shift+y \
 #   exec google-chrome-stable --new-window https://github.com/settings/tokens
@@ -204,6 +206,10 @@ assign [class="(?i)(soffice|libreoffice.*)"] $ws8
 for_window [title="File Transfer*"] floating enable
 for_window [class="mpv"] floating enable, sticky enable
 for_window [class="qt5ct"] floating enable, sticky enable, border normal
+for_window [class="simo-gui"] floating enable, \
+  sticky enable, \
+  border pixel 10 \
+  move position 1495 px 511 px
 
 # Set shutdown, restart, and exit i3
 bindsym $mod+plus mode "$mode_system"
