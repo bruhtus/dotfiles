@@ -109,6 +109,7 @@ unset -v zcompdump
 
 compdef _files sdfa
 compdef _files sdfd
+compdef _files sdfl
 
 # add zsh plugin
 # [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/minzsh" && \

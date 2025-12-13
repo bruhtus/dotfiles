@@ -13,7 +13,6 @@ alias sdfc="$SDFM_GIT_COMMAND commit"
 alias sdfs="$SDFM_GIT_COMMAND stat"
 alias sdfp="$SDFM_GIT_COMMAND push"
 alias sdfpl="$SDFM_GIT_COMMAND pull --autostash"
-alias sdfl="$SDFM_GIT_COMMAND log --date=human --abbrev-commit"
 
 sdfi() {
   [ -d "${SDFM_GIT_DIR%/*}" ] || {
@@ -116,6 +115,10 @@ sdfa() {
 
 sdfd() {
   sdfm diff "$@"
+}
+
+sdfl() {
+  sdfm log --date=human --abbrev-commit "$@"
 }
 
 # vim:ft=sh
