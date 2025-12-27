@@ -14,6 +14,7 @@ searx='https://opnxng.com/search?q='
 hearch='https://hearch.co/search?q='
 google='https://google.com/search?q='
 four_get='https://4get.nadeko.net/web?nsfw=no&scraper=google&s='
+presearch='https://presearch.com/search?q='
 
 # An array of search engines.  You can edit this list to add/remove
 # search engines. The format must be: "engine_name]="url".
