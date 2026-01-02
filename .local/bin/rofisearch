@@ -12,7 +12,7 @@
 browser="${BROWSER:-xdg-open}"
 searx='https://opnxng.com/search?q='
 google='https://google.com/search?udm=14&q='
-four_get='https://4get.nadeko.net/web?nsfw=no&scraper=google&s='
+four_get='https://4get.nadeko.net/web?nsfw=no&s='
 presearch='https://presearch.com/search?q='
 
 # An array of search engines.  You can edit this list to add/remove
