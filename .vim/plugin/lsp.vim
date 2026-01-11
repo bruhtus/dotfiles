@@ -27,13 +27,16 @@ function! IDE() abort
   endif
 
   if !exists('g:loaded_lsp_settings')
+    let g:lsp_settings_lazyload = 1
     packadd vim-lsp-settings
 
-    if exists('*lsp_settings#utils#group_name')
-      if exists('#' . lsp_settings#utils#group_name(&ft) . '#FileType#' . &ft)
-        exe 'doautocmd <nomodeline>' lsp_settings#utils#group_name(&ft) 'FileType' &ft
-      endif
-    endif
+    " if exists('*lsp_settings#utils#group_name')
+    "   if exists('#' . lsp_settings#utils#group_name(&ft) . '#FileType#' . &ft)
+    "     exe 'doautocmd <nomodeline>' lsp_settings#utils#group_name(&ft) 'FileType' &ft
+    "   endif
+    " endif
+
+    call lsp_settings#init()
   endif
 
   " if !exists('g:loaded_neoformat')
