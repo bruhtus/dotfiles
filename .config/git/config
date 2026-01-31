@@ -30,3 +30,10 @@
 	path = floss
 [includeIf "gitdir:~/work-repos/"]
 	path = work
+[sendemail]
+	; Setup smtpuser and smtppass in separate file.
+	; Generate app password for gmail at:
+	; https://security.google.com/settings/security/apppasswords
+	smtpserver = smtp.gmail.com
+	smtpencryption = tls
+	smtpserverport = 587
