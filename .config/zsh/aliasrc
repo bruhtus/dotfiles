@@ -197,7 +197,7 @@ campv() {
 	# https://askubuntu.com/a/848390 (choose webcam)
 	# check available webcam: v4l2-ctl --list-devices
 	mpv \
-		--geometry=-10-155 \
+		--geometry=-10-185 \
 		--autofit=30% \
 		--contrast=-15 \
 		--saturation=-15 \
