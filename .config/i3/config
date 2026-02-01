@@ -209,7 +209,7 @@ for_window [class="qt5ct"] floating enable, sticky enable, border normal
 for_window [class="simo-gui"] floating enable, \
   sticky enable, \
   border pixel 10 \
-  move position 1495 px 511 px
+  move position 1495 px 481 px
 
 # Set shutdown, restart, and exit i3
 bindsym $mod+plus mode "$mode_system"
