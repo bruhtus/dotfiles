@@ -37,7 +37,7 @@ alias \
 
 #ls alias
 alias \
-	ls='ls -lhX --color=auto --group-directories-first'
+	ls='ls --color=auto --group-directories-first'
 
 #nmcli alias
 alias \
