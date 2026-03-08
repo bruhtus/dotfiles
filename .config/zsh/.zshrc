@@ -144,40 +144,49 @@ bindkey -M menuselect '^I' interactive
 autoload -Uz edit-command-line; zle -N edit-command-line
 bindkey '^X^E' edit-command-line
 
-# delete word until non-alphanumeric character
-bindkey '^[^H' vi-backward-kill-word
+autoload -Uz select-word-style
+select-word-style bash
+
+# because we are using `select-word-style bash`,
+# the ctrl-w will delete until non-alphanumeric character.
+# this settings will make ctrl-w delete until space
+# instead.
+#
+# ref:
+# - `man zshcontrib`.
+# - https://unix.stackexchange.com/a/626504
+zle -N backward-kill-space-word backward-kill-word-match
+zstyle ':zle:backward-kill-space-word' word-style space
+bindkey '^W' backward-kill-space-word
+
+zle -N backward-space-word backward-word-match
+zstyle ':zle:backward-space-word' word-style space
+bindkey '^[B' backward-space-word
+
+zle -N forward-space-word forward-word-match
+zstyle ':zle:forward-space-word' word-style space
+bindkey '^[F' forward-space-word
+
+zle -N kill-space-word kill-word-match
+zstyle ':zle:kill-space-word' word-style space
+bindkey '^[D' kill-space-word
+
+# put the cursor near the space before transpose.
+# this is different from the transpose-words zle,
+# which start transpose at the cursor position
+# without the need to move the cursor to another
+# place.
+# still not sure how the transpose mechanism
+# works.
+zle -N transpose-words-space transpose-words-match
+zstyle ':zle:transpose-words-space' word-style space
+bindkey '^[T' transpose-words-space
 
 # delete from beginning of the line to the cursor position
 bindkey '^U' backward-kill-line
 
 # expand word from left of cursor instead of under the cursor
 bindkey '^I' expand-or-complete-prefix
-
-# readline-like keybinding
-# ref: https://stackoverflow.com/a/19344422
-rl-kill-word() {
-  WORDCHARS='' zle kill-word
-}
-zle -N rl-kill-word
-bindkey '^[d' rl-kill-word
-
-rl-backward-word() {
-  WORDCHARS='' zle backward-word
-}
-zle -N rl-backward-word
-bindkey '^[b' rl-backward-word
-
-rl-forward-word() {
-  WORDCHARS='' zle forward-word
-}
-zle -N rl-forward-word
-bindkey '^[f' rl-forward-word
-
-rl-transpose-words() {
-  WORDCHARS='' zle transpose-words
-}
-zle -N rl-transpose-words
-bindkey '^[t' rl-transpose-words
 
 # ref: https://stackoverflow.com/a/23134765
 # bindkey '^A' beginning-of-line
