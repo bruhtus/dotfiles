@@ -27,6 +27,15 @@ set cscopeverbose
 nnoremap <silent> <C-\>s :<C-u>exe 'cs find s ' . expand('<cword>')<CR>
 nnoremap <silent> <C-\>c :<C-u>exe 'cs find c ' . expand('<cword>')<CR>
 nnoremap <silent> <C-\>d :<C-u>exe 'cs find d ' . expand('<cword>')<CR>
+nnoremap <silent> <C-\>a :<C-u>exe 'cs find a ' . expand('<cword>')<CR>
+
+" Find files that #include the WORD under cursor.
+nnoremap <silent> <C-\>i :<C-u>exe 'cs find i ' . substitute(
+      \   expand('<cWORD>'),
+      \   '[><"]',
+      \   '',
+      \   'g',
+      \ )<CR>
 
 function! s:cscope_reset() abort
   let l:msg = system('cscope -Rbq')
