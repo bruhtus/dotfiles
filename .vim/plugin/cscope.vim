@@ -37,6 +37,49 @@ nnoremap <silent> <C-\>i :<C-u>exe 'cs find i ' . substitute(
       \   'g',
       \ )<CR>
 
+function! s:custom_cscope() abort
+  call inputsave()
+  let l:input = input('Cscope find: ')
+  call inputrestore()
+
+  redraw!
+
+  if empty(l:input)
+    echo 'Cscope: nothing to query'
+    return
+  endif
+
+  let l:choice = confirm('Select query type',
+        \ "&No\n&text\n&egrep\n&file", 1)
+
+  if l:choice == 1
+    return
+  elseif l:choice == 2
+    let l:qtype = 't'
+  elseif l:choice == 3
+    let l:qtype = 'e'
+  elseif l:choice == 4
+    let l:qtype = 'f'
+  endif
+
+  if !exists('l:qtype')
+    echo 'Cscope: query type does not exist'
+    return
+  endif
+
+  redraw!
+
+  try
+    exe 'cs find ' . l:qtype . ' ' . l:input
+  catch  /^Vim\%((\a\+)\)\=:E259/
+    echo substitute(v:exception, 'Vim(\w\+):E259: ', '', '')
+  catch
+    echoerr v:exception
+  endtry
+endfunction
+
+nnoremap <silent> <C-\>f :<C-u>call <SID>custom_cscope()<CR>
+
 function! s:cscope_reset() abort
   let l:msg = system('cscope -Rbq')
 
