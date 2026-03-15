@@ -9,7 +9,7 @@ if !has('cscope') || (has('cscope') && !executable('cscope'))
 endif
 
 if has('quickfix')
-  set cscopequickfix=s-,c-,d-,i-,t-,e-,a-
+  set cscopequickfix=s-,c-,d-,t-,e-
 endif
 
 set cscopetag cscoperelative cscopetagorder=0 cscopepathcomp=3
