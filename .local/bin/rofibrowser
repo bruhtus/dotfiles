@@ -1,6 +1,7 @@
 #!/bin/bash
 
 declare -A options
+options[qutebrowser-current]='qutebrowser'
 options[qutebrowser]='qutebrowser --target window'
 options[qutebrowser-private]='qutebrowser --target private-window'
 options[chrome]='google-chrome-stable'
@@ -18,7 +19,7 @@ selected=$(
       -dmenu \
       -cycle \
       -no-custom \
-      -l 4 \
+      -l 5 \
       -select 'qutebrowser-private' \
       -theme-str 'textbox { markup: false;}' \
       -mesg "url: $url" \
