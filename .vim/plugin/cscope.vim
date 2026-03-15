@@ -81,9 +81,25 @@ endfunction
 nnoremap <silent> <C-\>f :<C-u>call <SID>custom_cscope()<CR>
 
 function! s:cscope_reset() abort
-  let l:msg = system('cscope -Rbq')
+  let l:cmd = 'cscope -Rbq'
 
-  if l:msg != ''
+  let l:choice = confirm('Use default update command or custom?',
+        \ "&Default\n&Custom", 1)
+
+  if l:choice == 1
+    " Do nothing.
+  elseif l:choice == 2
+    redraw!
+    call inputsave()
+    let l:cmd = input('Command: ')
+    call inputrestore()
+  endif
+
+  redraw!
+
+  let l:msg = system(l:cmd)
+
+  if v:shell_error != 0
     echom l:msg
     return
   endif
