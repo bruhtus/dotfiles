@@ -88,7 +88,7 @@ c.tabs.wrap = True
 
 c.url.default_page = 'qute://start'
 c.url.searchengines = {
-    'DEFAULT': 'https://4get.nadeko.net/web?nsfw=no&s={}',
+    'DEFAULT': 'https://4get.ca/web?nsfw=no&s={}',
     '!g': 'https://google.com/search?udm=14&q={}',
     '!s': 'https://opnxng.com/search?q={}',
     '!p': 'https://presearch.com/search?q={}',
