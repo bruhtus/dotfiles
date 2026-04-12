@@ -204,6 +204,7 @@ config.bind('<Ctrl-K>', 'fake-key <Shift-End><Delete>', mode='insert')
 
 # Bindings for command mode
 config.bind('<Ctrl-Alt-H>', 'rl-backward-kill-word', mode='command')
+config.bind('<Alt-Backspace>', 'rl-backward-kill-word', mode='command')
 config.bind('<Alt-D>', 'rl-kill-word', mode='command')
 config.bind('<Ctrl-A>', 'rl-beginning-of-line', mode='command')
 config.bind('<Ctrl-B>', 'rl-backward-char', mode='command')
