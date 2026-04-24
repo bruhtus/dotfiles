@@ -221,20 +221,20 @@ nnoremap <silent> [w :ea1f<CR>
 nnoremap <silent> ]w :lat1f<CR>
 
 " map ]q to cnext and [q to cprevious
-nnoremap <silent> [q :cprevious<CR>
-nnoremap <silent> ]q :cnext<CR>
-nnoremap <silent> [Q :cfirst<CR>
-nnoremap <silent> ]Q :clast<CR>
-nnoremap <silent> [<C-q> :cpfile<CR>
-nnoremap <silent> ]<C-q> :cnfile<CR>
+nnoremap <silent> [q :<C-u>cprevious<CR>
+nnoremap <silent> ]q :<C-u>cnext<CR>
+nnoremap <silent> [Q :<C-u>cfirst<CR>
+nnoremap <silent> ]Q :<C-u>clast<CR>
+nnoremap <silent> [<C-q> :<C-u>cpfile<CR>
+nnoremap <silent> ]<C-q> :<C-u>cnfile<CR>
 
 " map ]l to lnext and [l to lprevious
-nnoremap <silent> [l :lprevious<CR>
-nnoremap <silent> ]l :lnext<CR>
-nnoremap <silent> [L :lfirst<CR>
-nnoremap <silent> ]L :llast<CR>
-nnoremap <silent> [<C-l> :lpfile<CR>
-nnoremap <silent> ]<C-l> :lnfile<CR>
+nnoremap <silent> [l :<C-u>lprevious<CR>
+nnoremap <silent> ]l :<C-u>lnext<CR>
+nnoremap <silent> [L :<C-u>lfirst<CR>
+nnoremap <silent> ]L :<C-u>llast<CR>
+nnoremap <silent> [<C-l> :<C-u>lpfile<CR>
+nnoremap <silent> ]<C-l> :<C-u>lnfile<CR>
 
 " Ref:
 " https://github.com/tpope/vim-unimpaired/blob/master/plugin/unimpaired.vim#L193-L195
