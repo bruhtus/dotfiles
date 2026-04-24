@@ -221,16 +221,16 @@ nnoremap <silent> [w :ea1f<CR>
 nnoremap <silent> ]w :lat1f<CR>
 
 " map ]q to cnext and [q to cprevious
-nnoremap <silent> [q :<C-u>cprevious<CR>
-nnoremap <silent> ]q :<C-u>cnext<CR>
+nnoremap <silent> [q :<C-u>execute (v:count > 0 ? v:count : '') . 'cprevious'<CR>
+nnoremap <silent> ]q :<C-u>execute (v:count > 0 ? v:count : '') . 'cnext'<CR>
 nnoremap <silent> [Q :<C-u>cfirst<CR>
 nnoremap <silent> ]Q :<C-u>clast<CR>
 nnoremap <silent> [<C-q> :<C-u>cpfile<CR>
 nnoremap <silent> ]<C-q> :<C-u>cnfile<CR>
 
 " map ]l to lnext and [l to lprevious
-nnoremap <silent> [l :<C-u>lprevious<CR>
-nnoremap <silent> ]l :<C-u>lnext<CR>
+nnoremap <silent> [l :<C-u>execute (v:count > 0 ? v:count : '') . 'lprevious'<CR>
+nnoremap <silent> ]l :<C-u>execute (v:count > 0 ? v:count : '') . 'lnext'<CR>
 nnoremap <silent> [L :<C-u>lfirst<CR>
 nnoremap <silent> ]L :<C-u>llast<CR>
 nnoremap <silent> [<C-l> :<C-u>lpfile<CR>
