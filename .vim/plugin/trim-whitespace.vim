@@ -9,7 +9,8 @@ augroup no_trailing_whitespace
         \   'trim_trailing_whitespace',
         \   get(g:, 'trim_trailing_whitespace', 1)
         \ )
-        \ && expand('<afile>') !=# 'viminfo' |
+        \ && expand('<afile>') !=# 'viminfo'
+        \ && expand('%:p:h') !~# 'linux' |
         \   let b:save = winsaveview() |
         \   keepjumps keeppatterns %s/\s\+$//e   |
         \   call winrestview(b:save)   |
