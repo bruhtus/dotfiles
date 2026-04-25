@@ -26,6 +26,8 @@
 	verbose = false
 [diff]
 	wsErrorHighlight = all
+[alias]
+	fixes-tag = log -1 --pretty='Fixes: %h (\"%s\")' --abbrev=12
 [includeIf "gitdir:~/floss-contrib/"]
 	path = floss
 [includeIf "gitdir:~/work-repos/"]
