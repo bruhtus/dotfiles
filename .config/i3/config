@@ -93,7 +93,6 @@ bindsym $mod+Ctrl+Shift+l exec --no-startup-id \
   $resize shrink left $resize_size
 
 #---Application---#
-bindsym $mod+v exec rofikill
 bindsym $mod+m exec rofisearch
 
 bindsym $mod+s [instance="scratchmux"] \
@@ -122,6 +121,8 @@ bindsym $mod+Ctrl+Shift+n exec google-chrome-stable --incognito
 
 bindsym $mod+Ctrl+Shift+x \
   exec xdg-open https://github.com/bruhtus?tab=repositories
+
+bindsym $mod+Ctrl+Shift+z exec rofikill
 
 bindsym $mod+Ctrl+Shift+u exec --no-startup-id simo reset
 bindsym $mod+Ctrl+Shift+y exec --no-startup-id simo focus -n
