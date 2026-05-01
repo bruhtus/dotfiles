@@ -29,7 +29,7 @@ function! enable#fzf#init()
     let g:fzf_action = {
           \ 'ctrl-t': 'tab split',
           \ 'ctrl-x': 'split',
-          \ 'ctrl-s': 'leftabove vsplit',
+          \ 'alt-v': 'leftabove vsplit',
           \ 'ctrl-v': 'belowright vsplit'
           \ }
 
