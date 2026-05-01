@@ -97,12 +97,16 @@ function! s:cscope_reset() abort
 
   redraw!
 
+  echo 'Updating...'
+
   let l:msg = system(l:cmd)
 
   if v:shell_error != 0
     echom l:msg
     return
   endif
+
+  redraw!
 
   cs reset
 endfunction
