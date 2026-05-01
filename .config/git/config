@@ -39,3 +39,4 @@
 	smtpserver = smtp.gmail.com
 	smtpencryption = tls
 	smtpserverport = 587
+	suppresscc = self
