@@ -12,7 +12,7 @@
 " Ref: https://gist.github.com/romainl/56f0c28ef953ffc157f36cc495947ab3
 " :grep in vanilla vim not as smooth as neovim, it spit out the output
 " into terminal and need to redraw every time using it.
-nnoremap <silent> <BS> :execute "cgetexpr system('"
+nnoremap <silent> <leader><BS> :execute "cgetexpr system('"
       \ . &grepprg . ' -w -e ' . expand("<cword>") . "')"
       \ <Bar> keepalt botright cwindow <Bar> keepalt wincmd p<CR>
 
@@ -24,7 +24,7 @@ endfunction
 " remap backspace to grep word in visual selection in all files at current
 " working directory
 " result: execute 'lgetexpr system("grepprg 'visual text'")'
-xnoremap <silent> <BS> :<C-u>execute 'cgetexpr system("'
+xnoremap <silent> <leader><BS> :<C-u>execute 'cgetexpr system("'
       \ . &grepprg . ' -w --fixed-strings -e ' . "'" . <SID>prev_visual_selection() . "'" . '")'
       \ <Bar> keepalt botright cwindow <Bar> keepalt wincmd p<CR>
 
