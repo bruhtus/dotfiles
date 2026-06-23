@@ -295,11 +295,20 @@ gwa() {
 }
 
 gwc() {
-	local inside_worktree
+	local inside_worktree selected workdir
+
 	inside_worktree=$(git rev-parse --is-inside-work-tree) || return "$?"
 	[ "$inside_worktree" = false ] && echo 'Not inside git worktree' && return 1
 
-	cd "$(git worktree list | awk "{print \$1}" | fzf )"
+	workdir="$(pwd)" || return "$?"
+
+	# Ref: https://stackoverflow.com/a/7584479
+	selected="$(git worktree list | \
+		awk -v "pwd=$workdir" '$1 != pwd {print $1}' | \
+		fzf --exit-0)" || \
+		return "$?"
+
+	cd "$selected"
 }
 
 alias \
