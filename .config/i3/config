@@ -205,6 +205,7 @@ assign [class="(?i)(soffice|libreoffice.*)"] $ws8
 
 # Open specific applications in floating mode
 for_window [title="File Transfer*"] floating enable
+for_window [class="flameshot"] floating enable
 for_window [class="mpv"] floating enable, sticky enable
 for_window [class="qt5ct"] floating enable, sticky enable, border normal
 for_window [class="simo-gui"] floating enable, \
