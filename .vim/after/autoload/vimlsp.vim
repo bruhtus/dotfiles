@@ -40,6 +40,7 @@ function! vimlsp#init() abort
   "         \ lsp#ui#vim#signature_help#get_signature_help_under_cursor()<CR>
   " else
     imap <buffer> <C-j> <C-\><C-o><Plug>(lsp-signature-help)
+    imap <buffer> <F12> <C-\><C-o><Plug>(lsp-preview-close)
   " endif
 
   nnoremap <expr> <buffer> <Down> lsp#scroll(+1)
