@@ -236,6 +236,9 @@ hi! link gitcommitSummary String
 
 " vim-sneak
 hi! link SneakLabel Search
+
+" mail
+hi! link mailQuoted1 Comment
 " }}}
 
 " vim:set et sw=2 foldmethod=marker foldlevel=0:
