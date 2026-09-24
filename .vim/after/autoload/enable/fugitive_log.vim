@@ -3,14 +3,17 @@
 function! enable#fugitive_log#normal() abort
   if !exists('g:loaded_fugitive') | packadd vim-fugitive | endif
 
-  let l:choice = confirm("Current file git commit(s) or All git commit(s)?",
-        \ "&JCurrent\n&KAll\n&NCancel", 3)
+  let l:choice = confirm("Current file or All or Specific function git commit(s)?",
+        \ "&NCancel\n&JCurrent\n&KAll\n&LFunction", 1)
   if l:choice == 1
-    -tab Git log --color=never --follow --date=short --format='%h %cd  %s (%an)%d' %
-  elseif l:choice == 2
-    -tab Git log --color=never --date=short --format='%h %cd  %s (%an)%d'
-  elseif l:choice == 3
     " do nothing
+  elseif l:choice == 2
+    -tab Git log --color=never --follow --date=short --format='%h %cd  %s (%an)%d' %
+  elseif l:choice == 3
+    -tab Git log --color=never --date=short --format='%h %cd  %s (%an)%d'
+  elseif l:choice == 4
+    exe '-tab Git log --color=never --date=short --pretty=format:"%h %cd  %s (%an)%d" -L :'
+          \ . expand('<cword>') . ':' . expand('%:p')
   endif
 endfunction
 
