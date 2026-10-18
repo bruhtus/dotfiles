@@ -15,7 +15,8 @@ function! enable#fzf#init()
     " augroup END
 
     let g:fzf_vim = {
-          \   'preview_window': ['hidden,wrap,left,99%', 'ctrl-/']
+          \   'preview_window': ['hidden,wrap,left,99%', 'ctrl-/'],
+          \   'options': '--no-footer'
           \ }
 
     " move preview half page-up/down using ctrl-p/n
