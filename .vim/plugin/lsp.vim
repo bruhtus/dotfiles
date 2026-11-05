@@ -36,6 +36,25 @@ function! IDE() abort
     "   endif
     " endif
 
+    " To install vlang-lsp from vim-lsp-settings installer:
+    " - `set ft=vlang`
+    " - `LspInstallServer vlang-vls`
+    " - `set ft=v`
+    augroup lsp_init_server
+      autocmd!
+      autocmd FileType v call lsp_settings#register_server({
+          \ 'name': 'v-vls',
+          \ 'cmd': {server_info->lsp_settings#get('vlang-vls', 'cmd', [lsp_settings#exec_path('vlang-vls')]+lsp_settings#get('vlang-vls', 'args', []))},
+          \ 'root_uri':{server_info->lsp_settings#get('vlang-vls', 'root_uri', lsp_settings#root_uri('vlang-vls'))},
+          \ 'initialization_options': lsp_settings#get('vlang-vls', 'initialization_options', v:null),
+          \ 'allowlist': ['v'],
+          \ 'blocklist': [],
+          \ 'config': lsp_settings#get('vlang-vls', 'config', lsp_settings#server_config('vlang-vls')),
+          \ 'workspace_config': lsp_settings#get('vlang-vls', 'workspace_config', {}),
+          \ 'semantic_highlight': lsp_settings#get('vlang-vls', 'semantic_highlight', {}),
+          \ }) | autocmd! lsp_init_server FileType v
+    augroup END
+
     call lsp_settings#init()
   endif
 
