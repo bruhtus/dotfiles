@@ -78,6 +78,8 @@ bindsym $mod+Ctrl+i [urgent=latest] focus
 bindsym $mod+Ctrl+v split h
 bindsym $mod+Ctrl+x split v
 
+bindsym $mod+Ctrl+n focus output next
+
 # resize window
 bindsym $mod+Ctrl+Shift+h exec --no-startup-id \
   $resize shrink right $resize_size &>/dev/null || \
@@ -107,7 +109,6 @@ bindsym $mod+Ctrl+0 [instance="campv|simo-gui"] move scratchpad
 bindsym $mod+Shift+q exec qutebrowser
 
 bindsym $mod+Ctrl+m exec $term
-bindsym $mod+Ctrl+n exec docsmenu
 bindsym $mod+Ctrl+c exec $term -t btop -e btop
 bindsym $mod+Ctrl+z exec --no-startup-id rofi -show window
 bindsym $mod+Ctrl+w exec google-chrome-stable
