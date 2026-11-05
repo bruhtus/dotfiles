@@ -79,6 +79,7 @@ bindsym $mod+Ctrl+v split h
 bindsym $mod+Ctrl+x split v
 
 bindsym $mod+Ctrl+n focus output next
+bindsym $mod+Ctrl+b move output next; focus output next
 
 # resize window
 bindsym $mod+Ctrl+Shift+h exec --no-startup-id \
