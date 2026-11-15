@@ -210,6 +210,8 @@ for_window [title="File Transfer*"] floating enable
 for_window [class="flameshot"] floating enable
 for_window [class="mpv"] floating enable, sticky enable
 for_window [class="qt5ct"] floating enable, sticky enable, border normal
+for_window [instance="campv"] \
+  title_format <span size="200%"><tt>%title</tt></span>
 for_window [class="simo-gui"] floating enable, \
   sticky enable, \
   border pixel 10 \
