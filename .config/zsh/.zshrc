@@ -61,13 +61,15 @@ HISTORY_IGNORE='(cd|cd ..|clear|less *|ls|ls *|command -v *|which *|which-comman
 # parameter expansion: https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
 # XDG_STATE_HOME explanation:
 # https://wiki.debian.org/XDGBaseDirectorySpecification#state
-if [ -d "${XDG_STATE_HOME:-$HOME/.local/state}" ]; then
-  HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh_history"
-else
-  mkdir -p "${XDG_STATE_HOME:-$HOME/.local/state}" || \
-    echo "Error create ${XDG_STATE_HOME:-$HOME/.local/state} with exit code $?"
-  HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh_history"
-fi
+[ -d "${XDG_STATE_HOME:-$HOME/.local/state}" ] || {
+  # one of the case where `mkdir -p` failed is when we are trying to create
+  # a directory with the name of the file that already exist.
+  # example: touch anu && mkdir -p anu
+  # also, do not continue with the config when creating XDG_STATE_HOME failed
+  # (using return like this only works in zsh).
+  mkdir -p "${XDG_STATE_HOME:-$HOME/.local/state}" || return
+}
+HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh_history"
 
 # load aliases if exist
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasrc" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasrc"
