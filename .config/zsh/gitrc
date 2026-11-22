@@ -69,7 +69,7 @@ alias \
 	gch='git checkout' \
 	gcb='git checkout -b' \
 	gct='git branch -r | fzf | xargs -r git checkout -t' \
-	gchf='git status -s | awk "/^[^??]/ {print \$2}" | fzf --multi --layout=reverse-list | xargs -r git checkout'
+	gchf='git status -s | awk "/^[^?]/ {print \$2}" | fzf --multi --layout=reverse-list | xargs -r git checkout'
 
 gco() {
 	local inside_worktree
