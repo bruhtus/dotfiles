@@ -71,7 +71,7 @@ alias \
 	gch='git checkout' \
 	gcb='git checkout -b' \
 	gct='git branch -r | fzf | xargs -r git checkout -t' \
-	gchf='git status -s | awk "/^[^?]/ {print \$2}" | fzf --multi --layout=reverse-list | xargs -r git checkout'
+	gchf='git status -s | awk "/^[^?]/ {\$1=\"\"; print substr(\$0,2)}" | fzf --multi --layout=reverse-list | xargs -r git checkout'
 
 gco() {
 	local inside_worktree
@@ -321,7 +321,7 @@ alias \
 	gst='git stash' \
 	gstu='git stash -u' \
 	gstp='git stash pop --quiet --index' \
-	gstf='git status -su | awk "!/^M/ {print \$2}" | fzf --multi --layout=reverse-list | xargs -r git stash push -u'
+	gstf='git status -su | awk "!/^M/ {\$1=\"\"; print substr(\$0,2)}" | fzf --multi --layout=reverse-list | xargs -r git stash push -u'
 
 # Ref: https://stackoverflow.com/a/66831429
 gstl() {
