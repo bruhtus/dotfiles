@@ -36,8 +36,7 @@ alias \
 	rm='rm -I'
 
 #ls alias
-alias \
-	ls='ls --color=auto --group-directories-first'
+alias ls='ls --color=auto --group-directories-first -v'
 
 #nmcli alias
 alias \
