@@ -226,8 +226,6 @@ alias \
 	8='cd ~8' \
 	9='cd ~9'
 
-alias \
-	mkd='mkdir -p' \
-	d='dirs -v | head'
+alias d='dirs -v | head'
 
 # vim:ft=sh
