@@ -30,6 +30,8 @@ _set_win_title() {
 precmd_functions+=(_set_win_title)
 
 preexec() {
+  # ref: man zshbuiltins
+  # manually sync history from history file with `fc -RI`.
   fc -AI
   print -n "\e]133;C\e\\"
 }
