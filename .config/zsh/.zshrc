@@ -203,7 +203,6 @@ bindkey '^I' expand-or-complete-prefix
 # bindkey '^X;' vi-repeat-find
 # bindkey '^X,' vi-rev-repeat-find
 
-# bindkey '^R' history-incremental-search-backward
-# bindkey '^J' history-incremental-search-forward
+bindkey '^[r' history-incremental-search-forward
 
 [ -f ${ZDOTDIR:-$HOME/.config/zsh}/prompt ] && . ${ZDOTDIR:-$HOME/.config/zsh}/prompt
