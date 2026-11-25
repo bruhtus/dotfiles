@@ -56,7 +56,7 @@ TIMEFMT='%J  %*U user %*S system %P cpu %*E total'
 ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;'
 
 # history
-HISTSIZE=100000
+HISTSIZE=1000000 # add some buffer for commands in HISTORY_IGNORE.
 SAVEHIST=100000
 HISTORY_IGNORE='(cd|cd ..|cd -|clear|less *|ls|ls *|command -v *|vim|vim *|tmux|tmux a|which *|which-command *|cp *|mv *|rm *|cal|cal *|nmtui|bash|dash|dash -E|[1-9]|nnn|n|sx|d|qwe|sd|da|ds|sc|cs|zxc|sdfa *|sdfc|sdfc *|sdfd|sdfd *|sdfs|sdfp|sdfpl|sdfl|sdfl *|cpu|mem|kj|nmls|nmco *|nmdc *|gss|gd|gaf|gp|gpf|ggp|nj|gch -|gchf|gco|gct|ggl|ggl *|gl|gmt|gurm|gres|gfp|gwl|gwa|gwr|gst|gstu|gstp|gstf|gstl|gcd|gcb *|reload|reset)'
 # create .local/state directory if it doesn't exist
