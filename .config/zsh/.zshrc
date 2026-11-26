@@ -29,6 +29,23 @@ _set_win_title() {
 # check `man zshmisc`
 precmd_functions+=(_set_win_title)
 
+# looks like zshaddhistory hook run before the preexec hook (?).
+zshaddhistory() {
+  # prevent non-exist command to be inserted into history file.
+  # ref: https://superuser.com/a/902508
+  local j=1
+
+  # exclude the env variable before the command, such as:
+  # title='anu' campv
+  #
+  # the example above will be split into `title='anu'` and `campv`.
+  while ([[ ${${(z)1}[$j]} == *=* ]]) {
+    ((j++))
+  }
+
+  command -v ${${(z)1}[$j]} >/dev/null || return 1
+}
+
 preexec() {
   # ref: man zshbuiltins
   # manually sync history from history file with `fc -RI`.
