@@ -58,7 +58,7 @@ ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;'
 # history
 HISTSIZE=1000000 # add some buffer for commands in HISTORY_IGNORE.
 SAVEHIST=100000
-HISTORY_IGNORE='(cd|cd ..|cd -|clear|less *|ls|ls *|command -v *|man *|vim|vim *|tmux|tmux a|which *|which-command *|mkdir *|cp *|mv *|rm *|cal|cal *|nmtui|bash|dash|dash -E|[1-9]|nnn|n|sx|d|qwe|sd|da|ds|sc|cs|zxc|sdfa *|sdfc|sdfc *|sdfd|sdfd *|sdfs|sdfp|sdfpl|sdfl|sdfl *|cpu|mem|kj|nmls|nmco *|nmdc *|gss|gd|gaf|gp|gp *|gpf|ggp|ggpd|nj|gch *|gchf|gco|gct|ggl|ggl *|gl|gl *|glg|gld|gmt|gurm|gres|gres *|grebs|grebs *|greb *|gf|gf *|gfp|gfp *|gwl|gwa|gwr|gwc|gst|gst *|gstu|gstp|gstf|gstl|gcd|gcb *|gmv *|gcl *|gcf|gb|gb *|gbm *|grm *|grmc *|gra *|gru *|grs *|grv|reload|reset|exit)'
+HISTORY_IGNORE='(cd|cd ..*|cd -|clear|less *|ls|ls *|command -v *|man *|vim|vim *|tmux|tmux a|which *|which-command *|mkdir *|cp *|mv *|rm *|cal|cal *|nmtui|bash|dash|dash -E|[1-9]|nnn|n|sx|d|qwe|sd|da|ds|sc|cs|zxc|sdfa *|sdfc|sdfc *|sdfd|sdfd *|sdfs|sdfp|sdfpl|sdfl|sdfl *|cpu|mem|kj|nmls|nmco *|nmdc *|gss|gd|gaf|gp|gp *|gpf|ggp|ggpd|nj|gch *|gchf|gco|gct|ggl|ggl *|gl|gl *|glg|gld|gmt|gurm|gres|gres *|grebs|grebs *|greb *|gf|gf *|gfp|gfp *|gwl|gwa|gwr|gwc|gst|gst *|gstu|gstp|gstf|gstl|gcd|gcb *|gmv *|gcl *|gcf|gb|gb *|gbm *|grm *|grmc *|gra *|gru *|grs *|grv|reload|reset|exit)'
 # create .local/state directory if it doesn't exist
 # parameter expansion: https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
 # XDG_STATE_HOME explanation:
